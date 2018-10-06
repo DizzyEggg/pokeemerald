@@ -650,6 +650,10 @@ static const u8 sText_Infestation[] = _("{B_DEF_NAME_WITH_PREFIX} has been affli
 static const u8 sText_NoEffectOnTarget[] = _("It had no effect\non {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_BurstingFlames[] = _("The bursting flames\nhit {B_SCR_ACTIVE_NAME_WITH_PREFIX}!");
 static const u8 sText_BestowItemGiving[] = _("{B_DEF_NAME_WITH_PREFIX} received {B_LAST_ITEM}\nfrom {B_ATK_NAME_WITH_PREFIX}!");
+static const u8 sText_BanefulBunkerPoison[] = _("{B_ATK_NAME_WITH_PREFIX} was poisoned!");
+static const u8 sText_BanefulBunkerBlock[] = _("{B_DEF_NAME_WITH_PREFIX} protected itself!");
+static const u8 sText_KingsShield[] = _("{B_DEF_NAME_WITH_PREFIX} protected itself!");
+static const u8 sText_SpikyShield[] = _("{B_DEF_NAME_WITH_PREFIX} protected itself!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
