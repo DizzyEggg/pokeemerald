@@ -134,7 +134,7 @@ gBattleAnims_Moves::
 	.4byte Move_FOCUS_ENERGY
 	.4byte Move_BIDE
 	.4byte Move_METRONOME
-	.4byte Move_MIRROR_MOVE @ doesn't have an actual animation
+	.4byte Move_MIRROR_MOVE @ doesn’t have an actual animation
 	.4byte Move_SELF_DESTRUCT
 	.4byte Move_EGG_BOMB
 	.4byte Move_LICK
@@ -11746,8 +11746,30 @@ General_WishHeal:
 	end
 	
 General_MegaEvolution:
-	createvisualtask sub_815B7D0, 0x2, 0
+	loadspritegfx ANIM_TAG_147
+	loadspritegfx ANIM_TAG_212
+	loadspritegfx ANIM_TAG_256
+	loadspritegfx ANIM_TAG_257
+	monbg ANIM_ATK_PARTNER
+	setalpha 12, 8
+	createvisualtask sub_8115A04, 2, 2, 1, 4, 0, 11, RGB(31, 31, 11)
+	playsewithpan SE_W025, -64
+	call SolarBeamSetUp1
 	waitforvisualfinish
+	createsprite gUnknown_08595FEC, 130, 0
+	playsewithpan SE_W025, -64
+	delay 15
+	createsprite gBattleAnimSpriteTemplate_85972D8, 2, 4, 1, 180, 1
+	createvisualtask sub_8159244, 5, 234, 0
+	delay 20
+	createvisualtask sub_815B7D0, 2, 0
+    delay 4
+	createvisualtask sub_8117494, 50
+	waitforvisualfinish
+	createvisualtask sub_8117494, 2
+	playsewithpan SE_W043, -64
+	blendoff
+	clearmonbg ANIM_ATTACKER
 	end
 
 AnimScript_82D85A3:
