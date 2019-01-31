@@ -340,11 +340,6 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectAcupressure
 	.4byte BattleScript_EffectAromaticMist
 	.4byte BattleScript_EffectPowder
-	.4byte BattleScript_EffectSpAtkUpHit
-	
-BattleScript_EffectSpAtkUpHit:
-	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
-	goto BattleScript_EffectHit
 	
 BattleScript_EffectPowder:
 	attackcanceler
@@ -405,7 +400,7 @@ BattleScript_MoveEffectFeint::
 	return
 	
 BattleScript_EffectFeint:
-	setmoveeffect MOVE_EFFECT_FEINT
+	setmoveeffect MOVE_EFFECT_FEINT | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 	
 BattleScript_EffectThirdType:
@@ -529,7 +524,7 @@ BattleScript_EffectAfterYou:
 	goto BattleScript_MoveEnd
 	
 BattleScript_EffectFlameBurst:
-	setmoveeffect MOVE_EFFECT_FLAME_BURST | MOVE_EFFECT_AFFECTS_USER
+	setmoveeffect MOVE_EFFECT_FLAME_BURST | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 	
 BattleScript_MoveEffectFlameBurst::
@@ -618,7 +613,7 @@ BattleScript_SynchronoiseNoEffect:
 	goto BattleScript_SynchronoiseMoveTargetEnd
 	
 BattleScript_EffectSmackDown:
-	setmoveeffect MOVE_EFFECT_SMACK_DOWN
+	setmoveeffect MOVE_EFFECT_SMACK_DOWN | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 	
 BattleScript_MoveEffectSmackDown::
@@ -759,7 +754,7 @@ BattleScript_EffectHitSwitchTargetMoveEnd:
 	end
 	
 BattleScript_EffectClearSmog:
-	setmoveeffect MOVE_EFFECT_CLEAR_SMOG
+	setmoveeffect MOVE_EFFECT_CLEAR_SMOG | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 	
 BattleScript_EffectToxicThread:
@@ -2204,7 +2199,7 @@ BattleScript_ImmunityProtected::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectPayDay::
-	setmoveeffect MOVE_EFFECT_PAYDAY
+	setmoveeffect MOVE_EFFECT_PAYDAY | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 	
 BattleScript_EffectAuroraVeil:
@@ -2317,7 +2312,7 @@ BattleScript_EffectTrap::
 	jumpifnostatus3 BS_TARGET, STATUS3_UNDERWATER, BattleScript_DoWrapEffect
 	orword gHitMarker, HITMARKER_IGNORE_UNDERWATER
 BattleScript_DoWrapEffect::
-	setmoveeffect MOVE_EFFECT_WRAP
+	setmoveeffect MOVE_EFFECT_WRAP | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
 BattleScript_EffectDoubleHit::
@@ -2965,11 +2960,11 @@ BattleScript_TripleKickEnd::
 	end
 
 BattleScript_EffectThief::
-	setmoveeffect MOVE_EFFECT_STEAL_ITEM
+	setmoveeffect MOVE_EFFECT_STEAL_ITEM | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 	
 BattleScript_EffectHitPreventEscape:
-	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
+	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
 BattleScript_EffectMeanLook::
@@ -3522,7 +3517,7 @@ BattleScript_FirstTurnSemiInvulnerable::
 
 BattleScript_SecondTurnSemiInvulnerable::
 	attackcanceler
-	setmoveeffect MOVE_EFFECT_CHARGING
+	setmoveeffect MOVE_EFFECT_CHARGING | MOVE_EFFECT_CERTAIN
 	setbyte sB_ANIM_TURN, 0x1
 	clearstatusfromeffect BS_ATTACKER
 	orword gHitMarker, HITMARKER_NO_PPDEDUCT
@@ -3983,7 +3978,7 @@ BattleScript_PrintAbilityMadeIneffective::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectKnockOff::
-	setmoveeffect MOVE_EFFECT_KNOCK_OFF
+	setmoveeffect MOVE_EFFECT_KNOCK_OFF | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
 BattleScript_EffectEndeavor::
