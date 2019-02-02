@@ -93,7 +93,7 @@
 #define FLAG_HIGH_CRIT              0x40
 #define FLAG_RECKLESS_BOOST         0x80
 #define FLAG_IRON_FIST_BOOST        0x100
-#define FLAG_SHEER_FORCE_BOOST      0x200
+#define FLAG_OMNITYPE				0x200
 #define FLAG_STRONG_JAW_BOOST       0x400
 #define FLAG_MEGA_LAUNCHER_BOOST    0x800
 #define FLAG_STAT_STAGES_IGNORED    0x1000

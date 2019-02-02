@@ -4894,8 +4894,8 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
     case ABILITY_SHEER_FORCE:
         if (gBattleMoves[move].secondaryEffectChance > 0)
 		{
+		   gBattleCommunication[MOVE_EFFECT_BYTE] = 0;
            MulModifier(&modifier, UQ_4_12(1.3));
-		   gBattleMoves[move].secondaryEffectChance = 0;
 		}
         break;
     case ABILITY_SAND_FORCE:
