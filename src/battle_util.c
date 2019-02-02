@@ -4815,13 +4815,26 @@ static u16 CalcMoveBasePower(u16 move, u8 battlerAtk, u8 battlerDef)
             basePower = 150;
         break;
     case EFFECT_ECHOED_VOICE:
-        if (gFieldTimers.echoVoiceCounter != 0)
-        {
-            if (gFieldTimers.echoVoiceCounter >= 5)
-                basePower *= 5;
-            else
-                basePower *= gFieldTimers.echoVoiceCounter;
-        }
+		if(move == MOVE_ECHOED_VOICE)
+		{
+			if (gFieldTimers.echoVoiceCounter != 0)
+			{
+				if (gFieldTimers.echoVoiceCounter >= 5)
+					basePower *= 5;
+				else
+					basePower *= gFieldTimers.echoVoiceCounter;
+			}
+		}
+		else if(move == MOVE_COMET_PUNCH)
+		{
+			if (gFieldTimers.cometPunchCounter != 0)
+			{
+				if (gFieldTimers.cometPunchCounter >= 5)
+					basePower *= 5;
+				else
+					basePower *= gFieldTimers.cometPunchCounter;
+			}
+		}
         break;
     case EFFECT_PAYBACK:
         if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef))
@@ -5543,7 +5556,7 @@ static inline void MulByTypeEffectiveness(u16 *modifier, u16 move, u8 moveType, 
         mod = UQ_4_12(1.0);
     if (moveType == TYPE_PSYCHIC && defType == TYPE_DARK && gStatuses3[battlerDef] & STATUS3_MIRACLE_EYED)
         mod = UQ_4_12(1.0);
-    if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
+    if ((move == MOVE_FREEZE_DRY && defType == TYPE_WATER)|| (move == MOVE_ACID && defType == TYPE_STEEL))
         mod = UQ_4_12(2.0);
     if (moveType == TYPE_GROUND && defType == TYPE_FLYING && IsBattlerGrounded(battlerDef))
         mod = UQ_4_12(1.0);

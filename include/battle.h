@@ -263,6 +263,7 @@ struct FieldTimer
     u8 electricTerrainTimer;
     u8 psychicTerrainTimer;
     u8 echoVoiceCounter;
+	u8 cometPunchCounter;
     u8 gravityTimer;
 };
 
