@@ -27,3 +27,5 @@ Thumbs.db
 build/
 .DS_Store
 *.ddump
+tools/gbafix/COPYING
+tools/aif2pcm/LICENSE
