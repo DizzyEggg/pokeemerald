@@ -2236,49 +2236,6 @@ Move_TAIL_SLAP:
 	end
 	
 Move_HURRICANE:
-	loadspritegfx ANIM_TAG_LEAF
-	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_ROCKS
-	monbg ANIM_DEF_PARTNER
-	monbgprio_28 ANIM_TARGET
-	playsewithpan SE_W239, SOUND_PAN_TARGET
-	createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 120, 70, 5, 70, 30
-	@delay 1
-	@createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 115, 55, 6, 60, 25
-	@delay 1
-	@createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 115, 60, 7, 60, 30
-	@createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 115, 55, 10, 60, 30
-	@delay 3
-	@createsprite gUnknown_08596CC8, ANIM_TARGET, 2, 100, 50, 4, 50, 26
-	@delay 1
-	@createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 105, 25, 8, 60, 20
-	@delay 1
-	@createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 115, 40, 10, 48, 30
-	@delay 3
-	@createsprite gUnknown_08596CC8, ANIM_TARGET, 2, 120, 30, 6, 45, 25
-	@createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 115, 35, 10, 60, 30
-	@delay 3
-	@createsprite gUnknown_08596CC8, ANIM_TARGET, 2, 105, 20, 8, 40, 0
-	@delay 3
-	@createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 20, 255, 15, 32, 0
-	@createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 110, 10, 8, 32, 20
-	waitforvisualfinish
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, -32, -16, 1, 3
-	playsewithpan SE_W004, SOUND_PAN_TARGET
-	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 3, 0, 12, 1
-	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_DEF_PARTNER, 3, 0, 12, 1
-	delay 4
-	createsprite gUnknown_085973A0, ANIM_TARGET, 3, 1, 3
-	playsewithpan SE_W004, SOUND_PAN_TARGET
-	delay 4
-	createsprite gUnknown_085973A0, ANIM_TARGET, 3, 1, 3
-	playsewithpan SE_W004, SOUND_PAN_TARGET
-	delay 4
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 32, 20, 1, 3
-	playsewithpan SE_W004, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
-	blendoff
 	end
 	
 Move_HEAD_CHARGE:
@@ -11805,7 +11762,7 @@ Move_TWISTER:
 	monbg ANIM_DEF_PARTNER
 	monbgprio_28 ANIM_TARGET
 	playsewithpan SE_W239, SOUND_PAN_TARGET
-	createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 120, 0, 5, 70, 30
+	createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 120, 70, 5, 70, 30
 	delay 1
 	createsprite gTwisterLeafParticleSpriteTemplate, ANIM_TARGET, 2, 115, 55, 6, 60, 25
 	delay 1
