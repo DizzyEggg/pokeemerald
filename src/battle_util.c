@@ -2802,6 +2802,43 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
             }
             break;
+		case ABILITY_ANTICIPATION:
+			if (!gSpecialStatuses[battler].switchInAbilityDone)
+			{
+				u32 opposingBattler = BATTLE_OPPOSITE(battler);
+				bool8 anticipated = FALSE;
+				for(i = 0; i < MAX_MON_MOVES; i++)
+				{
+					u16 amove = gBattleMons[opposingBattler].moves[i];
+					if(gBattleMoves[amove].power > 0)
+					{
+						if(GetTypeModifier(gBattleMoves[amove].type, gBattleMons[battler].type1) * GetTypeModifier(gBattleMoves[amove].type, gBattleMons[battler].type2) >= 2.0)
+							anticipated = TRUE;
+					}
+				}
+				opposingBattler = BATTLE_PARTNER(opposingBattler);
+				if(IsBattlerAlive(opposingBattler) && anticipated == FALSE)
+				{
+					for(i = 0; i < MAX_MON_MOVES; i++)
+					{
+						u16 amove = gBattleMons[opposingBattler].moves[i];
+						if(gBattleMoves[amove].power > 0)
+						{
+							if(GetTypeModifier(gBattleMoves[amove].type, gBattleMons[battler].type1) * GetTypeModifier(gBattleMoves[amove].type, gBattleMons[battler].type2) >= 2.0)
+								anticipated = TRUE;
+						}
+					}
+				}
+				if (anticipated == TRUE && gBattleMons[battler].statStages[STAT_SPEED] != 0xC)
+				{
+						gBattleMons[battler].statStages[STAT_SPEED]++;
+						SET_STATCHANGER(STAT_SPEED, 1, FALSE);
+						PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_SPEED);
+						BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaiseEnd3);
+						effect++;
+				}
+			}
+			break;
         }
         break;
     case ABILITYEFFECT_ENDTURN: // 1
@@ -3112,7 +3149,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
             }
             break;
-        case ABILITY_ANGER_POINT:
+        case ABILITY_ANGER_POINT: //still needs testing- guaranteed crit moves don't work for some reason
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && gIsCriticalHit
              && TARGET_TURN_DAMAGED
