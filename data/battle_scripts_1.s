@@ -340,7 +340,56 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectAcupressure
 	.4byte BattleScript_EffectAromaticMist
 	.4byte BattleScript_EffectPowder
+	.4byte BattleScript_EffectSpAtkUpHit
+	.4byte BattleScript_EffectBelch
+	.4byte BattleScript_EffectPartingShot
 	
+BattleScript_EffectPartingShot::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ATK, 0x0, BattleScript_EffectPartingShotTryAtk
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPATK, 0x0, BattleScript_CantLowerMultipleStats
+BattleScript_EffectPartingShotTryAtk:
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE	
+	attackanimation
+	waitanimation
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_SPATK, ATK48_STAT_NEGATIVE | ATK48_ONLY_MULTIPLE
+	playstatchangeanimation BS_TARGET, BIT_ATK, ATK48_STAT_NEGATIVE
+	setstatchanger STAT_ATK, 1, TRUE
+	statbuffchange 0x1, BattleScript_EffectPartingShotTrySpAtk
+	printfromtable gStatDownStringIds
+	waitmessage 0x40
+BattleScript_EffectPartingShotTrySpAtk:
+	playstatchangeanimation BS_TARGET, BIT_SPATK, ATK48_STAT_NEGATIVE
+	setstatchanger STAT_SPATK, 1, TRUE
+	statbuffchange 0x1, BattleScript_MoveEnd
+	printfromtable gStatDownStringIds
+	waitmessage 0x40
+	jumpifcantswitch ATK4F_DONT_CHECK_STATUSES | BS_ATTACKER, BattleScript_MoveEnd
+	openpartyscreen BS_ATTACKER, BattleScript_ButItFailed
+	printstring STRINGID_PKMNWENTBACK
+	switchoutabilities BS_ATTACKER
+	waitstate
+	switchhandleorder BS_ATTACKER, 0x2
+	returnatktoball
+	waitstate
+	getswitchedmondata BS_ATTACKER
+	switchindataupdate BS_ATTACKER
+	hpthresholds BS_ATTACKER
+	printstring STRINGID_SWITCHINMON
+	switchinanim BS_ATTACKER, TRUE
+	waitstate
+	switchineffects BS_ATTACKER
+	goto BattleScript_MoveEnd
+	
+BattleScript_EffectSpAtkUpHit:
+	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
+	
+BattleScript_EffectPowder:
+BattleScript_EffectPowder:
 BattleScript_EffectPowder:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, NO_ACC_CALC_CHECK_LOCK_ON
@@ -1666,6 +1715,7 @@ BattleScript_EffectTechnoBlast:
 BattleScript_EffectJudgment:
 BattleScript_EffectFusionCombo:
 BattleScript_EffectRevelationDance:
+BattleScript_EffectBelch:
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
 	jumpifnostatus3 BS_TARGET, STATUS3_UNDERWATER, BattleScript_HitFromAtkCanceler
 	orword gHitMarker, HITMARKER_IGNORE_UNDERWATER
@@ -2270,12 +2320,23 @@ BattleScript_TwoTurnMovesSecondTurn::
 	clearstatusfromeffect BS_ATTACKER
 	orword gHitMarker, HITMARKER_NO_PPDEDUCT
 	argumenttomoveeffect
-	goto BattleScript_HitFromAccCheck
-
+	@clearskydrop BS_TARGET, BattleScript_ClearSkyDropMsg
+	goto BattleScript_HitFromAtkString
+BattleScript_ClearSkyDropMsg:
+	printstring STRINGID_FREEDFROMSKYDROP
+	waitmessage 0x40
+	goto BattleScript_HitFromAtkString
+	
+BattleScript_FailedSkyDropMsg::
+	printstring STRINGID_FREEDFROMSKYDROP
+	waitmessage 0x40
+	end2
+	
 BattleScriptFirstChargingTurn::
 	attackcanceler
-	printstring STRINGID_EMPTYSTRING3
+	attackstring
 	ppreduce
+	@checkskydrop BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	orword gHitMarker, HITMARKER_CHARGING
@@ -3492,6 +3553,7 @@ BattleScript_BeatUpEnd::
 BattleScript_EffectSemiInvulnerable::
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerable
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerable
+	jumpifmove MOVE_SKY_DROP, BattleScript_FirstTurnSkyDrop
 	jumpifmove MOVE_FLY, BattleScript_FirstTurnFly
 	jumpifmove MOVE_DIVE, BattleScript_FirstTurnDive
 	jumpifmove MOVE_BOUNCE, BattleScript_FirstTurnBounce
@@ -3510,6 +3572,8 @@ BattleScript_FirstTurnPhantomForce:
 	goto BattleScript_FirstTurnSemiInvulnerable
 BattleScript_FirstTurnFly::
 	setbyte sTWOTURN_STRINGID, 0x4
+BattleScript_FirstTurnSkyDrop:
+	setbyte sTWOTURN_STRINGID, 0x9	
 BattleScript_FirstTurnSemiInvulnerable::
 	call BattleScriptFirstChargingTurn
 	setsemiinvulnerablebit
@@ -3763,8 +3827,8 @@ BattleScript_82DA15A:
 	resultmessage
 	waitmessage 0x40
 	tryfaintmon BS_ATTACKER, FALSE, NULL
-	goto BattleScript_MoveEnd
-
+	goto BattleScript_MoveEnd	
+	
 BattleScript_EffectFocusPunch::
 	attackcanceler
 	jumpifnodamage BattleScript_HitFromAccCheck
@@ -6545,3 +6609,5 @@ BattleScript_PrintPlayerForfeitedLinkBattle::
 	atk57
 	waitmessage 0x40
 	end2
+	
+	
