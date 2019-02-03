@@ -389,8 +389,6 @@ BattleScript_EffectSpAtkUpHit:
 	goto BattleScript_EffectHit
 	
 BattleScript_EffectPowder:
-BattleScript_EffectPowder:
-BattleScript_EffectPowder:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, NO_ACC_CALC_CHECK_LOCK_ON
 	attackstring
@@ -2321,11 +2319,11 @@ BattleScript_TwoTurnMovesSecondTurn::
 	orword gHitMarker, HITMARKER_NO_PPDEDUCT
 	argumenttomoveeffect
 	@clearskydrop BS_TARGET, BattleScript_ClearSkyDropMsg
-	goto BattleScript_HitFromAtkString
+	goto BattleScript_HitFromAccCheck
 BattleScript_ClearSkyDropMsg:
 	printstring STRINGID_FREEDFROMSKYDROP
 	waitmessage 0x40
-	goto BattleScript_HitFromAtkString
+	goto BattleScript_HitFromAccCheck
 	
 BattleScript_FailedSkyDropMsg::
 	printstring STRINGID_FREEDFROMSKYDROP
