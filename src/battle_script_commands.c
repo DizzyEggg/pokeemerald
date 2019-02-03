@@ -2760,7 +2760,8 @@ static void atk15_seteffectwithchance(void)
     }
     else if (Random() % 100 < percentChance
              && gBattleCommunication[MOVE_EFFECT_BYTE]
-             && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+             && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+        &&!(GetBattlerAbility(gBattlerAttacker) == ABILITY_SHEER_FORCE))
     {
         if (percentChance >= 100)
             SetMoveEffect(0, MOVE_EFFECT_CERTAIN);

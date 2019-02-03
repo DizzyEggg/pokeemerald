@@ -2559,6 +2559,12 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
     u32 move;
     u8 side;
     u8 target1;
+	u8 higherAtk;
+	
+	if(gBattleMons[battler].attack > gBattleMons[battler].spAttack)
+		higherAtk = STAT_ATK;
+	else
+		higherAtk = STAT_SPATK;
 
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
         return 0;
@@ -3111,11 +3117,13 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
              && gIsCriticalHit
              && TARGET_TURN_DAMAGED
              && IsBattlerAlive(battler)
-             && gBattleMons[battler].statStages[STAT_ATK] != 0xC)
+             && gBattleMons[battler].statStages[higherAtk] != 0xC
+			 && Random() % 2 == 0)
             {
-                gBattleMons[battler].statStages[STAT_ATK] = 0xC;
+                gBattleMons[battler].statStages[higherAtk]++;
+                SET_STATCHANGER(higherAtk, 1, FALSE);
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_AngryPointActivates;
+                gBattlescriptCurrInstr = BattleScript_TargetAbilityStatRaise;
                 effect++;
             }
             break;
@@ -4893,10 +4901,7 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
         break;
     case ABILITY_SHEER_FORCE:
         if (gBattleMoves[move].secondaryEffectChance > 0)
-		{
-		   gBattleCommunication[MOVE_EFFECT_BYTE] = 0;
-           MulModifier(&modifier, UQ_4_12(1.3));
-		}
+		   MulModifier(&modifier, UQ_4_12(1.3));
         break;
     case ABILITY_SAND_FORCE:
         if (moveType == TYPE_STEEL || moveType == TYPE_ROCK || moveType == TYPE_GROUND)
