@@ -1584,6 +1584,16 @@
 	.macro setpowder battler:req
 	various \battler, VARIOUS_SET_POWDER
 	.endm
+	
+	.macro checkskydrop ptr:req
+	various BS_ATTACKER, VARIOUS_CHECK_SKY_DROP
+	.4byte \ptr
+	.endm
+	
+	.macro bringdownairbornebattler battler:req, ptr:req
+	various \battler, VARIOUS_GRAVITY_ON_AIRBORNE_MONS
+	.4byte \ptr
+	.endm
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req

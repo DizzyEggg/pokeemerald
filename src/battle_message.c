@@ -642,6 +642,7 @@ static const u8 sText_PokemonCannotUseMove[] = _("{B_ATK_NAME_WITH_PREFIX} canno
 static const u8 sText_CoveredInPowder[] = _("{B_DEF_NAME_WITH_PREFIX} is covered in powder!");
 static const u8 sText_PowderExplodes[] = _("When the flame touched the powder\non the Pokémon, it exploded!");
 static const u8 sText_BelchCantUse[] = _("Belch cannot be used!\p");
+static const u8 sText_GravityGrounding[] = _("{B_EFF_NAME_WITH_PREFIX} can't stay airborne\nbecause of gravity!\p");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1149,6 +1150,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_POKEMONCANNOTUSEMOVE - 12] = sText_PokemonCannotUseMove,
     [STRINGID_COVEREDINPOWDER - 12] = sText_CoveredInPowder,
     [STRINGID_POWDEREXPLODES - 12] = sText_PowderExplodes,
+    [STRINGID_GRAVITYGROUNDING - 12] = sText_GravityGrounding,	
 };
 
 const u16 gTerrainStringIds[] =
@@ -1276,7 +1278,8 @@ const u16 gStatDownStringIds[] =
 const u16 gFirstTurnOfTwoStringIds[] =
 {
     STRINGID_PKMNWHIPPEDWHIRLWIND, STRINGID_PKMNTOOKSUNLIGHT, STRINGID_PKMNLOWEREDHEAD, STRINGID_PKMNISGLOWING,
-    STRINGID_PKMNFLEWHIGH, STRINGID_PKMNDUGHOLE, STRINGID_PKMNHIDUNDERWATER, STRINGID_PKMNSPRANGUP, STRINGID_VANISHEDINSTANTLY
+    STRINGID_PKMNFLEWHIGH, STRINGID_PKMNDUGHOLE, STRINGID_PKMNHIDUNDERWATER, STRINGID_PKMNSPRANGUP, STRINGID_VANISHEDINSTANTLY,
+    STRINGID_TOOKPJMNINTOTHESKY
 };
 
 const u16 gWrappedStringIds[] =
