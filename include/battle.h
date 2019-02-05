@@ -170,8 +170,6 @@ struct DisableStruct
     u8 laserFocusTimer;
     u8 usedMoves:4;
     u8 wrapTurns;
-	u8 skyDrop;
-    u8 skyDropTrappingBattler;
 };
 
 struct ProtectStruct
