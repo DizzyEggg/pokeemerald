@@ -7111,16 +7111,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SKY_DROP] =
     {
-        .effect = EFFECT_PLACEHOLDER, // Needs a custom move effect
+        .effect = EFFECT_SEMI_INVULNERABLE, // Needs a custom move effect
         .power = 60,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 10,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
         .split = SPLIT_PHYSICAL,
+		.argument = MOVE_EFFECT_RELEASE_SKY_DROP,
     },
 
     [MOVE_SHIFT_GEAR] =
