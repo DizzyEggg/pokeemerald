@@ -1580,32 +1580,13 @@ BattleScript_EffectMircleEye:
 BattleScript_EffectGravity:
 	attackcanceler
 	attackstring
-	ppreduce	
+	ppreduce
 	setgravity BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_GRAVITYINTENSIFIED 
 	waitmessage 0x40
-	selectfirstvalidtarget
-BattleScript_GravityLoop:
-	movevaluescleanup
-	jumpifstatus3 BS_TARGET, STATUS3_ON_AIR, BattleScript_GravityLoopDefault
-	jumpifstatus3 BS_TARGET, STATUS3_MAGNET_RISE, BattleScript_GravityLoopDefault
-	jumpifstatus3 BS_TARGET, STATUS3_TELEKINESIS, BattleScript_GravityLoopDefault
-    goto BattleScript_GravityLoopEnd
-BattleScript_GravityLoopDefault:
-    bringdownairbornebattler BS_TARGET, BattleScript_GravityLoopSkyDrop
-	printstring STRINGID_GRAVITYGROUNDING 
-	waitmessage 0x40
-    goto BattleScript_GravityLoopEnd
-BattleScript_GravityLoopSkyDrop:	
-	printstring STRINGID_FREEDFROMSKYDROP 
-	waitmessage 0x40
-BattleScript_GravityLoopEnd:	
-	setbyte sMOVEEND_STATE, 0x0
-	moveend 0x2, 0x10
-	jumpifnexttargetvalid BattleScript_GravityLoop
-	end
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectRoost:
 	attackcanceler
@@ -2338,12 +2319,11 @@ BattleScript_TwoTurnMovesSecondTurn::
 	orword gHitMarker, HITMARKER_NO_PPDEDUCT
 	argumenttomoveeffect
 	goto BattleScript_HitFromAccCheck
-	
+
 BattleScriptFirstChargingTurn::
 	attackcanceler
-	attackstring
+	printstring STRINGID_EMPTYSTRING3
 	ppreduce
-	checkskydrop BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	orword gHitMarker, HITMARKER_CHARGING
@@ -3560,7 +3540,6 @@ BattleScript_BeatUpEnd::
 BattleScript_EffectSemiInvulnerable::
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerable
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerable
-	jumpifmove MOVE_SKY_DROP, BattleScript_FirstTurnSkyDrop
 	jumpifmove MOVE_FLY, BattleScript_FirstTurnFly
 	jumpifmove MOVE_DIVE, BattleScript_FirstTurnDive
 	jumpifmove MOVE_BOUNCE, BattleScript_FirstTurnBounce
@@ -3579,19 +3558,11 @@ BattleScript_FirstTurnPhantomForce:
 	goto BattleScript_FirstTurnSemiInvulnerable
 BattleScript_FirstTurnFly::
 	setbyte sTWOTURN_STRINGID, 0x4
-	goto BattleScript_FirstTurnSemiInvulnerable
-BattleScript_FirstTurnSkyDrop:
-	setbyte sTWOTURN_STRINGID, 0x9	
 BattleScript_FirstTurnSemiInvulnerable::
 	call BattleScriptFirstChargingTurn
 	setsemiinvulnerablebit
 	goto BattleScript_MoveEnd
 
-BattleScript_MoveEffectSkyDrop::
-	printstring STRINGID_FREEDFROMSKYDROP
-	waitmessage 0x40
-	return		
-	
 BattleScript_SecondTurnSemiInvulnerable::
 	attackcanceler
 	setmoveeffect MOVE_EFFECT_CHARGING

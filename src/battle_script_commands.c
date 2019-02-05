@@ -6,7 +6,6 @@
 #include "battle_anim.h"
 #include "battle_ai_script_commands.h"
 #include "battle_scripts.h"
-#include "battle_util.h"
 #include "constants/moves.h"
 #include "constants/abilities.h"
 #include "item.h"
@@ -1119,8 +1118,7 @@ static bool32 AccuracyCalcHelper(u16 move)
         return TRUE;
     }
 
-    if (!(gHitMarker & HITMARKER_IGNORE_ON_AIR) && gStatuses3[gBattlerTarget] & STATUS3_ON_AIR
-	    && !(gDisableStructs[gBattlerTarget].skyDropTrappingBattler == gBattlerAttacker))
+    if (!(gHitMarker & HITMARKER_IGNORE_ON_AIR) && gStatuses3[gBattlerTarget] & STATUS3_ON_AIR)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         JumpIfMoveFailed(7, move);
@@ -2708,16 +2706,6 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     gStatuses3[gBattlerTarget] &= ~(STATUS3_MAGNET_RISE | STATUS3_TELEKINESIS | STATUS3_ON_AIR);
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_MoveEffectSmackDown;
-                }
-                break;
-            case MOVE_EFFECT_RELEASE_SKY_DROP:
-                if (gDisableStructs[gBattlerTarget].skyDrop)
-                {
-					gDisableStructs[gBattlerTarget].skyDrop = 0;
-                    gDisableStructs[gBattlerTarget].skyDropTrappingBattler = 0;
-                    gStatuses3[gBattlerTarget] &= ~STATUS3_ON_AIR;
-					BattleScriptPush(gBattlescriptCurrInstr + 1);
-                    gBattlescriptCurrInstr = BattleScript_MoveEffectSkyDrop;
                 }
                 break;
             case MOVE_EFFECT_FLAME_BURST:
@@ -5801,6 +5789,10 @@ static void atk69_setgravity(void)
 
         gFieldStatuses |= STATUS_FIELD_GRAVITY;
         gFieldTimers.gravityTimer = 5;
+
+        for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+            gStatuses3[i] &= ~(STATUS3_MAGNET_RISE | STATUS3_TELEKINESIS | STATUS3_ON_AIR);
+
         gBattlescriptCurrInstr += 5;
     }
 }
@@ -6329,7 +6321,6 @@ static void atk76_various(void)
     s32 i, j;
     u8 data[10];
     u32 bits;
-	bool8 noFreed = TRUE;
 
     if (gBattleControllerExecFlags)
         return;
@@ -6338,50 +6329,6 @@ static void atk76_various(void)
 
     switch (gBattlescriptCurrInstr[2])
     {
-	case VARIOUS_GRAVITY_ON_AIRBORNE_MONS:
-	    if (gStatuses3[gActiveBattler] & STATUS3_ON_AIR){
-			gBattleMons[gActiveBattler].status2 &= ~STATUS2_MULTIPLETURNS;
-            gLockedMoves[gActiveBattler] = 0;
-            gProtectStructs[gActiveBattler].chargingTurn = 0;
-		}
-    	gStatuses3[gActiveBattler] &= ~(STATUS3_MAGNET_RISE | STATUS3_TELEKINESIS | STATUS3_ON_AIR);
-		if (gDisableStructs[gActiveBattler].skyDrop){
-		    gDisableStructs[gActiveBattler].skyDrop = 0;
-		    gDisableStructs[gActiveBattler].skyDropTrappingBattler = 0;
-			gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
-		}
-        else
-        {
-            gBattlescriptCurrInstr += 7;
-        }
-        return;
-    case VARIOUS_CHECK_SKY_DROP:
-        if (gCurrentMove == MOVE_SKY_DROP){
-			// Two-turn moves don't check for Wonder Guard until the second turn - have to adjust that here for Sky Drop
-			if (GetBattlerAbility(gBattlerTarget) == ABILITY_WONDER_GUARD
-			    && CalcTypeEffectivenessMultiplier(gCurrentMove, TYPE_FLYING, gActiveBattler, gBattlerTarget, TRUE) <= UQ_4_12(1.0))
-			{
-				gBattlescriptCurrInstr = BattleScript_HitFromCritCalc;
-			}
-            else if (GetBattlerWeight(gBattlerTarget) < 2000
-			    && !(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-				&& !(gStatuses3[gBattlerTarget] & (STATUS3_SEMI_INVULNERABLE)))
-            {
-                gStatuses3[gBattlerTarget] |= STATUS3_ON_AIR;
-				gDisableStructs[gBattlerTarget].skyDrop = 1;
-                gDisableStructs[gBattlerTarget].skyDropTrappingBattler = gActiveBattler;
-                gBattlescriptCurrInstr += 7;
-            }
-            else
-            {
-                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
-            }
-        }
-        else
-        {
-            gBattlescriptCurrInstr += 7;
-        }
-        return;
     case VARIOUS_SET_POWDER:
         gBattleMons[gActiveBattler].status2 |= STATUS2_POWDER;
         break;
@@ -9775,7 +9722,6 @@ static void atkC5_setsemiinvulnerablebit(void)
     {
     case MOVE_FLY:
     case MOVE_BOUNCE:
-    case MOVE_SKY_DROP:
         gStatuses3[gBattlerAttacker] |= STATUS3_ON_AIR;
         break;
     case MOVE_DIG:
