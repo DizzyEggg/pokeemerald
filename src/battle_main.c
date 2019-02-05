@@ -3072,7 +3072,8 @@ void SwitchInClearSetData(void)
 void FaintClearSetData(void)
 {
     s32 i;
-
+	
+	
     for (i = 0; i < NUM_BATTLE_STATS; i++)
         gBattleMons[gActiveBattler].statStages[i] = 6;
 
@@ -3083,6 +3084,11 @@ void FaintClearSetData(void)
     {
         if ((gBattleMons[i].status2 & STATUS2_ESCAPE_PREVENTION) && gDisableStructs[i].battlerPreventingEscape == gActiveBattler)
             gBattleMons[i].status2 &= ~STATUS2_ESCAPE_PREVENTION;
+        if (gDisableStructs[i].skyDrop && gDisableStructs[i].skyDropTrappingBattler == gActiveBattler)
+            gDisableStructs[i].skyDrop = 0;
+			gDisableStructs[i].skyDropTrappingBattler = 0;
+            gStatuses3[i] &= ~STATUS3_ON_AIR;		
+			//BattleScriptExecute(BattleScript_FreedSkyDropMsg);
         if (gBattleMons[i].status2 & STATUS2_INFATUATED_WITH(gActiveBattler))
             gBattleMons[i].status2 &= ~(STATUS2_INFATUATED_WITH(gActiveBattler));
         if ((gBattleMons[i].status2 & STATUS2_WRAPPED) && *(gBattleStruct->wrappedBy + i) == gActiveBattler)
@@ -3899,7 +3905,8 @@ static void HandleTurnActionSelectionState(void)
                 case B_ACTION_SWITCH:
                     *(gBattleStruct->field_58 + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
                     if (gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION)
-                        || gBattleTypeFlags & BATTLE_TYPE_ARENA
+                        || gDisableStructs[gActiveBattler].skyDrop
+					    || gBattleTypeFlags & BATTLE_TYPE_ARENA
                         || gStatuses3[gActiveBattler] & STATUS3_ROOTED)
                     {
                         BtlController_EmitChoosePokemon(0, PARTY_CANT_SWITCH, 6, ABILITY_NONE, gBattleStruct->field_60[gActiveBattler]);
