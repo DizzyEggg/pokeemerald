@@ -4029,10 +4029,10 @@ static void atk48_playstatchangeanimation(void)
                     }
                 }
                 else if (!gSideTimers[GET_BATTLER_SIDE(gActiveBattler)].mistTimer
-                        && gBattleMons[gActiveBattler].ability != ABILITY_CLEAR_BODY
-                        && gBattleMons[gActiveBattler].ability != ABILITY_WHITE_SMOKE
-                        && !(gBattleMons[gActiveBattler].ability == ABILITY_KEEN_EYE && currStat == STAT_ACC)
-                        && !(gBattleMons[gActiveBattler].ability == ABILITY_HYPER_CUTTER && currStat == STAT_ATK))
+                        && GetBattlerAbility(gActiveBattler) != ABILITY_CLEAR_BODY
+                        && GetBattlerAbility(gActiveBattler) != ABILITY_WHITE_SMOKE
+                        && !(GetBattlerAbility(gActiveBattler) == ABILITY_KEEN_EYE && currStat == STAT_ACC)
+                        && !(GetBattlerAbility(gActiveBattler) == ABILITY_HYPER_CUTTER && currStat == STAT_ATK))
                 {
                     if (gBattleMons[gActiveBattler].statStages[currStat] > 0)
                     {
@@ -6332,6 +6332,18 @@ static void atk76_various(void)
 
     switch (gBattlescriptCurrInstr[2])
     {
+    case VARIOUS_CHECK_CORE_ENFORCER:
+        if (GetBattlerTurnOrderNum(gActiveBattler) > GetBattlerTurnOrderNum(gBattlerTarget)
+			&& !(gStatuses3[gBattlerTarget] & STATUS3_GASTRO_ACID))
+        {
+			gStatuses3[gBattlerTarget] |= STATUS3_GASTRO_ACID;
+			gBattlescriptCurrInstr += 7;
+		}
+		else
+		{
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+        }
+        return;
     case VARIOUS_SET_POWDER:
         gBattleMons[gActiveBattler].status2 |= STATUS2_POWDER;
         break;
@@ -6637,8 +6649,15 @@ static void atk76_various(void)
         {
         case ABILITY_SIMPLE:
         case ABILITY_TRUANT:
-        case ABILITY_STANCE_CHANGE:
         case ABILITY_MULTITYPE:
+        case ABILITY_STANCE_CHANGE:
+        case ABILITY_SCHOOLING:
+        case ABILITY_COMATOSE:
+        case ABILITY_SHIELDS_DOWN:
+        case ABILITY_DISGUISE:
+        case ABILITY_RKS_SYSTEM:
+        case ABILITY_BATTLE_BOND:
+	    case ABILITY_POWER_CONSTRUCT:
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
             break;
         default:
@@ -6659,6 +6678,7 @@ static void atk76_various(void)
         case ABILITY_DISGUISE:
         case ABILITY_RKS_SYSTEM:
         case ABILITY_BATTLE_BOND:
+		case ABILITY_POWER_CONSTRUCT:
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
             return;
         }
@@ -7746,8 +7766,8 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             gBattlescriptCurrInstr = BattleScript_ButItFailed;
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if ((gBattleMons[gActiveBattler].ability == ABILITY_CLEAR_BODY
-                  || gBattleMons[gActiveBattler].ability == ABILITY_WHITE_SMOKE)
+        else if ((GetBattlerAbility(gActiveBattler) == ABILITY_CLEAR_BODY
+                  || GetBattlerAbility(gActiveBattler) == ABILITY_WHITE_SMOKE)
                  && !certain && gCurrentMove != MOVE_CURSE)
         {
             if (flags == STAT_CHANGE_BS_PTR)
@@ -7768,7 +7788,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if (gBattleMons[gActiveBattler].ability == ABILITY_KEEN_EYE
+        else if (GetBattlerAbility(gActiveBattler) == ABILITY_KEEN_EYE
                  && !certain && statId == STAT_ACC)
         {
             if (flags == STAT_CHANGE_BS_PTR)
@@ -7781,7 +7801,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if (gBattleMons[gActiveBattler].ability == ABILITY_HYPER_CUTTER
+        else if (GetBattlerAbility(gActiveBattler) == ABILITY_HYPER_CUTTER
                  && !certain && statId == STAT_ATK)
         {
             if (flags == STAT_CHANGE_BS_PTR)
@@ -7794,7 +7814,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if (gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST && flags == 0)
+        else if (GetBattlerAbility(gActiveBattler) == ABILITY_SHIELD_DUST && flags == 0)
         {
             return STAT_CHANGE_DIDNT_WORK;
         }

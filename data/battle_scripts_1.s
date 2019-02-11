@@ -343,6 +343,33 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectSpAtkUpHit
 	.4byte BattleScript_EffectBelch
 	.4byte BattleScript_EffectPartingShot
+	.4byte BattleScript_EffectCoreEnforcer
+	
+BattleScript_EffectCoreEnforcer:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage 0x40
+	resultmessage
+	waitmessage 0x40
+	tryfaintmon BS_TARGET, FALSE, NULL
+	checkcoreenforcer BattleScript_EffectCoreEnforcerEnd
+	printstring STRINGID_PKMNSABILITYSUPPRESSED
+	waitmessage 0x40
+BattleScript_EffectCoreEnforcerEnd:	
+	goto BattleScript_MoveEnd
 	
 BattleScript_EffectPartingShot::
 	attackcanceler

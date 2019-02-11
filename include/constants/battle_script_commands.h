@@ -134,6 +134,7 @@
 #define VARIOUS_TRY_THIRD_TYPE 					72
 #define VARIOUS_ACUPRESSURE						73
 #define VARIOUS_SET_POWDER						74
+#define VARIOUS_CHECK_CORE_ENFORCER             75
 
 // atk80, dmg manipulation
 #define ATK80_DMG_CHANGE_SIGN                               0
