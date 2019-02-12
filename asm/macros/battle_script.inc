@@ -1584,6 +1584,11 @@
 	.macro setpowder battler:req
 	various \battler, VARIOUS_SET_POWDER
 	.endm
+	
+	.macro checkcoreenforcer ptr:req
+	various BS_ATTACKER, VARIOUS_CHECK_CORE_ENFORCER
+	.4byte \ptr
+	.endm	
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
