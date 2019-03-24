@@ -6375,6 +6375,17 @@ BattleScript_SpikyShieldEffect::
 	tryfaintmon BS_ATTACKER, FALSE, NULL
 	return
 
+BattleScript_KingsShieldEffect::
+	copybyte gBattlerTarget BS_ATTACKER
+	statbuffchange 0x1, BattleScript_KingsShieldReturn
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_x100000
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_PKMNSSTATCHANGED
+	waitmessage 0x40
+BattleScript_KingsShieldReturn: 
+	return
+
 BattleScript_CuteCharmActivates::
 	call BattleScript_AbilityPopUp
 	status2animation BS_ATTACKER, STATUS2_INFATUATION

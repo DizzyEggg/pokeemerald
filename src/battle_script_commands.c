@@ -4152,6 +4152,7 @@ static void atk48_playstatchangeanimation(void)
 enum
 {
     ATK49_SPIKY_SHIELD,
+    ATK49_KING_S_SHIELD,
     ATK49_RAGE,
     ATK49_DEFROST,
     ATK49_SYNCHRONIZE_TARGET,
@@ -4214,6 +4215,23 @@ static void atk49_moveend(void)
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_SpikyShieldEffect;
                 effect = 1;
+            }
+            gBattleScripting.atk49_state++;
+            break;
+        case ATK49_KING_S_SHIELD:
+            if (gProtectStructs[gBattlerTarget].kingsShielded && gBattleMoves[gCurrentMove].flags & FLAG_MAKES_CONTACT)
+            {
+                if (gBattleMons[gBattlerAttacker].statStages[STAT_ATK] > 0)
+                {
+                    gBattleScripting.battler = gBattlerAttacker;
+                    if (gBattleMons[gBattlerAttacker].statStages[STAT_ATK] > 1)
+                        SET_STATCHANGER(STAT_ATK, 2, TRUE);
+                    else
+                        SET_STATCHANGER(STAT_ATK, 1, TRUE);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                    effect = 1;
+                }
             }
             gBattleScripting.atk49_state++;
             break;
