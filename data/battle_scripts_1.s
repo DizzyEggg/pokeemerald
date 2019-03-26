@@ -6366,6 +6366,16 @@ BattleScript_RoughSkinActivates::
 	tryfaintmon BS_ATTACKER, FALSE, NULL
 	return
 
+BattleScript_KingsShieldEffect::
+    copybyte gBattlerAttacker, gBattlerTarget
+    copybyte gBattlerTarget, sBATTLER
+    setbyte cMULTISTRING_CHOOSER, 1
+BattleScript_BanefulBunkerEffect::
+    orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_x100000
+    seteffectsecondary
+    setmoveeffect 0
+    return
+
 BattleScript_SpikyShieldEffect::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_x100000
 	healthbarupdate BS_ATTACKER

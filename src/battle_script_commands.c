@@ -4152,6 +4152,8 @@ static void atk48_playstatchangeanimation(void)
 enum
 {
     ATK49_SPIKY_SHIELD,
+    ATK49_KING_S_SHIELD,
+    ATK49_BANEFUL_BUNKER,
     ATK49_RAGE,
     ATK49_DEFROST,
     ATK49_SYNCHRONIZE_TARGET,
@@ -4217,6 +4219,29 @@ static void atk49_moveend(void)
                     gBattlescriptCurrInstr = BattleScript_SpikyShieldEffect;
                     effect = 1;
                 }
+            }
+            gBattleScripting.atk49_state++;
+            break;
+        case ATK49_KING_S_SHIELD:
+            if (gProtectStructs[gBattlerTarget].kingsShielded && gBattleMoves[gCurrentMove].flags & FLAG_MAKES_CONTACT)
+            {
+                gBattleScripting.battler = gBattlerAttacker; // gBattlerTarget and gBattlerAttacker are swapped in order to activate Defiant, if applicable
+                gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_2;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                effect = 1;
+            }
+            gBattleScripting.atk49_state++;
+            break;
+        case ATK49_BANEFUL_BUNKER:
+            if (gProtectStructs[gBattlerTarget].banefulBunkered && gBattleMoves[gCurrentMove].flags & FLAG_MAKES_CONTACT)
+            {
+                gBattleScripting.moveEffect = MOVE_EFFECT_POISON | MOVE_EFFECT_AFFECTS_USER;
+                PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_BANEFUL_BUNKER);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_BanefulBunkerEffect;
+                gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
+                effect = 1;
             }
             gBattleScripting.atk49_state++;
             break;
