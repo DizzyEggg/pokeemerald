@@ -1796,73 +1796,73 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_063] =
+    [ITEM_DAWN_STONE] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
+        .name = _("Dawn Stone"),
+        .itemId = ITEM_DAWN_STONE,
+        .price = 2100, // Arbitrary price
         .holdEffect = HOLD_EFFECT_NONE,
         .holdEffectParam = 0,
-        .description = gDummyItemDescription,
+        .description = gLeafStoneItemDescription, // All evo stones have the same description
         .importance = 0,
         .unk19 = 0,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
         .battleUsage = 0,
         .battleUseFunc = NULL,
         .secondaryId = 0,
     },
 
-    [ITEM_064] =
+    [ITEM_DUSK_STONE] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
+        .name = _("Dusk Stone"),
+        .itemId = ITEM_DUSK_STONE,
+        .price = 2100, // Arbitrary price
         .holdEffect = HOLD_EFFECT_NONE,
         .holdEffectParam = 0,
-        .description = gDummyItemDescription,
+        .description = gLeafStoneItemDescription, // All evo stones have the same description
         .importance = 0,
         .unk19 = 0,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
         .battleUsage = 0,
         .battleUseFunc = NULL,
         .secondaryId = 0,
     },
 
-    [ITEM_065] =
+    [ITEM_SHINY_STONE] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
+        .name = _("Shiny Stone"),
+        .itemId = ITEM_SHINY_STONE,
+        .price = 2100, // Arbitrary price
         .holdEffect = HOLD_EFFECT_NONE,
         .holdEffectParam = 0,
-        .description = gDummyItemDescription,
+        .description = gLeafStoneItemDescription, // All evo stones have the same description
         .importance = 0,
         .unk19 = 0,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
         .battleUsage = 0,
         .battleUseFunc = NULL,
         .secondaryId = 0,
     },
 
-    [ITEM_066] =
+    [ITEM_ICE_STONE] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
+        .name = _("Ice Stone"),
+        .itemId = ITEM_ICE_STONE,
+        .price = 2100, // Arbitrary price
         .holdEffect = HOLD_EFFECT_NONE,
         .holdEffectParam = 0,
-        .description = gDummyItemDescription,
+        .description = gLeafStoneItemDescription, // All evo stones have the same description
         .importance = 0,
         .unk19 = 0,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
         .battleUsage = 0,
         .battleUseFunc = NULL,
         .secondaryId = 0,
