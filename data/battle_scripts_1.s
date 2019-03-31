@@ -6370,6 +6370,12 @@ BattleScript_RoughSkinActivates::
 	tryfaintmon BS_ATTACKER, FALSE, NULL
 	return
 
+BattleScript_ProtectLikeMoveEffect::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_x100000
+	seteffectsecondary
+	setmoveeffect 0
+	return
+
 BattleScript_SpikyShieldEffect::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_x100000
 	healthbarupdate BS_ATTACKER

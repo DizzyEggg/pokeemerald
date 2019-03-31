@@ -4214,6 +4214,32 @@ static void atk49_moveend(void)
             }
             gBattleScripting.atk49_state++;
             break;
+        case ATK49_KING_S_SHIELD:
+            if (gProtectStructs[gBattlerTarget].kingsShielded && gBattleMoves[gCurrentMove].flags & FLAG_MAKES_CONTACT)
+            {
+                u8 temp = gBattlerAttacker;
+                gBattlerAttacker = gBattlerTarget;
+                gBattlerTarget = temp; // gBattlerTarget and gBattlerAttacker are swapped in order to activate Defiant, if applicable
+                gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_2;
+                gBattleCommunication[MULTISTRING_CHOOSER] = 1;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_ProtectLikeMoveEffect;
+                effect = 1;
+            }
+            gBattleScripting.atk49_state++;
+            break;
+        case ATK49_BANEFUL_BUNKER:
+            if (gProtectStructs[gBattlerTarget].banefulBunkered && gBattleMoves[gCurrentMove].flags & FLAG_MAKES_CONTACT)
+            {
+                gBattleScripting.moveEffect = MOVE_EFFECT_POISON | MOVE_EFFECT_AFFECTS_USER;
+                PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_BANEFUL_BUNKER);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_ProtectLikeMoveEffect;
+                gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
+                effect = 1;
+            }
+            gBattleScripting.atk49_state++;
+            break;
         case ATK49_RAGE: // rage check
             if (gBattleMons[gBattlerTarget].status2 & STATUS2_RAGE
                 && gBattleMons[gBattlerTarget].hp != 0 && gBattlerAttacker != gBattlerTarget
