@@ -9154,7 +9154,7 @@ const struct Item gItems[] =
         .battleUseFunc = NULL,
         .secondaryId = 0,
     },
-        [ITEM_HONEY] =
+	[ITEM_HONEY] =
     {
         .name = _("Honey"),
         .itemId = ITEM_HONEY,
@@ -9166,7 +9166,7 @@ const struct Item gItems[] =
         .unk19 = 0,
         .pocket = POCKET_ITEMS,
         .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_Honey,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = 0,
         .battleUseFunc = NULL,
         .secondaryId = 0,
