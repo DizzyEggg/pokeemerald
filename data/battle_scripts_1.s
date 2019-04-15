@@ -347,6 +347,8 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectVCreate
 	.4byte BattleScript_EffectMatBlock
 	.4byte BattleScript_EffectStompingTantrum
+	.4byte BattleScript_EffectPlaceholder
+	.4byte BattleScript_EffectInstruct
 
 BattleScript_EffectVCreate:
 	setmoveeffect MOVE_EFFECT_V_CREATE | MOVE_EFFECT_AFFECTS_USER
@@ -762,6 +764,20 @@ BattleScript_EffectCopycat:
 BattleScript_CopycatFail:
 	ppreduce
 	goto BattleScript_ButItFailed
+
+BattleScript_EffectInstruct:
+	attackcanceler
+	attackstring
+	ppreduce
+	pause 0x5
+	tryinstruct BattleScript_CopycatFail
+	attackanimation
+	waitanimation
+	printstring STRINGID_USEDINSTRUCTEDMOVE
+	waitmessage 0x40
+	setbyte sB_ANIM_TURN, 0x0
+	setbyte sB_ANIM_TARGETS_HIT, 0x0
+	jumptocalledmove TRUE
 	
 BattleScript_EffectAutonomize:
 	setstatchanger STAT_SPEED, 2, FALSE
