@@ -2844,6 +2844,10 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_MoveEffectCoreEnforcer;
                 }
                 break;
+            case MOVE_EFFECT_THROAT_CHOP:
+                gDisableStructs[gEffectBattler].throatChopTimer = 2;
+                gBattlescriptCurrInstr++;
+                break;
             }
         }
     }
@@ -10479,8 +10483,10 @@ static void atkDD_setuserstatus3(void)
     else
     {
         gStatuses3[gBattlerAttacker] |= flags;
-        if (flags == STATUS3_MAGNET_RISE)
+        if (flags & STATUS3_MAGNET_RISE)
             gDisableStructs[gBattlerAttacker].magnetRiseTimer = 5;
+        if (flags & STATUS3_LASER_FOCUS)
+            gDisableStructs[gBattlerAttacker].laserFocusTimer = 2;
         gBattlescriptCurrInstr += 9;
     }
 }
