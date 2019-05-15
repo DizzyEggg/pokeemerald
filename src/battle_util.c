@@ -5898,6 +5898,11 @@ static u16 CalcTypeEffectivenessMultiplierInternal(u16 move, u8 moveType, u8 bat
             RecordAbilityBattle(battlerDef, ABILITY_WONDER_GUARD);
         }
     }
+	if (GetBattlerHoldEffect(battlerDef, TRUE) == HOLD_EFFECT_RING_TARGET && modifier == UQ_4_12(0.0))
+    {
+        modifier = UQ_4_12(1.0);
+        gLastUsedItem = gBattleMons[battlerDef].item;
+    }
 
     return modifier;
 }
