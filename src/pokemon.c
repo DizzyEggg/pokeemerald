@@ -1772,117 +1772,9 @@ static const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_JIRACHI - 1] = 0x0d,
     [SPECIES_DEOXYS - 1] = 0x1b,
     [SPECIES_CHIMECHO - 1] = 0x1d,
+    [SPECIES_MOTHIM - 1] = 0x1d,
 
-    // Gen 4
-    [SPECIES_TURTWIG - 1] = 0x04,
-    [SPECIES_GROTLE - 1] = 0x03,
-    [SPECIES_TORTERRA - 1] = 0x10,
-    [SPECIES_CHIMCHAR - 1] = 0x1E,
-    [SPECIES_MONFERNO - 1] = 0x4c,
-    [SPECIES_INFERNAPE - 1] = 0x25,
-    [SPECIES_PIPLUP - 1] = 0x45,
-    [SPECIES_PRINPLUP - 1] = 0x45,
-    [SPECIES_EMPOLEON - 1] = 0x19,
-    [SPECIES_STARLY - 1] = 0x17,
-    [SPECIES_STARAVIA - 1] = 0x17,
-    [SPECIES_STARAPTOR - 1] = 0x16,
-    [SPECIES_BIDOOF - 1] = 0x45,
-    [SPECIES_BIBAREL - 1] = 0x6B,
-    [SPECIES_KRICKETOT - 1] = 0x10,
-    [SPECIES_KRICKETUNE - 1] = 0x10,
-    [SPECIES_SHINX - 1] = 0x17,
-    [SPECIES_LUXIO - 1] = 0x17,
-    [SPECIES_LUXRAY - 1] = 0x23,
-    [SPECIES_BUDEW - 1] = 0x13,
-    [SPECIES_ROSERADE - 1] = 0x24,
-    [SPECIES_CRANIDOS - 1] = 0x19,
-    [SPECIES_RAMPARDOS - 1] = 0x19,
-    [SPECIES_SHIELDON - 1] = 0x10,
-    [SPECIES_BASTIODON - 1] = 0x0F,
-    [SPECIES_BURMY - 1] = 0x1E,
-    [SPECIES_WORMADAM - 1] = 0x1E,
-    [SPECIES_MOTHIM - 1] = 0x1D,
-    [SPECIES_COMBEE - 1] = 0x1C,
-    [SPECIES_VESPIQUEN - 1] = 0x20,
-    [SPECIES_PACHIRISU - 1] = 0x00,
-    [SPECIES_BUIZEL - 1] = 0x11,
-    [SPECIES_FLOATZEL - 1] = 0x13,
-    [SPECIES_CHERUBI - 1] = 0x30,
-    [SPECIES_CHERRIM - 1] = 0x30,
-    [SPECIES_SHELLOS - 1] = 0x45,
-    [SPECIES_GASTRODON - 1] = 0x45,
-    [SPECIES_AMBIPOM - 1] = 0x25,
-    [SPECIES_DRIFLOON - 1] = 0x1C,
-    [SPECIES_DRIFBLIM - 1] = 0x1C,
-    [SPECIES_BUNEARY - 1] = 0x1E,
-    [SPECIES_LOPUNNY - 1] = 0x13,
-    [SPECIES_MISMAGIUS - 1] = 0x0E,
-    [SPECIES_HONCHKROW - 1] = 0x15,
-    [SPECIES_GLAMEOW - 1] = 0x09,
-    [SPECIES_PURUGLY - 1] = 0x10,
-    [SPECIES_CHINGLING - 1] = 0x1D,
-    [SPECIES_STUNKY - 1] = 0x1A,
-    [SPECIES_SKUNTANK - 1] = 0x45,
-    [SPECIES_BRONZOR - 1] = 0x4E,
-    [SPECIES_BRONZONG - 1] = 0x51,
-    [SPECIES_BONSLY - 1] = 0x52,
-    [SPECIES_MIMEJR - 1] = 0x40,
-    [SPECIES_HAPPINY - 1] = 0x45,
-    [SPECIES_CHATOT - 1] = 0x19,
-    [SPECIES_SPIRITOMB - 1] = 0x3A,
-    [SPECIES_GIBLE - 1] = 0x1E,
-    [SPECIES_GABITE - 1] = 0x17,
-    [SPECIES_GARCHOMP - 1] = 0x19,
-    [SPECIES_MUNCHLAX - 1] = 0x13,
-    [SPECIES_RIOLU - 1] = 0x16,
-    [SPECIES_LUCARIO - 1] = 0x0F,
-    [SPECIES_HIPPOPOTAS - 1] = 0x17,
-    [SPECIES_HIPPOWDON - 1] = 0x00,
-    [SPECIES_SKORUPI - 1] = 0x10,
-    [SPECIES_DRAPION - 1] = 0x1e,
-    [SPECIES_CROAGUNK - 1] = 0x24,
-    [SPECIES_TOXICROAK - 1] = 0x4,
-    [SPECIES_CARNIVINE - 1] = 0x1D,
-    [SPECIES_FINNEON - 1] = 0x2D,
-    [SPECIES_LUMINEON - 1] = 0x22,
-    [SPECIES_MANTYKE - 1] = 0x4E,
-    [SPECIES_SNOVER - 1] = 0x52,
-    [SPECIES_ABOMASNOW - 1] = 0xF,
-    [SPECIES_WEAVILE - 1] = 0xF,
-    [SPECIES_MAGNEZONE - 1] = 0x23,
-    [SPECIES_LICKILICKY - 1] = 0x2F,
-    [SPECIES_RHYPERIOR - 1] = 0x41,
-    [SPECIES_TANGROWTH - 1] = 0x3A,
-    [SPECIES_ELECTIVIRE - 1] = 0x23,
-    [SPECIES_MAGMORTAR - 1] = 0x21,
-    [SPECIES_TOGEKISS - 1] = 0x1A,
-    [SPECIES_YANMEGA - 1] = 0xA,
-    [SPECIES_LEAFEON - 1] = 0x52,
-    [SPECIES_GLACEON - 1] = 0x17,
-    [SPECIES_GLISCOR - 1] = 0x12,
-    [SPECIES_MAMOSWINE - 1] = 0x1E,
-    [SPECIES_PORYGON_Z - 1] = 0x1C,
-    [SPECIES_GALLADE - 1] = 0x13,
-    [SPECIES_PROBOPASS - 1] = 0xE,
-    [SPECIES_DUSKNOIR - 1] = 0x15,
-    [SPECIES_FROSLASS - 1] = 0x1C,
-    [SPECIES_ROTOM - 1] = 0x23,
-    [SPECIES_UXIE - 1] = 0x1D,
-    [SPECIES_MESPRIT - 1] = 0x1D,
-    [SPECIES_AZELF - 1] = 0x1D,
-    [SPECIES_DIALGA - 1] = 0x30,
-    [SPECIES_PALKIA - 1] = 0xF,
-    [SPECIES_HEATRAN - 1] = 0x21,
-    [SPECIES_REGIGIGAS - 1] = 0x3A,
-    [SPECIES_GIRATINA - 1] = 0x19,
-    [SPECIES_CRESSELIA - 1] = 0x1D,
-    [SPECIES_PHIONE - 1] = 0x1D,
-    [SPECIES_MANAPHY - 1] = 0x17,
-    [SPECIES_DARKRAI - 1] = 0x15,
-    [SPECIES_SHAYMIN - 1] = 0x13,
-    [SPECIES_ARCEUS - 1] = 0x11,
-
-    //Gen 6
+    //Gen 6 animations
     [SPECIES_CHESPIN - 1] = 0x31,
     [SPECIES_QUILLADIN - 1] = 0x00,
     [SPECIES_CHESNAUGHT - 1] = 0x19,
@@ -2144,14 +2036,14 @@ static const u16 sDeoxysBaseStats[] =
     90, // Sp.Defense
 };
 
-const u16 gLinkPlayerFacilityClasses[] =
+const u16 gUnknown_08329D54[] =
 {
     FACILITY_CLASS_COOLTRAINER_M, FACILITY_CLASS_BLACK_BELT, FACILITY_CLASS_CAMPER,
     FACILITY_CLASS_YOUNGSTER, FACILITY_CLASS_PSYCHIC_M, FACILITY_CLASS_BUG_CATCHER,
-    FACILITY_CLASS_PKMN_BREEDER_M, FACILITY_CLASS_GUITARIST,
-    FACILITY_CLASS_COOLTRAINER_F, FACILITY_CLASS_HEX_MANIAC, FACILITY_CLASS_PICNICKER,
-    FACILITY_CLASS_LASS, FACILITY_CLASS_PSYCHIC_F, FACILITY_CLASS_BATTLE_GIRL,
-    FACILITY_CLASS_POKEMON_BREEDER_F, FACILITY_CLASS_BEAUTY
+    FACILITY_CLASS_PKMN_BREEDER_M, FACILITY_CLASS_GUITARIST, FACILITY_CLASS_COOLTRAINER_F,
+    FACILITY_CLASS_HEX_MANIAC, FACILITY_CLASS_PICNICKER, FACILITY_CLASS_LASS,
+    FACILITY_CLASS_PSYCHIC_F, FACILITY_CLASS_BATTLE_GIRL, FACILITY_CLASS_POKEMON_BREEDER_F,
+    FACILITY_CLASS_BEAUTY
 };
 
 static const u8 sHoldEffectToType[][2] =
@@ -2513,10 +2405,10 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         SetBoxMonData(boxMon, MON_DATA_SPDEF_IV, &iv);
     }
 
-    if (gBaseStats[species].abilities[1])
+    if (gBaseStats[species].ability2)
     {
         value = personality & 1;
-        SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
+        SetBoxMonData(boxMon, MON_DATA_ALT_ABILITY, &value);
     }
 
     GiveBoxMonInitialMoveset(boxMon);
@@ -2667,8 +2559,8 @@ void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
     SetMonData(mon, MON_DATA_SPEED_EV, &src->speedEV);
     SetMonData(mon, MON_DATA_SPATK_EV, &src->spAttackEV);
     SetMonData(mon, MON_DATA_SPDEF_EV, &src->spDefenseEV);
-    value = src->abilityNum;
-    SetMonData(mon, MON_DATA_ABILITY_NUM, &value);
+    value = src->altAbility;
+    SetMonData(mon, MON_DATA_ALT_ABILITY, &value);
     value = src->hpIV;
     SetMonData(mon, MON_DATA_HP_IV, &value);
     value = src->attackIV;
@@ -2729,8 +2621,8 @@ void CreateBattleTowerMon2(struct Pokemon *mon, struct BattleTowerPokemon *src, 
     SetMonData(mon, MON_DATA_SPEED_EV, &src->speedEV);
     SetMonData(mon, MON_DATA_SPATK_EV, &src->spAttackEV);
     SetMonData(mon, MON_DATA_SPDEF_EV, &src->spDefenseEV);
-    value = src->abilityNum;
-    SetMonData(mon, MON_DATA_ABILITY_NUM, &value);
+    value = src->altAbility;
+    SetMonData(mon, MON_DATA_ALT_ABILITY, &value);
     value = src->hpIV;
     SetMonData(mon, MON_DATA_HP_IV, &value);
     value = src->attackIV;
@@ -2845,7 +2737,7 @@ void sub_80686FC(struct Pokemon *mon, struct BattleTowerPokemon *dest)
     dest->speedIV  = GetMonData(mon, MON_DATA_SPEED_IV, NULL);
     dest->spAttackIV  = GetMonData(mon, MON_DATA_SPATK_IV, NULL);
     dest->spDefenseIV  = GetMonData(mon, MON_DATA_SPDEF_IV, NULL);
-    dest->abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM, NULL);
+    dest->altAbility = GetMonData(mon, MON_DATA_ALT_ABILITY, NULL);
     dest->personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
     GetMonData(mon, MON_DATA_NICKNAME, dest->nickname);
 }
@@ -2976,7 +2868,7 @@ u16 sub_8068B48(void)
 
     arrId = gLinkPlayers[linkId].trainerId & 7;
     arrId |= gLinkPlayers[linkId].gender << 3;
-    return FacilityClassToPicIndex(gLinkPlayerFacilityClasses[arrId]);
+    return FacilityClassToPicIndex(gUnknown_08329D54[arrId]);
 }
 
 u16 sub_8068BB0(void)
@@ -2991,7 +2883,7 @@ u16 sub_8068BB0(void)
 
     arrId = gLinkPlayers[linkId].trainerId & 7;
     arrId |= gLinkPlayers[linkId].gender << 3;
-    return gFacilityClassToTrainerClass[gLinkPlayerFacilityClasses[arrId]];
+    return gFacilityClassToTrainerClass[gUnknown_08329D54[arrId]];
 }
 
 void CreateObedientEnemyMon(void)
@@ -3912,8 +3804,7 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     struct PokemonSubstruct2 *substruct2 = NULL;
     struct PokemonSubstruct3 *substruct3 = NULL;
 
-    // Any field greater than MON_DATA_ENCRYPT_SEPARATOR is encrypted and must be treated as such
-    if (field > MON_DATA_ENCRYPT_SEPARATOR)
+    if (field > MON_DATA_10)
     {
         substruct0 = &(GetSubstruct(boxMon, boxMon->personality, 0)->type0);
         substruct1 = &(GetSubstruct(boxMon, boxMon->personality, 1)->type1);
@@ -4007,7 +3898,7 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_CHECKSUM:
         retVal = boxMon->checksum;
         break;
-    case MON_DATA_ENCRYPT_SEPARATOR:
+    case MON_DATA_10:
         retVal = boxMon->unknown;
         break;
     case MON_DATA_SPECIES:
@@ -4112,8 +4003,8 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_IS_EGG:
         retVal = substruct3->isEgg;
         break;
-    case MON_DATA_ABILITY_NUM:
-        retVal = substruct3->abilityNum;
+    case MON_DATA_ALT_ABILITY:
+        retVal = substruct3->altAbility;
         break;
     case MON_DATA_COOL_RIBBON:
         retVal = substruct3->coolRibbon;
@@ -4248,7 +4139,7 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         break;
     }
 
-    if (field > MON_DATA_ENCRYPT_SEPARATOR)
+    if (field > MON_DATA_10)
         EncryptBoxMon(boxMon);
 
     return retVal;
@@ -4311,7 +4202,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     struct PokemonSubstruct2 *substruct2 = NULL;
     struct PokemonSubstruct3 *substruct3 = NULL;
 
-    if (field > MON_DATA_ENCRYPT_SEPARATOR)
+    if (field > MON_DATA_10)
     {
         substruct0 = &(GetSubstruct(boxMon, boxMon->personality, 0)->type0);
         substruct1 = &(GetSubstruct(boxMon, boxMon->personality, 1)->type1);
@@ -4370,7 +4261,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_CHECKSUM:
         SET16(boxMon->checksum);
         break;
-    case MON_DATA_ENCRYPT_SEPARATOR:
+    case MON_DATA_10:
         SET16(boxMon->unknown);
         break;
     case MON_DATA_SPECIES:
@@ -4491,8 +4382,8 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         else
             boxMon->isEgg = 0;
         break;
-    case MON_DATA_ABILITY_NUM:
-        SET8(substruct3->abilityNum);
+    case MON_DATA_ALT_ABILITY:
+        SET8(substruct3->altAbility);
         break;
     case MON_DATA_COOL_RIBBON:
         SET8(substruct3->coolRibbon);
@@ -4566,7 +4457,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         break;
     }
 
-    if (field > MON_DATA_ENCRYPT_SEPARATOR)
+    if (field > MON_DATA_10)
     {
         boxMon->checksum = CalculateBoxMonChecksum(boxMon);
         EncryptBoxMon(boxMon);
@@ -4699,14 +4590,12 @@ u8 GetMonsStateToDoubles_2(void)
     return (aliveCount > 1) ? PLAYER_HAS_TWO_USABLE_MONS : PLAYER_HAS_ONE_USABLE_MON;
 }
 
-u8 GetAbilityBySpecies(u16 species, u8 abilityNum)
+u8 GetAbilityBySpecies(u16 species, bool8 altAbility)
 {
-    if (abilityNum == 2)
-        gLastUsedAbility = gBaseStats[species].abilityHidden;
-    else if (abilityNum == 1)
-        gLastUsedAbility = gBaseStats[species].abilities[1];
+    if (altAbility)
+        gLastUsedAbility = gBaseStats[species].ability2;
     else
-        gLastUsedAbility = gBaseStats[species].abilities[0];
+        gLastUsedAbility = gBaseStats[species].ability1;
 
     return gLastUsedAbility;
 }
@@ -4714,8 +4603,8 @@ u8 GetAbilityBySpecies(u16 species, u8 abilityNum)
 u8 GetMonAbility(struct Pokemon *mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM, NULL);
-    return GetAbilityBySpecies(species, abilityNum);
+    u8 altAbility = GetMonData(mon, MON_DATA_ALT_ABILITY, NULL);
+    return GetAbilityBySpecies(species, altAbility);
 }
 
 void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord)
@@ -4858,11 +4747,11 @@ void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
     gBattleMons[battlerId].spAttack = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK, NULL);
     gBattleMons[battlerId].spDefense = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF, NULL);
     gBattleMons[battlerId].isEgg = GetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_EGG, NULL);
-    gBattleMons[battlerId].abilityNum = GetMonData(&gPlayerParty[partyIndex], MON_DATA_ABILITY_NUM, NULL);
+    gBattleMons[battlerId].altAbility = GetMonData(&gPlayerParty[partyIndex], MON_DATA_ALT_ABILITY, NULL);
     gBattleMons[battlerId].otId = GetMonData(&gPlayerParty[partyIndex], MON_DATA_OT_ID, NULL);
     gBattleMons[battlerId].type1 = gBaseStats[gBattleMons[battlerId].species].type1;
     gBattleMons[battlerId].type2 = gBaseStats[gBattleMons[battlerId].species].type2;
-    gBattleMons[battlerId].ability = GetAbilityBySpecies(gBattleMons[battlerId].species, gBattleMons[battlerId].abilityNum);
+    gBattleMons[battlerId].ability = GetAbilityBySpecies(gBattleMons[battlerId].species, gBattleMons[battlerId].altAbility);
     GetMonData(&gPlayerParty[partyIndex], MON_DATA_NICKNAME, nickname);
     StringCopy10(gBattleMons[battlerId].nickname, nickname);
     GetMonData(&gPlayerParty[partyIndex], MON_DATA_OT_NAME, gBattleMons[battlerId].otName);
