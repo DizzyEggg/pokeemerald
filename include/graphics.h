@@ -4941,4 +4941,19 @@ extern const u16 gPokenavConditionCancel_Pal[];
 extern const u32 gUnknown_08DE34B8[];
 extern const u16 gUnknown_08DE3398[];
 
+// New Battle Anim Particles
+extern const u32 gBattleAnimSpriteGfx_WhiteStreak[];
+extern const u32 gBattleAnimSpritePal_WhiteStreak[];
+extern const u32 gBattleAnimSpriteGfx_PurpleJab[];
+extern const u32 gBattleAnimSpritePal_PurpleJab[];
+extern const u32 gBattleAnimSpritePal_ToxicSpikes[];
+extern const u32 gBattleAnimSpriteGfx_EnergyBall[];
+extern const u32 gBattleAnimSpritePal_EnergyBall[];
+extern const u32 gBattleAnimSpriteGfx_MegaStone[];
+extern const u32 gBattleAnimSpritePal_MegaStone[];
+extern const u32 gBattleAnimSpriteGfx_MegaParticles[];
+extern const u32 gBattleAnimSpritePal_MegaParticles[];
+extern const u32 gBattleAnimSpriteGfx_MegaSymbol[];
+extern const u32 gBattleAnimSpritePal_MegaSymbol[];
+
 #endif //GUARD_GRAPHICS_H

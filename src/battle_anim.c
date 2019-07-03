@@ -1414,6 +1414,13 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Slash, 0x0800, ANIM_TAG_SLASH_2},
     {gBattleAnimSpriteGfx_SlamHit, 0x1000, ANIM_TAG_WHIP_HIT},
     {gBattleAnimSpriteGfx_GoldRing, 0x0100, ANIM_TAG_BLUE_RING_2},
+    {gBattleAnimSpriteGfx_WhiteStreak, 0x0200, ANIM_TAG_WHITE_STREAK},
+    {gBattleAnimSpriteGfx_PurpleJab, 0x0100, ANIM_TAG_PURPLE_JAB},
+    {gBattleAnimSpriteGfx_Spikes, 0x0080, ANIM_TAG_TOXIC_SPIKES},
+    {gBattleAnimSpriteGfx_EnergyBall, 0x0200, ANIM_TAG_ENERGY_BALL},
+    {gBattleAnimSpriteGfx_MegaStone, 0x800, ANIM_TAG_MEGA_STONE},
+    {gBattleAnimSpriteGfx_MegaSymbol, 0x0200, ANIM_TAG_MEGA_SYMBOL},
+    {gBattleAnimSpriteGfx_MegaParticles, 0x0180, ANIM_TAG_MEGA_PARTICLES},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1707,6 +1714,13 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Slash2, ANIM_TAG_SLASH_2},
     {gBattleAnimSpritePal_WhipHit, ANIM_TAG_WHIP_HIT},
     {gBattleAnimSpritePal_BlueRing2, ANIM_TAG_BLUE_RING_2},
+    {gBattleAnimSpritePal_WhiteStreak, ANIM_TAG_WHITE_STREAK},
+    {gBattleAnimSpritePal_PurpleJab, ANIM_TAG_PURPLE_JAB},
+    {gBattleAnimSpritePal_ToxicSpikes, ANIM_TAG_TOXIC_SPIKES},
+    {gBattleAnimSpritePal_EnergyBall, ANIM_TAG_ENERGY_BALL},
+    {gBattleAnimSpritePal_MegaStone, ANIM_TAG_MEGA_STONE},
+    {gBattleAnimSpritePal_MegaSymbol, ANIM_TAG_MEGA_SYMBOL},
+    {gBattleAnimSpritePal_MegaParticles, ANIM_TAG_MEGA_PARTICLES},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -2259,6 +2273,18 @@ static void ScriptCmd_monbg(void)
     sBattleAnimScriptPtr++;
     gAnimFramesToWait = 1;
     gAnimScriptCallback = WaitAnimFrameCount;
+}
+
+u8 GetAnimBattlerId(u8 wantedBattler)
+{
+    if (wantedBattler == ANIM_ATTACKER)
+        return gBattleAnimAttacker;
+    else if (wantedBattler == ANIM_TARGET)
+        return gBattleAnimTarget;
+    else if (wantedBattler == ANIM_ATK_PARTNER)
+        return BATTLE_PARTNER(gBattleAnimAttacker);
+    else
+        return BATTLE_PARTNER(gBattleAnimTarget);
 }
 
 bool8 IsBattlerSpriteVisible(u8 battlerId)
