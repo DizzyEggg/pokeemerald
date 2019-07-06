@@ -2022,6 +2022,37 @@ Move_ZEN_HEADBUTT:
 	end
 	
 Move_MIRROR_SHOT:
+	loopsewithpan SE_W231, SOUND_PAN_ATTACKER, 28, 2
+	createvisualtask AnimTask_MetallicShine, 5, 1, 0, 0
+	waitforvisualfinish
+	loadspritegfx ANIM_TAG_IMPACT 
+	loadspritegfx ANIM_TAG_WHITE_CIRCLE_OF_LIGHT 
+	createvisualtask sub_8116664, 5, 5, 5, 2, 0, 10, -1  
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_IMPACT, 0, 12, 12, RGB(21, 21, 21)
+	waitforvisualfinish 
+	createsprite gUnknown_085973A0, 131, 2, 1, 2
+	createvisualtask sub_8159210, 5, 2, 215, 63  
+	delay 3
+	createsprite gUnknown_085973A0, 131, 2, 1, 2
+	createvisualtask sub_8159210, 5, 2, 215, 63  
+	delay 3
+	createsprite gUnknown_085973A0, 131, 2, 1, 2
+	createvisualtask sub_8159210, 5, 2, 215, 63  
+	delay 3 
+	createsprite gUnknown_085973A0, 131, 2, 1, 2
+	createvisualtask sub_8159210, 5, 2, 215, 63  
+	delay 3 
+	createsprite gUnknown_085973A0, 131, 2, 1, 2
+	createvisualtask sub_8159210, 5, 2, 215, 63  
+	delay 3 
+	createsprite gUnknown_085973A0, 131, 2, 1, 2  
+	createvisualtask sub_8159210, 5, 2, 215, 63  
+	waitforvisualfinish
+	createvisualtask sub_8116664, 5, 5, 2, 16, 0, RGB_WHITEALPHA
+	createvisualtask sub_81152DC, 5, 1, 5, 14 
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER 
+	blendoff 
 	end
 	
 Move_FLASH_CANNON:

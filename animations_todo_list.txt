@@ -18,7 +18,7 @@ Note*: Posible animations states ->
 ******** 4TH GEN ATTACKS *********
 - Magnet Bomb       ####    DONE
 - Iron Head         ####    BASE
-- Mirror Shot       ####    PORTABLE
+- Mirror Shot       ####    DONE
 - Flash Cannon      ####    PORTABLE
 - Gyro Ball         ####    BASE
 - Bullet Punch      ####    BASE
