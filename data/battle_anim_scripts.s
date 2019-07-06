@@ -2466,6 +2466,36 @@ Move_WOOD_HAMMER:
 	end
 	
 Move_AQUA_JET:
+	loadspritegfx ANIM_TAG_SPARKLE_6 
+	loadspritegfx ANIM_TAG_ROUND_SHADOW 
+	loadspritegfx ANIM_TAG_SPLASH
+	playsewithpan SE_W029, SOUND_PAN_ATTACKER 
+	createsprite gUnknown_08596490, 2, 4, 0, 0, 13, 336  
+	waitforvisualfinish 
+	playsewithpan SE_W291, SOUND_PAN_ATTACKER
+	createsprite gUnknown_085964CC, 3, 1, 0 
+	call DiveSetUp1 
+	call DiveSetUp1 
+	call DiveSetUp1 
+	call DiveSetUp1 
+	call DiveSetUp1 
+	loadspritegfx ANIM_TAG_WATER_IMPACT 
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES 
+	monbg ANIM_DEF_PARTNER 
+	setalpha 12, 8 
+	playsewithpan SE_W153, SOUND_PAN_TARGET 
+	createsprite gUnknown_085964CC, 131, 1, 1  
+	call DiveAttack1 
+	call DiveAttack1 
+	call DiveAttack1 
+	call DiveAttack1 
+	call DiveAttack1 
+	delay 12 
+	call UnderWaterAttack1 
+	waitforvisualfinish 
+	visible 0 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
 	end
 	
 Move_ATTACK_ORDER:
