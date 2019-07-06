@@ -10,6 +10,11 @@ Note*: Posible animations states ->
     - 'PORTABLE': Animation will be ported from a previous DizzyEgg's engine modification done for emerald.
 
 
+57 Base.
+1 Done.
+162 Portable.
+49 Empty.
+
 ******** 4TH GEN ATTACKS *********
 - Magnet Bomb       ####    DONE
 - Iron Head         ####    BASE
@@ -126,3 +131,166 @@ Note*: Posible animations states ->
 - Tailwind          ####    BASE
 
 
+
+
+******** 5TH GEN ATTACKS *********
+- Autotomize	    ####    PORTABLE
+- Shift Gear        ####    PORTABLE
+- Heavy Slam        ####    PORTABLE
+- Gear Grind        ####    PORTABLE
+- Scald             ####    PORTABLE
+- Razor Shell       ####    PORTABLE
+- Soak              ####    PORTABLE
+- Water Pledge      ####    EMPTY
+- Rage Powder       ####    EMPTY
+- Struggle Bug      ####    PORTABLE
+- Quiver Dance      ####    PORTABLE
+- Steamroller       ####    PORTABLE
+- Dual Chop         ####    PORTABLE
+- Dragon Tail       ####    PORTABLE
+- Fusion Bolt       ####    EMPTY
+- Electro Ball      ####    PORTABLE
+- Electro Web       ####    BASE
+- Bolt Strike       ####    EMPTY
+- Volt Switch       ####    PORTABLE
+- Wild Charge       ####    PORTABLE
+- Hex               ####    PORTABLE
+- Curse             ####    BASE
+- Flame Burst       ####    PORTABLE
+- Blue Flare        ####    EMPTY
+- Fusion Flare      ####    EMPTY
+- Fiery Dance       ####    PORTABLE
+- Fire Pledge       ####    EMPTY
+- Searing Shot      ####    EMPTY
+- Heat Crash        ####    EMPTY
+- Incinerate        ####    BASE
+- Flame Charge      ####    PORTABLE
+- Inferno           ####    PORTABLE
+- V-Create          ####    EMPTY
+- Ice Burn          ####    EMPTY
+- Freeze Shock      ####    EMPTY
+- Glaciate          ####    EMPTY
+- Frost Breath      ####    PORTABLE
+- Icicle Crash      ####    PORTABLE
+- Final Gambit      ####    PORTABLE
+- Quick Guard       ####    PORTABLE
+- Low Sweep         ####    PORTABLE
+- Storm Throw       ####    PORTABLE
+- Circle Throw      ####    PORTABLE
+- Sacred Sword      ####    PORTABLE
+- Secret Sword      ####    EMPTY
+- Round             ####    PORTABLE
+- Head Charge       ####    EMPTY
+- After you         ####    EMPTY
+- Relic Song        ####    EMPTY
+- Entrainment       ####    EMPTY
+- Work Up           ####    PORTABLE
+- Echoed Voice      ####    PORTABLE
+- Bestow            ####    PORTABLE
+- Chip Away         ####    PORTABLE
+- Reflect Type      ####    EMPTY
+- Retalitate        ####    PORTABLE
+- Shell Smash       ####    PORTABLE
+- Simple Beam       ####    PORTABLE
+- Tail Slap         ####    PORTABLE
+- Techno Blast      ####    EMPTY
+- Cotton Guard      ####    PORTABLE     
+- Leaf Tornado      ####    PORTABLE
+- Grass Pledge      ####    EMPTY
+- Horn Leech        ####    PORTABLE
+- Stored Power      ####    PORTABLE
+- Guard Split       ####    EMPTY
+- Heal Pulse        ####    PORTABLE
+- Heart Stamp       ####    PORTABLE
+- Magic Room        ####    PORTABLE
+- Power Split       ####    EMPTY
+- Psystrike         ####    PORTABLE
+- Psyshock          ####    EMPTY
+- Ally Switch       ####    EMPTY
+- Sychronoise       ####    EMPTY    
+- Telekinesis       ####    EMPTY
+- Wonder Room       ####    PORTABLE
+- Smack Down        ####    PORTABLE
+- Wide Guard        ####    PORTABLE
+- Snarl             ####    PORTABLE
+- Hone Claws        ####    PORTABLE
+- Night Daze        ####    PORTABLE
+- Quash             ####    EMPTY
+- Foul Play         ####    PORTABLE
+- Drill Run         ####    PORTABLE
+- Bulldoze          ####    PORTABLE
+- Acid Spray        ####    PORTABLE
+- Clear Smog        ####    PORTABLE
+- Sludge Wave       ####    PORTABLE
+- Coil              ####    PORTABLE
+- Venoshock         ####    PORTABLE
+- Acrobatics        ####    PORTABLE
+- Sky Drop          ####    PORTABLE
+- Hurricane         ####    PORTABLE
+
+
+
+******** 6TH GEN ATTACKS *********
+- King's Shield     ####    PORTABLE
+- Steam Eruption    ####    PORTABLE
+- Origin Pulse      ####    PORTABLE
+- Water Shuriken    ####    PORTABLE
+- Infestation       ####    PORTABLE
+- Fell Stinger      ####    PORTABLE
+- Powder            ####    PORTABLE
+- Sticky Web        ####    BASE
+- Electric Terrain  ####    EMPTY
+- Parabolic Charge  ####    BASE
+- Ion Deluge        ####    PORTABLE
+- Electrify         ####    PORTABLE
+- Nuzzle            ####    PORTABLE
+- Eerie Impulse     ####    PORTABLE
+- Phantom Force     ####    PORTABLE
+- Trick-or-Treat    ####    PORTABLE
+- Mystical Fire     ####    PORTABLE
+- Sweet Kiss        ####    BASE
+- Draining Kiss     ####    PORTABLE
+- Dazzling Gleam    ####    PORTABLE    
+- Misty Terrain     ####    EMPTY
+- Play Rough        ####    PORTABLE
+- Fairy Lock        ####    PORTABLE
+- FLower Shield     ####    PORTABLE
+- Charm             ####    BASE
+- Moonblast         ####    PORTABLE
+- Geomancy          ####    EMPTY
+- Light of Ruin     ####    EMPTY
+- Moonlight         ####    BASE
+- Baby-Doll Eyes    ####    PORTABLE
+- Crafty Shield     ####    PORTABLE
+- Aromatic Mist     ####    BASE
+- Fairy Wind        ####    PORTABLE
+- Disarming Voice   ####    PORTABLE
+- Freeze-Dry        ####    PORTABLE
+- Mat Block         ####    EMPTY
+- Flying Press      ####    EMPTY
+- Power-Up Punch    ####    BASE
+- Play Nice         ####    PORTABLE
+- Celebrate         ####    EMPTY
+- Boomburst         ####    PORTABLE
+- Happy Hour        ####    EMPTY
+- Noble Roar        ####    PORTABLE
+- Hold Back         ####    EMPTY
+- Hold Hands        ####    EMPTY
+- Spiky Shield      ####    PORTABLE
+- Grassy Terrain    ####    EMPTY
+- Forest's Curse    ####    PORTABLE
+- Petal Blizzard    ####    PORTABLE
+- Hyperspace Hole   ####    EMPTY
+- Diamon Storm      ####    EMPTY
+- Hyperspace Fury   ####    EMPTY
+- Topsy-Turvy       ####    EMPTY
+- Parting Shot      ####    BASE
+- Rototiller        ####    PORTABLE
+- Precipice Blades  ####    PORTABLE
+- Land's Wrath      ####    EMPTY
+- Thousand Arrows   ####    EMPTY
+- Thousand Waves    ####    EMPTY
+- Belch             ####    PORTABLE
+- Venom Drench      ####    PORTABLE
+- Oblivion Wring    ####    EMPTY
+- Dragon Ascent     ####    PORTABLE
