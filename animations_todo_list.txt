@@ -1,0 +1,128 @@
+List of TO DO task for battle engine animations.
+
+Please, Update each animation state as you work.
+
+Note*: Posible animations states ->
+    - 'BASE' : Animation was present on dizzy egg's version
+    - 'DONE' : Animation has been already completed.
+    - 'EMPTY': No animation for this move.
+    - 'WIP': Animation is Work in progress.
+    - 'PORTABLE': Animation will be ported from a previous DizzyEgg's engine modification done for emerald.
+
+
+******** 4TH GEN ATTACKS *********
+- Magnet Bomb       ####    DONE
+- Iron Head         ####    BASE
+- Mirror Shot       ####    PORTABLE
+- Flash Cannon      ####    PORTABLE
+- Gyro Ball         ####    BASE
+- Bullet Punch      ####    BASE
+- Metal Burst       ####    BASE
+- Aqua Ring         ####    PORTABLE
+- Aqua Tail         ####    PORTABLE
+- Aqua Jet          ####    PORTABLE
+- Brine             ####    BASE
+- Defend Order      ####    PORTABLE
+- Attack Order      ####    PORTABLE
+- Heal Order        ####    PORTABLE
+- U-Turn            ####    BASE
+- Bug Bite          ####    PORTABLE
+- X-Scissor         ####    BASE
+- Bug Buzz          ####    BASE
+- Dragon Rush       ####    PORTABLE
+- Draco Meteor      ####    PORTABLE
+- Spacial Rend      ####    PORTABLE
+- Roar Of Time      ####    PORTABLE
+- Dragon Pulse      ####    PORTABLE
+- Discharge         ####    PORTABLE
+- Thunder Fang      ####    BASE
+- Magnet Rise       ####    PORTABLE
+- Charge Beam       ####    PORTABLE
+- Shadow Claw       ####    PORTABLE
+- Shadow Force      ####    PORTABLE
+- Shadow Sneak      ####    BASE
+- Ominous Wind      ####    PORTABLE
+- Fire Fang         ####    BASE
+- Flare Blitz       ####    BASE
+- Lava Plume        ####    PORTABLE
+- Magma Storm       ####    PORTABLE
+- Avalanche         ####    PORTABLE
+- Ice Shard         ####    BASE
+- Ice Fang          ####    BASE
+- Close Combat      ####    BASE
+- Aura Sphere       ####    BASE
+- Wake-up Slap      ####    BASE
+- Hammer Arm        ####    BASE
+- Focus Blast       ####    BASE
+- Vacumm Wave       ####    PORTABLE
+- Force Palm        ####    PORTABLE
+- Drain Punch       ####    PORTABLE
+- Acupressure       ####    PORTABLE
+- Crush Grip        ####    PORTABLE
+- Feint             ####    PORTABLE
+- Trump Card        ####    PORTABLE
+- Lucky Chant       ####    PORTABLE
+- Copycat           ####    BASE
+- Double Hit        ####    PORTABLE
+- Natural Gift      ####    BASE
+- Wring Out         ####    PORTABLE
+- Giga Impact       ####    PORTABLE
+- Captivate         ####    PORTABLE
+- Judgement         ####    EMPTY
+- Rock Climb        ####    PORTABLE 
+- Last Resort       ####    PORTABLE
+- Me First          ####    PORTABLE
+- Worry Seed        ####    PORTABLE
+- Seed Bomb         ####    BASE
+- Energy Ball       ####    BASE
+- Seed Flare        ####    BASE
+- Grass Knot        ####    PORTABLE
+- Power Whip        ####    BASE
+- Leaf Storm        ####    BASE
+- Wood Hammer       ####    PORTABLE
+- Heal Block        ####    BASE
+- Zen Headbutt      ####    PORTABLE
+- Heart Swap        ####    PORTABLE
+- Guard Swap        ####    PORTABLE
+- Power Swap        ####    PORTABLE
+- Lunar Dance       ####    PORTABLE
+- Healing Wish      ####    BASE
+- Trick Room        ####    PORTABLE
+- Miracle Eye       ####    BASE
+- Gravity           ####    BASE
+- Psycho Shift      ####    BASE
+- Psycho Cut        ####    PORTABLE
+- Power Trick       ####    BASE
+- Power Gem         ####    PORTABLE
+- Rock Polish       ####    PORTABLE
+- Stone Edge        ####    PORTABLE
+- Rock Wrecker      ####    PORTABLE
+- Head Smash        ####    PORTABLE
+- Stealth Rock      ####    PORTABLE
+- Dark Void         ####    PORTABLE
+- Assurance         ####    BASE
+- Punishment        ####    PORTABLE
+- Embargo           ####    BASE
+- Sucker Punch      ####    PORTABLE
+- Fling             ####    BASE
+- Nasty Plot        ####    PORTABLE
+- Dark Pulse        ####    PORTABLE
+- Night Slash       ####    BASE
+- Switcheroo        ####    PORTABLE
+- Payback           ####    BASE
+- Mud Bomb          ####    BASE
+- Earth Power       ####    PORTABLE
+- Gastro Acid       ####    BASE
+- Gunk Shot         ####    PORTABLE
+- Toxic Spikes      ####    BASE
+- Poison Jab        ####    BASE
+- Cross Poision     ####    BASE
+- Chatter           ####    EMPTY
+- Defog             ####    PORTABLE
+- Brave Bird        ####    BASE
+- Pluck             ####    PORTABLE
+- Roost             ####    BASE
+- Air Slash         ####    BASE
+- Tailwind          ####    BASE
+
+
