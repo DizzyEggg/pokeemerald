@@ -19,12 +19,12 @@ Note*: Posible animations states ->
 - Magnet Bomb       ####    DONE
 - Iron Head         ####    BASE
 - Mirror Shot       ####    DONE
-- Flash Cannon      ####    PORTABLE
+- Flash Cannon      ####    WIP     -> hate this
 - Gyro Ball         ####    BASE
 - Bullet Punch      ####    BASE
 - Metal Burst       ####    BASE
-- Aqua Ring         ####    PORTABLE
-- Aqua Tail         ####    PORTABLE
+- Aqua Ring         ####    DONE
+- Aqua Tail         ####    DONE
 - Aqua Jet          ####    PORTABLE
 - Brine             ####    BASE
 - Defend Order      ####    PORTABLE
