@@ -134,7 +134,7 @@ gBattleAnims_Moves::
 	.4byte Move_FOCUS_ENERGY
 	.4byte Move_BIDE
 	.4byte Move_METRONOME
-	.4byte Move_MIRROR_MOVE @ doesn´t have an actual animation
+	.4byte Move_MIRROR_MOVE @ doesnï¿½t have an actual animation
 	.4byte Move_SELF_DESTRUCT
 	.4byte Move_EGG_BOMB
 	.4byte Move_LICK
@@ -2216,7 +2216,70 @@ Move_IRON_HEAD:
 	end
 	
 Move_MAGNET_BOMB:
+	loadspritegfx ANIM_TAG_IMPACT 
+	loadspritegfx ANIM_TAG_SPARK_2 
+	delay 0 
+	playsewithpan 119, 192 
+	createsprite gBattleAnimSpriteTemplate_859574C, 0, 7, 32, 24,  190,  12, 0, 1, 0 
+	delay 0 
+	createsprite gBattleAnimSpriteTemplate_859574C, 0, 7, 80, 24, 22, 12, 0, 1, 0 
+	createsprite gBattleAnimSpriteTemplate_859574C, 0, 7, 156, 24, 121, 13, 0, 1, 1 
+	delay 0 
+	playsewithpan 119, 192 
+	createsprite gBattleAnimSpriteTemplate_859574C 0, 7, 100, 24, 60, 10, 0, 1, 0 
+	createsprite gBattleAnimSpriteTemplate_859574C 0, 7, 170, 24, 42, 11, 0, 1, 1 
+	delay 0 
+	createsprite gBattleAnimSpriteTemplate_859574C 0, 7, 238, 24, 165, 10, 0, 1, 1 
+	delay 0 
+	loadspritegfx ANIM_TAG_RED_ORB 
+	playsewithpan 152, SOUND_PAN_ATTACKER 
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, ANIM_ATTACKER, 0
+	waitforvisualfinish
+	delay 30
+	createvisualtask AnimTask_BlendMonInAndOut, 5, ANIM_ATTACKER, RGB(31, 31, 19), 12, 5, 1
+	delay 4
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, ANIM_ATTACKER, 0
+	playsewithpan 217, SOUND_PAN_ATTACKER 
+	createsprite gHiddenPowerOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 0 
+	createsprite gHiddenPowerOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 42 
+	createsprite gHiddenPowerOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 84 
+	createsprite gHiddenPowerOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 126 
+	createsprite gHiddenPowerOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 168 
+	createsprite gHiddenPowerOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 210 
+	delay 52 
+	setarg 7, -1 
+	playsewithpan 207, SOUND_PAN_ATTACKER 
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, ANIM_ATTACKER, 0 
+	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 0 
+	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 32
+	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 64
+	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 96
+	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 128
+	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 160
+	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 192
+	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 224
+	loadspritegfx ANIM_TAG_GRAY_SMOKE 
+	loadspritegfx ANIM_TAG_BLACK_BALL 
+	playsewithpan 177, 63 
+	createsprite gUnknown_08592E30, 130, 4, 8, 8, 1, 0 
+	delay 2 
+	createsprite gUnknown_08592E30, 130, 4, -8, -8, 1, 0 
+	delay 2 
+	createsprite gUnknown_08592E30, 130, 4, 8, -8, 1, 0 
+	delay 2 
+	createsprite gUnknown_08592E30, 130, 4, -8, 8, 1, 0 
+	waitforvisualfinish 
+	playsewithpan 177, 63 
+	createsprite gUnknown_08592E30, 130, 4, 8, 8, 1, 0 
+	delay 2 
+	createsprite gUnknown_08592E30, 130, 4, -8, -8, 1, 0 
+	delay 2 
+	createsprite gUnknown_08592E30, 130, 4, 8, -8, 1, 0 
+	delay 2 
+	createsprite gUnknown_08592E30, 130, 4, -8, 8, 1, 0 
+	waitforvisualfinish 
 	end
+	
 	
 Move_STONE_EDGE:
 	end
