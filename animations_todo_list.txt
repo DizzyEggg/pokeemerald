@@ -34,7 +34,7 @@ Note*: Posible animations states ->
 - Bug Bite          ####    EMPTY
 - X-Scissor         ####    BASE
 - Bug Buzz          ####    BASE
-- Dragon Rush       ####    PORTABLE
+- Dragon Rush       ####    DONE
 - Draco Meteor      ####    PORTABLE
 - Spacial Rend      ####    PORTABLE
 - Roar Of Time      ####    PORTABLE

@@ -14,6 +14,7 @@ static void sub_81132E0(struct Sprite *);
 static void sub_81134B8(u8);
 static void sub_8113574(struct Task *);
 static void sub_811369C(struct Sprite *);
+static void AnimDragonRushStep(struct Sprite *sprite);
 
 EWRAM_DATA static u16 gUnknown_0203A100[7] = {0};
 
@@ -186,6 +187,71 @@ const struct SpriteTemplate gUnknown_08596FB0 =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = sub_81135EC,
 };
+
+const union AnimCmd gDragonRushAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gDragonRushAnimTable[] =
+{
+    gDragonRushAnimCmds,
+};
+
+const union AffineAnimCmd gDragonRushAffineanimCmds1[] =
+{
+    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
+    AFFINEANIMCMD_FRAME(0, 0, -4, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd gDragonRushAffineanimCmds2[] =
+{
+    AFFINEANIMCMD_FRAME(-0x100, 0x100, 0, 0),
+    AFFINEANIMCMD_FRAME(0, 0, 4, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd *const gDragonRushAffineAnimTable[] =
+{
+    gDragonRushAffineanimCmds1,
+    gDragonRushAffineanimCmds2,
+};
+
+const struct SpriteTemplate gDragonRushSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SLAM_HIT_2,
+    .paletteTag = ANIM_TAG_RED_HEART,
+    .oam = &gUnknown_0852497C,
+    .anims = gDragonRushAnimTable,
+    .images = NULL,
+    .affineAnims = gDragonRushAffineAnimTable,
+    .callback = AnimDragonRushStep,
+};
+
+static void AnimDragonRushStep(struct Sprite *sprite)
+{
+    // These two cases are identical.
+    if (GetBattlerSide(gBattleAnimTarget) == B_SIDE_PLAYER)
+    {
+        sprite->data[1] += sprite->data[0];
+        sprite->data[1] &= 0xFF;
+    }
+    else
+    {
+        sprite->data[1] += sprite->data[0];
+        sprite->data[1] &= 0xFF;
+    }
+
+    sprite->pos2.x = Cos(sprite->data[1], 20);
+    sprite->pos2.y = Sin(sprite->data[1], 20);
+    if (sprite->animEnded)
+        DestroyAnimSprite(sprite);
+
+    sprite->data[2]++;
+}
 
 void sub_8113064(struct Sprite *sprite)
 {

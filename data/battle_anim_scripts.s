@@ -1740,7 +1740,33 @@ Move_DRAGON_PULSE:
 	end
 	
 Move_DRAGON_RUSH:
-	end
+	loadspritegfx ANIM_TAG_SLAM_HIT_2 
+	loadspritegfx ANIM_TAG_IMPACT 
+	loadspritegfx ANIM_TAG_ROCKS 
+	loadspritegfx ANIM_TAG_RED_HEART 
+	createsprite gHorizontalLungeSpriteTemplate, 2, 2, 4, 6  
+	delay 4 
+	playsewithpan SE_W233, SOUND_PAN_TARGET 
+	createsprite gDragonRushSpriteTemplate, 131, 2, -16, -16  
+	delay 8 
+	createsprite gComplexPaletteBlendSpriteTemplate, 2, 7, 31, 5, 1, RGB(31, 31, 31), 10, 0, 0  
+	createsprite gBasicHitSplatSpriteTemplate, 3, 4, 0, 0, 1, 1  
+	createvisualtask AnimTask_ShakeMon, 2, 5, ANIM_TARGET, 3, 0, 5, 1  
+	waitforvisualfinish 
+	playsewithpan 131, SOUND_PAN_TARGET 
+	createsprite gUnknown_08596B1C, 2, 6, 0, 0, 20, 24, 14, 2  
+	createsprite gUnknown_08596B1C, 2, 6, 5, 0, -20, 24, 14, 1  
+	createsprite gUnknown_08596B1C, 2, 6, 0, 5, 20, -24, 14, 2  
+	createsprite gUnknown_08596B1C, 2, 6, -5, 0, 20, 24, 14, 2  
+	createsprite gUnknown_08596B1C, 2, 6, 0, -5, 30, 18, 8, 2  
+	createsprite gUnknown_08596B1C, 2, 6, 0, 0, 30, -18, 8, 2  
+	createsprite gUnknown_08596B1C, 2, 6, 0, 0, -30, 18, 8, 2  
+	createsprite gUnknown_08596B1C, 2, 6, 0, 0, -30, -18, 8, 2  
+	createvisualtask AnimTask_ShakeMon, 2, 5, ANIM_TARGET, 0, 3, 7, 1  
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
+	end 
 	
 Move_POWER_GEM:
 	end
