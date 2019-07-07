@@ -1422,7 +1422,8 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_MegaSymbol, 0x0200, ANIM_TAG_MEGA_SYMBOL},
     {gBattleAnimSpriteGfx_MegaParticles, 0x0180, ANIM_TAG_MEGA_PARTICLES},
     {gBattleAnimSpriteGfx_AttackOrder, 0x0480, ANIM_TAG_ATTACK_ORDER},
-    {gBattleAnimSpriteGfx_DragonPulse, 0x0100, ANIM_TAG_DRAGON_PULSE}
+    {gBattleAnimSpriteGfx_DragonPulse, 0x0100, ANIM_TAG_DRAGON_PULSE},
+    {gBattleAnimSpriteGfx_WaterShuriken, 0x0200, ANIM_TAG_WATER_SHURIKEN},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1724,7 +1725,8 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_MegaSymbol, ANIM_TAG_MEGA_SYMBOL},
     {gBattleAnimSpritePal_MegaParticles, ANIM_TAG_MEGA_PARTICLES},
     {gBattleAnimSpritePal_AttackOrder, ANIM_TAG_ATTACK_ORDER},
-    {gBattleAnimSpritePal_DragonPulse, ANIM_TAG_DRAGON_PULSE}
+    {gBattleAnimSpritePal_DragonPulse, ANIM_TAG_DRAGON_PULSE},
+    {gBattleAnimSpritePal_WaterShuriken, ANIM_TAG_WATER_SHURIKEN},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

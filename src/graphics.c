@@ -1626,6 +1626,8 @@ const u32 gBattleAnimSpriteGfx_AttackOrder[] = INCBIN_U32("graphics/battle_anims
 const u32 gBattleAnimSpritePal_AttackOrder[] = INCBIN_U32("graphics/battle_anims/sprites/attack_order.gbapal.lz");
 const u32 gBattleAnimSpriteGfx_DragonPulse[] = INCBIN_U32("graphics/battle_anims/sprites/dragon_pulse.4bpp.lz");
 const u32 gBattleAnimSpritePal_DragonPulse[] = INCBIN_U32("graphics/battle_anims/sprites/dragon_pulse.gbapal.lz");
+const u32 gBattleAnimSpriteGfx_WaterShuriken[] = INCBIN_U32("graphics/battle_anims/sprites/water_shuriken.4bpp.lz");
+const u32 gBattleAnimSpritePal_WaterShuriken[] = INCBIN_U32("graphics/battle_anims/sprites/water_shuriken.gbapal.lz");
 
 // random garbage at the end.
 asm(".space 0x54BAC \n\

@@ -56,6 +56,8 @@ void sub_8108D54(struct Sprite*, int, int);
 void AnimKnockOffAquaTail(struct Sprite *sprite);
 void AquaTailHit_Callback(struct Sprite *sprite);
 static void AnimKnockOffAquaTailStep(struct Sprite *sprite);
+static void AnimWaterShurikenStep(struct Sprite *sprite);
+static void InitAnimWaterShuriken(struct Sprite *sprite);
 
 extern const union AffineAnimCmd *const gUnknown_08593420[];
 extern const union AffineAnimCmd *const gUnknown_08596208[];
@@ -550,6 +552,18 @@ const union AffineAnimCmd *const gKnockOffAquaTailAffineAnimTable[] =
     gKnockOffAquaTailAffineanimCmds2,
 };
 
+const union AffineAnimCmd gWaterShurikenAffineAnimTable[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 10, 1),
+    AFFINEANIMCMD_JUMP(0),
+};
+
+const union AffineAnimCmd *const gWaterShurikenAffineAnims[] =
+{
+    gWaterShurikenAffineAnimTable,
+};
+
+
 const struct SpriteTemplate gAquaTailHitSpriteTemplate =
 {
     .tileTag = ANIM_TAG_IMPACT,
@@ -571,6 +585,79 @@ const struct SpriteTemplate gAquaTailKnockOffSpriteTemplate =
     .affineAnims = gKnockOffAquaTailAffineAnimTable,
     .callback = AnimKnockOffAquaTail,
 };
+
+const struct SpriteTemplate gWaterShurikenSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_SHURIKEN,
+    .paletteTag = ANIM_TAG_WATER_SHURIKEN,
+    .oam = &gUnknown_08524974,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gWaterShurikenAffineAnims,
+    .callback = InitAnimWaterShuriken,
+};
+
+static void InitAnimWaterShuriken(struct Sprite *sprite)
+{
+    s16 oldPosX = sprite->pos1.x;
+    s16 oldPosY = sprite->pos1.y;
+
+    sprite->pos1.x = GetBattlerSpriteCoord(gBattleAnimAttacker, 2);
+    sprite->pos1.y = GetBattlerSpriteCoord(gBattleAnimAttacker, 3);
+    sprite->data[0] = 0;
+    sprite->data[1] = gBattleAnimArgs[0];
+    sprite->data[2] = gBattleAnimArgs[1];
+    sprite->data[3] = gBattleAnimArgs[2];
+    sprite->data[4] = sprite->pos1.x << 4;
+    sprite->data[5] = sprite->pos1.y << 4;
+    sprite->data[6] = ((oldPosX - sprite->pos1.x) << 4) / (gBattleAnimArgs[0] << 1);
+    sprite->data[7] = ((oldPosY - sprite->pos1.y) << 4) / (gBattleAnimArgs[0] << 1);
+    sprite->callback = AnimWaterShurikenStep;
+}
+
+static void AnimWaterShurikenStep(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+    case 0:
+        sprite->data[4] += sprite->data[6];
+        sprite->data[5] += sprite->data[7];
+        sprite->pos1.x = sprite->data[4] >> 4;
+        sprite->pos1.y = sprite->data[5] >> 4;
+        sprite->data[1] -= 1;
+        if (sprite->data[1] > 0)
+            break;
+        sprite->data[0] += 1;
+        break;
+    case 1:
+        sprite->data[2] -= 1;
+        if (sprite->data[2] > 0)
+            break;
+        sprite->data[1] = GetBattlerSpriteCoord(gBattleAnimTarget, 2);
+        sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, 3);
+        sprite->data[4] = sprite->pos1.x << 4;
+        sprite->data[5] = sprite->pos1.y << 4;
+        sprite->data[6] = ((sprite->data[1] - sprite->pos1.x) << 4) / sprite->data[3];
+        sprite->data[7] = ((sprite->data[2] - sprite->pos1.y) << 4) / sprite->data[3];
+        sprite->data[0] += 1;
+        break;
+    case 2:
+        sprite->data[4] += sprite->data[6];
+        sprite->data[5] += sprite->data[7];
+        sprite->pos1.x = sprite->data[4] >> 4;
+        sprite->pos1.y = sprite->data[5] >> 4;
+        sprite->data[3] -= 1;
+        if (sprite->data[3] > 0)
+            break;
+        sprite->pos1.x = GetBattlerSpriteCoord(gBattleAnimTarget, 2);
+        sprite->pos1.y = GetBattlerSpriteCoord(gBattleAnimTarget, 3);
+        sprite->data[0] += 1;
+        break;
+    case 3:
+        DestroySpriteAndMatrix(sprite);
+        break;
+    }
+}
 
 void AnimKnockOffAquaTail(struct Sprite *sprite)
 {

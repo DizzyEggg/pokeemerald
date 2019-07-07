@@ -39,10 +39,10 @@ Note*: Posible animations states ->
 - Spacial Rend      ####    EMPTY   - Too shitty anim
 - Roar Of Time      ####    EMPTY   - Too shitty anim
 - Dragon Pulse      ####    DONE
-- Discharge         ####    PORTABLE
+- Discharge         ####    DONE     
 - Thunder Fang      ####    BASE
-- Magnet Rise       ####    PORTABLE
-- Charge Beam       ####    PORTABLE
+- Magnet Rise       ####    DONE
+- Charge Beam       ####    DONE    - Maybe bew particles??
 - Shadow Claw       ####    PORTABLE
 - Shadow Force      ####    PORTABLE
 - Shadow Sneak      ####    BASE
@@ -51,7 +51,7 @@ Note*: Posible animations states ->
 - Flare Blitz       ####    BASE
 - Lava Plume        ####    PORTABLE
 - Magma Storm       ####    PORTABLE
-- Avalanche         ####    PORTABLE    //Min
+- Avalanche         ####    DONE    - Maybe new particles?/sound
 - Ice Shard         ####    BASE
 - Ice Fang          ####    BASE
 - Close Combat      ####    BASE
@@ -234,7 +234,7 @@ Note*: Posible animations states ->
 - King's Shield     ####    PORTABLE
 - Steam Eruption    ####    PORTABLE
 - Origin Pulse      ####    PORTABLE
-- Water Shuriken    ####    PORTABLE
+- Water Shuriken    ####    DONE
 - Infestation       ####    PORTABLE
 - Fell Stinger      ####    PORTABLE
 - Powder            ####    PORTABLE

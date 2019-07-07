@@ -4959,5 +4959,7 @@ extern const u32 gBattleAnimSpritePal_AttackOrder[];
 extern const u32 gBattleAnimSpriteGfx_AttackOrder[];
 extern const u32 gBattleAnimSpriteGfx_DragonPulse[];
 extern const u32 gBattleAnimSpritePal_DragonPulse[];
+extern const u32 gBattleAnimSpriteGfx_WaterShuriken[];
+extern const u32 gBattleAnimSpritePal_WaterShuriken[];
 
 #endif //GUARD_GRAPHICS_H
