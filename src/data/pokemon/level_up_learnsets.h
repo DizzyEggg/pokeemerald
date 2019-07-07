@@ -5215,7 +5215,7 @@ static const struct LevelUpMove sSceptileLevelUpLearnset[] = {
 
 static const struct LevelUpMove sTorchicLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 1, MOVE_SCRATCH), TODO: Debug movements
-    LEVEL_UP_MOVE(1, MOVE_AQUA_JET),
+    LEVEL_UP_MOVE(1, MOVE_FLASH_CANNON),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 5, MOVE_EMBER),
     LEVEL_UP_MOVE(10, MOVE_SAND_ATTACK),

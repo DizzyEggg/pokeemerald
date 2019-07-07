@@ -11,15 +11,15 @@ Note*: Posible animations states ->
 
 
 57 Base.
-1 Done.
-162 Portable.
-49 Empty.
+8 Done.
+153 Portable.
+51 Empty.
 
 ******** 4TH GEN ATTACKS *********
 - Magnet Bomb       ####    DONE
 - Iron Head         ####    BASE
 - Mirror Shot       ####    DONE
-- Flash Cannon      ####    WIP     -> hate this
+- Flash Cannon      ####    EMPTY     
 - Gyro Ball         ####    BASE
 - Bullet Punch      ####    BASE
 - Metal Burst       ####    BASE
@@ -27,11 +27,11 @@ Note*: Posible animations states ->
 - Aqua Tail         ####    DONE
 - Aqua Jet          ####    DONE
 - Brine             ####    BASE
-- Defend Order      ####    PORTABLE
-- Attack Order      ####    PORTABLE
-- Heal Order        ####    PORTABLE
+- Defend Order      ####    DONE
+- Attack Order      ####    DONE
+- Heal Order        ####    DONE
 - U-Turn            ####    BASE
-- Bug Bite          ####    PORTABLE
+- Bug Bite          ####    EMPTY
 - X-Scissor         ####    BASE
 - Bug Buzz          ####    BASE
 - Dragon Rush       ####    PORTABLE

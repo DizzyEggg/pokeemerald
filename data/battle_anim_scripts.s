@@ -2167,7 +2167,7 @@ Move_FLASH_CANNON:
 	playsewithpan SE_W268, SOUND_PAN_ATTACKER 
 	delay 30 
 	playsewithpan SE_W268, SOUND_PAN_ATTACKER 
-	@createsprite TEMPL_0x9f2e124 0x2 0x1 0x0  
+	@createsprite gFlashCannonParticleSpriteTemplate, 2, 1, 0  
 	delay 25 
 	playsewithpan SE_W268, SOUND_PAN_ATTACKER 
 	delay 20 
@@ -2499,12 +2499,123 @@ Move_AQUA_JET:
 	end
 	
 Move_ATTACK_ORDER:
+	loadspritegfx ANIM_TAG_ATTACK_ORDER 
+	loadspritegfx ANIM_TAG_IMPACT 
+	loadspritegfx ANIM_TAG_ROCKS 
+	monbg ANIM_DEF_PARTNER 
+	monbgprio_28 ANIM_TARGET 
+	playsewithpan SE_W230, SOUND_PAN_TARGET 	
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 120, 70, 5, 70, 30  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 120, 55, 6, 60, 25  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 120, 60, 7, 60, 30  
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 120, 55, 10, 60, 30  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 100, 50, 4, 50, 26  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 105, 25, 8, 60, 20  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 120, 40, 10, 48, 30  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 120, 30, 6, 45, 25  
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 120, 35, 10, 60, 30  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 105, 20, 8, 40, 0  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 20, 255, 15, 32, 0  
+	createsprite gAttackOrderParticleSpriteTemplate, ANIM_TARGET, 5, 110, 10, 8, 32, 20  
+	waitforvisualfinish 
+	createsprite gBasicHitSplatSpriteTemplate 131, 4, -32, -16, 1, 3  
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	createvisualtask AnimTask_ShakeMonInPlace, 2, 5, 1, 3, 0, 12, 1  
+	createvisualtask AnimTask_ShakeMonInPlace, 2, 5, 1, 3, 0, 12, 1   
+	delay 4 
+	createsprite gUnknown_085973A0 131, 2, 1, 3  
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	delay 4 
+	createsprite gUnknown_085973A0 131, 2, 1, 3  
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	delay 4 
+	createsprite gBasicHitSplatSpriteTemplate 131, 4, 32, 20, 1, 3  
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
 	end
 	
 Move_DEFEND_ORDER:
+	loadspritegfx ANIM_TAG_ATTACK_ORDER 
+	loadspritegfx ANIM_TAG_IMPACT 
+	loadspritegfx ANIM_TAG_ROCKS 
+	monbg ANIM_DEF_PARTNER 
+	monbgprio_28 ANIM_TARGET  
+	playsewithpan SE_W230, SOUND_PAN_TARGET 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 120, 70, 5, 70, 30  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 55, 6, 60, 25  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 60, 7, 60, 30  
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 55, 10, 60, 30  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 100, 50, 4, 50, 26  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 105, 25, 8, 60, 20  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 40, 10, 48, 30  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 120, 30, 6, 45, 25  
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 35, 10, 60, 30  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 105, 20, 8, 40, 0  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 20, 255, 15, 32, 0  
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 110, 10, 8, 32, 20  
+	waitforvisualfinish 
+	loadspritegfx ANIM_TAG_BLUE_STAR 
+	waitforvisualfinish 
+	clearmonbg ANIM_ATK_PARTNER 
+	blendoff 
+	delay 1 
+	call BideSetUp 
+	waitforvisualfinish 
 	end
 	
 Move_HEAL_ORDER:
+	loadspritegfx ANIM_TAG_ATTACK_ORDER 
+	loadspritegfx ANIM_TAG_IMPACT 
+	loadspritegfx ANIM_TAG_ROCKS 
+	monbg ANIM_DEF_PARTNER 
+	monbgprio_28 ANIM_TARGET  
+	playsewithpan SE_W230, SOUND_PAN_TARGET 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 120, 70, 5, 70, 30  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 55, 6, 60, 25  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 60, 7, 60, 30  
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 55, 10, 60, 30  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 100, 50, 4, 50, 26  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 105, 25, 8, 60, 20  
+	delay 1 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 40, 10, 48, 30  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 120, 30, 6, 45, 25  
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 35, 10, 60, 30  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 105, 20, 8, 40, 0  
+	delay 3 
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 20, 255, 15, 32, 0  
+	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 110, 10, 8, 32, 20  
+	waitforvisualfinish 
+	loadspritegfx ANIM_TAG_BLUE_STAR 
+	waitforvisualfinish 
+	clearmonbg ANIM_ATK_PARTNER 
+	blendoff 
+	delay 1 
+	call HealingEffect 
+	waitforvisualfinish 
 	end
 	
 Move_HEAD_SMASH:

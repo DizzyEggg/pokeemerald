@@ -4955,5 +4955,7 @@ extern const u32 gBattleAnimSpriteGfx_MegaParticles[];
 extern const u32 gBattleAnimSpritePal_MegaParticles[];
 extern const u32 gBattleAnimSpriteGfx_MegaSymbol[];
 extern const u32 gBattleAnimSpritePal_MegaSymbol[];
+extern const u32 gBattleAnimSpritePal_AttackOrder[];
+extern const u32 gBattleAnimSpriteGfx_AttackOrder[];
 
 #endif //GUARD_GRAPHICS_H
