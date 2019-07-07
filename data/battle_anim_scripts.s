@@ -1737,7 +1737,35 @@ Move_BUG_BUZZ:
 	end
 	
 Move_DRAGON_PULSE:
-	end
+	createsprite gSimplePaletteBlendSpriteTemplate, 2, 5, 1, 1, 0, 7, 0  
+	waitforvisualfinish 
+	loadspritegfx ANIM_TAG_DRAGON_PULSE 
+	playsewithpan SE_W060, SOUND_PAN_ATTACKER 
+	createsoundtask sub_8158C58, 7, 200, -64, SOUND_PAN_TARGET, 3, 4, 0, 15  
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	createvisualtask AnimTask_SwayMon, 5, 5, 0, 6, 51200, 4, 1  
+	createvisualtask sub_8115A04, 2, 6, 4, 2, 2, 0, 12, RGB(30, 10, 13)  
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	waitforvisualfinish 
+	delay 1 
+	createsprite gSimplePaletteBlendSpriteTemplate, 2, 5, 1, 1, 7, 0, 0  
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
+	end 
+DragonPulseParticle:
+	createsprite gDragonPulseSpriteTemplate, 130, 6, 16, 0, 0, 0, 13, 0  
+	delay 4 
+	return 
 	
 Move_DRAGON_RUSH:
 	loadspritegfx ANIM_TAG_SLAM_HIT_2 

@@ -38,7 +38,7 @@ Note*: Posible animations states ->
 - Draco Meteor      ####    DONE
 - Spacial Rend      ####    EMPTY   - Too shitty anim
 - Roar Of Time      ####    EMPTY   - Too shitty anim
-- Dragon Pulse      ####    PORTABLE
+- Dragon Pulse      ####    DONE
 - Discharge         ####    PORTABLE
 - Thunder Fang      ####    BASE
 - Magnet Rise       ####    PORTABLE

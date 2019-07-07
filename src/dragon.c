@@ -285,6 +285,17 @@ const struct SpriteTemplate gDracoMetorSpriteTemplate =
     .callback = AnimSpinningDracoMeteor,
 };
 
+const struct SpriteTemplate gDragonPulseSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DRAGON_PULSE,
+    .paletteTag = ANIM_TAG_DRAGON_PULSE,
+    .oam = &gUnknown_08524954,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = TranslateAnimSpriteToTargetMonLocation,
+};
+
 static void AnimDragonRushStep(struct Sprite *sprite)
 {
     // These two cases are identical.

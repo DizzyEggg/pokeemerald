@@ -304,6 +304,7 @@
 #define ANIM_TAG_MEGA_SYMBOL                (ANIM_SPRITES_START + 294)
 #define ANIM_TAG_MEGA_PARTICLES             (ANIM_SPRITES_START + 295)
 #define ANIM_TAG_ATTACK_ORDER               (ANIM_SPRITES_START + 296)
+#define ANIM_TAG_DRAGON_PULSE               (ANIM_SPRITES_START + 297)
 
 // battlers
 #define ANIM_ATTACKER    0
