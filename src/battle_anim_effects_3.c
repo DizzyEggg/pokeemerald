@@ -1223,6 +1223,17 @@ const struct SpriteTemplate gMegaSymbolSpriteTemplate =
     .callback = sub_8112B78,
 };
 
+const struct SpriteTemplate gDracoMeteorSmashSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WARM_ROCK,
+    .paletteTag = ANIM_TAG_WARM_ROCK,
+    .oam = &gUnknown_08524914,//&gUnknown_0852490C,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMeteorMashStar,
+};
+
 void sub_815A0D4(struct Sprite *sprite)
 {
     sprite->pos1.x += gBattleAnimArgs[0];

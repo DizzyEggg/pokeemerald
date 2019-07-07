@@ -2220,6 +2220,26 @@ Move_TRICK_ROOM:
 	end
 	
 Move_DRACO_METEOR:
+	loadspritegfx ANIM_TAG_WARM_ROCK 
+	loadspritegfx ANIM_TAG_GOLD_STARS 
+	loadspritegfx ANIM_TAG_IMPACT 
+	loadspritegfx ANIM_TAG_ICE_SPIKES 
+	playsewithpan SE_W268, SOUND_PAN_TARGET 
+	fadetobg BG_COSMIC 
+	waitbgfadein 
+	waitforvisualfinish 
+	createsprite gDracoMeteorSmashSpriteTemplate, 131, 5, -47, -63, 72, 32, 30  
+	delay 10 
+	createsprite gDracoMeteorSmashSpriteTemplate, 131, 5, -111, -63, 8, 32, 30  
+	delay 40 
+	createsprite gDracoMetorSpriteTemplate, 131, 4, 0, 0, 0, 30  
+	createsprite gDracoMeteorSmashSpriteTemplate, 131, 5, -79, -63, 40, 32, 30  
+	delay 20 
+	playsewithpan SE_W088, SOUND_PAN_TARGET 
+	delay 10 
+	restorebg 
+	waitbgfadein 
+	waitforvisualfinish 
 	end
 	
 Move_DISCHARGE:

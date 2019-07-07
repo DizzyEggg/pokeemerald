@@ -231,6 +231,60 @@ const struct SpriteTemplate gDragonRushSpriteTemplate =
     .callback = AnimDragonRushStep,
 };
 
+const union AnimCmd gDracoMeteorAnimTable[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gDracoMeteorAnimCmd[] =
+{
+    gDracoMeteorAnimTable,
+};
+
+const union AffineAnimCmd gDracoMeteorAffineAnimCmd[] =
+{
+    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
+    AFFINEANIMCMD_FRAME(0xFFF8, 0xFFF8, 20, 1),
+    AFFINEANIMCMD_JUMP(1),
+};
+
+const union AffineAnimCmd *const gDracoMeteorAffineAnims[] =
+{
+    gDracoMeteorAffineAnimCmd,
+};
+
+static void AnimSpinningDracoMeteorFinish(struct Sprite *sprite)
+{
+    StartSpriteAffineAnim(sprite, 0);
+    sprite->affineAnimPaused = 1;
+    sprite->data[0] = 20;
+
+    sprite->callback = WaitAnimForDuration;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+void AnimSpinningDracoMeteor(struct Sprite *sprite)
+{
+    InitSpritePosToAnimTarget(sprite, TRUE);
+    StartSpriteAnim(sprite, gBattleAnimArgs[2]);
+    sprite->data[0] = gBattleAnimArgs[3];
+
+    sprite->callback = WaitAnimForDuration;
+    StoreSpriteCallbackInData6(sprite, AnimSpinningDracoMeteorFinish);
+}
+
+const struct SpriteTemplate gDracoMetorSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_IMPACT,
+    .paletteTag = ANIM_TAG_IMPACT,
+    .oam = &gUnknown_085249D4,
+    .anims = gDracoMeteorAnimCmd,
+    .images = NULL,
+    .affineAnims = gDracoMeteorAffineAnims,
+    .callback = AnimSpinningDracoMeteor,
+};
+
 static void AnimDragonRushStep(struct Sprite *sprite)
 {
     // These two cases are identical.

@@ -35,9 +35,9 @@ Note*: Posible animations states ->
 - X-Scissor         ####    BASE
 - Bug Buzz          ####    BASE
 - Dragon Rush       ####    DONE
-- Draco Meteor      ####    PORTABLE
-- Spacial Rend      ####    PORTABLE
-- Roar Of Time      ####    PORTABLE
+- Draco Meteor      ####    DONE
+- Spacial Rend      ####    EMPTY   - Too shitty anim
+- Roar Of Time      ####    EMPTY   - Too shitty anim
 - Dragon Pulse      ####    PORTABLE
 - Discharge         ####    PORTABLE
 - Thunder Fang      ####    BASE
@@ -51,7 +51,7 @@ Note*: Posible animations states ->
 - Flare Blitz       ####    BASE
 - Lava Plume        ####    PORTABLE
 - Magma Storm       ####    PORTABLE
-- Avalanche         ####    PORTABLE
+- Avalanche         ####    PORTABLE    //Min
 - Ice Shard         ####    BASE
 - Ice Fang          ####    BASE
 - Close Combat      ####    BASE
@@ -68,7 +68,7 @@ Note*: Posible animations states ->
 - Trump Card        ####    PORTABLE
 - Lucky Chant       ####    PORTABLE
 - Copycat           ####    BASE
-- Double Hit        ####    PORTABLE
+- Double Hit        ####    PORTABLE    //TOP
 - Natural Gift      ####    BASE
 - Wring Out         ####    PORTABLE
 - Giga Impact       ####    PORTABLE
