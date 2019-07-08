@@ -2073,7 +2073,29 @@ Move_ICE_SHARD:
 	end
 	
 Move_SHADOW_CLAW:
-	end
+	createsprite gSimplePaletteBlendSpriteTemplate 2, 5, 1, 1, 0, 7, 0  
+	waitforvisualfinish 
+	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL 
+	loadspritegfx ANIM_TAG_CLAW_SLASH 
+	loadspritegfx ANIM_TAG_TORN_METAL 
+	monbg ANIM_TARGET 
+	setalpha 12, 8 
+	createsprite gHorizontalLungeSpriteTemplate 2, 2, 6, 4  
+	delay 4
+	createvisualtask AnimTask_ShakeMon2 2, 5, 1, 2, 0, 18, 1  
+	createsprite gBattleAnimSpriteTemplate_8597138, 130, 3, -10, -10, 0  
+	createsprite gBattleAnimSpriteTemplate_8597138, 130, 3, -10, 10, 0 
+	playsewithpan 136, SOUND_PAN_TARGET 
+	delay 12,
+	createsprite gBattleAnimSpriteTemplate_8597138, 130, 3, 10, -10, 1 
+	createsprite gBattleAnimSpriteTemplate_8597138, 130, 3, 10, 10, 1  
+	playsewithpan 136, SOUND_PAN_TARGET 
+	waitforvisualfinish 
+	createsprite gSimplePaletteBlendSpriteTemplate 2, 5, 1, 1, 7, 0, 0  
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
+	end 
 	
 Move_THUNDER_FANG:
 	loadspritegfx ANIM_TAG_IMPACT
@@ -2912,7 +2934,56 @@ Move_OMINOUS_WIND:
 	end
 	
 Move_SHADOW_FORCE:
-	end
+	loadspritegfx ANIM_TAG_ROUND_SHADOW 
+	loadspritegfx ANIM_TAG_IMPACT 
+	choosetwoturnanim ShadowForcePrep ShadowForceAttack 
+ShadowForceWaitEnd:
+	waitforvisualfinish 
+	end 
+ShadowForcePrep:
+	playsewithpan 190, SOUND_PAN_ATTACKER, 
+	createsprite gSimplePaletteBlendSpriteTemplate 2, 5, 1, 3, 0, 16, 0
+	createvisualtask AnimTask_SetGreyscaleOrOriginalPal, 5, 2, 0
+	createvisualtask AnimTask_SetGreyscaleOrOriginalPal, 5, 2, 0
+	createvisualtask AnimTask_SetGreyscaleOrOriginalPal, 5, 2, 0
+	createvisualtask AnimTask_SetGreyscaleOrOriginalPal, 5, 2, 0
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, 0, 18, 6, 1, 3
+	createvisualtask sub_81136E8, 2, 1, 1
+	delay 80
+	createsprite gSimplePaletteBlendSpriteTemplate 2, 5, 1, 3, 16, 0, 0
+	createvisualtask AnimTask_SetGreyscaleOrOriginalPal, 5, 2, 1 
+	createvisualtask AnimTask_SetGreyscaleOrOriginalPal, 5, 2, 1 
+	createvisualtask AnimTask_SetGreyscaleOrOriginalPal, 5, 2, 1
+	createvisualtask AnimTask_SetGreyscaleOrOriginalPal, 5, 2, 1
+	waitforvisualfinish 
+	clearmonbg ANIM_ATTACKER 
+	invisible 0
+	delay 1
+	goto ShadowForceWaitEnd 
+ShadowForceAttack:
+	monbg ANIM_ATTACKER 
+	monbgprio_28 ANIM_ATTACKER 
+	playsewithpan SE_W060, SOUND_PAN_ATTACKER
+	call ShadowForceBg
+	waitbgfadein 
+	delay 10 
+	playsewithpan SOUND_PAN_ATTACKER, 192
+	createvisualtask sub_811188C, 5, 1, 85
+	delay 70 
+	createvisualtask AnimTask_ShakeMon2 2, 5, 1, 2, 0, 12, 1
+	createvisualtask sub_8115A04 2, 6, 4, 0, 2, 0, 13, 0
+	waitforvisualfinish 
+	clearmonbg ANIM_ATTACKER 
+	delay 1
+	call UnsetPsychicBg	
+	waitbgfadein 
+	goto ShadowForceWaitEnd
+ShadowForceBg:
+	fadetobg BG_DARK 
+	waitbgfadeout 
+	createvisualtask sub_815A5C8, 5, 0
+	waitbgfadein 
+	return
 	
 Move_HONE_CLAWS:
 	end
