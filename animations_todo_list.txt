@@ -42,15 +42,15 @@ Note*: Posible animations states ->
 - Discharge         ####    DONE     
 - Thunder Fang      ####    BASE
 - Magnet Rise       ####    DONE
-- Charge Beam       ####    DONE    - Maybe bew particles??
+- Charge Beam       ####    DONE    - Maybe new particles??
 - Shadow Claw       ####    DONE
 - Shadow Force      ####    DONE
 - Shadow Sneak      ####    BASE
-- Ominous Wind      ####    PORTABLE
+- Ominous Wind      ####    DONE
 - Fire Fang         ####    BASE
 - Flare Blitz       ####    BASE
-- Lava Plume        ####    PORTABLE
-- Magma Storm       ####    PORTABLE
+- Lava Plume        ####    DONE
+- Magma Storm       ####    WIP - Need Background
 - Avalanche         ####    DONE    - Maybe new particles?/sound
 - Ice Shard         ####    BASE
 - Ice Fang          ####    BASE
@@ -59,16 +59,16 @@ Note*: Posible animations states ->
 - Wake-up Slap      ####    BASE
 - Hammer Arm        ####    BASE
 - Focus Blast       ####    BASE
-- Vacumm Wave       ####    PORTABLE
+- Vacumm Wave       ####    DONE - Problem with particles
 - Force Palm        ####    PORTABLE
 - Drain Punch       ####    PORTABLE
 - Acupressure       ####    PORTABLE
 - Crush Grip        ####    PORTABLE
 - Feint             ####    PORTABLE
-- Trump Card        ####    PORTABLE
+- Trump Card        ####    PORTABLE    //Min
 - Lucky Chant       ####    PORTABLE
 - Copycat           ####    BASE
-- Double Hit        ####    PORTABLE    //TOP
+- Double Hit        ####    PORTABLE    
 - Natural Gift      ####    BASE
 - Wring Out         ####    PORTABLE
 - Giga Impact       ####    PORTABLE
@@ -77,7 +77,7 @@ Note*: Posible animations states ->
 - Rock Climb        ####    PORTABLE 
 - Last Resort       ####    PORTABLE
 - Me First          ####    PORTABLE
-- Worry Seed        ####    PORTABLE
+- Worry Seed        ####    PORTABLE    //top
 - Seed Bomb         ####    BASE
 - Energy Ball       ####    BASE
 - Seed Flare        ####    BASE
