@@ -4961,5 +4961,31 @@ extern const u32 gBattleAnimSpriteGfx_DragonPulse[];
 extern const u32 gBattleAnimSpritePal_DragonPulse[];
 extern const u32 gBattleAnimSpriteGfx_WaterShuriken[];
 extern const u32 gBattleAnimSpritePal_WaterShuriken[];
+extern const u32 gBattleAnimSpriteGfx_Acupressure[];
+extern const u32 gBattleAnimSpritePal_Acupressure[];
+extern const u32 gBattleAnimSpriteGfx_WringOut[];
+extern const u32 gBattleAnimSpritePal_WringOut[];
+extern const u32 gBattleAnimSpriteGfx_WoodHammer[];
+extern const u32 gBattleAnimSpritePal_WoodHammer[];
+extern const u32 gBattleAnimSpriteGfx_PsychoCut[];
+extern const u32 gBattleAnimSpritePal_PsychoCut[];
+extern const u32 gBattleAnimSpriteGfx_PowerGem[];
+extern const u32 gBattleAnimSpritePal_PowerGem[];
+extern const u32 gBattleAnimSpriteGfx_StoneEdge[];
+extern const u32 gBattleAnimSpritePal_StoneEdge[];
+extern const u32 gBattleAnimSpriteGfx_StealthRock[];
+extern const u32 gBattleAnimSpritePal_StealthRock[];
+extern const u32 gBattleAnimSpriteGfx_PoisonJab[];
+extern const u32 gBattleAnimSpritePal_PoisonJab[];
+
+extern const u32 gBattleAnimBgPalette_GigaImpact[];
+extern const u32 gBattleAnimBgPalette_MagmaStorm[];
+extern const u32 gBattleAnimBgImage_TrickRoom[];
+extern const u32 gBattleAnimBgPalette_TrickRoom[];
+extern const u32 gBattleAnimBgTilemap_TrickRoom[];
+extern const u32 gBattleAnimBgImage_RockWrecker[];
+extern const u32 gBattleAnimBgPalette_RockWrecker[]; 
+extern const u32 gBattleAnimBgTilemap_RockWrecker[];
+
 
 #endif //GUARD_GRAPHICS_H

@@ -35,6 +35,11 @@ static void sub_81161F4(void);
 static void sub_81162F8(u8);
 static void sub_81163D0(struct Sprite *);
 static void sub_81165E4(struct Sprite *);
+static void AnimcupressureEnd(struct Sprite *sprite);
+static void AnimcupressureStep(struct Sprite *sprite);
+void AnimAcupressure(struct Sprite *sprite);
+static void AnimWringOutStep(struct Sprite *sprite);
+void AnimWringOut(struct Sprite *sprite);
 
 const union AnimCmd gUnknown_0859722C[] =
 {
@@ -253,6 +258,93 @@ const struct SpriteTemplate gUnknown_08597400 =
     .callback = sub_81163D0,
 };
 
+const union AnimCmd gAcupressureAnimCmd_1[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+const union AnimCmd gAcupressureAnimCmd_2[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gAcupressureAnim[] =
+{
+    gAcupressureAnimCmd_1,
+    gAcupressureAnimCmd_2,
+};
+
+const struct SpriteTemplate gAcupressureSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ACUPRESSURE,
+    .paletteTag = ANIM_TAG_ACUPRESSURE,
+    .oam = &gUnknown_08524914,
+    .anims = gAcupressureAnim,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimAcupressure,
+};
+
+const struct SpriteTemplate gWringOutSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WRING_OUT,
+    .paletteTag = ANIM_TAG_WRING_OUT,
+    .oam = &gUnknown_08524914,  //gUnknown_0852495C,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWringOut,
+};
+
+void AnimAcupressure(struct Sprite *sprite)
+{
+    InitSpritePosToAnimTarget(sprite, TRUE);
+    sprite->data[0] = gBattleAnimArgs[2];
+
+    sprite->callback = AnimcupressureStep;
+}
+
+static void AnimcupressureStep(struct Sprite *sprite)
+{
+    if (--sprite->data[0] == -1)
+    {
+        sprite->data[0] = 6;
+        sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, 2);
+        sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, 3);
+
+        sprite->callback = StartAnimLinearTranslation;
+        StoreSpriteCallbackInData6(sprite, AnimcupressureEnd);
+    }
+}
+
+static void AnimcupressureEnd(struct Sprite *sprite)
+{
+    sprite->data[0] = 15;
+
+    sprite->callback = WaitAnimForDuration;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+void AnimWringOut(struct Sprite *sprite)
+{
+    InitSpritePosToAnimTarget(sprite, FALSE);
+    sprite->pos1.y += 20;
+    sprite->data[1] = 191;
+    sprite->callback = AnimWringOutStep;
+    sprite->callback(sprite);
+}
+
+static void AnimWringOutStep(struct Sprite *sprite)
+{
+    sprite->pos2.x = Sin(sprite->data[1], 32);
+    sprite->pos2.y = Cos(sprite->data[1], 8);
+    sprite->data[1] += 5;
+    sprite->data[1] &= 0xFF;
+    if (++sprite->data[0] == 71)
+        DestroyAnimSprite(sprite);
+}
 // Moves a spinning duck around the mon's head.
 // arg 0: initial x pixel offset
 // arg 1: initial y pixel offset
