@@ -1433,9 +1433,6 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_AttackOrder, 0x0480, ANIM_TAG_ATTACK_ORDER},
     {gBattleAnimSpriteGfx_DragonPulse, 0x0100, ANIM_TAG_DRAGON_PULSE},
     {gBattleAnimSpriteGfx_WoodHammer, 0x0C00, ANIM_TAG_WOOD_HAMMER},
-    {gBattleAnimSpriteGfx_PsychoCut, 0x0200, ANIM_TAG_PSYCHO_CUT},
-    {gBattleAnimSpriteGfx_PowerGem, 0x0080, ANIM_TAG_POWER_GEM},
-    {gBattleAnimSpriteGfx_StoneEdge, 0x0A00, ANIM_TAG_STONE_EDGE},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1748,9 +1745,6 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_AttackOrder, ANIM_TAG_ATTACK_ORDER},
     {gBattleAnimSpritePal_DragonPulse, ANIM_TAG_DRAGON_PULSE},
     {gBattleAnimSpritePal_WoodHammer, ANIM_TAG_WOOD_HAMMER},
-    {gBattleAnimSpritePal_PsychoCut, ANIM_TAG_PSYCHO_CUT},
-    {gBattleAnimSpritePal_PowerGem, ANIM_TAG_POWER_GEM},
-    {gBattleAnimSpritePal_StoneEdge, ANIM_TAG_STONE_EDGE},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -1786,8 +1780,6 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_GIGA_IMPACT_OPPONENT] = {gBattleAnimBgImage_Impact, gBattleAnimBgPalette_GigaImpact, gBattleAnimBgTilemap_ImpactOpponent},
     [BG_GIGA_IMPACT_PLAYER] = {gBattleAnimBgImage_Impact, gBattleAnimBgPalette_GigaImpact, gBattleAnimBgTilemap_ImpactPlayer},
     [BG_GIGA_IMPACT_CONTEST] = {gBattleAnimBgImage_Impact, gBattleAnimBgPalette_GigaImpact, gBattleAnimBgTilemap_ImpactContests},
-    [BG_TRICK_ROOM] = {gBattleAnimBgImage_TrickRoom, gBattleAnimBgPalette_TrickRoom, gBattleAnimBgTilemap_TrickRoom},
-    [BG_ROCK_WRECKER] = {gBattleAnimBgImage_RockWrecker, gBattleAnimBgPalette_RockWrecker, gBattleAnimBgTilemap_RockWrecker},
 };
 
 static void (* const sScriptCmdTable[])(void) =

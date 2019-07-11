@@ -315,9 +315,6 @@
 #define ANIM_TAG_ATTACK_ORDER               (ANIM_SPRITES_START + 305)
 #define ANIM_TAG_DRAGON_PULSE               (ANIM_SPRITES_START + 306)
 #define ANIM_TAG_WOOD_HAMMER                (ANIM_SPRITES_START + 307)
-#define ANIM_TAG_PSYCHO_CUT                 (ANIM_SPRITES_START + 308)
-#define ANIM_TAG_POWER_GEM                  (ANIM_SPRITES_START + 309)
-#define ANIM_TAG_STONE_EDGE                 (ANIM_SPRITES_START + 310)
 
 // battlers
 #define ANIM_ATTACKER    0
@@ -371,8 +368,6 @@
 #define BG_GIGA_IMPACT_OPPONENT 28
 #define BG_GIGA_IMPACT_PLAYER 29
 #define BG_GIGA_IMPACT_CONTEST 30
-#define BG_TRICK_ROOM 31
-#define BG_ROCK_WRECKER 32
 
 // table ids for general animations
 #define B_ANIM_CASTFORM_CHANGE          0x0
