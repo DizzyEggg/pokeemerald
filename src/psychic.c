@@ -28,6 +28,7 @@ static void sub_810F9D4(u8);
 static void sub_810FD3C(u8);
 static void sub_810FF34(u8);
 static void sub_8110134(u8);
+void AnimateZenHeadbutt(struct Sprite *sprite);
 
 const union AffineAnimCmd gUnknown_0859652C[] =
 {
@@ -418,6 +419,50 @@ const struct SpriteTemplate gUnknown_08596920 =
     .affineAnims = gUnknown_08596918,
     .callback = sub_8110240,
 };
+
+const union AffineAnimCmd gZenHeadbuttAffineAnimCmd[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 18),
+    AFFINEANIMCMD_LOOP(0),
+    AFFINEANIMCMD_FRAME(0xFFFB, 0xFFFB, 0, 8),
+    AFFINEANIMCMD_FRAME(0x5, 0x5, 0, 8),
+    AFFINEANIMCMD_LOOP(5),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd *const gZenHeadbuttAffineAnims[] =
+{
+    gZenHeadbuttAffineAnimCmd,
+};
+
+const struct SpriteTemplate gZenHeadbuttSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .paletteTag = ANIM_TAG_WATER_IMPACT,
+    .oam = &gUnknown_08524A9C,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gZenHeadbuttAffineAnims,
+    .callback = AnimateZenHeadbutt,
+};
+
+void AnimateZenHeadbutt(struct Sprite *sprite)
+{
+    if (gBattleAnimArgs[0] == 0)
+    {
+        sprite->pos1.x = GetBattlerSpriteCoord(gBattleAnimAttacker, 2);
+        sprite->pos1.y = GetBattlerSpriteCoord(gBattleAnimAttacker, 3) + 18;
+    }
+    else
+    {
+        sprite->pos1.x = GetBattlerSpriteCoord(gBattleAnimTarget, 2);
+        sprite->pos1.y = GetBattlerSpriteCoord(gBattleAnimTarget, 3) + 18;
+    }
+
+    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
+    sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
+}
 
 void sub_810F1EC(struct Sprite *sprite)
 {

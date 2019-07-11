@@ -314,6 +314,7 @@
 #define ANIM_TAG_SMALL_CLOUD                (ANIM_SPRITES_START + 304)
 #define ANIM_TAG_ATTACK_ORDER               (ANIM_SPRITES_START + 305)
 #define ANIM_TAG_DRAGON_PULSE               (ANIM_SPRITES_START + 306)
+#define ANIM_TAG_WOOD_HAMMER                (ANIM_SPRITES_START + 307)
 
 // battlers
 #define ANIM_ATTACKER    0
