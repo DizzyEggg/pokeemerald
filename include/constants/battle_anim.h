@@ -363,6 +363,7 @@
 #define BG_SOLARBEAM_OPPONENT 24
 #define BG_SOLARBEAM_PLAYER 25
 #define BG_SOLARBEAM_CONTESTS 26
+#define BG_MAGMA_STORM 27
 
 // table ids for general animations
 #define B_ANIM_CASTFORM_CHANGE          0x0

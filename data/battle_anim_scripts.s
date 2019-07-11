@@ -1630,6 +1630,21 @@ Move_FLARE_BLITZ:
 	end
 	
 Move_FORCE_PALM:
+	loadspritegfx ANIM_TAG_SHADOW_BALL 
+	loadspritegfx ANIM_TAG_HANDS_AND_FEET 
+	loadspritegfx ANIM_TAG_IMPACT 
+	monbg ANIM_DEF_PARTNER 
+	monbgprio_28 ANIM_TARGET  
+	setalpha 12, 8 
+	playsewithpan SE_W104, SOUND_PAN_TARGET 
+	createsprite gUnknown_08595E68, 2, 8, -16, 0, 0, 0, 10, 1, 3, 0
+	waitforvisualfinish 
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	createsprite gForcePalmSpriteTemplate 3, 4, 0, 0, 1, 2
+	createvisualtask AnimTask_ShakeMon, 5, 5, ANIM_TARGET, 4, 0, 6, 1
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
 	end
 	
 Move_AURA_SPHERE:
@@ -2042,7 +2057,24 @@ Move_DRAIN_PUNCH:
 	end
 	
 Move_VACUUM_WAVE:
-	end
+	loadspritegfx ANIM_TAG_IMPACT 
+	loadspritegfx ANIM_TAG_HANDS_AND_FEET 
+	monbg ANIM_ATK_PARTNER 
+	createvisualtask AnimTask_GetAttackerSide, 2, 0
+	waitbgfadein
+	delay 0
+	setalpha 9, 8 
+	createvisualtask sub_80A8BC4, 2, 2, RGB(8, 9, 24), 17  
+	playsewithpan SE_W026, SOUND_PAN_ATTACKER
+	delay 6
+	createsprite gBasicHitSplatSpriteTemplate 131, 4, 0, 0, 1, 1 
+	createsprite gFistFootSpriteTemplate 132, 5, 0, 0, 8, 1, 0 
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	createvisualtask AnimTask_ShakeMon 2, 5, ANIM_TARGET, 3, 0, 6, 1
+	waitforvisualfinish 
+	clearmonbg ANIM_ATK_PARTNER 
+	blendoff 
+	end 
 	
 Move_FOCUS_BLAST:
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
@@ -2172,8 +2204,56 @@ Move_BULLET_PUNCH:
 	end
 	
 Move_AVALANCHE:
+	loadspritegfx ANIM_TAG_ROCKS 
+	loadspritegfx ANIM_TAG_ICE_CHUNK 
+	monbg ANIM_DEF_PARTNER 
+	createsprite gBattleAnimSpriteTemplate_85972D8, 2, 4, 7, 1, 11, 1  
+	createsprite gAvalancheSpriteTemplate, 130, 4, -5, 1, -5, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET 
+	delay 2 
+	createsprite gAvalancheSpriteTemplate, 130, 4, 5, 0, 6, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET 
+	delay 2 
+	createsprite gAvalancheSpriteTemplate, 130, 4, 19, 1, 10, 1  
+	playsewithpan SE_W088, SOUND_PAN_TARGET 
+	delay 2 
+	createsprite gAvalancheSpriteTemplate 130, 4, -17, 2, -20, 1  
+	playsewithpan SE_W088, SOUND_PAN_TARGET 
+	createvisualtask AnimTask_ShakeMon, 2, 5, ANIM_TARGET, 0, 5, 50, 1 
+	createvisualtask AnimTask_ShakeMon, 2, 5, ANIM_DEF_PARTNER, 0, 5, 50, 1  
+	delay 2 
+	call SnowSlide1 
+	call SnowSlide1 
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
 	end
-	
+SnowSlide1:
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, -20, 0, -10, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, 28, 1, 10, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, -10, 1, -5, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, 10, 0, 6, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, 24, 1, 10, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, -32, 2, -10, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, -20, 0, -10, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, 30, 2, 10, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	return
+
 Move_ICE_SHARD:
 	monbg ANIM_TARGET
 	monbgprio_28 ANIM_TARGET
@@ -2543,6 +2623,21 @@ Move_DISCHARGE:
 	end
 	
 Move_LAVA_PLUME:
+	loadspritegfx ANIM_TAG_FIRE_PLUME 
+	loopsewithpan 152, SOUND_PAN_ATTACKER, 9, 2
+	createvisualtask sub_8115A04, 2, 2, 2, 2, 0, 11, 31 
+	createvisualtask AnimTask_ShakeMon2 2, 5, 0, 1, 0, 32, 1  
+	waitforvisualfinish 
+	createsprite gLavaPlumeSpriteTemplate, 130, 1, 0
+	createsprite gLavaPlumeSpriteTemplate, 130, 1, 32
+	createsprite gLavaPlumeSpriteTemplate, 130, 1, 64
+	createsprite gLavaPlumeSpriteTemplate, 130, 1, 96  
+	createsprite gLavaPlumeSpriteTemplate, 130, 1, 128  
+	createsprite gLavaPlumeSpriteTemplate, 130, 1, 160  
+	createsprite gLavaPlumeSpriteTemplate, 130, 1, SOUND_PAN_ATTACKER  
+	createsprite gLavaPlumeSpriteTemplate, 130, 1, 224
+	playsewithpan SE_W221, SOUND_PAN_ATTACKER
+	waitforvisualfinish 
 	end
 	
 Move_LEAF_STORM:
@@ -3031,6 +3126,28 @@ Move_CRUSH_GRIP:
 	end
 	
 Move_MAGMA_STORM:
+	loadspritegfx ANIM_TAG_SMALL_EMBER 
+	fadetobg BG_MAGMA_STORM @Add new bg
+	waitbgfadeout
+	createvisualtask sub_811152C, 3
+	playsewithpan SE_W221B, SOUND_PAN_TARGET 
+	loopsewithpan SE_W221B, SOUND_PAN_TARGET, 5, 8
+	createvisualtask sub_8111590, 3
+	createvisualtask AnimTask_ShakeMon, 5, 5, ANIM_TARGET, 0, 2, 47, 1
+	createvisualtask sub_8115A04, 2, 6, 4, 2, 2, 0, 12, RGB(22, 9, 7)
+	call FireSpinEffect 
+	call FireSpinEffect 
+	createvisualtask sub_8115A04, 2, 6, 4, 2, 2, 0, 12, RGB(22, 9, 7)
+	call FireSpinEffect 
+	call FireSpinEffect
+	createvisualtask sub_8115A04, 2, 6, 4, 2, 2, 0, 12, RGB(22, 9, 7)	
+	call FireSpinEffect 
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFF
+	waitbgfadein
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
 	end
 	
 Move_DARK_VOID:
