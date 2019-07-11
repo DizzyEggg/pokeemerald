@@ -2092,6 +2092,39 @@ Move_DRAGON_RUSH:
 	end
 	
 Move_POWER_GEM:
+	createsprite gSimplePaletteBlendSpriteTemplate, 2, 5, 1, 1, 0, 7, 0
+	waitforvisualfinish 
+	loadspritegfx ANIM_TAG_POWER_GEM 
+	playsewithpan 152, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, 0, 0
+	waitforvisualfinish 
+	delay 30
+	createvisualtask AnimTask_BlendMonInAndOut 5, 5, 0, RGB(31, 31, 31), 12, 5, 1
+	delay 4 
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, 0, 0
+	playsewithpan SE_W179, SOUND_PAN_ATTACKER
+	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 0 
+	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 42  
+	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 84  
+	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 126  
+	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 168  
+	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 210  
+	delay 52
+	setarg 7, -1 
+	playsewithpan SE_W115, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, 0, 0
+	createsprite gPowerGemScatterSpriteTemplate 130, 1, 0
+	createsprite gPowerGemScatterSpriteTemplate 130, 1, 32
+	createsprite gPowerGemScatterSpriteTemplate 130, 1, 64
+	createsprite gPowerGemScatterSpriteTemplate 130, 1, 96
+	createsprite gPowerGemScatterSpriteTemplate 130, 1, 128
+	createsprite gPowerGemScatterSpriteTemplate 130, 1, 160
+	createsprite gPowerGemScatterSpriteTemplate 130, 1, SOUND_PAN_ATTACKER
+	createsprite gPowerGemScatterSpriteTemplate 130, 1, 224
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	createsprite gSimplePaletteBlendSpriteTemplate 2, 5, 1, 1, 7, 0, 0
+	blendoff 
 	end
 	
 Move_DRAIN_PUNCH:
@@ -2591,6 +2624,24 @@ Move_MUD_BOMB:
     end
 
 Move_PSYCHO_CUT:
+	loadspritegfx ANIM_TAG_SPIRAL 
+	loadspritegfx ANIM_TAG_PSYCHO_CUT 
+	monbg ANIM_ATK_PARTNER 
+	createsprite gPsychoCutSpiralSpriteTemplate, 2, 4, 0, 0, 0, 0
+	createvisualtask sub_8116620, 10, 1, 0, 4, 4, RGB_BLACK
+	createvisualtask sub_8116620, 9, 5, 2, 2, 10, 0, RGB(20, 12, 23)  
+	createvisualtask sub_8116620, 9, 2, 2, 10, 0, RGB(20, 12, 23)
+	delay 30
+	clearmonbg ANIM_ATK_PARTNER 
+	blendoff 
+	waitforvisualfinish 
+	monbg ANIM_TARGET 
+	monbgprio_28 ANIM_TARGET  
+	setalpha 12, 8 
+	playsewithpan 160, SOUND_PAN_ATTACKER, 
+	createsprite gPsychoCutSpriteTemplate, 130, 5, 20, 0, -8, 0, 20
+	waitforvisualfinish 
+	clearmonbg ANIM_TARGET 
 	end
 	
 Move_ZEN_HEADBUTT:
@@ -2702,6 +2753,15 @@ Move_DEFOG:
 	end
 	
 Move_TRICK_ROOM:
+	fadetobg BG_TRICK_ROOM 
+	waitbgfadein 
+	call Growth1 
+	waitforvisualfinish 
+	delay 32
+	blendoff 
+	clearmonbg ANIM_DEF_PARTNER 
+	restorebg 
+	waitbgfadein 
 	end
 	
 Move_DRACO_METEOR:
@@ -2929,7 +2989,50 @@ Move_POWER_WHIP:
 	end
 	
 Move_ROCK_WRECKER:
-	end
+	jumpargeq 7, 1, RockWrecker_1 
+	fadetobg BG_ROCK_WRECKER
+	waitbgfadeout 
+	createvisualtask sub_8117660, 5, -1024, 0, 1, -1
+	goto RockWrecker_2 
+RockWrecker_1:
+	fadetobg BG_ROCK_WRECKER 
+	waitbgfadeout 
+	createvisualtask sub_8117660, 5, -1024, 0, 0, -1
+	loadspritegfx ANIM_TAG_ROCKS 
+	loadspritegfx ANIM_TAG_IMPACT 
+	createsprite gHorizontalLungeSpriteTemplate, 2, 2, 4, 6 
+	delay 3
+	playsewithpan SE_W207, SOUND_PAN_ATTACKER
+	createsprite gUnknown_08596C98, 130, 6, 16, 0, 0, 0, 25, 257  
+	waitforvisualfinish 
+	createsprite gBasicHitSplatSpriteTemplate, 131, 4, 0, 0, 1, 1
+	playsewithpan SE_W088 SOUND_PAN_TARGET 
+	createsprite gUnknown_08596B1C, 130, 6, 0, 0, 20, 24, 14, 2 
+	createvisualtask AnimTask_ShakeMon, 2, 5, ANIM_TARGET, 3, 0, 5, 1
+	createsprite gUnknown_08596B1C, 130, 6, 5, 0, -20, 24, 14, 1
+	createsprite gUnknown_08596B1C, 130, 6, 0, 5, 20, -18, 14, 2  
+	createsprite gUnknown_08596B1C, 130, 6, -5, 0, -20, -18, 14, 2  
+	waitforvisualfinish 
+	call UnsetPsychicBg 
+	end 
+RockWrecker_2:
+	loadspritegfx ANIM_TAG_ROCKS 
+	loadspritegfx ANIM_TAG_IMPACT 
+	createsprite gHorizontalLungeSpriteTemplate, 2, 2, 4, 6
+	delay 3 
+	playsewithpan SE_W207, SOUND_PAN_ATTACKER 
+	createsprite gUnknown_08596C98, 130, 6, 16, 0, 0, 0, 25, 257  
+	waitforvisualfinish 
+	createsprite gBasicHitSplatSpriteTemplate, 131, 4, 0, 0, 1, 1  
+	playsewithpan SE_W088 SOUND_PAN_TARGET 
+	createsprite gUnknown_08596B1C 130, 6, 0, 0, 20, 24, 14, 2
+	createvisualtask AnimTask_ShakeMon, 2, 5, ANIM_TARGET, 3, 0, 5, 1  
+	createsprite gUnknown_08596B1C 130, 6, 5, 0, -20, 24, 14, 1 
+	createsprite gUnknown_08596B1C 130, 6, 0, 5, 20, -18, 14, 2  
+	createsprite gUnknown_08596B1C 130, 6, -5, 0, -20, -18, 14, 2  
+	waitforvisualfinish 
+	call UnsetPsychicBg 
+	end  
 	
 Move_CROSS_POISON:
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
@@ -3038,6 +3141,62 @@ Move_MAGNET_BOMB:
 	end
 	
 Move_STONE_EDGE:
+	loadspritegfx ANIM_TAG_STONE_EDGE
+	loadspritegfx ANIM_TAG_IMPACT
+	playsewithpan SE_W088 SOUND_PAN_TARGET   
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 528, 30, 13, 50, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 32, 480, 20, 16, -46, 1
+	delay 2
+	loopsewithpan 131, SOUND_PAN_TARGET 24, 3
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 576, 20, 8, 42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 31, 400, 25, 11, -42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 512, 25, 16, 46, 1 
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 464, 30, 15, 49, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 528, 30, 13, 50, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 32, 480, 20, 16, -46, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 576, 20, 8, 42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 31, 400, 25, 11, -42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 512, 25, 16, 46, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 464, 30, 15, 49, 1 
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 528, 30, 13, 50, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 32, 480, 20, 16, -46, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 576, 20, 8, 42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 31, 400, 25, 11, -42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 512, 25, 16, 46, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 464, 30, 15, 49, 1 
+	delay 2
+    createsprite gBasicHitSplatSpriteTemplate, 131, 4, -32, -16, 1, 3
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	createvisualtask AnimTask_ShakeMonInPlace, 2, 5, 1, 3, 0, 12, 1
+	createvisualtask AnimTask_ShakeMonInPlace, 2, 5, 3, 3, 0, 12, 1
+	delay 4
+	createsprite gUnknown_085973A0, 131, 2, 1, 3
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	delay 4
+	createsprite gUnknown_085973A0, 131, 2, 1, 3
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	delay 4
+	createsprite gBasicHitSplatSpriteTemplate, 131, 4, 32, 20, 1, 3  
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff	
 	end
 	
 Move_CAPTIVATE:
