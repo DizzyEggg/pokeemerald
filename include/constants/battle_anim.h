@@ -312,6 +312,7 @@
 #define ANIM_TAG_COLORED_ORBS               (ANIM_SPRITES_START + 302)
 #define ANIM_TAG_WORRY_SEED                 (ANIM_SPRITES_START + 303)
 #define ANIM_TAG_SMALL_CLOUD                (ANIM_SPRITES_START + 304)
+#define ANIM_TAG_ATTACK_ORDER               (ANIM_SPRITES_START + 305)
 
 // battlers
 #define ANIM_ATTACKER    0

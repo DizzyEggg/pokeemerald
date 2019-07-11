@@ -793,6 +793,17 @@ const struct SpriteTemplate gTwisterLeafParticleSpriteTemplate =
     .callback = AnimMoveTwisterParticle,
 };
 
+const struct SpriteTemplate gAttackOrderParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ATTACK_ORDER,
+    .paletteTag = ANIM_TAG_ATTACK_ORDER,
+    .oam = &gUnknown_0852490C,
+    .anims = gUnknown_08592388,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoveTwisterParticle,
+};
+
 const union AnimCmd gUnknown_085923C0[] =
 {
     ANIMCMD_FRAME(0, 3),
