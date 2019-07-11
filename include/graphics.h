@@ -4745,6 +4745,7 @@ extern const u32 gBattleAnimBgPalette_Fissure[];
 extern const u32 gBattleAnimBgPalette_Bug[];
 extern const u32 gBattleAnimBgPalette_Solarbeam[];
 extern const u32 gBattleAnimBgPalette_MagmaStorm[];
+extern const u32 gBattleAnimBgPalette_GigaImpact[];
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
 extern const u32 gBattleAnimBgTilemap_Psychic[];

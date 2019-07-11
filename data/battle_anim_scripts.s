@@ -1308,6 +1308,30 @@ Move_GASTRO_ACID:
 	end
 	
 Move_LUCKY_CHANT:
+	loadspritegfx ANIM_TAG_GOLD_STARS 
+	monbg ANIM_DEF_PARTNER 
+	setalpha 12, 8 
+	playsewithpan SE_W080, SOUND_PAN_ATTACKER
+	createsprite gLuckyChantBigStarsSpriteTemplate, 2, 4, 0, -18, 8, 140 
+	createsprite gLuckyChantSmallStarsSpriteTemplate, 2, 4, 16, -18, 8, 100 
+	createsprite gLuckyChantSmallStarsSpriteTemplate, 2, 4, -16, -18, 8, 100
+	delay 15
+	createsprite gLuckyChantBigStarsSpriteTemplate 2, 4, 0, -18, 8, 140
+	createsprite gLuckyChantSmallStarsSpriteTemplate, 2, 4, 32, -18, 8, 100
+	createsprite gLuckyChantSmallStarsSpriteTemplate, 2, 4, -32, -18, 8, 100
+	delay 15
+	createsprite gLuckyChantBigStarsSpriteTemplate 2, 4, 0, -18, 8, 140
+	createsprite gLuckyChantSmallStarsSpriteTemplate, 2, 4, 24, -18, 8, 100
+	createsprite gLuckyChantSmallStarsSpriteTemplate, 2, 4, -18, -18, 8, 100
+	delay 30
+	createsprite gLuckyChantSmallStarsSpriteTemplate, 2, 4, 16, -18, 0, 100
+	createsprite gLuckyChantSmallStarsSpriteTemplate, 2, 4, -16, -18, 0, 100
+	delay 30
+	createsprite gLuckyChantSmallStarsSpriteTemplate, 2, 4, 20, -16, 14, 80 
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
+	unloadspritegfx ANIM_TAG_GOLD_STARS 
 	end
 	
 Move_ME_FIRST:
@@ -2144,7 +2168,48 @@ Move_SWITCHEROO:
 	end
 	
 Move_GIGA_IMPACT:
-	end
+	loadspritegfx ANIM_TAG_IMPACT 
+	monbg ANIM_DEF_PARTNER 
+	setalpha 12, 8 
+	createvisualtask AnimTask_WindUpLunge, 5, 7, 0, -18, 8, 23, 10, 40, 10
+	delay 35
+	createsprite gComplexPaletteBlendSpriteTemplate, 2, 7, 31, 3, 1, 0, 10, 0, 0
+	createsprite gBasicHitSplatSpriteTemplate, 4, 4, -10, 0, 1, 0
+	playsewithpan SE_W025B, SOUND_PAN_TARGET 
+	call GigaImpactAction 
+	delay 1
+	createsprite gSlideMonToOffsetSpriteTemplate 2, 5, 1, -16, 0, 0, 4
+	waitforvisualfinish 
+	createvisualtask AnimTask_ShakeMonInPlace 2, 5, 1, 4, 0, 12, 1
+	waitforvisualfinish 
+	delay 2
+	createsprite gSlideMonToOriginalPosSpriteTemplate 2, 3, 0, 0, 5
+	delay 3
+	createsprite gSlideMonToOriginalPosSpriteTemplate 2, 3, 1, 0, 6
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
+	restorebg 
+	waitbgfadein 
+	end 
+GigaImpactAction:
+	delay 2, 
+	createvisualtask AnimTask_IsContest, 2, 0
+	jumpargeq 7, 1, GigaImpactBgContest 
+	createvisualtask AnimTask_IsTargetPlayerSide, 2, 0
+	jumpargeq 7, 0, GigaImpactBgOpponent 
+	jumpargeq 7, 1, GigaImpactBgPlayer 
+GigaImpactBgContest:
+	changebg BG_GIGA_IMPACT_CONTEST 
+	goto GigaImpactReturnToEnd 
+GigaImpactReturnToEnd:
+	return 
+GigaImpactBgOpponent:
+	changebg BG_GIGA_IMPACT_OPPONENT
+	goto GigaImpactReturnToEnd 
+GigaImpactBgPlayer:
+	changebg BG_GIGA_IMPACT_PLAYER
+	return
 	
 Move_NASTY_PLOT:
 	end
@@ -2534,6 +2599,39 @@ Move_FLASH_CANNON:
 	end
 	
 Move_ROCK_CLIMB:
+	createvisualtask AnimTask_Splash, 2, 2, ANIM_ATTACKER, 3
+	delay 8
+	loopsewithpan SE_W039, SOUND_PAN_ATTACKER, 38, 3
+	waitforvisualfinish 
+	loadspritegfx ANIM_TAG_IMPACT 
+	loadspritegfx ANIM_TAG_MUD_SAND 
+	loadspritegfx ANIM_TAG_ROCKS 
+	monbg ANIM_DEF_PARTNER 
+	monbgprio_28 ANIM_TARGET  
+	setalpha 12, 8 
+	createvisualtask sub_8110F74, 2, 0 
+	waitforvisualfinish 
+	createvisualtask sub_80D6388, 2, 5, 0, 1, 30, 1, RGB(0, 16, 1)
+	createsprite gBasicHitSplatSpriteTemplate, 131, 4, -15, 8, 1, 1 
+	playsewithpan SE_W233B, SOUND_PAN_TARGET 
+	delay 1 
+	playsewithpan SE_W233B, SOUND_PAN_TARGET 
+	createsprite gBasicHitSplatSpriteTemplate, 131, 4, -5, -12, 1, 1
+	delay 1
+	playsewithpan SE_W233B, SOUND_PAN_TARGET 
+	createsprite gBasicHitSplatSpriteTemplate, 131, 4, 0, -32, 1, 1 
+	delay 1
+	playsewithpan SE_W233B, SOUND_PAN_TARGET 
+	createsprite gBasicHitSplatSpriteTemplate, 131, 4, 5, -52, 1, 1 
+	createsprite gSlideMonToOffsetSpriteTemplate, 2, 5, 1, -25, 16, 1, 4 
+	delay 4
+	createvisualtask AnimTask_ShakeMonInPlace, 2, 5, 1, 0, 3, 6, 1
+	delay 30
+	createsprite gSlideMonToOriginalPosSpriteTemplate, 2, 3, 0, 0, 6
+	delay 4
+	createsprite gSlideMonToOriginalPosSpriteTemplate, 2, 3, 1, 0, 6,  
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
 	end
 	
 Move_DEFOG:
@@ -2879,8 +2977,21 @@ Move_STONE_EDGE:
 	end
 	
 Move_CAPTIVATE:
+	loadspritegfx ANIM_TAG_MAGENTA_HEART 
+	loadspritegfx ANIM_TAG_SPARKLE_2 
+	createvisualtask AnimTask_RockMonBackAndForth, 5, 3, 0, 2, 0
+	createsprite gMagentaHeartSpriteTemplate, 3, 2, 0, 20
+	playsewithpan SE_W204, SOUND_PAN_ATTACKER
+	delay 15
+	createsprite gMagentaHeartSpriteTemplate, 3, 2, -20, 20 
+	playsewithpan SE_W204, SOUND_PAN_ATTACKER
+	delay 15
+	createsprite gMagentaHeartSpriteTemplate, 3, 2, 20, 20
+	playsewithpan 228, SOUND_PAN_ATTACKER, 
+	call GrantingStarsEffect 
+	waitforvisualfinish 
 	end
-	
+
 Move_STEALTH_ROCK:
 	end
 	
@@ -3111,6 +3222,25 @@ Move_HEAD_SMASH:
 	end
 	
 Move_DOUBLE_HIT:
+	loadspritegfx ANIM_TAG_IMPACT 
+	monbg ANIM_TARGET 
+	setalpha 12, 8 
+	createsprite gHorizontalLungeSpriteTemplate, 2, 2, 4, 4
+	delay 6
+	createsprite gBasicHitSplatSpriteTemplate, 2, 4, 0, 0, 1, 2
+	createvisualtask AnimTask_ShakeMon, 2, 5, ANIM_TARGET, 3, 0, 6, 1
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	delay 8
+	waitforvisualfinish
+	createsprite gHorizontalLungeSpriteTemplate, 2, 2, 4, 4, 
+	delay 6
+	createsprite gBasicHitSplatSpriteTemplate, 2, 4, 0, 0, 1, 2
+	createvisualtask AnimTask_ShakeMon, 2, 5, ANIM_TARGET, 3, 0, 6, 1
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	delay 8
+	waitforvisualfinish 
+	clearmonbg ANIM_TARGET 
+	blendoff 
 	end
 	
 Move_ROAR_OF_TIME:

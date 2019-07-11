@@ -1129,6 +1129,8 @@ const u32 gBattleAnimBgPalette_Solarbeam[] = INCBIN_U32("graphics/battle_anims/b
 
 const u32 gBattleAnimBgPalette_MagmaStorm[] = INCBIN_U32("graphics/battle_anims/backgrounds/magma_storm.gbapal.lz");
 
+const u32 gBattleAnimBgPalette_GigaImpact[] = INCBIN_U32("graphics/battle_anims/backgrounds/giga_impact.gbapal.lz");
+
 const u32 gUnknown_E6BC04[] = INCBIN_U32("graphics/unknown/unknown_E6BC04.bin.lz");
 
 const u32 sBlenderCenterGfx[] = INCBIN_U32("graphics/berry_blender/center.8bpp.lz");

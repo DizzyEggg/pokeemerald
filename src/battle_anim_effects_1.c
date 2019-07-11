@@ -2710,6 +2710,28 @@ const struct SpriteTemplate gNightSlashRightSpriteTemplate =
     .callback = AnimNightSlash,
 };
 
+const struct SpriteTemplate gLuckyChantBigStarsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GOLD_STARS,
+    .paletteTag = ANIM_TAG_GOLD_STARS,
+    .oam = &gUnknown_0852490C,
+    .anims = gUnknown_08592314,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPetalDanceBigFlower,
+};
+
+const struct SpriteTemplate gLuckyChantSmallStarsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GOLD_STARS,
+    .paletteTag = ANIM_TAG_GOLD_STARS,
+    .oam = &gUnknown_08524904,
+    .anims = gUnknown_08592318,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPetalDanceSmallFlower,
+};
+
 // Animates the falling particles that horizontally wave back and forth.
 // Used by Sleep Powder, Stun Spore, and Poison Powder.
 // arg 0: initial x pixel offset
