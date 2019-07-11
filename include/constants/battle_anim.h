@@ -313,6 +313,7 @@
 #define ANIM_TAG_WORRY_SEED                 (ANIM_SPRITES_START + 303)
 #define ANIM_TAG_SMALL_CLOUD                (ANIM_SPRITES_START + 304)
 #define ANIM_TAG_ATTACK_ORDER               (ANIM_SPRITES_START + 305)
+#define ANIM_TAG_DRAGON_PULSE               (ANIM_SPRITES_START + 306)
 
 // battlers
 #define ANIM_ATTACKER    0
