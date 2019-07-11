@@ -187,6 +187,28 @@ const struct SpriteTemplate gWaterBubbleSpriteTemplate =
     .callback = AnimBubbleEffect,
 };
 
+const struct SpriteTemplate gGreenPoisonDrip =
+{
+	.tileTag = ANIM_TAG_POISON_BUBBLE,
+	.paletteTag = ANIM_TAG_VINE,
+	.oam = &gUnknown_085249CC,
+	.anims = gUnknown_08596168,
+	.images = NULL,
+	.affineAnims = gUnknown_08596208,
+	.callback = sub_810DD50,
+};
+
+const struct SpriteTemplate gGreenPoisonBubble =
+{
+	.tileTag = ANIM_TAG_POISON_BUBBLE,
+	.paletteTag = ANIM_TAG_VINE,
+	.oam = &gUnknown_085249CC,
+	.anims = gUnknown_08596164,
+	.images = NULL,
+	.affineAnims = gUnknown_085961A0,
+	.callback = sub_810DC2C,
+};
+
 void sub_810DBAC(struct Sprite *sprite)
 {
     if (!gBattleAnimArgs[3])

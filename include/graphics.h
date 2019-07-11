@@ -4137,6 +4137,8 @@ extern const u32 gBattleAnimSpriteGfx_AirWave[];
 extern const u32 gBattleAnimSpriteGfx_Orb[];
 extern const u32 gBattleAnimSpriteGfx_Sword[];
 extern const u32 gBattleAnimSpriteGfx_Seed[];
+extern const u32 gBattleAnimSpriteGfx_SeedBrown[];
+extern const u32 gBattleAnimSpriteGfx_Feint[];
 extern const u32 gBattleAnimSpriteGfx_Explosion6[];
 extern const u32 gBattleAnimSpriteGfx_PinkOrb[];
 extern const u32 gBattleAnimSpriteGfx_Gust[];
@@ -4409,6 +4411,13 @@ extern const u32 gBattleAnimBgTilemap_ScaryFaceOpponent[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceContest[];
 extern const u32 gBattleAnimSpriteGfx_Bird[];
 extern const u32 gBattleAnimSpriteGfx_CrossImpact[];
+extern const u32 gBattleAnimSpriteGfx_TrumpCard[];
+extern const u32 gBattleAnimSpriteGfx_TrumpCardParticles[];
+extern const u32 gBattleAnimSpriteGfx_Accupressure[];
+extern const u32 gBattleAnimSpriteGfx_WringOut[];
+extern const u32 gBattleAnimSpriteGfx_ColoredOrbs[];
+extern const u32 gBattleAnimSpriteGfx_WorrySeed[];
+extern const u32 gBattleAnimSpriteGfx_SmallCloud[];
 
 extern const u32 gBattleAnimSpritePal_Bone[];
 extern const u32 gBattleAnimSpritePal_Spark[];
@@ -4417,6 +4426,8 @@ extern const u32 gBattleAnimSpritePal_AirWave[];
 extern const u32 gBattleAnimSpritePal_Orb[];
 extern const u32 gBattleAnimSpritePal_Sword[];
 extern const u32 gBattleAnimSpritePal_Seed[];
+extern const u32 gBattleAnimSpritePal_SeedBrown[];
+extern const u32 gBattleAnimSpritePal_Feint[];
 extern const u32 gBattleAnimSpritePal_Explosion6[];
 extern const u32 gBattleAnimSpritePal_PinkOrb[];
 extern const u32 gBattleAnimSpritePal_Gust[];
@@ -4692,6 +4703,13 @@ extern const u32 gBattleAnimSpritePal_CrossImpact[];
 extern const u32 gBattleAnimSpritePal_Slash2[];
 extern const u32 gBattleAnimSpritePal_WhipHit[];
 extern const u32 gBattleAnimSpritePal_BlueRing2[];
+extern const u32 gBattleAnimSpritePal_TrumpCard[];
+extern const u32 gBattleAnimSpritePal_TrumpCardParticles[];
+extern const u32 gBattleAnimSpritePal_Accupressure[];
+extern const u32 gBattleAnimSpritePal_WringOut[];
+extern const u32 gBattleAnimSpritePal_ColoredOrbs[];
+extern const u32 gBattleAnimSpritePal_WorrySeed[];
+extern const u32 gBattleAnimSpritePal_SmallCloud[];
 
 extern const u32 gBattleAnimBgImage_Dark[];
 extern const u32 gBattleAnimBgImage_Ghost[];
@@ -4744,6 +4762,7 @@ extern const u32 gBattleAnimBgTilemap_Cosmic[];
 extern const u32 gBattleAnimBgTilemap_InAir[];
 extern const u32 gBattleAnimBgTilemap_Aurora[];
 extern const u32 gBattleAnimBgTilemap_Fissure[];
+
 
 extern const u32 gMetalShineGfx[];
 extern const u32 gMetalShinePalette[];
@@ -4940,5 +4959,20 @@ extern const u16 gPokenavConditionCancel_Pal[];
 // Berry Crush
 extern const u32 gUnknown_08DE34B8[];
 extern const u16 gUnknown_08DE3398[];
+
+// New Battle Anim Particles
+extern const u32 gBattleAnimSpriteGfx_WhiteStreak[];
+extern const u32 gBattleAnimSpritePal_WhiteStreak[];
+extern const u32 gBattleAnimSpriteGfx_PurpleJab[];
+extern const u32 gBattleAnimSpritePal_PurpleJab[];
+extern const u32 gBattleAnimSpritePal_ToxicSpikes[];
+extern const u32 gBattleAnimSpriteGfx_EnergyBall[];
+extern const u32 gBattleAnimSpritePal_EnergyBall[];
+extern const u32 gBattleAnimSpriteGfx_MegaStone[];
+extern const u32 gBattleAnimSpritePal_MegaStone[];
+extern const u32 gBattleAnimSpriteGfx_MegaParticles[];
+extern const u32 gBattleAnimSpritePal_MegaParticles[];
+extern const u32 gBattleAnimSpriteGfx_MegaSymbol[];
+extern const u32 gBattleAnimSpritePal_MegaSymbol[];
 
 #endif //GUARD_GRAPHICS_H
