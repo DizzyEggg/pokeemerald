@@ -4424,6 +4424,8 @@ extern const u32 gBattleAnimSpriteGfx_WoodHammer[];
 extern const u32 gBattleAnimSpriteGfx_PsychoCut[];
 extern const u32 gBattleAnimSpriteGfx_PowerGem[];
 extern const u32 gBattleAnimSpriteGfx_StoneEdge[];
+extern const u32 gBattleAnimSpriteGfx_StealthRock[];
+extern const u32 gBattleAnimSpriteGfx_PoisonJab[];
 
 extern const u32 gBattleAnimSpritePal_Bone[];
 extern const u32 gBattleAnimSpritePal_Spark[];
@@ -4722,6 +4724,8 @@ extern const u32 gBattleAnimSpritePal_WoodHammer[];
 extern const u32 gBattleAnimSpritePal_PsychoCut[];
 extern const u32 gBattleAnimSpritePal_PowerGem[];
 extern const u32 gBattleAnimSpritePal_StoneEdge[];
+extern const u32 gBattleAnimSpritePal_StealthRock[];
+extern const u32 gBattleAnimSpritePal_PoisonJab[];
 
 extern const u32 gBattleAnimBgImage_Dark[];
 extern const u32 gBattleAnimBgImage_Ghost[];

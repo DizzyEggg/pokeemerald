@@ -33,6 +33,9 @@ static void AnimPowerGemOrbitFastStep(struct Sprite *sprite);
 void AnimPowerGemOrbitFast(struct Sprite *sprite);
 static void AnimPowerGemScatterStep(struct Sprite *sprite);
 void AnimPowerGemScatter(struct Sprite *sprite);
+static void AnimStealthRockStep2(struct Sprite *sprite);
+static void AnimStealthRockStep(struct Sprite *sprite);
+void AnimStealthRock(struct Sprite *sprite);
 
 const union AnimCmd gUnknown_08596AE0[] =
 {
@@ -365,6 +368,57 @@ const struct SpriteTemplate gStoneEdgeSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = sub_8110B38,
 };
+
+const struct SpriteTemplate gStealthRockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STEALTH_ROCK,
+    .paletteTag = ANIM_TAG_STEALTH_ROCK,
+    .oam = &gUnknown_0852490C,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimStealthRock,
+};
+
+void AnimStealthRock(struct Sprite *sprite)
+{
+    u16 x;
+    u16 y;
+
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+    SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &x, &y);
+
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+
+    sprite->data[0] = gBattleAnimArgs[4];
+    sprite->data[2] = x + gBattleAnimArgs[2];
+    sprite->data[4] = y + gBattleAnimArgs[3];
+    sprite->data[5] = -50;
+
+    InitAnimArcTranslation(sprite);
+    sprite->callback = AnimStealthRockStep;
+}
+
+static void AnimStealthRockStep(struct Sprite *sprite)
+{
+    if (TranslateAnimHorizontalArc(sprite))
+    {
+        sprite->data[0] = 30;
+        sprite->data[1] = 0;
+        sprite->callback = WaitAnimForDuration;
+        StoreSpriteCallbackInData6(sprite, AnimStealthRockStep2);
+    }
+}
+
+static void AnimStealthRockStep2(struct Sprite *sprite)
+{
+    if (sprite->data[1] & 1)
+        sprite->invisible ^= 1;
+
+    if (++sprite->data[1] == 16)
+        DestroyAnimSprite(sprite);
+}
 
 void AnimPowerGemScatter(struct Sprite *sprite)
 {

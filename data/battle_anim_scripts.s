@@ -1444,6 +1444,26 @@ Move_GUARD_SWAP:
 	end
 	
 Move_PUNISHMENT:
+	loadspritegfx ANIM_TAG_SCRATCH 
+	loadspritegfx ANIM_TAG_POISON_BUBBLE 
+	monbg ANIM_TARGET 
+	setalpha 12, 8 
+	playsewithpan 155, SOUND_PAN_TARGET 
+	createsprite gPunishmentSpriteTemplate, 2, 4, 0, 0, 1, 0
+	createvisualtask AnimTask_ShakeMon, 2, 5, ANIM_TARGET, 3, 0, 6, 1  
+	waitforvisualfinish 
+	clearmonbg ANIM_TARGET 
+	blendoff 
+	waitforvisualfinish 
+	loadspritegfx ANIM_TAG_IMPACT 
+	monbg ANIM_TARGET 
+	setalpha 12, 8 
+	playsewithpan SE_W003, SOUND_PAN_TARGET 
+	createsprite gPunishmentImpactSpriteTemplate 2, 4, 0, 0, 1, 2,  
+	createvisualtask AnimTask_ShakeMon 2, 5, ANIM_TARGET, 3, 0, 6, 1
+	waitforvisualfinish 
+	clearmonbg ANIM_TARGET 
+	blendoff 
 	end
 	
 Move_LAST_RESORT:
@@ -1499,6 +1519,16 @@ Move_WORRY_SEED:
 	end
 	
 Move_SUCKER_PUNCH:
+	loadspritegfx ANIM_TAG_POISON_JAB 
+	loadspritegfx ANIM_TAG_IMPACT 
+	createsprite gSlideMonToOffsetSpriteTemplate, 2, 5, 0, 20, 0, 0, 4
+	createsprite gSuckerPunchSpriteTemplate, 130, 6, -18, 5, 40, 8, 160, 0
+	delay 4
+	createsprite gBasicHitSplatSpriteTemplate, 130, 4, -8, 8, 1, 2  
+	createvisualtask sub_80D6134, 2, 4, 6, 384, 1, 2  
+	playsewithpan SE_W233B, SOUND_PAN_TARGET 
+	waitforvisualfinish 
+	createsprite gSlideMonToOriginalPosSpriteTemplate, 2, 3, 0, 1, 4  
 	end
 	
 Move_TOXIC_SPIKES:
@@ -2280,7 +2310,22 @@ GigaImpactBgPlayer:
 	return
 	
 Move_NASTY_PLOT:
-	end
+	loadspritegfx ANIM_TAG_AMNESIA 
+	call NastyPlotAction 
+	delay 8
+	createsprite gUnknown_08596744, 20, 0
+	playsewithpan SE_W118, SOUND_PAN_ATTACKER, 
+	delay 54
+	loopsewithpan SE_W118, SOUND_PAN_ATTACKER, 16, 3
+	waitforvisualfinish 
+	call UnsetPsychicBg 
+	end 
+NastyPlotAction:
+	fadetobg BG_DARK 
+	waitbgfadeout 
+	createvisualtask sub_815A5C8, 5, 0
+	waitbgfadein 
+	return
 	
 Move_BULLET_PUNCH:
 	loadspritegfx ANIM_TAG_IMPACT
@@ -3216,6 +3261,20 @@ Move_CAPTIVATE:
 	end
 
 Move_STEALTH_ROCK:
+	loadspritegfx ANIM_TAG_STEALTH_ROCK
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_W026, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 0, 24, 30
+	delay 10
+	playsewithpan SE_W026, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, -24, 24, 30
+	delay 10
+	waitplaysewithpan SE_W030, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 24, 24, 30
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
 	end
 	
 Move_GRASS_KNOT:
@@ -3452,6 +3511,25 @@ Move_HEAL_ORDER:
 	end
 	
 Move_HEAD_SMASH:
+	loadspritegfx ANIM_TAG_IMPACT
+	call SetImpactBackground 
+	createsprite gUnknown_08592CD8, ANIM_ATTACKER, 2, 0
+	playsewithpan SE_W036, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 2
+	createsprite gUnknown_08592CD8, ANIM_ATTACKER, 2, 1
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 2, 0, 4, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 6, 1
+	createsprite gUnknown_08592CD8, ANIM_ATTACKER, 2, 2
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 0, 0, 1, 1
+	loopsewithpan SE_W025B, SOUND_PAN_TARGET, 8, 3
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	delay 2
+	restorebg
+	waitbgfadein
 	end
 	
 Move_DOUBLE_HIT:

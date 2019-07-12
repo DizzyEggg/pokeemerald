@@ -12,6 +12,8 @@ static void sub_810DC10(struct Sprite *);
 static void sub_810DCB4(struct Sprite *);
 static void sub_810DD24(struct Sprite *);
 static void AnimBubbleEffectStep(struct Sprite *);
+static void AnimSuckerPunchStep(struct Sprite *sprite);
+void AnimSuckerPunch(struct Sprite *sprite);
 
 extern const union AnimCmd *const gUnknown_08595200[];
 
@@ -208,6 +210,69 @@ const struct SpriteTemplate gGreenPoisonBubble =
 	.affineAnims = gUnknown_085961A0,
 	.callback = sub_810DC2C,
 };
+
+const union AnimCmd gSuckerPunchAnimCmd[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_FRAME(0, 3, .hFlip = TRUE),
+    ANIMCMD_FRAME(0, 3, .vFlip = TRUE, .hFlip = TRUE),
+    ANIMCMD_FRAME(0, 3, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd *const gSuckerPunchAnim[] =
+{
+    gSuckerPunchAnimCmd,
+};
+
+const struct SpriteTemplate gSuckerPunchSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POISON_JAB,
+    .paletteTag = ANIM_TAG_POISON_JAB,
+    .oam = &gUnknown_0852496C,
+    .anims = gSuckerPunchAnim,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSuckerPunch,
+};
+
+void AnimSuckerPunch(struct Sprite *sprite)
+{
+    if (BATTLE_PARTNER(gBattleAnimAttacker) == gBattleAnimTarget && GetBattlerPosition(gBattleAnimTarget) < B_POSITION_PLAYER_RIGHT)
+        gBattleAnimArgs[0] *= -1;
+
+    InitSpritePosToAnimTarget(sprite, TRUE);
+
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+
+    sprite->data[0] = gBattleAnimArgs[3];
+    sprite->data[1] = sprite->pos1.x;
+    sprite->data[2] = sprite->pos1.x + gBattleAnimArgs[2];
+    sprite->data[3] = sprite->pos1.y;
+    sprite->data[4] = sprite->pos1.y;
+
+    InitAnimLinearTranslation(sprite);
+
+    sprite->data[5] = gBattleAnimArgs[5];
+    sprite->data[6] = gBattleAnimArgs[4];
+    sprite->data[7] = 0;
+
+    sprite->callback = AnimSuckerPunchStep;
+}
+
+static void AnimSuckerPunchStep(struct Sprite *sprite)
+{
+    if (!AnimTranslateLinear(sprite))
+    {
+        sprite->pos2.y += Sin(sprite->data[7] >> 8, sprite->data[5]);
+        sprite->data[7] += sprite->data[6];
+    }
+    else
+    {
+        DestroyAnimSprite(sprite);
+    }
+}
 
 void sub_810DBAC(struct Sprite *sprite)
 {
