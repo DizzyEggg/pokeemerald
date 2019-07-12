@@ -14,6 +14,9 @@ static void sub_810DD24(struct Sprite *);
 static void AnimBubbleEffectStep(struct Sprite *);
 static void AnimSuckerPunchStep(struct Sprite *sprite);
 void AnimSuckerPunch(struct Sprite *sprite);
+void AnimGunkShotParticlesStep(struct Sprite *sprite);
+void AnimGunkShotParticles(struct Sprite *sprite);
+void AnimGunkShotImpact(struct Sprite *sprite);
 
 extern const union AnimCmd *const gUnknown_08595200[];
 
@@ -225,6 +228,55 @@ const union AnimCmd *const gSuckerPunchAnim[] =
     gSuckerPunchAnimCmd,
 };
 
+const union AnimCmd gGunkShotParticlesAnimCmd[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(4, 1),
+    ANIMCMD_FRAME(8, 1),
+    ANIMCMD_FRAME(12, 1),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd *const gGunkShotParticlesAnims[] =
+{
+    gGunkShotParticlesAnimCmd,
+};
+
+const union AffineAnimCmd gSuckerPunchImpactAffineAnimCmd_1[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd gSuckerPunchImpactAffineAnimCmd_2[] =
+{
+    AFFINEANIMCMD_FRAME(0xD8, 0xD8, 0, 0),
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd gSuckerPunchImpactAffineAnimCmd_3[] =
+{
+    AFFINEANIMCMD_FRAME(0xB0, 0xB0, 0, 0),
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd gSuckerPunchImpactAffineAnimCmd_4[] =
+{
+    AFFINEANIMCMD_FRAME(0x80, 0x80, 0, 0),
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd *const gSuckerPunchImpactAffineAnim[] =
+{
+    gSuckerPunchImpactAffineAnimCmd_1,
+    gSuckerPunchImpactAffineAnimCmd_2,
+    gSuckerPunchImpactAffineAnimCmd_3,
+    gSuckerPunchImpactAffineAnimCmd_4,
+};
+
 const struct SpriteTemplate gSuckerPunchSpriteTemplate =
 {
     .tileTag = ANIM_TAG_POISON_JAB,
@@ -235,6 +287,83 @@ const struct SpriteTemplate gSuckerPunchSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSuckerPunch,
 };
+
+const struct SpriteTemplate gGunkShoParticlesSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_ORB,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gUnknown_08524A2C,
+    .anims = gGunkShotParticlesAnims,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGunkShotParticles,
+};
+
+const struct SpriteTemplate gGunkShotImpactSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_IMPACT,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gUnknown_08524A94,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gSuckerPunchImpactAffineAnim,
+    .callback = AnimGunkShotImpact,
+};
+
+void AnimGunkShotImpact(struct Sprite *sprite)
+{
+    StartSpriteAffineAnim(sprite, gBattleAnimArgs[3]);
+    if (gBattleAnimArgs[2] == 0)
+        InitSpritePosToAnimAttacker(sprite, 1);
+    else
+        InitSpritePosToAnimTarget(sprite, TRUE);
+
+    sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+void AnimGunkShotParticles(struct Sprite *sprite)
+{
+    u16 retArg;
+
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+    sprite->data[0] = 30;
+    sprite->data[1] = sprite->pos1.x;
+    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, 2);
+    sprite->data[3] = sprite->pos1.y;
+    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, 3);
+    InitAnimLinearTranslation(sprite);
+    sprite->data[5] = 0xD200 / sprite->data[0];
+    sprite->data[7] = gBattleAnimArgs[3];
+    retArg = gBattleAnimArgs[ARG_RET_ID];
+    if (gBattleAnimArgs[ARG_RET_ID] > 127)
+    {
+        sprite->data[6] = (retArg - 127) * 256;
+        sprite->data[7] = -sprite->data[7];
+    }
+    else
+    {
+        sprite->data[6] = retArg * 256;
+    }
+    sprite->callback = AnimGunkShotParticlesStep;
+    sprite->callback(sprite);
+}
+
+void AnimGunkShotParticlesStep(struct Sprite *sprite)
+{
+    if (AnimTranslateLinear(sprite))
+        DestroyAnimSprite(sprite);
+    sprite->pos2.y += Sin(sprite->data[6] >> 8, sprite->data[7]);
+    if ((sprite->data[6] + sprite->data[5]) >> 8 > 127)
+    {
+        sprite->data[6] = 0;
+        sprite->data[7] = -sprite->data[7];
+    }
+    else
+    {
+        sprite->data[6] += sprite->data[5];
+    }
+}
 
 void AnimSuckerPunch(struct Sprite *sprite)
 {

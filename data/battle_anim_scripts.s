@@ -2260,9 +2260,65 @@ Move_BRAVE_BIRD:
 	end
 	
 Move_EARTH_POWER:
+	loadspritegfx ANIM_TAG_SMALL_EMBER 
+	loadspritegfx ANIM_TAG_FIRE_PLUME 
+	createvisualtask sub_81152DC, 3, 5, 10, 50
+	createvisualtask sub_81152DC, 3, 1, 10, 50
+	playsewithpan SE_W089, SOUND_PAN_TARGET
+	delay 40
+	createvisualtask sub_8115628, 5, 1, 5, -1
+	loopsewithpan 145, SOUND_PAN_TARGET 11, 3
+	createvisualtask AnimTask_ShakeMon 5, 5, ANIM_TARGET, 0, 3, 25, 1 
+	createsprite gUnknown_08596F28, 194, 3, 1, 5, 0
+	delay 1
+	createsprite gUnknown_08596F28, 194, 3, 1, -10, -15 
+	delay 1
+	createsprite gUnknown_08596F28, 130, 3, 1, 0, 25 
+	delay 1
+	createsprite gUnknown_08596F28, 194, 3, 1, 15, 5  
+	delay 1
+	createsprite gUnknown_08596F28, 194, 3, 1, -25, 0  
+	delay 1
+	createsprite gUnknown_08596F28, 130, 3, 1, 30, 30 
+	delay 1
+	createsprite gUnknown_08596F28, 130, 3, 1, -27, 25 
+	delay 1
+	createsprite gUnknown_08596F28, 194, 3, 1, 0, 8
+	waitforvisualfinish 
+	createsprite gSlideMonToOriginalPosSpriteTemplate, 194, 3, 0, 0, 4
+	waitforvisualfinish 
 	end
 	
 Move_SWITCHEROO:
+	fadetobg BG_DARK 
+	waitbgfadein 
+	loadspritegfx ANIM_TAG_ITEM_BAG 
+	loadspritegfx ANIM_TAG_SPEED_DUST 
+	createsprite gTrickBagSpriteTemplate, 2, 2, -39, 80 
+	createsprite gTrickBagSpriteTemplate, 2, 2, -39, 208 
+	delay 16
+	playsewithpan SE_W166, 0
+	createvisualtask sub_8106020, 3, 0
+	createvisualtask sub_81060B0, 3, 0  
+	delay 30
+	playsewithpan SE_W104, 0
+	delay 24
+	playsewithpan SE_W104, 0
+	delay 16
+	playsewithpan SE_W104, 0
+	delay 16
+	playsewithpan SE_W104, 0
+	delay 16
+	playsewithpan SE_W104, 0
+	delay 16
+	playsewithpan SE_W104, 0
+	delay 16
+	playsewithpan SE_W213, 0
+	createvisualtask AnimTask_ShakeMon, 3, 5, ANIM_ATTACKER, 5, 0, 7, 2  
+	createvisualtask AnimTask_ShakeMon, 3, 5, ANIM_TARGET, 5, 0, 7, 2 
+	waitforvisualfinish 
+	restorebg 
+	waitbgfadein 
 	end
 	
 Move_GIGA_IMPACT:
@@ -2795,7 +2851,22 @@ Move_ROCK_CLIMB:
 	end
 	
 Move_DEFOG:
-	end
+	loadspritegfx ANIM_TAG_WHITE_CIRCLE_OF_LIGHT
+	monbg ANIM_ATTACKER 
+	setalpha 12, 8 
+	playsewithpan SE_W076, SOUND_PAN_ATTACKER
+	createsprite gUnknown_08596898, ANIM_ATTACKER, 41, 0, 0, 0, 0  
+	delay 20
+	createvisualtask sub_8116664, 5, 5, 2, 0, 16, -1  
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_WHITE_CIRCLE_OF_LIGHT, 2, 0, 16, -1  
+	waitforvisualfinish
+	waitforvisualfinish
+	delay 16
+	createvisualtask sub_8116664, 5, 5, 2, 16, 0, -1
+	waitforvisualfinish 
+	clearmonbg ANIM_ATTACKER 
+	blendoff 
+	end 
 	
 Move_TRICK_ROOM:
 	fadetobg BG_TRICK_ROOM 
@@ -3096,7 +3167,55 @@ Move_CROSS_POISON:
 	end
 	
 Move_GUNK_SHOT:
-	end
+	loadspritegfx ANIM_TAG_WATER_ORB 
+	loadspritegfx ANIM_TAG_POISON_BUBBLE 
+	loadspritegfx ANIM_TAG_WATER_IMPACT 
+	loadspritegfx ANIM_TAG_POISON_BUBBLE 
+	monbg ANIM_DEF_PARTNER 
+	monbgprio_28 ANIM_TARGET  
+	setalpha 12, 8 
+	createvisualtask AnimTask_ShakeMon 5, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse_1B SE_W056, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 2, 0 
+	createvisualtask sub_81076C8, 5, 1, 100
+	call GunkShotParticles 
+	call GunkShotParticles 
+	call GunkShotParticles 
+	createvisualtask AnimTask_ShakeMon, 5, 5, ANIM_TARGET, 3, 0, 27, 1
+	loopsewithpan SE_W145C, SOUND_PAN_TARGET, 3, 15
+	call GunkShotImpact 
+	call GunkShotParticles 
+	call GunkShotParticles 
+	call GunkShotImpact 
+	call GunkShotParticles 
+	call GunkShotParticles 
+	call GunkShotImpact 
+	call GunkShotParticles 
+	call GunkShotParticles 
+	call GunkShotImpact 
+	call GunkShotParticles 
+	call GunkShotParticles 
+	call GunkShotImpact 
+	delay 1
+	delay 1
+	call GunkShotImpact
+	call PoisonBubblesEffect
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff 
+	end 
+GunkShotParticles:
+	createsprite gGunkShoParticlesSpriteTemplate, 3, 4, 10, 10, 0, 16 
+	createsprite gGunkShoParticlesSpriteTemplate, 3, 4, 10, 10, 0, -16
+	delay 1
+	createsprite gGunkShoParticlesSpriteTemplate, 3, 4, 10, 10, 0, 16
+	createsprite gGunkShoParticlesSpriteTemplate, 3, 4, 10, 10, 0, -16  
+	delay 1
+	return 
+GunkShotImpact:
+	createsprite gGunkShotImpactSpriteTemplate, 4, 4, 0, 15, 1, 1 
+	createsprite gGunkShotImpactSpriteTemplate, 4, 4, 0, -15, 1, 1  
+	return
 	
 Move_IRON_HEAD:
 	loadspritegfx ANIM_TAG_GUST
