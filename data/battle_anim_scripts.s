@@ -1144,6 +1144,7 @@ Move_FLING:
 	
 Move_PSYCHO_SHIFT:
 	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
+	loadspritegfx ANIM_TAG_HOLLOW_ORB
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
 	loadspritegfx ANIM_TAG_THIN_RING
 	monbg ANIM_ATTACKER
