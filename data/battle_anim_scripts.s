@@ -2266,7 +2266,6 @@ Move_EARTH_POWER:
 	createvisualtask sub_81152DC, 3, 1, 10, 50
 	playsewithpan SE_W089, SOUND_PAN_TARGET
 	delay 40
-	createvisualtask sub_8115628, 5, 1, 5, -1
 	loopsewithpan 145, SOUND_PAN_TARGET 11, 3
 	createvisualtask AnimTask_ShakeMon 5, 5, ANIM_TARGET, 0, 3, 25, 1 
 	createsprite gUnknown_08596F28, 194, 3, 1, 5, 0
@@ -2322,11 +2321,19 @@ Move_SWITCHEROO:
 	end
 	
 Move_GIGA_IMPACT:
-	loadspritegfx ANIM_TAG_IMPACT 
-	monbg ANIM_DEF_PARTNER 
-	setalpha 12, 8 
-	createvisualtask AnimTask_WindUpLunge, 5, 7, 0, -18, 8, 23, 10, 40, 10
-	delay 35
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	playsewithpan SE_W036, SOUND_PAN_ATTACKER
+	createsprite gVerticalDipSpriteTemplate, ANIM_ATTACKER, 2, 6, 1, ANIM_ATTACKER
+	waitforvisualfinish
+	delay 11
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 0, 26, 0, 0, 5
+	delay 6
+	@monbg ANIM_DEF_PARTNER 
+	@setalpha 12, 8 
+	@createvisualtask AnimTask_WindUpLunge, 5, 7, 0, -18, 8, 23, 10, 40, 10
+	@delay 35
 	createsprite gComplexPaletteBlendSpriteTemplate, 2, 7, 31, 3, 1, 0, 10, 0, 0
 	createsprite gBasicHitSplatSpriteTemplate, 4, 4, -10, 0, 1, 0
 	playsewithpan SE_W025B, SOUND_PAN_TARGET 
