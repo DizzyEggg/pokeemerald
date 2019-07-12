@@ -1276,7 +1276,7 @@ Move_POWER_TRICK:
 	end
 
 Move_GASTRO_ACID:
-	loadspritegfx ANIM_TAG_GASTRO_ACID
+	loadspritegfx ANIM_TAG_GREEN_POISON_BUBBLE
 	monbg ANIM_DEF_PARTNER
 	createsprite gGreenPoisonBubble, ANIM_TARGET, 2, 20, 0, 40, 1, 0, 0
 	playsewithpan SE_W145C, SOUND_PAN_ATTACKER
