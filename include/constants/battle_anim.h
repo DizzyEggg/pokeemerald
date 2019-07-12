@@ -320,6 +320,7 @@
 #define ANIM_TAG_STONE_EDGE                 (ANIM_SPRITES_START + 310)
 #define ANIM_TAG_STEALTH_ROCK               (ANIM_SPRITES_START + 311)
 #define ANIM_TAG_POISON_JAB                 (ANIM_SPRITES_START + 312)
+#define ANIM_TAG_GREEN_POISON_BUBBLE        (ANIM_SPRITES_START + 313)
 
 // battlers
 #define ANIM_ATTACKER    0
