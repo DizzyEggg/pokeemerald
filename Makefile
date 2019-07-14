@@ -154,6 +154,7 @@ endif
 
 ifeq ($(DINFO),1)
 override CFLAGS += -g
+override CPP += -DDEBUG=1
 endif
 
 $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c $$(c_dep)
