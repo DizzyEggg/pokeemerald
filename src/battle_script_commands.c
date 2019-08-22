@@ -4781,8 +4781,20 @@ static void atk4D_switchindataupdate(void)
     gBattlescriptCurrInstr += 2;
 }
 
+// Because the indicator must have priority 0 to be properly displayed on healthbox, it needs to be temporarily changed while displaying lvl-up-box.
+static void ChangeMegaIndicatorsPriority(u32 priority)
+{
+    s32 i;
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+    {
+        if (gBattleStruct->mega.indicatorSpriteIds[i] != 0xFF)
+            gSprites[gBattleStruct->mega.indicatorSpriteIds[i]].oam.priority = priority;
+    }
+}
+
 static void atk4E_switchinanim(void)
 {
+    ChangeMegaIndicatorsPriority(0);  //Since the yesnobox actually closed right before switch-in animation
     if (gBattleControllerExecFlags)
         return;
 
@@ -5580,6 +5592,7 @@ static void atk5A_yesnoboxlearnmove(void)
     switch (gBattleScripting.learnMoveState)
     {
     case 0:
+        ChangeMegaIndicatorsPriority(1);
         HandleBattleWindow(0x18, 8, 0x1D, 0xD, 0);
         BattlePutTextOnWindow(gText_BattleYesNoChoice, 0xC);
         gBattleScripting.learnMoveState++;
@@ -5681,6 +5694,7 @@ static void atk5A_yesnoboxlearnmove(void)
         break;
     case 5:
         HandleBattleWindow(0x18, 8, 0x1D, 0xD, WINDOW_CLEAR);
+        ChangeMegaIndicatorsPriority(0);
         gBattlescriptCurrInstr += 5;
         break;
     case 6:
@@ -5697,6 +5711,7 @@ static void atk5B_yesnoboxstoplearningmove(void)
     switch (gBattleScripting.learnMoveState)
     {
     case 0:
+        ChangeMegaIndicatorsPriority(1);
         HandleBattleWindow(0x18, 8, 0x1D, 0xD, 0);
         BattlePutTextOnWindow(gText_BattleYesNoChoice, 0xC);
         gBattleScripting.learnMoveState++;
@@ -5721,19 +5736,20 @@ static void atk5B_yesnoboxstoplearningmove(void)
         if (gMain.newKeys & A_BUTTON)
         {
             PlaySE(SE_SELECT);
-
             if (gBattleCommunication[1] != 0)
                 gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
             else
                 gBattlescriptCurrInstr += 5;
-
             HandleBattleWindow(0x18, 0x8, 0x1D, 0xD, WINDOW_CLEAR);
+            ChangeMegaIndicatorsPriority(0);
         }
         else if (gMain.newKeys & B_BUTTON)
         {
             PlaySE(SE_SELECT);
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
             HandleBattleWindow(0x18, 0x8, 0x1D, 0xD, WINDOW_CLEAR);
+            ChangeMegaIndicatorsPriority(0);
+
         }
         break;
     }
@@ -5992,6 +6008,7 @@ static void atk67_yesnobox(void)
     switch (gBattleCommunication[0])
     {
     case 0:
+        ChangeMegaIndicatorsPriority(1);
         HandleBattleWindow(0x18, 8, 0x1D, 0xD, 0);
         BattlePutTextOnWindow(gText_BattleYesNoChoice, 0xC);
         gBattleCommunication[0]++;
