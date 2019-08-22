@@ -6098,17 +6098,6 @@ static void atk6B_atknameinbuff1(void)
     gBattlescriptCurrInstr++;
 }
 
-// Because the indicator must have priority 0 to be properly displayed on healthbox, it needs to be temporarily changed while displaying lvl-up-box.
-static void ChangeMegaIndicatorsPriority(u32 priority)
-{
-    s32 i;
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    {
-        if (gBattleStruct->mega.indicatorSpriteIds[i] != 0xFF)
-            gSprites[gBattleStruct->mega.indicatorSpriteIds[i]].oam.priority = priority;
-    }
-}
-
 static void atk6C_drawlvlupbox(void)
 {
     if (gBattleScripting.atk6C_state == 0)
