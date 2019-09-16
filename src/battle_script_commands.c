@@ -3435,7 +3435,7 @@ static void atk23_getexp(void)
                         gBattleMoveDamage += gExpShareExp;
                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && B_TRAINER_BATTLE_MULTIPLIER <= GEN_6)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
 
                     if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId]))
