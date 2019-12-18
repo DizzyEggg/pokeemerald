@@ -2060,6 +2060,8 @@ static const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_STAKATAKA - 1] = 0x09,
     [SPECIES_BLACEPHALON - 1] = 0x8f,
     [SPECIES_ZERAORA - 1] = 0x17,
+    [SPECIES_MELTAN - 1] = 0x65,
+    [SPECIES_MELMETAL - 1] = 0x09,
 
     // Forms
     [SPECIES_ROTOM_HEAT - 1] = 0,
