@@ -1134,6 +1134,8 @@ const u16 gSpeciesToNationalPokedexNum[NUM_SPECIES] = // Assigns all species to 
 	SPECIES_TO_NATIONAL(STAKATAKA),
 	SPECIES_TO_NATIONAL(BLACEPHALON),
 	SPECIES_TO_NATIONAL(ZERAORA),
+	SPECIES_TO_NATIONAL(MELTAN),
+	SPECIES_TO_NATIONAL(MELMETAL),
 };
 
 const u16 gHoennToNationalOrder[HOENN_DEX_COUNT] = // Assigns Hoenn Dex Pokémon (Using National Dex Index)

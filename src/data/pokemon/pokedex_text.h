@@ -4847,3 +4847,13 @@ const u8 gZeraoraPokedexText[] = _(
 	"It approaches its enemies at the speed\n"
 	"of lightning, then tears them limb from\n"
 	"limb with its sharp claws.");
+
+const u8 gMeltanPokedexText[] = _(
+	"It melts particles of iron and other metals\n"
+    "found in the subsoil, so it can absorb them\n"
+    "into its body of molten steel.");
+
+const u8 gMelmetalPokedexText[] = _(
+	"Revered long ago for its capacity to create\n"
+    "iron from nothing, for some reason it has\n"
+    "come back to life after 3,000 years.");
