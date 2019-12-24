@@ -9460,23 +9460,117 @@ static void Cmd_copymovepermanently(void) // sketch
 
 static bool8 IsTwoTurnsMove(u16 move)
 {
-    if (gBattleMoves[move].effect == EFFECT_SKULL_BASH
-        || gBattleMoves[move].effect == EFFECT_TWO_TURNS_ATTACK
-        || gBattleMoves[move].effect == EFFECT_SOLARBEAM
-        || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
-        || gBattleMoves[move].effect == EFFECT_BIDE)
+    switch (move)
+    {
+    case MOVE_BOUNCE:
+    case MOVE_DIG:
+    case MOVE_DIVE:
+    case MOVE_FLY:
+    case MOVE_FREEZE_SHOCK:
+    case MOVE_GEOMANCY:
+    case MOVE_ICE_BURN:
+    case MOVE_PHANTOM_FORCE:
+    case MOVE_RAZOR_WIND:
+    case MOVE_SHADOW_FORCE:
+    case MOVE_SKULL_BASH:
+    case MOVE_SKY_ATTACK:
+    case MOVE_SKY_DROP:
+    case MOVE_SOLAR_BEAM:
+    case MOVE_SOLAR_BLADE:
         return TRUE;
-    else
-        return FALSE;
+    }
+
+    return FALSE;
 }
 
-static bool8 IsInvalidForSleepTalkOrAssist(u16 move)
+static bool8 IsMoveInvalidForSleepTalk(u16 move)
 {
-    if (move == 0 || move == MOVE_SLEEP_TALK || move == MOVE_ASSIST
-        || move == MOVE_MIRROR_MOVE || move == MOVE_METRONOME)
+    switch (move)
+    {
+    case MOVE_NONE:
+    case MOVE_ASSIST:
+    case MOVE_BEAK_BLAST:
+    case MOVE_BELCH:
+    case MOVE_BIDE:
+    case MOVE_CELEBRATE:
+    case MOVE_CHATTER:
+    case MOVE_COPYCAT:
+    case MOVE_FOCUS_PUNCH:
+    case MOVE_HOLD_HANDS:
+    case MOVE_ME_FIRST:
+    case MOVE_METRONOME:
+    case MOVE_MIMIC:
+    case MOVE_MIRROR_MOVE:
+    case MOVE_NATURE_POWER:
+    case MOVE_SHELL_TRAP:
+    case MOVE_SKETCH:
+    case MOVE_SLEEP_TALK:
+    case MOVE_STRUGGLE:
+    case MOVE_UPROAR:
         return TRUE;
-    else
-        return FALSE;
+    }
+
+    if (IsTwoTurnsMove(move))
+        return TRUE;
+
+    return FALSE;
+}
+
+static bool8 IsMoveInvalidForAssist(u16 move)
+{
+    switch (move)
+    {
+    case MOVE_NONE:
+    case MOVE_ASSIST:
+    case MOVE_BANEFUL_BUNKER:
+    case MOVE_BEAK_BLAST:
+    case MOVE_BELCH:
+    case MOVE_BESTOW:
+    case MOVE_CELEBRATE:
+    case MOVE_CHATTER:
+    case MOVE_CIRCLE_THROW:
+    case MOVE_COPYCAT:
+    case MOVE_COUNTER:
+    case MOVE_COVET:
+    case MOVE_DESTINY_BOND:
+    case MOVE_DETECT:
+    case MOVE_DRAGON_TAIL:
+    case MOVE_ENDURE:
+    case MOVE_FEINT:
+    case MOVE_FOCUS_PUNCH:
+    case MOVE_FOLLOW_ME:
+    case MOVE_HELPING_HAND:
+    case MOVE_HOLD_HANDS:
+    case MOVE_KING_S_SHIELD:
+    case MOVE_MAT_BLOCK:
+    case MOVE_ME_FIRST:
+    case MOVE_METRONOME:
+    case MOVE_MIMIC:
+    case MOVE_MIRROR_COAT:
+    case MOVE_MIRROR_MOVE:
+    case MOVE_NATURE_POWER:
+    case MOVE_PROTECT:
+    case MOVE_RAGE_POWDER:
+    case MOVE_ROAR:
+    case MOVE_SHELL_TRAP:
+    case MOVE_SKETCH:
+    case MOVE_SLEEP_TALK:
+    case MOVE_SNATCH:
+    case MOVE_SPIKY_SHIELD:
+    case MOVE_SPOTLIGHT:
+    case MOVE_STRUGGLE:
+    case MOVE_SWITCHEROO:
+    case MOVE_THIEF:
+    case MOVE_TRANSFORM:
+    case MOVE_TRICK:
+    case MOVE_WHIRLWIND:
+        return TRUE;
+    }
+
+    if (IsTwoTurnsMove(move))
+        return TRUE;
+
+    return FALSE;
 }
 
 static u8 AttacksThisTurn(u8 battlerId, u16 move) // Note: returns 1 if it's a charging turn, otherwise 2
@@ -9505,14 +9599,10 @@ static void Cmd_trychoosesleeptalkmove(void)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (IsInvalidForSleepTalkOrAssist(gBattleMons[gBattlerAttacker].moves[i])
-            || gBattleMons[gBattlerAttacker].moves[i] == MOVE_FOCUS_PUNCH
-            || gBattleMons[gBattlerAttacker].moves[i] == MOVE_UPROAR
-            || IsTwoTurnsMove(gBattleMons[gBattlerAttacker].moves[i]))
+        if (IsMoveInvalidForSleepTalk(gBattleMons[gBattlerAttacker].moves[i]))
         {
             unusableMovesBits |= gBitTable[i];
         }
-
     }
 
     unusableMovesBits = CheckMoveLimitations(gBattlerAttacker, unusableMovesBits, ~(MOVE_LIMITATION_PP));
@@ -10763,7 +10853,7 @@ static void Cmd_assistattackselect(void)
             s32 i = 0;
             u16 move = GetMonData(&party[monId], MON_DATA_MOVE1 + moveId);
 
-            if (IsInvalidForSleepTalkOrAssist(move))
+            if (IsMoveInvalidForAssist(move))
                 continue;
 
             for (; sMovesForbiddenToCopy[i] != ASSIST_FORBIDDEN_END && move != sMovesForbiddenToCopy[i]; i++);
