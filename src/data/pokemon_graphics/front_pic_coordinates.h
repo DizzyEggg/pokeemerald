@@ -4522,4 +4522,14 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x76,
         .y_offset = 0x8,
     },
+    [SPECIES_SHAYMIN_SKY] =
+    {
+        .size = 0x87,
+        .y_offset = 0x10,
+    },
+    [SPECIES_GIRATINA_ORIGIN] =
+    {
+        .size = 0x87,
+        .y_offset = 0x2,
+    },
 };

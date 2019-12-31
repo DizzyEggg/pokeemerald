@@ -8308,6 +8308,18 @@ static const union AnimCmd sAnim_ALOLAN_MAROWAK_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_SHAYMIN_SKY_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GIRATINA_ORIGIN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sAnims_NONE[] ={
     sAnim_GeneralFrame0,
     sAnim_NONE_1,
@@ -12928,6 +12940,16 @@ static const union AnimCmd *const sAnims_ALOLAN_MAROWAK[] ={
     sAnim_ALOLAN_MAROWAK_1,
 };
 
+static const union AnimCmd *const sAnims_SHAYMIN_SKY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SHAYMIN_SKY_1,
+};
+
+static const union AnimCmd *const sAnims_GIRATINA_ORIGIN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GIRATINA_ORIGIN_1,
+};
+
 #define ANIM_CMD(name)             [SPECIES_##name] = sAnims_##name
 #define ANIM_CMD_FULL(name, anims) [SPECIES_##name] = anims
 
@@ -13822,5 +13844,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(ALOLAN_MUK),
     ANIM_CMD(ALOLAN_EXEGGUTOR),
     ANIM_CMD(ALOLAN_MAROWAK),
+    ANIM_CMD(SHAYMIN_SKY),
+    ANIM_CMD(GIRATINA_ORIGIN),
 };
 
