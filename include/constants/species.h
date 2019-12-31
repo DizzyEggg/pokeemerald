@@ -897,8 +897,10 @@
 // TODO: forms
 #define SPECIES_PRIMAL_KYOGRE 888
 #define SPECIES_PRIMAL_GROUDON 889
+#define SPECIES_SHAYMIN_SKY 890
+#define SPECIES_GIRATINA_ORIGIN 891
 
-#define SPECIES_EGG 890
+#define SPECIES_EGG 892
 #define NUM_SPECIES SPECIES_EGG
 
 // Unown forms, not actual species
