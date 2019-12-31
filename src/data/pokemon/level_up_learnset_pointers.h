@@ -892,4 +892,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_ALOLAN_MUK] = sAlolanMukLevelUpLearnset,
     [SPECIES_ALOLAN_EXEGGUTOR] = sAlolanExeggutorLevelUpLearnset,
     [SPECIES_ALOLAN_MAROWAK] = sAlolanMarowakLevelUpLearnset,
+    // Forms
+    [SPECIES_SHAYMIN_SKY] = sShayminLevelUpLearnset,
+    [SPECIES_GIRATINA_ORIGIN] = sGiratinaLevelUpLearnset,
 };
