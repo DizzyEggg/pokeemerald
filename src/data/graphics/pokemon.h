@@ -3616,11 +3616,11 @@ const u32 gMonBackPic_AlolanMarowak[] = INCBIN_U32("graphics/pokemon/alolan_maro
 const u32 gMonPalette_AlolanMarowak[] = INCBIN_U32("graphics/pokemon/alolan_marowak/normal.gbapal.lz");
 const u32 gMonShinyPalette_AlolanMarowak[] = INCBIN_U32("graphics/pokemon/alolan_marowak/shiny.gbapal.lz");
 
-const u32 gMonFrontPic_ShayminSky[] = INCBIN_U32("graphics/pokemon/shaymin/front_sky.4bpp.lz");
+const u32 gMonFrontPic_ShayminSky[] = INCBIN_U32("graphics/pokemon/shaymin/anim_front_sky.4bpp.lz");
 const u32 gMonBackPic_ShayminSky[] = INCBIN_U32("graphics/pokemon/shaymin/back_sky.4bpp.lz");
 const u32 gMonPalette_ShayminSky[] = INCBIN_U32("graphics/pokemon/shaymin/normal_sky.gbapal.lz");
 const u32 gMonShinyPalette_ShayminSky[] = INCBIN_U32("graphics/pokemon/shaymin/shiny_sky.gbapal.lz");
-const u32 gMonFrontPic_GiratinaOrigin[] = INCBIN_U32("graphics/pokemon/giratina/front_origin.4bpp.lz");
+const u32 gMonFrontPic_GiratinaOrigin[] = INCBIN_U32("graphics/pokemon/giratina/anim_front_origin.4bpp.lz");
 const u32 gMonBackPic_GiratinaOrigin[] = INCBIN_U32("graphics/pokemon/giratina/back_origin.4bpp.lz");
 const u32 gMonPalette_GiratinaOrigin[] = INCBIN_U32("graphics/pokemon/giratina/normal_origin.gbapal.lz");
 const u32 gMonShinyPalette_GiratinaOrigin[] = INCBIN_U32("graphics/pokemon/giratina/shiny_origin.gbapal.lz");
