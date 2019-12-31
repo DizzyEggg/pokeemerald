@@ -3616,6 +3616,15 @@ const u32 gMonBackPic_AlolanMarowak[] = INCBIN_U32("graphics/pokemon/alolan_maro
 const u32 gMonPalette_AlolanMarowak[] = INCBIN_U32("graphics/pokemon/alolan_marowak/normal.gbapal.lz");
 const u32 gMonShinyPalette_AlolanMarowak[] = INCBIN_U32("graphics/pokemon/alolan_marowak/shiny.gbapal.lz");
 
+const u32 gMonFrontPic_ShayminSky[] = INCBIN_U32("graphics/pokemon/shaymin/front_sky.4bpp.lz");
+const u32 gMonBackPic_ShayminSky[] = INCBIN_U32("graphics/pokemon/shaymin/back_sky.4bpp.lz");
+const u32 gMonPalette_ShayminSky[] = INCBIN_U32("graphics/pokemon/shaymin/normal_sky.gbapal.lz");
+const u32 gMonShinyPalette_ShayminSky[] = INCBIN_U32("graphics/pokemon/shaymin/shiny_sky.gbapal.lz");
+const u32 gMonFrontPic_GiratinaOrigin[] = INCBIN_U32("graphics/pokemon/giratina/front_origin.4bpp.lz");
+const u32 gMonBackPic_GiratinaOrigin[] = INCBIN_U32("graphics/pokemon/giratina/back_origin.4bpp.lz");
+const u32 gMonPalette_GiratinaOrigin[] = INCBIN_U32("graphics/pokemon/giratina/normal_origin.gbapal.lz");
+const u32 gMonShinyPalette_GiratinaOrigin[] = INCBIN_U32("graphics/pokemon/giratina/shiny_origin.gbapal.lz");
+
 const u8 gMonIcon_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mark/icon.4bpp");
 const u8 gMonIcon_Bulbasaur[] = INCBIN_U8("graphics/pokemon/bulbasaur/icon.4bpp");
 const u8 gMonIcon_Ivysaur[] = INCBIN_U8("graphics/pokemon/ivysaur/icon.4bpp");
@@ -4533,6 +4542,9 @@ const u8 gMonIcon_AlolanGrimer[] = INCBIN_U8("graphics/pokemon/alolan_grimer/ico
 const u8 gMonIcon_AlolanMuk[] = INCBIN_U8("graphics/pokemon/alolan_muk/icon.4bpp");
 const u8 gMonIcon_AlolanExeggutor[] = INCBIN_U8("graphics/pokemon/alolan_exeggutor/icon.4bpp");
 const u8 gMonIcon_AlolanMarowak[] = INCBIN_U8("graphics/pokemon/alolan_marowak/icon.4bpp");
+
+const u8 gMonIcon_ShayminSky[] = INCBIN_U8("graphics/pokemon/shaymin/icon_sky.4bpp");
+const u8 gMonIcon_GiratinaOrigin[] = INCBIN_U8("graphics/pokemon/giratina/icon_origin.4bpp");
 
 const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mark/footprint.1bpp");
 const u8 gMonFootprint_Bulbasaur[] = INCBIN_U8("graphics/pokemon/bulbasaur/footprint.1bpp");
