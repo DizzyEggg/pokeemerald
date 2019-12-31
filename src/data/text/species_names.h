@@ -891,4 +891,7 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_ALOLAN_MUK] = _("Muk"),
     [SPECIES_ALOLAN_EXEGGUTOR] = _("Exeggutor"),
     [SPECIES_ALOLAN_MAROWAK] = _("Marowak"),
+
+    [SPECIES_SHAYMIN_SKY] = _("Shaymin"),
+    [SPECIES_GIRATINA_ORIGIN] = _("Giratina"),
 };
