@@ -3653,6 +3653,15 @@ extern const u32 gMonBackPic_AlolanMarowak[];
 extern const u32 gMonPalette_AlolanMarowak[];
 extern const u32 gMonShinyPalette_AlolanMarowak[];
 
+extern const u32 gMonFrontPic_ShayminSky[];
+extern const u32 gMonBackPic_ShayminSky[];
+extern const u32 gMonPalette_ShayminSky[];
+extern const u32 gMonShinyPalette_ShayminSky[];
+extern const u32 gMonFrontPic_GiratinaOrigin[];
+extern const u32 gMonBackPic_GiratinaOrigin[];
+extern const u32 gMonPalette_GiratinaOrigin[];
+extern const u32 gMonShinyPalette_GiratinaOrigin[];
+
 extern const u8 gMonIcon_QuestionMark[];
 extern const u8 gMonIcon_Bulbasaur[];
 extern const u8 gMonIcon_Ivysaur[];
@@ -4570,6 +4579,9 @@ extern const u8 gMonIcon_AlolanGrimer[];
 extern const u8 gMonIcon_AlolanMuk[];
 extern const u8 gMonIcon_AlolanExeggutor[];
 extern const u8 gMonIcon_AlolanMarowak[];
+
+extern const u8 gMonIcon_ShayminSky[];
+extern const u8 gMonIcon_GiratinaOrigin[];
 
 extern const u8 gMonFootprint_QuestionMark[];
 extern const u8 gMonFootprint_Bulbasaur[];
