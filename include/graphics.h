@@ -3697,6 +3697,14 @@ extern const u32 gMonFrontPic_WishiwashiSchool[];
 extern const u32 gMonBackPic_WishiwashiSchool[];
 extern const u32 gMonPalette_WishiwashiSchool[];
 extern const u32 gMonShinyPalette_WishiwashiSchool[];
+extern const u32 gMonFrontPic_KyuremBlack[];
+extern const u32 gMonBackPic_KyuremBlack[];
+extern const u32 gMonPalette_KyuremBlack[];
+extern const u32 gMonShinyPalette_KyuremBlack[];
+extern const u32 gMonFrontPic_KyuremWhite[];
+extern const u32 gMonBackPic_KyuremWhite[];
+extern const u32 gMonPalette_KyuremWhite[];
+extern const u32 gMonShinyPalette_KyuremWhite[];
 
 extern const u8 gMonIcon_QuestionMark[];
 extern const u8 gMonIcon_Bulbasaur[];
@@ -4627,6 +4635,8 @@ extern const u8 gMonIcon_AegislashBlade[];
 extern const u8 gMonIcon_HoopaUnbound[];
 extern const u8 gMonIcon_MiniorCore[];
 extern const u8 gMonIcon_WishiwashiSchool[];
+extern const u8 gMonIcon_KyuremBlack[];
+extern const u8 gMonIcon_KyuremWhite[];
 
 extern const u8 gMonFootprint_QuestionMark[];
 extern const u8 gMonFootprint_Bulbasaur[];

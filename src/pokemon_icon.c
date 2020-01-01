@@ -925,6 +925,8 @@ const u8 *const gMonIconTable[] =
     [SPECIES_HOOPA_UNBOUND] = gMonIcon_HoopaUnbound,
     [SPECIES_MINIOR_CORE] = gMonIcon_MiniorCore,
     [SPECIES_WISHIWASHI_SCHOOL] = gMonIcon_WishiwashiSchool,
+    [SPECIES_KYUREM_BLACK] = gMonIcon_KyuremBlack,
+    [SPECIES_KYUREM_WHITE] = gMonIcon_KyuremWhite,
     [SPECIES_UNOWN_A] = gMonIcon_UnownA,
     [SPECIES_UNOWN_B] = gMonIcon_UnownB,
     [SPECIES_UNOWN_C] = gMonIcon_UnownC,
@@ -1856,6 +1858,8 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_HOOPA_UNBOUND] = 0,
     [SPECIES_MINIOR_CORE] = 0,
     [SPECIES_WISHIWASHI_SCHOOL] = 0,
+    [SPECIES_KYUREM_BLACK] = 0,
+    [SPECIES_KYUREM_WHITE] = 0,
     [SPECIES_UNOWN_A ... SPECIES_UNOWN_QMARK] = 0,
     [SPECIES_EGG] = 1,
 };

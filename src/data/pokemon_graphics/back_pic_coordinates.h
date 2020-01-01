@@ -4580,4 +4580,14 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x66,
         .y_offset = 0x8,
     },
+    [SPECIES_KYUREM_BLACK] =
+    {
+        .size = 0x66,
+        .y_offset = 0x3,
+    },
+    [SPECIES_KYUREM_WHITE] =
+    {
+        .size = 0x66,
+        .y_offset = 0x3,
+    },
 };

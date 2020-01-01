@@ -8374,6 +8374,18 @@ static const union AnimCmd sAnim_WISHIWASHI_SCHOOL_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_KYUREM_BLACK_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_KYUREM_WHITE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sAnims_NONE[] ={
     sAnim_GeneralFrame0,
     sAnim_NONE_1,
@@ -13049,6 +13061,16 @@ static const union AnimCmd *const sAnims_WISHIWASHI_SCHOOL[] ={
     sAnim_WISHIWASHI_SCHOOL_1,
 };
 
+static const union AnimCmd *const sAnims_KYUREM_BLACK[] ={
+    sAnim_GeneralFrame0,
+    sAnim_KYUREM_BLACK_1,
+};
+
+static const union AnimCmd *const sAnims_KYUREM_WHITE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_KYUREM_WHITE_1,
+};
+
 #define ANIM_CMD(name)             [SPECIES_##name] = sAnims_##name
 #define ANIM_CMD_FULL(name, anims) [SPECIES_##name] = anims
 
@@ -13954,5 +13976,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(HOOPA_UNBOUND),
     ANIM_CMD(MINIOR_CORE),
     ANIM_CMD(WISHIWASHI_SCHOOL),
+    ANIM_CMD(KYUREM_BLACK),
+    ANIM_CMD(KYUREM_WHITE),
 };
 
