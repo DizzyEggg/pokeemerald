@@ -894,6 +894,15 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
 
     SPECIES_PAL(SHAYMIN_SKY, gMonPalette_ShayminSky),
     SPECIES_PAL(GIRATINA_ORIGIN, gMonPalette_GiratinaOrigin),
+    SPECIES_PAL(DARMANITAN_ZEN, gMonPalette_DarmanitanZen),
+    SPECIES_PAL(TORNADUS_THERIAN, gMonPalette_TornadusTherian),
+    SPECIES_PAL(THUNDURUS_THERIAN, gMonPalette_ThundurusTherian),
+    SPECIES_PAL(LANDORUS_THERIAN, gMonPalette_LandorusTherian),
+    SPECIES_PAL(MELOETTA_PIROUETTE, gMonPalette_MeloettaPirouette),
+    SPECIES_PAL(AEGISLASH_BLADE, gMonPalette_AegislashBlade),
+    SPECIES_PAL(HOOPA_UNBOUND, gMonPalette_HoopaUnbound),
+    SPECIES_PAL(MINIOR_CORE, gMonPalette_MiniorCore),
+    SPECIES_PAL(WISHIWASHI_SCHOOL, gMonPalette_WishiwashiSchool),
 
     SPECIES_PAL(UNOWN_A, gMonPalette_Unown),
     SPECIES_PAL(UNOWN_B, gMonPalette_Unown),

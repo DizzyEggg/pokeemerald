@@ -4528,11 +4528,56 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_SHAYMIN_SKY] =
     {
         .size = 0x65,
-        .y_offset = 0xf,
+        .y_offset = 0x5,
     },
     [SPECIES_GIRATINA_ORIGIN] =
     {
         .size = 0x65,
-        .y_offset = 0x0,
+        .y_offset = 0x5,
+    },
+    [SPECIES_DARMANITAN_ZEN] =
+    {
+        .size = 0x66,
+        .y_offset = 0x12,
+    },
+    [SPECIES_TORNADUS_THERIAN] =
+    {
+        .size = 0x66,
+        .y_offset = 0x3,
+    },
+    [SPECIES_THUNDURUS_THERIAN] =
+    {
+        .size = 0x66,
+        .y_offset = 0x7,
+    },
+    [SPECIES_LANDORUS_THERIAN] =
+    {
+        .size = 0x66,
+        .y_offset = 0x7,
+    },
+    [SPECIES_MELOETTA_PIROUETTE] =
+    {
+        .size = 0x66,
+        .y_offset = 0x8,
+    },
+    [SPECIES_AEGISLASH_BLADE] =
+    {
+        .size = 0x66,
+        .y_offset = 0x9,
+    },
+    [SPECIES_HOOPA_UNBOUND] =
+    {
+        .size = 0x66,
+        .y_offset = 0x4,
+    },
+    [SPECIES_MINIOR_CORE] =
+    {
+        .size = 0x66,
+        .y_offset = 0x12,
+    },
+    [SPECIES_WISHIWASHI_SCHOOL] =
+    {
+        .size = 0x66,
+        .y_offset = 0x8,
     },
 };

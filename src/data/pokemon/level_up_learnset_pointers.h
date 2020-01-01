@@ -895,4 +895,13 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     // Forms
     [SPECIES_SHAYMIN_SKY] = sShayminLevelUpLearnset,
     [SPECIES_GIRATINA_ORIGIN] = sGiratinaLevelUpLearnset,
+    [SPECIES_DARMANITAN_ZEN] = sDarmanitanLevelUpLearnset,
+    [SPECIES_TORNADUS_THERIAN] = sTornadusLevelUpLearnset,
+    [SPECIES_THUNDURUS_THERIAN] = sThundurusLevelUpLearnset,
+    [SPECIES_LANDORUS_THERIAN] = sLandorusLevelUpLearnset,
+    [SPECIES_MELOETTA_PIROUETTE] = sMeloettaLevelUpLearnset,
+    [SPECIES_AEGISLASH_BLADE] = sAegislashLevelUpLearnset,
+    [SPECIES_HOOPA_UNBOUND] = sHoopaLevelUpLearnset,
+    [SPECIES_MINIOR_CORE] = sMiniorLevelUpLearnset,
+    [SPECIES_WISHIWASHI_SCHOOL] = sWishiwashiLevelUpLearnset,
 };
