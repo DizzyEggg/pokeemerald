@@ -741,43 +741,214 @@ static const u16 sProtectSuccessRates[] = {USHRT_MAX, USHRT_MAX / 2, USHRT_MAX /
 #define COPYCAT_FORBIDDEN_END           0xFFFF
 #define INSTRUCT_FORBIDDEN_END          0xFFFF
 
-static const u16 sMovesForbiddenToCopy[] =
+static const u16 sMovesForbiddenToCopyForMimic[] =
 {
-    MOVE_TRANSFORM,
-    MOVE_METRONOME,
-    MOVE_STRUGGLE,
-    MOVE_SKETCH,
+    MOVE_NONE,
+    MOVE_CHATTER,
     MOVE_MIMIC,
-    MIMIC_FORBIDDEN_END,
+    MOVE_SKETCH,
+    MOVE_STRUGGLE,
+    MIMIC_FORBIDDEN_END
+};
+
+static const u16 sMovesForbiddenToCopyForMetronome[] =
+{
+    MOVE_NONE,
+    MOVE_AFTER_YOU,
+    MOVE_ASSIST,
+    MOVE_BANEFUL_BUNKER,
+    MOVE_BEAK_BLAST,
+    //MOVE_BEHEMOTH_BASH,
+    //MOVE_BEHEMOTH_BLADE,
+    MOVE_BELCH,
+    MOVE_BESTOW,
+    MOVE_CELEBRATE,
+    MOVE_CHATTER,
+    MOVE_COPYCAT,
     MOVE_COUNTER,
-    MOVE_MIRROR_COAT,
-    MOVE_PROTECT,
-    MOVE_DETECT,
-    MOVE_ENDURE,
-    MOVE_DESTINY_BOND,
-    MOVE_SLEEP_TALK,
-    MOVE_THIEF,
-    MOVE_FOLLOW_ME,
-    MOVE_SNATCH,
-    MOVE_HELPING_HAND,
     MOVE_COVET,
-    MOVE_TRICK,
-    MOVE_FOCUS_PUNCH,
-    MOVE_CIRCLE_THROW,
-    MOVE_DRAGON_TAIL,
-    MOVE_RAGE_POWDER,
-    MOVE_MAT_BLOCK,
-    MOVE_SPIKY_SHIELD,
-    MOVE_SHELL_TRAP,
-    MOVE_SPOTLIGHT,
+    MOVE_CRAFTY_SHIELD,
+    MOVE_DESTINY_BOND,
+    MOVE_DETECT,
+    MOVE_DIAMOND_STORM,
+    //MOVE_DYNAMAX_CANNON,
+    MOVE_ENDURE,
+    //MOVE_ETERNABEAM,
     MOVE_FEINT,
+    MOVE_FLEUR_CANNON,
+    MOVE_FOCUS_PUNCH,
+    MOVE_FOLLOW_ME,
+    MOVE_FREEZE_SHOCK,
+    MOVE_HELPING_HAND,
+    MOVE_HOLD_HANDS,
+    MOVE_HYPERSPACE_FURY,
+    MOVE_HYPERSPACE_HOLE,
+    MOVE_ICE_BURN,
+    MOVE_INSTRUCT,
     MOVE_KING_S_SHIELD,
+    MOVE_LIGHT_OF_RUIN,
+    MOVE_MAT_BLOCK,
+    MOVE_ME_FIRST,
+    MOVE_METRONOME,
+    MOVE_MIMIC,
+    //MOVE_MIND_BLOWN,
+    MOVE_MIRROR_COAT,
+    MOVE_MIRROR_MOVE,
+    MOVE_NATURE_POWER,
+    MOVE_ORIGIN_PULSE,
+    //MOVE_PHOTON_GEYSER,
+    //MOVE_PLASMA_FISTS,
+    MOVE_PRECIPICE_BLADES,
+    //MOVE_OBSTRUCT,
+    MOVE_PROTECT,
+    MOVE_QUASH,
+    MOVE_QUICK_GUARD,
+    MOVE_RAGE_POWDER,
+    MOVE_RELIC_SONG,
+    MOVE_SECRET_SWORD,
+    MOVE_SHELL_TRAP,
+    MOVE_SKETCH,
+    MOVE_SLEEP_TALK,
+    MOVE_SNARL,
+    MOVE_SNATCH,
+    MOVE_SNORE,
+    MOVE_SPECTRAL_THIEF,
+    MOVE_SPIKY_SHIELD,
+    MOVE_SPOTLIGHT,
+    MOVE_STEAM_ERUPTION,
+    MOVE_STRUGGLE,
+    MOVE_SWITCHEROO,
+    MOVE_TECHNO_BLAST,
+    MOVE_THIEF,
+    MOVE_THOUSAND_ARROWS,
+    MOVE_THOUSAND_WAVES,
+    MOVE_TRANSFORM,
+    MOVE_TRICK,
+    MOVE_V_CREATE,
+    MOVE_WIDE_GUARD,
     METRONOME_FORBIDDEN_END
 };
 
+static const u16 sMovesForbiddenToCopyForAssist[] =
+{
+    MOVE_NONE,
+    MOVE_ASSIST,
+    MOVE_BANEFUL_BUNKER,
+    MOVE_BEAK_BLAST,
+    MOVE_BELCH,
+    MOVE_BESTOW,
+    MOVE_CELEBRATE,
+    MOVE_CHATTER,
+    MOVE_CIRCLE_THROW,
+    MOVE_COPYCAT,
+    MOVE_COUNTER,
+    MOVE_COVET,
+    MOVE_DESTINY_BOND,
+    MOVE_DETECT,
+    MOVE_DRAGON_TAIL,
+    MOVE_ENDURE,
+    MOVE_FEINT,
+    MOVE_FOCUS_PUNCH,
+    MOVE_FOLLOW_ME,
+    MOVE_HELPING_HAND,
+    MOVE_HOLD_HANDS,
+    MOVE_KING_S_SHIELD,
+    MOVE_MAT_BLOCK,
+    MOVE_ME_FIRST,
+    MOVE_METRONOME,
+    MOVE_MIMIC,
+    MOVE_MIRROR_COAT,
+    MOVE_MIRROR_MOVE,
+    MOVE_NATURE_POWER,
+    MOVE_PROTECT,
+    MOVE_RAGE_POWDER,
+    MOVE_ROAR,
+    MOVE_SHELL_TRAP,
+    MOVE_SKETCH,
+    MOVE_SLEEP_TALK,
+    MOVE_SNATCH,
+    MOVE_SPIKY_SHIELD,
+    MOVE_SPOTLIGHT,
+    MOVE_STRUGGLE,
+    MOVE_SWITCHEROO,
+    MOVE_THIEF,
+    MOVE_TRANSFORM,
+    MOVE_TRICK,
+    MOVE_WHIRLWIND,
+
+    MOVE_BOUNCE,
+    MOVE_DIG,
+    MOVE_DIVE,
+    MOVE_FLY,
+    MOVE_FREEZE_SHOCK,
+    MOVE_GEOMANCY,
+    MOVE_ICE_BURN,
+    MOVE_PHANTOM_FORCE,
+    MOVE_RAZOR_WIND,
+    MOVE_SHADOW_FORCE,
+    MOVE_SKULL_BASH,
+    MOVE_SKY_ATTACK,
+    MOVE_SKY_DROP,
+    MOVE_SOLAR_BEAM,
+    MOVE_SOLAR_BLADE,
+
+    ASSIST_FORBIDDEN_END
+};
+
+static const u16 sMovesForbiddenToCopyForCopycat[] =
+{
+    MOVE_NONE,
+    MOVE_ASSIST,
+    MOVE_BANEFUL_BUNKER,
+    MOVE_BEAK_BLAST,
+    MOVE_BELCH,
+    MOVE_BESTOW,
+    MOVE_CELEBRATE,
+    MOVE_CHATTER,
+    MOVE_CIRCLE_THROW,
+    MOVE_COPYCAT,
+    MOVE_COUNTER,
+    MOVE_COVET,
+    MOVE_CRAFTY_SHIELD,
+    MOVE_DESTINY_BOND,
+    MOVE_DETECT,
+    MOVE_DRAGON_TAIL,
+    MOVE_ENDURE,
+    MOVE_FEINT,
+    MOVE_FOCUS_PUNCH,
+    MOVE_FOLLOW_ME,
+    MOVE_HELPING_HAND,
+    MOVE_HOLD_HANDS,
+    MOVE_KING_S_SHIELD,
+    MOVE_MAT_BLOCK,
+    MOVE_ME_FIRST,
+    MOVE_METRONOME,
+    MOVE_MIMIC,
+    MOVE_MIRROR_COAT,
+    MOVE_MIRROR_MOVE,
+    MOVE_NATURE_POWER,
+    //MOVE_OBSTRUCT,
+    MOVE_PROTECT,
+    MOVE_RAGE_POWDER,
+    MOVE_ROAR,
+    MOVE_SHELL_TRAP,
+    MOVE_SKETCH,
+    MOVE_SLEEP_TALK,
+    MOVE_SNATCH,
+    MOVE_SPIKY_SHIELD,
+    MOVE_SPOTLIGHT,
+    MOVE_STRUGGLE,
+    MOVE_SWITCHEROO,
+    MOVE_THIEF,
+    MOVE_TRANSFORM,
+    MOVE_TRICK,
+    MOVE_WHIRLWIND,
+    COPYCAT_FORBIDDEN_END
+};
 
 static const u16 sMoveEffectsForbiddenToInstruct[] =
 {
+    MOVE_NONE,
     EFFECT_ASSIST,
     //EFFECT_BEAK_BLAST,
     EFFECT_BIDE,
@@ -7357,12 +7528,12 @@ static void Cmd_various(void)
         }
         return;
     case VARIOUS_TRY_COPYCAT:
-        for (i = 0; sMovesForbiddenToCopy[i] != COPYCAT_FORBIDDEN_END; i++)
+        for (i = 0; sMovesForbiddenToCopyForCopycat[i] != COPYCAT_FORBIDDEN_END; i++)
         {
-            if (sMovesForbiddenToCopy[i] == gLastUsedMove)
+            if (sMovesForbiddenToCopyForCopycat[i] == gLastUsedMove)
                 break;
         }
-        if (gLastUsedMove == 0 || gLastUsedMove == 0xFFFF || sMovesForbiddenToCopy[i] != COPYCAT_FORBIDDEN_END)
+        if (gLastUsedMove == 0 || gLastUsedMove == 0xFFFF || sMovesForbiddenToCopyForCopycat[i] != COPYCAT_FORBIDDEN_END)
         {
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
         }
@@ -9122,10 +9293,10 @@ static void Cmd_setsubstitute(void)
 static bool8 IsMoveUncopyableByMimic(u16 move)
 {
     s32 i;
-    for (i = 0; sMovesForbiddenToCopy[i] != MIMIC_FORBIDDEN_END
-                && sMovesForbiddenToCopy[i] != move; i++);
+    for (i = 0; sMovesForbiddenToCopyForMimic[i] != MIMIC_FORBIDDEN_END
+                && sMovesForbiddenToCopyForMimic[i] != move; i++);
 
-    return (sMovesForbiddenToCopy[i] != MIMIC_FORBIDDEN_END);
+    return (sMovesForbiddenToCopyForMimic[i] != MIMIC_FORBIDDEN_END);
 }
 
 static void Cmd_mimicattackcopy(void)
@@ -9184,13 +9355,11 @@ static void Cmd_metronome(void)
         while (1)
         {
             i++;
-            if (sMovesForbiddenToCopy[i] == gCurrentMove)
-                break;
-            if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
+            if (sMovesForbiddenToCopyForMetronome[i] == METRONOME_FORBIDDEN_END)
                 break;
         }
 
-        if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
+        if (sMovesForbiddenToCopyForMetronome[i] == METRONOME_FORBIDDEN_END)
         {
             gHitMarker &= ~(HITMARKER_ATTACKSTRING_PRINTED);
             gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
@@ -9507,63 +9676,6 @@ static bool8 IsMoveInvalidForSleepTalk(u16 move)
     case MOVE_SLEEP_TALK:
     case MOVE_STRUGGLE:
     case MOVE_UPROAR:
-        return TRUE;
-    }
-
-    if (IsTwoTurnsMove(move))
-        return TRUE;
-
-    return FALSE;
-}
-
-static bool8 IsMoveInvalidForAssist(u16 move)
-{
-    switch (move)
-    {
-    case MOVE_NONE:
-    case MOVE_ASSIST:
-    case MOVE_BANEFUL_BUNKER:
-    case MOVE_BEAK_BLAST:
-    case MOVE_BELCH:
-    case MOVE_BESTOW:
-    case MOVE_CELEBRATE:
-    case MOVE_CHATTER:
-    case MOVE_CIRCLE_THROW:
-    case MOVE_COPYCAT:
-    case MOVE_COUNTER:
-    case MOVE_COVET:
-    case MOVE_DESTINY_BOND:
-    case MOVE_DETECT:
-    case MOVE_DRAGON_TAIL:
-    case MOVE_ENDURE:
-    case MOVE_FEINT:
-    case MOVE_FOCUS_PUNCH:
-    case MOVE_FOLLOW_ME:
-    case MOVE_HELPING_HAND:
-    case MOVE_HOLD_HANDS:
-    case MOVE_KING_S_SHIELD:
-    case MOVE_MAT_BLOCK:
-    case MOVE_ME_FIRST:
-    case MOVE_METRONOME:
-    case MOVE_MIMIC:
-    case MOVE_MIRROR_COAT:
-    case MOVE_MIRROR_MOVE:
-    case MOVE_NATURE_POWER:
-    case MOVE_PROTECT:
-    case MOVE_RAGE_POWDER:
-    case MOVE_ROAR:
-    case MOVE_SHELL_TRAP:
-    case MOVE_SKETCH:
-    case MOVE_SLEEP_TALK:
-    case MOVE_SNATCH:
-    case MOVE_SPIKY_SHIELD:
-    case MOVE_SPOTLIGHT:
-    case MOVE_STRUGGLE:
-    case MOVE_SWITCHEROO:
-    case MOVE_THIEF:
-    case MOVE_TRANSFORM:
-    case MOVE_TRICK:
-    case MOVE_WHIRLWIND:
         return TRUE;
     }
 
@@ -10853,12 +10965,9 @@ static void Cmd_assistattackselect(void)
             s32 i = 0;
             u16 move = GetMonData(&party[monId], MON_DATA_MOVE1 + moveId);
 
-            if (IsMoveInvalidForAssist(move))
-                continue;
+            for (; sMovesForbiddenToCopyForAssist[i] != ASSIST_FORBIDDEN_END && move != sMovesForbiddenToCopyForAssist[i]; i++);
 
-            for (; sMovesForbiddenToCopy[i] != ASSIST_FORBIDDEN_END && move != sMovesForbiddenToCopy[i]; i++);
-
-            if (sMovesForbiddenToCopy[i] != ASSIST_FORBIDDEN_END)
+            if (sMovesForbiddenToCopyForAssist[i] != ASSIST_FORBIDDEN_END)
                 continue;
             if (move == MOVE_NONE)
                 continue;
