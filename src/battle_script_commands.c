@@ -9633,6 +9633,7 @@ static bool8 IsTwoTurnsMove(u16 move)
         || gBattleMoves[move].effect == EFFECT_SOLARBEAM
         || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
         || gBattleMoves[move].effect == EFFECT_BIDE)
+        return TRUE;
     else
         return FALSE;
 }
@@ -10953,8 +10954,6 @@ static void Cmd_assistattackselect(void)
             for (; sMovesForbiddenToCopyForAssist[i] != ASSIST_FORBIDDEN_END && move != sMovesForbiddenToCopyForAssist[i]; i++);
 
             if (sMovesForbiddenToCopyForAssist[i] != ASSIST_FORBIDDEN_END)
-                continue;
-            if (move == MOVE_NONE)
                 continue;
 
             movesArray[chooseableMovesNo] = move;
