@@ -9629,27 +9629,13 @@ static void Cmd_copymovepermanently(void) // sketch
 
 static bool8 IsTwoTurnsMove(u16 move)
 {
-    switch (move)
-    {
-    case MOVE_BOUNCE:
-    case MOVE_DIG:
-    case MOVE_DIVE:
-    case MOVE_FLY:
-    case MOVE_FREEZE_SHOCK:
-    case MOVE_GEOMANCY:
-    case MOVE_ICE_BURN:
-    case MOVE_PHANTOM_FORCE:
-    case MOVE_RAZOR_WIND:
-    case MOVE_SHADOW_FORCE:
-    case MOVE_SKULL_BASH:
-    case MOVE_SKY_ATTACK:
-    case MOVE_SKY_DROP:
-    case MOVE_SOLAR_BEAM:
-    case MOVE_SOLAR_BLADE:
-        return TRUE;
-    }
-
-    return FALSE;
+    if (gBattleMoves[move].effect == EFFECT_SKULL_BASH
+        || gBattleMoves[move].effect == EFFECT_TWO_TURNS_ATTACK
+        || gBattleMoves[move].effect == EFFECT_SOLARBEAM
+        || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
+        || gBattleMoves[move].effect == EFFECT_BIDE)
+    else
+        return FALSE;
 }
 
 static bool8 IsMoveInvalidForSleepTalk(u16 move)
