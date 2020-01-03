@@ -948,7 +948,6 @@ static const u16 sMovesForbiddenToCopyForCopycat[] =
 
 static const u16 sMoveEffectsForbiddenToInstruct[] =
 {
-    MOVE_NONE,
     EFFECT_ASSIST,
     //EFFECT_BEAK_BLAST,
     EFFECT_BIDE,
