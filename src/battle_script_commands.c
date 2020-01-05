@@ -1140,6 +1140,32 @@ static bool32 NoTargetPresent(u32 move)
     return FALSE;
 }
 
+static bool32 TryAegiFormChange(void)
+{
+    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_STANCE_CHANGE)
+        return FALSE;
+
+    switch (gBattleMons[gBattlerAttacker].species)
+    {
+    default:
+        return FALSE;
+    case SPECIES_AEGISLASH: // Shield -> Blade
+        if (gBattleMoves[gCurrentMove].power == 0)
+            return FALSE;
+        gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH_BLADE;
+        break;
+    case SPECIES_AEGISLASH_BLADE: // Blade -> Shield
+        if (gCurrentMove != MOVE_KING_S_SHIELD)
+            return FALSE;
+        gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH;
+        break;
+    }
+
+    BattleScriptPushCursor();
+    gBattlescriptCurrInstr = BattleScript_StanceChangeActivates;
+    return TRUE;
+}
+
 static void Cmd_attackcanceler(void)
 {
     s32 i, moveType;
@@ -1155,6 +1181,10 @@ static void Cmd_attackcanceler(void)
         gBattlescriptCurrInstr = BattleScript_MoveEnd;
         return;
     }
+    #if (B_STANCE_CHANGE_FAIL <= GEN_6)
+    if (TryAegiFormChange())
+        return;
+    #endif
     if (AtkCanceller_UnableToUseMove())
         return;
 
@@ -1184,6 +1214,10 @@ static void Cmd_attackcanceler(void)
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         return;
     }
+    #if (B_STANCE_CHANGE_FAIL >= GEN_7)
+    if (TryAegiFormChange())
+        return;
+    #endif
 
     gHitMarker &= ~(HITMARKER_x800000);
     if (!(gHitMarker & HITMARKER_OBEYS) && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS))
@@ -2243,6 +2277,15 @@ u8 GetBattlerTurnOrderNum(u8 battlerId)
     return i;
 }
 
+static void CheckSetUnburden(u8 battlerId)
+{
+    if (GetBattlerAbility(battlerId) == ABILITY_UNBURDEN)
+    {
+        gBattleResources->flags->flags[battlerId] |= RESOURCE_FLAG_UNBURDEN;
+        RecordAbilityBattle(battlerId, ABILITY_UNBURDEN);
+    }
+}
+
 #define INCREMENT_RESET_RETURN                  \
 {                                               \
     gBattlescriptCurrInstr++;                   \
@@ -2309,7 +2352,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 for (gActiveBattler = 0;
                     gActiveBattler < gBattlersCount && !(gBattleMons[gActiveBattler].status2 & STATUS2_UPROAR);
                     gActiveBattler++)
-                {}
+                    ;
             }
             else
                 gActiveBattler = gBattlersCount;
@@ -2320,6 +2363,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 break;
             if (GetBattlerAbility(gEffectBattler) == ABILITY_VITAL_SPIRIT
                 || GetBattlerAbility(gEffectBattler) == ABILITY_INSOMNIA
+                || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
                 || IsAbilityOnSide(gEffectBattler, ABILITY_SWEET_VEIL)
                 || IsFlowerVeilProtected(gEffectBattler)
                 || IsLeafGuardProtected(gEffectBattler))
@@ -2366,6 +2410,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             if (gBattleMons[gEffectBattler].status1)
                 break;
             if (GetBattlerAbility(gEffectBattler) == ABILITY_IMMUNITY
+                || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
                 || IsFlowerVeilProtected(gEffectBattler)
                 || IsLeafGuardProtected(gEffectBattler))
                 break;
@@ -2405,6 +2450,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE))
                 break;
             if (GetBattlerAbility(gEffectBattler) == ABILITY_WATER_VEIL
+                || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
                 || IsFlowerVeilProtected(gEffectBattler)
                 || IsLeafGuardProtected(gEffectBattler))
                 break;
@@ -2423,6 +2469,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             if (noSunCanFreeze == 0)
                 break;
             if (GetBattlerAbility(gEffectBattler) == ABILITY_MAGMA_ARMOR
+                || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
                 || IsFlowerVeilProtected(gEffectBattler)
                 || IsLeafGuardProtected(gEffectBattler))
                 break;
@@ -2468,6 +2515,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ELECTRIC))
                 break;
             if (GetBattlerAbility(gEffectBattler) == ABILITY_LIMBER
+                || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
                 || IsFlowerVeilProtected(gEffectBattler)
                 || IsLeafGuardProtected(gEffectBattler))
                 break;
@@ -2511,6 +2559,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             if (!IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON) && !IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
             {
                 if (GetBattlerAbility(gEffectBattler) == ABILITY_IMMUNITY
+                    || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
                     || IsFlowerVeilProtected(gEffectBattler)
                     || IsLeafGuardProtected(gEffectBattler))
                     break;
@@ -2849,6 +2898,9 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         gLastUsedItem = gBattleStruct->changedItems[gBattlerAttacker] = gBattleMons[gBattlerTarget].item;
                         gBattleMons[gBattlerTarget].item = 0;
 
+                        CheckSetUnburden(gBattlerTarget);
+                        gBattleResources->flags->flags[gBattlerAttacker] &= ~(RESOURCE_FLAG_UNBURDEN);
+
                         gActiveBattler = gBattlerAttacker;
                         BtlController_EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gLastUsedItem);
                         MarkBattlerForControllerExec(gBattlerAttacker);
@@ -2965,6 +3017,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gLastUsedItem = gBattleMons[gEffectBattler].item;
                     gBattleMons[gEffectBattler].item = 0;
                     gWishFutureKnock.knockedOffMons[side] |= gBitTable[gBattlerPartyIndexes[gEffectBattler]];
+                    CheckSetUnburden(gEffectBattler);
 
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_KnockedOff;
@@ -3099,6 +3152,8 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     gLastUsedItem = gBattleMons[gEffectBattler].item;
                     gBattleMons[gEffectBattler].item = 0;
+                    CheckSetUnburden(gEffectBattler);
+
                     gActiveBattler = gEffectBattler;
                     BtlController_EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gEffectBattler].item);
                     MarkBattlerForControllerExec(gActiveBattler);
@@ -3112,6 +3167,8 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     gLastUsedItem = gBattleMons[gEffectBattler].item;
                     gBattleMons[gEffectBattler].item = 0;
+                    CheckSetUnburden(gEffectBattler);
+
                     gActiveBattler = gEffectBattler;
                     BtlController_EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gEffectBattler].item);
                     MarkBattlerForControllerExec(gActiveBattler);
@@ -4288,6 +4345,7 @@ static void Cmd_playanimation(void)
         || gBattlescriptCurrInstr[2] == B_ANIM_SNATCH_MOVE
         || gBattlescriptCurrInstr[2] == B_ANIM_MEGA_EVOLUTION
         || gBattlescriptCurrInstr[2] == B_ANIM_ILLUSION_OFF
+        || gBattlescriptCurrInstr[2] == B_ANIM_FORM_CHANGE
         || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE)
     {
         BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2], *argumentPtr);
@@ -4333,6 +4391,7 @@ static void Cmd_playanimation2(void) // animation Id is stored in the first poin
         || *animationIdPtr == B_ANIM_SNATCH_MOVE
         || *animationIdPtr == B_ANIM_MEGA_EVOLUTION
         || *animationIdPtr == B_ANIM_ILLUSION_OFF
+        || *animationIdPtr == B_ANIM_FORM_CHANGE
         || *animationIdPtr == B_ANIM_SUBSTITUTE_FADE)
     {
         BtlController_EmitBattleAnimation(0, *animationIdPtr, *argumentPtr);
@@ -4804,6 +4863,7 @@ static void Cmd_moveend(void)
 
                 if (gBattleMoves[gCurrentMove].target == MOVE_TARGET_FOES_AND_ALLY)
                 {
+                    gHitMarker |= HITMARKER_NO_PPDEDUCT;
                     for (battlerId = gBattlerTarget + 1; battlerId < gBattlersCount; battlerId++)
                     {
                         if (battlerId == gBattlerAttacker)
@@ -4831,6 +4891,7 @@ static void Cmd_moveend(void)
                 else
                 {
                     gHitMarker |= HITMARKER_NO_ATTACKSTRING;
+                    gHitMarker &= ~(HITMARKER_NO_PPDEDUCT);
                 }
             }
             gBattleScripting.moveendState++;
@@ -6289,6 +6350,7 @@ static void Cmd_removeitem(void)
         gBattleStruct->usedHeldItems[gActiveBattler] = gBattleMons[gActiveBattler].item;
 
     gBattleMons[gActiveBattler].item = 0;
+    CheckSetUnburden(gActiveBattler);
 
     BtlController_EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gActiveBattler].item);
     MarkBattlerForControllerExec(gActiveBattler);
@@ -6820,6 +6882,22 @@ u32 IsLeafGuardProtected(u32 battler)
         return GetBattlerAbility(battler) == ABILITY_LEAF_GUARD;
     else
         return 0;
+}
+
+static void RecalcBattlerStats(u32 battler, struct Pokemon *mon)
+{
+    CalculateMonStats(mon);
+    gBattleMons[battler].level = GetMonData(mon, MON_DATA_LEVEL);
+    gBattleMons[battler].hp = GetMonData(mon, MON_DATA_HP);
+    gBattleMons[battler].maxHP = GetMonData(mon, MON_DATA_MAX_HP);
+    gBattleMons[battler].attack = GetMonData(mon, MON_DATA_ATK);
+    gBattleMons[battler].defense = GetMonData(mon, MON_DATA_DEF);
+    gBattleMons[battler].speed = GetMonData(mon, MON_DATA_SPEED);
+    gBattleMons[battler].spAttack = GetMonData(mon, MON_DATA_SPATK);
+    gBattleMons[battler].spDefense = GetMonData(mon, MON_DATA_SPDEF);
+    gBattleMons[battler].ability = GetMonAbility(mon);
+    gBattleMons[battler].type1 = gBaseStats[gBattleMons[battler].species].type1;
+    gBattleMons[battler].type2 = gBaseStats[gBattleMons[battler].species].type2;
 }
 
 static void Cmd_various(void)
@@ -7443,19 +7521,7 @@ static void Cmd_various(void)
         // Change stats.
         else if (gBattlescriptCurrInstr[3] == 1)
         {
-            CalculateMonStats(mon);
-            gBattleMons[gActiveBattler].level = GetMonData(mon, MON_DATA_LEVEL);
-            gBattleMons[gActiveBattler].hp = GetMonData(mon, MON_DATA_HP);
-            gBattleMons[gActiveBattler].maxHP = GetMonData(mon, MON_DATA_MAX_HP);
-            gBattleMons[gActiveBattler].attack = GetMonData(mon, MON_DATA_ATK);
-            gBattleMons[gActiveBattler].defense = GetMonData(mon, MON_DATA_DEF);
-            gBattleMons[gActiveBattler].speed = GetMonData(mon, MON_DATA_SPEED);
-            gBattleMons[gActiveBattler].spAttack = GetMonData(mon, MON_DATA_SPATK);
-            gBattleMons[gActiveBattler].spDefense = GetMonData(mon, MON_DATA_SPDEF);
-            gBattleMons[gActiveBattler].ability = GetMonAbility(mon);
-            gBattleMons[gActiveBattler].type1 = gBaseStats[gBattleMons[gActiveBattler].species].type1;
-            gBattleMons[gActiveBattler].type2 = gBaseStats[gBattleMons[gActiveBattler].species].type2;
-
+            RecalcBattlerStats(gActiveBattler, mon);
             gBattleStruct->mega.alreadyEvolved[GetBattlerPosition(gActiveBattler)] = TRUE;
             gBattleStruct->mega.evolvedPartyIds[GetBattlerSide(gActiveBattler)] |= gBitTable[gBattlerPartyIndexes[gActiveBattler]];
         }
@@ -7464,6 +7530,31 @@ static void Cmd_various(void)
         {
             UpdateHealthboxAttribute(gHealthboxSpriteIds[gActiveBattler], mon, HEALTHBOX_ALL);
             CreateMegaIndicatorSprite(gActiveBattler, 0);
+        }
+        gBattlescriptCurrInstr += 4;
+        return;
+    case VARIOUS_HANDLE_FORM_CHANGE:
+        if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
+            mon = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
+        else
+            mon = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
+
+        // Change species.
+        if (gBattlescriptCurrInstr[3] == 0)
+        {
+            PREPARE_SPECIES_BUFFER(gBattleTextBuff1, gBattleMons[gActiveBattler].species);
+            BtlController_EmitSetMonData(0, REQUEST_SPECIES_BATTLE, gBitTable[gBattlerPartyIndexes[gActiveBattler]], 2, &gBattleMons[gActiveBattler].species);
+            MarkBattlerForControllerExec(gActiveBattler);
+        }
+        // Change stats.
+        else if (gBattlescriptCurrInstr[3] == 1)
+        {
+            RecalcBattlerStats(gActiveBattler, mon);
+        }
+        // Update healthbox.
+        else
+        {
+            UpdateHealthboxAttribute(gHealthboxSpriteIds[gActiveBattler], mon, HEALTHBOX_ALL);
         }
         gBattlescriptCurrInstr += 4;
         return;
@@ -7755,11 +7846,13 @@ static void Cmd_various(void)
             gBattleMons[gActiveBattler].item = ITEM_NONE;
             BtlController_EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gActiveBattler].item);
             MarkBattlerForControllerExec(gActiveBattler);
+            CheckSetUnburden(gBattlerAttacker);
 
             gActiveBattler = gBattlerTarget;
             gBattleMons[gActiveBattler].item = gLastUsedItem;
             BtlController_EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gActiveBattler].item);
             MarkBattlerForControllerExec(gActiveBattler);
+            gBattleResources->flags->flags[gBattlerTarget] &= ~(RESOURCE_FLAG_UNBURDEN);
 
             gBattlescriptCurrInstr += 7;
         }
@@ -10674,9 +10767,17 @@ static void Cmd_tryswapitems(void) // trick
             if (oldItemAtk != 0 && *newItemAtk != 0)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 2; // attacker's item -> <- target's item
             else if (oldItemAtk == 0 && *newItemAtk != 0)
-                gBattleCommunication[MULTISTRING_CHOOSER] = 0; // nothing -> <- target's item
+                {
+                    if (GetBattlerAbility(gBattlerAttacker) == ABILITY_UNBURDEN && gBattleResources->flags->flags[gBattlerAttacker] & RESOURCE_FLAG_UNBURDEN)
+                        gBattleResources->flags->flags[gBattlerAttacker] &= ~(RESOURCE_FLAG_UNBURDEN);
+
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 0; // nothing -> <- target's item
+                }
             else
+            {
+                CheckSetUnburden(gBattlerAttacker);
                 gBattleCommunication[MULTISTRING_CHOOSER] = 1; // attacker's item -> <- nothing
+            }
         }
     }
 }
@@ -11829,7 +11930,8 @@ static void Cmd_trygetbaddreamstarget(void)
     {
         if (GetBattlerSide(gBattlerTarget) == badDreamsMonSide)
             continue;
-        if (gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP && IsBattlerAlive(gBattlerTarget))
+        if ((gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP || GetBattlerAbility(gBattlerTarget) == ABILITY_COMATOSE)
+            && IsBattlerAlive(gBattlerTarget))
             break;
     }
 
