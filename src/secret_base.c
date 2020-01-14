@@ -1,5 +1,5 @@
 #include "global.h"
-#include "alloc.h"
+#include "malloc.h"
 #include "battle.h"
 #include "battle_setup.h"
 #include "decoration.h"
@@ -16,6 +16,7 @@
 #include "fldeff.h"
 #include "fldeff_misc.h"
 #include "international_string_util.h"
+#include "item_menu.h"
 #include "link.h"
 #include "list_menu.h"
 #include "main.h"
@@ -82,7 +83,7 @@ static void ShowRegistryMenuDeleteYesNo(u8 taskId);
 static void DeleteRegistry_Yes(u8 taskId);
 static void DeleteRegistry_No(u8 taskId);
 static void ReturnToMainRegistryMenu(u8 taskId);
-static void GoToSecretBasePCMainMenu(u8 taskId);
+static void GoToSecretBasePCRegisterMenu(u8 taskId);
 static u8 GetSecretBaseOwnerType(u8 secretBaseId);
 
 static const struct SecretBaseEntranceMetatiles sSecretBaseEntranceMetatiles[] =
@@ -349,7 +350,7 @@ void SetPlayerSecretBase(void)
     u16 i;
 
     gSaveBlock1Ptr->secretBases[0].secretBaseId = sCurSecretBaseId;
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < TRAINER_ID_LENGTH; i++)
         gSaveBlock1Ptr->secretBases[0].trainerId[i] = gSaveBlock2Ptr->playerTrainerId[i];
 
     VarSet(VAR_CURRENT_SECRET_BASE, 0);
@@ -413,7 +414,7 @@ static void Task_EnterSecretBase(u8 taskId)
 
         SetSecretBaseWarpDestination();
         WarpIntoMap();
-        gFieldCallback = FieldCallback_ReturnToEventScript2;
+        gFieldCallback = FieldCB_ContinueScriptHandleMusic;
         SetMainCallback2(CB2_LoadMap);
         DestroyTask(taskId);
         break;
@@ -423,7 +424,7 @@ static void Task_EnterSecretBase(u8 taskId)
 void EnterSecretBase(void)
 {
     CreateTask(Task_EnterSecretBase, 0);
-    FadeScreen(1, 0);
+    FadeScreen(FADE_TO_BLACK, 0);
     SetDynamicWarp(0, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, -1);
 }
 
@@ -456,7 +457,7 @@ static void EnterNewlyCreatedSecretBase_StartFadeIn(void)
     y += 7;
     MapGridSetMetatileIdAt(x, y, 0x220 | METATILE_COLLISION_MASK);
     CurrentMapDrawMetatileAt(x, y);
-    pal_fill_black();
+    FadeInFromBlack();
     CreateTask(EnterNewlyCreatedSecretBase_WaitFadeIn, 0);
 }
 
@@ -650,7 +651,7 @@ void WarpIntoSecretBase(const struct MapPosition *position, const struct MapEven
 {
     SetCurSecretBaseIdFromPosition(position, events);
     TrySetCurSecretBaseIndex();
-    ScriptContext1_SetupScript(EventScript_275BB7);
+    ScriptContext1_SetupScript(SecretBase_EventScript_Enter);
 }
 
 bool8 TrySetCurSecretBase(void)
@@ -678,7 +679,7 @@ static void Task_WarpOutOfSecretBase(u8 taskId)
     case 2:
         SetWarpDestinationToDynamicWarp(0x7e);
         WarpIntoMap();
-        gFieldCallback = mapldr_default;
+        gFieldCallback = FieldCB_DefaultWarpExit;
         SetMainCallback2(CB2_LoadMap);
         ScriptContext2_Disable();
         DestroyTask(taskId);
@@ -894,7 +895,7 @@ static void Task_ShowSecretBaseRegistryMenu(u8 taskId)
     }
     else
     {
-        DisplayItemMessageOnField(taskId, gText_NoRegistry, GoToSecretBasePCMainMenu);
+        DisplayItemMessageOnField(taskId, gText_NoRegistry, GoToSecretBasePCRegisterMenu);
     }
 }
 
@@ -974,7 +975,7 @@ static void HandleRegistryMenuInput(u8 taskId)
         RemoveWindow(data[6]);
         schedule_bg_copy_tilemap_to_vram(0);
         free(sRegistryMenu);
-        GoToSecretBasePCMainMenu(taskId);
+        GoToSecretBasePCRegisterMenu(taskId);
         break;
     default:
         PlaySE(SE_SELECT);
@@ -1074,12 +1075,12 @@ static void ReturnToMainRegistryMenu(u8 taskId)
     gTasks[taskId].func = HandleRegistryMenuInput;
 }
 
-static void GoToSecretBasePCMainMenu(u8 taskId)
+static void GoToSecretBasePCRegisterMenu(u8 taskId)
 {
     if (VarGet(VAR_CURRENT_SECRET_BASE) == 0)
-        ScriptContext1_SetupScript(gUnknown_0823B4E8);
+        ScriptContext1_SetupScript(SecretBase_EventScript_PCCancel);
     else
-        ScriptContext1_SetupScript(gUnknown_0823B5E9);
+        ScriptContext1_SetupScript(SecretBase_EventScript_ShowRegisterMenu);
 
     DestroyTask(taskId);
 }
@@ -1094,40 +1095,40 @@ const u8 *GetSecretBaseTrainerLoseText(void)
 {
     u8 ownerType = GetSecretBaseOwnerType(VarGet(VAR_CURRENT_SECRET_BASE));
     if (ownerType == 0)
-        return SecretBase_RedCave1_Text_274966;
+        return SecretBase_Text_Trainer0Defeated;
     else if (ownerType == 1)
-        return SecretBase_RedCave1_Text_274D13;
+        return SecretBase_Text_Trainer1Defeated;
     else if (ownerType == 2)
-        return SecretBase_RedCave1_Text_274FFE;
+        return SecretBase_Text_Trainer2Defeated;
     else if (ownerType == 3)
-        return SecretBase_RedCave1_Text_275367;
+        return SecretBase_Text_Trainer3Defeated;
     else if (ownerType == 4)
-        return SecretBase_RedCave1_Text_2756C7;
+        return SecretBase_Text_Trainer4Defeated;
     else if (ownerType == 5)
-        return SecretBase_RedCave1_Text_274B24;
+        return SecretBase_Text_Trainer5Defeated;
     else if (ownerType == 6)
-        return SecretBase_RedCave1_Text_274E75;
+        return SecretBase_Text_Trainer6Defeated;
     else if (ownerType == 7)
-        return SecretBase_RedCave1_Text_2751E1;
+        return SecretBase_Text_Trainer7Defeated;
     else if (ownerType == 8)
-        return SecretBase_RedCave1_Text_2754F6;
+        return SecretBase_Text_Trainer8Defeated;
     else
-        return SecretBase_RedCave1_Text_2758CC;
+        return SecretBase_Text_Trainer9Defeated;
 }
 
 void PrepSecretBaseBattleFlags(void)
 {
-    sub_813BADC(1);
+    TryGainNewFanFromCounter(1);
     gTrainerBattleOpponent_A = TRAINER_SECRET_BASE;
     gBattleTypeFlags = BATTLE_TYPE_TRAINER | BATTLE_TYPE_SECRET_BASE;
 }
 
-void sub_80EA30C(void)
+void SetBattledOwnerFromResult(void)
 {
     gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].battledOwnerToday = gSpecialVar_Result;
 }
 
-void GetSecretBaseOwnerInteractionState(void)
+void GetSecretBaseOwnerAndState(void)
 {
     u16 secretBaseId;
     u8 i;
@@ -1291,7 +1292,7 @@ static void SetSecretBaseDataAndLanguage(u8 secretBaseId, struct SecretBase *sec
 static bool8 SecretBasesHaveSameTrainerId(struct SecretBase *secretBase1, struct SecretBase *secretBase2)
 {
     u8 i;
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < TRAINER_ID_LENGTH; i++)
     {
         if (secretBase1->trainerId[i] != secretBase2->trainerId[i])
             return FALSE;
@@ -1445,7 +1446,7 @@ bool8 SecretBaseBelongsToPlayer(struct SecretBase *secretBase)
         return FALSE;
 
     // Check if the player's trainer Id matches the secret base's id.
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < TRAINER_ID_LENGTH; i++)
     {
         if (secretBase->trainerId[i] != gSaveBlock2Ptr->playerTrainerId[i])
             return FALSE;
@@ -1719,7 +1720,7 @@ void ClearJapaneseSecretBases(struct SecretBase *bases)
     }
 }
 
-void sub_80EB1AC(void)
+void InitSecretBaseVars(void)
 {
     VarSet(VAR_SECRET_BASE_STEP_COUNTER, 0);
     VarSet(VAR_SECRET_BASE_LAST_ITEM_USED, 0);

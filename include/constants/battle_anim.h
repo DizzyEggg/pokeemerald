@@ -237,7 +237,7 @@
 #define ANIM_TAG_SPOTLIGHT                  (ANIM_SPRITES_START + 227)
 #define ANIM_TAG_LETTER_Z                   (ANIM_SPRITES_START + 228)
 #define ANIM_TAG_RAPID_SPIN                 (ANIM_SPRITES_START + 229)
-#define ANIM_TAG_TRI_FORCE_TRIANGLE         (ANIM_SPRITES_START + 230)
+#define ANIM_TAG_TRI_ATTACK_TRIANGLE        (ANIM_SPRITES_START + 230)
 #define ANIM_TAG_WISP_ORB                   (ANIM_SPRITES_START + 231)
 #define ANIM_TAG_WISP_FIRE                  (ANIM_SPRITES_START + 232)
 #define ANIM_TAG_GOLD_STARS                 (ANIM_SPRITES_START + 233)
@@ -407,6 +407,7 @@
 #define B_ANIM_TERRAIN_ELECTRIC         0x1A
 #define B_ANIM_TERRAIN_PSYCHIC          0x1B
 #define B_ANIM_ILLUSION_OFF             0x1C
+#define B_ANIM_FORM_CHANGE              0x1D
 
 // special animations table
 #define B_ANIM_LVL_UP                   0x0

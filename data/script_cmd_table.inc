@@ -211,20 +211,20 @@ gScriptCmdTable:: @ 81DB67C
 	.4byte ScrCmd_nop1
 	.4byte ScrCmd_warpD1
 	.4byte ScrCmd_setmonmetlocation
-	.4byte ScrCmd_mossdeepgym1
-	.4byte ScrCmd_mossdeepgym2
-	.4byte ScrCmd_mossdeepgym3
-	.4byte ScrCmd_mossdeepgym4
-	.4byte ScrCmd_warpD7
+	.4byte ScrCmd_moverotatingtileobjects
+	.4byte ScrCmd_turnrotatingtileobjects
+	.4byte ScrCmd_initrotatingtilepuzzle
+	.4byte ScrCmd_freerotatingtilepuzzle
+	.4byte ScrCmd_warpmossdeepgym
 	.4byte ScrCmd_cmdD8
 	.4byte ScrCmd_cmdD9
-	.4byte ScrCmd_cmdDA
+	.4byte ScrCmd_closebraillemessage
 	.4byte ScrCmd_cmdDB
 	.4byte ScrCmd_fadescreenswapbuffers
 	.4byte ScrCmd_buffertrainerclassname
 	.4byte ScrCmd_buffertrainername
 	.4byte ScrCmd_pokenavcall
-	.4byte ScrCmd_warpE0
+	.4byte ScrCmd_warpsootopolislegend
 	.4byte ScrCmd_buffercontesttype
 	.4byte ScrCmd_bufferitemnameplural
 

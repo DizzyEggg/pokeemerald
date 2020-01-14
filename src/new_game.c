@@ -81,7 +81,7 @@ u32 GetTrainerId(u8 *trainerId)
 void CopyTrainerId(u8 *dst, u8 *src)
 {
     s32 i;
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < TRAINER_ID_LENGTH; i++)
         dst[i] = src[i];
 }
 
@@ -122,8 +122,8 @@ static void ClearFrontierRecord(void)
 {
     CpuFill32(0, &gSaveBlock2Ptr->frontier, sizeof(gSaveBlock2Ptr->frontier));
 
-    gSaveBlock2Ptr->frontier.opponentName[0][0] = EOS;
-    gSaveBlock2Ptr->frontier.opponentName[1][0] = EOS;
+    gSaveBlock2Ptr->frontier.opponentNames[0][0] = EOS;
+    gSaveBlock2Ptr->frontier.opponentNames[1][0] = EOS;
 }
 
 static void WarpToTruck(void)

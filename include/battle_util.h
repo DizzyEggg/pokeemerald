@@ -21,6 +21,7 @@
 #define ABILITYEFFECT_INTIMIDATE2                0xA
 #define ABILITYEFFECT_TRACE1                     0xB
 #define ABILITYEFFECT_TRACE2                     0xC
+#define ABILITYEFFECT_MOVE_END_OTHER             0xD
 #define ABILITYEFFECT_SWITCH_IN_WEATHER          0xFF
 
 #define ITEMEFFECT_ON_SWITCH_IN                 0x0
@@ -102,7 +103,8 @@ u16 GetTypeModifier(u8 atkType, u8 defType);
 s32 GetStealthHazardDamage(u8 hazardType, u8 battlerId);
 u16 GetMegaEvolutionSpecies(u16 preEvoSpecies, u16 heldItemId);
 bool32 CanMegaEvolve(u8 battlerId);
-void UndoMegaEvolution(u8 monId);
+void UndoMegaEvolution(u32 monId);
+void UndoFormChange(u32 monId, u32 side);
 bool32 DoBattlersShareType(u32 battler1, u32 battler2);
 bool32 CanBattlerGetOrLoseItem(u8 battlerId, u16 itemId);
 struct Pokemon *GetIllusionMonPtr(u32 battlerId);

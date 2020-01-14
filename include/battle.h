@@ -39,7 +39,6 @@
 #define B_ACTION_NONE                   0xFF
 
 #define MAX_TRAINER_ITEMS 4
-#define MAX_MON_MOVES 4
 
 // array entries for battle communication
 #define MULTIUSE_STATE          0x0
@@ -175,6 +174,8 @@ struct SpecialStatus
     u8 gemBoost:1;
     u8 gemParam;
     u8 damagedMons:4; // Mons that have been damaged directly by using a move, includes substitute.
+    u8 dancerUsedMove:1;
+    u8 dancerOriginalTarget:3;
     s32 dmg;
     s32 physicalDmg;
     s32 specialDmg;
@@ -246,7 +247,7 @@ struct AI_ThinkingStruct
     u8 aiState;
     u8 movesetIndex;
     u16 moveConsidered;
-    s8 score[4];
+    s8 score[MAX_MON_MOVES];
     u32 funcResult;
     u32 aiFlags;
     u8 aiAction;
@@ -258,8 +259,8 @@ struct AI_ThinkingStruct
 
 struct UsedMoves
 {
-    u16 moves[MAX_BATTLERS_COUNT];
-    u16 unknown[MAX_BATTLERS_COUNT];
+    u16 moves[MAX_MON_MOVES];
+    u16 unknown[MAX_MON_MOVES];
 };
 
 struct BattleHistory
@@ -583,7 +584,7 @@ struct BattleScripting
     u8 animArg1;
     u8 animArg2;
     u16 tripleKickPower;
-    u8 atk49_state;
+    u8 moveendState;
     u8 unused_15;
     u8 unused_16;
     u8 battler;
@@ -591,11 +592,11 @@ struct BattleScripting
     u8 animTargetsHit;
     u8 statChanger;
     bool8 statAnimPlayed;
-    u8 atk23_state;
+    u8 getexpState;
     u8 battleStyle;
-    u8 atk6C_state;
+    u8 drawlvlupboxState;
     u8 learnMoveState;
-    u8 field_20;
+    u8 savedBattler;
     u8 reshowMainState;
     u8 reshowHelperState;
     u8 field_23;

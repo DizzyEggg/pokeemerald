@@ -397,11 +397,11 @@
 	.byte 0x47
 	.endm
 
-	.macro playstatchangeanimation battler:req, param1:req, param2:req
+	.macro playstatchangeanimation battler:req, stats:req, statchange:req
 	.byte 0x48
 	.byte \battler
-	.byte \param1
-	.byte \param2
+	.byte \stats
+	.byte \statchange
 	.endm
 
 	.macro moveend param0:req, param1:req
@@ -748,10 +748,10 @@
 	.byte 0x88
 	.endm
 
-	.macro statbuffchange param0:req, param1:req
+	.macro statbuffchange flags:req, jumpptr:req
 	.byte 0x89
-	.2byte \param0
-	.4byte \param1
+	.2byte \flags
+	.4byte \jumpptr
 	.endm
 
 	.macro normalisebuffs
@@ -1319,7 +1319,7 @@
 	various \battler, 4
 	.endm
 	
-	.macro resetintrimidatetracebits battler:req
+	.macro resetintimidatetracebits battler:req
 	various \battler, VARIOUS_RESET_INTIMIDATE_TRACE_BITS
 	.endm
 	
@@ -1528,6 +1528,11 @@
 	
 	.macro handlemegaevo battler:req, case:req
 	various \battler, VARIOUS_HANDLE_MEGA_EVO
+	.byte \case
+	.endm
+	
+	.macro handleformchange battler:req, case:req
+	various \battler, VARIOUS_HANDLE_FORM_CHANGE
 	.byte \case
 	.endm
 	
@@ -1756,15 +1761,15 @@
 	.endm
 	
 	.macro dmg_1_8_targethp
-	manipulatedamage ATK80_1_8_TARGET_HP
+	manipulatedamage DMG_1_8_TARGET_HP
 	.endm
 	
 	.macro dmgtomaxattackerhp
-	manipulatedamage ATK80_FULL_ATTACKER_HP
+	manipulatedamage DMG_FULL_ATTACKER_HP
 	.endm
 	
 	.macro dmgtocurrattackerhp
-	manipulatedamage ATK80_CURR_ATTACKER_HP
+	manipulatedamage DMG_CURR_ATTACKER_HP
 	.endm
 	
 	.macro jumpifflowerveil jumpptr:req
@@ -1780,5 +1785,11 @@
 	1:
 	subbyte gBattlerTarget, 0x2
 	goto \jumpptr
+	.endm
+
+	.macro jumpifleafguard jumpptr:req
+	jumpifhalfword CMP_NO_COMMON_BITS, gBattleWeather, WEATHER_SUN_ANY, 1f
+	jumpifability BS_TARGET, ABILITY_LEAF_GUARD, \jumpptr
+	1:
 	.endm
 
