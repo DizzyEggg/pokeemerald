@@ -610,35 +610,40 @@ static u32 GetBestMonBatonPass(struct Pokemon *party, int firstId, int lastId, u
     return PARTY_SIZE;
 }
 
+static void MulModifier(u16 *modifier, u16 val)
+{
+    *modifier = UQ_4_12_TO_INT((*modifier * val) + UQ_4_12_ROUND);
+}
+
 static u32 GestBestMonOffensive(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
 {
     int i, bits = 0;
 
     while (bits != 0x3F) // All mons were checked.
     {
-        int bestDmg = 0;
-        int bestMonId = PARTY_SIZE;
+        u16 bestDmg = 0;
+        u32 bestMonId = PARTY_SIZE;
         // Find the mon whose type is the most suitable offensively.
         for (i = firstId; i < lastId; i++)
         {
             if (!(gBitTable[i] & invalidMons) && !(gBitTable[i] & bits))
             {
                 u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
-                u32 typeDmg = UQ_4_12(1.0);
+                u16 typeDmg = UQ_4_12(1.0);
 
                 u8 atkType1 = gBaseStats[species].type1;
                 u8 atkType2 = gBaseStats[species].type2;
                 u8 defType1 = gBattleMons[opposingBattler].type1;
                 u8 defType2 = gBattleMons[opposingBattler].type2;
 
-                typeDmg *= GetTypeModifier(atkType1, defType1);
+                MulModifier(&typeDmg, GetTypeModifier(atkType1, defType1));
                 if (atkType2 != atkType1)
-                    typeDmg *= GetTypeModifier(atkType2, defType1);
+                    MulModifier(&typeDmg, GetTypeModifier(atkType2, defType1));
                 if (defType2 != defType1)
                 {
-                    typeDmg *= GetTypeModifier(atkType1, defType2);
+                    MulModifier(&typeDmg, GetTypeModifier(atkType1, defType2));
                     if (atkType2 != atkType1)
-                        typeDmg *= GetTypeModifier(atkType2, defType2);
+                        MulModifier(&typeDmg, GetTypeModifier(atkType2, defType2));
                 }
                 if (bestDmg < typeDmg)
                 {
@@ -670,6 +675,48 @@ static u32 GestBestMonOffensive(struct Pokemon *party, int firstId, int lastId, 
     }
 
     return PARTY_SIZE;
+}
+
+static u32 GestBestMonDefensive(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
+{
+    int i = 0;
+    u16 bestDmg = UQ_4_12(1.0);
+    u16 bestHp = 0;
+    u32 bestMonId = PARTY_SIZE;
+    // Find the mon whose type is the most suitable defensively.
+    for (i = firstId; i < lastId; i++)
+    {
+        if (!(gBitTable[i] & invalidMons))
+        {
+            u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
+            u16 hp = GetMonData(&party[i], MON_DATA_HP);
+            u16 typeDmg = UQ_4_12(1.0);
+
+            u8 atkType1 = gBattleMons[opposingBattler].type1;
+            u8 atkType2 = gBattleMons[opposingBattler].type2;
+            u8 defType1 = gBaseStats[species].type1;
+            u8 defType2 = gBaseStats[species].type2;
+
+            MulModifier(&typeDmg, GetTypeModifier(atkType1, defType1));
+            if (atkType2 != atkType1)
+                MulModifier(&typeDmg, GetTypeModifier(atkType2, defType1));
+            if (defType2 != defType1)
+            {
+                MulModifier(&typeDmg, GetTypeModifier(atkType1, defType2));
+                if (atkType2 != atkType1)
+                    MulModifier(&typeDmg, GetTypeModifier(atkType2, defType2));
+            }
+            // If type resistance is higher than current one, take the mon
+            // If it is equal, take the mon if it has higher HP
+            if (typeDmg < bestDmg || (typeDmg == bestDmg && bestHp > 0 && hp > bestHp))
+            {
+                bestDmg = typeDmg;
+                bestHp = hp;
+                bestMonId = i;
+            }
+        }
+    }
+    return bestMonId;
 }
 
 static u32 GetBestMonDmg(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
@@ -714,6 +761,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     struct Pokemon *party;
     s32 i, j, aliveCount = 0;
     u8 invalidMons = 0;
+    bool8 fainted;
 
     if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
@@ -765,7 +813,21 @@ u8 GetMostSuitableMonToSwitchInto(void)
     if (bestMonId != PARTY_SIZE)
         return bestMonId;
 
-    bestMonId = GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
+    fainted = GetMonData(&party[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_HP) == 0;
+    if (fainted)
+    {
+        // if we switch because we fainted check for offensive first
+        bestMonId = GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
+        if (bestMonId == PARTY_SIZE)
+            bestMonId = GestBestMonDefensive(party, firstId, lastId, invalidMons, opposingBattler);
+    }
+    else
+    {
+        // otherwise prefer a type that resists the enemy
+        bestMonId = GestBestMonDefensive(party, firstId, lastId, invalidMons, opposingBattler);
+        if (bestMonId == PARTY_SIZE)
+            bestMonId = GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
+    }
     if (bestMonId != PARTY_SIZE)
         return bestMonId;
 
