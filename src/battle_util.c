@@ -1519,7 +1519,10 @@ u8 DoBattlerEndTurnEffects(void)
                 && gBattleMons[gActiveBattler].hp != 0
                 && ability != ABILITY_MAGIC_GUARD)
             {
-                gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
+                if(B_BURN_DAMAGE == GEN_7)
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
+                else
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
                 if (ability == ABILITY_HEATPROOF)
                     gBattleMoveDamage /= 2;
                 if (gBattleMoveDamage == 0)
