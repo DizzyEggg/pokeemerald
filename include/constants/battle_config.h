@@ -56,6 +56,7 @@
 #define B_STANCE_CHANGE_FAIL        GEN_7 // In Gen7, Aegislash's form change does not happen, if the pokemon cannot use a move, because of confusion, paralysis, etc. In gen6, the form change occurs despite not being able to move.
 #define B_TRAINER_EXP_MULTIPLIER    GEN_6 // Gen7 no longer gives a 1.5 multiplier to exp gain in trainer battles.
 #define B_BURN_DAMAGE               GEN_6 // In Gen7, burn damage is 1/16th of max HP instead of 1/8th.
+#define B_PARALYSIS_SPEED           GEN_6 // In Gen7, speed is decreased by 50% instead of 75%.
 
 #define B_FAST_INTRO                TRUE // If set to TRUE, battle intro texts print at the same time as animation of a pokemon, as opposing to waiting for the animation to end.
 
