@@ -498,6 +498,8 @@ static bool8 DoWildEncounterRateTest(u32 encounterRate, bool8 ignoreAbility)
             encounterRate *= 2;
         else if (ability == ABILITY_SAND_VEIL && gSaveBlock1Ptr->weather == 8)
             encounterRate /= 2;
+        else if (ability == ABILITY_SNOW_CLOAK && gSaveBlock1Ptr->weather == 4)
+            encounterRate /= 2;
     }
     if (encounterRate > 2880)
         encounterRate = 2880;
