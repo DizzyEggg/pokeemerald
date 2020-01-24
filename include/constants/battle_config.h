@@ -38,7 +38,6 @@
 #define ITEM_ROWAP_BERRY 201
 #define ITEM_KEE_BERRY 202
 #define ITEM_MARANGA_BERRY 203
-#define ITEM_HONEY 253
 
 #define GEN_3 0
 #define GEN_4 1

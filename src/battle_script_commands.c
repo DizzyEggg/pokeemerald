@@ -11081,6 +11081,7 @@ static void Cmd_pickup(void)
                     }
                 }
             }
+            #if (defined ITEM_HONEY)
             else if (ability == ABILITY_HONEY_GATHER
                 && species != 0
                 && species != SPECIES_EGG
@@ -11094,6 +11095,7 @@ static void Cmd_pickup(void)
                     SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, ITEM_HONEY);
                 }
             }
+            #endif
         }
     }
 
