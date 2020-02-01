@@ -8885,7 +8885,12 @@ static void Cmd_tryKO(void)
     else
     {
         u16 chance;
-        if (!(gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS))
+        if ((gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD || gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD)
+         && (gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level))
+        {
+            chance = TRUE;
+        }
+        else if (!(gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS))
         {
             chance = gBattleMoves[gCurrentMove].accuracy + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
             if (Random() % 100 + 1 < chance && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
