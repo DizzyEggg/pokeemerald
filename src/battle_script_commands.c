@@ -1530,6 +1530,8 @@ static void Cmd_adjustdamage(void)
 
     if (DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
         goto END;
+    if (DoesDisguiseBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
+        goto END;
     if (gBattleMons[gBattlerTarget].hp > gBattleMoveDamage)
         goto END;
 
@@ -1707,6 +1709,10 @@ static void Cmd_healthbarupdate(void)
         {
             PrepareStringBattle(STRINGID_SUBSTITUTEDAMAGED, gActiveBattler);
         }
+        else if (DoesDisguiseBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove))
+        {
+            PrepareStringBattle(STRINGID_SUBSTITUTEDAMAGED, gActiveBattler);
+        }
         else
         {
             s16 healthValue;
@@ -1771,6 +1777,10 @@ static void Cmd_datahpupdate(void)
                 gBattlescriptCurrInstr = BattleScript_SubstituteFade;
                 return;
             }
+        }
+        else if (DoesDisguiseBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove))
+        {
+            
         }
         else
         {
@@ -11138,6 +11148,14 @@ bool32 DoesSubstituteBlockMove(u8 battlerAtk, u8 battlerDef, u32 move)
     else if (gBattleMoves[move].flags & FLAG_SOUND && B_SOUND_SUBSTITUTE >= GEN_6)
         return FALSE;
     else if (GetBattlerAbility(battlerAtk) == ABILITY_INFILTRATOR)
+        return FALSE;
+    else
+        return TRUE;
+}
+
+bool32 DoesDisguiseBlockMove(u8 battlerAtk, u8 battlerDef, u32 move)
+{
+    if (GetBattlerAbility(battlerDef) != ABILITY_DISGUISE || gBattleMons[battlerDef].species != SPECIES_MIMIKYU)
         return FALSE;
     else
         return TRUE;
