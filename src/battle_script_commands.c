@@ -1711,7 +1711,7 @@ static void Cmd_healthbarupdate(void)
         }
         else if (DoesDisguiseBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove))
         {
-            PrepareStringBattle(STRINGID_SUBSTITUTEDAMAGED, gActiveBattler);
+
         }
         else
         {
@@ -1780,6 +1780,11 @@ static void Cmd_datahpupdate(void)
         }
         else if (DoesDisguiseBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove))
         {
+            gBattleMons[gActiveBattler].species = SPECIES_MIMIKYU_BUSTED;
+
+            gBattlescriptCurrInstr += 2;
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_DisguiseBustedActivates;
             
         }
         else
