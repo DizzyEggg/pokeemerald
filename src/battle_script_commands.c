@@ -1709,21 +1709,9 @@ static void Cmd_healthbarupdate(void)
         {
             PrepareStringBattle(STRINGID_SUBSTITUTEDAMAGED, gActiveBattler);
         }
-        else if (DoesDisguiseBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove))
+        else if (!DoesDisguiseBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove))
         {
-
-        }
-        else
-        {
-            s16 healthValue;
-
-            s32 currDmg = gBattleMoveDamage;
-            s32 maxPossibleDmgValue = 10000; // not present in R/S, ensures that huge damage values don't change sign
-
-            if (currDmg <= maxPossibleDmgValue)
-                healthValue = currDmg;
-            else
-                healthValue = maxPossibleDmgValue;
+            s16 healthValue = min(gBattleMoveDamage, 10000); // Max damage (10000) not present in R/S, ensures that huge damage values don't change sign
 
             BtlController_EmitHealthBarUpdate(0, healthValue);
             MarkBattlerForControllerExec(gActiveBattler);
