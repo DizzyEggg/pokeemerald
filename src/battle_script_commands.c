@@ -1781,9 +1781,7 @@ static void Cmd_datahpupdate(void)
         else if (DoesDisguiseBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove))
         {
             gBattleMons[gActiveBattler].species = SPECIES_MIMIKYU_BUSTED;
-
-            gBattlescriptCurrInstr += 2;
-            BattleScriptPushCursor();
+            BattleScriptPush(gBattlescriptCurrInstr + 2);
             gBattlescriptCurrInstr = BattleScript_DisguiseBustedActivates;
             
         }
@@ -10596,7 +10594,7 @@ static void Cmd_tryswapitems(void) // trick
 
 static void Cmd_trycopyability(void) // role play
 {
-    switch(gBattleMons[gBattlerTarget].ability)
+    switch (gBattleMons[gBattlerTarget].ability)
     {
         case ABILITY_NONE:
         case ABILITY_WONDER_GUARD:
@@ -10746,35 +10744,35 @@ static void Cmd_setroom(void)
 
 static void Cmd_tryswapabilities(void) // skill swap
 {
-    switch(gBattleMons[gBattlerAttacker].ability)
+    switch (gBattleMons[gBattlerAttacker].ability)
     {
     case ABILITY_NONE:
     case ABILITY_WONDER_GUARD:
     case ABILITY_DISGUISE:
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-        break;
-    default:
-        switch(gBattleMons[gBattlerTarget].ability)
-        {
-        case ABILITY_NONE:
-        case ABILITY_WONDER_GUARD:
-        case ABILITY_DISGUISE:
-            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-            break;
-        default:
-            if(!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
-                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-            else
-            {
-                u8 abilityAtk = gBattleMons[gBattlerAttacker].ability;
-                gBattleMons[gBattlerAttacker].ability = gBattleMons[gBattlerTarget].ability;
-                gBattleMons[gBattlerTarget].ability = abilityAtk;
+        return;
+    }
 
-                gBattlescriptCurrInstr += 5;
-            }
-            break;
-        }
-        break;
+    switch (gBattleMons[gBattlerTarget].ability)
+    {
+    case ABILITY_NONE:
+    case ABILITY_WONDER_GUARD:
+    case ABILITY_DISGUISE:
+        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+        return;
+    }
+
+    if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+    {
+        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+    }
+    else
+    {
+        u8 abilityAtk = gBattleMons[gBattlerAttacker].ability;
+        gBattleMons[gBattlerAttacker].ability = gBattleMons[gBattlerTarget].ability;
+        gBattleMons[gBattlerTarget].ability = abilityAtk;
+
+        gBattlescriptCurrInstr += 5;
     }
 }
 
