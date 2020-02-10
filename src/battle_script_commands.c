@@ -11039,7 +11039,8 @@ static void Cmd_pickup(void)
 
                 if ((lvlDivBy10 + 1 ) * 5 > rand)
                 {
-                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, ITEM_HONEY);
+                    heldItem = ITEM_HONEY;
+                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
                 }
             }
             #endif
