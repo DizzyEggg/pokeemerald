@@ -4594,4 +4594,9 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x45,
         .y_offset = 0x0C,
     },
+    [SPECIES_LYCANROC_MIDNIGHT] =
+    {
+        .size = 0x45,
+        .y_offset = 0x00,
+    },
 };
