@@ -103,7 +103,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_WATER_BUBBLE] = 1,
 };
 
-static const u8 sAbilitiesNotTraced[] =
+static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
 {
     [ABILITY_BATTLE_BOND] = 1,
     [ABILITY_COMATOSE] = 1,
