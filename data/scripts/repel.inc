@@ -23,7 +23,7 @@ EventScript_RepelWoreOff_AskAnother:
 EventScript_RepelWoreOff_Chose:
 	callnative HandleRepelMenuChoice
 	bufferitemname 1, VAR_0x8004
-	takeitem VAR_0x8004, 1
+	removeitem VAR_0x8004, 1
 	playse SE_TU_SAA
 	msgbox gText_PlayerUsedVar2, MSGBOX_SIGN
 EventScript_RepelWoreOff_End:
