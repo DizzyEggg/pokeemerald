@@ -2509,8 +2509,15 @@ BattleScript_EffectToxic::
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_POISON | STATUS1_TOXIC_POISON, BattleScript_AlreadyPoisoned
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
-	jumpiftype BS_TARGET, TYPE_POISON, BattleScript_NotAffected
-	jumpiftype BS_TARGET, TYPE_STEEL, BattleScript_NotAffected
+	jumpiftype BS_TARGET, TYPE_POISON, BattleScript_EffectToxic_CheckCorrosion
+	jumpiftype BS_TARGET, TYPE_STEEL, BattleScript_EffectToxic_CheckCorrosion
+	goto BattleScript_EffectToxic2
+
+BattleScript_EffectToxic_CheckCorrosion::
+	jumpifability BS_ATTACKER, ABILITY_CORROSION, BattleScript_EffectToxic2
+	goto BattleScript_NotAffected
+
+BattleScript_EffectToxic2::
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
 	attackanimation
@@ -2838,8 +2845,15 @@ BattleScript_EffectPoison::
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_POISON, BattleScript_AlreadyPoisoned
 	jumpifstatus BS_TARGET, STATUS1_TOXIC_POISON, BattleScript_AlreadyPoisoned
-	jumpiftype BS_TARGET, TYPE_POISON, BattleScript_NotAffected
-	jumpiftype BS_TARGET, TYPE_STEEL, BattleScript_NotAffected
+	jumpiftype BS_TARGET, TYPE_POISON, BattleScript_EffectPoison_CheckCorrosion
+	jumpiftype BS_TARGET, TYPE_STEEL, BattleScript_EffectPoison_CheckCorrosion
+	goto BattleScript_EffectPoison2
+
+BattleScript_EffectPoison_CheckCorrosion::
+	jumpifability BS_ATTACKER, ABILITY_CORROSION, BattleScript_EffectPoison2
+	goto BattleScript_NotAffected
+
+BattleScript_EffectPoison2::
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected

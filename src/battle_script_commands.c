@@ -2235,9 +2235,11 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 2;
                 RESET_RETURN
             }
-            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON))
+            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON)
+                && GetBattlerAbility(gBattleScripting.battler) != ABILITY_CORROSION)
                 break;
-            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
+            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL)
+                && GetBattlerAbility(gBattleScripting.battler) != ABILITY_CORROSION)
                 break;
             if (gBattleMons[gEffectBattler].status1)
                 break;
@@ -2388,7 +2390,9 @@ void SetMoveEffect(bool32 primary, u32 certain)
             }
             if (gBattleMons[gEffectBattler].status1)
                 break;
-            if (!IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON) && !IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
+            if ((!IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON)
+                && !IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
+                || GetBattlerAbility(gBattleScripting.battler) == ABILITY_CORROSION)
             {
                 if (GetBattlerAbility(gEffectBattler) == ABILITY_IMMUNITY
                     || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
