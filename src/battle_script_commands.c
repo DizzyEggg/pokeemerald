@@ -2225,7 +2225,9 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 RESET_RETURN
             }
-            if ((IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON) || IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
+            if (((IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON)
+                    || IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
+                    && GetBattlerAbility(gBattleScripting.battler) != ABILITY_CORROSION)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -2378,7 +2380,9 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 RESET_RETURN
             }
-            if ((IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON) || IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
+            if (((IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON)
+                    || IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
+                    && GetBattlerAbility(gBattleScripting.battler) != ABILITY_CORROSION)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
