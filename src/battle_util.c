@@ -2849,7 +2849,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = 3;
-                gSpecialStatuses[battler].switchInAbilityDone = 1;
+                gDisableStructs[battler].slowStartTimer = 4;
                 BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
                 effect++;
             }
@@ -3097,6 +3097,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         gBattleMoveDamage = 1;
                     effect++;
                 }
+                break;
+            case ABILITY_SLOW_START:
+                if (gSpecialStatuses[battler].switchInAbilityDone == 0)
+                    --gDisableStructs[battler].slowStartTimer;
+                if (gDisableStructs[battler].slowStartTimer == 0 && gSpecialStatuses[battler].switchInAbilityDone == 0)
+                {
+                    BattleScriptPushCursorAndCallback(BattleScript_SlowStarted);
+                    gSpecialStatuses[battler].switchInAbilityDone = 1;
+                }
+                effect++;
                 break;
             }
         }

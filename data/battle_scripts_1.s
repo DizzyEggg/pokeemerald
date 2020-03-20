@@ -6351,6 +6351,13 @@ BattleScript_SolarPowerActivates::
 	tryfaintmon BS_ATTACKER, FALSE, NULL
 	end3
 
+BattleScript_SlowStarted::
+	pause 0x5
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_SLOWSTARTEND
+	waitmessage 0x40
+	end3
+
 BattleScript_SandstreamActivates::
 	pause 0x20
 	call BattleScript_AbilityPopUp
