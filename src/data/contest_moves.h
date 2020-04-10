@@ -1083,7 +1083,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [MOVE_HIGH_JUMP_KICK] =
+    [MOVE_HI_JUMP_KICK] =
     {
         .effect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
         .contestCategory = CONTEST_CATEGORY_COOL,
@@ -1315,7 +1315,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_STRUGGLE] = {0},
+    [MOVE_STRUGGLE] = {0},
 
     [MOVE_SKETCH] =
     {
@@ -1469,7 +1469,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {COMBO_STARTER_LEER, COMBO_STARTER_RAGE},
     },
 
-    [MOVE_FEINT_ATTACK] =
+    [MOVE_FAINT_ATTACK] =
     {
         .effect = CONTEST_EFFECT_BETTER_IF_FIRST,
         .contestCategory = CONTEST_CATEGORY_SMART,
@@ -1861,11 +1861,11 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {COMBO_STARTER_FAKE_OUT},
     },
 
-    [Move_MORNING_SUN] = {0},
+    [MOVE_MORNING_SUN] = {0},
 
-    [Move_SYNTHESIS] = {0},
+    [MOVE_SYNTHESIS] = {0},
 
-    [Move_MOONLIGHT] = {0},
+    [MOVE_MOONLIGHT] = {0},
 
     [MOVE_HIDDEN_POWER] =
     {
@@ -2075,7 +2075,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_FACADE] = {0},
+    [MOVE_FACADE] = {0},
 
     [MOVE_FOCUS_PUNCH] =
     {
@@ -2085,7 +2085,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {COMBO_STARTER_FOCUS_ENERGY},
     },
 
-    [MOVE_SMELLING_SALTS] =
+    [MOVE_SMELLING_SALT] =
     {
         .effect = CONTEST_EFFECT_STARTLE_PREV_MON,
         .contestCategory = CONTEST_CATEGORY_SMART,
@@ -2157,7 +2157,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_ASSIST] = {0},
+    [MOVE_ASSIST] = {0},
 
     [MOVE_INGRAIN] =
     {
@@ -2383,7 +2383,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_SLACK_OFF] = {0},
+    [MOVE_SLACK_OFF] = {0},
 
     [MOVE_HYPER_VOICE] =
     {
@@ -3969,7 +3969,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_ALLY_SWITCH] = {0},
+    [MOVE_ALLY_SWITCH] = {0},
 
     [MOVE_SCALD] =
     {
@@ -4403,7 +4403,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_V_CREATE] = {0},
+    [MOVE_V_CREATE] = {0},
 
     [MOVE_FUSION_FLARE] =
     {
@@ -4877,7 +4877,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_LIGHT_OF_RUIN] = {0},
+    [MOVE_LIGHT_OF_RUIN] = {0},
 
     [MOVE_ORIGIN_PULSE] =
     {
@@ -4895,7 +4895,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_DRAGON_ASCENT] = {0},
+    [MOVE_DRAGON_ASCENT] = {0},
 
     [MOVE_HYPERSPACE_FURY] =
     {
@@ -4905,7 +4905,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {COMBO_STARTER_HYPERSPACE_HOLE},
     },
 
-    [Move_SHORE_UP] = {0},
+    [MOVE_SHORE_UP] = {0},
 
     [MOVE_FIRST_IMPRESSION] =
     {
@@ -4931,7 +4931,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_DARKEST_LARIAT] = {0},
+    [MOVE_DARKEST_LARIAT] = {0},
 
     [MOVE_SPARKLING_ARIA] =
     {
@@ -4949,7 +4949,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {COMBO_STARTER_HAIL},
     },
 
-    [Move_FLORAL_HEALING] = {0},
+    [MOVE_FLORAL_HEALING] = {0},
 
     [MOVE_HIGH_HORSEPOWER] =
     {
@@ -5143,7 +5143,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [Move_CLANGING_SCALES] = {0},
+    [MOVE_CLANGING_SCALES] = {0},
 
     [MOVE_DRAGON_HAMMER] =
     {
@@ -5273,7 +5273,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {COMBO_STARTER_CHARGE},
     },
 
-    [MOVE_NATURE_S_MADNESS] =
+    [MOVE_NATURES_MADNESS] =
     {
         .effect = CONTEST_EFFECT_BADLY_STARTLE_MONS_WITH_GOOD_APPEALS,
         .contestCategory = CONTEST_CATEGORY_CUTE,
@@ -5604,75 +5604,6 @@ const struct ContestEffect gContestEffects[] =
         .appeal = 30,
         .jam = 0,
     },
-};
-
-// A lookup table with TRUE for each combo starter ID and FALSE for ID 0,
-// which means "not a combo starter move".
-const bool8 gComboStarterLookupTable[] =
-{
-    FALSE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE,
-    TRUE
 };
 
 void (*const gContestEffectFuncs[])(void) =
