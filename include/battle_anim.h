@@ -57,6 +57,7 @@ void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMo
 void DestroyAnimSprite(struct Sprite *sprite);
 void DestroyAnimVisualTask(u8 taskId);
 void DestroyAnimSoundTask(u8 taskId);
+u8 GetAnimBattlerId(u8 wantedBattler);
 bool8 IsBattlerSpriteVisible(u8 battlerId);
 void MoveBattlerSpriteToBG(u8 battlerId, bool8 toBG_2, bool8 setSpriteInvisible);
 bool8 IsContest(void);
@@ -221,12 +222,30 @@ void sub_8117854(u8 taskId, int unused, u16 arg2, u8 battler1, u8 arg4, u8 arg5,
 void SetSpriteNextToMonHead(u8 battler, struct Sprite* sprite);
 void AnimMoveTwisterParticle(struct Sprite* sprite);
 void AnimParticleBurst(struct Sprite *);
+void AnimPowerAbsorptionOrb(struct Sprite* sprite);
+void AnimNeedleArmSpike(struct Sprite *);
+extern const union AnimCmd *const gRazorLeafParticleAnimTable[];
+extern const union AnimCmd *const gPowerAbsorptionOrbAnimTable[];
+extern const union AffineAnimCmd *const gPowerAbsorptionOrbAffineAnimTable[];
 
 // battle_anim_water.c
 void AnimWaterPulseRing(struct Sprite *sprite);
 
 // battle_anim_flying.c
 void DestroyAnimSpriteAfterTimer(struct Sprite *sprite);
+void sub_810E2C8(struct Sprite *sprite);
+void AnimAirWaveCrescent(struct Sprite *sprite);
+extern const union AnimCmd *const gAffineAnims_AirWaveCrescent[];
+
+// battle_anim_poison.c
+void AnimSludgeBombHitParticle(struct Sprite *);
+extern const union AffineAnimCmd *const gAffineAnims_PoisonProjectile[];
+
+// battle_anim_ghost.c
+void AnimGhostStatusSprite(struct Sprite *sprite);
+
+// battle_anim_psychic.c
+extern const union AffineAnimCmd *const gAffineAnims_LusterPurgeCircle[];
 
 // battle_anim_smokescreen.c
 u8 SmokescreenImpact(s16 x, s16 y, u8 a3);
@@ -279,6 +298,7 @@ extern const struct OamData gOamData_AffineDouble_ObjNormal_32x16;
 extern const struct OamData gOamData_AffineOff_ObjNormal_64x32;
 extern const struct OamData gOamData_AffineOff_ObjBlend_64x32;
 extern const struct OamData gOamData_AffineOff_ObjBlend_16x32;
+extern const struct OamData gOamData_AffineDouble_ObjBlend_32x8;
 
 extern const struct CompressedSpriteSheet gBattleAnimPicTable[];
 extern const struct CompressedSpritePalette gBattleAnimPaletteTable[];

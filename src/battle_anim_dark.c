@@ -23,6 +23,7 @@ static void AnimTask_MoveAttackerMementoShadow_Step(u8);
 static void AnimTask_MoveTargetMementoShadow_Step(u8);
 static void sub_8114244(struct Task *);
 static void sub_8114374(u8);
+static void AnimPunishment(struct Sprite *sprite);
 static void AnimTask_MetallicShine_Step(u8);
 
 // Unused
@@ -186,6 +187,90 @@ const struct SpriteTemplate gClawSlashSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimClawSlash,
 };
+
+const union AffineAnimCmd gPunishmentImpactAffineAnimCmd_1[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd gPunishmentImpactAffineAnimCmd_2[] =
+{
+    AFFINEANIMCMD_FRAME(0xD8, 0xD8, 0, 0),
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd gPunishmentImpactAffineAnimCmd_3[] =
+{
+    AFFINEANIMCMD_FRAME(0xB0, 0xB0, 0, 0),
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd gPunishmentImpactAffineAnimCmd_4[] =
+{
+    AFFINEANIMCMD_FRAME(0x80, 0x80, 0, 0),
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd *const gPunishmentImpactAffineAnim[] =
+{
+    gPunishmentImpactAffineAnimCmd_1,
+    gPunishmentImpactAffineAnimCmd_2,
+    gPunishmentImpactAffineAnimCmd_3,
+    gPunishmentImpactAffineAnimCmd_4,
+};
+
+const union AnimCmd gPunishmentAnimCmd[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gPunishmentAnim[] =
+{
+    gPunishmentAnimCmd,
+};
+
+const struct SpriteTemplate gPunishmentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SCRATCH,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gPunishmentAnim,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpriteOnMonPos,
+};
+
+const struct SpriteTemplate gPunishmentImpactSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_IMPACT,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gPunishmentImpactAffineAnim,
+    .callback = AnimPunishment,
+};
+
+static void AnimPunishment(struct Sprite *sprite)
+{
+    StartSpriteAffineAnim(sprite, gBattleAnimArgs[3]);
+    if (gBattleAnimArgs[2] == 0)
+        InitSpritePosToAnimAttacker(sprite, 1);
+    else
+        InitSpritePosToAnimTarget(sprite, TRUE);
+
+    sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
 
 void AnimTask_AttackerFadeToInvisible(u8 taskId)
 {

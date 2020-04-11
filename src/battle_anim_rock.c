@@ -25,6 +25,9 @@ static void AnimParticleInVortex(struct Sprite *);
 static void AnimParticleInVortex_Step(struct Sprite *sprite);
 static void AnimTask_LoadSandstormBackground_Step(u8 taskId);
 static void sub_8111214(struct Task *task);
+static void AnimStealthRockStep2(struct Sprite *sprite);
+static void AnimStealthRockStep(struct Sprite *sprite);
+static void AnimStealthRock(struct Sprite *sprite);
 static u8 GetRolloutCounter(void);
 
 static const union AnimCmd sAnim_FlyingRock_0[] =
@@ -301,6 +304,68 @@ const struct SpriteTemplate gWeatherBallRockDownSpriteTemplate =
     .affineAnims = sAffineAnims_BasicRock,
     .callback = AnimWeatherBallDown,
 };
+
+const struct SpriteTemplate gStoneEdgeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STONE_EDGE,
+    .paletteTag = ANIM_TAG_STONE_EDGE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_BasicFire,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex,
+};
+
+const struct SpriteTemplate gStealthRockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STEALTH_ROCK,
+    .paletteTag = ANIM_TAG_STEALTH_ROCK,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimStealthRock,
+};
+
+static void AnimStealthRock(struct Sprite *sprite)
+{
+    u16 x;
+    u16 y;
+
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+    SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &x, &y);
+
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+
+    sprite->data[0] = gBattleAnimArgs[4];
+    sprite->data[2] = x + gBattleAnimArgs[2];
+    sprite->data[4] = y + gBattleAnimArgs[3];
+    sprite->data[5] = -50;
+
+    InitAnimArcTranslation(sprite);
+    sprite->callback = AnimStealthRockStep;
+}
+
+static void AnimStealthRockStep(struct Sprite *sprite)
+{
+    if (TranslateAnimHorizontalArc(sprite))
+    {
+        sprite->data[0] = 30;
+        sprite->data[1] = 0;
+        sprite->callback = WaitAnimForDuration;
+        StoreSpriteCallbackInData6(sprite, AnimStealthRockStep2);
+    }
+}
+
+static void AnimStealthRockStep2(struct Sprite *sprite)
+{
+    if (sprite->data[1] & 1)
+        sprite->invisible ^= 1;
+
+    if (++sprite->data[1] == 16)
+        DestroyAnimSprite(sprite);
+}
 
 static void AnimFallingRock(struct Sprite *sprite)
 {

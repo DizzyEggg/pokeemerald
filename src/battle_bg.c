@@ -691,6 +691,25 @@ static const struct BattleBackground gBattleTerrainTable[] =
     },
 };
 
+static void sub_8035648(void);
+
+// Unused
+static void sub_8035608(void)
+{
+    u8 spriteId;
+
+    ResetSpriteData();
+    spriteId = CreateSprite(&gUnknown_0831AC88, 0, 0, 0);
+    gSprites[spriteId].invisible = TRUE;
+    SetMainCallback2(sub_8035648);
+}
+
+static void sub_8035648(void)
+{
+    AnimateSprites();
+    BuildOamBuffer();
+}
+
 void BattleInitBgsAndWindows(void)
 {
     ResetBgsAndClearDma3BusyFlags(0);
@@ -1123,7 +1142,7 @@ void DrawBattleEntryBackground(void)
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_LINK | BATTLE_TYPE_x2000000 | BATTLE_TYPE_EREADER_TRAINER))
     {
-        if (!(gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) || gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
+        if (!(gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) || gPartnerTrainerId == TRAINER_STEVEN_PARTNER || gPartnerTrainerId >= TRAINER_CUSTOM_PARTNER)
         {
             LZDecompressVram(gBattleTerrainAnimTiles_Building, (void*)(BG_CHAR_ADDR(1)));
             LZDecompressVram(gBattleTerrainAnimTilemap_Building, (void*)(BG_SCREEN_ADDR(28)));
