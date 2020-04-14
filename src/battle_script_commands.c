@@ -5765,6 +5765,7 @@ static void Cmd_switchineffects(void)
 
     if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
         && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
+        && GetBattlerAbility(gActiveBattler) != ABILITY_MAGIC_GUARD
         && IsBattlerGrounded(gActiveBattler))
     {
         u8 spikesDmg = (5 - gSideTimers[GetBattlerSide(gActiveBattler)].spikesAmount) * 2;
@@ -5776,7 +5777,8 @@ static void Cmd_switchineffects(void)
         SetDmgHazardsBattlescript(gActiveBattler, 0);
     }
     else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK_DAMAGED)
-        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK))
+        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK)
+        && GetBattlerAbility(gActiveBattler) != ABILITY_MAGIC_GUARD)
     {
         gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_STEALTH_ROCK_DAMAGED;
         gBattleMoveDamage = GetStealthHazardDamage(gBattleMoves[MOVE_STEALTH_ROCK].type, gActiveBattler);
@@ -8357,6 +8359,9 @@ static void Cmd_manipulatedamage(void)
     case DMG_BIG_ROOT:
         gBattleMoveDamage = GetDrainedBigRootHp(gBattlerAttacker, gBattleMoveDamage);
         break;
+    case DMG_1_2_ATTACKER_HP:
+        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
+        break;
     }
 
     gBattlescriptCurrInstr += 2;
@@ -9238,10 +9243,11 @@ static void Cmd_setsandstorm(void)
 
 static void Cmd_weatherdamage(void)
 {
+    u32 ability = GetBattlerAbility(gBattlerAttacker);
+
     gBattleMoveDamage = 0;
-    if (IsBattlerAlive(gBattlerAttacker) && WEATHER_HAS_EFFECT)
+    if (IsBattlerAlive(gBattlerAttacker) && WEATHER_HAS_EFFECT && ability != ABILITY_MAGIC_GUARD)
     {
-        u32 ability = GetBattlerAbility(gBattlerAttacker);
         if (gBattleWeather & WEATHER_SANDSTORM_ANY)
         {
             if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_ROCK)
@@ -10982,7 +10988,7 @@ static void Cmd_tryswapabilities(void) // skill swap
         return;
     }
 
-    if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+    if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }

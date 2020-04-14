@@ -356,6 +356,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectIncinerate
 	.4byte BattleScript_EffectBugBite
 	.4byte BattleScript_EffectStrengthSap
+	.4byte BattleScript_EffectMindBlown
 	
 BattleScript_EffectStrengthSap:
 	setstatchanger STAT_ATK, 1, TRUE
@@ -2227,6 +2228,19 @@ BattleScript_ExplosionMissed:
 	tryfaintmon BS_ATTACKER, FALSE, NULL
 	end
 
+BattleScript_EffectMindBlown::
+	attackcanceler
+	attackstring
+	ppreduce
+	faintifabilitynotdamp
+	dmg_1_2_attackerhp
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitstate
+	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionDoAnimStartLoop
+	call BattleScript_PreserveMissedBitDoMoveAnim
+	goto BattleScript_ExplosionLoop
+
 BattleScript_PreserveMissedBitDoMoveAnim:
 	bichalfword gMoveResultFlags, MOVE_RESULT_MISSED
 	attackanimation
@@ -2709,6 +2723,7 @@ BattleScript_EffectRecoilIfMiss::
 	accuracycheck BattleScript_MoveMissedDoDamage, ACC_CURR_MOVE
 	goto BattleScript_HitFromAtkString
 BattleScript_MoveMissedDoDamage::
+	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_PrintMoveMissed
 	attackstring
 	ppreduce
 	pause 0x40
@@ -5969,13 +5984,13 @@ BattleScript_PoisonTurnDmg::
 	waitmessage 0x40
 BattleScript_DoStatusTurnDmg::
 	statusanimation BS_ATTACKER
-BattleScript_DoTurnDmg::
+BattleScript_DoTurnDmg:
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_x100000
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	tryfaintmon BS_ATTACKER, FALSE, NULL
 	atk24 BattleScript_DoTurnDmgEnd
-BattleScript_DoTurnDmgEnd::
+BattleScript_DoTurnDmgEnd:
 	end2
 
 BattleScript_PoisonHealActivates::
@@ -6120,6 +6135,7 @@ BattleScript_PrintPayDayMoneyString::
 	return
 
 BattleScript_WrapTurnDmg::
+	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_DoTurnDmgEnd
 	playanimation BS_ATTACKER, B_ANIM_TURN_TRAP, sB_ANIM_ARG1
 	printstring STRINGID_PKMNHURTBY
 	waitmessage 0x40
