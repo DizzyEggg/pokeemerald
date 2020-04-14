@@ -3420,6 +3420,9 @@ static void Cmd_getexp(void)
     s32 sentIn;
     s32 viaExpShare = 0;
     u16 *exp = &gBattleStruct->expValue;
+    u16 scale = 1;
+    u16 scaleBase = 1;
+    u8 j;
 
     gBattlerFainted = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     sentIn = gSentPokesToOpponent[(gBattlerFainted & 2) >> 1];
@@ -3467,21 +3470,35 @@ static void Cmd_getexp(void)
                     viaExpShare++;
             }
 
-            calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
+            if (B_SCALED_EXP == GEN_5 || B_SCALED_EXP >= GEN_7)
+                calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 5;
+            else
+                calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
 
             if (viaExpShare) // at least one mon is getting exp via exp share
             {
-                *exp = calculatedExp / 2 / viaSentIn;
+                if (B_SPLIT_EXP >= GEN_6)
+                {
+                    *exp = calculatedExp;
+                    gExpShareExp = calculatedExp / 2;
+                }
+                else
+                {
+                    *exp = calculatedExp / 2 / viaSentIn;
+                    gExpShareExp = calculatedExp / 2 / viaExpShare;
+                }
                 if (*exp == 0)
                     *exp = 1;
 
-                gExpShareExp = calculatedExp / 2 / viaExpShare;
                 if (gExpShareExp == 0)
                     gExpShareExp = 1;
             }
             else
             {
-                *exp = calculatedExp / viaSentIn;
+                if (B_SPLIT_EXP >= GEN_6)
+                    *exp = calculatedExp;
+                else
+                    *exp = calculatedExp / viaSentIn;
                 if (*exp == 0)
                     *exp = 1;
                 gExpShareExp = 0;
@@ -3535,11 +3552,28 @@ static void Cmd_getexp(void)
                     else
                         gBattleMoveDamage = 0;
 
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && B_TRAINER_EXP_MULTIPLIER != GEN_7)
+                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
                     if (holdEffect == HOLD_EFFECT_EXP_SHARE)
                         gBattleMoveDamage += gExpShareExp;
+                    if (B_SCALED_EXP == GEN_5 || B_SCALED_EXP >= GEN_7)
+                    {
+                        // this'd be so much easier if there was a power function hhhhh
+                        scaleBase = Sqrt((gBattleMons[gBattlerFainted].level * 2) + 10);
+                        for (j = 0; j < 5; j++)
+                        {
+                            scale *= scaleBase;
+                        }
+                        gBattleMoveDamage *= scale;
+                        scale = 1;
+                        scaleBase = Sqrt(gBattleMons[gBattlerFainted].level + GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) + 10);
+                        for (j = 0; j < 5; j++)
+                        {
+                            scale *= scaleBase;
+                        }
+                        gBattleMoveDamage /= scale;
+                    }
                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
-                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && B_TRAINER_EXP_MULTIPLIER != GEN_7)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
 
                     if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId]))
