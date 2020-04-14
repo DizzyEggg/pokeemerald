@@ -49,8 +49,8 @@
 
 // Calculation settings
 #define B_CRIT_CHANCE               GEN_6 // Chances of a critical hit landing. See atk04_critcalc.
-#define B_CRIT_MULTIPLIER           GEN_6 // Starting from gen6, critical hits multiply damage by 1.5 instead of 2.
-#define B_EXP_CATCH                 GEN_6 // Starting from gen6, pokemon get experience from catching.
+#define B_CRIT_MULTIPLIER           GEN_6 // Starting from Gen6, critical hits multiply damage by 1.5 instead of 2.
+#define B_EXP_CATCH                 GEN_6 // Starting from Gen6, pokemon get experience from catching.
 #define B_SCALED_EXP                GEN_6 // In Gen5 and Gen7, exp scales by level of pokemon defeated.
 #define B_SPLIT_EXP                 GEN_5 // Starting from Gen6, exp per mon isn't reduced for using multiple mon.
 #define B_TRAINER_EXP_MULTIPLIER    GEN_6 // Gen7 no longer gives a 1.5 multiplier to exp gain in trainer battles.
