@@ -4011,7 +4011,7 @@ static void HandleTurnActionSelectionState(void)
                             RecordedBattle_ClearBattlerAction(gActiveBattler, 1);
                             gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT;
                             *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
-                            gBattleResources->bufferB[gActiveBattler][1] = 0;
+                            gBattleResources->bufferB[gActiveBattler][1] = B_ACTION_USE_MOVE;
                             *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_WAIT_ACTION_CHOSEN;
                             return;
                         }
@@ -4146,7 +4146,7 @@ static void HandleTurnActionSelectionState(void)
         case STATE_SELECTION_SCRIPT_MAY_RUN:
             if (*(gBattleStruct->selectionScriptFinished + gActiveBattler))
             {
-                if (gBattleResources->bufferB[gActiveBattler][1] == 13)
+                if (gBattleResources->bufferB[gActiveBattler][1] == B_ACTION_NOTHING_FAINTED)
                 {
                     gHitMarker |= HITMARKER_RUN;
                     gChosenActionByBattler[gActiveBattler] = B_ACTION_RUN;
@@ -5068,7 +5068,7 @@ void SetTypeBeforeUsingMove(u16 move, u8 battlerAtk)
 
 static void HandleAction_UseMove(void)
 {
-    u32 side, moveType, var = 4;
+    u32 i, side, moveType, var = 4;
 
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     if (gBattleStruct->field_91 & gBitTable[gBattlerAttacker] || !IsBattlerAlive(gBattlerAttacker))
@@ -5315,6 +5315,10 @@ static void HandleAction_UseMove(void)
 
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
         BattleArena_AddMindPoints(gBattlerAttacker);
+
+    // Record HP of each battler
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+        gBattleStruct->hpBefore[i] = gBattleMons[i].hp;
 
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
@@ -5659,8 +5663,7 @@ static void HandleAction_NothingIsFainted(void)
     gCurrentTurnActionNumber++;
     gCurrentActionFuncId = gActionsByTurnOrder[gCurrentTurnActionNumber];
     gHitMarker &= ~(HITMARKER_DESTINYBOND | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_ATTACKSTRING_PRINTED
-                    | HITMARKER_NO_PPDEDUCT | HITMARKER_IGNORE_SAFEGUARD | HITMARKER_IGNORE_ON_AIR
-                    | HITMARKER_IGNORE_UNDERGROUND | HITMARKER_IGNORE_UNDERWATER | HITMARKER_x100000
+                    | HITMARKER_NO_PPDEDUCT | HITMARKER_IGNORE_SAFEGUARD | HITMARKER_x100000
                     | HITMARKER_OBEYS | HITMARKER_x10 | HITMARKER_SYNCHRONISE_EFFECT
                     | HITMARKER_CHARGING | HITMARKER_x4000000);
 }
@@ -5672,8 +5675,7 @@ static void HandleAction_ActionFinished(void)
     gCurrentActionFuncId = gActionsByTurnOrder[gCurrentTurnActionNumber];
     SpecialStatusesClear();
     gHitMarker &= ~(HITMARKER_DESTINYBOND | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_ATTACKSTRING_PRINTED
-                    | HITMARKER_NO_PPDEDUCT | HITMARKER_IGNORE_SAFEGUARD | HITMARKER_IGNORE_ON_AIR
-                    | HITMARKER_IGNORE_UNDERGROUND | HITMARKER_IGNORE_UNDERWATER | HITMARKER_x100000
+                    | HITMARKER_NO_PPDEDUCT | HITMARKER_IGNORE_SAFEGUARD | HITMARKER_x100000
                     | HITMARKER_OBEYS | HITMARKER_x10 | HITMARKER_SYNCHRONISE_EFFECT
                     | HITMARKER_CHARGING | HITMARKER_x4000000);
 
