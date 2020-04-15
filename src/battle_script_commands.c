@@ -11034,10 +11034,7 @@ static void Cmd_pickup(void)
                 && species != SPECIES_EGG
                 && heldItem == ITEM_NONE)
             {
-                s32 j;
-                s32 rand = Random() % 100;
-
-                if ((lvlDivBy10 + 1 ) * 5 > rand)
+                if ((lvlDivBy10 + 1 ) * 5 > Random() % 100)
                 {
                     heldItem = ITEM_HONEY;
                     SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
@@ -11090,10 +11087,7 @@ static void Cmd_pickup(void)
                 && species != SPECIES_EGG
                 && heldItem == ITEM_NONE)
             {
-                s32 j;
-                s32 rand = Random() % 100;
-
-                if ((lvlDivBy10 + 1 ) * 5 > rand)
+                if ((lvlDivBy10 + 1 ) * 5 > Random() % 100)
                 {
                     heldItem = ITEM_HONEY;
                     SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
