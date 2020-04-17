@@ -12,7 +12,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
     },
 
     [MOVE_KARATE_CHOP] =
-    {
+    {   
         .effect = CONTEST_EFFECT_AFFECTED_BY_PREV_APPEAL,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .comboStarterId = 0,
@@ -5367,14 +5367,13 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
     
-    // uncomment these after adding usum moves
-    //[MOVE_MIND_BLOWN] =
-    //{
-    //    .effect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
-    //    .contestCategory = CONTEST_CATEGORY_BEAUTY,
-    //    .comboStarterId = 0,
-    //    .comboMoves = {0}
-    //},
+    [MOVE_MIND_BLOWN] =
+    {
+        .effect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .comboStarterId = 0,
+        .comboMoves = {0}
+    },
 
     //[MOVE_PLASMA_FISTS] =
     //{
