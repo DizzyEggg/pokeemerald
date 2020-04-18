@@ -2252,9 +2252,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 RESET_RETURN
             }
-            if (((IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON)
-                    || IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
-                    && GetBattlerAbility(gBattleScripting.battler) != ABILITY_CORROSION)
+            if (DoesAbilityBypassTypeImmunity(gBattleScripting.battler, gEffectBattler, STATUS1_TOXIC_POISON)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -2264,11 +2262,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 2;
                 RESET_RETURN
             }
-            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON)
-                && GetBattlerAbility(gBattleScripting.battler) != ABILITY_CORROSION)
-                break;
-            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL)
-                && GetBattlerAbility(gBattleScripting.battler) != ABILITY_CORROSION)
+            if (DoesAbilityBypassTypeImmunity(gBattleScripting.battler, gEffectBattler, STATUS1_TOXIC_POISON))
                 break;
             if (gBattleMons[gEffectBattler].status1)
                 break;
@@ -2407,9 +2401,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 RESET_RETURN
             }
-            if (((IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON)
-                    || IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
-                    && GetBattlerAbility(gBattleScripting.battler) != ABILITY_CORROSION)
+            if (DoesAbilityBypassTypeImmunity(gBattleScripting.battler, gEffectBattler, STATUS1_TOXIC_POISON)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -2421,9 +2413,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             }
             if (gBattleMons[gEffectBattler].status1)
                 break;
-            if ((!IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON)
-                && !IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
-                || GetBattlerAbility(gBattleScripting.battler) == ABILITY_CORROSION)
+            if (DoesAbilityBypassTypeImmunity(gBattleScripting.battler, gEffectBattler, STATUS1_TOXIC_POISON))
             {
                 if (GetBattlerAbility(gEffectBattler) == ABILITY_IMMUNITY
                     || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
@@ -6677,6 +6667,23 @@ static void HandleTerrainMove(u32 moveEffect)
             *timer = 5;
         gBattlescriptCurrInstr += 7;
     }
+}
+
+bool32 DoesAbilityBypassTypeImmunity(u8 battlerAttacker, u8 battlerTarget, u8 status)
+{
+    switch(status)
+    {
+        case STATUS1_POISON:
+        case STATUS1_TOXIC_POISON:
+            if (GetBattlerAbility(battlerAttacker) == ABILITY_CORROSION)
+                return TRUE;
+            else if (IS_BATTLER_OF_TYPE(battlerTarget, TYPE_POISON))
+                return FALSE;
+            else if (IS_BATTLER_OF_TYPE(battlerTarget, TYPE_STEEL))
+                return FALSE;
+            break;
+    }
+    return TRUE;
 }
 
 bool32 CanUseLastResort(u8 battlerId)

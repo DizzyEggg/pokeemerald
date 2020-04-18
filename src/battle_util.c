@@ -4688,9 +4688,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
         {
         case HOLD_EFFECT_TOXIC_ORB:
             if (!gBattleMons[battlerId].status1
-                && ((!IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_POISON)
-                    && !IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_STEEL))
-                    || GetBattlerAbility(battlerId) == ABILITY_CORROSION)
+                && DoesAbilityBypassTypeImmunity(battlerId, gEffectBattler, STATUS1_TOXIC_POISON)
                 && GetBattlerAbility(battlerId) != ABILITY_IMMUNITY)
             {
                 effect = ITEM_STATUS_CHANGE;
