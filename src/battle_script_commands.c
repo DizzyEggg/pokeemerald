@@ -6819,6 +6819,15 @@ static void Cmd_various(void)
         else
             gBattlescriptCurrInstr += 7;
         return;
+    case VARIOUS_HANDLE_TYPE_IMMUNITY:
+        gBattlerTarget = GetBattlerForBattleScript(gBattlescriptCurrInstr[3]);
+        i = gBattlescriptCurrInstr[4]; //Status
+        
+        if (!DoesAbilityBypassTypeImmunity(gActiveBattler, gBattlerTarget, i))
+            gBattlescriptCurrInstr = BattleScript_NotAffected;
+        else
+            gBattlescriptCurrInstr += 5;
+        return;
     case VARIOUS_TRACE_ABILITY:
         gBattleMons[gActiveBattler].ability = gBattleStruct->tracedAbility[gActiveBattler];
         break;

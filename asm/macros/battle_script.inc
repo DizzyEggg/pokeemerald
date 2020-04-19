@@ -1688,6 +1688,12 @@
 	.4byte \ptr
 	.endm
 	
+	.macro handletypeimmunity battlerability:req, battlertypes:req, status:req
+	various \battlerability, VARIOUS_HANDLE_TYPE_IMMUNITY
+	.byte \battlertypes
+	.byte \status
+	.endm
+	
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
 	setbyte sSTATCHANGER \stat | \stages << 3 | \down << 7

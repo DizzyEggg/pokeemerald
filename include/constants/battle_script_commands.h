@@ -148,6 +148,7 @@
 #define VARIOUS_HANDLE_FORM_CHANGE              85
 #define VARIOUS_GET_STAT_VALUE                  86
 #define VARIOUS_JUMP_IF_FULL_HP                 87
+#define VARIOUS_HANDLE_TYPE_IMMUNITY            88
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0
