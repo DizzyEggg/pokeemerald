@@ -13,6 +13,10 @@
 #define SPECIES_AEGISLASH_BLADE 10000
 #define SPECIES_MIMIKYU 0
 #define SPECIES_MIMIKYU_BUSTED 10001
+#define SPECIES_DARMANITAN 0
+#define SPECIES_DARMANITAN_ZEN 10002
+#define SPECIES_MINIOR_CORE 0
+#define SPECIES_MINIOR 10003
 
 // Items with peculiar battle effects. Remove them if they're properly placed in constant/items.h
 #define ITEM_GRISEOUS_ORB 0
@@ -46,6 +50,7 @@
 #define GEN_5 2
 #define GEN_6 3
 #define GEN_7 4
+#define GEN_8 5
 
 // Calculation settings
 #define B_CRIT_CHANCE               GEN_6 // Chances of a critical hit landing. See atk04_critcalc.
@@ -59,6 +64,7 @@
 #define B_FELL_STINGER_STAT_RAISE   GEN_6 // Gen6 Atk+2, Gen7 Atk+3.
 #define B_SOUND_SUBSTITUTE          GEN_6 // Starting from Gen6 sound moves bypass Substitute.
 #define B_TOXIC_NEVER_MISS          GEN_6 // Starting from Gen6, if Toxic is used by a Poison type, it will never miss.
+#define B_MOODY_ACC_EVASION         GEN_6 // In Gen8, Moody CANNOT raise Accuray and Evasion any more
 #define B_PAYBACK_SWITCH_BOOST      GEN_6 // Starting from Gen5, if the opponent switches out, Payback's damage will no longer be doubled.
 
 // Ability settings

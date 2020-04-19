@@ -1066,6 +1066,7 @@ AI_CheckViability:
 	if_effect EFFECT_MORNING_SUN, AI_CV_HealWeather
 	if_effect EFFECT_SYNTHESIS, AI_CV_HealWeather
 	if_effect EFFECT_MOONLIGHT, AI_CV_HealWeather
+	if_effect EFFECT_SHORE_UP, AI_CV_Heal
 	if_effect EFFECT_RAIN_DANCE, AI_CV_RainDance
 	if_effect EFFECT_SUNNY_DAY, AI_CV_SunnyDay
 	if_effect EFFECT_BELLY_DRUM, AI_CV_BellyDrum
@@ -2811,16 +2812,13 @@ AI_CV_SemiInvulnerable:
 	score -1
 	goto AI_CV_SemiInvulnerable_End
 
-@ BUG: The scripts for checking type-resistance to weather for semi-invulnerable moves are swapped
-@      The result is that the AI is encouraged to stall while taking damage from weather
-@      To fix, swap _CheckSandstormTypes/_CheckIceType in the below script
 AI_CV_SemiInvulnerable2:
 	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_SemiInvulnerable_TryEncourage
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_SemiInvulnerable_TryEncourage
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_SemiInvulnerable_TryEncourage
 	get_weather
-	if_equal AI_WEATHER_HAIL, AI_CV_SemiInvulnerable_CheckSandstormTypes
-	if_equal AI_WEATHER_SANDSTORM, AI_CV_SemiInvulnerable_CheckIceType
+	if_equal AI_WEATHER_HAIL, AI_CV_SemiInvulnerable_CheckIceType
+	if_equal AI_WEATHER_SANDSTORM, AI_CV_SemiInvulnerable_CheckSandstormTypes
 	goto AI_CV_SemiInvulnerable5
 
 AI_CV_SemiInvulnerable_CheckSandstormTypes:
@@ -2828,6 +2826,8 @@ AI_CV_SemiInvulnerable_CheckSandstormTypes:
 	if_in_bytes AI_CV_SandstormResistantTypes, AI_CV_SemiInvulnerable_TryEncourage
 	get_user_type2
 	if_in_bytes AI_CV_SandstormResistantTypes, AI_CV_SemiInvulnerable_TryEncourage
+	get_ability AI_USER
+	if_in_bytes AI_SandstormResistantAbilities, AI_CV_SemiInvulnerable_TryEncourage
 	goto AI_CV_SemiInvulnerable5
 
 AI_CV_SemiInvulnerable_CheckIceType:
@@ -2835,6 +2835,8 @@ AI_CV_SemiInvulnerable_CheckIceType:
 	if_equal TYPE_ICE, AI_CV_SemiInvulnerable_TryEncourage
 	get_user_type2
 	if_equal TYPE_ICE, AI_CV_SemiInvulnerable_TryEncourage
+	get_ability AI_USER
+	if_in_bytes AI_HailResistantAbilities, AI_CV_SemiInvulnerable_TryEncourage
 
 AI_CV_SemiInvulnerable5:
 	if_target_faster AI_CV_SemiInvulnerable_End
@@ -2855,6 +2857,21 @@ AI_CV_SandstormResistantTypes:
     .byte TYPE_ROCK
     .byte TYPE_STEEL
     .byte -1
+	
+AI_SandstormResistantAbilities:
+	.byte ABILITY_SAND_VEIL
+	.byte ABILITY_SAND_FORCE
+	.byte ABILITY_SAND_RUSH
+	.byte ABILITY_OVERCOAT
+	.byte ABILITY_MAGIC_GUARD
+	.byte -1
+	
+AI_HailResistantAbilities:
+	.byte ABILITY_ICE_BODY
+	.byte ABILITY_SNOW_CLOAK
+	.byte ABILITY_OVERCOAT
+	.byte ABILITY_MAGIC_GUARD
+	.byte -1
 
 AI_CV_FakeOut:
 	if_ability AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
@@ -3705,7 +3722,7 @@ AI_HPAware:
 
 AI_HPAware_UserHasHighHP:
 	get_considered_move_effect
-	if_in_bytes AI_HPAware_DiscouragedEffectsWhenHighHP, AI_HPAware_TryToDiscourage
+	if_in_hwords AI_HPAware_DiscouragedEffectsWhenHighHP, AI_HPAware_TryToDiscourage
 	goto AI_HPAware_ConsiderTarget
 
 AI_HPAware_UserHasMediumHP:
@@ -3742,21 +3759,22 @@ AI_HPAware_End:
 	end
 
 AI_HPAware_DiscouragedEffectsWhenHighHP: @ 82DE21F
-    .byte EFFECT_EXPLOSION
-    .byte EFFECT_RESTORE_HP
-    .byte EFFECT_REST
-    .byte EFFECT_DESTINY_BOND
-    .byte EFFECT_FLAIL
-    .byte EFFECT_ENDURE
-    .byte EFFECT_MORNING_SUN
-    .byte EFFECT_SYNTHESIS
-    .byte EFFECT_MOONLIGHT
-    .byte EFFECT_SOFTBOILED
-    .byte EFFECT_ROOST
-    .byte EFFECT_MEMENTO
-    .byte EFFECT_GRUDGE
-    .byte EFFECT_OVERHEAT
-    .byte -1
+    .2byte EFFECT_EXPLOSION
+    .2byte EFFECT_RESTORE_HP
+    .2byte EFFECT_REST
+    .2byte EFFECT_DESTINY_BOND
+    .2byte EFFECT_FLAIL
+    .2byte EFFECT_ENDURE
+    .2byte EFFECT_MORNING_SUN
+    .2byte EFFECT_SYNTHESIS
+    .2byte EFFECT_MOONLIGHT
+    .2byte EFFECT_SHORE_UP
+    .2byte EFFECT_SOFTBOILED
+    .2byte EFFECT_ROOST
+    .2byte EFFECT_MEMENTO
+    .2byte EFFECT_GRUDGE
+    .2byte EFFECT_OVERHEAT
+    .2byte -1
 
 AI_HPAware_DiscouragedEffectsWhenMediumHP: @ 82DE22D
     .byte EFFECT_EXPLOSION

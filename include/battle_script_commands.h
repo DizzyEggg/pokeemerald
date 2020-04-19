@@ -8,6 +8,7 @@ s32 CalcCritChanceStage(u8 battlerAtk, u8 battlerDef, u32 move, bool32 recordAbi
 u8 GetBattlerTurnOrderNum(u8 battlerId);
 bool32 NoAliveMonsForEitherParty(void);
 void SetMoveEffect(bool32 primary, u32 certain);
+bool32 CanBattlerSwitch(u32 battlerId);
 void BattleDestroyYesNoCursorAt(u8 cursorPosition);
 void BattleCreateYesNoCursorAt(u8 cursorPosition);
 void BufferMoveToLearnIntoBattleTextBuff2(void);
@@ -18,6 +19,8 @@ bool32 DoesDisguiseBlockMove(u8 battlerAtk, u8 battlerDef, u32 move);
 bool32 CanUseLastResort(u8 battlerId);
 u32 IsFlowerVeilProtected(u32 battler);
 u32 IsLeafGuardProtected(u32 battler);
+bool32 IsShieldsDownProtected(u32 battler);
+u32 IsAbilityStatusProtected(u32 battler);
 
 extern void (* const gBattleScriptingCommandsTable[])(void);
 extern const u8 gUnknown_0831C494[][4];
