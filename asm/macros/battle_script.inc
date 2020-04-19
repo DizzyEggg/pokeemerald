@@ -1439,6 +1439,18 @@
 	various \battler, VARIOUS_TRY_ACTIVATE_MOXIE
 	.endm
 	
+	.macro tryactivatebeastboost battler:req
+	various \battler, VARIOUS_TRY_ACTIVATE_BEAST_BOOST
+	.endm
+	
+	.macro tryactivatereceiver battler:req
+	various \battler, VARIOUS_TRY_ACTIVATE_RECEIVER
+	.endm
+	
+	.macro tryactivatesoulheart
+	various BS_ATTACKER, VARIOUS_TRY_ACTIVATE_SOULHEART
+	.endm
+	
 	.macro tryactivatefellstinger battler:req
 	various \battler, VARIOUS_TRY_ACTIVATE_FELL_STINGER
 	.endm
@@ -1688,6 +1700,20 @@
 	.4byte \ptr
 	.endm
 	
+	.macro losetype battler:req, type:req
+	various \battler, VARIOUS_LOSE_TYPE
+	.byte \type
+	.endm
+	
+	.macro tryfriskmsg battler:req
+	various \battler, VARIOUS_TRY_FRISK
+	.endm
+	
+	.macro jumpifshieldsdown battler:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_SHIELDS_DOWN_PROTECTED
+	.4byte \ptr
+	.endm
+
 	.macro handletypeimmunity battlerability:req, battlertypes:req, status:req
 	various \battlerability, VARIOUS_HANDLE_TYPE_IMMUNITY
 	.byte \battlertypes
@@ -1786,6 +1812,10 @@
 	
 	.macro dmgtocurrattackerhp
 	manipulatedamage DMG_CURR_ATTACKER_HP
+	.endm
+	
+	.macro dmg_1_2_attackerhp
+	manipulatedamage DMG_1_2_ATTACKER_HP
 	.endm
 	
 	.macro jumpifflowerveil jumpptr:req
