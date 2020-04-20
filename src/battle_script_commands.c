@@ -1464,7 +1464,7 @@ static void Cmd_ppreduce(void)
 }
 
 // The chance is 1/N for each stage.
-#if B_CRIT_CHANCE == GEN_7
+#if B_CRIT_CHANCE >= GEN_7
     static const u8 sCriticalHitChance[] = {24, 8, 2, 1, 1};
 #elif B_CRIT_CHANCE == GEN_6
     static const u8 sCriticalHitChance[] = {16, 8, 2, 1, 1};
@@ -3533,7 +3533,7 @@ static void Cmd_getexp(void)
                         gBattleMoveDamage += gExpShareExp;
                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && B_TRAINER_EXP_MULTIPLIER != GEN_7)
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && B_TRAINER_EXP_MULTIPLIER <= GEN_7)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
 
                     if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId]))
@@ -7255,7 +7255,7 @@ static void Cmd_various(void)
         {
             if (gBattleMons[gBattlerAttacker].statStages[STAT_ATK] >= 11)
                 SET_STATCHANGER(STAT_ATK, 1, FALSE);
-            else if (gBattleMons[gBattlerAttacker].statStages[STAT_ATK] <= 9 && B_FELL_STINGER_STAT_RAISE == GEN_7)
+            else if (gBattleMons[gBattlerAttacker].statStages[STAT_ATK] <= 9 && B_FELL_STINGER_STAT_RAISE >= GEN_7)
                 SET_STATCHANGER(STAT_ATK, 3, FALSE);
             else
                 SET_STATCHANGER(STAT_ATK, 2, FALSE);
