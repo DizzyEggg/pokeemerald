@@ -59,6 +59,7 @@
 #define B_TRAINER_EXP_MULTIPLIER    GEN_6 // Gen7 no longer gives a 1.5 multiplier to exp gain in trainer battles.
 #define B_BURN_DAMAGE               GEN_6 // In Gen7, burn damage is 1/16th of max HP instead of 1/8th.
 #define B_PARALYSIS_SPEED           GEN_6 // In Gen7, speed is decreased by 50% instead of 75%.
+#define B_TERRAIN_TYPE_BOOST        GEN_6 // Gen1-7: 50%, Gen8: 30%.
 
 // Move settings
 #define B_FELL_STINGER_STAT_RAISE   GEN_6 // Gen6 Atk+2, Gen7 Atk+3.
