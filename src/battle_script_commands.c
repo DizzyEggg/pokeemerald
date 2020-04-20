@@ -780,7 +780,7 @@ static const u8 sForbiddenMoves[MOVES_COUNT] =
     [MOVE_HYPERSPACE_HOLE] = FORBIDDEN_METRONOME,
     [MOVE_ICE_BURN] = FORBIDDEN_METRONOME,
     [MOVE_INSTRUCT] = FORBIDDEN_METRONOME,
-    [MOVE_KING_S_SHIELD] = FORBIDDEN_METRONOME | FORBIDDEN_ASSIST | FORBIDDEN_COPYCAT,
+    [MOVE_KINGS_SHIELD] = FORBIDDEN_METRONOME | FORBIDDEN_ASSIST | FORBIDDEN_COPYCAT,
     [MOVE_LIGHT_OF_RUIN] = FORBIDDEN_METRONOME,
     [MOVE_MAT_BLOCK] = FORBIDDEN_METRONOME | FORBIDDEN_ASSIST | FORBIDDEN_COPYCAT,
     [MOVE_ME_FIRST] = FORBIDDEN_METRONOME | FORBIDDEN_ASSIST | FORBIDDEN_COPYCAT | FORBIDDEN_SLEEP_TALK,
@@ -1031,7 +1031,7 @@ static bool32 TryAegiFormChange(void)
         gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH_BLADE;
         break;
     case SPECIES_AEGISLASH_BLADE: // Blade -> Shield
-        if (gCurrentMove != MOVE_KING_S_SHIELD)
+        if (gCurrentMove != MOVE_KINGS_SHIELD)
             return FALSE;
         gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH;
         break;
@@ -7635,7 +7635,7 @@ static void Cmd_various(void)
                 break;
         }
         if (gLastMoves[gBattlerTarget] == 0 || gLastMoves[gBattlerTarget] == 0xFFFF || sMoveEffectsForbiddenToInstruct[i] != FORBIDDEN_INSTRUCT_END
-            || gLastMoves[gBattlerTarget] == MOVE_STRUGGLE || gLastMoves[gBattlerTarget] == MOVE_KING_S_SHIELD)
+            || gLastMoves[gBattlerTarget] == MOVE_STRUGGLE || gLastMoves[gBattlerTarget] == MOVE_KINGS_SHIELD)
         {
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
         }
@@ -7974,7 +7974,7 @@ static void Cmd_setprotectlike(void)
                 gProtectStructs[gBattlerAttacker].spikyShielded = 1;
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
             }
-            else if (gCurrentMove == MOVE_KING_S_SHIELD)
+            else if (gCurrentMove == MOVE_KINGS_SHIELD)
             {
                 gProtectStructs[gBattlerAttacker].kingsShielded = 1;
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;

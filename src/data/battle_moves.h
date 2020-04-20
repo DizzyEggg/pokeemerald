@@ -8011,7 +8011,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .split = SPLIT_SPECIAL,
     },
 
-    [MOVE_FOREST_S_CURSE] =
+    [MOVE_FORESTS_CURSE] =
     {
         .effect = EFFECT_THIRD_TYPE,
         .power = 0,
@@ -8252,7 +8252,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .split = SPLIT_STATUS,
     },
 
-    [MOVE_KING_S_SHIELD] =
+    [MOVE_KINGS_SHIELD] =
     {
         .effect = EFFECT_PROTECT,
         .power = 0,
@@ -8645,7 +8645,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .split = SPLIT_PHYSICAL,
     },
 
-    [MOVE_LAND_S_WRATH] =
+    [MOVE_LANDS_WRATH] =
     {
         .effect = EFFECT_HIT,
         .power = 90,
