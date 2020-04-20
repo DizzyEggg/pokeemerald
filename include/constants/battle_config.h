@@ -56,6 +56,7 @@
 #define B_CRIT_CHANCE               GEN_6 // Chances of a critical hit landing. See CalcCritChanceStage.
 #define B_CRIT_MULTIPLIER           GEN_6 // In Gen6+, critical hits multiply damage by 1.5 instead of 2.
 #define B_EXP_CATCH                 GEN_6 // In Gen6+, Pokémon get experience from catching.
+#define B_SPLIT_EXP                 GEN_5 // In Gen6+, Pokémon no longer split experience if multiple are used in the same battle.
 #define B_SCALED_EXP                GEN_6 // In Gen5 and Gen7+, exp scales by level of pokemon defeated.
 #define B_TRAINER_EXP_MULTIPLIER    GEN_6 // In Gen7+, trainer battles no longer give a 1.5 multiplier to exp gain.
 #define B_BURN_DAMAGE               GEN_6 // In Gen7+, burn damage is 1/16th of max HP instead of 1/8th.
