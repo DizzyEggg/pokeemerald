@@ -65,6 +65,7 @@
 #define B_SOUND_SUBSTITUTE          GEN_6 // Starting from Gen6 sound moves bypass Substitute.
 #define B_TOXIC_NEVER_MISS          GEN_6 // Starting from Gen6, if Toxic is used by a Poison type, it will never miss.
 #define B_PAYBACK_SWITCH_BOOST      GEN_6 // Starting from Gen5, if the opponent switches out, Payback's damage will no longer be doubled.
+#define B_KING_S_SHIELD_LOWER_ATK   GEN_6 // Gen1-7 Atk-2, Gen8 Atk-1.
 
 // Ability settings
 #define B_ABILITY_POP_UP            GEN_6 // Starting from gen5, the pokemon abilities are displayed in a pop-up, when they activate in battle.
