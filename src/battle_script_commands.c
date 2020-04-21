@@ -2251,7 +2251,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 RESET_RETURN
             }
-            if (DoesAbilityBypassTypeImmunity(gBattleScripting.battler, gEffectBattler, STATUS1_TOXIC_POISON)
+            if (CanPoisonType(gBattleScripting.battler, gEffectBattler)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -2261,7 +2261,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 2;
                 RESET_RETURN
             }
-            if (DoesAbilityBypassTypeImmunity(gBattleScripting.battler, gEffectBattler, STATUS1_TOXIC_POISON))
+            if (CanPoisonType(gBattleScripting.battler, gEffectBattler))
                 break;
             if (gBattleMons[gEffectBattler].status1)
                 break;
@@ -2396,7 +2396,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 RESET_RETURN
             }
-            if (DoesAbilityBypassTypeImmunity(gBattleScripting.battler, gEffectBattler, STATUS1_TOXIC_POISON)
+            if (CanPoisonType(gBattleScripting.battler, gEffectBattler)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -2408,7 +2408,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             }
             if (gBattleMons[gEffectBattler].status1)
                 break;
-            if (DoesAbilityBypassTypeImmunity(gBattleScripting.battler, gEffectBattler, STATUS1_TOXIC_POISON))
+            if (CanPoisonType(gBattleScripting.battler, gEffectBattler))
             {
                 if (GetBattlerAbility(gEffectBattler) == ABILITY_IMMUNITY
                     || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
@@ -6665,21 +6665,11 @@ static void HandleTerrainMove(u32 moveEffect)
     }
 }
 
-bool32 DoesAbilityBypassTypeImmunity(u8 battlerAttacker, u8 battlerTarget, u8 status)
+bool32 CanPoisonType(u8 battlerAttacker, u8 battlerTarget)
 {
-    switch(status)
-    {
-        case STATUS1_POISON:
-        case STATUS1_TOXIC_POISON:
-            if (GetBattlerAbility(battlerAttacker) == ABILITY_CORROSION)
-                return TRUE;
-            else if (IS_BATTLER_OF_TYPE(battlerTarget, TYPE_POISON))
-                return FALSE;
-            else if (IS_BATTLER_OF_TYPE(battlerTarget, TYPE_STEEL))
-                return FALSE;
-            break;
-    }
-    return TRUE;
+    return (GetBattlerAbility(battlerAttacker) == ABILITY_CORROSION
+            || !(IS_BATTLER_OF_TYPE(battlerTarget, TYPE_POISON)
+                || IS_BATTLER_OF_TYPE(battlerTarget, TYPE_STEEL)));
 }
 
 bool32 CanUseLastResort(u8 battlerId)
@@ -6879,12 +6869,11 @@ static void Cmd_various(void)
         break;
     case VARIOUS_HANDLE_TYPE_IMMUNITY:
         gBattlerTarget = GetBattlerForBattleScript(gBattlescriptCurrInstr[3]);
-        i = gBattlescriptCurrInstr[4]; //Status
-        
-        if (!DoesAbilityBypassTypeImmunity(gActiveBattler, gBattlerTarget, i))
-            gBattlescriptCurrInstr = BattleScript_NotAffected;
+
+        if (!CanPoisonType(gActiveBattler, gBattlerTarget))
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 4);
         else
-            gBattlescriptCurrInstr += 5;
+            gBattlescriptCurrInstr += 8;
         return;
     case VARIOUS_TRACE_ABILITY:
         gBattleMons[gActiveBattler].ability = gBattleStruct->tracedAbility[gActiveBattler];

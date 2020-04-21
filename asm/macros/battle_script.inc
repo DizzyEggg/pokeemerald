@@ -1714,10 +1714,10 @@
 	.4byte \ptr
 	.endm
 
-	.macro handletypeimmunity battlerability:req, battlertypes:req, status:req
+	.macro trypoisontype battlerability:req, battlertypes:req, ptr:req
 	various \battlerability, VARIOUS_HANDLE_TYPE_IMMUNITY
 	.byte \battlertypes
-	.byte \status
+	.4byte \ptr
 	.endm
 	
 @ helpful macros
