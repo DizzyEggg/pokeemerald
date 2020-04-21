@@ -3689,7 +3689,8 @@ u8 IsRunningFromBattleImpossible(void)
     }
 
     if ((gBattleMons[gActiveBattler].status2 & (STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED))
-        || (gStatuses3[gActiveBattler] & STATUS3_ROOTED))
+        || (gStatuses3[gActiveBattler] & STATUS3_ROOTED)
+        || gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
     {
         gBattleCommunication[MULTISTRING_CHOOSER] = 0;
         return 1;
@@ -3867,6 +3868,7 @@ static void HandleTurnActionSelectionState(void)
                     *(gBattleStruct->field_58 + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
                     if (gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION)
                         || gBattleTypeFlags & BATTLE_TYPE_ARENA
+                        || gFieldStatuses & STATUS_FIELD_FAIRY_LOCK
                         || gStatuses3[gActiveBattler] & STATUS3_ROOTED)
                     {
                         BtlController_EmitChoosePokemon(0, PARTY_ACTION_CANT_SWITCH, PARTY_SIZE, ABILITY_NONE, gBattleStruct->field_60[gActiveBattler]);
@@ -4311,7 +4313,7 @@ s8 GetMovePriority(u32 battlerId, u16 move)
     priority = gBattleMoves[move].priority;
     if (GetBattlerAbility(battlerId) == ABILITY_GALE_WINGS
         && gBattleMoves[move].type == TYPE_FLYING
-        && (B_GALE_WINGS == GEN_6 || BATTLER_MAX_HP(battlerId)))
+        && (B_GALE_WINGS <= GEN_6 || BATTLER_MAX_HP(battlerId)))
     {
         priority++;
     }
@@ -5549,7 +5551,8 @@ static void HandleAction_Run(void)
         }
         else
         {
-            if (gBattleMons[gBattlerAttacker].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+            if (gBattleMons[gBattlerAttacker].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION)
+                || gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
                 gBattlescriptCurrInstr = BattleScript_PrintFailedToRunString;

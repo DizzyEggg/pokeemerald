@@ -934,6 +934,7 @@ enum
 	ENDTURN_GRASSY_TERRAIN,
 	ENDTURN_PSYCHIC_TERRAIN,
 	ENDTURN_ION_DELUGE,
+	ENDTURN_FAIRY_LOCK,
 	ENDTURN_FIELD_COUNT,
 };
 
@@ -1348,6 +1349,13 @@ u8 DoFieldEndTurnEffects(void)
             break;
         case ENDTURN_ION_DELUGE:
             gFieldStatuses &= ~(STATUS_FIELD_ION_DELUGE);
+            gBattleStruct->turnCountersTracker++;
+            break;
+        case ENDTURN_FAIRY_LOCK:
+            if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK && --gFieldTimers.fairyLockTimer == 0)
+            {
+                gFieldStatuses &= ~(STATUS_FIELD_FAIRY_LOCK);
+            }
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_FIELD_COUNT:
@@ -3192,7 +3200,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                             {
                                 i = (Random() % statsNum) + STAT_ATK;
                             } while (!(validToRaise & gBitTable[i]));
-                            SET_STATCHANGER(i, (gBattleMons[battler].statStages[i] < 11) ? 2 : 1, FALSE);
+                            SET_STATCHANGER(i, 2, FALSE);
                             validToLower &= ~(gBitTable[i]); // Can't lower the same stat as raising.
                         }
                         if (validToLower != 0) // Find stat to lower
@@ -5554,7 +5562,8 @@ static u16 CalcMoveBasePower(u16 move, u8 battlerAtk, u8 battlerDef)
         }
         break;
     case EFFECT_PAYBACK:
-        if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef) && gDisableStructs[battlerDef].isFirstTurn != 2)
+        if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef)
+            && (gDisableStructs[battlerDef].isFirstTurn != 2 || B_PAYBACK_SWITCH_BOOST < GEN_5))
             basePower *= 2;
         break;
     case EFFECT_ROUND:
@@ -5824,13 +5833,13 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
     if (gStatuses3[battlerAtk] & STATUS3_ME_FIRST)
         MulModifier(&modifier, UQ_4_12(1.5));
     if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN && moveType == TYPE_GRASS && IsBattlerGrounded(battlerAtk) && !(gStatuses3[battlerAtk] & STATUS3_SEMI_INVULNERABLE))
-        MulModifier(&modifier, UQ_4_12(1.5));
+        MulModifier(&modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8) ? UQ_4_12(1.3) : UQ_4_12(1.5));
     if (gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN && moveType == TYPE_DRAGON && IsBattlerGrounded(battlerDef) && !(gStatuses3[battlerDef] & STATUS3_SEMI_INVULNERABLE))
         MulModifier(&modifier, UQ_4_12(0.5));
     if (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN && moveType == TYPE_ELECTRIC && IsBattlerGrounded(battlerAtk) && !(gStatuses3[battlerAtk] & STATUS3_SEMI_INVULNERABLE))
-        MulModifier(&modifier, UQ_4_12(1.5));
+        MulModifier(&modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8) ? UQ_4_12(1.3) : UQ_4_12(1.5));
     if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN && moveType == TYPE_PSYCHIC && IsBattlerGrounded(battlerAtk) && !(gStatuses3[battlerAtk] & STATUS3_SEMI_INVULNERABLE))
-        MulModifier(&modifier, UQ_4_12(1.5));
+        MulModifier(&modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8) ? UQ_4_12(1.3) : UQ_4_12(1.5));
 
     return ApplyModifier(modifier, basePower);
 }

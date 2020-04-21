@@ -63,7 +63,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectRecoilIfMiss
 	.4byte BattleScript_EffectMist
 	.4byte BattleScript_EffectFocusEnergy
-	.4byte BattleScript_EffectRecoil
+	.4byte BattleScript_EffectRecoil25
 	.4byte BattleScript_EffectConfuse
 	.4byte BattleScript_EffectAttackUp2
 	.4byte BattleScript_EffectDefenseUp2
@@ -213,7 +213,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectSnatch
 	.4byte BattleScript_EffectLowKick
 	.4byte BattleScript_EffectSecretPower
-	.4byte BattleScript_EffectDoubleEdge
+	.4byte BattleScript_EffectRecoil33
 	.4byte BattleScript_EffectTeeterDance
 	.4byte BattleScript_EffectHitEscape
 	.4byte BattleScript_EffectMudSport
@@ -360,6 +360,33 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectPurify
 	.4byte BattleScript_EffectBurnUp
 	.4byte BattleScript_EffectShoreUp
+	.4byte BattleScript_EffectGeomancy
+	.4byte BattleScript_EffectFairyLock
+	.4byte BattleScript_EffectAllySwitch
+	
+BattleScript_EffectAllySwitch:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifnoally BS_ATTACKER, BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_ALLYSWITCHPOSITION
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+	
+BattleScript_EffectFairyLock:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	trysetfairylock BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_NOONEWILLBEABLETORUNAWAY
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
 	
 BattleScript_EffectBurnUp:
 	attackcanceler
@@ -2820,12 +2847,6 @@ BattleScript_EffectFocusEnergy:
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectRecoil:
-	setmoveeffect MOVE_EFFECT_RECOIL_25 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-	jumpifnotmove MOVE_STRUGGLE, BattleScript_EffectHit
-	incrementgamestat GAME_STAT_USED_STRUGGLE
-	goto BattleScript_EffectHit
-
 BattleScript_EffectConfuse:
 	attackcanceler
 	attackstring
@@ -3050,7 +3071,49 @@ BattleScript_EffectTwoTurnsAttackIceBurn:
 	goto BattleScript_EffectTwoTurnsAttackContinue
 BattleScript_EffectTwoTurnsAttackFreezeShock:
 	setbyte sTWOTURN_STRINGID, 0x0
-	goto BattleScript_EffectTwoTurnsAttackContinue
+	goto BattleScript_EffectTwoTurnsAttackContinue	
+	
+BattleScript_EffectGeomancy:
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_GeomancySecondTurn
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_GeomancySecondTurn
+	setbyte sTWOTURN_STRINGID, 0x9
+	call BattleScriptFirstChargingTurn
+	goto BattleScript_MoveEnd
+	
+BattleScript_GeomancySecondTurn:
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_CHARGING
+	setbyte sB_ANIM_TURN, 0x1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	attackstring
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, 0xC, BattleScript_GeomancyDoMoveAnim
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPDEF, 0xC, BattleScript_GeomancyDoMoveAnim
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPEED, 0xC, BattleScript_CantRaiseMultipleStats
+BattleScript_GeomancyDoMoveAnim::
+	attackanimation
+	waitanimation
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_SPATK | BIT_SPDEF | BIT_SPEED, 0x0
+	setstatchanger STAT_SPATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_GeomancyTrySpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_GeomancyTrySpDef
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+BattleScript_GeomancyTrySpDef::
+	setstatchanger STAT_SPDEF, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_GeomancyTrySpeed
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_GeomancyTrySpeed
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+BattleScript_GeomancyTrySpeed::
+	setstatchanger STAT_SPEED, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_GeomancyEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_GeomancyEnd
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+BattleScript_GeomancyEnd::
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectConfuseHit::
 	setmoveeffect MOVE_EFFECT_CONFUSION
@@ -4531,7 +4594,13 @@ BattleScript_EffectSecretPower::
 	getsecretpowereffect
 	goto BattleScript_EffectHit
 
-BattleScript_EffectDoubleEdge::
+BattleScript_EffectRecoil25:
+	setmoveeffect MOVE_EFFECT_RECOIL_25 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	jumpifnotmove MOVE_STRUGGLE, BattleScript_EffectHit
+	incrementgamestat GAME_STAT_USED_STRUGGLE
+	goto BattleScript_EffectHit
+
+BattleScript_EffectRecoil33::
 	setmoveeffect MOVE_EFFECT_RECOIL_33 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
