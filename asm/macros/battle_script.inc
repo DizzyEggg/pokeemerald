@@ -1714,9 +1714,9 @@
 	.4byte \ptr
 	.endm
 
-	.macro trypoisontype battlerability:req, battlertypes:req, ptr:req
-	various \battlerability, VARIOUS_HANDLE_TYPE_IMMUNITY
-	.byte \battlertypes
+	.macro trypoisontype attacker:req, target:req, ptr:req
+	various \attacker, VARIOUS_HANDLE_TYPE_IMMUNITY
+	.byte \target
 	.4byte \ptr
 	.endm
 	

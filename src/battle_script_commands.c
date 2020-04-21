@@ -2254,7 +2254,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 RESET_RETURN
             }
-            if (CanPoisonType(gBattleScripting.battler, gEffectBattler)
+            if (!CanPoisonType(gBattleScripting.battler, gEffectBattler)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -2264,7 +2264,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 2;
                 RESET_RETURN
             }
-            if (CanPoisonType(gBattleScripting.battler, gEffectBattler))
+            if (!CanPoisonType(gBattleScripting.battler, gEffectBattler))
                 break;
             if (gBattleMons[gEffectBattler].status1)
                 break;
@@ -2399,7 +2399,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 RESET_RETURN
             }
-            if (CanPoisonType(gBattleScripting.battler, gEffectBattler)
+            if (!CanPoisonType(gBattleScripting.battler, gEffectBattler)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -6891,9 +6891,7 @@ static void Cmd_various(void)
         gBattleStruct->friskedAbility = FALSE;
         break;
     case VARIOUS_HANDLE_TYPE_IMMUNITY:
-        gBattlerTarget = GetBattlerForBattleScript(gBattlescriptCurrInstr[3]);
-
-        if (!CanPoisonType(gActiveBattler, gBattlerTarget))
+        if (!CanPoisonType(gActiveBattler, GetBattlerForBattleScript(gBattlescriptCurrInstr[3])))
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 4);
         else
             gBattlescriptCurrInstr += 8;
