@@ -2309,7 +2309,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                 gBattleMons[gBattlerAttacker].status2--;
                 if (gBattleMons[gBattlerAttacker].status2 & STATUS2_CONFUSION)
                 {
-                    if (Random() & 1)
+                    if (Random() & ((B_CONFUSION_SELF_DMG_CHANCE >= GEN_7) ? 2 : 1)
                     {
                         gBattleCommunication[MULTISTRING_CHOOSER] = 0;
                         BattleScriptPushCursor();
