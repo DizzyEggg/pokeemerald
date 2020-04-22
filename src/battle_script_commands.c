@@ -3004,7 +3004,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattlescriptCurrInstr++;
                 break;
             case MOVE_EFFECT_INCINERATE:
-                if (GetBattlerHoldEffect(gEffectBattler, FALSE) == HOLD_EFFECT_GEMS
+                if ((B_INCINERATE_GEMS >= GEN_6 && GetBattlerHoldEffect(gEffectBattler, FALSE) == HOLD_EFFECT_GEMS)
                     || (gBattleMons[gEffectBattler].item >= FIRST_BERRY_INDEX && gBattleMons[gEffectBattler].item <= LAST_BERRY_INDEX))
                 {
                     gLastUsedItem = gBattleMons[gEffectBattler].item;
