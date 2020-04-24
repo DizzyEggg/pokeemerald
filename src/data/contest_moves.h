@@ -5375,21 +5375,29 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    //[MOVE_PLASMA_FISTS] =
-    //{
-    //    .effect = CONTEST_EFFECT_WORSEN_CONDITION_OF_PREV_MONS,
-    //    .contestCategory = CONTEST_CATEGORY_COOL,
-    //    .comboStarterId = 0,
-    //    .comboMoves = {0}
-    //},
+    [MOVE_PLASMA_FISTS] =
+    {
+        .effect = CONTEST_EFFECT_WORSEN_CONDITION_OF_PREV_MONS,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .comboStarterId = 0,
+        .comboMoves = {0}
+    },
 
-    //[MOVE_PHOTON_GEYSER] =
-    //{
-    //    .effect = CONTEST_EFFECT_BETTER_IF_SAME_TYPE,
-    //    .contestCategory = CONTEST_CATEGORY_SMART,
-    //    .comboStarterId = 0,
-    //    .comboMoves = {0}
-    //},
+    [MOVE_PHOTON_GEYSER] =
+    {
+        .effect = CONTEST_EFFECT_BETTER_IF_SAME_TYPE,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .comboStarterId = 0,
+        .comboMoves = {0}
+    },
+
+    [MOVE_DOUBLE_IRON_BASH] =
+    {
+        .effect = CONTEST_EFFECT_REPETITION_NOT_BORING,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .comboStarterId = 0,
+        .comboMoves = {0}
+    },
 };
 
 const struct ContestEffect gContestEffects[] =
