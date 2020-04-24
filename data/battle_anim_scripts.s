@@ -1008,17 +1008,26 @@ Move_U_TURN:
 	playsewithpan SE_W019, SOUND_PAN_ATTACKER
 	createsprite gFlyBallUpSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 13, 336
 	playsewithpan SE_W104, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_CanBattlerSwitch, 1, ANIM_ATTACKER
+	jumpretfalse UTurnVisible
 	createsprite gFlyBallAttackSpriteTemplate, ANIM_ATTACKER, 2, 20, TRUE
+UTurnContinue:
 	delay 20
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 1, 0
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 6, 0, 8, 1
 	playsewithpan SE_W013, SOUND_PAN_TARGET
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
+	createvisualtask AnimTask_CanBattlerSwitch, 1, ANIM_ATTACKER
+	jumpretfalse UTurnLast
 	invisible ANIM_ATTACKER
+UTurnLast:
 	blendoff
 	waitforvisualfinish
 	end
+UTurnVisible:
+	createsprite gFlyBallAttackSpriteTemplate, ANIM_ATTACKER, 2, 20, FALSE
+	goto UTurnContinue
 
 Move_CLOSE_COMBAT:
 	loadspritegfx ANIM_TAG_IMPACT	
@@ -1767,6 +1776,7 @@ Move_ROCK_POLISH:
 	setalpha 12, 8
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, 1, 3, 0, 12, RGB_BLACK
 	waitforvisualfinish
+	loopsewithpan SE_W104, SOUND_PAN_ATTACKER, 10, 7
 	createsprite gRockPolishStreakSpriteTemplate, ANIM_ATTACKER, 2, -10, 3
 	delay 1
 	createsprite gRockPolishStreakSpriteTemplate, ANIM_ATTACKER, 2, 24, -19
@@ -2746,20 +2756,22 @@ Move_PSYCHO_CUT:
 	loadspritegfx ANIM_TAG_PSYCHO_CUT 
 	monbg ANIM_ATK_PARTNER 
 	createsprite gPsychoCutSpiralSpriteTemplate, 2, 4, 0, 0, 0, 0
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, 1, 0, 4, 4, RGB_BLACK
-	createvisualtask AnimTask_BlendBattleAnimPal, 9, 5, 2, 2, 10, 0, RGB(20, 12, 23)  
-	createvisualtask AnimTask_BlendBattleAnimPal, 9, 2, 2, 10, 0, RGB(20, 12, 23)
+	createvisualtask AnimTask_BlendBattleAnimPal, 1, 1, 2, 0,  4, RGB_BLACK
+	createvisualtask AnimTask_BlendBattleAnimPal, 1, 2, 2, 0, 10, RGB(20, 12, 23)  
 	delay 30
 	clearmonbg ANIM_ATK_PARTNER 
-	blendoff 
 	waitforvisualfinish 
 	monbg ANIM_TARGET 
 	monbgprio_28 ANIM_TARGET  
 	setalpha 12, 8 
-	playsewithpan 160, SOUND_PAN_ATTACKER, 
+	playsewithpan SE_W013B, SOUND_PAN_ATTACKER, 
 	createsprite gPsychoCutSpriteTemplate, 130, 5, 20, 0, -8, 0, 20
 	waitforvisualfinish 
-	clearmonbg ANIM_TARGET 
+	createvisualtask AnimTask_BlendBattleAnimPal, 1, 1, 2, 4,  0, RGB_BLACK
+	createvisualtask AnimTask_BlendBattleAnimPal, 1, 2, 2, 10, 0, RGB(20, 12, 23)
+	clearmonbg ANIM_TARGET
+	blendoff
+	waitforvisualfinish
 	end
 	
 Move_ZEN_HEADBUTT:
@@ -4190,6 +4202,15 @@ Move_COIL:
 	end
 	
 Move_LOW_SWEEP:
+	loadspritegfx ANIM_TAG_HANDS_AND_FEET
+	loadspritegfx ANIM_TAG_IMPACT
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, 0, 0, 4
+	createsprite gSlidingKickSpriteTemplate, ANIM_TARGET, 2, -24, 14, 40, 8, 160, 0
+	delay 4
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, -8, 8, 1, 2
+	playsewithpan SE_W233B, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 1, 4
 	end
 	
 Move_ACID_SPRAY:
@@ -4450,14 +4471,14 @@ Move_INFERNO:
 	call SetImpactBackground
 	loopsewithpan SE_W221B, SOUND_PAN_TARGET, 40, 4
 	createvisualtask AnimTask_ShakeMon, 5, 1, 0, 2, 94, 1
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 1, 0, 9, 31
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 1, 0, 9, RGB_RED
 	call InfernoAnim
 	call InfernoAnim
 	call InfernoAnim
 	call InfernoAnim
 	call InfernoAnim
 	call InfernoAnim
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 1, 9, 0, 31
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 1, 9, 0, RGB_RED
 	restorebg
 	waitbgfadein
 	waitforvisualfinish
@@ -4516,13 +4537,26 @@ Move_VOLT_SWITCH:
 	delay 4
 	call ElectricityEffect
 	playsewithpan SE_W085B, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_CanBattlerSwitch 1, ANIM_ATTACKER
+	jumpretfalse VoltSwitchContinue
+	createvisualtask AnimTask_IsTargetSameSide 1
+	jumprettrue VoltSwitchAgainstPartner
 	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -2
+VoltSwitchContinue:
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
 	blendoff
+	createvisualtask AnimTask_CanBattlerSwitch 1, ANIM_ATTACKER
+	jumpretfalse VoltSwitchLast
 	invisible ANIM_ATTACKER
+VoltSwitchLast:
 	delay 8
 	end
+@ Attacking the same side requires a change of direction
+@ why would you attack your partner though?!
+VoltSwitchAgainstPartner:
+	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, +2
+	goto VoltSwitchContinue
 	
 Move_STRUGGLE_BUG:
 	end
