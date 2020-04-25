@@ -2365,7 +2365,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 else
                     break;
             }
-            if ((IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ELECTRIC))
+            if (!CanParalyzeType(gBattleScripting.battler, gEffectBattler)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -2375,7 +2375,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 2;
                 RESET_RETURN
             }
-            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ELECTRIC))
+            if (!CanParalyzeType(gBattleScripting.battler, gEffectBattler))
                 break;
             if (GetBattlerAbility(gEffectBattler) == ABILITY_LIMBER
                 || GetBattlerAbility(gEffectBattler) == ABILITY_COMATOSE
@@ -6684,6 +6684,11 @@ bool32 CanPoisonType(u8 battlerAttacker, u8 battlerTarget)
                 || IS_BATTLER_OF_TYPE(battlerTarget, TYPE_STEEL)));
 }
 
+bool32 CanParalyzeType(u8 battlerAttacker, u8 battlerTarget)
+{
+    return !(B_PARALYZE_ELECTRIC >= GEN_6 && IS_BATTLER_OF_TYPE(battlerTarget, TYPE_ELECTRIC));
+}
+
 bool32 CanUseLastResort(u8 battlerId)
 {
     u32 i;
@@ -6911,8 +6916,14 @@ static void Cmd_various(void)
         gBattleStruct->friskedBattler = 0;
         gBattleStruct->friskedAbility = FALSE;
         break;
-    case VARIOUS_HANDLE_TYPE_IMMUNITY:
+    case VARIOUS_POISON_TYPE_IMMUNITY:
         if (!CanPoisonType(gActiveBattler, GetBattlerForBattleScript(gBattlescriptCurrInstr[3])))
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 4);
+        else
+            gBattlescriptCurrInstr += 8;
+        return;
+    case VARIOUS_PARALYZE_TYPE_IMMUNITY:
+        if (!CanParalyzeType(gActiveBattler, GetBattlerForBattleScript(gBattlescriptCurrInstr[3])))
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 4);
         else
             gBattlescriptCurrInstr += 8;
