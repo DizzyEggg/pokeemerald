@@ -8778,14 +8778,36 @@ static void Cmd_setmultihitcounter(void)
     }
     else
     {
-        gMultiHitCounter = Random() & 3;
-        if (gMultiHitCounter > 1)
-            gMultiHitCounter = (Random() & 3) + 2;
-        else
-            gMultiHitCounter += 2;
-
         if (GetBattlerAbility(gBattlerAttacker) == ABILITY_SKILL_LINK)
+        {
             gMultiHitCounter = 5;
+        }
+        else if (B_MULTI_HIT_CHANCE >= GEN_5)
+        {
+            // 2 and 3 hits: 33.3%
+            // 4 and 5 hits: 16.7%
+            gMultiHitCounter = Random() & 3;
+            if (gMultiHitCounter > 2)
+            {
+                gMultiHitCounter = (Random() & 2);
+                if (gMultiHitCounter < 2)
+                    gMultiHitCounter = 2;
+                else
+                    gMultiHitCounter = 3;
+            }
+            else
+                gMultiHitCounter += 3;
+        }
+        else
+        {
+            // 2 and 3 hits: 37.5%
+            // 4 and 5 hits: 12.5%
+            gMultiHitCounter = Random() & 3;
+            if (gMultiHitCounter > 1)
+                gMultiHitCounter = (Random() & 3) + 2;
+            else
+                gMultiHitCounter += 2;
+        }
     }
 
     gBattlescriptCurrInstr += 2;
