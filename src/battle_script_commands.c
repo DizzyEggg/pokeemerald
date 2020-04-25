@@ -2534,7 +2534,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
 
                     gBattleMons[gEffectBattler].status2 |= STATUS2_MULTIPLETURNS;
                     gLockedMoves[gEffectBattler] = gCurrentMove;
-                    gBattleMons[gEffectBattler].status2 |= ((Random() & 3) + 2) << 4;
+                    gBattleMons[gEffectBattler].status2 |= (B_UPROAR_TURNS >= GEN_5 ? 3 : ((Random() & 3) + 2) )  << 4;
 
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleScripting.moveEffect];
