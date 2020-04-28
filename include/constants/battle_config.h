@@ -75,6 +75,7 @@
 #define B_KINGS_SHIELD_LOWER_ATK    GEN_6 // In Gen7+, it lowers Atk by 1 stage instead of 2 of oponents that hit it.
 #define B_BINDING_TURNS             GEN_6 // In Gen5+, binding moves last for 4-5 turns instead of 2-5 turns. (With Grip Claw, 7 and 5 turns respectively.)
 #define B_UPROAR_TURNS              GEN_6 // In Gen5+, Uproar lasts for 3 turns instead of 2-5 turns.
+#define B_DISABLE_TURNS             GEN_6 // Disable's turns. See Cmd_disablelastusedattack.
 #define B_INCINERATE_GEMS           GEN_6 // In Gen6+, Incinerate can destroy Gems.
 
 // Ability settings
