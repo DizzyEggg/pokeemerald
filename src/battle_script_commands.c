@@ -9518,10 +9518,10 @@ static void Cmd_dmgtolevel(void)
 static void Cmd_psywavedamageeffect(void)
 {
     s32 randDamage;
-
-    while ((randDamage = (Random() & 0xF)) > 10);
-
-    randDamage *= 10;
+    if (B_PSYWAVE_DMG >= GEN_6)
+        randDamage = (Random() % 101);
+    else
+        randDamage = (Random() % 11) * 10;
     gBattleMoveDamage = gBattleMons[gBattlerAttacker].level * (randDamage + 50) / 100;
     gBattlescriptCurrInstr++;
 }
