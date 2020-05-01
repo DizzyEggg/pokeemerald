@@ -8798,10 +8798,10 @@ static void Cmd_setmultihitcounter(void)
         {
             // 2 and 3 hits: 33.3%
             // 4 and 5 hits: 16.7%
-            gMultiHitCounter = Random() & 3;
+            gMultiHitCounter = Random() % 4;
             if (gMultiHitCounter > 2)
             {
-                gMultiHitCounter = (Random() & 2);
+                gMultiHitCounter = (Random() % 3);
                 if (gMultiHitCounter < 2)
                     gMultiHitCounter = 2;
                 else
@@ -8814,9 +8814,9 @@ static void Cmd_setmultihitcounter(void)
         {
             // 2 and 3 hits: 37.5%
             // 4 and 5 hits: 12.5%
-            gMultiHitCounter = Random() & 3;
+            gMultiHitCounter = Random() % 4;
             if (gMultiHitCounter > 1)
-                gMultiHitCounter = (Random() & 3) + 2;
+                gMultiHitCounter = (Random() % 4) + 2;
             else
                 gMultiHitCounter += 2;
         }
