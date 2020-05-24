@@ -3174,6 +3174,18 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect++;
             }
             break;
+        case ABILITY_INTREPID_SWORD:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = 1;
+                gBattleMons[battler].statStages[STAT_ATK]++;
+                gBattleScripting.animArg1 = 0xE + STAT_ATK;
+                gBattleScripting.animArg2 = 0;
+                BattleScriptPushCursorAndCallback(BattleScript_IntrepidSwordActivates);
+                gBattleScripting.battler = battler;
+                effect++;
+            }
+            break;
         }
         break;
     case ABILITYEFFECT_ENDTURN: // 1

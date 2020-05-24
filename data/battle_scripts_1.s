@@ -6969,6 +6969,13 @@ BattleScript_AngryPointActivates::
 	waitmessage 0x40
 	return
 
+BattleScript_IntrepidSwordActivates::
+	call BattleScript_AbilityPopUp
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_PKMNRAISEDATTACK
+	waitmessage 0x40
+	end3
+
 BattleScript_TargetAbilityStatRaise::
 	call BattleScript_AbilityPopUp
 	statbuffchange STAT_BUFF_NOT_PROTECT_AFFECTED | MOVE_EFFECT_CERTAIN, NULL
