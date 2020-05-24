@@ -6976,6 +6976,13 @@ BattleScript_IntrepidSwordActivates::
 	waitmessage 0x40
 	end3
 
+BattleScript_DauntlessShieldActivates::
+	call BattleScript_AbilityPopUp
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_PKMNRAISEDDEFENSE
+	waitmessage 0x40
+	end3
+
 BattleScript_TargetAbilityStatRaise::
 	call BattleScript_AbilityPopUp
 	statbuffchange STAT_BUFF_NOT_PROTECT_AFFECTED | MOVE_EFFECT_CERTAIN, NULL
