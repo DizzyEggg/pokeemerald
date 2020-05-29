@@ -102,7 +102,7 @@
 #define HOLD_EFFECT_GRISEOUS_ORB   96
 #define HOLD_EFFECT_GRACIDEA       97
 #define HOLD_EFFECT_RESIST_BERRY   98
-#define HOLD_EFFECT_EV_BOOST       99
+#define HOLD_EFFECT_POWER_ITEM     99
 
 // Gen5 hold effects
 #define HOLD_EFFECT_FLOAT_STONE    115
