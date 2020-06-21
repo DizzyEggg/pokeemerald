@@ -1,6 +1,7 @@
 
 	.align 2
 gCryTable:: @ 869DCF4
+	@ Gen 1
 	cry Cry_Bulbasaur  @ 869DCF4
 	cry Cry_Ivysaur  @ 869DD00
 	cry Cry_Venusaur  @ 869DD0C
@@ -152,6 +153,7 @@ gCryTable:: @ 869DCF4
 	cry Cry_Dragonite  @ 869E3E4
 	cry Cry_Mewtwo  @ 869E3F0
 	cry Cry_Mew  @ 869E3FC
+	@ Gen 2
 	cry Cry_Chikorita  @ 869E408
 	cry Cry_Bayleef  @ 869E414
 	cry Cry_Meganium  @ 869E420
@@ -252,6 +254,33 @@ gCryTable:: @ 869DCF4
 	cry Cry_Lugia  @ 869E894
 	cry Cry_HoOh  @ 869E8A0
 	cry Cry_Celebi  @ 869E8AC
+	@ OLD_UNOWN
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	@ Gen 3
 	cry Cry_Treecko
 	cry Cry_Grovyle
 	cry Cry_Sceptile
@@ -276,101 +305,100 @@ gCryTable:: @ 869DCF4
 	cry Cry_Seedot
 	cry Cry_Nuzleaf
 	cry Cry_Shiftry
-	cry Cry_Taillow
-	cry Cry_Swellow
-	cry Cry_Wingull
-	cry Cry_Pelipper
-	cry Cry_Ralts
-	cry Cry_Kirlia
-	cry Cry_Gardevoir
-	cry Cry_Surskit
-	cry Cry_Masquerain
-	cry Cry_Shroomish
-	cry Cry_Breloom
-	cry Cry_Slakoth
-	cry Cry_Vigoroth
-	cry Cry_Slaking
 	cry Cry_Nincada
 	cry Cry_Ninjask
 	cry Cry_Shedinja
-	cry Cry_Whismur
-	cry Cry_Loudred
-	cry Cry_Exploud
-	cry Cry_Makuhita
-	cry Cry_Hariyama
-	cry Cry_Azurill
-	cry Cry_Nosepass
-	cry Cry_Skitty
-	cry Cry_Delcatty
-	cry Cry_Sableye
-	cry Cry_Mawile
-	cry Cry_Aron
-	cry Cry_Lairon
-	cry Cry_Aggron
-	cry Cry_Meditite
-	cry Cry_Medicham
-	cry Cry_Electrike
-	cry Cry_Manectric
-	cry Cry_Plusle
-	cry Cry_Minun
-	cry Cry_Volbeat
-	cry Cry_Illumise
-	cry Cry_Roselia
-	cry Cry_Gulpin
-	cry Cry_Swalot
-	cry Cry_Carvanha
-	cry Cry_Sharpedo
+	cry Cry_Taillow
+	cry Cry_Swellow
+	cry Cry_Shroomish
+	cry Cry_Breloom
+	cry Cry_Spinda
+	cry Cry_Wingull
+	cry Cry_Pelipper
+	cry Cry_Surskit
+	cry Cry_Masquerain
 	cry Cry_Wailmer
 	cry Cry_Wailord
-	cry Cry_Numel
-	cry Cry_Camerupt
+	cry Cry_Skitty
+	cry Cry_Delcatty
+	cry Cry_Kecleon
+	cry Cry_Baltoy
+	cry Cry_Claydol
+	cry Cry_Nosepass
 	cry Cry_Torkoal
-	cry Cry_Spoink
-	cry Cry_Grumpig
-	cry Cry_Spinda
+	cry Cry_Sableye
+	cry Cry_Barboach
+	cry Cry_Whiscash
+	cry Cry_Luvdisc
+	cry Cry_Corphish
+	cry Cry_Crawdaunt
+	cry Cry_Feebas
+	cry Cry_Milotic
+	cry Cry_Carvanha
+	cry Cry_Sharpedo
 	cry Cry_Trapinch
 	cry Cry_Vibrava
 	cry Cry_Flygon
+	cry Cry_Makuhita
+	cry Cry_Hariyama
+	cry Cry_Electrike
+	cry Cry_Manectric
+	cry Cry_Numel
+	cry Cry_Camerupt
+	cry Cry_Spheal
+	cry Cry_Sealeo
+	cry Cry_Walrein
 	cry Cry_Cacnea
 	cry Cry_Cacturne
-	cry Cry_Swablu
-	cry Cry_Altaria
-	cry Cry_Zangoose
-	cry Cry_Seviper
+	cry Cry_Snorunt
+	cry Cry_Glalie
 	cry Cry_Lunatone
 	cry Cry_Solrock
-	cry Cry_Barboach
-	cry Cry_Whiscash
-	cry Cry_Corphish
-	cry Cry_Crawdaunt
-	cry Cry_Baltoy
-	cry Cry_Claydol
+	cry Cry_Azurill
+	cry Cry_Spoink
+	cry Cry_Grumpig
+	cry Cry_Plusle
+	cry Cry_Minun
+	cry Cry_Mawile
+	cry Cry_Meditite
+	cry Cry_Medicham
+	cry Cry_Swablu
+	cry Cry_Altaria
+	cry Cry_Wynaut
+	cry Cry_Duskull
+	cry Cry_Dusclops
+	cry Cry_Roselia
+	cry Cry_Slakoth
+	cry Cry_Vigoroth
+	cry Cry_Slaking
+	cry Cry_Gulpin
+	cry Cry_Swalot
+	cry Cry_Tropius
+	cry Cry_Whismur
+	cry Cry_Loudred
+	cry Cry_Exploud
+	cry Cry_Clamperl
+	cry Cry_Huntail
+	cry Cry_Gorebyss
+	cry Cry_Absol
+	cry Cry_Shuppet
+	cry Cry_Banette
+	cry Cry_Seviper
+	cry Cry_Zangoose
+	cry Cry_Relicanth
+	cry Cry_Aron
+	cry Cry_Lairon
+	cry Cry_Aggron
+	cry Cry_Castform
+	cry Cry_Volbeat
+	cry Cry_Illumise
 	cry Cry_Lileep
 	cry Cry_Cradily
 	cry Cry_Anorith
 	cry Cry_Armaldo
-	cry Cry_Feebas
-	cry Cry_Milotic
-	cry Cry_Castform
-	cry Cry_Kecleon
-	cry Cry_Shuppet
-	cry Cry_Banette
-	cry Cry_Duskull
-	cry Cry_Dusclops
-	cry Cry_Tropius
-	cry Cry_Chimecho
-	cry Cry_Absol
-	cry Cry_Wynaut
-	cry Cry_Snorunt
-	cry Cry_Glalie
-	cry Cry_Spheal
-	cry Cry_Sealeo
-	cry Cry_Walrein
-	cry Cry_Clamperl
-	cry Cry_Huntail
-	cry Cry_Gorebyss
-	cry Cry_Relicanth
-	cry Cry_Luvdisc
+	cry Cry_Ralts
+	cry Cry_Kirlia
+	cry Cry_Gardevoir
 	cry Cry_Bagon
 	cry Cry_Shelgon
 	cry Cry_Salamence
@@ -380,13 +408,15 @@ gCryTable:: @ 869DCF4
 	cry Cry_Regirock
 	cry Cry_Regice
 	cry Cry_Registeel
-	cry Cry_Latias
-	cry Cry_Latios
 	cry Cry_Kyogre
 	cry Cry_Groudon
 	cry Cry_Rayquaza
+	cry Cry_Latias
+	cry Cry_Latios
 	cry Cry_Jirachi
 	cry Cry_Deoxys
+	cry Cry_Chimecho
+	@Gen 4
 	cry_not Cry_Turtwig
 	cry_not Cry_Grotle
 	cry_not Cry_Torterra
@@ -494,6 +524,7 @@ gCryTable:: @ 869DCF4
 	cry_not Cry_Darkrai
 	cry_not Cry_Shaymin
 	cry_not Cry_Arceus
+	@Gen 5
 	cry_not Cry_Victini
 	cry_not Cry_Snivy
 	cry_not Cry_Servine
@@ -650,6 +681,7 @@ gCryTable:: @ 869DCF4
 	cry_not Cry_Keldeo
 	cry_not Cry_Meloetta
 	cry_not Cry_Genesect
+	@Gen 6
 	cry_not Cry_Chespin
 	cry_not Cry_Quilladin
 	cry_not Cry_Chesnaught
@@ -722,6 +754,7 @@ gCryTable:: @ 869DCF4
 	cry_not Cry_Diancie
 	cry_not Cry_Hoopa
 	cry_not Cry_Volcanion
+	@Gen 7
 	cry_not Cry_Rowlet
 	cry_not Cry_Dartrix
 	cry_not Cry_Decidueye
@@ -911,6 +944,7 @@ gCryTable:: @ 869DCF4
 
 	.align 2
 gCryTable2:: @ 869EF24
+	@ Gen 1
 	cry2 Cry_Bulbasaur  @ 869EF24
 	cry2 Cry_Ivysaur  @ 869EF30
 	cry2 Cry_Venusaur  @ 869EF3C
@@ -1062,6 +1096,7 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Dragonite  @ 869F614
 	cry2 Cry_Mewtwo  @ 869F620
 	cry2 Cry_Mew  @ 869F62C
+	@ Gen 2
 	cry2 Cry_Chikorita  @ 869F638
 	cry2 Cry_Bayleef  @ 869F644
 	cry2 Cry_Meganium  @ 869F650
@@ -1162,6 +1197,35 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Lugia  @ 869FAC4
 	cry2 Cry_HoOh  @ 869FAD0
 	cry2 Cry_Celebi  @ 869FADC
+
+	@ OLD_UNOWN
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+	cry2 Cry_Unown
+
+	@ Gen 3
 	cry2 Cry_Treecko
 	cry2 Cry_Grovyle
 	cry2 Cry_Sceptile
@@ -1186,101 +1250,100 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Seedot
 	cry2 Cry_Nuzleaf
 	cry2 Cry_Shiftry
-	cry2 Cry_Taillow
-	cry2 Cry_Swellow
-	cry2 Cry_Wingull
-	cry2 Cry_Pelipper
-	cry2 Cry_Ralts
-	cry2 Cry_Kirlia
-	cry2 Cry_Gardevoir
-	cry2 Cry_Surskit
-	cry2 Cry_Masquerain
-	cry2 Cry_Shroomish
-	cry2 Cry_Breloom
-	cry2 Cry_Slakoth
-	cry2 Cry_Vigoroth
-	cry2 Cry_Slaking
 	cry2 Cry_Nincada
 	cry2 Cry_Ninjask
 	cry2 Cry_Shedinja
-	cry2 Cry_Whismur
-	cry2 Cry_Loudred
-	cry2 Cry_Exploud
-	cry2 Cry_Makuhita
-	cry2 Cry_Hariyama
-	cry2 Cry_Azurill
-	cry2 Cry_Nosepass
-	cry2 Cry_Skitty
-	cry2 Cry_Delcatty
-	cry2 Cry_Sableye
-	cry2 Cry_Mawile
-	cry2 Cry_Aron
-	cry2 Cry_Lairon
-	cry2 Cry_Aggron
-	cry2 Cry_Meditite
-	cry2 Cry_Medicham
-	cry2 Cry_Electrike
-	cry2 Cry_Manectric
-	cry2 Cry_Plusle
-	cry2 Cry_Minun
-	cry2 Cry_Volbeat
-	cry2 Cry_Illumise
-	cry2 Cry_Roselia
-	cry2 Cry_Gulpin
-	cry2 Cry_Swalot
-	cry2 Cry_Carvanha
-	cry2 Cry_Sharpedo
+	cry2 Cry_Taillow
+	cry2 Cry_Swellow
+	cry2 Cry_Shroomish
+	cry2 Cry_Breloom
+	cry2 Cry_Spinda
+	cry2 Cry_Wingull
+	cry2 Cry_Pelipper
+	cry2 Cry_Surskit
+	cry2 Cry_Masquerain
 	cry2 Cry_Wailmer
 	cry2 Cry_Wailord
-	cry2 Cry_Numel
-	cry2 Cry_Camerupt
+	cry2 Cry_Skitty
+	cry2 Cry_Delcatty
+	cry2 Cry_Kecleon
+	cry2 Cry_Baltoy
+	cry2 Cry_Claydol
+	cry2 Cry_Nosepass
 	cry2 Cry_Torkoal
-	cry2 Cry_Spoink
-	cry2 Cry_Grumpig
-	cry2 Cry_Spinda
+	cry2 Cry_Sableye
+	cry2 Cry_Barboach
+	cry2 Cry_Whiscash
+	cry2 Cry_Luvdisc
+	cry2 Cry_Corphish
+	cry2 Cry_Crawdaunt
+	cry2 Cry_Feebas
+	cry2 Cry_Milotic
+	cry2 Cry_Carvanha
+	cry2 Cry_Sharpedo
 	cry2 Cry_Trapinch
 	cry2 Cry_Vibrava
 	cry2 Cry_Flygon
+	cry2 Cry_Makuhita
+	cry2 Cry_Hariyama
+	cry2 Cry_Electrike
+	cry2 Cry_Manectric
+	cry2 Cry_Numel
+	cry2 Cry_Camerupt
+	cry2 Cry_Spheal
+	cry2 Cry_Sealeo
+	cry2 Cry_Walrein
 	cry2 Cry_Cacnea
 	cry2 Cry_Cacturne
-	cry2 Cry_Swablu
-	cry2 Cry_Altaria
-	cry2 Cry_Zangoose
-	cry2 Cry_Seviper
+	cry2 Cry_Snorunt
+	cry2 Cry_Glalie
 	cry2 Cry_Lunatone
 	cry2 Cry_Solrock
-	cry2 Cry_Barboach
-	cry2 Cry_Whiscash
-	cry2 Cry_Corphish
-	cry2 Cry_Crawdaunt
-	cry2 Cry_Baltoy
-	cry2 Cry_Claydol
+	cry2 Cry_Azurill
+	cry2 Cry_Spoink
+	cry2 Cry_Grumpig
+	cry2 Cry_Plusle
+	cry2 Cry_Minun
+	cry2 Cry_Mawile
+	cry2 Cry_Meditite
+	cry2 Cry_Medicham
+	cry2 Cry_Swablu
+	cry2 Cry_Altaria
+	cry2 Cry_Wynaut
+	cry2 Cry_Duskull
+	cry2 Cry_Dusclops
+	cry2 Cry_Roselia
+	cry2 Cry_Slakoth
+	cry2 Cry_Vigoroth
+	cry2 Cry_Slaking
+	cry2 Cry_Gulpin
+	cry2 Cry_Swalot
+	cry2 Cry_Tropius
+	cry2 Cry_Whismur
+	cry2 Cry_Loudred
+	cry2 Cry_Exploud
+	cry2 Cry_Clamperl
+	cry2 Cry_Huntail
+	cry2 Cry_Gorebyss
+	cry2 Cry_Absol
+	cry2 Cry_Shuppet
+	cry2 Cry_Banette
+	cry2 Cry_Seviper
+	cry2 Cry_Zangoose
+	cry2 Cry_Relicanth
+	cry2 Cry_Aron
+	cry2 Cry_Lairon
+	cry2 Cry_Aggron
+	cry2 Cry_Castform
+	cry2 Cry_Volbeat
+	cry2 Cry_Illumise
 	cry2 Cry_Lileep
 	cry2 Cry_Cradily
 	cry2 Cry_Anorith
 	cry2 Cry_Armaldo
-	cry2 Cry_Feebas
-	cry2 Cry_Milotic
-	cry2 Cry_Castform
-	cry2 Cry_Kecleon
-	cry2 Cry_Shuppet
-	cry2 Cry_Banette
-	cry2 Cry_Duskull
-	cry2 Cry_Dusclops
-	cry2 Cry_Tropius
-	cry2 Cry_Chimecho
-	cry2 Cry_Absol
-	cry2 Cry_Wynaut
-	cry2 Cry_Snorunt
-	cry2 Cry_Glalie
-	cry2 Cry_Spheal
-	cry2 Cry_Sealeo
-	cry2 Cry_Walrein
-	cry2 Cry_Clamperl
-	cry2 Cry_Huntail
-	cry2 Cry_Gorebyss
-	cry2 Cry_Relicanth
-	cry2 Cry_Luvdisc
+	cry2 Cry_Ralts
+	cry2 Cry_Kirlia
+	cry2 Cry_Gardevoir
 	cry2 Cry_Bagon
 	cry2 Cry_Shelgon
 	cry2 Cry_Salamence
@@ -1290,13 +1353,15 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Regirock
 	cry2 Cry_Regice
 	cry2 Cry_Registeel
-	cry2 Cry_Latias
-	cry2 Cry_Latios
 	cry2 Cry_Kyogre
 	cry2 Cry_Groudon
 	cry2 Cry_Rayquaza
+	cry2 Cry_Latias
+	cry2 Cry_Latios
 	cry2 Cry_Jirachi
 	cry2 Cry_Deoxys
+	cry2 Cry_Chimecho
+	@ Gen 4
 	cry2_not Cry_Turtwig
 	cry2_not Cry_Grotle
 	cry2_not Cry_Torterra
@@ -1404,6 +1469,7 @@ gCryTable2:: @ 869EF24
 	cry2_not Cry_Darkrai
 	cry2_not Cry_Shaymin
 	cry2_not Cry_Arceus
+	@ Gen 5
 	cry2_not Cry_Victini
 	cry2_not Cry_Snivy
 	cry2_not Cry_Servine
@@ -1560,6 +1626,7 @@ gCryTable2:: @ 869EF24
 	cry2_not Cry_Keldeo
 	cry2_not Cry_Meloetta
 	cry2_not Cry_Genesect
+	@ Gen 6
 	cry2_not Cry_Chespin
 	cry2_not Cry_Quilladin
 	cry2_not Cry_Chesnaught
@@ -1632,6 +1699,7 @@ gCryTable2:: @ 869EF24
 	cry2_not Cry_Diancie
 	cry2_not Cry_Hoopa
 	cry2_not Cry_Volcanion
+	@ Gen 7
 	cry2_not Cry_Rowlet
 	cry2_not Cry_Dartrix
 	cry2_not Cry_Decidueye
