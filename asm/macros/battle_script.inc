@@ -1562,8 +1562,8 @@
 	.4byte \ptr
 	.endm
 	
-	.macro tryautonomize battler:req, ptr:req
-	various \battler, VARIOUS_TRY_AUTONOMIZE
+	.macro tryautotomize battler:req, ptr:req
+	various \battler, VARIOUS_TRY_AUTOTOMIZE
 	.4byte \ptr
 	.endm
 	
@@ -1749,6 +1749,11 @@
 	
 	.macro setlastuseditem battler:req
 	various \battler, VARIOUS_SET_LAST_USED_ITEM
+	.endm
+	
+	.macro jumpifabsent battler:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_ABSENT
+	.4byte \ptr
 	.endm
 	
 @ helpful macros

@@ -107,7 +107,7 @@ struct DisableStruct
     u8 truantSwitchInHack:1;
     u8 mimickedMoves:4;
     u8 rechargeTimer;
-    u8 autonomizeCount;
+    u8 autotomizeCount;
     u8 slowStartTimer;
     u8 embargoTimer;
     u8 magnetRiseTimer;
@@ -425,14 +425,14 @@ struct MegaEvolutionData
     u8 battlerId;
     bool8 playerSelect;
     u8 triggerSpriteId;
-    u8 indicatorSpriteIds[MAX_BATTLERS_COUNT];
 };
 
 struct Illusion
 {
-    u8 on:1;
-    u8 broken:1;
-    u8 partyId:3;
+    u8 on;
+    u8 set;
+    u8 broken;
+    u8 partyId;
     struct Pokemon *mon;
 };
 
@@ -548,6 +548,7 @@ struct BattleStruct
     u8 friskedBattler; // Frisk needs to identify 2 battlers in double battles.
     bool8 friskedAbility; // If identifies two mons, show the ability pop-up only once.
     u8 sameMoveTurns[MAX_BATTLERS_COUNT]; // For Metronome, number of times the same moves has been SUCCESFULLY used.
+    u16 moveEffect2; // For Knock Off
 };
 
 #define GET_MOVE_TYPE(move, typeArg)                        \
@@ -616,6 +617,7 @@ struct BattleScripting
     u16 savedMoveEffect; // For moves hitting multiple targets.
     u16 moveEffect;
     u16 multihitMoveEffect;
+    u8 illusionNickHack; // To properly display nick in STRINGID_ENEMYABOUTTOSWITCHPKMN.
 };
 
 // rom_80A5C6C
