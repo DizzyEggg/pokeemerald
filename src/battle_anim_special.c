@@ -2301,9 +2301,7 @@ static void CB_CriticalCaptureThrownBallMovement(struct Sprite *sprite)
 {
     bool8 lastBounce = FALSE;
     u8 maxBounces = 6;
-    int bounceCount;
-
-    bounceCount = sprite->data[3] >> 8;
+    int bounceCount = sprite->data[3] >> 8;
 
     if (bounceCount == 0)
         PlaySE(SE_BOWA);
@@ -2314,8 +2312,7 @@ static void CB_CriticalCaptureThrownBallMovement(struct Sprite *sprite)
         if (bounceCount < 3)
             sprite->pos2.x++;
 
-        sprite->data[5]++;
-        if (sprite->data[5] >= 3)
+        if (++sprite->data[5] >= 3)
             sprite->data[3] += 257;
 
         break;
@@ -2323,9 +2320,7 @@ static void CB_CriticalCaptureThrownBallMovement(struct Sprite *sprite)
         if (bounceCount < 3 || sprite->pos2.x != 0)
             sprite->pos2.x--;
 
-        sprite->data[5]--;
-
-        if (sprite->data[5] <= 0)
+        if (--sprite->data[5] <= 0)
         {
             sprite->data[5] = 0;
             sprite->data[3] &= -0x100;
@@ -2339,7 +2334,6 @@ static void CB_CriticalCaptureThrownBallMovement(struct Sprite *sprite)
 
     if (lastBounce)
     {
-
         sprite->data[3] = 0;
         sprite->data[4] = 40;   //starting max height
         sprite->data[5] = 0;

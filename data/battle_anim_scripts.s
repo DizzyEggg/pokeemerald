@@ -786,7 +786,7 @@ gBattleAnims_Special::
 	.4byte Special_SafariBallThrow          @ B_ANIM_SAFARI_BALL_THROW
 	.4byte Special_SubstituteToMon          @ B_ANIM_SUBSTITUTE_TO_MON
 	.4byte Special_MonToSubstitute          @ B_ANIM_MON_TO_SUBSTITUTE
-    .4byte Special_CriticalCaptureBallThrow @ B_ANIM_CRITICAL_CAPTURE_THROW
+	.4byte Special_CriticalCaptureBallThrow @ B_ANIM_CRITICAL_CAPTURE_THROW
 
 Move_ROOST:
 	loadspritegfx ANIM_TAG_WHITE_FEATHER

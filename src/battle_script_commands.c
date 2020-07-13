@@ -75,7 +75,7 @@ static void DrawLevelUpWindow2(void);
 static bool8 sub_804F344(void);
 static void PutMonIconOnLvlUpBox(void);
 static void PutLevelAndGenderOnLvlUpBox(void);
-static bool8 CriticalCapture(u32 odds);
+static bool32 CriticalCapture(u32 odds);
 
 static void SpriteCB_MonIconOnLvlUpBox(struct Sprite* sprite);
 
@@ -11700,15 +11700,9 @@ static void Cmd_handleballthrow(void)
             if (shakes == maxShakes) // mon caught, copy of the code above
             {
                 if (IsCriticalCapture())
-                {
                     gBattleSpritesDataPtr->animationData->criticalCaptureSuccess = 1;
-                    gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
-                }
-                else
-                {
-                    gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
-                }
                 
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
                 SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &gLastUsedItem);
                 if (CalculatePlayerPartyCount() == PARTY_SIZE)
                     gBattleCommunication[MULTISTRING_CHOOSER] = 0;
@@ -12124,26 +12118,26 @@ static void Cmd_metalburstdamagecalculator(void)
     }
 }
 
-static bool8 CriticalCapture(u32 odds)
+static bool32 CriticalCapture(u32 odds)
 {
-	u16 numCaught = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+    u16 numCaught = GetNationalPokedexCount(FLAG_GET_CAUGHT);
 
     if (numCaught <= 30)
-		odds = 0;
-	else if (numCaught <= 150)
-		odds /= 2;
-	else if (numCaught <= 300)
-		;
-	else if (numCaught <= 450)
-		odds = (odds * 150) / 100;
-	else if (numCaught <= 600)
-		odds *= 2;
-	else
-		odds = (odds * 250) / 100;
+        odds = 0;
+    else if (numCaught <= 150)
+        odds /= 2;
+    else if (numCaught <= 300)
+        ;
+    else if (numCaught <= 450)
+        odds = (odds * 150) / 100;
+    else if (numCaught <= 600)
+        odds *= 2;
+    else
+        odds = (odds * 250) / 100;
 
     odds /= 6;
     if ((Random() % 255) < odds)
-		return TRUE;
+        return TRUE;
 
     return FALSE;
 }
