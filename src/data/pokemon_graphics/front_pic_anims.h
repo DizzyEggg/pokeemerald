@@ -8410,7 +8410,7 @@ static const union AnimCmd sAnim_ZYGARDE_10_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_ZYGARDE_100_1[] =
+static const union AnimCmd sAnim_ZYGARDE_COMPLETE_1[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
@@ -13121,9 +13121,9 @@ static const union AnimCmd *const sAnims_ZYGARDE_10[] ={
     sAnim_ZYGARDE_10_1,
 };
 
-static const union AnimCmd *const sAnims_ZYGARDE_100[] ={
+static const union AnimCmd *const sAnims_ZYGARDE_COMPLETE[] ={
     sAnim_GeneralFrame0,
-    sAnim_ZYGARDE_100_1,
+    sAnim_ZYGARDE_COMPLETE_1,
 };
 
 #define ANIM_CMD(name)             [SPECIES_##name] = sAnims_##name
@@ -14037,7 +14037,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(LYCANROC_MIDNIGHT),
     ANIM_CMD(LYCANROC_DUSK),
     ANIM_CMD(ZYGARDE_10),
-    ANIM_CMD(ZYGARDE_100),
+    ANIM_CMD(ZYGARDE_COMPLETE),
 };
 
 #undef ANIM_CMD

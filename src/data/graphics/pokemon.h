@@ -3684,10 +3684,10 @@ const u32 gMonFrontPic_Zygarde10[] = INCBIN_U32("graphics/pokemon/zygarde/front_
 const u32 gMonBackPic_Zygarde10[] = INCBIN_U32("graphics/pokemon/zygarde/back_10pc.4bpp.lz");
 const u32 gMonPalette_Zygarde10[] = INCBIN_U32("graphics/pokemon/zygarde/normal_10pc.gbapal.lz");
 const u32 gMonShinyPalette_Zygarde10[] = INCBIN_U32("graphics/pokemon/zygarde/shiny_10pc.gbapal.lz");
-const u32 gMonFrontPic_Zygarde100[] = INCBIN_U32("graphics/pokemon/zygarde/front_complete.4bpp.lz");
-const u32 gMonBackPic_Zygarde100[] = INCBIN_U32("graphics/pokemon/zygarde/back_complete.4bpp.lz");
-const u32 gMonPalette_Zygarde100[] = INCBIN_U32("graphics/pokemon/zygarde/normal_complete.gbapal.lz");
-const u32 gMonShinyPalette_Zygarde100[] = INCBIN_U32("graphics/pokemon/zygarde/shiny_complete.gbapal.lz");
+const u32 gMonFrontPic_ZygardeComplete[] = INCBIN_U32("graphics/pokemon/zygarde/front_complete.4bpp.lz");
+const u32 gMonBackPic_ZygardeComplete[] = INCBIN_U32("graphics/pokemon/zygarde/back_complete.4bpp.lz");
+const u32 gMonPalette_ZygardeComplete[] = INCBIN_U32("graphics/pokemon/zygarde/normal_complete.gbapal.lz");
+const u32 gMonShinyPalette_ZygardeComplete[] = INCBIN_U32("graphics/pokemon/zygarde/shiny_complete.gbapal.lz");
 
 const u8 gMonIcon_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mark/icon.4bpp");
 const u8 gMonIcon_Bulbasaur[] = INCBIN_U8("graphics/pokemon/bulbasaur/icon.4bpp");
@@ -4623,6 +4623,8 @@ const u8 gMonIcon_KyuremWhite[] = INCBIN_U8("graphics/pokemon/kyurem/icon_white.
 const u8 gMonIcon_MimikyuBusted[] = INCBIN_U8("graphics/pokemon/mimikyu/icon_busted.4bpp");
 const u8 gMonIcon_LycanrocMidnight[] = INCBIN_U8("graphics/pokemon/lycanroc/icon_midnight.4bpp");
 const u8 gMonIcon_LycanrocDusk[] = INCBIN_U8("graphics/pokemon/lycanroc/icon_dusk.4bpp");
+const u8 gMonIcon_Zygarde10[] = INCBIN_U8("graphics/pokemon/zygarde/icon_10pc.4bpp");
+const u8 gMonIcon_ZygardeComplete[] = INCBIN_U8("graphics/pokemon/zygarde/icon_complete.4bpp");
 
 const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mark/footprint.1bpp");
 const u8 gMonFootprint_Bulbasaur[] = INCBIN_U8("graphics/pokemon/bulbasaur/footprint.1bpp");

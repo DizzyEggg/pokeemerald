@@ -23551,7 +23551,7 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
     },
 
-    [SPECIES_ZYGARDE_100] =
+    [SPECIES_ZYGARDE_COMPLETE] =
     {
         .baseHP        = 216,
         .baseAttack    = 100,

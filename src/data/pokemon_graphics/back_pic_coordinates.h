@@ -4619,7 +4619,7 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x77,
         .y_offset = 0x7
     },
-    [SPECIES_ZYGARDE_100] =
+    [SPECIES_ZYGARDE_COMPLETE] =
     {
         .size = 0x88,
         .y_offset = 0x4
