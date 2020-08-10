@@ -2621,6 +2621,36 @@ static const u8 sPHOTON_GEYSERDescription[] = _(
 	"The foe's highest offensive\n"
 	"determines its category.");
 
+/*
+
+static const u8 sZIPPY_ZAPDescription[] = _("Placeholder");
+
+static const u8 sSPLISHY_SPLASHDescription[] = _("Placeholder");
+
+static const u8 sFLOATY_FALLDescription[] = _("Placeholder");
+
+static const u8 sPIKA_POWDescription[] = _("Placeholder");
+
+static const u8 sBOUNCY_BUBBLEDescription[] = _("Placeholder");
+
+static const u8 sBUZZY_BUZZDescription[] = _("Placeholder");
+
+static const u8 sSIZZLY_SLIDEDescription[] = _("Placeholder");
+
+static const u8 sGLITZY_GLOWDescription[] = _("Placeholder");
+
+static const u8 sBADDY_BADDescription[] = _("Placeholder");
+
+static const u8 sSAPPY_SEEDDescription[] = _("Placeholder");
+
+static const u8 sFREEZY_FROSTDescription[] = _("Placeholder");
+
+static const u8 sSPARKLY_SWIRLDescription[] = _("Placeholder");
+
+static const u8 sVEEVEE_VOLLEYDescription[] = _("Placeholder");
+
+*/
+
 static const u8 sDOUBLE_IRON_BASHDescription[] = _(
     "The user spins and hits with\n"
     "its arms. May cause flinch.");
@@ -3448,7 +3478,21 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_MIND_BLOWN - 1] = sMIND_BLOWNDescription,
     [MOVE_PLASMA_FISTS - 1] = sPLASMA_FISTSDescription,
     [MOVE_PHOTON_GEYSER - 1] = sPHOTON_GEYSERDescription,
+    [MOVE_ZIPPY_ZAP - 1] = sNotDoneYetDescription,
+    [MOVE_SPLISHY_SPLASH - 1] = sNotDoneYetDescription,
+    [MOVE_FLOATY_FALL - 1] = sNotDoneYetDescription,
+    [MOVE_PIKA_POW - 1] = sNotDoneYetDescription,
+    [MOVE_BOUNCY_BUBBLE - 1] = sNotDoneYetDescription,
+    [MOVE_BUZZY_BUZZ - 1] = sNotDoneYetDescription,
+    [MOVE_SIZZLY_SLIDE - 1] = sNotDoneYetDescription,
+    [MOVE_GLITZY_GLOW - 1] = sNotDoneYetDescription,
+    [MOVE_BADDY_BAD - 1] = sNotDoneYetDescription,
+    [MOVE_SAPPY_SEED - 1] = sNotDoneYetDescription,
+    [MOVE_FREEZY_FROST - 1] = sNotDoneYetDescription,
+    [MOVE_SPARKLY_SWIRL - 1] = sNotDoneYetDescription,
+    [MOVE_VEEVEE_VOLLEY - 1] = sNotDoneYetDescription,
     [MOVE_DOUBLE_IRON_BASH - 1] = sDOUBLE_IRON_BASHDescription,
+
     //GEN 8
     [MOVE_DYNAMAX_CANNON - 1] = sDYNAMAX_CANNONDescription,
     [MOVE_SNIPE_SHOT - 1] = sSNIPE_SHOTDescription,
@@ -3485,4 +3529,27 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_METEOR_ASSAULT - 1] = sMETEOR_ASSAULTDescription,
     [MOVE_ETERNABEAM - 1] = sETERNABEAMDescription,
     [MOVE_STEEL_BEAM - 1] = sSTEEL_BEAMDescription,
+    [MOVE_EXPANDING_FORCE - 1] = sNotDoneYetDescription,
+    [MOVE_STEEL_ROLLER - 1] = sNotDoneYetDescription,
+    [MOVE_SCALE_SHOT - 1] = sNotDoneYetDescription,
+    [MOVE_METEOR_BEAM - 1] = sNotDoneYetDescription,
+    [MOVE_SHELL_SIDE_ARM - 1] = sNotDoneYetDescription,
+    [MOVE_MISTY_EXPLOSION - 1] = sNotDoneYetDescription,
+    [MOVE_GRASSY_GLIDE - 1] = sNotDoneYetDescription,
+    [MOVE_RISING_VOLTAGE - 1] = sNotDoneYetDescription,
+    [MOVE_TERRAIN_PULSE - 1] = sNotDoneYetDescription,
+    [MOVE_SKITTER_SMACK - 1] = sNotDoneYetDescription,
+    [MOVE_BURNING_JEALOUSY - 1] = sNotDoneYetDescription,
+    [MOVE_LASH_OUT - 1] = sNotDoneYetDescription,
+    [MOVE_POLTERGEIST - 1] = sNotDoneYetDescription,
+    [MOVE_CORROSIVE_GAS - 1] = sNotDoneYetDescription,
+    [MOVE_COACHING - 1] = sNotDoneYetDescription,
+    [MOVE_FLIP_TURN - 1] = sNotDoneYetDescription,
+    [MOVE_TRIPLE_AXEL - 1] = sNotDoneYetDescription,
+    [MOVE_DUAL_WINGBEAT - 1] = sNotDoneYetDescription,
+    [MOVE_SCORCHING_SANDS - 1] = sNotDoneYetDescription,
+    [MOVE_JUNGLE_HEALING - 1] = sNotDoneYetDescription,
+    [MOVE_WICKED_BLOW - 1] = sNotDoneYetDescription,
+    [MOVE_SURGING_STRIKES - 1] = sNotDoneYetDescription,
+
 };
