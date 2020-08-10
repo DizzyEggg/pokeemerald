@@ -715,7 +715,7 @@ gBattleAnims_Moves::
 	.4byte Move_TAR_SHOT
 	.4byte Move_MAGIC_POWDER
 	.4byte Move_DRAGON_DARTS
-	.4byte Move_TEA_TIME
+	.4byte Move_TEATIME
 	.4byte Move_OCTOLOCK
 	.4byte Move_BOLT_BEAK
 	.4byte Move_FISHIOUS_REND
@@ -13439,7 +13439,7 @@ Move_DRAGON_DARTS::
 	end
 
 
-Move_TEA_TIME::
+Move_TEATIME::
 	goto Move_MILK_DRINK
 
     
