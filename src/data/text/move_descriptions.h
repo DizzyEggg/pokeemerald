@@ -2618,7 +2618,7 @@ static const u8 sPLASMA_FISTSDescription[] = _(
 	"Normal moves become Electric.");
 
 static const u8 sPHOTON_GEYSERDescription[] = _(
-	"The foe's highest offensive\n"
+	"The user's highest offensive\n"
 	"determines its category.");
 
 static const u8 sZIPPY_ZAPDescription[] = _(
