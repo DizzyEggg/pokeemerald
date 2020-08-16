@@ -1395,6 +1395,11 @@ const u16 gGotBurnedStringIds[] =
     STRINGID_PKMNWASBURNED, STRINGID_PKMNBURNEDBY
 };
 
+const u16 gGotBurnedByItemStringIds[] =
+{
+    STRINGID_BRNBYITEM, STRINGID_PKMNBURNEDBY
+};
+
 const u16 gGotFrozenStringIds[] =
 {
     STRINGID_PKMNWASFROZEN, STRINGID_PKMNFROZENBY
