@@ -6411,14 +6411,26 @@ BattleScript_BufferEndTurn::
 BattleScript_ToxicOrb::
 	setbyte cMULTISTRING_CHOOSER, 0
 	copybyte gEffectBattler, gBattlerAttacker
-	call BattleScript_MoveEffectToxic
+	call BattleScript_MoveEffectToxicByItem
 	end2
+
+BattleScript_MoveEffectToxicByItem::
+	statusanimation BS_EFFECT_BATTLER
+	printstring STRINGID_PSNBYITEM
+	waitmessage 0x40
+	goto BattleScript_UpdateEffectStatusIconRet
 
 BattleScript_FlameOrb::
 	setbyte cMULTISTRING_CHOOSER, 0
 	copybyte gEffectBattler, gBattlerAttacker
-	call BattleScript_MoveEffectBurn
+	call BattleScript_MoveEffectBurnByItem
 	end2
+
+BattleScript_MoveEffectBurnByItem::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gGotBurnedByItemStringIds
+	waitmessage 0x40
+	goto BattleScript_UpdateEffectStatusIconRet
 
 BattleScript_MoveEffectPoison::
 	statusanimation BS_EFFECT_BATTLER
