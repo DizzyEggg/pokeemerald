@@ -9628,7 +9628,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FREEZY_FROST] =
     {
-        .effect = EFFECT_CLEAR_SMOG,
+        .effect = EFFECT_PLACEHOLDER,   //TODO (Haze + Hit)
         .power = 90,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -10427,7 +10427,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SCORCHING_SANDS] =
     {
-        .effect = EFFECT_PLACEHOLDER,   //TODO
+        .effect = EFFECT_SCALD,
         .power = 70,
         .type = TYPE_GROUND,
         .accuracy = 100,
