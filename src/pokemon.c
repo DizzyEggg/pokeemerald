@@ -5552,7 +5552,6 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
     u16 totalEVs = 0;
     u16 heldItem;
     u8 holdEffect;
-    int i;
     u8 stat;
     u8 bonus;
 
