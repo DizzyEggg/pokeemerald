@@ -2347,66 +2347,9 @@ void BufferStringBattle(u16 stringID)
         break;
     }
 
-    // added in fr, this swaps team's aqua/magma class / name ; Team Aqua Grunt -> Grunt(sbire in fr) Team Aqua
-
     size = StringLength(stringPtr) + 1;
     txtBuff = Alloc(size);
     memcpy(txtBuff, stringPtr, size);
-    if (!(gBattleTypeFlags & BATTLE_TYPE_SECRET_BASE)
-        && gTrainerBattleOpponent_A != TRAINER_UNION_ROOM && gTrainerBattleOpponent_A != TRAINER_FRONTIER_BRAIN
-        && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_HILL)))
-    {
-        u8 *toSwap, *txt;
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A < TRAINERS_COUNT)
-        {
-            if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TEAM_MAGMA || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TEAM_AQUA)
-            {
-                toSwap = NULL, txt = txtBuff;
-                while (*txt != EOS)
-                {
-                    if (*txt == PLACEHOLDER_BEGIN)
-                    {
-                        txt++;
-                        if (*txt == B_TXT_TRAINER1_CLASS)
-                        {
-                            toSwap = txt;
-                        }
-                        else if (*txt == B_TXT_TRAINER1_NAME && toSwap != NULL)
-                        {
-                            *toSwap = B_TXT_TRAINER1_NAME;
-                            *txt = B_TXT_TRAINER1_CLASS;
-                        }
-                    }
-                    txt++;
-                }
-            }
-        }
-        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && gTrainerBattleOpponent_B < TRAINERS_COUNT)
-        {
-            if (gTrainers[gTrainerBattleOpponent_B].trainerClass == TRAINER_CLASS_TEAM_MAGMA || gTrainers[gTrainerBattleOpponent_B].trainerClass == TRAINER_CLASS_TEAM_AQUA)
-            {
-                toSwap = NULL, txt = txtBuff;
-                while (*txt != EOS)
-                {
-                    if (*txt == PLACEHOLDER_BEGIN)
-                    {
-                        txt++;
-                        if (*txt == B_TXT_TRAINER2_CLASS)
-                        {
-                            toSwap = txt;
-                        }
-                        else if (*txt == B_TXT_TRAINER2_NAME && toSwap != NULL)
-                        {
-                            *toSwap = B_TXT_TRAINER2_NAME;
-                            *txt = B_TXT_TRAINER2_CLASS;
-                        }
-                    }
-                    txt++;
-                }
-            }
-        }
-    }
-
     BattleStringExpandPlaceholdersToDisplayedString(txtBuff);
     Free(txtBuff);
 }

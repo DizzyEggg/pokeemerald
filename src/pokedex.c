@@ -2803,10 +2803,6 @@ static void CreateInterfaceSprites(u8 page)
     spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 48, DISPLAY_HEIGHT - 16, 0);
     StartSpriteAnim(&gSprites[spriteId], 1);
 
-    // ? difference fr
-    spriteId = CreateSprite(&sInterfaceTextSpriteTemplate, 80, DISPLAY_HEIGHT - 16, 0);
-    StartSpriteAnim(&gSprites[spriteId], 4);
-
     spriteId = CreateSprite(&sRotatingPokeBallSpriteTemplate, 0, DISPLAY_HEIGHT / 2, 2);
     gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
     gSprites[spriteId].oam.matrixNum = 30;

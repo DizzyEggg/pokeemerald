@@ -243,35 +243,35 @@ static void SpriteCB_Cursor_UpOrRight(struct Sprite *sprite)
             sprite->invisible = FALSE;
             sprite->animNum = ARROW_UP;
             sprite->animDelayCounter = 0;
-            sprite->x = 56;
+            sprite->x = 62;
             sprite->y = 68;
             break;
         case SELECTION_HOURS:
             sprite->invisible = FALSE;
             sprite->animNum = ARROW_UP;
             sprite->animDelayCounter = 0;
-            sprite->x = 92;
+            sprite->x = 104;
             sprite->y = 68;
             break;
         case SELECTION_MINS:
             sprite->invisible = FALSE;
             sprite->animNum = ARROW_UP;
             sprite->animDelayCounter = 0;
-            sprite->x = 107;
+            sprite->x = 119;
             sprite->y = 68;
             break;
         case SELECTION_SECS:
             sprite->invisible = FALSE;
             sprite->animNum = ARROW_UP;
             sprite->animDelayCounter = 0;
-            sprite->x = 122;
+            sprite->x = 134;
             sprite->y = 68;
             break;
         case SELECTION_CONFIRM:
             sprite->invisible = FALSE;
             sprite->animNum = ARROW_RIGHT;
             sprite->animDelayCounter = 0;
-            sprite->x = 153;
+            sprite->x = 183;
             sprite->y = 80;
             break;
         case SELECTION_NONE:
@@ -293,28 +293,28 @@ static void SpriteCB_Cursor_Down(struct Sprite *sprite)
             sprite->invisible = FALSE;
             sprite->animNum = ARROW_DOWN;
             sprite->animDelayCounter = 0;
-            sprite->x = 56; // difference fr
+            sprite->x = 62;
             sprite->y = 92;
             break;
         case SELECTION_HOURS:
             sprite->invisible = FALSE;
             sprite->animNum = ARROW_DOWN;
             sprite->animDelayCounter = 0;
-            sprite->x = 92; // difference fr
+            sprite->x = 104;
             sprite->y = 92;
             break;
         case SELECTION_MINS:
             sprite->invisible = FALSE;
             sprite->animNum = ARROW_DOWN;
             sprite->animDelayCounter = 0;
-            sprite->x = 107; // difference fr
+            sprite->x = 119;
             sprite->y = 92;
             break;
         case SELECTION_SECS:
             sprite->invisible = FALSE;
             sprite->animNum = ARROW_DOWN;
             sprite->animDelayCounter = 0;
-            sprite->x = 122; // difference fr
+            sprite->x = 134;
             sprite->y = 92;
             break;
         case SELECTION_CONFIRM:
@@ -335,12 +335,12 @@ static void CreateCursor(u8 taskId)
 
     LoadSpritePalette(&sSpritePalette_Arrow);
 
-    spriteId = CreateSpriteAtEnd(&sSpriteTemplate_Arrow, 56, 68, 0);
+    spriteId = CreateSpriteAtEnd(&sSpriteTemplate_Arrow, 62, 68, 0);
     gSprites[spriteId].callback = SpriteCB_Cursor_UpOrRight;
     gSprites[spriteId].sTaskId = taskId;
     gSprites[spriteId].sState = -1;
 
-    spriteId = CreateSpriteAtEnd(&sSpriteTemplate_Arrow, 56, 68, 0);
+    spriteId = CreateSpriteAtEnd(&sSpriteTemplate_Arrow, 62, 68, 0);
     gSprites[spriteId].callback = SpriteCB_Cursor_Down;
     gSprites[spriteId].sTaskId = taskId;
     gSprites[spriteId].sState = -1;

@@ -4772,7 +4772,7 @@ static void ShowResults(void)
         FillWindowPixelBuffer(sGfx->windowIds[1], PIXEL_FILL(1));
         strWidth = GetStringWidth(FONT_NORMAL, gText_BerryPickingResults, -1);
         x = (224 - strWidth) / 2;
-        AddTextPrinterParameterized(sGfx->windowIds[0], FONT_NORMAL, gText_BerryPickingResults, x, 1, TEXT_SKIP_DRAW, NULL);
+        AddTextPrinterParameterized(sGfx->windowIds[0], FONT_NARROW, gText_BerryPickingResults, x, 1, TEXT_SKIP_DRAW, NULL);
         AddTextPrinterParameterized(sGfx->windowIds[1], FONT_NORMAL, gText_10P30P50P50P, 68, 17, TEXT_SKIP_DRAW, NULL);
         for (i = 0; i < numPlayers; i++)
         {
