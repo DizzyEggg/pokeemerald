@@ -27,40 +27,40 @@ static int BerryFix_TrySetScene(int);
 static void BerryFix_SetScene(int);
 static void BerryFix_HideScene(void);
 
-static const u8 sText_BerryProgramUpdate[] = _("Mise à jour du Programme Baie");
-static const u8 sText_RubySapphire[] = _("Rubis/Saphir");
-static const u8 sText_Emerald[] = _("Emeraude");
+static const u8 sText_BerryProgramUpdate[] = _("Aggiornamento Programma Bacche");
+static const u8 sText_RubySapphire[] = _("Rubino/Zaffiro");
+static const u8 sText_Emerald[] = _("Smeraldo");
 static const u8 sText_BerryProgramWillBeUpdatedPressA[] = _(
-    "Le Programme Baie sur votre\n"
-    "cartouche Rubis/Saphir va être\n"
-    "mis à jour.\n"
-    "{COLOR 4}{SHADOW 5}Appuyez sur le bouton A.");
+    "Il Programma Bacche della cassetta di\n"
+    "gioco POKéMON Rubino o Zaffiro verrà\n"
+    "aggiornato.\n"
+    "{COLOR 4}{SHADOW 5}Premi il pulsante A.");
 
 static const u8 sText_EnsureGBAConnectionMatches[] = _(
-    "Veuillez vérifier que vos Game Boy\n"
-    "Advance sont connectées correctement.\n"
-    "{COLOR 4}{SHADOW 5}Oui: Bouton A.\n"
-    "Non: Eteindre et recommencer.");
+    "I Game Boy Advance sono collegati\n"
+    "come mostrato in figura?\n"
+    "{COLOR 4}{SHADOW 5}SÌ: premi il pulsante A.\n"
+    "NO: spegni (OFF) e riprova.");
 
 static const u8 sText_TurnOffPowerHoldingStartSelect[] = _(
-    "Veuillez allumer la console POKéMON\n"
-    "Rubis/Saphir en maintenant enfoncés\n"
-    "simultanément START et SELECT.\n"
-    "Assurez-vous que ce logo apparaît.");
+    "Accendi (ON) la console contenente\n"
+    "POKéMON Rubino o Zaffiro mentre tieni\n"
+    "premuti START e SELECT. Assicurati\n"
+    "che appaia l’immagine qui mostrata.");
 
 static const u8 sText_TransmittingPleaseWait[] = _(
-    "Transmission en cours…\n"
-    "{COLOR 4}{SHADOW 5}N’éteignez pas votre Game Boy\n"
-    "Advance et ne retirez pas le câble\n"
-    "Game Boy Advance Game Link.");
+    "Trasmissione in corso. Attendi…\n"
+    "{COLOR 4}{SHADOW 5}Non spegnere (OFF) il Game Boy\n"
+    "Advance e non scollegare il cavo\n"
+    "Game Link per Game Boy Advance.");
 
 static const u8 sText_PleaseFollowInstructionsOnScreen[] = _(
-    "Veuillez suivre les instructions sur\n"
-    "l’écran de POKéMON Rubis/Saphir.");
+    "Segui le istruzioni a schermo\n"
+    "di POKéMON Rubino o Zaffiro.");
 
 static const u8 sText_TransmissionFailureTryAgain[] = _(
-    "Echec de la transmission.\n"
-    "{COLOR 4}{SHADOW 5}Veuillez réessayer.");
+    "La trasmissione non è riuscita.\n"
+    "{COLOR 4}{SHADOW 5}Riprova.");
 
 static const struct BgTemplate sBerryFixBgTemplates[] = {
     {
