@@ -27,31 +27,30 @@ DewfordTown_House2_EventScript_Boy::
 	end
 
 DewfordTown_House2_Text_WantYouToHaveSilkScarf:
-	.string "Regarde-moi cette merveille!\p"
-	.string "C’est un MOUCH. SOIE. C’est à la pointe\n"
-	.string "de la mode!\p"
-	.string "Oh, je vois une lueur dans tes yeux!\n"
-	.string "Mon style éblouissant te plaît!\p"
-	.string "Oh, tu me fais plaisir!\n"
-	.string "Tiens, voilà. Je te le donne!$"
+	.string "Questo indumento dà un tocco di classe!\p"
+	.string "È una SCIARPA di SETA. È un capo\n"
+	.string "all’ultimissima moda, te l’assicuro!\p"
+	.string "Ah, vedo che ti brillano già gli occhi!\n"
+	.string "Apprezzi la mia eleganza allora!\p"
+	.string "Oh, stai veramente bene!\n"
+	.string "Ecco a te. Desidero che la tenga tu!$"
 
 DewfordTown_House2_Text_NoRoom:
-	.string "Oh, tu n’as plus de place?\p"
-	.string "Bon, écoute-moi bien, cet objet est\n"
-	.string "indispensable! Il vaut bien tous les\l"
-	.string "objets que j’ai sur moi.$"
+	.string "Oh, non hai spazio?\p"
+	.string "Stammi bene a sentire: questa SCIARPA\n"
+	.string "è uno strumento indispensabile!\l"
+	.string "Venderei tutto pur di averne una!$"
 
 DewfordTown_House2_Text_ExplainSilkScarf:
-	.string "Le MOUCH. SOIE augmente la puissance\n"
-	.string "des attaques de type NORMAL.\p"
-	.string "C’est un MOUCHOIR merveilleux assorti à\n"
-	.string "presque tous les POKéMON!$"
+	.string "La SCIARPA di SETA aumenta la potenza\n"
+	.string "delle mosse di tipo NORMALE.\p"
+	.string "È un capo meraviglioso che sta bene\n"
+	.string "a quasi tutti i POKéMON!$"
 
 DewfordTown_House2_Text_BrawlySoCool:
-	.string "Ouah, tu as franchi la mer pour\n"
-	.string "venir visiter MYOKARA?\p"
-	.string "Tu es peut-être ici parce que tu\n"
-	.string "as entendu parler de BASTIEN?\p"
-	.string "Il est super cool…\n"
-	.string "Tout le monde l’adore.$"
+	.string "Ehi, hai affrontato una traversata\n"
+	.string "solo per visitare BLURUVIA?\p"
+	.string "Sei forse qui perché hai sentito parlare\n"
+	.string "di RUDI?\p"
+	.string "È un mito vivente… è temuto da tutti!$"
 

@@ -141,34 +141,33 @@ LilycoveCity_DepartmentStore_1F_EventScript_FloorNamesSign::
 	end
 
 LilycoveCity_DepartmentStore_1F_Text_WelcomeToDeptStore:
-	.string "Bienvenue au CENTRE COMMERCIAL\n"
-	.string "NENUCRIQUE.$"
+	.string "Ti trovi nel CENTRO COMMERCIALE\n"
+	.string "di ALGHEPOLI.$"
 
 LilycoveCity_DepartmentStore_1F_Text_IBuyAllSortsOfThings:
-	.string "Quand je viens au CENTRE COMMERCIAL,\n"
-	.string "j’achète toujours un tas de choses.\l"
-	.string "C’est tellement sympa!$"
+	.string "Quando vengo al CENTRO COMMERCIALE,\n"
+	.string "compro sempre un sacco di cose\l"
+	.string "perché mi diverte troppo.$"
 
 LilycoveCity_DepartmentStore_1F_Text_MomBuyingMeFurniture:
-	.string "Aujourd’hui, ma maman va m’acheter de\n"
-	.string "jolies choses.$"
+	.string "Oggi mia mamma mi compra dei mobili \n"
+	.string "carini.$"
 
 LilycoveCity_DepartmentStore_1F_Text_BuyingSomethingForAzumarill:
-	.string "Je vais acheter quelque chose à mon\n"
-	.string "AZUMARILL pour le récompenser de sa\l"
-	.string "victoire au CONCOURS.$"
+	.string "Il mio AZUMARILL ha vinto una GARA,\n"
+	.string "quindi si merita un regalo!$"
 
 LilycoveCity_DepartmentStore_1F_Text_Azumarill:
-	.string "AZUMARILL: Mamarill!$"
+	.string "AZUMARILL: Azumari!$"
 
 LilycoveCity_DepartmentStore_1F_Text_FloorNamesSign:
-	.string "RC: ACCUEIL   \n"
-	.string "      LOTERIE\p"
-	.string "1{SUPER_ER} E: ESPACE DRESSEURS\p"
-	.string "2{SUPER_E} E: FOURNITURES DE COMBAT\p"
-	.string "3{SUPER_E} E: CENTRE CT\p"
-	.string "4{SUPER_E} E: ETAGE POKéPOUPEE\p"
-	.string "TOIT: TERRASSE$"
+	.string "PT: ASSISTENZA CASSE\n"
+	.string "    ANGOLO LOTTERIA\p"
+	.string "1ºP: AREA ALLENATORI\p"
+	.string "2ºP: COLLEZIONE LOTTA\p"
+	.string "3ºP: ANGOLO MT\p"
+	.string "4ºP: PIANO DELLE POKé BAMBOLE\p"
+	.string "TETTO: PIAZZETTA SUL TETTO$"
 
 @ Unused
 LilycoveCity_DepartmentStore_1F_Text_WirelessCommIsFun:

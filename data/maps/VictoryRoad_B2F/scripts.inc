@@ -32,76 +32,77 @@ VictoryRoad_B2F_EventScript_Dianne::
 	end
 
 VictoryRoad_B2F_Text_VitoIntro:
-	.string "On s’entraîne tous ensemble, avec\n"
-	.string "les membres de ma famille!\p"
-	.string "Je ne perds contre personne!$"
+	.string "Mi sono allenato con tutti i componenti\n"
+	.string "della mia famiglia!\l"
+	.string "Sono imbattibile!$"
 
 VictoryRoad_B2F_Text_VitoDefeat:
-	.string "Tu as un meilleur niveau que ma famille?!\n"
-	.string "Est-ce possible?!$"
+	.string "Meglio della mia famiglia?!\n"
+	.string "Com’è possibile?!$"
 
 VictoryRoad_B2F_Text_VitoPostBattle:
-	.string "J’ai toujours été le meilleur de la\n"
-	.string "famille. Je n’avais encore jamais perdu…\p"
-	.string "J’ai perdu confiance en moi…\n"
-	.string "Je vais peut-être rentrer chez moi…$"
+	.string "Ero il più bravo di tutta la mia famiglia.\n"
+	.string "Non avevo mai perso prima…\p"
+	.string "Non ho più fiducia in me stesso…\n"
+	.string "Credo che andrò a casa…$"
 
 VictoryRoad_B2F_Text_OwenIntro:
-	.string "On m’avait dit qu’il y avait un môme\n"
-	.string "très fort. C’est de toi qu’ils parlaient?$"
+	.string "Corre voce che ci sia una giovane\n"
+	.string "promessa in giro. Non sarai mica tu?$"
 
 VictoryRoad_B2F_Text_OwenDefeat:
-	.string "La demi-portion est forte!$"
+	.string "Hai grinta da vendere!$"
 
 VictoryRoad_B2F_Text_OwenPostBattle:
-	.string "D’après les rumeurs, le p’tit môme\n"
-	.string "très fort viendrait de CLEMENTI-VILLE.$"
+	.string "Le voci dicono che la giovane promessa\n"
+	.string "venga da PETALIPOLI.$"
 
 VictoryRoad_B2F_Text_CarolineIntro:
-	.string "Tu dois commencer à fatiguer.$"
+	.string "Comincerai a battere la fiacca…$"
 
 VictoryRoad_B2F_Text_CarolineDefeat:
-	.string "Aucun signe de fatigue du tout!$"
+	.string "Non dai segni di cedimento!$"
 
 VictoryRoad_B2F_Text_CarolinePostBattle:
-	.string "La ROUTE VICTOIRE et la LIGUE POKéMON\n"
-	.string "sont des défis épuisants et de longue\l"
-	.string "haleine. Gare à la fatigue!$"
+	.string "La VIA VITTORIA e la LEGA POKéMON\n"
+	.string "sono sfide lunghe e faticose.\l"
+	.string "Attenzione alla stanchezza!$"
 
 VictoryRoad_B2F_Text_JulieIntro:
-	.string "Avoir beaucoup de BADGES ne suffit pas.\p"
-	.string "Il y aura toujours quelqu’un de plus\n"
-	.string "fort que toi!$"
+	.string "Non devi riposare sugli allori solo\n"
+	.string "perché hai tante MEDAGLIE.\p"
+	.string "Ci sarà sempre qualcuno più forte di te!$"
 
 VictoryRoad_B2F_Text_JulieDefeat:
-	.string "Tu as un meilleur niveau que moi!$"
+	.string "Sei più forte di me, non c’è che dire!$"
 
 VictoryRoad_B2F_Text_JuliePostBattle:
-	.string "Regarde bien tes BADGES et rappelle-\n"
-	.string "toi quels DRESSEURS tu as affrontés.$"
+	.string "Le tue MEDAGLIE sono un ricordo\n"
+	.string "degli ALLENATORI che hai sfidato.$"
 
 VictoryRoad_B2F_Text_FelixIntro:
-	.string "Je suis arrivé jusqu’ici, mais le stress\n"
-	.string "me donne des maux d’estomac…$"
+	.string "Sono arrivato fin qui, ma ho il mal di\n"
+	.string "stomaco per la tensione…$"
 
 VictoryRoad_B2F_Text_FelixDefeat:
-	.string "Oooh…\n"
-	.string "Ça fait mal…$"
+	.string "Oh… che male…$"
 
 VictoryRoad_B2F_Text_FelixPostBattle:
-	.string "Je ne peux pas m’empêcher de stresser\n"
-	.string "en sachant que la LIGUE POKéMON\l"
-	.string "est si proche.\p"
-	.string "J’arrive à peine à me détendre.$"
+	.string "Non posso fare a meno di essere\n"
+	.string "in tensione sapendo che la LEGA\l"
+	.string "POKéMON si avvicina.\p"
+	.string "L’unica cosa che posso fare è fingere\n"
+	.string "di essere calmo.$"
 
 VictoryRoad_B2F_Text_DianneIntro:
-	.string "L’élite de l’élite se réunit dans\n"
-	.string "cette grotte.\p"
-	.string "T’en penses quoi?$"
+	.string "Il meglio del meglio si riunisce in\n"
+	.string "questa grotta.\p"
+	.string "Che te ne pare?$"
 
 VictoryRoad_B2F_Text_DianneDefeat:
-	.string "Pas une seule fausse note!$"
+	.string "Non hai preso neppure uno spavento!$"
 
 VictoryRoad_B2F_Text_DiannePostBattle:
-	.string "T’as du cran, continue comme ça!$"
+	.string "Ne hai di coraggio! Mi piace!\n"
+	.string "Continua così!$"
 

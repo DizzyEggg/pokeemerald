@@ -365,285 +365,282 @@ MossdeepCity_Gym_EventScript_RedFloorSwitch::
 	end
 
 MossdeepCity_Gym_Text_GymGuideAdvice:
-	.string "Yo, ça baigne pour toi, futur\n"
-	.string "MAITRE {PLAYER}?\p"
-	.string "Les CHAMPIONS D’ARENE de cette ville\n"
-	.string "utilisent des POKéMON du type PSY.\p"
-	.string "Si tu te bats contre eux avec des\n"
-	.string "POKéMON du type COMBAT ou POISON,\l"
-	.string "ils vont t’infliger de sérieux dommages.\p"
-	.string "En plus, ils t’affronteront avec de\n"
-	.string "remarquables attaques combinées.\p"
-	.string "Si tu veux gagner, il faudra que tu\n"
-	.string "démontres combien tu es proche \l"
-	.string "de tes POKéMON. En avant!$"
+	.string "Ehi, come va CAMPIONE esordiente,\n"
+	.string "{PLAYER}?\p"
+	.string "I CAPIPALESTRA di qui usano POKéMON\n"
+	.string "di tipo PSICO.\p"
+	.string "Se utilizzi contro di loro POKéMON\n"
+	.string "di tipo LOTTA o VELENO, subirai\l"
+	.string "notevoli danni!\p"
+	.string "Inoltre, ti sfideranno con attacchi\n"
+	.string "in accoppiata formidabili.\p"
+	.string "Se vuoi vincere, devi dimostrare\n"
+	.string "il controllo che eserciti sui tuoi\l"
+	.string "POKéMON. Forza!$"
 
 MossdeepCity_Gym_Text_GymGuidePostVictory:
-	.string "Waouh, renversant!\n"
-	.string "Tu es un grand DRESSEUR!$"
+	.string "Wow, sei incredibile!\n"
+	.string "Sei un ALLENATORE fantastico!$"
 
 MossdeepCity_Gym_Text_PrestonIntro:
-	.string "L’issue du combat dépend du mental!\n"
-	.string "Les faibles d’esprit ne gagnent jamais!$"
+	.string "La lotta dipende dalla presenza\n"
+	.string "di spirito: senza non si vince!$"
 
 MossdeepCity_Gym_Text_PrestonDefeat:
-	.string "J’ai perdu!\n"
-	.string "Je dois renforcer mon mental!$"
+	.string "Ho perso! Devo ritemprare il mio spirito!$"
 
 MossdeepCity_Gym_Text_PrestonPostBattle:
-	.string "Les indécis perdent toujours.\n"
-	.string "C’est mon avertissement.$"
+	.string "Chi tentenna, perde.\n"
+	.string "È un avvertimento.$"
 
 MossdeepCity_Gym_Text_VirgilIntro:
-	.string "Montre-moi ton talent!$"
+	.string "Mostra il tuo talento!$"
 
 MossdeepCity_Gym_Text_VirgilDefeat:
-	.string "Tu as un talent spectaculaire!$"
+	.string "Il tuo talento è fuori del comune!$"
 
 MossdeepCity_Gym_Text_VirgilPostBattle:
-	.string "S’il existe au monde des prodiges,\n"
-	.string "ce sont bien nos CHAMPIONS!\p"
-	.string "Mais tu as peut-être encore plus\n"
-	.string "de talent qu’eux…$"
+	.string "I nostri CAPIPALESTRA sono\n"
+	.string "indubbiamente un portento!\p"
+	.string "Ciò non toglie che tu possa avere più\n"
+	.string "talento di loro…$"
 
 MossdeepCity_Gym_Text_BlakeIntro:
-	.string "Hé, hé… Regarde-moi soulever une\n"
-	.string "POKé BALL par télékinésie!\p"
-	.string "Arrrrrrrrrrrrg!\n"
+	.string "Fufufufu… faccio levitare una POKé\n"
+	.string "BALL telecineticamente!\p"
+	.string "Rooooooooaaaar!\n"
 	.string "… … … … … … …\p"
-	.string "Je suis parfois désynchronisé…$"
+	.string "A volte mi manca la sincronizzazione…$"
 
 MossdeepCity_Gym_Text_BlakeDefeat:
-	.string "Les aptitudes au combat de mon POKéMON\n"
-	.string "sont parfois désynchronisées aussi!$"
+	.string "Devo sincronizzare meglio le mie\n"
+	.string "tecniche di lotta con i POKéMON!$"
 
 MossdeepCity_Gym_Text_BlakePostBattle:
-	.string "La POKé BALL, c’était trop lourd à\n"
-	.string "soulever mentalement. Mais ce flocon\l"
-	.string "de poussière…\p"
-	.string "Waaaaaaaaaaaaaaaaaaouh!\n"
-	.string "… … … … … …\p"
-	.string "Non, je ne triche pas!\n"
-	.string "Je n’ai pas soufflé dessus! Vraiment!$"
+	.string "La POKé BALL è troppo pesante da far\n"
+	.string "levitare con la psiche…\p"
+	.string "Ma i riccioli di polvere…\n"
+	.string "Ooooooooooooooooh!\p"
+	.string "No, non sto barando!\n"
+	.string "Non ci ho soffiato sopra, giuro!$"
 
 MossdeepCity_Gym_Text_HannahIntro:
-	.string "Si tu perds contre moi, ne sois pas\n"
-	.string "trop sévère avec toi-même.\p"
-	.string "Ce n’est pas que tu sois faible, c’est\n"
-	.string "que je suis trop forte pour toi!$"
+	.string "Se perdi con me, non prendertela\n"
+	.string "troppo.\p"
+	.string "Non è che tu sia debole… è che io sono\n"
+	.string "troppo forte!$"
 
 MossdeepCity_Gym_Text_HannahDefeat:
-	.string "T’as tout simplement un meilleur niveau!$"
+	.string "Sei troppo forte!$"
 
 MossdeepCity_Gym_Text_HannahPostBattle:
-	.string "Je ne vais pas m’apitoyer parce que j’ai\n"
-	.string "perdu. Je vais m’entraîner davantage.\p"
-	.string "L’optimisme, c’est mon point fort!$"
+	.string "Non porterò rancore… devo solo\n"
+	.string "allenarmi di più.\p"
+	.string "Penso positivo: questa è la mia forza!$"
 
 MossdeepCity_Gym_Text_SamanthaIntro:
-	.string "Je vois…\n"
-	.string "Je vois ton avenir…\p"
-	.string "Si tu réussis à me battre, je te prédis\n"
-	.string "ton avenir!$"
+	.string "Vedo…\n"
+	.string "vedo il tuo futuro…\p"
+	.string "Se riesci a battermi, predirò\n"
+	.string "il tuo avvenire!$"
 
 MossdeepCity_Gym_Text_SamanthaDefeat:
-	.string "Je me rends!$"
+	.string "Mi arrendo!$"
 
 MossdeepCity_Gym_Text_SamanthaPostBattle:
-	.string "Tu vas livrer un combat d’une grande\n"
-	.string "intensité avec nos CHAMPIONS…\p"
-	.string "Résultat…\n"
-	.string "Tu ne l’entendras pas de ma bouche!$"
+	.string "La lotta con i nostri CAPIPALESTRA\n"
+	.string "sarà molto intensa…\p"
+	.string "Il risultato…\n"
+	.string "non sarò certo io a raccontartelo!$"
 
 MossdeepCity_Gym_Text_MauraIntro:
-	.string "Le chemin que tu as parcouru…\n"
-	.string "Tout ce que tu as vécu…\p"
-	.string "Fais-moi voir ce que tu as appris!$"
+	.string "Le strade che hai percorso…\n"
+	.string "il tuo ricco bagaglio di esperienze…\p"
+	.string "Fammi vedere tutto quello che\n"
+	.string "sai fare!$"
 
 MossdeepCity_Gym_Text_MauraDefeat:
-	.string "Tu t’es frayé une voie dans la grandeur!$"
+	.string "Hai percorso un cammino grandioso!$"
 
 MossdeepCity_Gym_Text_MauraPostBattle:
-	.string "Un brillant avenir attend ceux qui ont\n"
-	.string "travaillé assidûment.\p"
-	.string "Ceux qui paressent ne connaîtront\n"
-	.string "finalement que le désespoir.\p"
-	.string "Tout finit toujours par se payer…$"
+	.string "Chi ha lavorato diligentemente ha\n"
+	.string "un futuro brillante davanti a sé.\p"
+	.string "Per chi ha poltrito, la strada è\n"
+	.string "più in salita.\p"
+	.string "Ognuno di noi raccoglie ciò che\n"
+	.string "ha seminato…$"
 
 MossdeepCity_Gym_Text_SylviaIntro:
-	.string "Je gagnerai ce combat, même au\n"
-	.string "péril de ma vie!$"
+	.string "Vincerò anche a costo della mia stessa\n"
+	.string "vita!$"
 
 MossdeepCity_Gym_Text_SylviaDefeat:
-	.string "Qu’est-ce que tu as fait?\n"
-	.string "Je suis horrifiée.$"
+	.string "Hai fatto…\n"
+	.string "una cosa orribile…$"
 
 MossdeepCity_Gym_Text_SylviaPostBattle:
-	.string "Comment as-tu osé me battre?\p"
-	.string "Ne viens pas te plaindre si quelque\n"
-	.string "chose t’arrive bientôt!$"
+	.string "Come osi battermi?\p"
+	.string "Se ti succede qualcosa di brutto,\n"
+	.string "sappi che non è colpa mia…$"
 
 MossdeepCity_Gym_Text_NateIntro:
-	.string "Hohoho.\p"
-	.string "Je vais te montrer comme le type PSY\n"
-	.string "peut être dur à vaincre!$"
+	.string "Ohohoh.\p"
+	.string "Vuoi vedere quanto tenaci sono i\n"
+	.string "POKéMON di tipo PSICO?$"
 
 MossdeepCity_Gym_Text_NateDefeat:
-	.string "Je suis abasourdi!\n"
-	.string "Ton style est fantastique!$"
+	.string "Non posso crederci!\n"
+	.string "Il tuo stile di lotta è eccezionale!$"
 
 MossdeepCity_Gym_Text_NatePostBattle:
-	.string "… Je… Je ne me… laisse pas…\n"
-	.string "abattre… par la… défaite!$"
+	.string "Per quanto dura sia la sconfitta…\n"
+	.string "non mi lascerò abbattere.$"
 
 MossdeepCity_Gym_Text_KathleenIntro:
-	.string "Laisse-moi te montrer la noirceur\n"
-	.string "de ton âme!$"
+	.string "Preparati a sperimentare\n"
+	.string "l’orrore nudo e crudo!$"
 
 MossdeepCity_Gym_Text_KathleenDefeat:
-	.string "N… Noooon!$"
+	.string "Noooooooo!$"
 
 MossdeepCity_Gym_Text_KathleenPostBattle:
-	.string "Ta vitalité est contagieuse!\n"
-	.string "Eloigne-toi vite de moi!$"
+	.string "La tua vitalità è contagiosa!\n"
+	.string "Allontanati da me immediatamente!$"
 
 MossdeepCity_Gym_Text_CliffordIntro:
-	.string "Je ne suis peut-être plus tout jeune,\n"
-	.string "mais je te suggère de ne pas me\l"
-	.string "sous-estimer.$"
+	.string "Io non sono più nel fiore degli anni,\n"
+	.string "ma tu non fare l’arrogante.$"
 
 MossdeepCity_Gym_Text_CliffordDefeat:
-	.string "La force de la jeunesse émane de toi!$"
+	.string "Ah, sprizzi giovinezza da tutti i pori!$"
 
 MossdeepCity_Gym_Text_CliffordPostBattle:
-	.string "Je n’ai pas réussi à contrer la fougue\n"
-	.string "de la jeunesse.$"
+	.string "Non sono riuscito ad avere il\n"
+	.string "sopravvento sulla tua vitalità.$"
 
 MossdeepCity_Gym_Text_MaceyIntro:
-	.string "Tu n’arriveras pas au bout!\n"
-	.string "Je t’en empêcherai!$"
+	.string "Non arriverai fino alla fine!\n"
+	.string "Sarò io ad impedirtelo!$"
 
 MossdeepCity_Gym_Text_MaceyDefeat:
-	.string "Comment un si petit corps peut-il\n"
-	.string "cacher tant de force?$"
+	.string "È assurdo, non puoi essere così forte!$"
 
 MossdeepCity_Gym_Text_MaceyPostBattle:
-	.string "J’ai perdu mais c’est mieux ainsi!\p"
-	.string "Ta façon brutale de combattre ne\n"
-	.string "convient pas aux POKéMON PSY.$"
+	.string "Sei forte, ma il tipo PSICO non fa al\n"
+	.string "caso tuo.\p"
+	.string "Il tuo stile di lotta è… aggressivo!$"
 
 MossdeepCity_Gym_Text_NicholasIntro:
-	.string "Yahaaa! Goûte un peu à la puissance\n"
-	.string "de mon POKéMON!$"
+	.string "Rooooar! Vuoi un assaggio della forza\n"
+	.string "dei miei POKéMON in lotta?$"
 
 MossdeepCity_Gym_Text_NicholasDefeat:
 	.string "Oh!\n"
-	.string "Déjà?$"
+	.string "Sono esausto!$"
 
 MossdeepCity_Gym_Text_NicholasPostBattle:
-	.string "Très bien, je n’ai plus qu’à développer\n"
-	.string "un nouveau type de POKéMON invincible!$"
+	.string "Dovrò fare in modo che i miei POKéMON\n"
+	.string "diventino invincibili.$"
 
 MossdeepCity_Gym_Text_TateAndLizaIntro:
-	.string "LEVY: Hé, hé… Ça te surprend?\n"
-	.string "TATIA: Ah, ah… Ça te surprend?\p"
-	.string "LEVY: Qu’il y ait deux CHAMPIONS?\n"
-	.string "TATIA: Qu’il y ait deux CHAMPIONS?\p"
-	.string "LEVY: On est jumeaux!\n"
-	.string "TATIA: On est jumeaux!\p"
-	.string "LEVY: On n’a pas besoin de se parler…\n"
-	.string "TATIA: On sait ce que…\p"
-	.string "LEVY: l’autre pense…\n"
-	.string "TATIA: Tout est dans nos esprits!\p"
-	.string "LEVY: Cette osmose parfaite…\n"
-	.string "TATIA: Pourras-tu la battre?$"
+	.string "TELL: Eheheheh… non te l’aspettavi?\p"
+	.string "PAT: Fufufu… non te l’aspettavi?\p"
+	.string "TELL: Di trovare due CAPIPALESTRA?\n"
+	.string "PAT: Di trovare due CAPIPALESTRA?\p"
+	.string "TELL: Siamo gemelli!\n"
+	.string "PAT: Siamo gemelli!\p"
+	.string "TELL: Non abbiamo bisogno di parlarci…\n"
+	.string "PAT: Perché ognuno di noi…\p"
+	.string "TELL: Legge nel pensiero dell’altro…\n"
+	.string "PAT: È tutto nelle nostre menti!\p"
+	.string "TELL: Siamo molto affiatati…\n"
+	.string "PAT: Vediamo se riesci a batterci!$"
 
 MossdeepCity_Gym_Text_TateAndLizaDefeat:
-	.string "LEVY: Quoi? Notre osmose…\n"
-	.string "TATIA: a été brisée!\p"
-	.string "LEVY: Tant pis! Tu as gagné…\n"
-	.string "TATIA: Prends ça en récompense.$"
+	.string "TELL: Che cosa?! La nostra accoppiata…\n"
+	.string "PAT: È stata sconfitta!\p"
+	.string "TELL: Hai vinto, così stanno le cose…\n"
+	.string "PAT: In riconoscimento, prendi questo.$"
 
 MossdeepCity_Gym_Text_ReceivedMindBadge:
-	.string "{PLAYER} reçoit le BADGE ESPRIT de\n"
-	.string "la part de LEVY et TATIA.$"
+	.string "{PLAYER} riceve la MEDAGLIA MENTE\n"
+	.string "da TELL e PAT.$"
 
 MossdeepCity_Gym_Text_ExplainMindBadgeTakeThis:
-	.string "LEVY: Le BADGE ESPRIT augmente\n"
-	.string "l’ATQ. SPE. et la DEF. SPE. des POKéMON.\p"
-	.string "TATIA: Il permet aussi d’utiliser la CS\n"
-	.string "PLONGEE hors combat.\p"
-	.string "LEVY: Tu devrais prendre ça, aussi.$"
+	.string "TELL: La MEDAGLIA MENTE potenzia\n"
+	.string "l’ATT. SP. e la DIF. SP. dei POKéMON.\p"
+	.string "PAT: Ti permette anche di usare\n"
+	.string "la mossa MN SUB fuori dalla lotta.\p"
+	.string "TELL: Prendi anche questo.$"
 
 MossdeepCity_Gym_Text_ExplainCalmMind:
-	.string "LEVY: Cette CT04 contient…\n"
-	.string "TATIA: PLENITUDE!\p"
-	.string "LEVY: Elle accroît l’ATQ. SPE. et…\n"
-	.string "TATIA: elle accroît la DEF. SPE.!\p"
-	.string "LEVY: C’est l’attaque parfaite…\n"
-	.string "TATIA: pour les POKéMON du type PSY!\p"
+	.string "TELL: Questa MT04 contiene…\n"
+	.string "PAT: CALMAMENTE!\p"
+	.string "TELL: Aumenta l’ATT. SP. e…\n"
+	.string "PAT: La DIF. SP.!\p"
+	.string "TELL: È una mossa perfetta…\n"
+	.string "PAT: Per i POKéMON di tipo PSICO!\p"
 	.string "… … … … … …$"
 
 MossdeepCity_Gym_Text_RegisteredTateAndLiza:
-	.string "CHAMPIONS D’ARENE LEVY & TATIA\n"
-	.string "enregistrés dans le POKéNAV.$"
+	.string "Registrazione dei CAPIPALESTRA TELL e\n"
+	.string "PAT nel POKéNAV avvenuta.$"
 
 MossdeepCity_Gym_Text_TateAndLizaPostBattle:
-	.string "LEVY: Le lien qui te lie à tes POKéMON\n"
-	.string "semble bien plus fort que celui qui nous\l"
-	.string "lie en tant que jumeaux.\p"
-	.string "TATIA: Tu vas encore t’améliorer! On\n"
-	.string "s’est battus contre toi. On sait de quoi\l"
-	.string "on parle.$"
+	.string "TELL: Credo che il legame che ti unisce\n"
+	.string "ai tuoi POKéMON sia molto più forte del\l"
+	.string "nostro.\p"
+	.string "PAT: Sarai sempre più forte! Ti abbiamo\n"
+	.string "sfidato, parliamo con cognizione.$"
 
 MossdeepCity_Gym_Text_TateAndLizaNeedTwoMons:
-	.string "LEVY: Hé, hé… Ça te surprend…\p"
-	.string "TATIA: qu’il y ait deux CHAMPIONS?\p"
-	.string "LEVY: Oups, tu n’as qu’un seul…\n"
-	.string "TATIA: POKéMON pouvant combattre.\p"
-	.string "LEVY: On ne peut pas s’affronter!\p"
-	.string "TATIA: Si tu veux te mesurer à nous,\n"
-	.string "reviens avec plus de POKéMON.$"
+	.string "TELL: Eheheh… non te l’aspettavi…\p"
+	.string "PAT: Di trovare due CAPIPALESTRA?\p"
+	.string "TELL: Oops, hai soltanto…\n"
+	.string "PAT: Un POKéMON che può lottare.\p"
+	.string "TELL: Non possiamo sfidarti così!\p"
+	.string "PAT: Se vuoi lottare con noi,\n"
+	.string "rimpingua la tua squadra POKéMON.$"
 
 MossdeepCity_Gym_Text_GymStatue:
-	.string "ARENE POKéMON d’ALGATIA$"
+	.string "PALESTRA POKéMON di VERDEAZZUPOLI$"
 
 MossdeepCity_Gym_Text_GymStatueCertified:
-	.string "ARENE POKéMON d’ALGATIA\p"
-	.string "NOUVEAU DRESSEUR RECONNU\n"
-	.string "PAR TATIA ET LEVY: {PLAYER}$"
+	.string "PALESTRA POKéMON di VERDEAZZUPOLI\p"
+	.string "ALLENATORE CERTIFICATO da TELL e PAT:\n"
+	.string "{PLAYER}$"
 
 MossdeepCity_Gym_Text_TateAndLizaPreRematch:
-	.string "LEVY: POKéMON…\n"
-	.string "TATIA: POKéMON…\p"
-	.string "LEVY: En changeant l’ordre de l’équipe…\n"
-	.string "TATIA: le style du combat change.\p"
-	.string "LEVY: Mais moi…\n"
-	.string "TATIA: Mais moi…\p"
-	.string "LEVY: Je serai toujours avec TATIA!\n"
-	.string "TATIA: Je serai toujours avec LEVY!\p"
-	.string "LEVY: Tu verras encore et encore…\n"
-	.string "TATIA: notre combinaison!$"
+	.string "TELL: POKéMON…\n"
+	.string "PAT: POKéMON…\p"
+	.string "TELL: Cambiando la composizione\n"
+	.string "della squadra…\l"
+	.string "PAT: Cambia lo stile di lotta.\p"
+	.string "TELL: Io…\n"
+	.string "PAT: Io…\p"
+	.string "TELL: Sarò sempre con PAT!\n"
+	.string "PAT: Sarò sempre con TELL!\p"
+	.string "TELL: La nostra accoppiata…\n"
+	.string "PAT: Esisterà sempre!$"
 
 MossdeepCity_Gym_Text_TateAndLizaRematchDefeat:
-	.string "LEVY: Tes POKéMON et toi…\n"
-	.string "TATIA: vous êtes comme une seule\l"
-	.string "personne!$"
+	.string "TELL: Tu e i tuoi POKéMON…\n"
+	.string "PAT: Sembra esserci un legame di sangue.$"
 
 MossdeepCity_Gym_Text_TateAndLizaPostRematch:
-	.string "LEVY: Tu peux nous battre mais\n"
-	.string "nous nous relèverons toujours!\p"
-	.string "TATIA: Parce que nous nous soutenons\n"
-	.string "l’un l’autre!$"
+	.string "TELL: Ci hai mandato a tappeto,\n"
+	.string "ma noi ci rimetteremo in piedi!\p"
+	.string "PAT: Perché noi due siamo \n"
+	.string "sempre qui l’uno per l’altra!$"
 
 MossdeepCity_Gym_Text_TateAndLizaRematchNeedTwoMons:
-	.string "LEVY: Tu es de retour…\n"
-	.string "TATIA: Tu es de retour…\p"
-	.string "LEVY: pour une revanche.\n"
-	.string "TATIA: pour une revanche.\p"
-	.string "LEVY: Mais…\n"
-	.string "TATIA: pour notre match…\p"
-	.string "LEVY: tu n’as qu’un POKéMON!\n"
-	.string "TATIA: tu n’as qu’un POKéMON!\p"
-	.string "LEVY: La prochaine fois…\n"
-	.string "TATIA: ramène au moins 2 POKéMON!$"
+	.string "TELL: Eccoci ancora qui…\n"
+	.string "PAT: Eccoci ancora qui…\p"
+	.string "TELL: Per una nuova sfida.\n"
+	.string "PAT: Per una nuova sfida.\p"
+	.string "TELL: Ma…\n"
+	.string "PAT: Per la sfida…\p"
+	.string "TELL: Tu hai portato solo un POKéMON!\n"
+	.string "PAT: Tu hai portato solo un POKéMON!\p"
+	.string "TELL: Ci vorranno almeno…\n"
+	.string "PAT: Due POKéMON la prossima volta.$"

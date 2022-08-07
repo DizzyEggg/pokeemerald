@@ -1,33 +1,29 @@
 gText_PkmnTransferredSomeonesPC::
-    .string "{STR_VAR_2} a été transféré sur le\n"
-    .string "PC de ???.\p"
-    .string "Il a été placé dans la BOITE\n"
-    .string "appelée “{STR_VAR_1}”.$"
+	.string "{STR_VAR_2} è stato trasferito\n"
+	.string "al PC di ???.\p"
+	.string "È nel BOX chiamato “{STR_VAR_1}”.$"
 
 gText_PkmnTransferredLanettesPC::
-    .string "{STR_VAR_2} a été transféré sur le\n"
-    .string "PC d’ANNETTE.\p"
-    .string "Il a été placé dans la BOITE\n"
-    .string "appelée “{STR_VAR_1}”.$"
+	.string "{STR_VAR_2} è stato inviato al\n"
+	.string "PC di LANETTE.\p"
+	.string "È nel BOX chiamato “{STR_VAR_1}”.$"
 
 gText_PkmnTransferredSomeonesPCBoxFull::
-    .string "La BOITE {STR_VAR_3} sur le PC\n"
-    .string "de ??? est pleine.\p"
-    .string "{STR_VAR_2} a été placé dans la\n"
-    .string "BOITE appelée “{STR_VAR_1}”.$"
+	.string "Il BOX chiamato “{STR_VAR_3}” nel\n"
+	.string "PC di ??? è pieno.\p"
+	.string "{STR_VAR_2} è stato inviato al\n"
+	.string "BOX chiamato “{STR_VAR_1}”.$"
 
 gText_PkmnTransferredLanettesPCBoxFull::
-    .string "La BOITE “{STR_VAR_3}” sur le PC\n"
-    .string "d’ANNETTE est pleine.\p"
-    .string "{STR_VAR_2} a été placé dans la\n"
-    .string "BOITE appelée “{STR_VAR_1}”.$"
+	.string "Il BOX chiamato “{STR_VAR_3}” nel\n"
+	.string "PC di LANETTE è pieno.\p"
+	.string "{STR_VAR_2} è stato inviato al\n"
+	.string "BOX chiamato “{STR_VAR_1}”.$"
 
 gText_NoMoreRoomForPokemon::
-    .string "Il n’y a plus de place pour\n"
-    .string "les POKéMON.\p"
-    .string "Les BOITES sont pleines et\n"
-    .string "ne peuvent plus rien recevoir.$"
+	.string "Non c’è spazio per altri POKéMON!\n"
+	.string "I BOX POKéMON sono pieni!$"
 
 gText_NicknameThisPokemon::
-    .string "Voulez-vous donner un surnom\n"
-    .string "à {STR_VAR_1}?$"
+	.string "Vuoi dare un soprannome a\n"
+	.string "{STR_VAR_1}?$"

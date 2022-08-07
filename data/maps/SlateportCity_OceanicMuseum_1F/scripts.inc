@@ -225,159 +225,156 @@ SlateportCity_OceanicMuseum_1F_Movement_FamiliarGruntExitNorth:
 	step_end
 
 SlateportCity_OceanicMuseum_1F_Text_WouldYouLikeToEnter:
-	.string "Bienvenue au MUSEE OCEANOGRAPHIQUE.\p"
-	.string "L’entrée coûte 50¥.\n"
-	.string "Voulez-vous entrer?$"
+	.string "Ti trovi nel MUSEO OCEANOGRAFICO.\p"
+	.string "L’ingresso costa ¥50.\n"
+	.string "Vuoi entrare?$"
 
 SlateportCity_OceanicMuseum_1F_Text_PleaseEnjoyYourself:
-	.string "Bonne visite!$"
+	.string "Buon divertimento.$"
 
 SlateportCity_OceanicMuseum_1F_Text_NotEnoughMoney:
-	.string "Oh, désolée, mais vous ne semblez pas\n"
-	.string "avoir suffisamment d’argent.$"
+	.string "Oh… mi dispiace, ma non hai abbastanza\n"
+	.string "soldi.$"
 
 SlateportCity_OceanicMuseum_1F_Text_CatchUpWithYourGroup:
-	.string "Oh, vous faites partie du groupe qui\n"
-	.string "est entré tout à l’heure?\p"
-	.string "Ils doivent déjà être loin.\n"
-	.string "Vous feriez bien de les rattraper!$"
+	.string "Oh… sei con quel gruppo che è entrato\n"
+	.string "prima?\p"
+	.string "Sei in ritardo…\n"
+	.string "Affrettati per raggiungerli!$"
 
 SlateportCity_OceanicMuseum_1F_Text_AquaExistForGoodOfAll:
-	.string "Nous, la TEAM AQUA, nous existons \n"
-	.string "pour le bien de tous!$"
+	.string "Noi, TEAM IDRO, esistiamo per il bene\n"
+	.string "di tutti!$"
 
 SlateportCity_OceanicMuseum_1F_Text_OurBossIsntHere:
-	.string "On nous a dit de nous regrouper ici,\n"
-	.string "alors on l’a fait, mais…\p"
-	.string "Notre CHEF, le pivot du groupe,\n"
-	.string "n’est pas là.$"
+	.string "Ci hanno detto di riunirci tutti\n"
+	.string "qui, ma…\p"
+	.string "il nostro CAPO, l’asse portante\n"
+	.string "del gruppo, non c’è.$"
 
 SlateportCity_OceanicMuseum_1F_Text_WouldStuffHereMakeMeRich:
-	.string "Si je piquais tout ce qu’il y a ici,\n"
-	.string "est-ce que ça me rendrait riche?$"
+	.string "Diventerò ricco se rubacchio \n"
+	.string "delle cose qui?$"
 
 SlateportCity_OceanicMuseum_1F_Text_CanLearnForNefariousDeeds:
-	.string "Ce que j’apprends ici, je peux m’en\n"
-	.string "servir pour agir de façon infâme…$"
+	.string "Posso mettere in pratica quello che\n"
+	.string "imparo qui per fare qualche cattiveria…$"
 
 SlateportCity_OceanicMuseum_1F_Text_RustboroBungled:
-	.string "Si cet imbécile n’avait pas échoué\n"
-	.string "à MEROUVILLE, on n’en serait pas là.$"
+	.string "Se i nostri scagnozzi non avessero\n"
+	.string "fatto pasticci a FERRUGIPOLI,\l"
+	.string "non saremmo certamente qui!$"
 
 SlateportCity_OceanicMuseum_1F_Text_DidntHaveMoney:
-	.string "Je n’avais pas les 50¥, alors j’ai dû\n"
-	.string "parlementer avec la réceptionniste.$"
+	.string "Non avevo ¥50… È stato difficile farla\n"
+	.string "franca con la ragazza all’ingresso.$"
 
 SlateportCity_OceanicMuseum_1F_Text_LearnAboutSeaForBattling:
-	.string "Je veux tirer des enseignements de la\n"
-	.string "mer et m’en servir pour combattre.$"
+	.string "Voglio saperne di più sul mare per\n"
+	.string "usare le mie conoscenze nella lotta.$"
 
 SlateportCity_OceanicMuseum_1F_Text_SternIsRoleModel:
-	.string "Je suis tout excité quand je vois\n"
-	.string "la mer!\p"
-	.string "Le CAPT. POUPE est un exemple pour moi!$"
+	.string "La vista del mare mi emoziona!\p"
+	.string "Per me il CAP. REMO è il modello\n"
+	.string "di vita più importante!$"
 
 SlateportCity_OceanicMuseum_1F_Text_MustBePokemonWeDontKnow:
-	.string "La mer est sans limite et d’une\n"
-	.string "infinie profondeur…\p"
-	.string "Il doit y avoir de nombreux POKéMON\n"
-	.string "dont on ignore tout.$"
+	.string "Il mare è sconfinato ed immensamente\n"
+	.string "profondo…\p"
+	.string "Ci devono essere tanti POKéMON ancora\n"
+	.string "sconosciuti.$"
 
 SlateportCity_OceanicMuseum_1F_Text_WantSeaPokemon:
-	.string "Je veux un POKéMON de la mer.\p"
-	.string "Je crois que ce serait sympa de le tenir\n"
-	.string "contre moi.$"
+	.string "Voglio un POKéMON d’acqua di mare.\p"
+	.string "Devono essere molto teneri da\n"
+	.string "abbracciare.$"
 
 SlateportCity_OceanicMuseum_1F_Text_RememberMeTakeThis:
-	.string "Héééé!\n"
-	.string "Qu’est-ce que tu fais là?\p"
-	.string "Moi? Je suis le membre de la TEAM AQUA\n"
-	.string "que tu as déjà affronté. Tu t’souviens?\l"
-	.string "C’était dans le TUNNEL MERAZON!\p"
-	.string "Tiens, prends ça!\n"
-	.string "Et pardonne-moi!$"
+	.string "Ehi!\n"
+	.string "Che ci fai tu qui?\p"
+	.string "Io? Sono quello del TEAM IDRO\n"
+	.string "che hai battuto prima.\l"
+	.string "Nel TUNNEL MENFERRO, ricordi?\p"
+	.string "Prendi questo!\n"
+	.string "Devi perdonarmi!$"
 
 SlateportCity_OceanicMuseum_1F_Text_HopeINeverSeeYouAgain:
-	.string "Cette CT te sera plus utile qu’à moi.\p"
-	.string "J’espère ne jamais te revoir!\n"
-	.string "Ouahahaha!$"
+	.string "Quella MT è più adatta a te che a me.\p"
+	.string "Spero di non rivederti mai più!\n"
+	.string "Eheheh!$"
 
 SlateportCity_OceanicMuseum_1F_Text_YouHaveToTakeThis:
-	.string "Allez, viens!\n"
-	.string "Prends ça et laisse-moi partir!$"
+	.string "Ma dai! Devi prendere questo\n"
+	.string "e lasciarmi andare!$"
 
 SlateportCity_OceanicMuseum_1F_Text_WhirlpoolExperiment:
-	.string "Un liquide bleu forme une spirale à\n"
-	.string "l’intérieur d’un récipient en verre.\p"
-	.string "“C’est un tourbillon reproduit\n"
-	.string "artificiellement avec du vent.”$"
+	.string "Un liquido blu viene fatto girare a\n"
+	.string "mulinello in un contenitore di vetro.\p"
+	.string "“Un esperimento per creare MULINELLO\n"
+	.string "artificialmente usando il vento”.$"
 
 SlateportCity_OceanicMuseum_1F_Text_WaterfallExperiment:
-	.string "Une balle rouge monte et descend à\n"
-	.string "l’intérieur d’un récipient en verre.\p"
-	.string "“C’est une expérience simulant\n"
-	.string "une CASCADE avec la flottabilité\l"
-	.string "de la balle.”$"
+	.string "Una palla rossa viene fatta ballonzo-\n"
+	.string "lare su e giù in un contenitore di vetro.\p"
+	.string "“Un esperimento che simula CASCATA\n"
+	.string "con la spinta idrostatica sulla palla”.$"
 
 SlateportCity_OceanicMuseum_1F_Text_OceanSoilDisplay:
-	.string "C’est un échantillon provenant du fond\n"
-	.string "de l’océan.\p"
-	.string "“Les débris de toutes formes de vie\n"
-	.string "se sont au fur et à mesure amassés au\l"
-	.string "fond de la mer, formant des couches\l"
-	.string "sédimentaires.”\p"
-	.string "“L’analyse de ces sédiments \n"
-	.string "révèle le temps passé.”$"
+	.string "Un campione di terreno prelevato dal\n"
+	.string "fondo dell’oceano.\p"
+	.string "“Molti anni fa, resti di forme di vita\n"
+	.string "si sono depositati sul fondo del mare\l"
+	.string "creando strati sedimentari.\p"
+	.string "Analizzando questi strati, è possibile\n"
+	.string "studiarne l’evoluzione”.$"
 
 SlateportCity_OceanicMuseum_1F_Text_BeachSandDisplay:
-	.string "C’est un échantillon de sable de plage.\p"
-	.string "“Les roches des montagnes sont\n"
-	.string "détrempées par les rivières, ce qui les\l"
-	.string "rend friables et les décompose.”\p"
-	.string "“Elles sont réduites en poussière\n"
-	.string "et deviennent le sable des plages.”$"
+	.string "Un campione di sabbia.\p"
+	.string "“Le rocce delle montagne vengono\n"
+	.string "trasportate dai fiumi e ridotte in tanti\l"
+	.string "piccoli frammenti.\p"
+	.string "I granelli di roccia diventano\n"
+	.string "sabbia sulle spiagge”.$"
 
 SlateportCity_OceanicMuseum_1F_Text_OceanicMinifact1:
-	.string "DEVINETTE SUR LA MER 1\n"
-	.string "Pourquoi l’eau de mer est-elle bleue?\p"
-	.string "Les rayons de lumière sont composés\n"
-	.string "de nombreuses couleurs.\p"
-	.string "La plupart d’entre eux perdent leur\n"
-	.string "couleur lorsqu’ils traversent l’eau.\p"
-	.string "Mais les rayons bleus, eux, sont\n"
-	.string "réfléchis, rendant la mer bleue.$"
+	.string "“CURIOSITÀ SULL’OCEANO 1”\n"
+	.string "Perché l’acqua del mare è blu?\p"
+	.string "“La luce è composta da molti colori.\p"
+	.string "Quando attraversano l’acqua, quasi\n"
+	.string "tutti i tipi di luce perdono colore.\p"
+	.string "Tuttavia, la luce blu mantiene\n"
+	.string "il colore diffondendolo nel mare”.$"
 
 SlateportCity_OceanicMuseum_1F_Text_OceanicMinifact2:
-	.string "DEVINETTE SUR LA MER 2\n"
-	.string "Pourquoi l’eau de mer est-elle salée?\p"
-	.string "L’eau de mer contient du sel dissous\n"
-	.string "sous forme d’ions sodium et chlorure.\p"
-	.string "Ces ions proviennent des roches\n"
-	.string "et la pluie les transporte dans la mer.\p"
-	.string "La concentration en sel dissous\n"
-	.string "rend la mer salée.$"
+	.string "“CURIOSITÀ SULL’OCEANO 2”\n"
+	.string "Perché il mare è salato?\p"
+	.string "“Il mare contiene sale disciolto\n"
+	.string "in forma di ioni di sodio e cloro.\p"
+	.string "Questi ioni filtrano dalle rocce e\n"
+	.string "raggiungono il mare con le piogge.\p"
+	.string "La concentrazione del sale disciolto\n"
+	.string "rende il mare salato”.$"
 
 SlateportCity_OceanicMuseum_1F_Text_OceanicMinifact3:
-	.string "DEVINETTE SUR LA MER 3\n"
-	.string "Quelle est la plus vaste? La mer\l"
-	.string "ou la terre?\p"
-	.string "La mer couvre environ 70% de la\n"
-	.string "planète et la terre, le reste.\p"
-	.string "La mer est donc au moins deux fois\n"
-	.string "plus vaste que la terre.$"
+	.string "“CURIOSITÀ SULL’OCEANO 3”\n"
+	.string "È più grande il mare o la terra?\p"
+	.string "“Il mare copre il 70% del pianeta,\n"
+	.string "il resto è terra.\p"
+	.string "Il mare pertanto è il doppio della\n"
+	.string "terra”.$"
 
 SlateportCity_OceanicMuseum_1F_Text_FossilDisplay:
-	.string "C’est un fossile à stries ondulées.\p"
-	.string "“Le fond de l’océan est drainé\n"
-	.string "par la marée.”\p"
-	.string "“Le mouvement de l’eau de mer dessine\n"
-	.string "des stries et des creux sur le sol.”\p"
-	.string "“Si ce sol se fossilise, on parle\n"
-	.string "d’ondulation.”$"
+	.string "Un fossile con la superficie increspata.\p"
+	.string "“Le correnti segnano il fondale\n"
+	.string "marino.\p"
+	.string "Il movimento dell’acqua crea piccole\n"
+	.string "ondulazioni sul fondale.\p"
+	.string "Quando il fondale si fossilizza, si\n"
+	.string "formano le increspature”.$"
 
 SlateportCity_OceanicMuseum_1F_Text_DepthMeasuringMachine:
-	.string "Un engin étrange pivote sous un\n"
-	.string "dôme en verre.\p"
-	.string "Peut-être est-ce pour mesurer la\n"
-	.string "profondeur de quelque chose…$"
+	.string "Una strana macchina ruota sotto\n"
+	.string "una cupola di vetro.\p"
+	.string "Forse serve per misurare\n"
+	.string "la profondità di qualcosa…$"
 

@@ -283,157 +283,149 @@ MossdeepCity_SpaceCenter_1F_Movement_MoveGruntFromStairs:
 	step_end
 
 MossdeepCity_SpaceCenter_1F_Text_RocketLaunchImminent:
-	.string "Le lancement de la fusée est imminent!$"
+	.string "Il lancio del razzo è imminente!$"
 
 MossdeepCity_SpaceCenter_1F_Text_SuccessfulLaunchNumber:
-	.string "La fusée a décollé en toute sécurité!\n"
-	.string "Lancement nº {STR_VAR_1} réussi!$"
+	.string "Il lancio del razzo è avvenuto!\n"
+	.string "È il lancio nº {STR_VAR_1}!$"
 
 MossdeepCity_SpaceCenter_1F_Text_HaywireButRocketLaunchImminent:
-	.string "Je sais que tout est un peu sens\n"
-	.string "dessus dessous en ce moment…\p"
-	.string "Mais le lancement de la fusée\n"
-	.string "est imminent!$"
+	.string "Lo so che c’è un po’ di confusione,\n"
+	.string "ma…\p"
+	.string "Il lancio del razzo è imminente!$"
 
 MossdeepCity_SpaceCenter_1F_Text_HaywireButSuccessfulLaunchNumber:
-	.string "Je sais que tout est un peu sens\n"
-	.string "dessus dessous en ce moment…\p"
-	.string "Mais la fusée a décollé sans problème!\n"
-	.string "Lancement nº {STR_VAR_1} réussi!$"
+	.string "Lo so che c’è un po’ di confusione,\n"
+	.string "ma…\p"
+	.string "Il lancio del razzo è avvenuto!\n"
+	.string "È il lancio nº {STR_VAR_1}!$"
 
 MossdeepCity_SpaceCenter_1F_Text_RocketLaunchDemandsPerfection:
-	.string "Lancer une fusée exige la perfection.\n"
-	.string "L’erreur n’est pas permise.\p"
-	.string "Même si tout est juste à 99%,\n"
-	.string "ça ne sert à rien si le dernier 1%\l"
-	.string "n’est pas correct.\p"
-	.string "Malgré ça, on essaie toujours.\n"
-	.string "Pourquoi? C’est un rêve sans fin.$"
+	.string "Il lancio di un razzo deve essere\n"
+	.string "perfetto. Anche solo un margine\l"
+	.string "di errore dell’1% non è ammissibile.\p"
+	.string "Se per il 99% è tutto sotto controllo,\n"
+	.string "ma vi è l’1% di incertezza,\l"
+	.string "il lancio non avviene.\p"
+	.string "Ciononostante, non desistiamo mai\n"
+	.string "perché stiamo perseguendo un sogno.$"
 
 MossdeepCity_SpaceCenter_1F_Text_MagmaHaveSightsOnSpaceCenter:
-	.string "Ces types sont intéressés par le\n"
-	.string "CENTRE SPATIAL.\p"
-	.string "Mais on ne peut pas se permettre\n"
-	.string "de les laisser gêner le lancement\l"
-	.string "de notre fusée.$"
+	.string "Quei teppistelli del TEAM MAGMA hanno\n"
+	.string "messo gli occhi sul CENTRO SPAZIALE.\p"
+	.string "Non lasceremo che qualcuno\n"
+	.string "interferisca con il lancio del razzo!$"
 
 MossdeepCity_SpaceCenter_1F_Text_FoundThisYouCanHaveIt:
-	.string "Je faisais un petit tour sur la plage,\n"
-	.string "quand j’ai trouvé ça.\p"
-	.string "Ça ne me servira pas, alors autant\n"
-	.string "que ce soit toi qui l’aies.$"
+	.string "Stavo facendo una passeggiata sulla\n"
+	.string "spiaggia, quando ho trovato questo.\p"
+	.string "Tienilo pure, non ne ho bisogno.$"
 
 MossdeepCity_SpaceCenter_1F_Text_HoennFamousForMeteorShowers:
-	.string "La région de HOENN a longtemps été\n"
-	.string "réputée pour ses pluies de météorites.$"
+	.string "La regione di HOENN è famosa da tempo\n"
+	.string "per le sue piogge di meteoriti.$"
 
 MossdeepCity_SpaceCenter_1F_Text_MagmaCantStealFuelTakeThis:
-	.string "On ne peut pas laisser la TEAM MAGMA\n"
-	.string "voler le carburant pour la fusée.\p"
-	.string "Oh, au fait, j’ai trouvé cette pierre sur\n"
-	.string "la plage. Je te la donne si tu veux.$"
+	.string "Bisogna impedire che il TEAM MAGMA\n"
+	.string "rubi il carburante del razzo.\p"
+	.string "Vuoi questa pietra che ho trovato\n"
+	.string "sulla spiaggia?$"
 
 MossdeepCity_SpaceCenter_1F_Text_CantStrollOnBeachWithMagma:
-	.string "Avec la TEAM MAGMA dans le coin,\n"
-	.string "les promenades sur la plage ne sont\l"
-	.string "plus vraiment sûres.$"
+	.string "Con il TEAM MAGMA da queste parti è\n"
+	.string "pericoloso passeggiare sulla spiaggia.$"
 
 MossdeepCity_SpaceCenter_1F_Text_DidPokemonComeFromSpace:
-	.string "Certains prétendent que les POKéMON\n"
-	.string "viennent de l’espace. Est-ce possible?$"
+	.string "Alcuni sostengono che i POKéMON sono\n"
+	.string "venuti dallo spazio. Che sia vero?$"
 
 MossdeepCity_SpaceCenter_1F_Text_AquaShouldBeatMagma:
-	.string "La TEAM AQUA devrait s’occuper de\n"
-	.string "la TEAM MAGMA!\p"
-	.string "Mais s’ils font ça, ils risquent de\n"
-	.string "croire qu’ils ont tous les droits, non?$"
+	.string "Il TEAM IDRO dovrebbe occuparsi del\n"
+	.string "TEAM MAGMA!\p"
+	.string "Però, poi, quelli del TEAM IDRO\n"
+	.string "comincerebbero a darsi un sacco di arie.$"
 
 MossdeepCity_SpaceCenter_1F_Text_RocketsBoggleMyMind:
-	.string "Un gigantesque bloc de métal qui\n"
-	.string "franchit l’atmosphère et flotte dans\l"
-	.string "l’espace…\p"
-	.string "Ça laisse rêveur!$"
+	.string "Un pezzo gigantesco di metallo\n"
+	.string "attraversa il cielo e vola nello spazio…\p"
+	.string "Non capisco cosa possa essere!$"
 
 MossdeepCity_SpaceCenter_1F_Text_MagmaWantsToSpoilMyDream:
-	.string "Un gigantesque bloc de métal qui\n"
-	.string "franchit l’atmosphère et flotte dans\l"
-	.string "l’espace…\p"
-	.string "Mais la TEAM MAGMA veut gâcher mon\n"
-	.string "rêve de voir la fusée décoller!\p"
-	.string "Je ne les laisserai pas faire!$"
+	.string "Un pezzo gigantesco di metallo\n"
+	.string "attraversa il cielo e vola nello spazio…\p"
+	.string "Il TEAM MAGMA vuole distruggere il\n"
+	.string "sogno della mia vita!\p"
+	.string "Non permetterò che accada!$"
 
 MossdeepCity_SpaceCenter_1F_Text_StevenMagmaCantBeAllowedToTakeFuel:
-	.string "PIERRE: {PLAYER}{KUN}, as-tu déjà lu cette\n"
-	.string "annonce?\p"
-	.string "La TEAM MAGMA veut s’approprier le\n"
-	.string "carburant destiné à la fusée.\p"
-	.string "Je ne sais pas pourquoi ils en ont\n"
-	.string "besoin, mais ils ne peuvent pas faire ça.\p"
-	.string "Je vais rester ici et garder l’œil ouvert\n"
-	.string "encore quelque temps.\p"
-	.string "Tu devrais en profiter pour aller faire\n"
-	.string "un tour en ville.$"
+	.string "ROCCO: {PLAYER}{KUN}, hai già letto quel\n"
+	.string "proclama?\p"
+	.string "Il TEAM MAGMA è diretto sull’isola per\n"
+	.string "appropriarsi del carburante del razzo.\p"
+	.string "Non so perché lo vogliano, ma\n"
+	.string "bisogna fermarli a tutti i costi.\p"
+	.string "Io starò qua a controllare per un po’.\p"
+	.string "Nel frattempo tu puoi andare a fare\n"
+	.string "un giro in città.$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt3Intro:
-	.string "Comme promis, nous sommes venus\n"
-	.string "pour voler le carburant de la fusée.$"
+	.string "Eccoci qua, siamo venuti per il\n"
+	.string "carburante, come promesso!$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt3Defeat:
-	.string "J’ai dû manquer de carburant…$"
+	.string "Ho esaurito il carburante…$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt3PostBattle:
-	.string "Ne prends pas la grosse tête juste\n"
-	.string "pour m’avoir battue.$"
+	.string "Mi hai sconfitto, ma non vuol dire\n"
+	.string "che mi lascerò battere ancora!$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt1Intro:
-	.string "On t’avait dit de rester en dehors!\n"
-	.string "Rien ne doit gêner nos plans.$"
+	.string "Ti avevamo avvisato!\n"
+	.string "Siamo persone oneste, noi!$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt1Defeat:
-	.string "Grrr… Je n’aurais pas dû me\n"
-	.string "battre à la loyale!$"
+	.string "Grrr… avremmo dovuto essere\n"
+	.string "disonesti…$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt1PostBattle:
-	.string "OK, j’ai compris! La prochaine fois, on\n"
-	.string "viendra sans prévenir personne.$"
+	.string "OK, ho imparato la lezione. La\n"
+	.string "prossima volta faremo un’improvvisata.$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt4Intro:
-	.string "Le carburant que le CENTRE SPATIAL\n"
-	.string "garde pour la fusée…\p"
-	.string "C’est ça qui nous intéresse, on n’en\n"
-	.string "laissera pas une goutte.$"
+	.string "A noi interessano le scorte di\n"
+	.string "carburante del CENTRO SPAZIALE.\p"
+	.string "Ce lo prenderemo tutto fino all’ultima\n"
+	.string "goccia!$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt4Defeat:
-	.string "Je retire ce que j’ai dit…\n"
-	.string "Un jerrycan suffira…$"
+	.string "Ti avanza un po’ di carburante?\n"
+	.string "Basta anche una tazzina…$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt4PostBattle:
-	.string "Ce que nous voulons faire avec\n"
-	.string "le carburant?\p"
-	.string "Comment je le saurais?\n"
-	.string "Je ne suis qu’un sbire!$"
+	.string "Cosa ce ne faremo del carburante\n"
+	.string "del razzo?\p"
+	.string "Io non ne ho idea, ma lo saprà\n"
+	.string "il nostro CAPO di sopra.$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt2Intro:
-	.string "Notre chef a dit que personne ne\n"
-	.string "devait passer… PERSONNE!$"
+	.string "Il nostro CAPO mi ha detto di non\n"
+	.string "lasciare passare nessuno!$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt2Defeat:
-	.string "Aille aïe aïe!$"
+	.string "Ahi! Ahi! Ahi!$"
 
 MossdeepCity_SpaceCenter_1F_Text_Grunt2PostBattle:
-	.string "S’il te plaît, dis à mon chef que je n’ai\n"
-	.string "pas abandonné mon poste.\p"
-	.string "Dis-lui que je suis resté jusqu’au bout…$"
+	.string "Di’ al nostro CAPO che ho\n"
+	.string "abbandonato la mia postazione.\l"
+	.string "E che ho combattuto fino alla fine…$"
 
 MossdeepCity_SpaceCenter_1F_Text_MagmaIntentToStealNotice:
-	.string "Ceci est une…\n"
-	.string "déclaration d’intention de vol?\p"
-	.string "“A l’intention du personnel du\n"
-	.string "CENTRE SPATIAL: Comment ça va?\l"
-	.string "Nous ça va plutôt pas mal.\p"
-	.string "“Nous passerons bientôt vous\n"
-	.string "piquer le carburant pour la fusée.\p"
-	.string "“N’essayez pas de nous arrêter.\n"
-	.string "On le prendra quand même!\p"
-	.string "“Pour l’expansion de la terre!\n"
+	.string "Questo è… un avviso di furto?\p"
+	.string "“Allo staff del CENTRO SPAZIALE:\n"
+	.string "Come state? Noi siamo in ottima forma.\p"
+	.string "Verremo presto a farvi visita per\n"
+	.string "prenderci il vostro carburante.\p"
+	.string "Prenderemo il carburante a\n"
+	.string "tutti i costi. Non provate a fermarci!\p"
+	.string "Viva la terraferma!\n"
 	.string "                                          TEAM MAGMA”$"

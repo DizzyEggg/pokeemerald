@@ -20,23 +20,24 @@ SootopolisCity_House3_EventScript_Girl::
 	end
 
 SootopolisCity_House3_Text_JuanHasManyFansDoYou:
-	.string "Tu es DRESSEUR, non?\p"
-	.string "JUAN d’ATALANOPOLIS a de nombreux\n"
-	.string "fans. Encore plus que son élève MARC!\p"
-	.string "Et toi, tu en as?$"
+	.string "Sei un ALLENATORE di POKéMON, giusto?\p"
+	.string "Il CAPOPALESTRA di CENERIDE,\n"
+	.string "RODOLFO, ha molti fan.\l"
+	.string "Ne ha più del suo allievo ADRIANO!\p"
+	.string "Tu hai dei fan?$"
 
 SootopolisCity_House3_Text_YouMustBePrettyStrong:
-	.string "Oh, quelle puissance tu dois avoir!$"
+	.string "Oh, devi essere parecchio forte.$"
 
 SootopolisCity_House3_Text_LonesomeTryWorkingHarder:
-	.string "Oh, mon p’tit…\n"
-	.string "Tu es un peu solitaire.\p"
-	.string "Essaie de travailler plus dur pour\n"
-	.string "avoir des fans à tes côtés.$"
+	.string "Oh, tesoruccio…\n"
+	.string "devi essere triste…\p"
+	.string "Cerca di lavorare più sodo, qualcuno\n"
+	.string "farà il tifo per te.$"
 
 SootopolisCity_House3_Text_TrainerFanClubWasWild:
-	.string "Les fans dévoués viennent même\n"
-	.string "d’en dehors de HOENN.\p"
-	.string "C’était la folie quand je suis allée au\n"
-	.string "FAN CLUB DES DRESSEURS à NENUCRIQUE.$"
+	.string "I fan più accaniti arrivano persino da\n"
+	.string "altre regioni.\p"
+	.string "Nel FAN CLUB ALLENATORI di ALGHEPOLI\n"
+	.string "il pubblico era in delirio.$"
 

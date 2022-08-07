@@ -150,124 +150,118 @@ JaggedPass_EventScript_Autumn::
 	end
 
 JaggedPass_Text_EricIntro:
-	.string "Le SENTIER SINUROC du MONT CHIMNEE…\p"
-	.string "J’ai toujours rêvé d’un endroit pareil…\p"
-	.string "Ce relief accidenté…\n"
-	.string "J’adore ça!$"
+	.string "PASSO SELVAGGIO del MONTE CAMINO…\p"
+	.string "È tutto quello che ho sempre desiderato\n"
+	.string "in montagna.\p"
+	.string "Queste irregolarità selvagge…\n"
+	.string "scuotono la mia anima!$"
 
 JaggedPass_Text_EricDefeat:
-	.string "La défaite me laisse amer!$"
+	.string "Perdere mi lascia l’amaro in bocca!$"
 
 JaggedPass_Text_EricPostBattle:
-	.string "Oui, je peux perdre avec les POKéMON…\p"
-	.string "Mais s’il s’agissait de notre amour pour\n"
-	.string "la montagne, je te battrais!$"
+	.string "Sì, ho perso con i POKéMON…\p"
+	.string "Ma in quanto ad amore per la montagna,\n"
+	.string "non mi batte nessuno!$"
 
 JaggedPass_Text_DianaIntro:
-	.string "Tu n’te promènes pas ici par hasard.\n"
-	.string "T’es pas là pour pique-niquer!$"
+	.string "Questo posto non è adatto a scalatori\n"
+	.string "improvvisati.$"
 
 JaggedPass_Text_DianaDefeat:
-	.string "Oooh, non!\n"
-	.string "Ce sol est trop bosselé…$"
+	.string "Ohhh, no!\n"
+	.string "Il terreno è troppo accidentato…$"
 
 JaggedPass_Text_DianaPostBattle:
-	.string "Tu savais ça?\p"
-	.string "Les plus habiles utilisent leur VELO\n"
-	.string "pour passer ce col très accidenté.$"
+	.string "Lo sapevi?\p"
+	.string "Alcune persone vanno in bicicletta\n"
+	.string "per questo passo tanto sconnesso.$"
 
 JaggedPass_Text_DianaRegister:
-	.string "Tu reviendras un jour par ici?\n"
-	.string "Si c’est le cas, j’aimerais bien\l"
-	.string "refaire un match avec toi.$"
+	.string "Tornerai ancora da queste parti?\n"
+	.string "Mi piacerebbe sfidarti di nuovo.$"
 
 JaggedPass_Text_DianaRematchIntro:
-	.string "Un pique-nique, c’est toujours sympa.\n"
-	.string "Exactement comme les POKéMON!$"
+	.string "Adoro fare i picnic… e con i POKéMON la\n"
+	.string "scampagnata è ancora più divertente!$"
 
 JaggedPass_Text_DianaRematchDefeat:
-	.string "Si j’ai perdu, c’est juste à cause de ce\n"
-	.string "sol trop bosselé!$"
+	.string "Ho perso perché il terreno\n"
+	.string "è troppo accidentato!$"
 
 JaggedPass_Text_DianaPostRematch:
-	.string "Je vais oublier ma défaite et apprécier\n"
-	.string "cette randonnée à travers les bosses.$"
+	.string "Dimentico la sconfitta e mi godo\n"
+	.string "questa bella escursione.$"
 
 JaggedPass_Text_EthanIntro:
-	.string "C’est dur de marcher sur le SENTIER\n"
-	.string "SINUROC.\p"
-	.string "Mais c’est super pour s’entraîner!$"
+	.string "Il PASSO SELVAGGIO non è adatto per\n"
+	.string "camminare, ma è ottimo per allenarsi.$"
 
 JaggedPass_Text_EthanDefeat:
-	.string "On essayait encore de trouver une\n"
-	.string "bonne prise, alors que tout était\l"
-	.string "déjà terminé.$"
+	.string "È finito tutto prima che riuscissimo\n"
+	.string "a rompere il ghiaccio…$"
 
 JaggedPass_Text_EthanPostBattle:
-	.string "Si j’avais un VELO CROSS, je pourrais\n"
-	.string "sauter sur ces rebords rocheux.$"
+	.string "Se avessi una BICI da CROSS, potrei\n"
+	.string "discendere o risalire questi salti.$"
 
 JaggedPass_Text_EthanRegister:
-	.string "J’arriverai à te battre quand je me\n"
-	.string "serai habitué à ces bosses!\p"
-	.string "Tu peux m’enregistrer dans ton\n"
-	.string "POKéNAV?$"
+	.string "Se riesco ad abituarmi a questo terreno\n"
+	.string "accidentato, vincerò di sicuro!\p"
+	.string "Vuoi registrarmi nel tuo POKéNAV?$"
 
 JaggedPass_Text_EthanRematchIntro:
-	.string "Je suis habitué à toutes ces bosses.\n"
-	.string "Maintenant, je chante en grimpant.$"
+	.string "Ormai il terreno sconnesso non mi fa più\n"
+	.string "paura! Ora canto mentre mi arrampico.$"
 
 JaggedPass_Text_EthanRematchDefeat:
-	.string "C’est quand même pas facile de se\n"
-	.string "battre sur ce sol tout bosselé…$"
+	.string "Non è facile lottare su questo\n"
+	.string "terreno così accidentato…$"
 
 JaggedPass_Text_EthanPostRematch:
-	.string "Il faudrait que j’aille à LAVANDIA pour\n"
-	.string "que RODOLPHE me donne un VELO CROSS.$"
+	.string "Dovrei andare a prendere una BICI da\n"
+	.string "CROSS da CLELIO a CICLAMIPOLI…$"
 
 JaggedPass_Text_GruntIntro:
-	.string "Quoi?\n"
-	.string "Qu’est-ce que tu fais là?\p"
-	.string "Qu’est-ce que je fais dans un endroit\n"
-	.string "pareil?\p"
-	.string "Ça te regarde?$"
+	.string "Ah!\n"
+	.string "Che cosa ci fai tu qui?\p"
+	.string "Che ci faccio io in un posto così?\p"
+	.string "Sono affari tuoi?$"
 
 JaggedPass_Text_GruntDefeat:
-	.string "Urrrgh…\p"
-	.string "J’aurais dû rester caché dans la\n"
-	.string "PLANQUE…$"
+	.string "Rrrr…\p"
+	.string "Avrei dovuto scomparire nel nostro\n"
+	.string "RIFUGIO immediatamente…$"
 
 JaggedPass_Text_GoWhereverYouWant:
-	.string "OK, OK…\n"
-	.string "Je dois l’avouer, tu sais te battre!\p"
-	.string "Ne t’inquiète pas pour moi. Tu peux\n"
-	.string "aller où tu veux!$"
+	.string "Sì, lo ammetto!\n"
+	.string "Sei forte!\p"
+	.string "Non pensare a me.\n"
+	.string "Vai dove vuoi!$"
 
 JaggedPass_Text_BoulderShakingInResponseToEmblem:
-	.string "Oh! Ce rocher semble réagir à la\n"
-	.string "présence du SCEAU MAGMA!$"
+	.string "Oh! Il masso si muove grazie allo\n"
+	.string "STEMMA MAGMA!$"
 
 JaggedPass_Text_JulioIntro:
-	.string "Ça fait super peur de descendre la\n"
-	.string "montagne d’un coup!$"
+	.string "Wow! Che paura precipitarsi giù per la\n"
+	.string "montagna tutto d’un fiato!$"
 
 JaggedPass_Text_JulioDefeat:
-	.string "J’ai l’impression de tomber en morceaux…$"
+	.string "Sento che sto andando a pezzi…$"
 
 JaggedPass_Text_JulioPostBattle:
-	.string "Mon vélo s’est pris tellement de bosses\n"
-	.string "que je ne sens plus mon dos.$"
+	.string "Ho fatto tanti di quei salti con la\n"
+	.string "bicicletta che mi fa male il didietro…$"
 
 JaggedPass_Text_AutumnIntro:
-	.string "Je gravis cette colline chaque jour.\n"
-	.string "J’ai confiance en ma force!$"
+	.string "Scalo questa montagna ogni giorno.\n"
+	.string "Confido nella mia forza.$"
 
 JaggedPass_Text_AutumnDefeat:
-	.string "Hum…\n"
-	.string "Qu’est-ce qui s’est passé?$"
+	.string "Mmm… cos’è successo?$"
 
 JaggedPass_Text_AutumnPostBattle:
-	.string "Est-ce que tu sais ce qu’est cette\n"
-	.string "étrange avancée rocheuse un peu\l"
-	.string "plus loin?$"
+	.string "Cos’è quello strano spuntone di roccia\n"
+	.string "lì su?$"
 

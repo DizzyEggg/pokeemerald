@@ -171,29 +171,28 @@ Route123_EventScript_RematchFernando::
 	end
 
 Route123_Text_LoveGrassMonsHaveAny:
-	.string "J’adore les POKéMON du type PLANTE!\p"
-	.string "As-tu des POKéMON du type PLANTE?$"
+	.string "Adoro i POKéMON di tipo ERBA!\p"
+	.string "Hai dei POKéMON di tipo ERBA?$"
 
 Route123_Text_YouLikeGrassMonsTooHaveThis:
-	.string "Oh?\p"
-	.string "Tu aimes aussi les POKéMON du \n"
-	.string "type PLANTE?\p"
-	.string "J’en suis contente, alors prends ça!\n"
-	.string "C’est un témoignage de notre amitié.$"
+	.string "Cosa?\p"
+	.string "Anche a te piacciono i POKéMON\n"
+	.string "di tipo ERBA, vero?\p"
+	.string "Sono così contenta, eccoti questo!\n"
+	.string "È un pegno della nostra amicizia.$"
 
 Route123_Text_CheckTreesWithMyGrassMon:
-	.string "Avec mes POKéMON du type PLANTE, \n"
-	.string "j’examine les arbres, un peu comme si\l"
-	.string "j’étais un médecin pour les arbres.$"
+	.string "Con i miei POKéMON ERBA, controllo gli\n"
+	.string "alberi. Sono come un medico degli alberi.$"
 
 Route123_Text_RouteSign:
-	.string "{RIGHT_ARROW} ROUTE 123\n"
-	.string "{LEFT_ARROW} ROUTE 118$"
+	.string "{RIGHT_ARROW} PERCORSO 123\n"
+	.string "{LEFT_ARROW} PERCORSO 118$"
 
 Route123_Text_RouteSignMtPyre:
-	.string "{UP_ARROW} MONT MEMORIA\n"
-	.string "“Interdit aux malades du cœur.”$"
+	.string "{UP_ARROW} MONTE PIRA\n"
+	.string "“Vietato ai deboli di cuore”.$"
 
 Route123_Text_BerryMastersHouse:
-	.string "MAISON DU MAITRE DES BAIES$"
+	.string "CASA di BACCO BACCHINI$"
 

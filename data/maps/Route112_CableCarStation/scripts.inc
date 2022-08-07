@@ -87,12 +87,12 @@ Route112_CableCarStation_Movement_ExitCableCar:
 	step_end
 
 Route112_CableCarStation_Text_CableCarReadyGetOn:
-	.string "Le TELEPHERIQUE est sur le point\n"
-	.string "de monter. Voulez-vous l’emprunter?$"
+	.string "La FUNIVIA è pronta per partire.\n"
+	.string "Vuoi salire?$"
 
 Route112_CableCarStation_Text_StepThisWay:
-	.string "Entrez, je vous en prie.$"
+	.string "Prego, da questa parte.$"
 
 Route112_CableCarStation_Text_RideAnotherTime:
-	.string "N’hésitez pas à revenir nous voir.$"
+	.string "Ok, torna quando vuoi.$"
 

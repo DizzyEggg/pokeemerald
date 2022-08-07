@@ -19,16 +19,17 @@ SootopolisCity_House2_EventScript_DontKnowAboutOrbs::
 	return
 
 SootopolisCity_House2_Text_DidYouKnowAboutMtPyreOrbs:
-	.string "MONT MEMORIA…\p"
-	.string "Au sommet reposent deux orbes\n"
-	.string "l’un à côté de l’autre. Tu le savais?$"
+	.string "MONTE PIRA…\p"
+	.string "Sapevi che sulla sua cima ci sono due\n"
+	.string "SFERE l’una accanto all’altra?$"
 
 SootopolisCity_House2_Text_YesTwoOrbsSideBySide:
-	.string "C’est ça, deux orbes côte à côte…\p"
-	.string "Les voir ensemble…\n"
-	.string "C’est apaisant…$"
+	.string "Sì, due sfere l’una accanto\n"
+	.string "all’altra…\p"
+	.string "La loro vista in qualche modo…\n"
+	.string "infonde tranquillità…$"
 
 SootopolisCity_House2_Text_OughtToVisitAndSee:
-	.string "Non. C’est vrai?\n"
-	.string "Tu devrais peut-être y aller pour voir…$"
+	.string "Davvero?\n"
+	.string "Varrebbe la pena andare a vedere…$"
 

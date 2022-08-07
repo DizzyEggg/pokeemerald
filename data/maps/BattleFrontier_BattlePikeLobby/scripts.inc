@@ -268,92 +268,94 @@ BattleFrontier_BattlePike_EventScript_CloseCurtain::
 	return
 
 BattleFrontier_BattlePikeLobby_Text_WelcomeToBattlePike:
-	.string "Bienvenue au REPTILE DE COMBAT…\p"
-	.string "Ici, nous mettons à l’épreuve la chance\n"
-	.string "des DRESSEURS…\p"
-	.string "Je serai votre guide dans le\n"
-	.string "REPTILE DE COMBAT…$"
+	.string "Qui si mette alla prova la fortuna\n"
+	.string "degli ALLENATORI…\p"
+	.string "Ti do il benvenuto alla SERPE LOTTA…\p"
+	.string "Sono la tua guida…$"
 
 BattleFrontier_BattlePikeLobby_Text_TakeChallenge:
-	.string "Voulez-vous relever le défi du\n"
-	.string "COMBAT HASARD?$"
+	.string "Vuoi partecipare alla sfida LOTTA\n"
+	.string "DILEMMA?$"
 
 BattleFrontier_BattlePikeLobby_Text_ExplainBattlePike:
-	.string "Ici, nous vous proposons le\n"
-	.string "COMBAT HASARD.\p"
-	.string "Les règles du COMBAT HASARD sont\n"
-	.string "très simples…\p"
-	.string "Il faut choisir l’un des trois chemins et\n"
-	.string "rejoindre la dernière salle à l’extrémité\l"
-	.string "du REPTILE DE COMBAT. C’est tout.\p"
-	.string "Cependant, ce qui se passe sur le\n"
-	.string "chemin choisi n’est qu’une question\l"
-	.string "de chance…\p"
-	.string "Si vous rejoignez l’arrivée, vous\n"
-	.string "recevez des POINTS DE COMBAT.\p"
-	.string "Si vous voulez interrompre votre défi,\n"
-	.string "veuillez parler avec notre personnel\l"
-	.string "dans les grandes salles.\p"
-	.string "Assurez-vous de bien sauvegarder, ou\n"
-	.string "vous ne pourrez pas reprendre le défi.$"
+	.string "Qui ha luogo un evento chiamato\n"
+	.string "LOTTA DILEMMA.\p"
+	.string "Le regole della LOTTA DILEMMA sono\n"
+	.string "molto semplici…\p"
+	.string "Scegli una delle tre vie e raggiungi\n"
+	.string "la sala alla fine della SERPE LOTTA.\l"
+	.string "Facile, non trovi?\p"
+	.string "Gli avvenimenti lungo il cammino\n"
+	.string "dipendono totalmente dalla fortuna\l"
+	.string "dello sfidante…\p"
+	.string "Se arrivi fino alla fine, riceverai\n"
+	.string "una ricompensa in PUNTI LOTTA.\p"
+	.string "Se vuoi interrompere la sfida,\n"
+	.string "rivolgiti al nostro personale che\l"
+	.string "si trova nelle sale grandi lungo\l"
+	.string "il cammino.\p"
+	.string "Se non salvi prima di interrompere,\n"
+	.string "la tua sfida verrà annullata.$"
 
 BattleFrontier_BattlePikeLobby_Text_LookForwardToSeeingYou:
-	.string "Nous attendrons votre prochain défi\n"
-	.string "avec impatience.$"
+	.string "Aspettiamo con ansia la tua prossima\n"
+	.string "sfida…$"
 
 BattleFrontier_BattlePikeLobby_Text_WhichChallengeMode:
-	.string "Choisissez-vous niveau 50 ou niveau\n"
-	.string "libre?$"
+	.string "Puoi scegliere fra due livelli di sfida:\n"
+	.string "il LIVELLO 50 e il LIVELLO LIBERO.\l"
+	.string "Quale scegli?$"
 
 BattleFrontier_BattlePikeLobby_Text_NotEnoughValidMonsLv50:
-	.string "Je regrette…\p"
-	.string "Vous n’avez pas trois POKéMON\n"
-	.string "aptes à participer au COMBAT HASARD.\p"
-	.string "Il vous faut trois POKéMON différents\n"
-	.string "de niveau 50 ou moins pour participer.\p"
-	.string "Ils doivent aussi tenir des objets\n"
-	.string "différents.\p"
-	.string "Les OEUFS{STR_VAR_1} inaptes au combat.\p"
-	.string "Revenez me voir quand vous aurez\n"
-	.string "ce qu’il faut…$"
+	.string "Scusa tanto, ma…\p"
+	.string "Non hai tre POKéMON con tutti\n"
+	.string "i requisiti necessari per partecipare\l"
+	.string "alla LOTTA DILEMMA.\p"
+	.string "Per entrare, devi avere tre POKéMON \n"
+	.string "diversi di livello pari o inferiore a 50.\p"
+	.string "Inoltre, i POKéMON devono tenere \n"
+	.string "tipi di strumenti diversi.\p"
+	.string "Le UOVA{STR_VAR_1} inutilizzabili qui.\p"
+	.string "Torna a trovarci quando hai tutte\n"
+	.string "le carte in regola.$"
 
 BattleFrontier_BattlePikeLobby_Text_NotEnoughValidMonsLvOpen:
-	.string "Je regrette…\p"
-	.string "Vous n’avez pas trois POKéMON\n"
-	.string "aptes à participer au COMBAT HASARD.\p"
-	.string "Il vous faut trois POKéMON différents\n"
-	.string "pour participer.\p"
-	.string "Ils doivent aussi tenir des objets\n"
-	.string "différents.\p"
-	.string "Les OEUFS{STR_VAR_1} inaptes au combat.\p"
-	.string "Revenez me voir quand vous aurez\n"
-	.string "ce qu’il faut…$"
+	.string "Scusa tanto, ma…\p"
+	.string "Non hai tre POKéMON con tutti\n"
+	.string "i requisiti necessari per partecipare\l"
+	.string "alla LOTTA DILEMMA.\p"
+	.string "Devi avere tre POKéMON differenti da\n"
+	.string "iscrivere.\p"
+	.string "Inoltre, i POKéMON devono tenere \n"
+	.string "tipi di strumenti diversi.\p"
+	.string "Le UOVA{STR_VAR_1} inutilizzabili qui.\p"
+	.string "Torna a trovarci quando hai tutte\n"
+	.string "le carte in regola.$"
 
 BattleFrontier_BattlePikeLobby_Text_PleaseChooseThreeMons:
-	.string "Veuillez choisir les trois POKéMON\n"
-	.string "qui vous accompagneront…$"
+	.string "Scegli i tre POKéMON che vuoi\n"
+	.string "iscrivere…$"
 
 BattleFrontier_BattlePikeLobby_Text_SaveBeforeChallenge:
-	.string "Avant de commencer un COMBAT HASARD,\n"
-	.string "la partie doit être sauvegardée.\l"
-	.string "Cela vous convient-il?$"
+	.string "Prima di iniziare la sfida LOTTA\n"
+	.string "DILEMMA, devi salvare il gioco.\l"
+	.string "Sei d’accordo?$"
 
 BattleFrontier_BattlePikeLobby_Text_StepThisWay:
-	.string "Veuillez me suivre…$"
+	.string "Prego, da questa parte.$"
 
 BattleFrontier_BattlePikeLobby_Text_ChallengeEndedRecordResults:
-	.string "Votre défi est terminé…\p"
-	.string "Votre résultat va être sauvegardé.\n"
-	.string "Veuillez patienter.$"
+	.string "La tua sfida finisce qui…\p"
+	.string "Salverò i tuoi risultati.\n"
+	.string "Attendi…$"
 
 BattleFrontier_BattlePikeLobby_Text_PossessLuckInAbundance:
-	.string "Vous avez réussi votre défi…\p"
-	.string "Je dois dire que vous avez énormément\n"
-	.string "de chance…$"
+	.string "Hai completato la sfida…\p"
+	.string "La fortuna ti sorride…$"
 
 BattleFrontier_BattlePikeLobby_Text_ShallRecordResults:
-	.string "Votre résultat va être sauvegardé.\n"
-	.string "Veuillez patienter…$"
+	.string "Salverò i tuoi risultati.\n"
+	.string "Attendi…$"
 
 @ Unused
 BattleFrontier_BattlePikeLobby_Text_AwardYouTheseBattlePoints2:
@@ -369,36 +371,38 @@ BattleFrontier_BattlePikeLobby_Text_ReachedBattlePointLimit:
 	.string "for prizes, then return…$"
 
 BattleFrontier_BattlePikeLobby_Text_FailedToSaveBeforeQuitting:
-	.string "Je regrette…\p"
-	.string "Vous n’avez pas sauvegardé avant de\n"
-	.string "quitter votre dernier défi.\p"
-	.string "Dans ce cas, c’est la disqualification.\n"
-	.string "C’est dommage…$"
+	.string "Mi dispiace!\p"
+	.string "Quando hai interrotto la sfida l’ultima\n"
+	.string "volta, non hai salvato il gioco.\p"
+	.string "Per questo motivo, la tua sfida è\n"
+	.string "stata annullata. Spiacente!$"
 
 BattleFrontier_BattlePikeLobby_Text_SnatchedVictoryFromQueen:
-	.string "Félicitations…\p"
-	.string "Vous avez arraché la victoire à la\n"
-	.string "REINE VENIN et réussi ce défi…$"
+	.string "Complimenti…\p"
+	.string "Hai strappato la vittoria alla REGINA\n"
+	.string "SERPE, portando a termine l’evento…$"
 
 BattleFrontier_BattlePikeLobby_Text_AwardYouTheseBattlePoints:
-	.string "Votre chance va être récompensée par\n"
-	.string "des POINTS DE COMBAT…$"
+	.string "Grazie alla tua incredibile fortuna,\n"
+	.string "ottieni un premio in PUNTI LOTTA…$"
 
 BattleFrontier_BattlePikeLobby_Text_OneRoomAwayFromGoal:
-	.string "J’ai tout gâché! Je n’ai vraiment pas\n"
-	.string "de chance… Et à une salle de l’arrivée!\p"
-	.string "Ici, c’est poison, gel et compagnie!$"
+	.string "Arrgh! Ho sprecato una possibilità! Mi\n"
+	.string "mancava una sala per arrivare alla fine!\p"
+	.string "In questo posto, l’avvelenamento,\n"
+	.string "il congelamento e compagnia bella\l"
+	.string "sono sempre in agguato.$"
 
 BattleFrontier_BattlePikeLobby_Text_NeverHadToBattleTrainer:
-	.string "J’ai terminé le défi 10 fois, mais je\n"
-	.string "ne me suis battue contre aucun\l"
-	.string "DRESSEUR.$"
+	.string "Ho completato la sfida per ben 10\n"
+	.string "volte, ma non ho mai dovuto lottare\l"
+	.string "contro un ALLENATORE.$"
 
 BattleFrontier_BattlePikeLobby_Text_ThinkAbilitiesUsefulHere:
-	.string "Ecoute! Ecoute!\p"
-	.string "Tu ne penses pas que les capacités\n"
-	.string "spéciales des POKéMON risquent\l"
-	.string "d’être utiles ici?$"
+	.string "Stammi a sentire!\p"
+	.string "Non credi che le abilità speciali\n"
+	.string "dei POKéMON possano tornare\l"
+	.string "utili in un posto del genere?$"
 
 @ Unused
 BattleFrontier_BattlePikeLobby_Text_TrainersWhicheverPathIChoose:
@@ -409,25 +413,24 @@ BattleFrontier_BattlePikeLobby_Text_TrainersWhicheverPathIChoose:
 	.string "TRAINERS whichever path I choose.$"
 
 BattleFrontier_BattlePikeLobby_Text_RulesAreListed:
-	.string "Règles du COMBAT HASARD.$"
+	.string "Lista delle regole della LOTTA DILEMMA.$"
 
 BattleFrontier_BattlePikeLobby_Text_ReadWhichHeading:
-	.string "Quel chapitre voulez-vous lire?$"
+	.string "Quale argomento vuoi approfondire?$"
 
 BattleFrontier_BattlePikeLobby_Text_ExplainPokenavBagRules:
-	.string "Vous ne pouvez utiliser ni le SAC ni le\n"
-	.string "POKéNAV lors du défi du COMBAT\l"
-	.string "HASARD.$"
+	.string "Lo ZAINO e il POKéNAV non si possono\n"
+	.string "usare nella sfida LOTTA DILEMMA.$"
 
 BattleFrontier_BattlePikeLobby_Text_ExplainHeldItemRules:
-	.string "Lors du défi du COMBAT HASARD,\n"
-	.string "chaque BAIE ou HERBE tenue par un\l"
-	.string "POKéMON n’aura d’effet qu’une fois.$"
+	.string "Nella sfida LOTTA DILEMMA, le BACCHE o\n"
+	.string "le ERBE tenute dai POKéMON hanno\l"
+	.string "effetto solo una volta.$"
 
 BattleFrontier_BattlePikeLobby_Text_ExplainMonOrderRules:
-	.string "Lors du défi du COMBAT HASARD,\n"
-	.string "l’ordre des POKéMON ne peut pas\l"
-	.string "être modifié.\p"
-	.string "L’ordre doit être décidé avant le\n"
-	.string "début du défi.$"
+	.string "Nella sfida LOTTA DILEMMA, non puoi\n"
+	.string "cambiare l’ordine di schieramento\l"
+	.string "dei POKéMON.\p"
+	.string "L’ordine deve essere deciso prima\n"
+	.string "di iniziare la sfida.$"
 

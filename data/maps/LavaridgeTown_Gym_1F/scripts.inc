@@ -186,222 +186,217 @@ LavaridgeTown_Gym_1F_EventScript_GymStatue::
 	end
 
 LavaridgeTown_Gym_1F_Text_GymGuideAdvice:
-	.string "Hé, comment ça va, futur MAITRE\n"
+	.string "Ehi, come va futuro CAMPIONE,\n"
 	.string "{PLAYER}?\p"
-	.string "ADRIANE, CHAMPION D’ARENE de\n"
-	.string "VERMILAVA, utilise des POKéMON FEU.\p"
-	.string "Sa passion des POKéMON est plus\n"
-	.string "ardente qu’un volcan.\p"
-	.string "Ne t’approche pas trop, tu pourrais\n"
-	.string "te brûler! Arrose-la avec de l’eau et\l"
-	.string "attaque-la sans pitié!$"
+	.string "Il CAPOPALESTRA di CUORDILAVA,\n"
+	.string "FIAMMETTA, usa POKéMON di tipo FUOCO.\p"
+	.string "La sua passione per i POKéMON brucia\n"
+	.string "più ardente di un vulcano.\p"
+	.string "Se ti avvicini troppo, ti brucerai!\n"
+	.string "Getta acqua sul fuoco!$"
 
 LavaridgeTown_Gym_1F_Text_GymGuidePostVictory:
-	.string "Eh ben! Quelle bataille flamboyante!$"
+	.string "Wow! Questa sì che è stata una lotta \n"
+	.string "infuocata!$"
 
 LavaridgeTown_Gym_1F_Text_ColeIntro:
-	.string "Ouille ouille ouille!\n"
-	.string "Bon sang, c’est brûlant!$"
+	.string "Ohohohoh!\n"
+	.string "Ahi, come scotta!$"
 
 LavaridgeTown_Gym_1F_Text_ColeDefeat:
-	.string "J’ai été aveuglé par la sueur qui me\n"
-	.string "coulait dans les yeux…$"
+	.string "Il sudore negli occhi mi acceca…$"
 
 LavaridgeTown_Gym_1F_Text_ColePostBattle:
-	.string "S’enterrer dans le sable chaud est\n"
-	.string "excellent pour la circulation sanguine.\p"
-	.string "C’est très efficace contre les\n"
-	.string "rhumatismes.$"
+	.string "Le sabbiature favoriscono\n"
+	.string "la circolazione.\p"
+	.string "Fanno bene per le articolazioni\n"
+	.string "doloranti.$"
 
 LavaridgeTown_Gym_1F_Text_AxleIntro:
-	.string "J’essaie de libérer mon stress. J’espère\n"
-	.string "que tu ne viens pas pour m’énerver!$"
+	.string "Sto cercando di alleviare lo stress.\n"
+	.string "Non venire a peggiorare la situazione!$"
 
 LavaridgeTown_Gym_1F_Text_AxleDefeat:
-	.string "J’espère qu’ADRIANE va te rôtir!$"
+	.string "Spero che FIAMMETTA ti rosoli per bene!$"
 
 LavaridgeTown_Gym_1F_Text_AxlePostBattle:
-	.string "Haaah… Pffiou…\p"
-	.string "C’est étouffant de rester trop\n"
-	.string "longtemps dans le sable chaud…$"
+	.string "Ahaaa… che caldo…\p"
+	.string "Se passi troppo tempo nella sabbia\n"
+	.string "bollente, ti assale la stanchezza…$"
 
 LavaridgeTown_Gym_B1F_Text_KeeganIntro:
-	.string "Tu commences à fatiguer.\n"
-	.string "Tu préfèrerais sûrement te reposer\l"
-	.string "dans le sable chaud, n’est-ce pas?\p"
-	.string "Mais tu sais sans doute qu’en tant\n"
-	.string "que DRESSEUR, tu dois garder une\l"
-	.string "volonté à toute épreuve.$"
+	.string "Non senti ancora la stanchezza?\n"
+	.string "Non vuoi riposarti un po’ nella sabbia\l"
+	.string "bollente?\p"
+	.string "Dovresti sapere che mantenere la forza\n"
+	.string "di volontà è molto importante per\l"
+	.string "qualsiasi ALLENATORE.$"
 
 LavaridgeTown_Gym_B1F_Text_KeeganDefeat:
-	.string "Quand on joue avec le feu, on se brûle…$"
+	.string "Gioca col fuoco e ti brucerai…$"
 
 LavaridgeTown_Gym_B1F_Text_KeeganPostBattle:
-	.string "Tu as vraiment du talent…\n"
-	.string "Mais ADRIANE, notre CHAMPION,\l"
-	.string "en a encore plus.\p"
-	.string "Si tu ne fais pas attention, tu vas\n"
-	.string "sérieusement te brûler.$"
+	.string "Hai talento… ma il nostro CAPOPALESTRA\n"
+	.string "FIAMMETTA è forte.\p"
+	.string "Se non fai attenzione, potrebbe essere\n"
+	.string "un’esperienza scottante!$"
 
 LavaridgeTown_Gym_1F_Text_GeraldIntro:
-	.string "Est-ce que tes POKéMON peuvent\n"
-	.string "supporter une chaleur de 200 degrés?$"
+	.string "I tuoi POKéMON resistono ad\n"
+	.string "una temperatura di 200 gradi?$"
 
 LavaridgeTown_Gym_1F_Text_GeraldDefeat:
-	.string "Ça ne devait pas être assez chaud…$"
+	.string "Non scottava abbastanza…$"
 
 LavaridgeTown_Gym_1F_Text_GeraldPostBattle:
-	.string "La température du magma est de\n"
-	.string "200 degrés.\p"
-	.string "Tes POKéMON m’ont battu, donc ils\n"
-	.string "devraient survivre dans du magma.$"
+	.string "La temperatura del magma è di\n"
+	.string "200 gradi.\p"
+	.string "I tuoi POKéMON mi hanno battuto,\n"
+	.string "quindi resistono al magma.$"
 
 LavaridgeTown_Gym_1F_Text_DanielleIntro:
-	.string "Mmmh…\n"
-	.string "D’accord, je vais me battre contre toi.$"
+	.string "Ehm… ok, lotterò con te.$"
 
 LavaridgeTown_Gym_1F_Text_DanielleDefeat:
-	.string "Ouille, quelle puissance!$"
+	.string "Oh, ma sei troppo forte…$"
 
 LavaridgeTown_Gym_1F_Text_DaniellePostBattle:
-	.string "En tant que DRESSEUR, je vais devenir\n"
-	.string "jolie et puissante, comme ADRIANE.$"
+	.string "Diventerò bella e forte proprio come\n"
+	.string "FIAMMETTA.$"
 
 LavaridgeTown_Gym_B1F_Text_JaceIntro:
-	.string "Allez, battons-nous!\n"
-	.string "Je suis chaud!$"
+	.string "Forza!\n"
+	.string "Lottiamo prima che mi raffreddi!$"
 
 LavaridgeTown_Gym_B1F_Text_JaceDefeat:
-	.string "Malgré la chaleur, j’ai encore trop\n"
-	.string "froid aux yeux…$"
+	.string "Fa così caldo, ma il mio cuore\n"
+	.string "è un ghiacciolo…$"
 
 LavaridgeTown_Gym_B1F_Text_JacePostBattle:
-	.string "Le combat brûle dans tes veines.\n"
-	.string "Tu devrais avoir tes chances face à\l"
-	.string "notre CHAMPION.$"
+	.string "Lotti con tale ardore che anche\n"
+	.string "il nostro CAPOPALESTRA potrebbe\l"
+	.string "prendersi una scottatura.$"
 
 LavaridgeTown_Gym_B1F_Text_JeffIntro:
-	.string "Tu vois cette flamme dans mon regard?\n"
-	.string "C’est la flamme de la victoire!$"
+	.string "Vedi come divampano le fiamme? \n"
+	.string "Attendo con ardore la mia vittoria!$"
 
 LavaridgeTown_Gym_B1F_Text_JeffDefeat:
-	.string "Quelque chose m’a échappé.$"
+	.string "Qualcosa non ha funzionato.$"
 
 LavaridgeTown_Gym_B1F_Text_JeffPostBattle:
-	.string "Bon, et alors? Je sais marcher sur\n"
-	.string "du charbon ardent, moi d’abord!\p"
-	.string "Mais je ne te conseille pas d’essayer!$"
+	.string "Beh, allora? Io cammino a piedi\n"
+	.string "nudi sui carboni ardenti!\p"
+	.string "Tu non provarci nemmeno!$"
 
 LavaridgeTown_Gym_B1F_Text_EliIntro:
-	.string "J’aime les montagnes, donc j’aime\n"
-	.string "aussi les volcans.$"
+	.string "Adoro la montagna. I vulcani sono\n"
+	.string "la mia passione.$"
 
 LavaridgeTown_Gym_B1F_Text_EliDefeat:
-	.string "J’ai perdu complètement le contrôle\n"
-	.string "de la situation.$"
+	.string "La situazione mi è scappata di mano e\n"
+	.string "ho perso.$"
 
 LavaridgeTown_Gym_B1F_Text_EliPostBattle:
-	.string "Je reste ici car je suis un fan\n"
-	.string "d’ADRIANE. Quel regard de braise!\p"
-	.string "Hé, hé, hé.$"
+	.string "Ho deciso di rimanere qui perché\n"
+	.string "FIAMMETTA mi ha ammaliato.\p"
+	.string "Eheheheh.$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryIntro:
-	.string "Bienvenue… Heu, non, attends.\p"
-	.string "Misérable DRESSEUR, je suis contente de\n"
-	.string "voir que tu as réussi à arriver ici!\p"
-	.string "Par les pouvoirs qui me sont conférés…\n"
-	.string "Heu, non, attends.\p"
-	.string "Je m’appelle ADRIANE et je suis le\n"
-	.string "CHAMPION de cette ARENE!\p"
-	.string "Heu…\n"
-	.string "Je ne suis pas CHAMPION depuis très\l"
-	.string "longtemps, mais ne me sous-estime pas!\p"
-	.string "Grâce aux techniques de mon\n"
-	.string "grand-père, je vais te prouver, heu…\l"
-	.string "que mes attaques sont puissantes!$"
+	.string "Allora mi hai raggiunto… no, aspetta!\p"
+	.string "ALLENATORE in erba, che bello vedere\n"
+	.string "che hai trovato la strada fin qui!\p"
+	.string "In qualità di…\n"
+	.string "No, aspetta!\p"
+	.string "Sono FIAMMETTA e in questa sede sono\n"
+	.string "il CAPOPALESTRA!\p"
+	.string "Mhmm…\n"
+	.string "Non osare sottovalutarmi, nonostante\l"
+	.string "sia CAPOPALESTRA solo da poco!\p"
+	.string "Con le abilità ereditate da mio nonno,\n"
+	.string "ehm, ti mostrerò mosse infuocate\l"
+	.string "assai raffinate!$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryDefeat:
-	.string "Oh non…\n"
-	.string "Je suppose que j’ai été prétentieuse…\p"
-	.string "Je… Je ne suis devenue CHAMPION\n"
-	.string "D’ARENE que très récemment.\p"
-	.string "J’ai essayé de devenir quelqu’un que\n"
-	.string "je ne suis pas.\p"
-	.string "Je dois agir plus spontanément.\n"
-	.string "Sinon, mes POKéMON seront confus.\p"
-	.string "Merci pour cette leçon.\n"
-	.string "Tu as bien mérité ceci.$"
+	.string "Oh…\n"
+	.string "Allora sei più forte di me…\p"
+	.string "Io… sono diventata CAPOPALESTRA\n"
+	.string "soltanto da poco.\p"
+	.string "Ho tentato di misurarmi con qualcuno\n"
+	.string "ancora troppo forte per me.\p"
+	.string "Se non lotto secondo le mie forze,\n"
+	.string "i miei POKéMON si confonderanno.\p"
+	.string "Grazie per avermelo insegnato. Ti\n"
+	.string "regalo questo in segno di gratitudine.$"
 
 LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge:
-	.string "{PLAYER} reçoit le BADGE CHALEUR\n"
-	.string "de la part d’ADRIANE.$"
+	.string "{PLAYER} riceve la MEDAGLIA FIAMMA\n"
+	.string "da FIAMMETTA.$"
 
 LavaridgeTown_Gym_1F_Text_ExplainHeatBadgeTakeThis:
-	.string "Avec le BADGE CHALEUR, tous les \n"
-	.string "POKéMON jusqu’au niveau 50 t’obéiront\l"
-	.string "sans discuter, même ceux que tu as\l"
-	.string "échangés avec tes amis.\p"
-	.string "Il permet aussi à tes POKéMON d’utiliser\n"
-	.string "FORCE en dehors des combats.\p"
-	.string "C’est un gage de ma sympathie.\n"
-	.string "Ne sois pas timide. Prends-le!$"
+	.string "Con la MEDAGLIA FIAMMA ti obbediranno\n"
+	.string "tutti i POKéMON fino al livello 50, anche\l"
+	.string "quelli ottenuti da uno scambio.\p"
+	.string "Inoltre, potrai usare la mossa MN\n"
+	.string "FORZA anche fuori dalla lotta.\p"
+	.string "Ecco il segno della mia gratitudine.\n"
+	.string "Sono felice di averti conosciuto!$"
 
 LavaridgeTown_Gym_1F_Text_ExplainOverheat:
-	.string "La CT50 contient SURCHAUFFE.\p"
-	.string "Cette attaque inflige de sérieux\n"
-	.string "dégâts à l’adversaire.\p"
-	.string "En revanche, elle fait aussi baisser\n"
-	.string "l’ATTAQUE SPECIALE du POKéMON\l"
-	.string "qui l’utilise. Il faut éviter de l’utiliser\l"
-	.string "lors des longs combats.$"
+	.string "La MT50 contiene VAMPATA.\p"
+	.string "Questa mossa infligge un duro colpo\n"
+	.string "all’avversario.\p"
+	.string "Ma riduce drasticamente l’ATT. SP.\n"
+	.string "del POKéMON che la usa. Non è molto\l"
+	.string "adatta a lotte prolungate.$"
 
 LavaridgeTown_Gym_1F_Text_RegisteredFlannery:
-	.string "Vous avez enregistré le CHAMPION\n"
-	.string "D’ARENE ADRIANE dans le POKéNAV.$"
+	.string "Registrazione del CAPOPALESTRA\n"
+	.string "FIAMMETTA nel POKéNAV avvenuta.$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryPostBattle:
-	.string "Ta technique me rappelle quelqu’un…\p"
-	.string "Oh, je sais! Tu te bats comme NORMAN,\n"
-	.string "le CHAMPION D’ARENE de CLEMENTI-VILLE.$"
+	.string "La tua forza mi ricorda qualcuno…\p"
+	.string "Oh! Ora ho capito! Lotti come NORMAN,\n"
+	.string "il CAPOPALESTRA di PETALIPOLI.$"
 
 LavaridgeTown_Gym_1F_Text_GymStatue:
-	.string "ARENE POKéMON de VERMILAVA$"
+	.string "PALESTRA POKéMON di CUORDILAVA$"
 
 LavaridgeTown_Gym_1F_Text_GymStatueCertified:
-	.string "ARENE POKéMON de VERMILAVA\p"
-	.string "NOUVEAU DRESSEUR RECONNU PAR ADRIANE:\n"
+	.string "PALESTRA POKéMON di CUORDILAVA\p"
+	.string "ALLENATORE CERTIFICATO da FIAMMETTA:\n"
 	.string "{PLAYER}$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryPreRematch:
-	.string "ADRIANE: Je ne vais pas me dégonfler\n"
-	.string "après une défaite.\p"
-	.string "J’aime les POKéMON.\n"
-	.string "J’aime me battre.\l"
-	.string "Et surtout… j’adore cette ARENE!\p"
-	.string "Allez, que la fièvre du combat s’empare\n"
-	.string "de nous!$"
+	.string "FIAMMETTA: Non mi demoralizzo perché\n"
+	.string "ho perso una lotta.\p"
+	.string "Adoro i POKéMON.\n"
+	.string "Amo la lotta.\l"
+	.string "Questa PALESTRA è tutta la mia vita!\p"
+	.string "Scambiamoci mosse arroventate\n"
+	.string "in un’altra lotta!$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat:
-	.string "Waouh!\n"
-	.string "Un vrai volcan en éruption!$"
+	.string "Ahh!\n"
+	.string "Sto per scoppiare!$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryPostRematch:
-	.string "ADRIANE: J’ai perdu, mais j’ai eu ce\n"
-	.string "que je voulais.\p"
-	.string "Ce combat était chaud comme la\n"
-	.string "braise.\p"
-	.string "J’espère qu’il y en aura encore\n"
-	.string "beaucoup d’autres!$"
+	.string "FIAMMETTA: Ho perso la lotta, ma\n"
+	.string "sono pienamente soddisfatta.\p"
+	.string "Non capita tutti i giorni di lottare\n"
+	.string "con tanto ardore.\p"
+	.string "Spero di lottare ancora con te\n"
+	.string "in questo modo!$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons:
-	.string "ADRIANE: Je ne vais pas me dégonfler\n"
-	.string "après une défaite.\p"
-	.string "J’aime les POKéMON.\n"
-	.string "J’aime me battre.\l"
-	.string "Et surtout… j’adore cette ARENE!\p"
-	.string "Allez, que le feu du combat s’empare\n"
-	.string "de nous!\p"
-	.string "Mais, attends. Tu n’as qu’un seul\n"
-	.string "POKéMON qui peut se battre?\p"
-	.string "Désolée, mais je ne me battrai pas tant\n"
-	.string "que tu n’en auras pas au moins deux.$"
+	.string "FIAMMETTA: Non mi demoralizzo perché\n"
+	.string "ho perso una lotta.\p"
+	.string "Adoro i POKéMON.\n"
+	.string "Amo la lotta.\l"
+	.string "Questa PALESTRA è tutta la mia vita!\p"
+	.string "Scambiamoci mosse arroventate\n"
+	.string "in un’altra lotta!\p"
+	.string "Aspetta. Hai solo un POKéMON da\n"
+	.string "mandare in campo?\p"
+	.string "Mi dispiace dovertelo dire, ma devi\n"
+	.string "portare almeno due POKéMON.$"

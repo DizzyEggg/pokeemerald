@@ -32,22 +32,22 @@ SootopolisCity_House6_EventScript_NoRoomForWailmerDoll::
 	end
 
 SootopolisCity_House6_Text_FirstGuestInWhileTakeDoll:
-	.string "Bonjour! Vous êtes la première personne\n"
-	.string "à venir chez nous depuis longtemps.\p"
-	.string "Comme vous illuminez ma journée, je\n"
-	.string "vous offre une grande POUPEE WAILMER.$"
+	.string "Ciao! Era da un po’ che non avevamo\n"
+	.string "clienti.\p"
+	.string "Mi hai illuminato la giornata, quindi ti\n"
+	.string "meriti questa BAMBOLA WAILMER.$"
 
 SootopolisCity_House6_Text_TakeGoodCareOfIt:
-	.string "Prenez-en soin!$"
+	.string "Abbine cura!$"
 
 SootopolisCity_House6_Text_IllHoldItForYou:
-	.string "Oh, vous la voulez, mais pas maintenant?\n"
-	.string "D’accord. Je vous la mets de côté.$"
+	.string "Oh, la vuoi, ma non ora?\n"
+	.string "Ok, te la terrò qui.$"
 
 SootopolisCity_House6_Text_DontWantThisDoll:
-	.string "C’est sûr?\n"
-	.string "Vous ne voulez pas de cette POUPEE?$"
+	.string "Davvero?\n"
+	.string "Non vuoi questa BAMBOLA?$"
 
 SootopolisCity_House6_Text_LovePlushDolls:
-	.string "J’adore les POUPEE en peluche!$"
+	.string "Adoro le BAMBOLE di pezza!$"
 

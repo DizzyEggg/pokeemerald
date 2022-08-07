@@ -494,141 +494,141 @@ BattleFrontier_BattleArenaBattleRoom_Movement_GretaWalkBackToCenter:
 	step_end
 
 BattleFrontier_BattleArenaBattleRoom_Text_PlayerStepForward:
-	.string "ARBITRE: DRESSEUR {PLAYER}!\n"
-	.string "Avancez, je vous prie!$"
+	.string "ARBITRO: {PLAYER}, fai un passo\n"
+	.string "avanti!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_OpponentStepForward:
-	.string "ARBITRE: DRESSEUR {STR_VAR_1}!\n"
-	.string "Avancez, je vous prie!$"
+	.string "ARBITRO: {STR_VAR_1}, fai un passo\n"
+	.string "avanti!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_SetKOTourneyBegin:
-	.string "ARBITRE: Allez-y!$"
+	.string "ARBITRO: Diamo inizio all’incontro!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_WinnerIsPlayer:
-	.string "ARBITRE: Le vainqueur est {PLAYER}!$"
+	.string "ARBITRO: La vittoria va a {PLAYER}!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_WinnerIsOpponent:
-	.string "ARBITRE: Le vainqueur est {STR_VAR_1}!$"
+	.string "ARBITRO: La vittoria va a {STR_VAR_1}!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_MonsWillBeRestored:
-	.string "Je vais soigner vos POKéMON.$"
+	.string "I tuoi POKéMON verranno rimessi\n"
+	.string "in sesto.$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_ReadyFor2ndOpponent:
-	.string "Votre deuxième adversaire est prêt!\n"
-	.string "On continue?$"
+	.string "Ti attende il secondo rivale!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_ReadyFor3rdOpponent:
-	.string "Votre troisième adversaire est prêt!\n"
-	.string "On continue?$"
+	.string "Ti attende il terzo rivale!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_ReadyFor4thOpponent:
-	.string "Votre quatrième adversaire est prêt!\n"
-	.string "On continue?$"
+	.string "Ti attende il quarto rivale!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_ReadyFor5thOpponent:
-	.string "Votre cinquième adversaire est prêt!\n"
-	.string "On continue?$"
+	.string "Ti attende il quinto rivale!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_ReadyFor6thOpponent:
-	.string "Votre sixième adversaire est prêt!\n"
-	.string "On continue?$"
+	.string "Ti attende il sesto rivale!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_ReadyFor7thOpponent:
-	.string "Votre septième adversaire est prêt!\n"
-	.string "On continue?$"
+	.string "Ti attende il settimo rivale!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_SaveAndShutDown:
-	.string "Voulez-vous sauvegarder la partie et\n"
-	.string "arrêter de jouer?$"
+	.string "Vuoi salvare e interrompere il gioco?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_RetireFromChallenge:
-	.string "Voulez-vous abandonner ce\n"
-	.string "TOURNOI K.O.?$"
+	.string "Vuoi ritirarti dalla sfida\n"
+	.string "TORNEO TRE TURNI?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_SavingPleaseWait:
-	.string "Je sauvegarde vos données.\n"
-	.string "Veuillez patienter.$"
+	.string "Sto salvando i tuoi dati di gioco.\n"
+	.string "Attendi.$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_RecordLastBattle:
-	.string "Voulez-vous enregistrer votre dernier\n"
-	.string "combat sur votre PASSE ZONE?$"
+	.string "Vuoi che il filmato della tua ultima\n"
+	.string "lotta venga registrato nel PASS PARCO?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_NowFaceTycoon:
-	.string "Cher DRESSEUR, votre technique\n"
-	.string "est vraiment stupéfiante!\p"
-	.string "Nous aimerions que vous affrontiez\n"
-	.string "notre chef, la PRO DU DOJO!$"
+	.string "Mio caro ALLENATORE!\p"
+	.string "Le tue capacità sono straordinarie!\p"
+	.string "Ti concediamo l’onore di lottare contro\n"
+	.string "la nostra MAESTRA DOJO!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_PreparedForTycoon:
-	.string "Un combat contre la PRO DU DOJO!\n"
-	.string "On peut commencer?$"
+	.string "Una lotta contro la MAESTRA DOJO!\n"
+	.string "Te la senti?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_MakeWayForGreta:
-	.string "ARBITRE: Voici la PRO DU DOJO!\n"
-	.string "Faites place à CAROLE!$"
+	.string "ARBITRO: Ecco la nostra MAESTRA DOJO,\n"
+	.string "VALENTINA!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_GretaYoureChallenger:
-	.string "CAROLE: Hé!\n"
-	.string "Salut!\p"
-	.string "Attends… Je dois me battre contre toi?$"
+	.string "VALENTINA: Ehi!\n"
+	.string "Salve!\p"
+	.string "Sei tu che vuoi sfidarmi?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_IsThatRight:
-	.string "Sérieusement? Hum…$"
+	.string "Davvero? Uhm… uhm…$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_YouLookWeakTakeThingsEasy:
-	.string "Je ne veux pas te vexer, mais…\n"
-	.string "Tu as l’air plutôt faible.\l"
-	.string "Tu penses être à la hauteur?\p"
-	.string "Hum, hum…\p"
-	.string "Très bien!\n"
-	.string "On va commencer en douceur!$"
+	.string "Non so come dirtelo, ma hai\n"
+	.string "un aspetto debole.\l"
+	.string "Sarai alla mia altezza?\p"
+	.string "Uhm…\p"
+	.string "Vabbè!\n"
+	.string "Cercherò di non infierire!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_IgniteMyPassionForBattle:
-	.string "Allez! Tu me donnes envie de me battre!$"
+	.string "Okay! Hai acceso il mio spirito\n"
+	.string "combattivo!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_GretaYoureToughAfterAll:
-	.string "CAROLE: Attends!\n"
-	.string "Mais tu n’es pas si faible que ça!\p"
-	.string "Je t’aime bien, tiens!\n"
-	.string "Montre-moi ton PASSE ZONE.$"
+	.string "VALENTINA: Ehi, aspetta un attimo!\n"
+	.string "Sei forte, nonostante le apparenze!\p"
+	.string "Mi piaci!\n"
+	.string "Mostrami il tuo PASS PARCO.$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_ReceivedGutsSymbol:
-	.string "Le SYMBOLE CRAN a été ajouté sur le\n"
-	.string "PASSE ZONE!$"
+	.string "Il SIMBOLO VALORE è stato aggiunto\n"
+	.string "al PASS PARCO!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_GoingToBeFunNextTime:
-	.string "Hum…\p"
-	.string "On s’amusera bien la prochaine fois!\n"
-	.string "J’ai hâte!$"
+	.string "Uhm…\p"
+	.string "La prossima volta ci sarà da divertirsi!\n"
+	.string "Non vedo l’ora!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_GretaLookingForwardToSeeingAgain:
-	.string "CAROLE: Hé! Salut!\n"
-	.string "Te revoilà enfin!\p"
-	.string "Je commençais à m’inquiéter!\n"
-	.string "Je pensais que tu m’avais oubliée!$"
+	.string "VALENTINA: Ehi! Salve!\n"
+	.string "Finalmente ce l’hai fatta!\p"
+	.string "L’attesa è stata snervante! Non vedevo\n"
+	.string "l’ora di incontrarti di nuovo!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_SoAreYouReady:
-	.string "… … …\n"
-	.string "Bon, on y va?$"
+	.string "… … … te la senti?$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_WontAllowHalfheartedEffort:
-	.string "Je ne te ferai pas de cadeau!\n"
-	.string "Surveille tes arrières!$"
+	.string "Non accetto le mezze misure!\n"
+	.string "Preparati a una lotta molto accesa!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_LetsGetThisStarted:
-	.string "Oh, l’ARBITRE, on le commence,\n"
-	.string "ce combat!?!$"
+	.string "Forza, ARBITRO!\n"
+	.string "Diamo inizio alla lotta!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_GretaBlownAway:
-	.string "CAROLE: Ahhh! Ecrasée!\n"
-	.string "Donne-moi ton PASSE ZONE!$"
+	.string "VALENTINA: Aaah! Che delusione!\n"
+	.string "Mostrami il tuo PASS PARCO!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_GutsSymbolTookGoldenShine:
-	.string "Le SYMBOLE CRAN a pris une belle\n"
-	.string "couleur dorée!$"
+	.string "Il SIMBOLO VALORE si è colorato\n"
+	.string "d’oro!$"
 
 BattleFrontier_BattleArenaBattleRoom_Text_IfWeBattleAgainWontLose:
-	.string "Ahhhh!\n"
-	.string "Ce que c’est rageant!\p"
-	.string "La prochaine fois, je gagnerai!\n"
-	.string "Ça je peux te l’assurer!$"
+	.string "Arrrgh!\n"
+	.string "Sono così arrabbiata!\p"
+	.string "Questa è l’ultima volta che perdo\n"
+	.string "contro di te! Promesso! Ciao!$"

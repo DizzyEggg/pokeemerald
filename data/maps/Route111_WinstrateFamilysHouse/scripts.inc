@@ -62,47 +62,45 @@ Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection::
 	end
 
 Route111_WinstrateFamilysHouse_Text_MySonIsStrongerThanYou:
-	.string "C’est la première fois que je vois un\n"
-	.string "DRESSEUR qui maîtrise aussi bien\l"
-	.string "ses POKéMON.\p"
-	.string "Mais il vaut mieux que je te prévienne,\n"
-	.string "mon fils est plus fort que toi.\p"
-	.string "Il a même relevé le défi de la LIGUE\n"
-	.string "POKéMON, j’te signale.$"
+	.string " la prima volta che vedo un ALLENATORE\n"
+	.string "usare i POKéMON con tanta maestria.\p"
+	.string "Ma lasciamelo dire: mio figlio è più forte\n"
+	.string "di te.\p"
+	.string "Devi sapere che ha persino sfidato\n"
+	.string "la LEGA POKéMON!$"
 
 Route111_WinstrateFamilysHouse_Text_LikeYouToHaveMachoBrace:
-	.string "Nous utilisons ce BRAC. MACHO\n"
-	.string "pour améliorer l’entraînement\l"
-	.string "de nos POKéMON.\p"
-	.string "Je ne sais pas si tu en auras besoin,\n"
-	.string "mais comme tu nous as tous battus ici,\l"
-	.string "nous t’offrons notre BRAC. MACHO.$"
+	.string "Usiamo CRESCICAPPA per rafforzare i\n"
+	.string "nostri POKéMON durante l’allenamento.\p"
+	.string "Avendo battuto tutta la nostra\n"
+	.string "famiglia, vorrei darti CRESCICAPPA!\l"
+	.string "Magari ti può essere utile…$"
 
 Route111_WinstrateFamilysHouse_Text_PassionateAboutBattles:
-	.string "Lorsqu’on parle de combats de POKéMON,\n"
-	.string "on est souvent très passionnés.$"
+	.string "Sulle lotte di POKéMON non si scherza!\n"
+	.string "Le prendiamo molto seriamente.$"
 
 Route111_WinstrateFamilysHouse_Text_StrongerFamilyMembers:
-	.string "Maman est plus forte que papa.\p"
-	.string "Je suis plus forte que maman.\p"
-	.string "Et mémé est plus forte que moi!\p"
-	.string "Mais mon grand frère est encore plus\n"
-	.string "fort que mémé.$"
+	.string "Mamma è più forte di papà.\p"
+	.string "Io sono più forte di mamma!\p"
+	.string "E la nonna è più forte di me!\p"
+	.string "Ma il mio fratellone è addirittura più\n"
+	.string "forte della nonna!$"
 
 Route111_WinstrateFamilysHouse_Text_GrandsonStrong:
-	.string "Aucun doute, tu es très robuste.\p"
-	.string "Mais si tu te mesurais à mon petit-fils,\n"
-	.string "tu pleurerais comme un bébé.\p"
-	.string "Notre famille n’a jamais vu un DRESSEUR\n"
-	.string "aussi fort que lui.\p"
-	.string "En ce moment, il doit défier le MAITRE\n"
-	.string "de la LIGUE POKéMON.\p"
-	.string "Tel que je connais mon petit-fils, il est\n"
-	.string "peut-être déjà le MAITRE!$"
+	.string "Certo che sei forte!\p"
+	.string "Ma se ti confrontassi con mio nipote,\n"
+	.string "finiresti per versare lacrime amare.\p"
+	.string "È molto più forte di qualsiasi\n"
+	.string "ALLENATORE che conosciamo.\p"
+	.string "Ora starà già affrontando il CAMPIONE\n"
+	.string "della LEGA POKéMON.\p"
+	.string "Conoscendo mio nipote,\n"
+	.string "magari è già il CAMPIONE!$"
 
 Route111_WinstrateFamilysHouse_Text_GrandsonStrongShort:
-	.string "En ce moment, mon petit-fils doit défier\n"
-	.string "le MAITRE de la LIGUE POKéMON.\p"
-	.string "Tel que je le connais, il est\n"
-	.string "peut-être déjà le MAITRE!$"
+	.string "Ora mio nipote starà già affrontando\n"
+	.string "il CAMPIONE della LEGA POKéMON.\p"
+	.string "Conoscendolo, magari è già\n"
+	.string "il CAMPIONE!$"
 

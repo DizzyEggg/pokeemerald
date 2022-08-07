@@ -542,51 +542,52 @@ LilycoveCity_Harbor_Movement_SailorBoardWithBrineyEast:
 	step_end
 
 LilycoveCity_Harbor_Text_FerryUnavailable:
-	.string "Je vous demande pardon?\n"
-	.string "Vous cherchez un bateau?\p"
-	.string "Désolée, vous ne pouvez pas embarquer\n"
-	.string "sur le ferry pour le moment.$"
+	.string "Che cosa hai detto?\n"
+	.string "Stai cercando una nave?\p"
+	.string "Spiacente, il servizio traghetto non è\n"
+	.string "disponibile al momento…$"
 
 LilycoveCity_Harbor_Text_MayISeeYourTicket:
-	.string "Bonjour. C’est pour le ferry?\n"
-	.string "Puis-je voir votre PASSE BATEAU?$"
+	.string "Ciao, sei qui per prendere il traghetto?\n"
+	.string "Mi fai vedere il BIGLIETTO?$"
 
 LilycoveCity_Harbor_Text_NoTicket:
-	.string "{PLAYER} n’a pas le PASSE BATEAU…\p"
-	.string "Je suis désolée.\p"
-	.string "Il vous faut un PASSE BATEAU pour\n"
-	.string "embarquer sur le ferry.$"
+	.string "{PLAYER} non ha il BIGLIETTO…\p"
+	.string "Spiacente.\p"
+	.string "Devi avere il BIGLIETTO per imbarcarti\n"
+	.string "sul traghetto.$"
 
 LilycoveCity_Harbor_Text_FlashTicketWhereTo:
-	.string "{PLAYER} montre le PASSE BATEAU…\p"
-	.string "Parfait! Tout y est!\p"
-	.string "Et où souhaitez-vous aller?$"
+	.string "{PLAYER} mostra il BIGLIETTO.\p"
+	.string "Perfetto! Non hai bisogno d’altro!\p"
+	.string "Dove desideri andare?$"
 
 LilycoveCity_Harbor_Text_SailAnotherTime:
-	.string "Revenez une autre fois!$"
+	.string "Spero di rivederti un’altra volta!$"
 
 LilycoveCity_Harbor_Text_SlateportItIs:
-	.string "Alors, cap sur POIVRESSEL!$"
+	.string "Ok, si salpa per PORTO SELCEPOLI!$"
 
 LilycoveCity_Harbor_Text_BattleFrontierItIs:
-	.string "Alors, cap sur la ZONE DE COMBAT!$"
+	.string "Ok, si salpa per il PARCO LOTTA!$"
 
 LilycoveCity_Harbor_Text_PleaseBoard:
-	.string "Veuillez monter sur le ferry et\n"
-	.string "attendre le départ.$"
+	.string "Sali pure sul traghetto e attendi\n"
+	.string "la partenza.$"
 
 LilycoveCity_Harbor_Text_WhereWouldYouLikeToGo:
-	.string "Alors, où souhaiteriez-vous aller?$"
+	.string "Dove vorresti andare allora?$"
 
 LilycoveCity_Harbor_Text_SailorFerryUnavailable:
-	.string "Nous, les marins, nous ne pouvons rien\n"
-	.string "faire tant que le ferry n’est pas fini…\p"
-	.string "J’espère qu’ils vont s’activer, les gars\n"
-	.string "du CHANTIER NAVAL de POIVRESSEL.$"
+	.string "Fino a quando il traghetto non è finito,\n"
+	.string "noi marinai stiamo con le mani in mano…\p"
+	.string "Spero che al CANTIERE di SELCEPOLI\n"
+	.string "facciano in fretta.$"
 
 LilycoveCity_Harbor_Text_SailorFerryAvailable:
-	.string "Le ferry LE MARINA est enfin\n"
-	.string "opérationnel.\p"
-	.string "Les gens du CHANTIER NAVAL de\n"
-	.string "POIVRESSEL ont dû travailler dur.\p"
-	.string "Maintenant, à mon tour de bosser!$"
+	.string "Il traghetto M/N MAREA è finalmente\n"
+	.string "operativo.\p"
+	.string "Al CANTIERE di SELCEPOLI\n"
+	.string "hanno lavorato di buona lena.\p"
+	.string "Beh, ora tocca a me rimboccarmi\n"
+	.string "le maniche!$"

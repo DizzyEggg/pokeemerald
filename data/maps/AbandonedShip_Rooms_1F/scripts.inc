@@ -32,51 +32,46 @@ AbandonedShip_Rooms_1F_EventScript_ThaliaRematch::
 	end
 
 AbandonedShip_Rooms_1F_Text_TakingALookAround:
-	.string "Les bateaux de ce genre sont rares,\n"
-	.string "alors je vais y jeter un coup d’œil.\p"
-	.string "Hum…\n"
-	.string "On dirait qu’il y a d’autres cabines…$"
+	.string "Navi come questa sono rare, quindi\n"
+	.string "sto facendo un tour panoramico.\p"
+	.string "Uhm, uhm… sembrano esserci\n"
+	.string "altre cabine…$"
 
 AbandonedShip_Rooms_1F_Text_ThaliaIntro:
-	.string "Qu’est-ce qui a bien pu te pousser\n"
-	.string "à venir ici?\p"
-	.string "Tu ne sais pas que la curiosité est\n"
-	.string "un vilain défaut?$"
+	.string "Che cosa ti ha spinto fino a qui? Devi\n"
+	.string "essere un tipo curioso!$"
 
 AbandonedShip_Rooms_1F_Text_ThaliaDefeat:
-	.string "Et plutôt tenace en plus de ça!$"
+	.string "Un tipo curioso e forte…$"
 
 AbandonedShip_Rooms_1F_Text_ThaliaPostBattle:
-	.string "L’homme d’à côté…\p"
-	.string "Il dit qu’il est juste là pour voir le\n"
-	.string "paysage, mais j’ai du mal à le croire.$"
+	.string "L’uomo che sta qui a fianco…\p"
+	.string "dice che sta solo guardandosi in giro,\n"
+	.string "ma io non ci credo.$"
 
 AbandonedShip_Rooms_1F_Text_ThaliaRegister:
-	.string "Tu es si jeune pour un DRESSEUR!\n"
-	.string "Laisse-moi t’enregistrer!$"
+	.string "Sei un ALLENATORE fortissimo!\n"
+	.string "Ti registrerò per non dimenticarmi!$"
 
 AbandonedShip_Rooms_1F_Text_ThaliaRematchIntro:
-	.string "Qu’est-ce qui a bien pu te pousser\n"
-	.string "à revenir ici?\p"
-	.string "Quelle curiosité, ma parole!$"
+	.string "Che cosa ti ha spinto a tornare? Devi\n"
+	.string "essere un tipo molto curioso!$"
 
 AbandonedShip_Rooms_1F_Text_ThaliaRematchDefeat:
-	.string "C’est normal d’avoir tant de force\n"
-	.string "dans un si petit corps?$"
+	.string "Ma non sei troppo forte?$"
 
 AbandonedShip_Rooms_1F_Text_ThaliaPostRematch:
-	.string "Je suis sûre que cet homme cherche\n"
-	.string "quelque chose. Il est vraiment étrange!$"
+	.string "Sono sicura che quel tizio ha in mente\n"
+	.string "qualcosa. Si comporta in modo sospetto.$"
 
 AbandonedShip_Rooms_1F_Text_DemetriusIntro:
-	.string "Waaah!\n"
-	.string "Tu m’as trouvé!$"
+	.string "Aaah!\n"
+	.string "Mi hanno trovato! … Eh?$"
 
 AbandonedShip_Rooms_1F_Text_DemetriusDefeat:
-	.string "Oh, t’es pas ma maman toi!$"
+	.string "Oh, non sei la mia mamma.$"
 
 AbandonedShip_Rooms_1F_Text_DemetriusPostBattle:
-	.string "J’ai peur de me faire gronder, alors\n"
-	.string "je me cache…\p"
-	.string "Tu diras rien, d’accord?$"
+	.string "Ho un problema con la mia mamma.\n"
+	.string "Sono scappato, non dire dove sono!$"
 

@@ -51,37 +51,38 @@ PacifidlogTown_House3_EventScript_Girl::
 	end
 
 PacifidlogTown_House3_Text_WillingToTradeIt:
-	.string "Regarde-moi ce {STR_VAR_2}!\p"
-	.string "Je l’ai attrapé hier pour fêter mon\n"
-	.string "anniversaire!\p"
-	.string "Il te plaît, on dirait!\n"
-	.string "Comme je te comprends…\p"
-	.string "Bon… J’accepterais peut-être\n"
-	.string "de l’échanger contre un {STR_VAR_1}.$"
+	.string "Guarda questo {STR_VAR_2}!\p"
+	.string "L’ho catturato ieri per festeggiare\n"
+	.string "il mio compleanno!\p"
+	.string "Dal tuo sguardo capisco che lo vuoi!\n"
+	.string "Un POKéMON così non ha prezzo!\p"
+	.string "Sai una cosa? Ti propongo uno scambio\n"
+	.string "con {STR_VAR_1}.$"
 
 PacifidlogTown_House3_Text_ItsSubtlyDifferentThankYou:
-	.string "Oh, c’est un {STR_VAR_1}?\p"
-	.string "Ça ressemble à un {STR_VAR_2}, la\n"
-	.string "différence est subtile.\p"
-	.string "Merci!$"
+	.string "Questo sarebbe {STR_VAR_1}?\p"
+	.string "Assomiglia a {STR_VAR_2},\n"
+	.string "ma noto qualche sottile differenza.\p"
+	.string "Grazie!$"
 
 PacifidlogTown_House3_Text_WontAcceptAnyLessThanRealMon:
-	.string "Non, non et non! Un {STR_VAR_1}\n"
-	.string "sinon rien!$"
+	.string "No, no, no! Voglio solo un vero\n"
+	.string "{STR_VAR_1}!$"
 
 PacifidlogTown_House3_Text_NotDesperateOrAnything:
-	.string "Oh, pas d’échange alors?\p"
-	.string "Pas de problème. Je n’insiste pas.$"
+	.string "Quindi ti stai tirando indietro?\p"
+	.string "Non importa. Se non vuoi fare\n"
+	.string "lo scambio non mi dispero.$"
 
 PacifidlogTown_House3_Text_ReallyWantedToGetBagon:
-	.string "Je sais que j’aurais pu m’en trouver un\n"
-	.string "moi-même…\p"
-	.string "Mais je voulais un DRABY attrapé par un\n"
-	.string "autre DRESSEUR…$"
+	.string "So che potrei cercarlo anche\n"
+	.string "per conto mio…\p"
+	.string "Ma volevo un BAGON catturato da\n"
+	.string "un altro ALLENATORE…$"
 
 PacifidlogTown_House3_Text_IsThatAPokedex:
-	.string "C’est un POKéDEX?\p"
-	.string "Tu as rencontré beaucoup de POKéMON\n"
-	.string "différents?\p"
-	.string "J’aimerais bien être comme toi.$"
+	.string "Ma quello è un POKéDEX?\p"
+	.string "Hai occasione di vedere molti\n"
+	.string "POKéMON diversi?\p"
+	.string "Magari fossi come te!$"
 

@@ -445,28 +445,28 @@ BattleFrontier_BattleTowerMultiBattleRoom_Movement_WalkInPlaceLeft:
 	step_end
 
 BattleFrontier_BattleTowerMultiBattleRoom_Text_ReadyFor2ndOpponentSet:
-	.string "La deuxième équipe adverse est prête.\n"
-	.string "Pouvons-nous commencer?$"
+	.string "La 2ª coppia di avversari è pronta.\n"
+	.string "Andiamo avanti?$"
 
 BattleFrontier_BattleTowerMultiBattleRoom_Text_ReadyFor3rdOpponentSet:
-	.string "La troisième équipe adverse est prête.\n"
-	.string "Pouvons-nous commencer?$"
+	.string "La 3ª coppia di avversari è pronta.\n"
+	.string "Andiamo avanti?$"
 
 BattleFrontier_BattleTowerMultiBattleRoom_Text_ReadyFor4thOpponentSet:
-	.string "La quatrième équipe adverse est prête.\n"
-	.string "Pouvons-nous commencer?$"
+	.string "La 4ª coppia di avversari è pronta.\n"
+	.string "Andiamo avanti?$"
 
 BattleFrontier_BattleTowerMultiBattleRoom_Text_ReadyFor5thOpponentSet:
-	.string "La cinquième équipe adverse est prête.\n"
-	.string "Pouvons-nous commencer?$"
+	.string "La 5ª coppia di avversari è pronta.\n"
+	.string "Andiamo avanti?$"
 
 BattleFrontier_BattleTowerMultiBattleRoom_Text_ReadyFor6thOpponentSet:
-	.string "La sixième équipe adverse est prête.\n"
-	.string "Pouvons-nous commencer?$"
+	.string "La 6ª coppia di avversari è pronta.\n"
+	.string "Andiamo avanti?$"
 
 BattleFrontier_BattleTowerMultiBattleRoom_Text_ReadyFor7thOpponentSet:
-	.string "La septième équipe adverse est prête.\n"
-	.string "Pouvons-nous commencer?$"
+	.string "La 7ª coppia di avversari è pronta.\n"
+	.string "Andiamo avanti?$"
 
 @ Unused
 BattleFrontier_BattleTowerMultiBattleRoom_Text_2ndOpponentSetNext:
@@ -499,9 +499,9 @@ BattleFrontier_BattleTowerMultiBattleRoom_Text_7thOpponentSetNext:
 	.string "Do your best!$"
 
 gText_LinkStandby3::
-	.string "Connexion…$"
+	.string "In attesa di collegamento…$"
 
 gText_YourPartnerHasRetired::
-	.string "Votre partenaire a arrêté.\p"
-	.string "Votre défi dans la SALLE DE\n"
-	.string "COMBAT va être annulé.$"
+	.string "L’altro ALLENATORE si è ritirato.\p"
+	.string "La tua sfida alla SALA LOTTA è\n"
+	.string "stata annullata.$"

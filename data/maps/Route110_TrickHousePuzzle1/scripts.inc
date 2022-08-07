@@ -37,42 +37,38 @@ Route110_TrickHousePuzzle1_EventScript_Robin::
 	end
 
 Route110_TrickHousePuzzle1_Text_WroteSecretCodeLockOpened::
-	.string "{PLAYER} écrit le code secret\n"
-	.string "sur la porte.\p"
-	.string "“Le MAITRE DES PIEGES est formidable.”\n"
-	.string "… … … … … … … …\p"
-	.string "La porte s’ouvre!$"
+	.string "e!$"
 
 Route110_TrickHousePuzzle1_Text_SallyIntro:
-	.string "Grâce à COUPE, que je viens d’apprendre,\n"
-	.string "je vais vaincre à la force de ma lame!$"
+	.string "Mi farò strada verso la vittoria\n"
+	.string "con un colpo di TAGLIO!$"
 
 Route110_TrickHousePuzzle1_Text_SallyDefeat:
-	.string "Pourquoi as-tu l’air si sérieux?$"
+	.string "Perché non sorridi un po’?$"
 
 Route110_TrickHousePuzzle1_Text_SallyPostBattle:
-	.string "Je ne me lasse pas de trancher,\n"
-	.string "découper et taillader!$"
+	.string "Non mi stanco mai di tagliare\n"
+	.string "e tranciare!$"
 
 Route110_TrickHousePuzzle1_Text_EddieIntro:
-	.string "Je me suis retrouvé dans cette étrange\n"
-	.string "maison par hasard…$"
+	.string "Sono finito in questo strano posto\n"
+	.string "per puro caso…$"
 
 Route110_TrickHousePuzzle1_Text_EddieDefeat:
-	.string "Et maintenant, j’ai perdu…$"
+	.string "E ora ho pure perso…$"
 
 Route110_TrickHousePuzzle1_Text_EddiePostBattle:
-	.string "J’ai perdu mon chemin, un combat et\n"
-	.string "la tête… Je n’arrive pas à sortir…$"
+	.string "Ho perso la lotta, mi sono perso e ora\n"
+	.string "sono proprio perso! Come si esce da qui?$"
 
 Route110_TrickHousePuzzle1_Text_RobinIntro:
-	.string "Mais qui est le MAITRE DES PIEGES?$"
+	.string "Ma chi è questo MAGO del QUIZ?$"
 
 Route110_TrickHousePuzzle1_Text_RobinDefeat:
-	.string "Tu as gagné parce que j’étais perdue\n"
-	.string "dans mes pensées!$"
+	.string "Ho perso perché ero persa\n"
+	.string "nei miei pensieri!$"
 
 Route110_TrickHousePuzzle1_Text_RobinPostBattle:
-	.string "Tu es balèze!\n"
-	.string "Mais qui es-tu, au juste?$"
+	.string "Tu sì che sei forte!\n"
+	.string "Ma chi sei?$"
 

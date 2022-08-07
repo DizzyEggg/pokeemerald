@@ -284,54 +284,54 @@ Route124_DivingTreasureHuntersHouse_EventScript_ShardTradeBoard::
 	end
 
 Route124_DivingTreasureHuntersHouse_Text_Greeting:
-	.string "Je suis le CHERCHEUR DE TRESORS!\p"
-	.string "C’est moi, le type incroyable qui plonge\n"
-	.string "dans les profondeurs océaniques pour\l"
-	.string "y trouver des trésors.$"
+	.string "Sono il SUB CERCATESORI!\p"
+	.string "Sono un tipo temerario che\n"
+	.string "scandaglia gli abissi marini alla\l"
+	.string "ricerca di tesori sui fondali.$"
 
 Route124_DivingTreasureHuntersHouse_Text_HaveYouSeenAnyShards:
-	.string "Dis-moi, as-tu trouvé des TESSONS\n"
-	.string "d’ustensiles anciens?$"
+	.string "Dimmi, hai visto per caso qualche\n"
+	.string "COCCIO di antichi strumenti?$"
 
 Route124_DivingTreasureHuntersHouse_Text_YouHaventGotAnyShards:
-	.string "Tu n’as aucun trésor pour moi…\p"
-	.string "Si tu trouves des TESSONS, comme\n"
-	.string "un TESSON ROUGE, viens me les échanger!$"
+	.string "Non hai alcun tesoro per me?\p"
+	.string "Se trovi dei COCCI, come i COCCI\n"
+	.string "ROSSI, devi scambiarli con me!$"
 
 Route124_DivingTreasureHuntersHouse_Text_ThatsAShardIllTradeYou:
-	.string "Hé, mais! C’est…\n"
-	.string "C’est un TESSON! J’en cherche!\p"
-	.string "Oh, s’il te plaît, échange-le moi!\n"
-	.string "Je te donnerai un super truc!$"
+	.string "Ehi! Ma quello… quello è un COCCIO!\n"
+	.string "Li sto cercando dappertutto!\p"
+	.string "Ehi, senti, me lo devi proprio dare!\n"
+	.string "In cambio ti darò qualcosa di speciale!$"
 
 Route124_DivingTreasureHuntersHouse_Text_WhatDoYouWantToTrade:
-	.string "Qu’est-ce que tu veux échanger?$"
+	.string "Cosa vuoi scambiare?$"
 
 Route124_DivingTreasureHuntersHouse_Text_YoullTradeShardForStone:
-	.string "Alors, on échange {STR_VAR_1} contre\n"
-	.string "{STR_VAR_2}, d’accord?$"
+	.string "Allora, vuoi scambiare il tuo\n"
+	.string "{STR_VAR_1} per la mia {STR_VAR_2}?$"
 
 Route124_DivingTreasureHuntersHouse_Text_ItsADeal:
-	.string "Tope là!\n"
-	.string "Fais-en bon usage!$"
+	.string "Affare fatto!\n"
+	.string "Fanne un uso oculato!$"
 
 Route124_DivingTreasureHuntersHouse_Text_TradeSomethingElse:
-	.string "Tu veux échanger autre chose?$"
+	.string "Vuoi scambiare qualcos’altro?$"
 
 Route124_DivingTreasureHuntersHouse_Text_BagFull:
-	.string "Mince, ton SAC est plein.\n"
-	.string "Enlève des objets, mon pote!$"
+	.string "Oops, hai lo ZAINO pieno!\n"
+	.string "Butta via qualcosa, volpe!$"
 
 Route124_DivingTreasureHuntersHouse_Text_ComeBackIfYouChangeMind:
-	.string "Non? Quelle déception!\n"
-	.string "Si tu changes d’avis, reviens me voir.$"
+	.string "No? Che peccato!\n"
+	.string "Beh, se cambi idea, sai dove trovarmi.$"
 
 Route124_DivingTreasureHuntersHouse_Text_ShardTradeBoard:
-	.string "{CLEAR_TO 2}Objet recherché{CLEAR_TO 112}Objet proposé\n"
-	.string "{CLEAR_TO 10}TESSON ROUGE{CLEAR_TO 89}{LEFT_ARROW}{RIGHT_ARROW}{CLEAR_TO 120}PIERRE FEU{CLEAR_TO 200}\p"
-	.string "{CLEAR_TO 2}Objet recherché{CLEAR_TO 112}Objet proposé\n"
-	.string "{CLEAR_TO 9}TESSON JAUNE{CLEAR_TO 89}{LEFT_ARROW}{RIGHT_ARROW}{CLEAR_TO 113}PIERREFOUDRE{CLEAR_TO 200}\p"
-	.string "{CLEAR_TO 2}Objet recherché{CLEAR_TO 112}Objet proposé\n"
-	.string "{CLEAR_TO 12}TESSON BLEU{CLEAR_TO 89}{LEFT_ARROW}{RIGHT_ARROW}{CLEAR_TO 120}PIERRE EAU{CLEAR_TO 200}\p"
-	.string "{CLEAR_TO 2}Objet recherché{CLEAR_TO 112}Objet proposé\n"
-	.string "{CLEAR_TO 12}TESSON VERT{CLEAR_TO 89}{LEFT_ARROW}{RIGHT_ARROW}{CLEAR_TO 113}PIERREPLANTE$"
+	.string "{CLEAR_TO 6}Strum. cercato{CLEAR_TO 104}Strum. di scambio\n"
+	.string "{CLEAR_TO 10}COCCIO ROSSO{CLEAR_TO 89}{LEFT_ARROW}{RIGHT_ARROW}{CLEAR_TO 113}PIETRAFOCAIA{CLEAR_TO 200}\p"
+	.string "{CLEAR_TO 6}Strum. cercato{CLEAR_TO 104}Strum. di scambio\n"
+	.string "{CLEAR_TO 6}COCCIO GIALLO{CLEAR_TO 89}{LEFT_ARROW}{RIGHT_ARROW}{CLEAR_TO 115}PIETRATUONO{CLEAR_TO 200}\p"
+	.string "{CLEAR_TO 6}Strum. cercato{CLEAR_TO 104}Strum. di scambio\n"
+	.string "{CLEAR_TO 15}COCCIO BLU{CLEAR_TO 89}{LEFT_ARROW}{RIGHT_ARROW}{CLEAR_TO 112}PIETRAIDRICA{CLEAR_TO 200}\p"
+	.string "{CLEAR_TO 6}Strum. cercato{CLEAR_TO 104}Strum. di scambio\n"
+	.string "{CLEAR_TO 9}COCCIO VERDE{CLEAR_TO 89}{LEFT_ARROW}{RIGHT_ARROW}{CLEAR_TO 114}PIETRAFOGLIA$"

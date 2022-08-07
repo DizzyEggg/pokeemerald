@@ -57,6 +57,6 @@ BattleFrontier_BattlePikeCorridor_Movement_AttendantEnterCorridor:
 	step_end
 
 BattleFrontier_BattlePikeCorridor_Text_YourChallengeHasBegun:
-	.string "Votre COMBAT HASARD a\n"
-	.string "commencé…$"
+	.string "La tua sfida LOTTA DILEMMA ha inizio\n"
+	.string "ora…$"
 

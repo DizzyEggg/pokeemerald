@@ -29,22 +29,22 @@ Route111_OldLadysRestStop_EventScript_DeclineRest::
 	end
 
 Route111_OldLadysRestStop_Text_RestUpHere:
-	.string "Oh, mon Dieu!\n"
-	.string "Tes POKéMON doivent être épuisés!\p"
-	.string "Si tu veux, tu peux les laisser se\n"
-	.string "reposer ici. Bonne idée, non?$"
+	.string "Oh, mamma mia… non sono stanchi\n"
+	.string "i tuoi POKéMON?\p"
+	.string "Qui puoi fare una pausa!\n"
+	.string "È una buona idea! Vuoi riposarti?$"
 
 Route111_OldLadysRestStop_Text_TakeYourTimeRestUp:
-	.string "Tu as raison.\n"
-	.string "Prends ton temps et repose-toi aussi!$"
+	.string "Esatto.\n"
+	.string "Fai una pausa e riposati un po’!$"
 
 Route111_OldLadysRestStop_Text_StillTiredTakeAnotherRest:
-	.string "Oh, mon Dieu!\n"
-	.string "Tes POKéMON sont toujours fatigués?\p"
-	.string "Tu devrais rester te reposer ici.\n"
-	.string "Bonne idée, n’est-ce pas?$"
+	.string "Oh, mamma mia… i tuoi POKéMON\n"
+	.string "sono ancora stanchi?\p"
+	.string "Riposati ancora un po’ qua da me!\n"
+	.string "È una buona idea! Avanti, riposati!$"
 
 Route111_OldLadysRestStop_Text_DontNeedToBeShy:
-	.string "Vraiment?\n"
-	.string "Ne sois pas timide.$"
+	.string "Davvero?\n"
+	.string "Beh, tanto meglio per te!$"
 

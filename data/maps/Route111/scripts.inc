@@ -574,158 +574,154 @@ Route111_EventScript_TrainerHillSign::
 	end
 
 Route111_Text_BattleOurFamily:
-	.string "Salut! Je suppose que tu voyages.\p"
-	.string "Que dirais-tu de livrer quatre\n"
-	.string "combats de POKéMON à la suite\l"
-	.string "avec les membres de notre famille?$"
+	.string "Salve! Sei in viaggio?\p"
+	.string "Che ne diresti di sfidare tutti e\n"
+	.string "quattro i membri della nostra famiglia,\l"
+	.string "uno dopo l’altro?$"
 
 Route111_Text_IsThatSo:
-	.string "C’est ce que tu veux?\n"
-	.string "Alors, repasse si tu changes d’avis!$"
+	.string "Davvero?\n"
+	.string "Torna se cambi idea!$"
 
 Route111_Text_VictorIntro:
-	.string "Bon esprit! J’aime ça!$"
+	.string "Sì, mi piace la tua grinta!$"
 
 Route111_Text_VictorDefeat:
-	.string "Aïe!\n"
-	.string "Tu es plus robuste que je ne le pensais!$"
+	.string "Ahi!\n"
+	.string "Sei più forte di quanto immaginassi!$"
 
 Route111_Text_VictorPostBattle:
-	.string "Hé, vous tous!\n"
-	.string "J’ai trouvé un DRESSEUR très fort!$"
+	.string "Ehi, avete visto che forza di\n"
+	.string "un ALLENATORE!$"
 
 Route111_Text_VictoriaIntro:
-	.string "Oh, ciel! Ce que tu es jeune!\p"
-	.string "Tu dois pourtant bien être un vrai\n"
-	.string "DRESSEUR pour avoir battu mon mari.\p"
-	.string "A mon tour de combattre maintenant!$"
+	.string "Ma sei veramente giovane!\p"
+	.string "Abbastanza forte da tenere testa a\n"
+	.string "mio marito, però!\p"
+	.string "Adesso è il mio turno!$"
 
 Route111_Text_VictoriaDefeat:
-	.string "Oh, mince alors! Je ne peux pas croire\n"
-	.string "que tu aies tant de force!$"
+	.string "Incredibile!\n"
+	.string "Impossibile che tu sia così forte!$"
 
 Route111_Text_VictoriaPostBattle:
-	.string "On a un DRESSEUR très fort!\n"
-	.string "Oui, drôlement fort!$"
+	.string "Quest’ALLENATORE è forte!\n"
+	.string "Davvero forte, vi dico!$"
 
 Route111_Text_ViviIntro:
-	.string "Tu as un meilleur niveau que maman?\n"
-	.string "Waouh!\p"
-	.string "Mais moi aussi, je suis forte!\n"
-	.string "Vraiment! Honnêtement!$"
+	.string "Sei più forte di mamma? Wow!\p"
+	.string "Ma lo sono anch’io!\n"
+	.string "Ti farò vedere io!$"
 
 Route111_Text_ViviDefeat:
-	.string "Hum? J’ai perdu?$"
+	.string "Oh, e così avrei perso?$"
 
 Route111_Text_ViviPostBattle:
-	.string "La honte…\p"
-	.string "… Sniff… Mémé!$"
+	.string "Che rabbia!\p"
+	.string "Mi viene da piangere… nonna!$"
 
 Route111_Text_VickyIntro:
-	.string "Comment? Tu oses faire pleurer ma\n"
-	.string "petite-fille!\p"
-	.string "Je vais te le faire payer!\n"
-	.string "Prépare-toi à perdre!$"
+	.string "Come osi far piangere la mia nipotina?\p"
+	.string "Te la farò pagare!\n"
+	.string "Preparati alla disfatta!$"
 
 Route111_Text_VickyDefeat:
-	.string "Ouh! Quelle puissance…\n"
-	.string "Ma petite-fille avait raison…$"
+	.string "Ehi! Che forza!\n"
+	.string "Aveva ragione mia nipote…$"
 
 Route111_Text_VickyPostBattle:
-	.string "Si tu as le temps, reste un peu avec\n"
-	.string "nous.$"
+	.string "Se non vai di fretta, resta a farci\n"
+	.string "compagnia per un po’.$"
 
 Route111_Text_ToughToKeepWinningUpTheRanks:
-	.string "Si tu ne fais pas progresser tes\n"
-	.string "POKéMON davantage, ça pourrait\l"
-	.string "devenir dur de passer les étapes.\p"
-	.string "J’ai entendu dire qu’au CONSEIL 4 de\n"
-	.string "la LIGUE POKéMON, ils sont bien plus\l"
-	.string "forts que n’importe quel CHAMPION.$"
+	.string "Devi allenare i tuoi POKéMON di più,\n"
+	.string "altrimenti sarà difficile continuare a\l"
+	.string "vincere a livelli superiori.\p"
+	.string "Ho sentito dire che i SUPERQUATTRO \n"
+	.string "della LEGA POKéMON sono più forti \l"
+	.string "di qualsiasi CAPOPALESTRA.$"
 
 Route111_Text_WinstrateFamilyDestroyedMe:
-	.string "Je me suis battu contre la famille\n"
-	.string "STRATEGE, mais quatre combats à la\l"
-	.string "suite, c’est trop dur. Ils m’ont anéanti.$"
+	.string "Ho sfidato la FAMIGLIA VINCI,\n"
+	.string "ma quattro lotte una dopo l’altra sono\l"
+	.string "troppe per me… mi hanno annientato.$"
 
 Route111_Text_RouteSignMauville:
-	.string "ROUTE 111\n"
-	.string "{DOWN_ARROW} LAVANDIA$"
+	.string "PERCORSO 111\n"
+	.string "{DOWN_ARROW} CICLAMIPOLI$"
 
 Route111_Text_WinstrateHouseSign:
-	.string "“Dans la famille, nous ne faisons\n"
-	.string "qu’un!” MAISON DE LA FAMILLE STRATEGE$"
+	.string "CASA della FAMIGLIA VINCI\n"
+	.string "“Una famiglia, un unico cuore!”.$"
 
 Route111_Text_RouteSign112:
-	.string "ROUTE 111\n"
-	.string "{LEFT_ARROW} ROUTE 112$"
+	.string "PERCORSO 111\n"
+	.string "{LEFT_ARROW} PERCORSO 112$"
 
 Route111_Text_RouteSign113:
-	.string "ROUTE 111\n"
-	.string "{LEFT_ARROW} ROUTE 113$"
+	.string "PERCORSO 111\n"
+	.string "{LEFT_ARROW} PERCORSO 113$"
 
 Route111_Text_OldLadysRestStopSign:
-	.string "GITE VIEILLE DAME\n"
-	.string "“Entrez et reposez vos vieux os.”$"
+	.string "OSTELLO della NONNINA\n"
+	.string "“Dai sollievo alle tue stanche membra”.$"
 
 Route111_Text_TrainerTipsSpAtkSpDef:
-	.string "CONSEILS AUX DRESSEURS\p"
-	.string "L’indication ATQ. SPE. reflète \n"
-	.string "la puissance d’un POKéMON.\l"
-	.string "Cela signifie “ATTAQUE SPECIALE”.\p"
-	.string "De même DEF. SPE. signifie “DEFENSE\n"
-	.string "SPECIALE”.$"
+	.string "CONSIGLI UTILI\p"
+	.string "Uno degli indicatori della potenza dei\n"
+	.string "POKéMON è ATT. SP.\l"
+	.string "Significa “ATTACCO SPECIALE”.\p"
+	.string "DIF. SP. significa, invece,\n"
+	.string "“DIFESA SPECIALE”.$"
 
 Route111_Text_ShouldBeMirageTowerAroundHere:
-	.string "Il devrait y avoir une tour de sable\n"
-	.string "dans le coin.\p"
-	.string "Mais pour une raison inconnue, elle\n"
-	.string "n’est pas toujours visible.\p"
-	.string "C’est pour ça que je l’appelle la\n"
-	.string "TOUR MIRAGE.$"
+	.string "Dovrebbe esserci una torre fatta di\n"
+	.string "sabbia da queste parti.\p"
+	.string "È strano, a volte si vede, a volte no.\p"
+	.string "Per questo si chiama TORRE MIRAGGIO.$"
 
 Route111_Text_MirageTowerClearlyVisible:
-	.string "Je la vois!\n"
-	.string "C’est la tour de sable!\p"
-	.string "La tour de sable qu’on prend pour un\n"
-	.string "mirage est parfaitement visible!\p"
-	.string "Mais elle semble si fragile…\n"
-	.string "Elle pourrait s’écrouler à tout moment…\p"
-	.string "Si j’en avais le courage, j’irais\n"
-	.string "sûrement faire un tour à l’intérieur…$"
+	.string "La vedo!\n"
+	.string "È la torre di sabbia!\p"
+	.string "La torre di sabbia! Dicono sia un\n"
+	.string "miraggio, ma ora è ben visibile!\p"
+	.string "Sembra così instabile, però… potrebbe\n"
+	.string "sbriciolarsi da un momento all’altro…\p"
+	.string "Vorrei entrarci, ma non penso di avere\n"
+	.string "abbastanza coraggio…$"
 
 Route111_Text_ThatWasShockingSandRainedDown:
-	.string "Ouah…\n"
-	.string "C’était super impressionnant.\p"
-	.string "La tour de sable s’est effritée d’un\n"
-	.string "seul coup.\p"
-	.string "Comment était-ce à l’intérieur?\n"
-	.string "Il y avait des fantômes de sable?$"
+	.string "Wow!\n"
+	.string "Che spavento!\p"
+	.string "All’improvviso c’era sabbia\n"
+	.string "dappertutto.\p"
+	.string "Com’era dentro?\n"
+	.string "C’erano fantasmi di sabbia?$"
 
 Route111_Text_MirageTowerHasntBeenSeenSince:
-	.string "Depuis la dernière fois, personne n’a\n"
-	.string "revu la tour de sable.\p"
-	.string "Peut-être que c’était vraiment un\n"
-	.string "mirage…$"
+	.string "La torre di sabbia non si è vista\n"
+	.string "dall’ultima volta che abbiamo parlato.\p"
+	.string "Forse era proprio la TORRE\n"
+	.string "MIRAGGIO…$"
 
 Route111_Text_ClawFossilDisappeared:
-	.string "Le FOSS. GRIFFE a disparu dans\n"
-	.string "le sable…$"
+	.string "Il FOSSILUNGHIA è sparito\n"
+	.string "nella sabbia…$"
 
 Route111_Text_RootFossilDisappeared:
-	.string "Le FOSS. RACINE a disparu dans\n"
-	.string "le sable…$"
+	.string "Il RADIFOSSILE è sparito\n"
+	.string "nella sabbia…$"
 
 Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
-	.string "Oh non!\p"
-	.string "Mon oncle de LAVANDIA m’a dit de\n"
-	.string "prendre ECLATE-ROC avec moi si\l"
-	.string "je voulais aller sur la ROUTE 111!\p"
-	.string "Mon oncle? Il habite près du\n"
-	.string "marchand de vélo de LAVANDIA.$"
+	.string "Oh, no!\p"
+	.string "Mio zio di CICLAMIPOLI mi ha consigliato\n"
+	.string "di portare con me SPACCAROCCIA se\l"
+	.string "voglio dirigermi verso il PERCORSO 111!\p"
+	.string "Mio zio? Vive vicino al NEGOZIO\n"
+	.string "di BICI di CICLAMIPOLI.$"
 
 Route111_Text_TrainerHillSign:
-	.string "{RIGHT_ARROW} ENTREE DU MONT DRESSEURS\p"
-	.string "“Atteignez les hauteurs, vous les\n"
-	.string "DRESSEURS sans peur!”$"
+	.string "{RIGHT_ARROW} ENTRATA del MONTE ALLENATORI\p"
+	.string "“Fino alla vetta, ALLENATORI\n"
+	.string "appassionati!”.$"
 

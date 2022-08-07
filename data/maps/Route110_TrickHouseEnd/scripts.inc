@@ -250,109 +250,112 @@ Route110_TrickHouseEnd_Movement_TrickMasterSurprise:
 	step_end
 
 Route110_TrickHouseEnd_Text_YouveMadeItToMe:
-	.string "Aaargh! Tu m’as retrouvé?\n"
-	.string "Hmmm… Tu as l’œil!$"
+	.string "Ma come?!?\n"
+	.string "Ce l’hai fatta a raggiungermi?\l"
+	.string "Mhmm… sei intelligente!$"
 
 Route110_TrickHouseEnd_Text_AllNightToPlantTrees:
-	.string "Il m’a fallu toute la nuit pour planter\n"
-	.string "tous ces arbres…\p"
-	.string "Tu es presque aussi balèze que moi,\n"
-	.string "à 1, 2, 3, 4, 5, 6 endroits près!$"
+	.string "Mi ci è voluta l’intera notte per\n"
+	.string "piantare tutti quegli alberi…\p"
+	.string "Sei quasi al mio livello… scopri\n"
+	.string "più, più, più, più, più, più luoghi!$"
 
 Route110_TrickHouseEnd_Text_AllNightToMakeMaze:
-	.string "Il m’a fallu toute la nuit pour faire ce\n"
-	.string "labyrinthe…\p"
-	.string "Tu es presque aussi balèze que moi,\n"
-	.string "à 1, 2, 3, 4, 5 endroits près!$"
+	.string "Ci ho messo tutta la notte per\n"
+	.string "creare il labirinto…\p"
+	.string "Sei quasi al mio livello… scopri\n"
+	.string "più, più, più, più, più luoghi!$"
 
 Route110_TrickHouseEnd_Text_AllNightToPreparePanels:
-	.string "Il m’a fallu toute la nuit pour préparer\n"
-	.string "ces pans de mur…\p"
-	.string "Tu es presque aussi balèze que moi,\n"
-	.string "à un, deux, trois, quatre endroits près!$"
+	.string "Ci ho messo tutta la notte per\n"
+	.string "preparare quei pannelli da muro…\p"
+	.string "Sei quasi al mio livello… scopri\n"
+	.string "più, più, più, più luoghi!$"
 
 Route110_TrickHouseEnd_Text_AllNightToShoveBoulders:
-	.string "Il m’a fallu toute la nuit pour pousser\n"
-	.string "jusqu’ici tous ces rochers…\p"
-	.string "Tu es presque aussi balèze que moi,\n"
-	.string "à un, deux, trois endroits près!$"
+	.string "Ci ho messo tutta la notte per\n"
+	.string "spingere dentro quei massi…\p"
+	.string "Sei quasi al mio livello… scopri\n"
+	.string "più, più, più luoghi!$"
 
 Route110_TrickHouseEnd_Text_AllNightToMakeMechadolls:
-	.string "Il m’a fallu une nuit pour fabriquer ces\n"
-	.string "MECAPOUPEES et une pour les questions.\p"
-	.string "Tu es presque aussi balèze que moi,\n"
-	.string "à un, deux endroits près!$"
+	.string "Ci ho messo tutta la notte per creare\n"
+	.string "i QUIZROBOT e un’altra per i quiz…\p"
+	.string "Sei quasi al mio livello… scopri\n"
+	.string "più, più luoghi!$"
 
 Route110_TrickHouseEnd_Text_AllNightToInstallDoors:
-	.string "Il m’a fallu toute une nuit pour\n"
-	.string "installer ces portes…\p"
-	.string "Tu es presque aussi balèze que moi!$"
+	.string "Ci ho messo tutta la notte per\n"
+	.string "installare quelle porte…\p"
+	.string "Sei quasi al mio livello!$"
 
 Route110_TrickHouseEnd_Text_AllNightSettingUpArrows:
-	.string "Il m’a fallu toute la nuit pour installer\n"
-	.string "ces flèches…\p"
-	.string "Tu es aussi balèze que moi!$"
+	.string "Ci ho messo tutta la notte per\n"
+	.string "sistemare quelle frecce…\p"
+	.string "Sei al mio livello!$"
 
 Route110_TrickHouseEnd_Text_AllNightPolishingFloors:
-	.string "Il m’a fallu toute la nuit pour cirer\n"
-	.string "les parquets…\p"
-	.string "Tu es plus balèze que moi!\n"
-	.string "Il est possible que…$"
+	.string "Ci ho messo tutta la notte per\n"
+	.string "lucidare il pavimento…\p"
+	.string "Mi hai proprio superato!\n"
+	.string "Forse…$"
 
 Route110_TrickHouseEnd_Text_FountainOfIdeasRunDry:
-	.string "Que… Qu’est-ce que je vais faire? Mes\n"
-	.string "sources d’inspiration sont épuisées…\p"
-	.string "Je devrais peut-être parcourir le pays\n"
-	.string "à la recherche de nouveaux pièges…$"
+	.string "Co… cosa posso fare?\n"
+	.string "La mia fonte di idee per\l"
+	.string "i quiz si è esaurita…\p"
+	.string "È giunto il momento di mettersi\n"
+	.string "in viaggio alla ricerca di nuovi trucchi…$"
 
 Route110_TrickHouseEnd_Text_DefeatedMePreferWhichTent:
-	.string "Ça me coûte de l’admettre, mais je\n"
-	.string "crois que tu as fait mieux que moi!\p"
-	.string "Cependant, mon charisme doit\n"
-	.string "t’impressionner, puisque tu viens me\l"
-	.string "voir très souvent. Aucun doute!\p"
-	.string "Mais malgré tout, j’ai perdu!\p"
-	.string "Pour sceller cette nouvelle amitié\n"
-	.string "entre toi, le disciple, et moi, le génie,\l"
-	.string "je te propose de garder un petit\l"
-	.string "souvenir!\p"
-	.string "Tu as le choix entre une TENTE ROUGE\n"
-	.string "ou une TENTE BLEUE.\l"
-	.string "Que préfères-tu?$"
+	.string "Detesto doverlo ammettere,\n"
+	.string "ma mi hai superato!\p"
+	.string "Tuttavia, credo di averti conquistato\n"
+	.string "con il mio carisma, visto che mi hai\l"
+	.string "fatto visita molte volte. Certo, è così!\p"
+	.string "Ma questo non ha niente a che fare\n"
+	.string "con la mia sconfitta!\p"
+	.string "In nome dell’amicizia che ti lega\n"
+	.string "al genio, che sarei io, ti prego di\l"
+	.string "accettare questo ricordo!\p"
+	.string "A dire il vero ne ho due: una TENDA\n"
+	.string "ROSSA e una TENDA BLU.\l"
+	.string "Quale preferisci?$"
 
 Route110_TrickHouseEnd_Text_NoRoomInPC:
-	.string "Quoi? Plus de place dans ton PC?\n"
-	.string "Qu’est-ce que je vais faire de ça?\p"
-	.string "J’aimerais te dire tant pis, mais je suis\n"
-	.string "sympa. J’attendrai que tu reviennes!$"
+	.string "Cosa? Non hai spazio nel PC?\n"
+	.string "E ora cosa ne faccio di questo?\p"
+	.string "Sei una persona fortunata perché sono\n"
+	.string "un tipo troppo buono e gentile.\l"
+	.string "Torna pure più tardi!$"
 
 Route110_TrickHouseEnd_Text_LeavingOnJourney:
 	.string "… … … … … …\p"
-	.string "Je vais partir à l’aventure.\n"
-	.string "En quête de nouveaux pièges!\p"
-	.string "J’espère que tu reviendras me voir\n"
-	.string "pour me divertir.\p"
-	.string "Bon, allez, à la prochaine!$"
+	.string "Parto per un viaggio all’avventura.\n"
+	.string "Vado alla ricerca di nuovi stratagemmi.\p"
+	.string "Vieni a trovarmi un giorno,\n"
+	.string "insieme ci divertiremo.\p"
+	.string "Addio!!!$"
 
 Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward:
-	.string "Excellent!\n"
-	.string "Tu as gagné cette récompense!$"
+	.string "Bene!\n"
+	.string "Te lo sei meritato questo premio!$"
 
 Route110_TrickHouseEnd_Text_NoRoomForThis:
-	.string "Quoi? Tu n’as plus de place?\n"
-	.string "Combien d’objets transportes-tu déjà?\p"
-	.string "Soit, puisque tu m’as trouvé, je garde\n"
-	.string "ta récompense. Reviens me voir.$"
+	.string "Cosa? Non hai spazio per questo\n"
+	.string "strumento? Ma ti porti dietro la casa?\p"
+	.string "Vabbè, dato che mi hai raggiunto,\n"
+	.string "torna a prendere il premio più tardi.$"
 
 Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou:
-	.string "Epargne-moi ce sourire narquois! Ne va\n"
-	.string "pas t’imaginer que tu as déjà gagné!\p"
-	.string "Je trouverai de nouveaux pièges pour\n"
-	.string "te coller. Après, tu pourras te moquer.\p"
-	.string "Reviens me voir pour un autre\n"
-	.string "défi passionnant!$"
+	.string "Cos’è quella risatina ironica?!\n"
+	.string "È ancora presto per cantare vittoria!\p"
+	.string "Inventerò nuovi trucchi per fermarti,\n"
+	.string "vedrai! Ride bene chi ride ultimo…\p"
+	.string "Torna per la prossima divertente\n"
+	.string "sfida!$"
 
 Route110_TrickHouseEnd_Text_YoureIgnoringMe:
-	.string "Quoi? Comment oses-tu? Tu m’ignores,\n"
-	.string "maintenant? Ça me fend le cœur!$"
+	.string "Guarda, guarda! Ma mi stai ignorando?\n"
+	.string "Pure questa ci voleva, è snervante!$"
 

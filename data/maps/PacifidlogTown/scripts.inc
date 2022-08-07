@@ -28,28 +28,27 @@ PacifidlogTown_EventScript_TownSign::
 	end
 
 PacifidlogTown_Text_FastRunningCurrent:
-	.string "Le courant de la mer entre PACIFIVILLE\n"
-	.string "et POIVRESSEL est très fort.\p"
-	.string "Si tu décidais de faire du SURF,\n"
-	.string "tu pourrais te faire emporter et\l"
-	.string "te retrouver très loin d’ici.$"
+	.string "La corrente del mare che separa\n"
+	.string "OROCEA e SELCEPOLI è molto forte.\p"
+	.string "Se usi SURF, potrebbe trascinarti da\n"
+	.string "qualche altra parte.$"
 
 PacifidlogTown_Text_NeatHousesOnWater:
-	.string "Regarde comme c’est chouette!\n"
-	.string "Ces maisons sont construites sur l’eau.\p"
-	.string "Je suis né ici!$"
+	.string "Hai visto che carine?\n"
+	.string "Le casette sull’acqua!\p"
+	.string "Io sono nato qui!$"
 
 PacifidlogTown_Text_SkyPillarTooScary:
-	.string "LE PILIER CELESTE?\p"
-	.string "Oh, tu veux sûrement parler de cette\n"
-	.string "très très grande tour un peu plus loin.\p"
-	.string "Si tu veux mon avis, il faut être fou\n"
-	.string "pour vouloir monter si haut!\p"
-	.string "Vivre au niveau de la mer, ici à\n"
-	.string "PACIFIVILLE, voilà ce qui me va!$"
+	.string "La TORRE dei CIELI?\p"
+	.string "Ah, sì, intendi quell’altissima torre\n"
+	.string "che si trova da queste parti, vero?\p"
+	.string "Io, non ci salirei.\n"
+	.string "Ho paura ad andare così in alto.\p"
+	.string "La vita sul livello del mare come a\n"
+	.string "OROCEA è ciò che fa per me.$"
 
 PacifidlogTown_Text_TownSign:
-	.string "PACIFIVILLE\p"
-	.string "“Là où le soleil du matin se reflète\n"
-	.string "sur les eaux.”$"
+	.string "OROCEA\p"
+	.string "“Dove il sole del mattino posa \n"
+	.string "il suo sorriso sulle acque”.$"
 

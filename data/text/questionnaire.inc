@@ -1,43 +1,43 @@
 Questionnaire_Text_FillOut::
-    .string "Il y a un questionnaire…\n"
-    .string "Voulez-vous y répondre?$"
+	.string "C’è un questionario.\n"
+	.string "Vuoi compilarlo?$"
 
 Questionnaire_Text_ThankYou::
-    .string "Merci d’avoir pris le temps de\n"
-    .string "répondre à notre questionnaire.\p"
-    .string "Vos réponses nous permettront\n"
-    .string "de mieux vous servir.$"
+	.string "Grazie per aver compilato\n"
+	.string "il questionario.\p"
+	.string "Le tue risposte saranno\n"
+	.string "molto utili.$"
 
 Questionnaire_Text_YouKnowThoseWordsGift::
-    .string "Oh, bonjour!\n"
-    .string "Vous connaissez ces mots?\p"
-    .string "Donc vous devez aussi\n"
-    .string "connaître le CADEAU MYST.\p"
-    .string "A partir de maintenant, vous allez\n"
-    .string "recevoir des CADEAUX MYST.!$"
+	.string "Ciao!\n"
+	.string "Ah, conosci le parole segrete?\p"
+	.string "Quindi, sai anche cos’è\n"
+	.string "il DONO SEGRETO!\p"
+	.string "Da questo momento puoi\n"
+	.string "ricevere DONI SEGRETI!$"
 
 Questionnaire_Text_YouCanAccessMysteryGift::
-    .string "Après avoir sauvegardé, vous\n"
-    .string "aurez accès aux CADEAUX MYST.!$"
+	.string "Dopo aver salvato il gioco, potrai\n"
+	.string "accedere all’opzione DONO SEGRETO.$"
 
 Questionnaire_Text_YouKnowThoseWordsEvent::
-    .string "Oh, bonjour!\n"
-    .string "Vous connaissez ces mots?\p"
-    .string "Donc vous devez aussi\n"
-    .string "connaître les EVENEMENTS MYSTERE.$"
+	.string "Ciao!\n"
+	.string "Ah, conosci le parole segrete?\p"
+	.string "Quindi, sai anche cos’è\n"
+	.string "l’EVENTO SEGRETO!$"
 
 Questionnaire_Text_YouCanAccessMysteryEvent::
-    .string "Après avoir sauvegardé, vous\n"
-    .string "aurez accès aux EVENEMENTS MYSTERE.$"
+	.string "Dopo aver salvato il gioco, potrai\n"
+	.string "accedere all’opzione EVENTO SEGRETO.$"
 
 MysteryGift_Text_TheresATicketForYou::
-    .string "Merci d’utiliser le système\n"
-    .string "EVENEMENTS MYSTERE.\p"
-    .string "Vous devez être {PLAYER}.\n"
-    .string "Il y a un ticket pour vous.$"
+	.string "Grazie per usare il Sistema\n"
+	.string "EVENTO SEGRETO.\p"
+	.string "Tu sei {PLAYER}, vero? Ho qui\n"
+	.string "un biglietto per te.$"
 
 MysteryGift_Text_TryUsingItAtLilycovePort::
-    .string "Il peut être utilisé au port de\n"
-    .string "NENUCRIQUE.\p"
-    .string "Essayez-le pour voir de quoi \n"
-    .string "il s’agit.$"
+	.string "Dovrebbe servirti allo scalo di\n"
+	.string "PORTO ALGHEPOLI.\p"
+	.string "Ti conviene andare a vedere\n"
+	.string "di persona.$"

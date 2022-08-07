@@ -261,44 +261,41 @@ Route101_Movement_BirchApproachPlayer:
 	step_end
 
 Route101_Text_HelpMe:
-	.string "A… A l’aide!$"
+	.string "Aiutoooo!$"
 
 Route101_Text_PleaseHelp:
-	.string "Hé! Toi, là-bas!\n"
-	.string "Je t’en supplie! Aide-moi!\p"
-	.string "Dans mon SAC!\n"
-	.string "Il y a des POKé BALLS!$"
+	.string "Ehi, tu! Per favore, aiutami!\p"
+	.string "Prendi una POKé BALL dal mio ZAINO!$"
 
 Route101_Text_DontLeaveMe:
-	.string "Où… Où est-ce que tu vas?!\n"
-	.string "Ne me laisse pas comme ça!$"
+	.string "Doveeee vai?!\n"
+	.string "Non lasciarmi qui così!$"
 
 Route101_Text_YouSavedMe:
-	.string "PROF. SEKO: Ouf…\p"
-	.string "J’étudiais les POKéMON sauvages\n"
-	.string "dans les hautes herbes, quand il m’a\l"
-	.string "sauté dessus.\p"
-	.string "Tu m’as sauvé.\n"
-	.string "Merci beaucoup!\p"
-	.string "Oh?\p"
-	.string "Hé, c’est toi, {PLAYER}{KUN}!\p"
-	.string "Ce n’est pas un endroit pour discuter.\n"
-	.string "Allons au LABO POKéMON, OK?$"
+	.string "PROF. BIRCH: Ehi…\p"
+	.string "Sono stato colto di sorpresa mentre \n"
+	.string "ero intento a studiare POKéMON\l"
+	.string "selvatici nell’erba alta.\p"
+	.string "Mi hai salvato. Grazie!\p"
+	.string "Ah…\p"
+	.string "Ciao, tu sei {PLAYER}{KUN}!\p"
+	.string "Non è il posto adatto per chiacchierare,\n"
+	.string "vieni al mio LABORATORIO POKéMON\l"
+	.string "più tardi, ti va?$"
 
 Route101_Text_TakeTiredPokemonToPokeCenter:
-	.string "Si tes POKéMON sont fatigués,\n"
-	.string "emmène-les dans un CENTRE POKéMON.\p"
-	.string "Il y a un CENTRE POKéMON à ROSYERES,\n"
-	.string "tout près d’ici.$"
+	.string "Se i POKéMON sono stanchi, portali in\n"
+	.string "un CENTRO POKéMON.\p"
+	.string "Troverai un CENTRO POKéMON\n"
+	.string "a SOLAROSA, qui vicino.$"
 
 Route101_Text_WildPokemonInTallGrass:
-	.string "Les POKéMON sauvages vont te sauter\n"
-	.string "dessus dans les hautes herbes.\p"
-	.string "Pour attraper des POKéMON,\n"
-	.string "tu dois aller dans les hautes herbes\l"
-	.string "et chercher.$"
+	.string "I POKéMON selvatici saltano fuori\n"
+	.string "dall’erba alta all’improvviso.\p"
+	.string "Se vuoi trovare dei POKéMON, li devi\n"
+	.string "cercare nell’erba alta.$"
 
 Route101_Text_RouteSign:
-	.string "ROUTE 101\n"
-	.string "{UP_ARROW} ROSYERES$"
+	.string "PERCORSO 101\n"
+	.string "{UP_ARROW} SOLAROSA$"
 

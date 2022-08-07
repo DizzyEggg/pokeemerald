@@ -46,7 +46,7 @@ RS_MysteryEventsHouse_Text_OldManGreeting:
 	.string "TRAINERS battle.$"
 
 RS_MysteryEventsHouse_Text_DoorIsLocked:
-	.string "La porte semble être verrouillée.$"
+	.string "La porta sembra essere chiusa.$"
 
 RS_MysteryEventsHouse_Text_ChallengeVisitingTrainer:
 	.string "A TRAINER named {STR_VAR_1} is\n"

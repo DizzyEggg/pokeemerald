@@ -59,26 +59,26 @@ EverGrandeCity_GlaciasRoom_EventScript_Defeated::
 	end
 
 EverGrandeCity_GlaciasRoom_Text_IntroSpeech:
-	.string "Bienvenue. Je suis GLACIA du\n"
-	.string "CONSEIL 4.\p"
-	.string "J’ai fait le chemin jusqu’à HOENN pour\n"
-	.string "apprendre à mieux utiliser la glace.\p"
-	.string "Mais je n’ai affronté que des DRESSEURS\n"
-	.string "et des POKéMON faibles.\p"
-	.string "Et toi?\p"
-	.string "Ça me ferait extrêmement plaisir de\n"
-	.string "me donner à fond contre toi!$"
+	.string "Ciao, sono FRIDA dei SUPERQUATTRO.\p"
+	.string "Sono giunta alla regione di HOENN\n"
+	.string "da lontano per affinare la mia tecnica\l"
+	.string "col ghiaccio.\p"
+	.string "Ma finora ho solo incontrato\n"
+	.string "ALLENATORI e POKéMON deboli.\p"
+	.string "E tu sarai alla mia altezza?\p"
+	.string "Sarebbe una gioia fare una sfida\n"
+	.string "con te, degna di questo nome!$"
 
 EverGrandeCity_GlaciasRoom_Text_Defeat:
-	.string "Tes POKéMON et toi… Une telle chaleur\n"
-	.string "se dégage de vos esprits!\p"
-	.string "Ce débordement de chaleur est\n"
-	.string "accablant.\p"
-	.string "Je comprends pourquoi je n’ai pas\n"
-	.string "réussi à vous affecter avec la glace.$"
+	.string "Tu e i tuoi POKéMON… il vostro\n"
+	.string "spirito è infuocato!\p"
+	.string "Non è facile contrastare il vostro\n"
+	.string "ardore.\p"
+	.string "Non mi sorprende che le tecniche\n"
+	.string "col ghiaccio siano state inutili.$"
 
 EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech:
-	.string "Avance jusqu’à la prochaine pièce.\p"
-	.string "Et là, tu comprendras pourquoi la\n"
-	.string "LIGUE POKéMON est si redoutable.$"
+	.string "Prosegui per la prossima sala.\p"
+	.string "Dai una dimostrazione di forza\n"
+	.string "e potenza alla LEGA POKéMON.$"
 

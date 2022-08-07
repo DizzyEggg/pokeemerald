@@ -82,40 +82,38 @@ GraniteCave_StevensRoom_Movement_StevenExitSouth:
 	step_end
 
 GraniteCave_StevensRoom_Text_ImStevenLetterForMe:
-	.string "Je suis PIERRE.\p"
-	.string "Je m’intéresse aux pierres rares, alors\n"
-	.string "je vais ici et là.\p"
+	.string "Mi chiamo ROCCO.\p"
+	.string "Viaggio in cerca di pietre rare:\n"
+	.string "mi piacciono da morire.\p"
 	.string "Oh?\n"
-	.string "C’est une LETTRE pour moi?$"
+	.string "Una LETTERA per me?$"
 
 GraniteCave_StevensRoom_Text_ThankYouTakeThis:
-	.string "PIERRE: OK, merci.\p"
-	.string "Tu as fait tout ça rien que pour me la \n"
-	.string "remettre? Il faut que je te remercie.\p"
-	.string "Laisse-moi voir…\n"
-	.string "Je vais te donner cette CT.\p"
-	.string "Elle contient ma capacité préférée,\n"
-	.string "AILE D’ACIER.$"
+	.string "ROCCO: Ok, grazie!\p"
+	.string "Per consegnarmi questa LETTERA hai\n"
+	.string "fatto tanto! Come posso sdebitarmi?\p"
+	.string "Vediamo… ti darò questa MT.\p"
+	.string "Contiene la mia mossa preferita,\n"
+	.string "ALACCIAIO.$"
 
 GraniteCave_StevensRoom_Text_CouldBecomeChampionLetsRegister:
-	.string "PIERRE: Tes POKéMON semblent être\n"
-	.string "tout à fait compétents.\p"
-	.string "En continuant à t’entraîner, un jour, \n"
-	.string "tu pourrais même devenir le MAITRE de la\l"
-	.string "LIGUE POKéMON. Je le pense vraiment.\p"
-	.string "Je sais, puisqu’on se connaît\n"
-	.string "maintenant, enregistrons nos numéros\l"
-	.string "dans nos POKéNAVS.\p"
+	.string "ROCCO: La tua squadra di POKéMON\n"
+	.string "sembra essere davvero in gamba.\p"
+	.string "Se continui ad allenarti così, credo\n"
+	.string "che un giorno potrai persino diventare\l"
+	.string "il CAMPIONE della LEGA POKéMON.\p"
+	.string "Visto che ormai ci conosciamo,\n"
+	.string "registriamoci nei nostri POKéNAV.\p"
 	.string "… … … … … …$"
 
 GraniteCave_StevensRoom_Text_RegisteredSteven:
-	.string "Vous avez enregistré PIERRE\n"
-	.string "dans le POKéNAV.$"
+	.string "Registrazione di ROCCO nel POKéNAV\n"
+	.string "avvenuta.$"
 
 GraniteCave_StevensRoom_Text_IveGotToHurryAlong:
-	.string "Maintenant, il faut que je me dépêche.$"
+	.string "Scusa ma ho fatto tardi. Devo andare.$"
 
 GraniteCave_StevensRoom_Text_OhBagIsFull:
-	.string "Oh, ton SAC est plein…\n"
-	.string "C’est dommage.$"
+	.string "Oh, il tuo ZAINO è pieno…\n"
+	.string "è un vero peccato…$"
 

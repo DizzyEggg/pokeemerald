@@ -1,27 +1,28 @@
 Text_PictureBookShelf:
-	.string "Ce sont des albums de POKéMON.$"
+	.string "Un’intera collezione di libri illustrati\n"
+	.string "sui POKéMON.$"
 
 Text_BookShelf:
-	.string "Il y a toutes sortes de livres.$"
+	.string "Ci sono libri di tutti i tipi.$"
 
 Text_PokemonCenterBookShelf:
-	.string "Des magazines POKéMON!\n"
-	.string "NOS AMIS LES POKéMON…\p"
-	.string "MANUEL POKéMON…\n"
-	.string "GRAINE DE POKéMON…$"
+	.string "Riviste POKéMON!\n"
+	.string "AMICO POKéMON…\p"
+	.string "MANUALE POKéMON…\n"
+	.string "POKéMON ADORABILE…$"
 
 Text_Vase:
-	.string "Ce vase semble avoir de la valeur!\p"
-	.string "En regardant à l’intérieur, on\n"
-	.string "s’aperçoit qu’il est vide.$"
+	.string "Questo vaso sembra costoso…\n"
+	.string "Ci guardo dentro…\p"
+	.string "È vuoto.$"
 
 Text_EmptyTrashCan:
-	.string "C’est vide.$"
+	.string "È vuoto.$"
 
 Text_ShopShelf:
-	.string "Les étagères regorgent de toutes\n"
-	.string "sortes de produits POKéMON.$"
+	.string "Gli scaffali traboccano di merce\n"
+	.string "dedicata ai POKéMON.$"
 
 Text_Blueprint:
-	.string "Voilà un curieux plan!\n"
-	.string "Ça a l’air compliqué.$"
+	.string "Che progetto è questo?\n"
+	.string "Ad ogni modo, è troppo complicato!$"

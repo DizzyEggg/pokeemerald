@@ -88,73 +88,68 @@ FortreeCity_Movement_KecleonFlee:
 	step_end
 
 FortreeCity_Text_SawGiganticPokemonInSky:
-	.string "Personne ne me croit, mais j’ai\n"
-	.string "vraiment vu ce POKéMON gigantesque\l"
-	.string "dans le ciel.\p"
-	.string "J’ai eu l’impression qu’il volait vers\n"
-	.string "le CHENAL 131.\p"
-	.string "Snifff…\n"
-	.string "Hum… Tu… euh… sens le brûlé.\p"
-	.string "Tu étais sur un volcan ou quelque chose\n"
-	.string "comme ça?$"
+	.string "Non mi crede nessuno, ma ho visto un\n"
+	.string "POKéMON gigantesco volare in cielo.\p"
+	.string "Sembrava diretto verso\n"
+	.string "il PERCORSO 131.\p"
+	.string "A proposito… sniff…\n"
+	.string "ehm… puzzi di… bruciato.\p"
+	.string "Hai visitato un vulcano o cosa?$"
 
 FortreeCity_Text_SomethingBlockingGym:
-	.string "Je veux aller à l’ARENE POKéMON, mais\n"
-	.string "quelque chose bloque le passage.\p"
-	.string "Après tout le mal que je me suis donné\n"
-	.string "pour venir m’entraîner sur la ROUTE 120!$"
+	.string "Voglio andare alla PALESTRA POKéMON,\n"
+	.string "ma c’è qualcosa che blocca il passaggio.\p"
+	.string "Dopo tutta questa fatica fatta con\n"
+	.string "l’allenamento lungo il PERCORSO 120…$"
 
 FortreeCity_Text_ThisTimeIllBeatWinona:
-	.string "J’ai des POKéMON qui font ma joie et ma\n"
-	.string "fierté. Cette fois, je battrai ALIZEE.$"
+	.string "Ho con me questo POKéMON, mia gioia ed\n"
+	.string "orgoglio. Batterò ALICE stavolta.$"
 
 FortreeCity_Text_TreesGrowByDrinkingRainwater:
-	.string "Le sol absorbe l’eau de pluie et les\n"
-	.string "arbres poussent en puisant cette eau…\p"
-	.string "Notre CIMETRONELLE existe grâce\n"
-	.string "à l’eau et à la terre.$"
+	.string "Il terreno assorbe l’acqua piovana e \n"
+	.string "gli alberi crescono bevendo l’acqua…\p"
+	.string "FORESTOPOLI esiste solo grazie\n"
+	.string "all’acqua e al terreno.$"
 
 FortreeCity_Text_EveryoneHealthyAndLively:
-	.string "C’est une VILLE formée de maisons\n"
-	.string "construites dans les arbres.\p"
-	.string "Ici, on est tous en forme et dynamiques.\n"
-	.string "Probablement grâce à ce mode de vie!\p"
-	.string "Même moi, j’ai l’impression d’avoir\n"
-	.string "rajeuni de trente ans.$"
+	.string "È una CITTÀ di case costruite\n"
+	.string "sugli alberi.\p"
+	.string "Forse è questo tipo di vita che rende\n"
+	.string "gli abitanti vigorosi e gioviali.\p"
+	.string "Pensa, io mi sento ringiovanito di\n"
+	.string "trent’anni!$"
 
 FortreeCity_Text_BugPokemonComeThroughWindow:
-	.string "C’est bien de vivre en haut des arbres.\p"
-	.string "Mais parfois, des POKéMON du type\n"
-	.string "INSECTE passent par les fenêtres.\p"
-	.string "Ça peut faire très peur.$"
+	.string "La vita sulla cima degli alberi non è\n"
+	.string "male.\p"
+	.string "Ma a volte i POKéMON COLEOTTERO\n"
+	.string "entrano dalle finestre.\l"
+	.string "Ti fanno prendere degli spaventi!$"
 
 FortreeCity_Text_PokemonThatEvolveWhenTraded:
-	.string "Certains POKéMON évoluent quand ils\n"
-	.string "sont échangés! C’est ce qu’on raconte!$"
+	.string "Ho sentito dire che certi POKéMON si\n"
+	.string "evolvono se li scambi.$"
 
 FortreeCity_Text_SomethingUnseeable:
-	.string "Quelque chose d’invisible bloque la\n"
-	.string "voie.$"
+	.string "Qualcosa di invisibile blocca il cammino.$"
 
 FortreeCity_Text_UnseeableUseDevonScope:
-	.string "Quelque chose d’invisible bloque la\n"
-	.string "voie.\p"
-	.string "Voulez-vous utiliser le DEVON SCOPE?$"
+	.string "Qualcosa di invisibile blocca il cammino.\p"
+	.string "Vuoi usare il DEVONSCOPIO?$"
 
 FortreeCity_Text_UsedDevonScopePokemonFled:
-	.string "{PLAYER} utilise le DEVON SCOPE.\p"
-	.string "Un POKéMON invisible devient tout à\n"
-	.string "coup visible!\p"
-	.string "Le POKéMON, effrayé, s’enfuit!$"
+	.string "{PLAYER} usa il DEVONSCOPIO.\p"
+	.string "Un POKéMON invisibile diventa visibile!\p"
+	.string "Si spaventa e fugge via!$"
 
 FortreeCity_Text_CitySign:
-	.string "CIMETRONELLE\n"
-	.string "“Là où les cimes des arbres sont\l"
-	.string "en harmonie avec la nature.”$"
+	.string "FORESTOPOLI\n"
+	.string "“La città sulla cima degli alberi\l"
+	.string "in sintonia con la natura”.$"
 
 FortreeCity_Text_GymSign:
-	.string "ARENE POKéMON de CIMETRONELLE\n"
-	.string "CHAMPION: ALIZEE\p"
-	.string "“Celle qui utilise les oiseaux et prend\n"
-	.string "son envol dans le monde.”$"
+	.string "PALESTRA POKéMON di FORESTOPOLI\n"
+	.string "CAPOPALESTRA: ALICE\p"
+	.string "“Usa uccelli per sorvolare il mondo”.$"
 

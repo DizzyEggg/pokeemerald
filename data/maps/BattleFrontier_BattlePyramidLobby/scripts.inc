@@ -525,139 +525,142 @@ BattleFrontier_BattlePyramidLobby_EventScript_ExitRules::
 	end
 
 BattleFrontier_BattlePyramidLobby_Text_WelcomeToBattlePyramid:
-	.string "Bienvenue à la PYRAMIDE DE COMBAT!\p"
-	.string "Ici, nous mettons à l’épreuve\n"
-	.string "le courage des DRESSEURS!\p"
-	.string "Je serai votre guide pour le\n"
-	.string "COMBAT QUETE.$"
+	.string "Qui viene messa alla prova l’audacia\n"
+	.string "degli ALLENATORI!\p"
+	.string "Ti do il benvenuto alla PIRAMIDE LOTTA!\p"
+	.string "Sarò la tua guida nella LOTTA\n"
+	.string "ESPLORAZIONE.$"
 
 BattleFrontier_BattlePyramidLobby_Text_EmbarkOnChallenge:
-	.string "Avez-vous le courage de relever le\n"
-	.string "défi du COMBAT QUETE?$"
+	.string "Hai il coraggio di accettare la sfida\n"
+	.string "LOTTA ESPLORAZIONE?$"
 
 BattleFrontier_BattlePyramidLobby_Text_AwaitFutureChallenge:
-	.string "Nous attendrons votre prochain défi\n"
-	.string "avec impatience.$"
+	.string "Spero che accetterai\n"
+	.string "la prossima volta.$"
 
 BattleFrontier_BattlePyramidLobby_Text_ExplainBattlePyramid:
-	.string "Lors du COMBAT QUETE, vous devez\n"
-	.string "explorer la PYRAMIDE et essayer d’en\l"
-	.string "atteindre le sommet.\p"
-	.string "Chacun des sept niveaux de la PYRAMIDE\n"
-	.string "est un labyrinthe. Ils sont truffés de\l"
-	.string "DRESSEURS et de POKéMON sauvages.\p"
-	.string "Vous devez y entrer avec trois POKéMON\n"
-	.string "ne portant aucun objet.\p"
-	.string "On vous fournira un SAC DE COMBAT\n"
-	.string "pour y mettre les objets.\p"
-	.string "Si vous échouez, vous perdez les objets\n"
-	.string "placés dans le SAC DE COMBAT.\p"
-	.string "Si vous voulez interrompre le défi,\n"
-	.string "sélectionnez “REPOS”\l"
-	.string "et sauvegardez la partie.\p"
-	.string "Assurez-vous de bien sauvegarder, ou\n"
-	.string "vous ne pourrez pas reprendre le défi.$"
+	.string "La LOTTA ESPLORAZIONE è un evento\n"
+	.string "nel quale devi perlustrare la PIRAMIDE\l"
+	.string "cercando di raggiungere la cima.\p"
+	.string "La PIRAMIDE ha sette piani di dedali\n"
+	.string "pieni zeppi di ALLENATORI, ma anche\l"
+	.string "di POKéMON selvatici.\p"
+	.string "Devi iscrivere tre POKéMON, ma\n"
+	.string "nessuno può tenere uno strumento.\p"
+	.string "Prima di iniziare ti verrà dato uno\n"
+	.string "ZAINO LOTTA per gli strumenti.\p"
+	.string "Se perdi, dovrai dire addio agli\n"
+	.string "strumenti accumulati nello ZAINO LOTTA.\p"
+	.string "Se vuoi interrompere la sfida, devi\n"
+	.string "selezionare “PAUSA” e salvare\l"
+	.string "il gioco.\p"
+	.string "Se non salvi prima di interromperla,\n"
+	.string "la tua sfida verrà annullata.$"
 
 BattleFrontier_BattlePyramidLobby_Text_WhichLevelMode:
-	.string "La PYRAMIDE offre deux possibilités:\n"
-	.string "niveau 50 et niveau libre.\l"
-	.string "Que choisissez-vous?$"
+	.string "La PIRAMIDE offre due livelli di\n"
+	.string "sfida: il LIVELLO 50 e il LIVELLO\l"
+	.string "LIBERO. Quale scegli?$"
 
 BattleFrontier_BattlePyramidLobby_Text_SelectThreeMons:
-	.string "Très bien. Choisissez les trois POKéMON\n"
-	.string "qui vont vous accompagner.$"
+	.string "Bene. Ora scegli i tre POKéMON che\n"
+	.string "vuoi portare con te in quest’avventura.$"
 
 BattleFrontier_BattlePyramidLobby_Text_NotEnoughValidMonsLvOpen:
-	.string "Il y a un petit problème!\p"
-	.string "Vous n’avez pas trois POKéMON\n"
-	.string "aptes à participer.\p"
-	.string "Souvenez-vous que vous devez leur\n"
-	.string "reprendre les objets qu’ils portent.\p"
-	.string "Les OEUFS{STR_VAR_1} inaptes au combat.\p"
-	.string "On en reparlera quand vous aurez\n"
-	.string "ce qu’il faut.$"
+	.string "C’è un problemino!\p"
+	.string "A quanto pare non hai tre POKéMON\n"
+	.string "con tutti i requisiti.\p"
+	.string "Ricordati di prelevare tutti gli\n"
+	.string "strumenti tenuti dai POKéMON.\p"
+	.string "Le UOVA{STR_VAR_1} inutilizzabili qui.\p"
+	.string "Quando hai i requisiti, torna pure\n"
+	.string "a trovarci.$"
 
 BattleFrontier_BattlePyramidLobby_Text_NotEnoughValidMonsLv50:
-	.string "Il y a un petit problème!\p"
-	.string "Vous n’avez pas trois POKéMON\n"
-	.string "aptes à participer.\p"
-	.string "Il vous faut trois POKéMON différents\n"
-	.string "de niveau 50 ou moins pour participer.\p"
-	.string "Souvenez-vous que vous devez leur\n"
-	.string "reprendre les objets qu’ils portent.\p"
-	.string "Les OEUFS{STR_VAR_1} inaptes au combat.\p"
-	.string "On en reparlera quand vous aurez\n"
-	.string "ce qu’il faut.$"
+	.string "C’è un problemino!\p"
+	.string "A quanto pare non hai tre POKéMON\n"
+	.string "con tutti i requisiti.\p"
+	.string "Per entrare, devi avere tre POKéMON \n"
+	.string "diversi di livello pari o inferiore a 50.\p"
+	.string "Ricordati di prelevare tutti gli\n"
+	.string "strumenti tenuti dai POKéMON.\p"
+	.string "Le UOVA{STR_VAR_1} inutilizzabili qui.\p"
+	.string "Quando hai i requisiti, torna pure\n"
+	.string "a trovarci.$"
 
 BattleFrontier_BattlePyramidLobby_Text_OkayToSaveBeforeChallenge:
-	.string "Pour accéder à la PYRAMIDE DE COMBAT,\n"
-	.string "votre partie doit être sauvegardée. OK?$"
+	.string "Prima di entrare nella PIRAMIDE LOTTA,\n"
+	.string "devi salvare il tuo gioco. Ok?$"
 
 BattleFrontier_BattlePyramidLobby_Text_ShowYouIntoPyramid:
-	.string "Très bien. Je vais vous accompagner\n"
-	.string "dans la PYRAMIDE DE COMBAT.$"
+	.string "Bene. Ti faccio strada nella\n"
+	.string "PIRAMIDE LOTTA.$"
 
 BattleFrontier_BattlePyramidLobby_Text_WeWillHoldBagForSafekeeping:
-	.string "Nous gardons votre SAC pendant votre\n"
-	.string "exploration, {PLAYER}.$"
+	.string "{PLAYER}, mentre esplori, il tuo ZAINO\n"
+	.string "lo tengo io.$"
 
 BattleFrontier_BattlePyramidLobby_Text_PleaseTakePreviousBattleBag:
-	.string "Tenez, prenez votre ancien SAC DE\n"
-	.string "COMBAT en échange.$"
+	.string "In cambio, prendi pure lo ZAINO LOTTA\n"
+	.string "che hai usato precedentemente.$"
 
 BattleFrontier_BattlePyramidLobby_Text_PleaseTakeThisBattleBag:
-	.string "Tenez, prenez ce SAC DE\n"
-	.string "COMBAT en échange.$"
+	.string "In cambio, prendi pure questo\n"
+	.string "ZAINO LOTTA.$"
 
 BattleFrontier_BattlePyramidLobby_Text_ExchangedBagForBattleBag:
-	.string "{PLAYER} a échangé le SAC avec le\n"
-	.string "SAC DE COMBAT.$"
+	.string "{PLAYER} ottiene lo ZAINO LOTTA\n"
+	.string "in cambio del suo ZAINO.$"
 
 BattleFrontier_BattlePyramidLobby_Text_StepOnFloorPanel:
-	.string "Ce type de plaque permet d’être\n"
-	.string "transporté au niveau supérieur de\l"
-	.string "la PYRAMIDE.\p"
-	.string "J’espère que tout va bien se passer\n"
-	.string "pour vous!$"
+	.string "Per passare al piano superiore della\n"
+	.string "PIRAMIDE posizionati su questo\l"
+	.string "pannello colorato nel pavimento.\p"
+	.string "Spero vivamente che tu possa\n"
+	.string "superare questa sfida!$"
 
 BattleFrontier_BattlePyramidLobby_Text_DidntSaveBeforeQuittingTakeBag:
-	.string "Il y a un gros problème!\p"
-	.string "Vous n’avez pas sauvegardé avant de\n"
-	.string "quitter votre dernier défi.\p"
-	.string "Dans ce cas, c’est la disqualification.\n"
-	.string "C’est dommage!\p"
-	.string "Je vous rends votre SAC, tenez.\p"
-	.string "{PLAYER} a récupéré le SAC.$"
+	.string "Un bel problema!\p"
+	.string "Quando hai interrotto la sfida l’ultima\n"
+	.string "volta, non hai salvato il gioco.\p"
+	.string "Per questo motivo, la tua sfida è\n"
+	.string "stata annullata. Spiacente!\p"
+	.string "Ti restituisco il tuo ZAINO.\p"
+	.string "{PLAYER} ha riavuto il suo ZAINO.$"
 
 BattleFrontier_BattlePyramidLobby_Text_YouveConqueredPyramid:
-	.string "Quel plaisir de vous revoir!\p"
-	.string "Vous avez conquis la PYRAMIDE!\n"
-	.string "Ce fut splendide!$"
+	.string "Sono contento di rivederti!\p"
+	.string "Hai conquistato la PIRAMIDE!\n"
+	.string "Fantastico!$"
 
 BattleFrontier_BattlePyramidLobby_Text_MonHoldingItemCannotTake:
-	.string "Il y a un petit problème!\p"
-	.string "Au moins un de vos POKéMON porte\n"
-	.string "un objet.\p"
-	.string "Malheureusement, les objets obtenus\n"
-	.string "dans la PYRAMIDE doivent rester ici.$"
+	.string "Ah, c’è un problemino.\p"
+	.string "Almeno un POKéMON tiene\n"
+	.string "uno strumento.\p"
+	.string "Spiacente, non si possono portare via\n"
+	.string "gli strumenti ottenuti nella PIRAMIDE.$"
 
 BattleFrontier_BattlePyramidLobby_Text_HeldItemsMovedToBag:
-	.string "Tous les objets vont être placés dans\n"
-	.string "votre SAC DE COMBAT, {PLAYER}.$"
+	.string "Tutti gli strumenti tenuti dai tuoi\n"
+	.string "POKéMON verranno trasferiti\l"
+	.string "nello ZAINO LOTTA, {PLAYER}.$"
 
 BattleFrontier_BattlePyramidLobby_Text_BagCannotHoldPickItemsToKeep:
-	.string "Le SAC DE COMBAT ne peut pas contenir\n"
-	.string "tous vos objets, je suis désolé.\p"
-	.string "Choisissez les objets à laisser dans le\n"
-	.string "SAC DE COMBAT et avec vos POKéMON.$"
+	.string "Nello ZAINO LOTTA non c’è spazio per\n"
+	.string "tutti i tuoi strumenti. Spiacente!\p"
+	.string "Scegli gli strumenti da tenere nello\n"
+	.string "ZAINO LOTTA e da far tenere ai\l"
+	.string "tuoi POKéMON.$"
 
 BattleFrontier_BattlePyramidLobby_Text_LeastOneMonHoldingItem:
-	.string "Au moins un POKéMON porte encore\n"
-	.string "un objet.$"
+	.string "Almeno un POKéMON sta tenendo\n"
+	.string "uno strumento.$"
 
 BattleFrontier_BattlePyramidLobby_Text_PickItemsToKeep:
-	.string "Choisissez les objets à laisser dans le\n"
-	.string "SAC DE COMBAT et avec vos POKéMON.$"
+	.string "Scegli gli strumenti da tenere nello\n"
+	.string "ZAINO LOTTA e da far tenere ai\l"
+	.string "tuoi POKéMON.$"
 
 @ Unused
 BattleFrontier_BattlePyramidLobby_Text_ReturnedEverythingMonsHeld:
@@ -665,14 +668,14 @@ BattleFrontier_BattlePyramidLobby_Text_ReturnedEverythingMonsHeld:
 	.string "the POKéMON held.$"
 
 BattleFrontier_BattlePyramidLobby_Text_UsedBattleBagWillBeKept:
-	.string "Votre SAC DE COMBAT va être conservé\n"
-	.string "pour votre prochain défi.\p"
-	.string "{PLAYER} a rendu le SAC DE COMBAT et a\n"
-	.string "repris le SAC.$"
+	.string "Metterò da parte lo ZAINO LOTTA che hai\n"
+	.string "usato per la tua prossima sfida.\p"
+	.string "{PLAYER} ha consegnato lo ZAINO LOTTA\n"
+	.string "per riavere il suo ZAINO.$"
 
 BattleFrontier_BattlePyramidLobby_Text_RecordResultsWait:
-	.string "Votre résultat va être sauvegardé.\n"
-	.string "Veuillez patienter.$"
+	.string "Il tuo risultato verrà salvato.\n"
+	.string "Attendi.$"
 
 @ Unused
 BattleFrontier_BattlePyramidLobby_Text_ForConqueringPyramidTakeThis:
@@ -692,13 +695,14 @@ BattleFrontier_BattlePyramidLobby_Text_BagIsFull:
 	.string "your BAG’s contents.$"
 
 BattleFrontier_BattlePyramidLobby_Text_DisappointingHereIsBag:
-	.string "Que c’est décevant…\p"
-	.string "Voici votre SAC.\p"
-	.string "{PLAYER} a récupéré le SAC.$"
+	.string "Che delusione…\p"
+	.string "Questo è lo ZAINO che ho custodito\n"
+	.string "per te.\p"
+	.string "{PLAYER} ha riavuto il suo ZAINO.$"
 
 BattleFrontier_BattlePyramidLobby_Text_LookForwardToNextChallenge:
-	.string "Nous attendrons votre prochain défi\n"
-	.string "avec impatience.$"
+	.string "Aspettiamo con ansia la tua prossima\n"
+	.string "sfida.$"
 
 @ Unused
 BattleFrontier_BattlePyramidLobby_Text_HereIsPrize:
@@ -708,195 +712,199 @@ BattleFrontier_BattlePyramidLobby_Text_HereIsPrize:
 	.string "the PYRAMID.$"
 
 BattleFrontier_BattlePyramidLobby_Text_TellYouWhatMisfortunesAwait:
-	.string "Bienvenue à toi…\p"
-	.string "Je serais ravie de te dire les malheurs\n"
-	.string "qui t’attendent dans la PYRAMIDE…$"
+	.string "Salve…\p"
+	.string "Faccio profezie sulle avversità a cui\n"
+	.string "andrai incontro nella PIRAMIDE…$"
 
 BattleFrontier_BattlePyramidLobby_Text_Aah:
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
 	.string "… … … … … …\n"
-	.string "Ah!$"
+	.string "Aah!$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintParalysis:
-	.string "Je vois une pluie d’étincelles…\p"
-	.string "Dans cette pluie, je vois tes POKéMON\n"
-	.string "lutter contre la paralysie…$"
+	.string "Vedo uno zampillo di scintille…\p"
+	.string "In questo zampillo, i tuoi POKéMON\n"
+	.string "subiranno gli effetti della paralisi…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintPoison:
-	.string "Je vois du poison…\p"
-	.string "Oui, tes POKéMON souffrent d’un\n"
-	.string "empoisonnement…$"
+	.string "Vedo del veleno…\p"
+	.string "I tuoi POKéMON soffriranno a causa\n"
+	.string "degli effetti dell’avvelenamento…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintBurn:
-	.string "Je vois des flammes rouges…\p"
-	.string "Tes POKéMON souffrent de\n"
-	.string "brûlures…$"
+	.string "Vedo fiammate di un rosso acceso…\p"
+	.string "I tuoi POKéMON soffriranno a causa\n"
+	.string "delle scottature…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintPPWaste:
-	.string "Je ressens la pression d’une fureur\n"
-	.string "incontrôlable…\p"
-	.string "C’est une malédiction…\p"
-	.string "Et je vois les POINTS DE POUVOIR de\n"
-	.string "tes POKéMON se faire drainer.\l"
-	.string "Ils sont obligés d’utiliser LUTTE…$"
+	.string "Vedo un accesso di rabbia\n"
+	.string "incontenibile…\p"
+	.string "È una maledizione…\p"
+	.string "I tuoi POKéMON con i PUNTI POTENZA \n"
+	.string "azzerati dovranno ricorrere\l"
+	.string "a SCONTRO…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintLevitate:
-	.string "Je vois des POKéMON voler à haute\n"
-	.string "altitude…\p"
-	.string "Tes POKéMON sont frustrés face à\n"
-	.string "l’échec de leurs capacités de type SOL…$"
+	.string "Vedo POKéMON elevarsi in volo…\p"
+	.string "I tuoi POKéMON saranno in difficoltà\n"
+	.string "perché le mosse di tipo TERRA\l"
+	.string "risulteranno inefficaci…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintTrapAbility:
-	.string "Je sens une énergie incroyable\n"
-	.string "provenant du sol…\p"
-	.string "Je vois tes POKéMON incapables\n"
-	.string "d’échapper à son emprise…$"
+	.string "Sento un’energia potentissima\n"
+	.string "sprigionarsi dal terreno…\p"
+	.string "I tuoi POKéMON saranno incapaci di\n"
+	.string "reagire a tanta potenza…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintIce:
-	.string "Je vois des POKéMON de type GLACE…\p"
-	.string "Tes POKéMON luttent contre le froid\n"
-	.string "mordant de la glace…$"
+	.string "Vedo POKéMON di tipo GHIACCIO…\p"
+	.string "I tuoi POKéMON lotteranno contro gli\n"
+	.string "effetti ibernanti del congelamento…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintExplosion:
-	.string "Je vois une myriade de capacités\n"
-	.string "dangereuses pour celui qui les utilise…\p"
-	.string "Tes POKéMON en souffrent…$"
+	.string "Vedo una raffica di mosse che mettono\n"
+	.string "in pericolo chi le usa…\p"
+	.string "I tuoi POKéMON soccomberanno a\n"
+	.string "tali mosse…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintPsychic:
-	.string "Je vois des POKéMON de type PSY…\p"
-	.string "Tes POKéMON sont aux prises avec\n"
-	.string "des capacités de type PSY…$"
+	.string "Vedo POKéMON di tipo PSICO…\p"
+	.string "I tuoi POKéMON saranno tormentati da\n"
+	.string "mosse di tipo PSICO…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintRock:
-	.string "Je vois des POKéMON de type ROCHE…\p"
-	.string "Et je vois tes POKéMON souffrir à cause\n"
-	.string "de capacités de type ROCHE…$"
+	.string "Vedo POKéMON di tipo ROCCIA…\p"
+	.string "I tuoi POKéMON saranno colpiti da mosse\n"
+	.string "di tipo ROCCIA…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintFighting:
-	.string "Je vois des POKéMON de type COMBAT…\p"
-	.string "Tes POKéMON sont assaillis d’attaques\n"
-	.string "de type COMBAT…$"
+	.string "Vedo POKéMON di tipo LOTTA…\p"
+	.string "I tuoi POKéMON saranno colpiti da mosse\n"
+	.string "di tipo LOTTA…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintWeather:
-	.string "DANSE PLUIE… ZENITH…\n"
-	.string "TEMPETESABLE… GRELE…\p"
-	.string "Je vois des POKéMON qui se renforcent\n"
-	.string "avec les conditions climatiques…\p"
-	.string "Tes POKéMON sont perdus, les\n"
-	.string "capacités sont de tous types…$"
+	.string "PIOGGIADANZA… GIORNODISOLE…\n"
+	.string "TERREMPESTA… GRANDINE…\p"
+	.string "I POKéMON si rafforzeranno con\n"
+	.string "le condizioni atmosferiche…\p"
+	.string "I tuoi POKéMON saranno confusi da tipi\n"
+	.string "differenti di mosse…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintBug:
-	.string "Je vois des POKéMON de type INSECTE…\p"
-	.string "Tes POKéMON subissent des attaques\n"
-	.string "de différentes sortes…$"
+	.string "Vedo POKéMON di tipo COLEOTTERO…\p"
+	.string "I tuoi POKéMON saranno bersaglio di\n"
+	.string "diversi tipi di attacchi.…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintDark:
-	.string "Je vois des POKéMON de type TENEBRES…\p"
-	.string "Tes POKéMON sont aux prises avec\n"
-	.string "des capacités de type TENEBRES…$"
+	.string "Vedo POKéMON di tipo BUIO…\p"
+	.string "I tuoi POKéMON saranno colpiti da mosse\n"
+	.string "di tipo BUIO…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintWater:
-	.string "Je vois des POKéMON de type EAU…\p"
-	.string "Tes POKéMON sont aux prises avec\n"
-	.string "des capacités de type EAU…$"
+	.string "Vedo POKéMON di tipo ACQUA…\p"
+	.string "I tuoi POKéMON saranno colpiti da mosse\n"
+	.string "di tipo ACQUA…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintGhost:
-	.string "Je vois des POKéMON de type SPECTRE…\p"
-	.string "Tes POKéMON sont aux prises avec des\n"
-	.string "capacités de type SPECTRE…$"
+	.string "Vedo POKéMON di tipo SPETTRO…\p"
+	.string "I tuoi POKéMON saranno colpiti da mosse\n"
+	.string "di tipo SPETTRO…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintSteel:
-	.string "Je vois des POKéMON de type ACIER…\p"
-	.string "Tes POKéMON sont aux prises avec des\n"
-	.string "capacités très puissantes…$"
+	.string "Vedo POKéMON di tipo ACCIAIO…\p"
+	.string "I tuoi POKéMON saranno colpiti da mosse\n"
+	.string "estremamente potenti…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintFlyingDragon:
-	.string "Je vois des POKéMON volants…\p"
-	.string "Tes POKéMON sont aux prises avec des\n"
-	.string "capacités très puissantes…$"
+	.string "Vedo POKéMON di tipo VOLANTE…\p"
+	.string "I tuoi POKéMON saranno colpiti da mosse\n"
+	.string "estremamente potenti…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintStoneEvolve:
-	.string "Je vois ceux qui dérivent du pouvoir\n"
-	.string "de la pierre…\p"
-	.string "Je sens le feu, l’eau et l’électricité…\p"
-	.string "Tes POKéMON doivent affronter ces\n"
-	.string "trois pouvoirs…$"
+	.string "Vedo le specie che si sono evolute\n"
+	.string "grazie al potere delle pietre…\p"
+	.string "Vedo fuoco, acqua ed elettricità…\p"
+	.string "I tuoi POKéMON saranno colpiti da\n"
+	.string "questi tre poteri…$"
 
 BattleFrontier_BattlePyramidLobby_Text_HintNormal:
-	.string "Je vois des POKéMON de type NORMAL…\p"
-	.string "Tes POKéMON sont aux prises avec des\n"
-	.string "capacités très puissantes…$"
+	.string "Vedo POKéMON di tipo NORMALE…\p"
+	.string "I tuoi POKéMON saranno colpiti da mosse\n"
+	.string "estremamente potenti…$"
 
 BattleFrontier_BattlePyramidLobby_Text_BelieveMyFortunesOrNot:
-	.string "Que tu me croies ou non n’a aucune\n"
-	.string "importance…\p"
-	.string "Tu as le pouvoir de modifier ton avenir…\n"
-	.string "Je te souhaite de réussir…$"
+	.string "Puoi scegliere se credere o no alle\n"
+	.string "mie profezie…\p"
+	.string "Il futuro può modificarsi in un istante!\n"
+	.string "In bocca al lupo per la tua avventura…$"
 
 BattleFrontier_BattlePyramidLobby_Text_TrainersNoticeRunning:
-	.string "J’ai un secret pour toi.\p"
-	.string "Si tu cours, tu risques d’attirer\n"
-	.string "l’attention des DRESSEURS et ils\l"
-	.string "voudront se battre contre toi.\p"
-	.string "Pour les éviter, il faut se faire discret\n"
-	.string "et passer lentement à côté d’eux.$"
+	.string "Lo sapevi?\p"
+	.string "Se corri veloce, può succedere che gli\n"
+	.string "ALLENATORI ti notino e si avvicinino\l"
+	.string "per sfidarti in una lotta.\p"
+	.string "Se vuoi evitare gli ALLENATORI,\n"
+	.string "non incrociare il loro sguardo e\l"
+	.string "cammina con cautela davanti\l"
+	.string "a loro.$"
 
 BattleFrontier_BattlePyramidLobby_Text_LostLotOfItems:
-	.string "Ahhhhh!\p"
-	.string "J’avais plein d’objets, mais ils se sont\n"
-	.string "envolés quand j’ai perdu!\p"
-	.string "Ouin!!!!!!!!!!!!$"
+	.string "Aaaaaaarrrrgh!\p"
+	.string "Avevo un sacco di strumenti,\n"
+	.string "ma li ho persi con la sconfitta!\p"
+	.string "Aaaaaaarrrrgh!$"
 
 BattleFrontier_BattlePyramidLobby_Text_YouveDefeatedPyramidKing:
-	.string "Vous voilà de retour!\n"
-	.string "Vous avez réussi l’impossible!\p"
-	.string "Vous avez battu le ROI PYRAMIDE\n"
-	.string "et conquis la PYRAMIDE DE COMBAT!$"
+	.string "Che bello rivederti!\n"
+	.string "Hai compiuto un’impresa memorabile!\p"
+	.string "Hai sconfitto il RE PIRAMIDE e hai\n"
+	.string "conquistato la PIRAMIDE LOTTA!$"
 
 BattleFrontier_BattlePyramidLobby_Text_GiveYouTheseBattlePoints:
-	.string "Jeune intrépide!\n"
-	.string "Votre courage va être récompensé\l"
-	.string "par des POINTS DE COMBAT!$"
+	.string "Giovane promessa! Come riconoscimento\n"
+	.string "per la tua audacia, accetta questo\l"
+	.string "premio in PUNTI LOTTA!$"
 
 BattleFrontier_BattlePyramidLobby_Text_RulesAreListed:
-	.string "Règles du COMBAT QUETE.$"
+	.string "Lista delle regole della LOTTA\n"
+	.string "ESPLORAZIONE.$"
 
 BattleFrontier_BattlePyramidLobby_Text_ReadWhichHeading:
-	.string "Quel chapitre voulez-vous lire?$"
+	.string "Quale argomento vuoi approfondire?$"
 
 BattleFrontier_BattlePyramidLobby_Text_ExplainMonRules:
-	.string "Une fois la PYRAMIDE conquise,\n"
-	.string "les POKéMON sauvages qui s’y trouvent\l"
-	.string "sont remplacés par d’autres.\p"
-	.string "Il faut en profiter pour les observer\n"
-	.string "et apprendre à connaître de\l"
-	.string "nouveaux POKéMON sauvages.$"
+	.string "Una volta che la PIRAMIDE è stata\n"
+	.string "conquistata, vi appaiono nuove\l"
+	.string "specie di POKéMON selvatici.\p"
+	.string "Studia, osserva e conosci i POKéMON\n"
+	.string "selvatici che incontrerai.$"
 
 BattleFrontier_BattlePyramidLobby_Text_ExplainTrainerRules:
-	.string "Des DRESSEURS vous attendent à\n"
-	.string "l’intérieur de la PYRAMIDE.\p"
-	.string "A chaque niveau, il y a jusqu’à\n"
-	.string "huit DRESSEURS.\p"
-	.string "Quand vous en battez un, vous\n"
-	.string "recevez une information importante.$"
+	.string "All’interno della PIRAMIDE ti attendono\n"
+	.string "gli ALLENATORI.\p"
+	.string "Ne puoi trovare fino a otto per piano.\p"
+	.string "Quando sconfiggi un ALLENATORE,\n"
+	.string "riceverai un suggerimento utile per\l"
+	.string "la tua avventura.$"
 
 BattleFrontier_BattlePyramidLobby_Text_ExplainMazeRules:
-	.string "Les labyrinthes de la PYRAMIDE\n"
-	.string "changent à chaque fois que vous\l"
-	.string "y entrez.\p"
-	.string "Les labyrinthes sont très peu éclairés.\n"
-	.string "Vous devez avancer avec précaution.\p"
-	.string "Quand vous battez un POKéMON sauvage\n"
-	.string "ou un DRESSEUR, la lumière s’intensifie.$"
+	.string "Ogni volta che entri nella PIRAMIDE,\n"
+	.string "i suoi dedali si trasformano.\p"
+	.string "I dedali sono scarsamente illuminati.\n"
+	.string "Devi muoverti con cautela.\p"
+	.string "Quando sconfiggi un POKéMON selvatico\n"
+	.string "o un ALLENATORE, avrai più luce.$"
 
 BattleFrontier_BattlePyramidLobby_Text_ExplainBagRules:
-	.string "Le SAC DE COMBAT sera votre SAC\n"
-	.string "dans la PYRAMIDE.\p"
-	.string "Il y a deux SACS DE COMBAT: un pour\n"
-	.string "niveau 50 et un pour niveau libre.\p"
-	.string "Chacun peut contenir 99 exemplaires\n"
-	.string "de dix types d’objets différents.\p"
-	.string "Le contenu du SAC DE COMBAT est\n"
-	.string "perdu si vous échouez.$"
+	.string "Lo ZAINO LOTTA sostituisce il tuo\n"
+	.string "ZAINO abituale quando ti trovi nella\l"
+	.string "PIRAMIDE.\p"
+	.string "Ci sono due ZAINI LOTTA: uno per\n"
+	.string "l’avventura di LIVELLO 50 e l’altro\l"
+	.string "per quella di LIVELLO LIBERO.\p"
+	.string "Entrambi possono contenere fino a 99\n"
+	.string "unità di dieci tipi di strumenti diversi.\p"
+	.string "In caso di sconfitta, perderai\n"
+	.string "il contenuto dello ZAINO LOTTA.$"
 

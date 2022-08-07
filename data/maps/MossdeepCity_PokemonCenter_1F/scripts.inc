@@ -26,13 +26,13 @@ MossdeepCity_PokemonCenter_1F_EventScript_Girl::
 	end
 
 MossdeepCity_PokemonCenter_1F_Text_GymLeaderDuoFormidable:
-	.string "Les CHAMPIONS D’ARENE de cette ville\n"
-	.string "font la paire.\p"
-	.string "La combinaison de leurs attaques est\n"
-	.string "excellente. Waouh!$"
+	.string "I CAPIPALESTRA in questa città\n"
+	.string "sono un duo formidabile.\p"
+	.string "I loro attacchi in accoppiata\n"
+	.string "sono fortissimi!$"
 
 MossdeepCity_PokemonCenter_1F_Text_AbilitiesMightChangeMoves:
-	.string "Selon les capacités spéciales d’un\n"
-	.string "POKéMON, certaines attaques peuvent\l"
-	.string "échouer ou leur effet peut changer.$"
+	.string "In base alle abilità speciali dei\n"
+	.string "POKéMON, gli effetti di alcune mosse\l"
+	.string "possono cambiare o non verificarsi.$"
 

@@ -833,125 +833,121 @@ Common_EventScript_PlayerHandedOverTheItem::
 
 @ The below and surf.inc could be split into some text/notices.inc
 gText_PokemartSign::
-    .string "“Objets sélectionnés pour\n"
-    .string "votre commodité!”\l"
-    .string "BOUTIQUE POKéMON$"
+	.string "POKéMON-MARKET\n"
+	.string "“Strumenti per ogni esigenza!”.$"
 
 gText_PokemonCenterSign::
-    .string "“Rajeunissez vos partenaires\n"
-    .string "fatigués!”\l"
-    .string "CENTRE POKéMON$"
+	.string "CENTRO POKéMON\n"
+	.string "“Per rinvigorire i tuoi amici stanchi!”.$"
 
 gText_MomOrDadMightLikeThisProgram::
-    .string "Cette émission plairait à {STR_VAR_1}.\n"
-    .string "… … … … … … … … … … … … … … … …\p"
-    .string "Je ferais mieux de filer!$"
+	.string "Questo programma piacerebbe a {STR_VAR_1}.\n"
+	.string "… … … … … … … … … … … … … … … …\p"
+	.string "La TV è come una calamita!$"
 
 gText_WhichFloorWouldYouLike::
-    .string "Bienvenue au CENTRE COMMERCIAL\n"
-    .string "NENUCRIQUE.\p"
-    .string "A quel étage voulez-vous aller?$"
+	.string "Ti trovi nell’ascensore del CENTRO\n"
+	.string "COMMERCIALE di ALGHEPOLI.\p"
+	.string "A quale piano ti porto?$"
 
 gText_SandstormIsVicious::
-    .string "La tempête de sable fait rage.\n"
-    .string "Il est impossible d’avancer.$"
+	.string "La tempesta di sabbia è impetuosa.\n"
+	.string "È impossibile proseguire il cammino.$"
 
 gText_SelectWithoutRegisteredItem::
-    .string "Un objet du SAC peut être enregistré\n"
-    .string "comme fonction du bouton SELECT.$"
+	.string "Puoi assegnare uno strumento\n"
+	.string "dello ZAINO a SELECT.$"
 
 gText_PokemonTrainerSchoolEmail::
-    .string "Il y a un e-mail de l’ECOLE DE DRESSEURS.\p"
-    .string "… … … … … …\p"
-    .string "Un POKéMON peut apprendre jusqu’à\n"
-    .string "quatre capacités.\p"
-    .string "Le talent d’un DRESSEUR se juge sur les\n"
-    .string "capacités choisies pour ses POKéMON.\p"
-    .string "… … … … … …$"
+	.string "È arrivata una e-mail dalla SCUOLA per\n"
+	.string "ALLENATORI di POKéMON.\p"
+	.string "… … … … … …\p"
+	.string "Un POKéMON può conoscere fino\n"
+	.string "a quattro mosse.\p"
+	.string "Più bravo è l’ALLENATORE, migliore sarà\n"
+	.string "la rosa di mosse scelta per POKéMON.\p"
+	.string "… … … … … …$"
 
 gText_PlayerHouseBootPC::
-    .string "{PLAYER} allume le PC.$"
+	.string "{PLAYER} accende il PC.$"
 
 gText_PokeblockLinkCanceled::
-    .string "La connexion a été annulée.$"
+	.string "Collegamento annullato.$"
 
 gText_UnusedNicknameReceivedPokemon::
-    .string "Want to give a nickname to\n"
-    .string "the {STR_VAR_2} you received?$"
+	.string "Want to give a nickname to\n"
+	.string "the {STR_VAR_2} you received?$"
 
 gText_PlayerWhitedOut::
-    .string "{PLAYER} n’a plus de POKéMON en forme!\p"
-    .string "{PLAYER} est hors-jeu!$"
+	.string "{PLAYER} non ha più POKéMON utili!\p"
+	.string "{PLAYER} è fuori combattimento!$"
 
 gText_RegisteredTrainerinPokeNav::
-    .string "Vous avez enregistré\n"
-    .string "{STR_VAR_1} {STR_VAR_2}.$"
+	.string "Registrazione di {STR_VAR_2},\n"
+	.string "{STR_VAR_1}, nel POKéNAV avvenuta.$"
 
 gText_ComeBackWithSecretPower::
-    .string "Tu connais la CT FORCE CACHEE?\p"
-    .string "Dans notre groupe, on aime bien la CT\n"
-    .string "FORCE CACHEE.\p"
-    .string "L’un de nos membres va te la donner.Tu\n"
-    .string "viendras me la montrer quand tu l’auras.\p"
-    .string "On t’acceptera en tant que membre et\n"
-    .string "on te vendra de super trucs en secret.$"
+	.string "Conosci la MT FORZASEGRETA?\p"
+	.string "Il nostro gruppo adora la MT\n"
+	.string "FORZASEGRETA.\p"
+	.string "La potrai ottenere da uno dei nostri.\n"
+	.string "Ritorna quando ce l’hai per mostrarmela.\p"
+	.string "Così sarai dei nostri e ti venderemo\n"
+	.string "della buona merce in segreto.$"
 
 gText_PokerusExplanation::
-    .string "Ton POKéMON a peut-être attrapé\n"
-    .string "le POKéRUS.\p"
-    .string "On sait peu de choses sur les POKéRUS,\n"
-    .string "si ce n’est qu’il s’agit d’organismes\l"
-    .string "vivants microscopiques se fixant sur\l"
-    .string "les POKéMON.\p"
-    .string "Il paraît que les POKéMON contaminés\n"
-    .string "se développent incroyablement bien.$"
+	.string "I tuoi POKéMON potrebbero essere\n"
+	.string "infettati dal POKéRUS.\p"
+	.string "Si sa poco sul POKéRUS, ma pare che\n"
+	.string "si tratti di forme di vita microscopiche\l"
+	.string "che infettano i POKéMON.\p"
+	.string "Pare che i POKéMON infettati crescano\n"
+	.string "straordinariamente bene.$"
 	
 	.include "data/text/surf.inc"
 
 gText_DoorOpenedFarAway::
-    .string "Ça résonne comme si une porte s’était\n"
-    .string "ouverte au loin.$"
+	.string "Sembra che si sia aperta una porta\n"
+	.string "in lontananza.$"
 
 gText_BigHoleInTheWall::
-    .string "Il y a un gros trou dans le mur.$"
+	.string "C’è un grosso buco nella parete.$"
 
 gText_SorryWirelessClubAdjustments::
-    .string "Je suis vraiment désolée.\p"
-    .string "Le CLUB SANS FIL POKéMON\n"
-    .string "est encore en préparation.$"
+	.string "Sono spiacente.\n"
+	.string "Il CLUB WIRELESS POKéMON\l"
+	.string "è chiuso per lavori.$"
 
 gText_UndergoingAdjustments::
-    .string "Ils sont en train d’effectuer\n"
-    .string "des réglages…$"
+	.string "Sembra che sia chiuso per lavori.$"
 
-@ Unused
 gText_SorryTradeCenterInspections::
-    .string "I’m terribly sorry. The TRADE CENTER\n"
-    .string "is undergoing inspections.$"
+	.string "I’m terribly sorry. The TRADE CENTER\n"
+	.string "is undergoing inspections.$"
 
-@ Unused
 gText_SorryRecordCornerPreparation::
-    .string "I’m terribly sorry. The RECORD CORNER\n"
-    .string "is under preparation.$"
+	.string "I’m terribly sorry. The RECORD CORNER\n"
+	.string "is under preparation.$"
 
 gText_PlayerHandedOverTheItem::
-    .string "{PLAYER} remet {STR_VAR_1}.$"
+	.string "{PLAYER} cede\n"
+	.string "{STR_VAR_1}.$"
 
 gText_ThankYouForAccessingMysteryGift::
-    .string "Merci d’utiliser le système\n"
-    .string "CADEAU MYST.$"
+	.string "Grazie per usufruire del Sistema\n"
+	.string "DONO SEGRETO!$"
 
 gText_PlayerFoundOneTMHM::
-    .string "{PLAYER} trouve la {STR_VAR_1}\n"
-    .string "{STR_VAR_2}!$"
+	.string "{PLAYER} trova la {STR_VAR_1}\n"
+	.string "contenente {STR_VAR_2}!$"
 
 gText_Sudowoodo_Attacked::
-    .string "L’arbre bizarre n’aime pas\n"
-    .string "le SEAU WAILMER!\p"
-    .string "L’arbre bizarre attaque!$"
+	.string "Lo strano albero non gradisce\n"
+	.string "il VASO WAILMER!\p"
+	.string "Lo strano albero ti sta attaccando!$"
 
 gText_LegendaryFlewAway::
-    .string "Le {STR_VAR_1} s’est enfui!$"
+	.string "{STR_VAR_1} è fuggito!$"
 
 	.include "data/text/pc_transfer.inc"
 	.include "data/text/questionnaire.inc"

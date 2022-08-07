@@ -10,15 +10,15 @@ VerdanturfTown_House_EventScript_Woman2::
 	end
 
 VerdanturfTown_House_Text_TrainersGatherAtPokemonLeague:
-	.string "Au loin, au fin fond d’ETERNARA,\n"
-	.string "se trouve la LIGUE POKéMON.\p"
-	.string "Les DRESSEURS qui s’y retrouvent sont\n"
-	.string "terriblement doués.$"
+	.string "Lontano da qua, a IRIDOPOLI,\n"
+	.string "si trova la LEGA POKéMON.\p"
+	.string "Gli ALLENATORI che trovi lì sono\n"
+	.string "un vero portento.$"
 
 VerdanturfTown_House_Text_DefeatEliteFourInARow:
-	.string "Dans la LIGUE POKéMON, la règle stipule\n"
-	.string "que tu dois battre tous les membres\l"
-	.string "du CONSEIL 4 consécutivement.\p"
-	.string "Si tu perds contre l’un d’entre eux, tu\n"
-	.string "dois reprendre le défi depuis le début.$"
+	.string "Nella LEGA POKéMON vige una regola:\n"
+	.string "bisogna battere tutti i SUPERQUATTRO\l"
+	.string "di fila.\p"
+	.string "Se perdi contro uno di loro, dovrai\n"
+	.string "ricominciare la tua sfida da capo.$"
 

@@ -42,158 +42,159 @@ BattleFrontier_Lounge5_EventScript_LittleBoy::
 	end
 
 BattleFrontier_Lounge5_Text_NatureGirlGreeting::
-	.string "Hé, hé, hé!\n"
-	.string "Je sais ce que les POKéMON pensent!\p"
-	.string "S’il te plaît!\n"
-	.string "Je peux voir tes POKéMON?$"
+	.string "Eheheh!\n"
+	.string "So leggere nel pensiero dei POKéMON!\p"
+	.string "Ti prego! Mi mostri uno dei\n"
+	.string "tuoi POKéMON?$"
 
 BattleFrontier_Lounge5_Text_NatureGirlNoneShown::
-	.string "Bouh!\n"
-	.string "C’est pas sympa!$"
+	.string "Buu!\n"
+	.string "Sei un coniglio!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlHardy::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime se battre!\n"
-	.string "Même couvert de bobos, il se battra!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di amare la lotta!\n"
+	.string "Lotterebbe anche se si è fatto\l"
+	.string "tanta bua!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlLonely::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime être sournois!\n"
-	.string "Mais s’il est couvert de bobos, il\l"
-	.string "ripostera!$"
+	.string "Uhm…\p"
+	.string "A questo POKéMON piace fare il furbo!\n"
+	.string "Ma se si fa la bua, passa al\l"
+	.string "contrattacco!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlBrave::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime se battre!\n"
-	.string "Mais s’il se retrouve couvert de bobos,\l"
-	.string "il se met à pleurnicher!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di amare la lotta!\n"
+	.string "Ma se si fa la bua, si preoccupa per se\l"
+	.string "stesso!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlAdamant::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime se battre!\n"
-	.string "Même couvert de bobos, il se battra!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di amare la lotta!\n"
+	.string "Lotterebbe anche se si è fatto\l"
+	.string "tanta bua!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlNaughty::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il prend soin de lui!\n"
-	.string "Mais s’il accumule les bobos, il\l"
-	.string "ripostera!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di tenere a\n"
+	.string "se stesso! Ma se si fa la bua,\l"
+	.string "passa al contrattacco!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlBold::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime être sournois!\n"
-	.string "Mais s’il se retrouve couvert de bobos,\l"
-	.string "il se met à pleurnicher!$"
+	.string "Uhm…\p"
+	.string "A questo POKéMON piace fare il furbo!\n"
+	.string "Ma se si fa la bua, si preoccupa per se\l"
+	.string "stesso!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlDocileNaiveQuietQuirky::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime se battre!\n"
-	.string "Même couvert de bobos, il se battra!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di amare la lotta!\n"
+	.string "Lotterebbe anche se si è fatto\l"
+	.string "tanta bua!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlRelaxed::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime être sournois!\n"
-	.string "Mais s’il est couvert de bobos, il\l"
-	.string "ripostera!$"
+	.string "Uhm…\p"
+	.string "A questo POKéMON piace fare il furbo!\n"
+	.string "Ma se si fa la bua, passa al\l"
+	.string "contrattacco!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlImpish::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime se battre!\n"
-	.string "Mais s’il se retrouve couvert de bobos,\l"
-	.string "il se met à pleurnicher!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di amare la lotta!\n"
+	.string "Ma se si fa la bua, si preoccupa per se\l"
+	.string "stesso!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlLax::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime être sournois!\n"
-	.string "Il aime être sournois même quand il\l"
-	.string "est couvert de bobos!$"
+	.string "Uhm…\p"
+	.string "A questo POKéMON piace fare il furbo!\n"
+	.string "Anche quando si fa tanta bua!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlTimid::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime se battre!\n"
-	.string "Mais s’il se retrouve couvert de bobos,\l"
-	.string "il deviendra sournois!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di amare la lotta!\n"
+	.string "Ma se si fa tanta bua, diventa\l"
+	.string "un furbacchione!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlHasty::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime se battre!\n"
-	.string "Même couvert de bobos, il se battra!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di amare la lotta!\n"
+	.string "Lotterebbe anche se si è fatto\l"
+	.string "tanta bua!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlSerious::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime être sournois!\n"
-	.string "Il aime être sournois même quand il\l"
-	.string "est couvert de bobos!$"
+	.string "Uhm…\p"
+	.string "A questo POKéMON piace fare il furbo!\n"
+	.string "Anche quando si fa tanta bua!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlJolly::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime être sournois!\n"
-	.string "Mais s’il se retrouve couvert de bobos,\l"
-	.string "il se met à pleurnicher!$"
+	.string "Uhm…\p"
+	.string "A questo POKéMON piace fare il furbo!\n"
+	.string "Ma se si fa la bua, si preoccupa per se\l"
+	.string "stesso!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlModest::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il prend soin de lui!\n"
-	.string "Il ne pense qu’à lui, qu’il soit ou\l"
-	.string "non couvert de bobos!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di tenere a\n"
+	.string "se stesso, non importa se si è fatto\l"
+	.string "tanta bua o meno!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlMild::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il prend soin de lui!\n"
-	.string "Mais s’il se retrouve couvert de bobos,\l"
-	.string "il deviendra sournois!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di tenere a\n"
+	.string "se stesso! Se si fa la bua, diventa\l"
+	.string "un furbacchione!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlBashful::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il prend soin de lui!\n"
-	.string "Il ne pense qu’à lui même quand il\l"
-	.string "est couvert de bobos!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di tenere a\n"
+	.string "se stesso e si preoccupa se si\l"
+	.string "fa la bua!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlRash::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime être sournois!\n"
-	.string "Il aime être sournois même quand il\l"
-	.string "est couvert de bobos!$"
+	.string "Uhm…\p"
+	.string "A questo POKéMON piace fare il furbo!\n"
+	.string "Anche quando si fa tanta bua!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlCalm::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il prend soin de lui!\n"
-	.string "Il ne pense qu’à lui même quand il\l"
-	.string "est couvert de bobos!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di tenere a\n"
+	.string "se stesso! Se si fa tanta bua, si\l"
+	.string "preoccupa!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlGentle::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il prend soin de lui!\n"
-	.string "Mais s’il est couvert de bobos, il\l"
-	.string "ripostera!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di tenere a\n"
+	.string "se stesso! Ma se si fa la bua, passa\l"
+	.string "al contrattacco!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlSassy::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il aime se battre!\n"
-	.string "Mais s’il se retrouve couvert de bobos,\l"
-	.string "il deviendra sournois!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di amare la lotta!\n"
+	.string "Ma se si fa la bua, diventa\l"
+	.string "un furbacchione!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlCareful::
-	.string "Hum…\p"
-	.string "Celui-là dit qu’il prend soin de lui!\n"
-	.string "Mais s’il se retrouve couvert de bobos,\l"
-	.string "il deviendra sournois!$"
+	.string "Uhm…\p"
+	.string "Questo POKéMON dice di tenere a\n"
+	.string "se stesso! Se si fa la bua, diventa\l"
+	.string "un furbacchione!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlEgg::
-	.string "C’est n’importe quoi! Comment tu veux\n"
-	.string "que je parle avec un OEUF!?!$"
+	.string "Così non vale! Un UOVO dorme!\n"
+	.string "Non posso parlargli!$"
 
 BattleFrontier_Lounge5_Text_LadyClaimsSheUnderstandsPokemon::
-	.string "Comme c’est mignon!\n"
-	.string "Cette jeune fille prétend qu’elle peut\l"
-	.string "comprendre les POKéMON!$"
+	.string "Che carina!\n"
+	.string "Quella ragazzina dice di saper\l"
+	.string "leggere il pensiero dei POKéMON!$"
 
 BattleFrontier_Lounge5_Text_GirlSayingSomethingProfound::
-	.string "J’ai l’impression que cette fille dit\n"
-	.string "quelque chose de profond.$"
+	.string "Credo che quella ragazzina abbia\n"
+	.string "cose profonde da dire.$"
 
 BattleFrontier_Lounge5_Text_GirlPlaysAtRedHouseALot::
-	.string "J’ai une info!\p"
-	.string "Cette fille joue souvent dans le\n"
-	.string "bâtiment rouge!$"
+	.string "Una cosa la so anch’io!\p"
+	.string "Quella ragazzina gioca un sacco\n"
+	.string "nella casa rossa!$"
 

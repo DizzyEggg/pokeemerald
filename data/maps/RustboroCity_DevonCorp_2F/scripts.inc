@@ -271,99 +271,97 @@ RustboroCity_DevonCorp_2F_EventScript_WorkOnNext::
 	end
 
 RustboroCity_DevonCorp_2F_Text_DeviceForTalkingToPokemon:
-	.string "Nous développons un appareil\n"
-	.string "permettant de communiquer avec\l"
-	.string "les POKéMON.\p"
-	.string "Mais ce n’est pas encore au point…$"
+	.string "Stiamo sviluppando un apparecchio per\n"
+	.string "parlare con i POKéMON.\p"
+	.string "Ma con scarso successo…$"
 
 RustboroCity_DevonCorp_2F_Text_DevelopingNewBalls:
-	.string "Je mets au point de nouvelles sortes de\n"
-	.string "POKé BALLS…\p"
-	.string "Mais je n’ai pas trop progressé…$"
+	.string "Sto sviluppando nuovi tipi di\n"
+	.string "POKé BALL…\p"
+	.string "I progressi sono ancora scarsi…$"
 
 RustboroCity_DevonCorp_2F_Text_WeFinallyMadeNewBalls:
-	.string "Nous avons élaboré de nouvelles\n"
-	.string "POKé BALLS!\p"
-	.string "La BIS BALL permet d’attraper plus\n"
-	.string "facilement un type de POKéMON que\l"
-	.string "tu as déjà capturé.\p"
-	.string "La CHRONO BALL est plus efficace\n"
-	.string "si le combat dure longtemps.\p"
-	.string "Toutes deux sont fièrement produites\n"
-	.string "par DEVON.\p"
-	.string "Il faut les essayer!$"
+	.string "Siamo riusciti a fare due nuovi tipi\n"
+	.string "di POKé BALL!\p"
+	.string "La BIS BALL facilita la cattura di\n"
+	.string "POKéMON che hai preso in precedenza.\p"
+	.string "Con la TIMER BALL, più lunga è\n"
+	.string "la lotta più vai a segno nel catturare\l"
+	.string "il POKéMON.\p"
+	.string "Entrambe sono prodotti di punta della\n"
+	.string "DEVON SpA.\p"
+	.string "Mettile alla prova!$"
 
 RustboroCity_DevonCorp_2F_Text_IMadePokenav:
-	.string "J’ai inventé le POKéNAV!\p"
-	.string "En tant qu’ingénieur, je suis enchanté\n"
-	.string "d’avoir créé un appareil si génial!$"
+	.string "Ho progettato il POKéNAV!\p"
+	.string "Come ingegnere, essere l’autore di una\n"
+	.string "simile invenzione mi riempie di orgoglio!$"
 
 RustboroCity_DevonCorp_2F_Text_WowThatsAPokenav:
-	.string "Oh, waouh!\n"
-	.string "C’est un POKéNAV!\p"
-	.string "Il a été conçu pour répondre au souhait\n"
-	.string "de notre DIRECTEUR. Il voulait mieux\l"
-	.string "connaître les POKéMON.\p"
-	.string "Veux-tu que je te décrive précisément\n"
-	.string "ses caractéristiques?\p"
-	.string "Et puis non. Tu t’en rendras vite compte\n"
-	.string "rien qu’en l’essayant, de toute façon.$"
+	.string "Oh, wow!\n"
+	.string "È un POKéNAV!\p"
+	.string "È stato creato per volontà del nostro\n"
+	.string "PRESIDENTE per conoscere più a fondo\l"
+	.string "i POKéMON.\p"
+	.string "Vuoi che te ne descriva\n"
+	.string "le caratteristiche in dettaglio?\p"
+	.string "No, no. Credo che tu possa scoprirle\n"
+	.string "provando ad usarlo.$"
 
 RustboroCity_DevonCorp_2F_Text_DeviceToVisualizePokemonDreams:
-	.string "J’essaie de mettre au point un appareil\n"
-	.string "permettant de reproduire visuellement\l"
-	.string "les rêves des POKéMON…\p"
-	.string "Mais ça ne marche pas bien.$"
+	.string "Sto cercando di mettere a punto\n"
+	.string "un apparecchio che riproduca\l"
+	.string "visivamente i sogni dei POKéMON.\p"
+	.string "Ma sono ancora in alto mare.$"
 
 RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils:
-	.string "J’ai créé un appareil pour faire revivre\n"
-	.string "des POKéMON à partir de fossiles…\p"
-	.string "Et ça marche!$"
+	.string "Sto cercando di creare un apparecchio\n"
+	.string "che rigeneri i POKéMON dai fossili…\p"
+	.string "e sta funzionando!$"
 
 RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife:
-	.string "Attends! Ce que tu as là…\n"
-	.string "C’est un fossile de POKéMON?\p"
-	.string "Veux-tu ramener ce POKéMON\n"
-	.string "à la vie?\p"
-	.string "Je peux le faire avec mon tout nouveau\n"
-	.string "REGENERATEUR DE FOSSILE.$"
+	.string "Aspetta! Hai un fossile di POKéMON,\n"
+	.string "vero?\p"
+	.string "Vuoi far ritornare in vita quel POKéMON?\p"
+	.string "Con il RIGENERAFOSSILI di mia\n"
+	.string "invenzione tutto è possibile!$"
 
 RustboroCity_DevonCorp_2F_Text_OhIsThatSo:
-	.string "Non, tu ne veux pas?\p"
-	.string "Mais le savoir-faire technologique de\n"
-	.string "DEVON est remarquable, je t’assure.$"
+	.string "Oh, nessun ripensamento?\p"
+	.string "La tecnologia usata dalla DEVON\n"
+	.string "è molto avanzata.$"
 
 RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne:
-	.string "Oh, ça c’est une surprise!\n"
-	.string "Tu n’as pas un, mais deux fossiles!\p"
-	.string "Malheureusement, ma machine ne peut\n"
-	.string "régénérer qu’un POKéMON à la fois.\p"
-	.string "Veux-tu choisir un de tes fossiles\n"
-	.string "pour la régénération?$"
+	.string "Ma che sorpresa! Hai ben due fossili?\p"
+	.string "Purtroppo il mio apparecchio può\n"
+	.string "rigenerare solo un POKéMON alla volta.\p"
+	.string "Ti va di scegliere uno dei tuoi fossili\n"
+	.string "per il processo di rigenerazione?$"
 
 RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher:
-	.string "Parfait!\n"
-	.string "Faisons-le tout de suite!\p"
-	.string "{PLAYER} donne {STR_VAR_1} au\n"
-	.string "CHERCHEUR DE DEVON.$"
+	.string "Perfetto!\n"
+	.string "Iniziamo subito.\p"
+	.string "{PLAYER} dà {STR_VAR_1} al\n"
+	.string "RICERCATORE della DEVON.$"
 
 RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime:
-	.string "Le REGENERATEUR DE FOSSILE que\n"
-	.string "j’ai créé est incroyable!\p"
-	.string "Mais il a un inconvénient: il est\n"
-	.string "lent dans son fonctionnement.\p"
-	.string "Alors, euh… et si tu te baladais un peu\n"
-	.string "en attendant?$"
+	.string "Il RIGENERAFOSSILI che ho inventato\n"
+	.string "è geniale.\p"
+	.string "Ha solo un difetto: ci mette un po’\n"
+	.string "per entrare in funzione.\p"
+	.string "Quindi… che ne dici di farti un giretto\n"
+	.string "e di tornare fra un po’?$"
 
 RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife:
-	.string "Merci d’avoir patienté!\p"
-	.string "Ton POKéMON fossilisé a repris vie!\p"
-	.string "Le fossile était un ancien POKéMON.\n"
-	.string "C’était un {STR_VAR_2}!$"
+	.string "Grazie per la pazienza!\p"
+	.string "Il tuo POKéMON fossilizzato\n"
+	.string "è tornato in vita!\p"
+	.string "Il fossile era un antico POKéMON:\n"
+	.string "{STR_VAR_2}!$"
 
 RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher:
-	.string "{PLAYER} reçoit {STR_VAR_2} de la part\n"
-	.string "du CHERCHEUR DE DEVON.$"
+	.string "{PLAYER} riceve {STR_VAR_2} dal\n"
+	.string "RICERCATORE della DEVON.$"
 
 @ Unused
 RustboroCity_DevonCorp_2F_Text_TooManyPokemon:
@@ -371,15 +369,14 @@ RustboroCity_DevonCorp_2F_Text_TooManyPokemon:
 	.string "You have no room for this one.$"
 
 RustboroCity_DevonCorp_2F_Text_DevelopNewPokenavFeature:
-	.string "J’essaie de développer une nouvelle\n"
-	.string "fonction pour le POKéNAV…\p"
-	.string "Mais ce n’est pas très concluant…$"
+	.string "Sto cercando di mettere a punto una\n"
+	.string "nuova funzione per il POKéNAV…\p"
+	.string "ma per il momento non ci sono riuscito.$"
 
 RustboroCity_DevonCorp_2F_Text_WhatToWorkOnNext:
-	.string "Bon, sur quoi est-ce que je vais bien\n"
-	.string "pouvoir travailler maintenant?\p"
-	.string "Cette compagnie nous permet de\n"
-	.string "travailler sur ce que l’on souhaite.\p"
-	.string "Un ingénieur ne pourrait pas rêver\n"
-	.string "de meilleur environnement.$"
+	.string "Cosa posso inventare adesso?\p"
+	.string "L’azienda ci permette di\n"
+	.string "realizzare le nostre idee.\p"
+	.string "Per un ingegnere, questo è veramente\n"
+	.string "il massimo.$"
 

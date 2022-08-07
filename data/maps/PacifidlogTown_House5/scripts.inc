@@ -20,17 +20,15 @@ PacifidlogTown_House5_EventScript_Gentleman::
 	end
 
 PacifidlogTown_House5_Text_CantSeeMirageIslandToday:
-	.string "Je n’vois pas l’ILE MIRAGE aujourd’hui…$"
+	.string "Oggi l’ISOLA MIRAGGIO non si vede…$"
 
 PacifidlogTown_House5_Text_CanSeeMirageIslandToday:
-	.string "Oh! Oh mon Dieu! On peut voir\n"
-	.string "l’ILE MIRAGE aujourd’hui!$"
+	.string "Oh! Incredibile!\n"
+	.string "Oggi l’ISOLA MIRAGGIO si vede!$"
 
 PacifidlogTown_House5_Text_MirageIslandAppearDependingOnWeather:
-	.string "ILE MIRAGE…\p"
-	.string "Elle devient probablement visible ou\n"
-	.string "invisible en fonction du climat…\l"
-	.string "Parfois, on peut voir le mirage.\p"
-	.string "Ou peut-être apparaît-elle ou\n"
-	.string "disparaît-elle pour de bon?$"
+	.string "ISOLA MIRAGGIO…\p"
+	.string "Si vede e non si vede, a seconda delle\n"
+	.string "condizioni meteo che creano il miraggio.\p"
+	.string "O magari appare e scompare?$"
 

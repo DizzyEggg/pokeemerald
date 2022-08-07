@@ -35,14 +35,14 @@ LavaridgeTown_Mart_EventScript_OldWoman::
 	end
 
 LavaridgeTown_Mart_Text_XSpeedFirstStrike:
-	.string "Utilise VITESSE + pour augmenter la\n"
-	.string "VITESSE d’un POKéMON au combat.\p"
-	.string "Ça lui donnera plus de chances de\n"
-	.string "frapper le premier, un sacré avantage!$"
+	.string "Usa VELOCITÀ X per aumentare la\n"
+	.string "VELOCITÀ di un POKéMON in lotta.\p"
+	.string "Lo aiuterà a colpire per primo:\n"
+	.string "un chiaro vantaggio!$"
 
 LavaridgeTown_Mart_Text_LocalSpecialtyOnMtChimney:
-	.string "Au sommet du MONT CHIMNEE, on\n"
-	.string "trouve une spécialité locale qu’on ne\l"
-	.string "peut acheter que là-haut.\p"
-	.string "Donne-la à un POKéMON. Il sera ravi.$"
+	.string "Sulla vetta del MONTE CAMINO puoi\n"
+	.string "trovare una specialità locale.\p"
+	.string "Dalla ad un POKéMON: vedrai che\n"
+	.string "effetto!$"
 

@@ -7,22 +7,21 @@ MagmaHideout_3F_2R_EventScript_Grunt10::
 	end
 
 MagmaHideout_3F_2R_Text_Grunt10Intro:
-	.string "Je suis d’accord avec tout ce que dit\n"
-	.string "notre leader. Mais tu sais quoi?\p"
-	.string "Faire des trucs comme exhumer\n"
-	.string "un POKéMON super vieux et voler\l"
-	.string "le METEORITE de quelqu’un…\p"
-	.string "Je crois qu’on va peut-être un peu\n"
-	.string "trop loin. T’es pas d’accord?$"
+	.string "Ho comprensione per tutto ciò che il\n"
+	.string "nostro CAPO dice. Ma sai cosa?\p"
+	.string "Scavare per trovare un POKéMON\n"
+	.string "antichissimo e rubare a qualcuno il\l"
+	.string "suo METEORITE…\p"
+	.string "Non pensi che stiamo esagerando\n"
+	.string "un po’?$"
 
 MagmaHideout_3F_2R_Text_Grunt10Defeat:
-	.string "Ouaip, je pense vraiment qu’on fait\n"
-	.string "quelque chose de mal.$"
+	.string "Sì, mi sembra che stiamo facendo\n"
+	.string "qualcosa di sbagliato.$"
 
 MagmaHideout_3F_2R_Text_Grunt10PostBattle:
-	.string "Tu sais, perdre permet de prendre\n"
-	.string "conscience de certaines choses.\p"
-	.string "La prochaine fois que je verrai notre\n"
-	.string "leader, je lui parlerai de ce que nous\l"
-	.string "sommes en train de faire.$"
+	.string "Perdere contro di te mi ha fatto capire\n"
+	.string "molte cose.\p"
+	.string "Quando vedo il nostro CAPO mi faccio\n"
+	.string "spiegare cosa stiamo facendo.$"
 

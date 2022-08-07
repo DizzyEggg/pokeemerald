@@ -177,26 +177,26 @@ Route114_EventScript_Kai::
 	end
 
 Route114_Text_AllMyMonDoesIsRoarTakeThis:
-	.string "Mon POKéMON ne connaît que HURLEMENT.\n"
-	.string "Personne n’ose m’approcher…\p"
-	.string "Pfff… Tu devrais prendre\n"
-	.string "cette CT…$"
+	.string "Il mio POKéMON conosce solo BOATO…\n"
+	.string "Nessuno osa avvicinarsi a me…\p"
+	.string "Sigh… fammi il piacere, prendi\n"
+	.string "questa MT…$"
 
 Route114_Text_ExplainRoar:
-	.string "La CT05 contient HURLEMENT.\n"
-	.string "Un HURLEMENT fait filer les POKéMON.$"
+	.string "La MT05 contiene BOATO.\n"
+	.string "BOATO fa fuggire i POKéMON.$"
 
 Route114_Text_Poochyena:
-	.string "Bouh! Bouhou!$"
+	.string "Buu! Buuuuu!$"
 
 Route114_Text_MeteorFallsSign:
-	.string "SITE METEORE\n"
-	.string "VERS MEROUVILLE$"
+	.string "CASCATE METEORA\n"
+	.string "FERRUGIPOLI PER DI QUI$"
 
 Route114_Text_FossilManiacsHouseSign:
-	.string "MAISON DU MANIAQUE DES FOSSILES\n"
-	.string "“Les fossiles sont les bienvenus!”$"
+	.string "CASA dell’ESPERTO FOSSILI\n"
+	.string "“Si accettano fossili, grazie!”.$"
 
 Route114_Text_LanettesHouse:
-	.string "MAISON D’ANNETTE$"
+	.string "CASA di LANETTE$"
 

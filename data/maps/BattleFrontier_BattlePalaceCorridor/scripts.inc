@@ -122,29 +122,29 @@ BattleFrontier_BattlePalaceCorridor_Movement_AttendantEnterBattleRoom:
 	step_end
 
 BattleFrontier_BattlePalaceCorridor_Text_PeopleAndMonAreSame:
-	.string "Les gens et les POKéMON, c’est pareil…\p"
-	.string "Leur nature fait qu’ils sont très doués\n"
-	.string "pour certaines choses et beaucoup\l"
-	.string "moins pour d’autres.$"
+	.string "Le persone e i POKéMON hanno molte\n"
+	.string "cose in comune…\p"
+	.string "Per natura sono abili in certe cose e\n"
+	.string "scarsi in altre.$"
 
 BattleFrontier_BattlePalaceCorridor_Text_LetMonDoWhatItLikes:
-	.string "Au lieu de forcer un POKéMON à faire\n"
-	.string "ce qu’il n’aime pas, essayez de lui faire\l"
-	.string "faire des choses qu’il aime.\p"
-	.string "Mettez-vous dans la peau de votre\n"
-	.string "POKéMON pour comprendre ce qu’il aime.$"
+	.string "Non costringere un POKéMON a fare ciò\n"
+	.string "che detesta. Prova a fargli fare ciò che\l"
+	.string "ama e per cui si sente portato.\p"
+	.string "Mettiti nei suoi panni e pensa alle\n"
+	.string "mosse che potrebbero piacergli.$"
 
 BattleFrontier_BattlePalaceCorridor_Text_MonDifferentWhenCornered:
-	.string "La nature d’un POKéMON, c’est quelque\n"
-	.string "chose de fascinant…\p"
-	.string "Certains POKéMON changent totalement\n"
-	.string "d’attitude s’ils se sentent coincés.$"
+	.string "La natura di un POKéMON è una cosa\n"
+	.string "molto particolare…\p"
+	.string "Alcuni POKéMON si trasformano quando\n"
+	.string "si sentono sotto pressione.$"
 
 BattleFrontier_BattlePalaceCorridor_Text_BeginningToUnderstandNature:
-	.string "Commencez-vous à comprendre\n"
-	.string "l’influence qu’a la nature des POKéMON?$"
+	.string "Stai cominciando a capire come funziona\n"
+	.string "la natura di un POKéMON?$"
 
 BattleFrontier_BattlePalaceCorridor_Text_HeartfeltBondBetweenYouAndMons:
-	.string "Ah… Un lien fort et sincère\n"
-	.string "vous unit à vos POKéMON…$"
+	.string "Ah… fra te e i tuoi POKéMON deve\n"
+	.string "esserci un legame forte e sincero…$"
 

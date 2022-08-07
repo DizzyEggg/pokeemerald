@@ -69,41 +69,39 @@ LilycoveCity_MoveDeletersHouse_EventScript_LastMonWithSurf::
 	end
 
 LilycoveCity_MoveDeletersHouse_Text_ICanMakeMonForgetMove:
-	.string "Hum… Ah, oui,\n"
-	.string "je suis l’EFFACEUR DE CAPACITES.\p"
-	.string "Je fais oublier leurs capacités\n"
-	.string "aux POKéMON.\p"
-	.string "Tu veux que je le fasse?$"
+	.string "Uh… oh, ciao, sono l’ELIMINAMOSSE.\p"
+	.string "Posso far scordare le mosse ai POKéMON.\p"
+	.string "Vuoi usufruire del servizio?$"
 
 LilycoveCity_MoveDeletersHouse_Text_WhichMonShouldForget:
-	.string "Quel POKéMON doit oublier une capacité?$"
+	.string "A quale POKéMON vuoi far scordare\n"
+	.string "una mossa?$"
 
 LilycoveCity_MoveDeletersHouse_Text_WhichMoveShouldBeForgotten:
-	.string "Quelle capacité doit être oubliée?$"
+	.string "Quale mossa deve essere scordata?$"
 
 LilycoveCity_MoveDeletersHouse_Text_MonOnlyKnowsOneMove:
-	.string "Apparemment, {STR_VAR_1} ne connaît\n"
-	.string "qu’une seule capacité…$"
+	.string "{STR_VAR_1} non può scordare l’unica\n"
+	.string "mossa che conosce…$"
 
 LilycoveCity_MoveDeletersHouse_Text_MonsMoveShouldBeForgotten:
-	.string "Hum! {STR_VAR_2} de {STR_VAR_1}?\n"
-	.string "Cette capacité doit être oubliée?$"
+	.string "Uh! {STR_VAR_2} di {STR_VAR_1}?\n"
+	.string "Vuoi che scordi questa mossa?$"
 
 LilycoveCity_MoveDeletersHouse_Text_MonHasForgottenMove:
-	.string "Ça a marché à la perfection!\p"
-	.string "{STR_VAR_1} a complètement oublié\n"
-	.string "{STR_VAR_2}.$"
+	.string "Tutto ha funzionato a meraviglia!\p"
+	.string "{STR_VAR_1} ha scordato\n"
+	.string "{STR_VAR_2} completamente.$"
 
 LilycoveCity_MoveDeletersHouse_Text_ComeAgain:
-	.string "Reviens me voir si tu veux que tes\n"
-	.string "POKéMON oublient des capacités.$"
+	.string "Ritorna se ci ripensi.$"
 
 LilycoveCity_MoveDeletersHouse_Text_EggCantForgetMoves:
-	.string "Quoi? Les OEUFS ne connaissent\n"
-	.string "aucune capacité?!$"
+	.string "Che cosa?\n"
+	.string "L’UOVO non conosce mosse.$"
 
 LilycoveCity_MoveDeletersHouse_Text_CantForgetSurf:
-	.string "Hum…\p"
-	.string "On dirait que ton {STR_VAR_1} ne veut\n"
-	.string "pas oublier SURF.$"
+	.string "Mmm!\p"
+	.string "Il tuo {STR_VAR_1} non sembra\n"
+	.string "intenzionato a dimenticare SURF.$"
 

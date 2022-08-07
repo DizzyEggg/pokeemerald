@@ -110,37 +110,36 @@ Route112_EventScript_Shayla::
 	end
 
 Route112_Text_LeaderGoingToAwakenThing:
-	.string "Euh… Tu crois que notre chef\n"
-	.string "veut vraiment réveiller cette chose?$"
+	.string "Ehi, il nostro CAPO vuole veramente\n"
+	.string "risvegliare quel coso?$"
 
 Route112_Text_YeahWeNeedMeteorite:
-	.string "En tout cas, ça y ressemble. Mais il va\n"
-	.string "lui falloir une METEORITE, non?$"
+	.string "Sembra di sì. Ma dicono che ci sia\n"
+	.string "bisogno di un METEORITE per farlo.$"
 
 Route112_Text_OhThatsWhyCrewWentToFallarbor:
-	.string "Oh, j’ai compris maintenant!\p"
-	.string "C’est pour ça que le reste de la TEAM\n"
-	.string "est parti à AUTEQUIA.$"
+	.string "Ah, ora capisco. Ecco perché gli altri\n"
+	.string "se ne sono andati a BRUNIFOGLIA.$"
 
 Route112_Text_CantLetAnyonePassUntilTheyreBack:
-	.string "T’as compris? Et jusqu’à leur retour,\n"
-	.string "personne ne passe! OK?$"
+	.string "Certo. E finché non tornano, abbiamo\n"
+	.string "l’ordine di non far passare nessuno.$"
 
 Route112_Text_NotEasyToGetBackToLavaridge:
-	.string "Hé, j’aimerais aller à LAVANDIA, mais\n"
-	.string "si je descends par ce rebord, ça va pas\l"
-	.string "être facile de revenir à VERMILAVA.$"
+	.string "Eh, vorrei andare a CICLAMIPOLI,\n"
+	.string "ma se discendo quei salti, non sarà\l"
+	.string "facile tornare a CUORDILAVA.$"
 
 Route112_Text_MtChimneyCableCarSign:
-	.string "TELEPHERIQUE DU MONT CHIMNEE\n"
-	.string "“{UP_ARROW} Avancez de quelques pas!”$"
+	.string "FUNIVIA del MONTE CAMINO\n"
+	.string "“Una breve passeggiata! {UP_ARROW}”.$"
 
 Route112_Text_MtChimneySign:
-	.string "MONT CHIMNEE\p"
-	.string "“Pour VERMILAVA ou le sommet,\n"
-	.string "veuillez prendre le TELEPHERIQUE.”$"
+	.string "MONTE CAMINO\p"
+	.string "“Per CUORDILAVA o per la cima,\n"
+	.string "usare la FUNIVIA”.$"
 
 Route112_Text_RouteSignLavaridge:
-	.string "ROUTE 112\n"
-	.string "{LEFT_ARROW} VERMILAVA$"
+	.string "PERCORSO 112\n"
+	.string "{LEFT_ARROW} CUORDILAVA$"
 

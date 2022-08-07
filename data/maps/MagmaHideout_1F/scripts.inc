@@ -17,39 +17,38 @@ MagmaHideout_1F_EventScript_Grunt2::
 	end
 
 MagmaHideout_1F_Text_Grunt1Intro:
-	.string "A l’appel de la TEAM MAGMA, nous\n"
-	.string "nous sommes présentés un par un pour\l"
-	.string "recevoir nos assignements.\p"
-	.string "C’est pour ça que je suis coincé dans\n"
-	.string "ce coin, j’arrive toujours trop tard!$"
+	.string "Quando ci chiamano a rapporto, a noi del\n"
+	.string "TEAM MAGMA vengono assegnati dei turni\l"
+	.string "di guardia a seconda dell’ordine in cui\l"
+	.string "ci presentiamo.\p"
+	.string "Per questo motivo me ne sto qui\n"
+	.string "nell’angolo. Arrivo sempre tardi!$"
 
 MagmaHideout_1F_Text_Grunt1Defeat:
-	.string "J’arrive aussi toujours en retard aux\n"
-	.string "entraînements!\p"
-	.string "J’aime pas trop l’avouer, mais je suis\n"
-	.string "loin d’être le meilleur…$"
+	.string "Arrivo sempre tardi anche agli\n"
+	.string "allenamenti!\p"
+	.string "Non mi piace dirlo, ma sono un incapace…$"
 
 MagmaHideout_1F_Text_Grunt1PostBattle:
-	.string "OK, je vais essayer de m’entraîner\n"
-	.string "un peu plus sérieusement.$"
+	.string "Ok, cercherò di metterci un po’ più di\n"
+	.string "impegno d’ora in poi…$"
 
 MagmaHideout_1F_Text_Grunt2Intro:
-	.string "Notre leader nous a dit de creuser dans\n"
-	.string "le MONT CHIMNEE, alors on a creusé.\p"
-	.string "Et pendant qu’on était en train de\n"
-	.string "creuser, on est tombés sur quelque\l"
-	.string "chose de vraiment incroyable.\p"
-	.string "Tu veux savoir ce que c’est?\p"
-	.string "Ouahahah!\n"
-	.string "Je te le dirai si t’arrives à me battre!$"
+	.string "Il nostro CAPO ci ha detto di scavare al\n"
+	.string "MONTE CAMINO e noi l’abbiamo fatto.\p"
+	.string "Scavando abbiamo trovato qualcosa\n"
+	.string "di incredibile!\p"
+	.string "Vuoi sapere che cosa?\p"
+	.string "Ahahah!\n"
+	.string "Te lo dico se mi batti.$"
 
 MagmaHideout_1F_Text_Grunt2Defeat:
-	.string "Ouille!\n"
-	.string "Tu m’as eu!$"
+	.string "Arrgh!\n"
+	.string "Sono stato battuto!$"
 
 MagmaHideout_1F_Text_Grunt2PostBattle:
-	.string "J’ai changé d’avis, j’vais rien te dire!\n"
-	.string "Tu vas devoir découvrir par toi-même!\p"
-	.string "Je te gâcherais la surprise si je te\n"
-	.string "disais tout, tu crois pas?$"
+	.string "Ho deciso di non dirtelo.\n"
+	.string "Lo scoprirai da te quando ci arriverai!\p"
+	.string "È meglio tenere le sorprese per la fine,\n"
+	.string "non trovi?$"
 

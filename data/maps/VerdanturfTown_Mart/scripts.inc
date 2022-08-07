@@ -41,19 +41,21 @@ VerdanturfTown_Mart_EventScript_Lass::
 	end
 
 VerdanturfTown_Mart_Text_XSpecialIsCrucial:
-	.string "Pour les combats de POKéMON, SPECIAL +\n"
-	.string "est crucial.\p"
-	.string "Cela permet d’augmenter la puissance de\n"
-	.string "certaines attaques pendant un combat.$"
+	.string "SPECIAL X è fondamentale per ogni\n"
+	.string "lotta di POKéMON.\p"
+	.string "Aumenta la potenza di alcune mosse,\n"
+	.string "anche se per una lotta soltanto.$"
 
 VerdanturfTown_Mart_Text_NoStrategyGuidesForBattleTent:
-	.string "Je ne trouve aucun livre de stratégie\n"
-	.string "sur les TENTES DE COMBAT…\p"
-	.string "Peut-être qu’il faut simplement suivre\n"
-	.string "son instinct, après tout…$"
+	.string "Non vendono un vademecum della\n"
+	.string "strategia vincente per il TENDONE\l"
+	.string "LOTTA…\p"
+	.string "Non resta che fare affidamento\n"
+	.string "sulle proprie capacità…$"
 
 VerdanturfTown_Mart_Text_NestBallOnWeakenedPokemon:
-	.string "La FAIBLO BALL fonctionne mieux\n"
-	.string "sur les POKéMON faibles.\p"
-	.string "On ne peut en acheter qu’à VERGAZON.$"
+	.string "La MINOR BALL funziona meglio sui\n"
+	.string "POKéMON di livello molto inferiore.\p"
+	.string "MENTANIA è l’unica città dove puoi\n"
+	.string "acquistarla.$"
 

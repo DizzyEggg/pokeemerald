@@ -273,33 +273,33 @@ PlayersHouse_2F_EventScript_GameCube::
 	end
 
 PlayersHouse_2F_Text_ClockIsStopped:
-	.string "L’horloge est arrêtée…\p"
-	.string "Il vaudrait mieux la mettre à l’heure!$"
+	.string "L’orologio è fermo…\p"
+	.string "Meglio regolarlo e metterlo in funzione!$"
 
 PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
-	.string "MAMAN: {PLAYER}, ta nouvelle chambre\n"
-	.string "te plaît?\p"
-	.string "Excellent! Tout est bien rangé!\p"
-	.string "Ils ont aussi fini de tout mettre en\n"
-	.string "place en bas.\p"
-	.string "Ces déménageurs POKéMON sont\n"
-	.string "vraiment très pratiques!\p"
-	.string "Oh, assure-toi que tes affaires se\n"
-	.string "trouvent bien sur ton bureau.$"
+	.string "MAMMA: {PLAYER}, allora ti piace\n"
+	.string "la tua nuova stanza?\p"
+	.string "Bene! Ora è tutto in perfetto ordine!\p"
+	.string "Hanno finito di sistemare ogni cosa\n"
+	.string "anche di sotto!\p"
+	.string "I POKéMON traslocatori sono così\n"
+	.string "pratici!\p"
+	.string "Oh, assicurati che sulla tua scrivania\n"
+	.string "ci sia tutto!$"
 
 PlayersHouse_2F_Text_Notebook:
-	.string "{PLAYER} ouvre le cahier.\p"
-	.string "REGLE Nº 1\n"
-	.string "Ouvrez le MENU en appuyant sur START.\p"
-	.string "REGLE Nº 2\n"
-	.string "Sauvegardez en choisissant SAUVER.\p"
-	.string "Les pages suivantes sont vierges…$"
+	.string "{PLAYER} apre il quaderno.\p"
+	.string "REGOLA AVVENTURA Nº1\n"
+	.string "Per aprire il MENU premi START.\p"
+	.string "REGOLA AVVENTURA Nº2\n"
+	.string "Memorizza i tuoi progressi con SALVA.\p"
+	.string "Le altre pagine sono vuote…$"
 
 Common_Text_LookCloserAtMap:
-	.string "{PLAYER} regarde attentivement la\n"
-	.string "carte de la région de HOENN.$"
+	.string "{PLAYER} guarda attentamente la mappa\n"
+	.string "della regione di HOENN.$"
 
 PlayersHouse_2F_Text_ItsAGameCube:
-	.string "C’est une Nintendo GameCube.\p"
-	.string "Une Game Boy Advance est branchée\n"
-	.string "dessus et sert de manette.$"
+	.string "Un Nintendo GameCube.\p"
+	.string "C’è anche un Game Boy Advance\n"
+	.string "collegato come controller.$"

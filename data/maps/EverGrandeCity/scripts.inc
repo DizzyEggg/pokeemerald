@@ -24,14 +24,13 @@ EverGrandeCity_EventScript_SetVisitedEverGrande::
 	end
 
 EverGrandeCity_Text_EnteringVictoryRoad:
-	.string "DEBUT DE LA ROUTE VICTOIRE$"
+	.string "ACCESSO alla VIA VITTORIA$"
 
 EverGrandeCity_Text_EnteringPokemonLeague:
-	.string "ENTREE DE LA LIGUE POKéMON\n"
-	.string "DROIT DEVANT$"
+	.string "ACCESSO alla LEGA POKéMON$"
 
 EverGrandeCity_Text_CitySign:
-	.string "ETERNARA\p"
-	.string "“Le paradis des fleurs, de la mer et\n"
-	.string "des POKéMON.”$"
+	.string "IRIDOPOLI\p"
+	.string "“Un paradiso fatto di fiori, mare\n"
+	.string "e POKéMON”.$"
 

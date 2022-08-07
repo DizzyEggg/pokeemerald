@@ -133,190 +133,180 @@ FortreeCity_Gym_EventScript_GymStatue::
 	end
 
 FortreeCity_Gym_Text_GymGuideAdvice:
-	.string "Yo, ça baigne pour toi, futur\n"
-	.string "MAITRE {PLAYER}?\p"
-	.string "ALIZEE, CHAMPION D’ARENE de\n"
-	.string "CIMETRONELLE est une spécialiste\l"
-	.string "des POKéMON du type VOL.\p"
-	.string "Elle attend au fond de cette ARENE,\n"
-	.string "derrière les tourniquets.\p"
-	.string "Elle attend de nouveaux challengeurs\n"
-	.string "qui essaient de prendre leur envol!\p"
-	.string "OK, vas-y!$"
+	.string "Ehi, come va {PLAYER}, CAMPIONE in erba?\p"
+	.string "ALICE, CAPOPALESTRA di FORESTOPOLI,\n"
+	.string "è la regina dei POKéMON di tipo VOLANTE.\p"
+	.string "Ti attende in fondo alla PALESTRA,\n"
+	.string "dietro le porte girevoli.\p"
+	.string "Sta aspettando nuovi sfidanti\n"
+	.string "che cercano di spiccare il volo!\p"
+	.string "Coraggio, lanciati nell’impresa!$"
 
 FortreeCity_Gym_Text_GymGuidePostVictory:
-	.string "Tu as gagné!\n"
-	.string "Décollage réussi!$"
+	.string "Ce l’hai fatta!\n"
+	.string "Sei in continua ascesa!$"
 
 FortreeCity_Gym_Text_JaredIntro:
-	.string "Regarde l’élégance des POKéMON\n"
-	.string "OISEAU au combat!$"
+	.string "Ti mostrerò l’elegante stile di lotta\n"
+	.string "dei POKéMON UCCELLO!$"
 
 FortreeCity_Gym_Text_JaredDefeat:
-	.string "Toi…\n"
-	.string "Tu as une telle puissance…$"
+	.string "Tu… sei imbattibile…$"
 
 FortreeCity_Gym_Text_JaredPostBattle:
-	.string "Un DRESSEUR doit être rusé pour faire\n"
-	.string "face aux retournements inattendus.\p"
-	.string "Voyons si tu as assez de jugeote pour\n"
-	.string "arriver jusqu’à notre CHAMPION!$"
+	.string "Un ALLENATORE deve saper fronteggiare\n"
+	.string "qualsiasi imprevisto.\p"
+	.string "Vediamo se hai la stoffa per sfidare\n"
+	.string "il nostro CAPOPALESTRA!$"
 
 FortreeCity_Gym_Text_EdwardoIntro:
-	.string "Tous les amoureux des POKéMON OISEAU\n"
-	.string "veulent rejoindre cette ARENE.\p"
-	.string "En tant que membre de l’ARENE de\n"
-	.string "CIMETRONELLE, je ne peux pas perdre!$"
+	.string "Gli amanti dei POKéMON UCCELLO aspirano\n"
+	.string "ad iscriversi in questa PALESTRA.\p"
+	.string "Come membro della PALESTRA di\n"
+	.string "FORESTOPOLI, non posso permettermi\l"
+	.string "di perdere!$"
 
 FortreeCity_Gym_Text_EdwardoDefeat:
-	.string "C’était un poids trop lourd à\n"
-	.string "porter pour moi…$"
+	.string "Questa volta non ce l’ho fatta…$"
 
 FortreeCity_Gym_Text_EdwardoPostBattle:
-	.string "Le monde est grand et des tas de\n"
-	.string "DRESSEURS très puissants le peuplent.\p"
-	.string "Je vais continuer à m’entraîner pour\n"
-	.string "devenir encore plus fort.$"
+	.string "Il mondo è sconfinato e gli ALLENATORI\n"
+	.string "forti sono innumerevoli.\p"
+	.string "Continuerò ad allenarmi per diventare\n"
+	.string "sempre più forte.$"
 
 FortreeCity_Gym_Text_FlintIntro:
-	.string "Pas la peine pour ALIZEE, notre\n"
-	.string "CHAMPION, de s’attarder sur ton cas!\p"
-	.string "Je suis bien assez fort pour toi!$"
+	.string "Non c’è bisogno che ALICE, il nostro\n"
+	.string "CAPOPALESTRA, si scomodi per te!\p"
+	.string "Ci penserò io a fermarti!$"
 
 FortreeCity_Gym_Text_FlintDefeat:
-	.string "ALIZEE, je…\n"
-	.string "J’ai perdu!$"
+	.string "ALICE, io… ho perso!$"
 
 FortreeCity_Gym_Text_FlintPostBattle:
-	.string "ALIZEE est maligne et très forte.\n"
-	.string "Elle représente le CHAMPION absolu!\p"
-	.string "Oh, je rougis…$"
+	.string "ALICE è carina e forte.\n"
+	.string "È un grande CAPOPALESTRA!\p"
+	.string "Ehm, ehm…$"
 
 FortreeCity_Gym_Text_AshleyIntro:
-	.string "ALIZEE m’a tout appris!\n"
-	.string "Tu vas avoir du mal à me battre!$"
+	.string "Ho preso lezioni da ALICE!\n"
+	.string "Battermi non sarà facile!$"
 
 FortreeCity_Gym_Text_AshleyDefeat:
-	.string "Je me suis fait battre…$"
+	.string "Mi hai battuto…$"
 
 FortreeCity_Gym_Text_AshleyPostBattle:
-	.string "Grâce à ALIZEE, les habitants de\n"
-	.string "CIMETRONELLE peuvent vivre sans peur.$"
+	.string "La presenza di ALICE infonde\n"
+	.string "tranquillità negli abitanti\l"
+	.string "di FORESTOPOLI.$"
 
 FortreeCity_Gym_Text_HumbertoIntro:
-	.string "Quand ALIZEE se lance dans un combat,\n"
-	.string "son visage s’illumine…\p"
-	.string "Mais je ne te laisserai pas voir ça\n"
-	.string "de tes petits yeux!$"
+	.string "Quando ALICE si appresta a lottare,\n"
+	.string "le si legge la determinazione sul viso…\p"
+	.string "Non lascerò che tu arrivi così vicino\n"
+	.string "da vedere il suo bellissimo volto!$"
 
 FortreeCity_Gym_Text_HumbertoDefeat:
-	.string "Aïe!\n"
-	.string "Je n’ai pas pu t’arrêter!$"
+	.string "Oh oh… non sono riuscito a fermarti.$"
 
 FortreeCity_Gym_Text_HumbertoPostBattle:
-	.string "Tu ferais bien de te méfier!\n"
-	.string "Ne te laisse pas distraire par le visage\l"
-	.string "d’ALIZEE ou tu risques de le regretter!$"
+	.string "Ti conviene fare attenzione!\n"
+	.string "Se ti distrai ad osservare ALICE,\l"
+	.string "andrai a tappeto in un attimo!$"
 
 FortreeCity_Gym_Text_DariusIntro:
-	.string "Tu ferais bien de savoir qu’il y a\n"
-	.string "plusieurs sortes de POKéMON de\l"
-	.string "type VOL.\p"
-	.string "Tu le sais, hein?$"
+	.string "Devi sapere che c’è una grande varietà\n"
+	.string "di POKéMON di tipo VOLANTE.\p"
+	.string "Lo sapevi già, vero?$"
 
 FortreeCity_Gym_Text_DariusDefeat:
-	.string "Tu plaisantes pas toi!$"
+	.string "Sembra che tu sappia il fatto tuo!$"
 
 FortreeCity_Gym_Text_DariusPostBattle:
-	.string "OK, tu m’as battu.\n"
-	.string "Mais tu ferais bien de faire attention!\p"
-	.string "Les POKéMON de notre CHAMPION\n"
-	.string "vont te ramener sur terre!$"
+	.string "Sì, mi hai sconfitto. Ma è presto per\n"
+	.string "cantare vittoria. I POKéMON del nostro\l"
+	.string "CAPOPALESTRA ALICE sono tosti.$"
 
 FortreeCity_Gym_Text_WinonaIntro:
-	.string "Je suis ALIZEE, CHAMPION\n"
-	.string "D’ARENE de CIMETRONELLE.\p"
-	.string "Je me suis unie avec les POKéMON\n"
-	.string "OISEAU et envolée dans les airs…\p"
-	.string "Même si le combat a été exténuant,\n"
-	.string "on l’a emporté avec grâce…\p"
-	.string "Admire l’élégante chorégraphie que mes\n"
-	.string "POKéMON OISEAU et moi avons préparée!$"
+	.string "Sono ALICE, CAPOPALESTRA di\n"
+	.string "FORESTOPOLI.\p"
+	.string "Sono una stella nel firmamento grazie\n"
+	.string "ai miei POKéMON UCCELLO.\p"
+	.string "Nelle lotte più ardue siamo sempre\n"
+	.string "riusciti a tirare fuori gli artigli…\p"
+	.string "Io e i miei POKéMON UCCELLO\n"
+	.string "ti batteremo in volata!$"
 
 FortreeCity_Gym_Text_WinonaDefeat:
-	.string "Je n’avais encore jamais vu de DRESSEUR\n"
-	.string "commander ses POKéMON avec autant de\l"
-	.string "grâce que moi. Tu es le premier…\p"
-	.string "En récompense de ta prouesse, je\n"
-	.string "t’offre ce BADGE.$"
+	.string "Non avevo mai incontrato un ALLENATORE\n"
+	.string "capace di comandare i POKéMON con più\l"
+	.string "eleganza di me…\p"
+	.string "Come riconoscimento della tua forza,\n"
+	.string "ti meriti questa MEDAGLIA.$"
 
 FortreeCity_Gym_Text_ReceivedFeatherBadge:
-	.string "{PLAYER} reçoit le BADGE PLUME\n"
-	.string "de la part d’ALIZEE.$"
+	.string "{PLAYER} riceve la MEDAGLIA PIUMA\n"
+	.string "da ALICE.$"
 
 FortreeCity_Gym_Text_ExplainFeatherBadgeTakeThis:
-	.string "Avec le BADGE PLUME, tous les POKéMON\n"
-	.string "jusqu’au niveau 70, même ceux échangés,\l"
-	.string "obéiront à tous tes ordres.\p"
-	.string "Tu pourras aussi utiliser l’attaque CS\n"
-	.string "VOL en dehors des combats.\p"
-	.string "Et ça…\n"
-	.string "C’est un cadeau que je te fais.$"
+	.string "Con la MEDAGLIA PIUMA, tutti i POKéMON\n"
+	.string "fino al livello 70, anche se scambiati,\l"
+	.string "obbediranno ad ogni tuo comando.\p"
+	.string "Ti permette anche di usare la mossa\n"
+	.string "MN VOLO quando non stai lottando.\p"
+	.string "E questo… è un omaggio da parte mia.$"
 
 FortreeCity_Gym_Text_ExplainAerialAce:
-	.string "La CT40 contient AEROPIQUE.\p"
-	.string "Sa vitesse…\n"
-	.string "Aucun POKéMON ne pourra l’éviter.\p"
+	.string "La MT40 contiene AEROASSALTO.\p"
+	.string "La sua velocità…\n"
+	.string "nessun POKéMON avrà scampo.\p"
 	.string "… … … … … …$"
 
 FortreeCity_Gym_Text_RegisteredWinona:
-	.string "Vous avez enregistré le CHAMPION\n"
-	.string "D’ARENE ALIZEE dans le POKéNAV.$"
+	.string "Registrazione del CAPOPALESTRA\n"
+	.string "ALICE nel POKéNAV avvenuta.$"
 
 FortreeCity_Gym_Text_WinonaPostBattle:
-	.string "Même après ma défaite, je reste dévouée\n"
-	.string "aux POKéMON OISEAU.$"
+	.string "Anche se mi hai battuto, rimarrò fedele\n"
+	.string "ai POKéMON UCCELLO.$"
 
 FortreeCity_Gym_Text_GymStatue:
-	.string "ARENE POKéMON de CIMETRONELLE$"
+	.string "PALESTRA POKéMON di FORESTOPOLI$"
 
 FortreeCity_Gym_Text_GymStatueCertified:
-	.string "ARENE POKéMON de CIMETRONELLE\p"
-	.string "NOUVEAU DRESSEUR RECONNU PAR ALIZEE:\n"
+	.string "PALESTRA POKéMON di FORESTOPOLI\p"
+	.string "ALLENATORE CERTIFICATO da ALICE:\n"
 	.string "{PLAYER}$"
 
 FortreeCity_Gym_Text_WinonaPreRematch:
-	.string "ALIZEE: Nous autres humains,\n"
-	.string "nous ne pouvons pas échapper à la\l"
-	.string "force de la gravité.\p"
-	.string "Mais dans notre quête d’excellence,\n"
-	.string "nous parvenons à nous élever!\p"
-	.string "Tu as atteint les sommets en\n"
-	.string "devenant le MAITRE.\p"
-	.string "S’il te plaît, laisse-moi voir\n"
-	.string "l’étendue de ta puissance!$"
+	.string "ALICE: Gli uomini non possono sfuggire\n"
+	.string "all’attrazione della forza terrestre.\p"
+	.string "Tuttavia, aspirando alla perfezione,\n"
+	.string "riescono a spiccare il volo!\p"
+	.string "Come CAMPIONE in carica, tu\n"
+	.string "hai raggiunto la vetta.\p"
+	.string "Fammi vedere ora se sei veramente\n"
+	.string "capace di volare!$"
 
 FortreeCity_Gym_Text_WinonaRematchDefeat:
-	.string "J’ai encore échoué… Je n’ai pas\n"
-	.string "pu atteindre ton niveau…$"
+	.string "Ancora una volta ho volato più basso\n"
+	.string "di te…$"
 
 FortreeCity_Gym_Text_WinonaPostRematch:
-	.string "ALIZEE: Même dans la défaite, les ailes\n"
-	.string "de mon cœur restent déployées.\p"
-	.string "Je pourrai m’élever encore et toujours.\p"
-	.string "J’en suis convaincue!$"
+	.string "ALICE: Anche se ho perso, le ali del mio\n"
+	.string "cuore sono rimaste intatte.\p"
+	.string "Posso rialzarmi e spiccare il volo\n"
+	.string "ancora una volta.\p"
+	.string "Ne sono sicura.$"
 
 FortreeCity_Gym_Text_WinonaRematchNeedTwoMons:
-	.string "ALIZEE: Nous autres humains,\n"
-	.string "nous ne pouvons pas échapper à la\l"
-	.string "force de la gravité.\p"
-	.string "Mais dans notre quête d’excellence,\n"
-	.string "nous parvenons à nous élever!\p"
-	.string "Tu as atteint les sommets en\n"
-	.string "devenant le MAITRE.\p"
-	.string "S’il te plaît, laisse-moi voir l’étendue\n"
-	.string "de ta puissance!\p"
-	.string "Oh, non, tu n’as qu’un POKéMON\n"
-	.string "avec toi?\p"
-	.string "S’il te plaît, reviens me voir avec au\n"
-	.string "moins deux POKéMON.$"
+	.string "ALICE: Gli uomini non possono sfuggire\n"
+	.string "all’attrazione della forza terrestre.\p"
+	.string "Tuttavia, aspirando alla perfezione,\n"
+	.string "riescono a spiccare il volo!\p"
+	.string "Come CAMPIONE in carica, tu\n"
+	.string "hai raggiunto la vetta.\p"
+	.string "Fammi vedere ora se sei veramente\n"
+	.string "capace di volare!\p"
+	.string "Oh, no… hai un solo POKéMON?\p"
+	.string "Torna quando ne avrai almeno due.$"

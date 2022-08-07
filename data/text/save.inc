@@ -1,27 +1,34 @@
 	.align 2
 gText_ConfirmSave::
-	.string "Voulez-vous sauvegarder la partie?$"
+	.string "Vuoi salvare il gioco?$"
 
 gText_AlreadySavedFile::
-	.string "Il y a déjà une partie sauvegardée.\n"
-	.string "Voulez-vous la remplacer?$"
+	.string "Sono presenti dati di gioco salvati.\n"
+	.string "Vuoi sovrascriverli?$"
 
 gText_SavingDontTurnOff::
-	.string "SAUVEGARDE EN COURS…\n"
-	.string "N’ETEIGNEZ PAS LA CONSOLE.$"
+	.string "SALVATAGGIO IN CORSO…\n"
+	.string "NON SPEGNERE!$"
 
 gText_PlayerSavedGame::
-	.string "{PLAYER} a sauvegardé la partie.$"
+	.string "{PLAYER} ha salvato i dati di gioco.$"
 
 gText_DifferentSaveFile::
-	.string "Une partie différente est déjà\n"
-	.string "sauvegardée.\p"
-	.string "Voulez-vous la remplacer?$"
+	.string "ATTENZIONE!\n"
+	.string "In memoria è presente il\l"
+	.string "salvataggio di un’altra partita.\p"
+	.string "Se salvi adesso, i dati dell’altra\n"
+	.string "partita, inclusi gli strumenti e\l"
+	.string "i POKéMON, andranno perduti.\p"
+	.string "Vuoi comunque salvare,\n"
+	.string "sovrascrivendo i dati di gioco\l"
+	.string "che si trovano in memoria?$"
 
 gText_SaveError::
-	.string "Erreur de sauvegarde.\p"
-	.string "Changer la mémoire de sauvegarde.$"
+	.string "Errore di salvataggio.\p"
+	.string "Sostituire la memoria\n"
+	.string "di backup.$"
 
 gText_SavingDontTurnOffPower::
-	.string "SAUVEGARDE EN COURS…\n"
-	.string "NE PAS ETEINDRE.$"
+	.string "SALVATAGGIO IN CORSO…\n"
+	.string "NON SPEGNERE!$"

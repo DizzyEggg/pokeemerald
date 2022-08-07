@@ -323,44 +323,46 @@ BattleFrontier_BattleFactoryLobby_EventScript_ExitRules::
 	end
 
 BattleFrontier_BattleFactoryLobby_Text_WelcomeForSingleBattle:
-	.string "Bienvenue à l’USINE DE COMBAT!\p"
-	.string "Ici, nous mettons à l’épreuve\n"
-	.string "le savoir des DRESSEURS!\p"
-	.string "Je serai votre guide pour le TOURNOI\n"
-	.string "COMBAT ECHANGE SOLO.$"
+	.string "Qui viene messa alla prova\n"
+	.string "l’intelligenza degli ALLENATORI!\p"
+	.string "Ti do il benvenuto all’AZIENDA LOTTA!\p"
+	.string "Sono la tua guida al TORNEO LOTTA\n"
+	.string "SCAMBIO in SINGOLO.$"
 
 BattleFrontier_BattleFactoryLobby_Text_TakeSinglesChallenge:
-	.string "Voulez-vous relever le défi du\n"
-	.string "COMBAT ECHANGE SOLO?$"
+	.string "Vuoi partecipare alla sfida LOTTA\n"
+	.string "SCAMBIO in SINGOLO?$"
 
 BattleFrontier_BattleFactoryLobby_Text_ExplainSinglesChallenge:
-	.string "Le TOURNOI COMBAT ECHANGE SOLO\n"
-	.string "se compose de COMBATS SOLO. Vous\l"
-	.string "utilisez des POKéMON de location.\p"
-	.string "Vous devez choisir trois POKéMON parmi\n"
-	.string "les POKéMON de location.\p"
-	.string "Ensuite, vous faites des COMBATS\n"
-	.string "SOLO avec ces POKéMON.\p"
-	.string "Si vous gagnez, vous pouvez échanger\n"
-	.string "l’un des POKéMON de location.\p"
-	.string "Si vous gagnez sept combats à la suite,\n"
-	.string "vous gagnez des POINTS DE COMBAT.\p"
-	.string "Si vous voulez interrompre le défi,\n"
-	.string "veuillez sauvegarder la partie.\p"
-	.string "Si vous ne sauvegardez pas,\n"
-	.string "c’est la disqualification.$"
+	.string "Nel TORNEO LOTTA SCAMBIO in SINGOLO\n"
+	.string "si disputano solo LOTTE in SINGOLO\l"
+	.string "con POKéMON a nolo.\p"
+	.string "Prima di combattere devi prendere a\n"
+	.string "noleggio tre POKéMON da schierare\l"
+	.string "solo in questo evento.\p"
+	.string "Devi disputare una LOTTA in SINGOLO\n"
+	.string "con i POKéMON noleggiati.\p"
+	.string "Se vinci, puoi scambiare uno dei\n"
+	.string "POKéMON noleggiati.\p"
+	.string "Chi vince sette volte di fila, in\n"
+	.string "questo ciclo di lotte e scambi,\l"
+	.string "riceve in premio PUNTI LOTTA.\p"
+	.string "Se vuoi interrompere la sfida,\n"
+	.string "devi salvare il gioco.\p"
+	.string "Se non salvi prima di interromperla,\n"
+	.string "la tua sfida verrà annullata.$"
 
 BattleFrontier_BattleFactoryLobby_Text_LookForwardToNextVisit:
-	.string "Nous espérons vous compter parmi\n"
-	.string "nos participants une prochaine fois.$"
+	.string "Aspettiamo con ansia la tua prossima\n"
+	.string "sfida.$"
 
 BattleFrontier_BattleFactoryLobby_Text_WhichLevelMode:
-	.string "Que choisissez-vous: niveau 50 ou\n"
-	.string "niveau libre?$"
+	.string "A quale livello vuoi lottare?\n"
+	.string "LIVELLO 50 o LIVELLO LIBERO?$"
 
 BattleFrontier_BattleFactoryLobby_Text_OkayToSaveBeforeChallenge:
-	.string "Avant de commencer, votre partie doit\n"
-	.string "être sauvegardée. OK?$"
+	.string "Prima di iniziare la sfida, devi\n"
+	.string "salvare il gioco. Okay?$"
 
 @ Unused
 BattleFrontier_BattleFactoryLobby_Text_WillHoldMonsForSafekeeping:
@@ -368,14 +370,14 @@ BattleFrontier_BattleFactoryLobby_Text_WillHoldMonsForSafekeeping:
 	.string "safekeeping while you compete.$"
 
 BattleFrontier_BattleFactoryLobby_Text_StepThisWay:
-	.string "Suivez-moi, je vous prie.$"
+	.string "Prego, da questa parte.$"
 
 BattleFrontier_BattleFactoryLobby_Text_ReturnMonsSaveResults:
-	.string "Merci d’avoir joué!\p"
-	.string "Je vous rends vos POKéMON et reprends\n"
-	.string "les POKéMON de location.\p"
-	.string "Je dois sauvegarder vos données.\n"
-	.string "Veuillez patienter.$"
+	.string "Grazie per aver partecipato!\p"
+	.string "Ti restituisco i tuoi POKéMON in cambio\n"
+	.string "dei nostri POKéMON a nolo.\p"
+	.string "Il tuo risultato verrà salvato.\n"
+	.string "Attendi.$"
 
 @ Unused
 BattleFrontier_BattleFactoryLobby_Text_ReturnMons:
@@ -383,8 +385,8 @@ BattleFrontier_BattleFactoryLobby_Text_ReturnMons:
 	.string "for our rental POKéMON.$"
 
 BattleFrontier_BattleFactoryLobby_Text_CongratsSevenWins:
-	.string "Félicitations! Vous avez gagné sept\n"
-	.string "COMBATS ECHANGE à la suite!$"
+	.string "Complimenti! Hai vinto sette\n"
+	.string "LOTTE SCAMBIO di fila!$"
 
 @ Unused
 BattleFrontier_BattleFactoryLobby_Text_AwardBattlePointsForStreak:
@@ -399,16 +401,15 @@ BattleFrontier_BattleFactoryLobby_Text_MaxBattlePoints:
 	.string "some Battle Points.$"
 
 BattleFrontier_BattleFactoryLobby_Text_WaitingForYouToResume:
-	.string "Nous vous attendions!\p"
-	.string "Avant de reprendre votre défi, vous\n"
-	.string "devez sauvegarder la partie.$"
+	.string "Che bello rivederti!\p"
+	.string "Prima di riprendere la sfida,\n"
+	.string "devo salvare il gioco.$"
 
 BattleFrontier_BattleFactoryLobby_Text_DidntSaveBeforeQuitting:
-	.string "Je regrette!\p"
-	.string "Vous n’avez pas sauvegardé avant de\n"
-	.string "quitter votre dernier défi.\p"
-	.string "Dans ce cas, c’est la disqualification.\n"
-	.string "C’est dommage!$"
+	.string "Quando hai interrotto la sfida l’ultima\n"
+	.string "volta, non hai salvato il gioco.\p"
+	.string "Per questo motivo, la tua sfida è\n"
+	.string "stata annullata. Spiacente!$"
 
 @ Unused
 BattleFrontier_BattleFactoryLobby_Text_WellReturnMons:
@@ -420,81 +421,82 @@ BattleFrontier_BattleFactoryLobby_Text_ReceivedPrizeItem:
 	.string "{STR_VAR_1}.$"
 
 BattleFrontier_BattleFactoryLobby_Text_WelcomeForDoubleBattle:
-	.string "Bienvenue à l’USINE DE COMBAT!\p"
-	.string "Ici, nous mettons à l’épreuve\n"
-	.string "le savoir des DRESSEURS!\p"
-	.string "Je serai votre guide pour le TOURNOI\n"
-	.string "COMBAT ECHANGE DUO.$"
+	.string "Qui viene messa alla prova\n"
+	.string "l’intelligenza degli ALLENATORI!\p"
+	.string "Ti do il benvenuto all’AZIENDA LOTTA!\p"
+	.string "Sono la tua guida al TORNEO LOTTA\n"
+	.string "SCAMBIO in DOPPIO.$"
 
 BattleFrontier_BattleFactoryLobby_Text_TakeDoublesChallenge:
-	.string "Voulez-vous relever le défi du\n"
-	.string "COMBAT ECHANGE DUO?$"
+	.string "Vuoi partecipare alla sfida LOTTA\n"
+	.string "SCAMBIO in DOPPIO?$"
 
 BattleFrontier_BattleFactoryLobby_Text_ExplainDoublesChallenge:
-	.string "Le TOURNOI COMBAT ECHANGE DUO\n"
-	.string "se compose de COMBATS DUO. Vous\l"
-	.string "utilisez des POKéMON de location.\p"
-	.string "Vous devez choisir trois POKéMON parmi\n"
-	.string "les POKéMON de location.\p"
-	.string "Ensuite, vous faites des COMBATS\n"
-	.string "DUO avec ces POKéMON.\p"
-	.string "Si vous gagnez, vous pouvez échanger\n"
-	.string "l’un des POKéMON de location.\p"
-	.string "Si vous gagnez sept combats à la suite,\n"
-	.string "vous gagnez des POINTS DE COMBAT.\p"
-	.string "Si vous voulez interrompre le défi,\n"
-	.string "veuillez sauvegarder la partie.\p"
-	.string "Assurez-vous de bien sauvegarder, ou\n"
-	.string "vous ne pourrez pas reprendre le défi.$"
+	.string "Nel TORNEO LOTTA SCAMBIO in DOPPIO\n"
+	.string "si disputano solo LOTTE in DOPPIO\l"
+	.string "con POKéMON a nolo.\p"
+	.string "Prima di combattere devi prendere a\n"
+	.string "noleggio tre POKéMON da schierare\l"
+	.string "solo in questo evento.\p"
+	.string "Devi disputare una LOTTA in DOPPIO\n"
+	.string "con i POKéMON noleggiati.\p"
+	.string "Se vinci, puoi scambiare uno dei\n"
+	.string "POKéMON noleggiati.\p"
+	.string "Chi vince sette volte di fila, in\n"
+	.string "questo ciclo di lotte e scambi,\l"
+	.string "riceve in premio PUNTI LOTTA.\p"
+	.string "Se vuoi interrompere la sfida,\n"
+	.string "devi salvare il gioco.\p"
+	.string "Se non salvi prima di interromperla,\n"
+	.string "la tua sfida verrà annullata.$"
 
 BattleFrontier_BattleFactoryLobby_Text_CongratsForDefeatingHead:
-	.string "Félicitations! Vous avez battu le\n"
-	.string "CHEF D’USINE et gagné\l"
-	.string "sept matchs à la suite!$"
+	.string "Complimenti per aver sconfitto\n"
+	.string "il BOSS AZIENDA e per aver\l"
+	.string "vinto sette lotte di fila!$"
 
 BattleFrontier_BattleFactoryLobby_Text_AwardBattlePoints:
-	.string "Votre savoir et votre intelligence vont\n"
-	.string "être récompensés par des POINTS\l"
-	.string "DE COMBAT!$"
+	.string "Come riconoscimento per la tua\n"
+	.string "sapienza e intelligenza, accetta\l"
+	.string "un premio in PUNTI LOTTA.$"
 
 BattleFrontier_BattleFactoryLobby_Text_ExchangeMonsAndSave:
-	.string "Je vous rends vos POKéMON et reprends\n"
-	.string "les POKéMON de location.\p"
-	.string "Je dois sauvegarder vos données.\n"
-	.string "Veuillez patienter.$"
+	.string "Permettimi di scambiare i tuoi POKéMON\n"
+	.string "con i nostri POKéMON a nolo.\p"
+	.string "I dati relativi alla tua lotta verranno\n"
+	.string "salvati. Attendi.$"
 
 BattleFrontier_BattleFactoryLobby_Text_RecordLastMatch:
-	.string "Voulez-vous enregistrer votre dernier\n"
-	.string "combat à l’USINE DE COMBAT sur votre\l"
-	.string "PASSE ZONE?$"
+	.string "Vuoi che il filmato della tua ultima\n"
+	.string "lotta nell’AZIENDA LOTTA venga\l"
+	.string "registrato nel PASS PARCO?$"
 
 BattleFrontier_BattleFactoryLobby_Text_NeedKnowledgeOfMonsMoves:
-	.string "Hé, dis-moi!\p"
-	.string "Tu crois que c’est facile de se battre\n"
-	.string "ici parce qu’on te prête des POKéMON?\p"
-	.string "Eh bien, si tu penses ça, tu te mets\n"
-	.string "le doigt dans l’œil! Crois-moi!\p"
-	.string "Tu dois connaître énormément de\n"
-	.string "choses sur les POKéMON et sur leurs\l"
-	.string "capacités pour gagner ici!$"
+	.string "Ehilà!\n"
+	.string "Ciao!\p"
+	.string "Credi che gli incontri qui siano facili\n"
+	.string "perché non devi lottare con la squadra\l"
+	.string "di POKéMON che hai allevato?\p"
+	.string "Non ne sarei tanto sicura.\p"
+	.string "Se non conosci molto bene i POKéMON\n"
+	.string "e le loro mosse, è praticamente\l"
+	.string "impossibile continuare a vincere.$"
 
 BattleFrontier_BattleFactoryLobby_Text_SwappedForWeakMon:
-	.string "A l’échange, j’ai pris un autre POKéMON…\n"
-	.string "Ce n’était pas une très bonne idée…\p"
-	.string "Ils nous ont écrasés…$"
+	.string "Ho fatto uno scambio sfavorevole.\n"
+	.string "Non sapevo che il POKéMON fosse debole.\p"
+	.string "Ci hanno messo in ginocchio…$"
 
 BattleFrontier_BattleFactoryLobby_Text_NeedToCheckOpponentsMons:
-	.string "Ça ne s’est pas du tout passé\n"
-	.string "comme je l’avais prévu.\p"
-	.string "Il faut bien étudier les POKéMON de\n"
-	.string "l’adversaire pour savoir lequel choisir\l"
-	.string "pendant l’échange à la fin du combat.$"
+	.string "La fortuna mi ha voltato le spalle.\p"
+	.string "Devi studiare i POKéMON dell’avversario\n"
+	.string "per sapere quali sono forti e quali no.$"
 
 BattleFrontier_BattleFactoryLobby_Text_CantFigureOutStaffHints:
-	.string "Tu sais, on te donne des infos sur\n"
-	.string "l’adversaire avant les combats.\p"
-	.string "Je m’y connais bien, mais je trouve\n"
-	.string "que les infos ne sont pas très claires.$"
+	.string "Il personale dà alcune dritte sul tuo\n"
+	.string "avversario, lo sapevi?\p"
+	.string "Sono un uomo esperto, ma trovo i loro\n"
+	.string "suggerimenti difficili da decifrare.$"
 
 @ Unused
 BattleFrontier_BattleFactoryLobby_Text_RentalMonsAreVaried:
@@ -506,44 +508,44 @@ BattleFrontier_BattleFactoryLobby_Text_RentalMonsAreVaried:
 	.string "varied the rental POKéMON.$"
 
 BattleFrontier_BattleFactoryLobby_Text_RulesAreListed:
-	.string "Règles du COMBAT ECHANGE.$"
+	.string "Lista delle regole della LOTTA SCAMBIO.$"
 
 BattleFrontier_BattleFactoryLobby_Text_ReadWhichHeading:
-	.string "Quel chapitre voulez-vous lire?$"
+	.string "Quale argomento vuoi approfondire?$"
 
 BattleFrontier_BattleFactoryLobby_Text_ExplainBasicRules:
-	.string "Lors d’un COMBAT ECHANGE, vous ne\n"
-	.string "pouvez utiliser que trois POKéMON.\p"
-	.string "Qu’ils aient été prêtés ou échangés,\n"
-	.string "votre équipe ne peut pas avoir deux\l"
-	.string "fois le même POKéMON.$"
+	.string "Nella LOTTA SCAMBIO puoi usare solo\n"
+	.string "tre POKéMON.\p"
+	.string "Quando noleggi o scambi un POKéMON,\n"
+	.string "non puoi creare una squadra con due o\l"
+	.string "più POKéMON della stessa specie.$"
 
 BattleFrontier_BattleFactoryLobby_Text_ExplainSwapPartnerRules:
-	.string "Vous pouvez échanger un POKéMON avec\n"
-	.string "le DRESSEUR que vous venez de battre.\p"
-	.string "Vous ne pouvez obtenir que les POKéMON\n"
-	.string "se trouvant dans son équipe.$"
+	.string "Puoi scambiare un POKéMON solo con\n"
+	.string "l’ALLENATORE che hai appena sconfitto.\p"
+	.string "Puoi prendere solo uno dei POKéMON\n"
+	.string "che l’ALLENATORE aveva in squadra.$"
 
 BattleFrontier_BattleFactoryLobby_Text_ExplainSwapNumberRules:
-	.string "A chaque fois que vous gagnez, vous\n"
-	.string "pouvez échanger un de vos POKéMON\l"
-	.string "avec un de ceux de votre adversaire.\p"
-	.string "Vous ne pouvez pas faire d’échange\n"
-	.string "avec le septième DRESSEUR.$"
+	.string "Puoi scambiare un POKéMON con\n"
+	.string "il rivale sconfitto solo dopo la fine\l"
+	.string "della lotta.\p"
+	.string "Non puoi scambiare un POKéMON con\n"
+	.string "il settimo ALLENATORE dell’evento.$"
 
 BattleFrontier_BattleFactoryLobby_Text_ExplainSwapNotesRules:
-	.string "Voici deux choses à savoir sur les\n"
-	.string "échanges de POKéMON.\p"
-	.string "Avant l’échange, vous ne pouvez pas\n"
-	.string "connaître les stats du POKéMON\l"
-	.string "que vous voulez recevoir.\p"
-	.string "Les POKéMON de votre équipe sont\n"
-	.string "alignés dans l’ordre où vous les avez\l"
-	.string "loués.\p"
-	.string "Cet ordre reste le même lorsque vous\n"
-	.string "échangez des POKéMON.$"
+	.string "Ci sono due fattori da tenere in conto\n"
+	.string "quando si scambiano POKéMON.\p"
+	.string "In primo luogo, quando fai uno scambio,\n"
+	.string "non puoi controllare le statistiche del\l"
+	.string "POKéMON che stai per ricevere.\p"
+	.string "In secondo luogo, i POKéMON scendono\n"
+	.string "in campo in base alla successione\l"
+	.string "con la quale sono stati noleggiati.\p"
+	.string "L’ordine di schieramento non cambia\n"
+	.string "anche dopo uno scambio.$"
 
 BattleFrontier_BattleFactoryLobby_Text_ExplainOpenLvRules:
-	.string "En niveau libre, les POKéMON de\n"
-	.string "location et les POKéMON des\l"
-	.string "adversaires sont tous de niveau 100.$"
+	.string "Nel LIVELLO LIBERO, i POKéMON a nolo e\n"
+	.string "quelli degli ALLENATORI avversari\l"
+	.string "sono tutti di livello 100.$"

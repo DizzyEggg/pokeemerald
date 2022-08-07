@@ -10,17 +10,16 @@ SootopolisCity_House7_EventScript_PokefanF::
 	end
 
 SootopolisCity_House7_Text_CityFromEruptedVolcano:
-	.string "Un volcan immergé est entré en éruption\n"
-	.string "et remonté des profondeurs marines.\p"
-	.string "Son cratère a émergé de la mer et\n"
-	.string "s’est rempli d’eau de pluie.\p"
-	.string "C’est ainsi que la ville d’ATALANOPOLIS\n"
-	.string "a été créée.$"
+	.string "A seguito di un’eruzione, un vulcano\n"
+	.string "sottomarino è emerso dalle profondità.\p"
+	.string "Il cratere affiorato dal mare si\n"
+	.string "è riempito di acqua piovana.\p"
+	.string "Questa è l’origine di CENERIDE.$"
 
 SootopolisCity_House7_Text_CaveMadeToKeepSomething:
-	.string "La grotte qui relie ATALANOPOLIS au\n"
-	.string "monde extérieur…\p"
-	.string "C’est comme si elle avait été créée\n"
-	.string "pour empêcher quelque chose de sortir.\p"
-	.string "Ou s’agit-il juste de mon imagination?$"
+	.string "La grotta che collega CENERIDE\n"
+	.string "al mondo esterno…\p"
+	.string "sembra che sia stata creata per\n"
+	.string "custodire qualcosa.\p"
+	.string "O forse mi sto inventando le cose?$"
 

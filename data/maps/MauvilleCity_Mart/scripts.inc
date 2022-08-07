@@ -38,16 +38,16 @@ MauvilleCity_Mart_EventScript_Man::
 	end
 
 MauvilleCity_Mart_Text_ItemsToTemporarilyElevateStats:
-	.string "Certains objets augmentent de façon\n"
-	.string "temporaire les stats d’un POKéMON.\p"
-	.string "Ceux qu’on utilise au combat sont\n"
-	.string "l’ATTAQUE + et la DEFENSE +.\p"
-	.string "Je crois qu’il y en a encore \n"
-	.string "d’autres comme ça.$"
+	.string "Alcuni strumenti migliorano per un po’\n"
+	.string "le statistiche dei POKéMON.\p"
+	.string "Conosco ATTACCO X e DIFESA X\n"
+	.string "che si usano nella lotta…\p"
+	.string "Ma credo che ci siano altri strumenti\n"
+	.string "altrettanto efficaci.$"
 
 MauvilleCity_Mart_Text_DecisionsDetermineBattle:
-	.string "Utiliser une certaine capacité ou\n"
-	.string "utiliser un objet à la place…\p"
-	.string "A mon avis, les décisions des DRESSEURS\n"
-	.string "influent sur le déroulement du combat.$"
+	.string "Puoi usare una certa mossa oppure\n"
+	.string "uno strumento…\p"
+	.string "Credo che le decisioni dell’ALLENATORE\n"
+	.string "determinino l’esito di una lotta.$"
 

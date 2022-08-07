@@ -25,26 +25,26 @@ MossdeepCity_House3_EventScript_DeclineSuperRod::
 	end
 
 MossdeepCity_House3_Text_YouWantSuperRod:
-	.string "Hé, toi, DRESSEUR!\n"
-	.string "Une MEGA CANNE, c’est vraiment super!\p"
-	.string "Tu peux dire c’que tu veux, ce bébé peut\n"
-	.string "attraper des POKéMON au fond de la mer!\p"
-	.string "Qu’est-ce que t’en penses?\n"
-	.string "Tu veux qu’on essaie, hein?$"
+	.string "Ehi, salve ALLENATORE!\n"
+	.string "Il SUPER AMO è un portento!\p"
+	.string "Checché se ne dica, è ottimo per\n"
+	.string "pescare POKéMON dai fondali marini!\p"
+	.string "Che ne pensi?\n"
+	.string "Lo vuoi?$"
 
 MossdeepCity_House3_Text_SuperRodIsSuper:
-	.string "Tu paries, tu paries! Après tout, une\n"
-	.string "MEGA CANNE, c’est super!$"
+	.string "Lo sapevo! Dopotutto ci sarà pur\n"
+	.string "un motivo per cui si chiama SUPER AMO!$"
 
 MossdeepCity_House3_Text_TryDroppingRodInWater:
-	.string "S’il y a de l’eau, essaie de lancer ta\n"
-	.string "CANNE et attends de voir si ça mord!$"
+	.string "Se c’è dell’acqua, prova a lanciare\n"
+	.string "il tuo AMO e vedi cosa abbocca!$"
 
 MossdeepCity_House3_Text_DontYouLikeToFish:
-	.string "Hum?\n"
-	.string "T’aimes pas pêcher?$"
+	.string "Uhm?\n"
+	.string "Non ami la pesca?$"
 
 MossdeepCity_House3_Text_GoAfterSeafloorPokemon:
-	.string "Essaie d’attraper les POKéMON au fond\n"
-	.string "de la mer avec ta MEGA CANNE.$"
+	.string "Pesca i POKéMON dei fondali marini\n"
+	.string "con questo SUPER AMO.$"
 

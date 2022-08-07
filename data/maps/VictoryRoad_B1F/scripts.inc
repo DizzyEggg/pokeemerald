@@ -27,68 +27,65 @@ VictoryRoad_B1F_EventScript_Halle::
 	end
 
 VictoryRoad_B1F_Text_SamuelIntro:
-	.string "Penser que je me rapproche de\n"
-	.string "la LIGUE POKéMON…\p"
-	.string "J’ai le trac…$"
+	.string "Al pensiero di avvicinarmi alla\n"
+	.string "LEGA POKéMON…\p"
+	.string "mi trema la voce come ad un artista\n"
+	.string "nel giorno della prima…$"
 
 VictoryRoad_B1F_Text_SamuelDefeat:
-	.string "Je n’ai rien pu faire…$"
+	.string "Ho scordato le battute…$"
 
 VictoryRoad_B1F_Text_SamuelPostBattle:
-	.string "La LIGUE POKéMON s’éloigne à nouveau…\n"
-	.string "Quelle déception…$"
+	.string "La LEGA POKéMON è ancora\n"
+	.string "un miraggio… Che amarezza…$"
 
 VictoryRoad_B1F_Text_ShannonIntro:
-	.string "Pour réussir à parcourir le chemin qui\n"
-	.string "te mènera à la LIGUE POKéMON, il te\l"
-	.string "faudra avoir la confiance de tes\l"
-	.string "POKéMON.$"
+	.string "Per vincere alla LEGA POKéMON,\n"
+	.string "è necessaria la piena fiducia da parte\l"
+	.string "dei tuoi POKéMON.$"
 
 VictoryRoad_B1F_Text_ShannonDefeat:
-	.string "Votre relation est basée sur une\n"
-	.string "solide confiance.$"
+	.string "Si vede che c’è fiducia reciproca.$"
 
 VictoryRoad_B1F_Text_ShannonPostBattle:
-	.string "Comme les POKéMON et les DRESSEURS\n"
-	.string "sont toujours ensemble, leur confiance\l"
-	.string "mutuelle grandit.$"
+	.string "Passando tempo insieme, cresce la\n"
+	.string "fiducia tra i POKéMON e gli ALLENATORI.$"
 
 VictoryRoad_B1F_Text_MichelleIntro:
-	.string "Ce n’est pas encore là. Ce n’est qu’une\n"
-	.string "étape sur la route de la LIGUE POKéMON.$"
+	.string "Questo non è il traguardo. È solo una\n"
+	.string "tappa verso la LEGA POKéMON.$"
 
 VictoryRoad_B1F_Text_MichelleDefeat:
-	.string "C’est en ce sens qu’il faut aller!$"
+	.string "Sei sulla buona strada!$"
 
 VictoryRoad_B1F_Text_MichellePostBattle:
-	.string "Tu vas te débrouiller, c’est sûr!\n"
-	.string "Tes POKéMON ont tous envie d’y aller!$"
+	.string "Ce la farai di sicuro! I tuoi POKéMON\n"
+	.string "sono proiettati verso la vittoria!$"
 
 VictoryRoad_B1F_Text_MitchellIntro:
-	.string "Mes POKéMON me font penser\n"
-	.string "aux étoiles!$"
+	.string "I miei POKéMON sono talmente forti\n"
+	.string "che incutono timore!$"
 
 VictoryRoad_B1F_Text_MitchellDefeat:
-	.string "Je n’avais encore jamais rencontré\n"
-	.string "quelqu’un comme toi!$"
+	.string "Non ho mai incontrato nessuno come te.$"
 
 VictoryRoad_B1F_Text_MitchellPostBattle:
-	.string "Même quand tu ne te bats pas, j’arrive\n"
-	.string "à sentir une grande force émanant\l"
-	.string "de tes POKéMON et toi…$"
+	.string "Percepisco una forza incredibile\n"
+	.string "provenire da te e dalla tua squadra\l"
+	.string "di POKéMON anche fuori dalla lotta.$"
 
 VictoryRoad_B1F_Text_HalleIntro:
-	.string "OK, pas besoin de t’énerver!\n"
-	.string "Relax, ça va bien se passer!$"
+	.string "Non innervosirti!\n"
+	.string "Rilassati e fai con calma!$"
 
 VictoryRoad_B1F_Text_HalleDefeat:
-	.string "Ouah!\n"
-	.string "Formidable!$"
+	.string "Wow!\n"
+	.string "Favoloso!$"
 
 VictoryRoad_B1F_Text_HallePostBattle:
-	.string "C’est bien la ROUTE VICTOIRE.\p"
-	.string "Mais ce n’est pas si différent de la\n"
-	.string "route que tu as déjà empruntée.\p"
-	.string "Essaie de profiter du reste du\n"
-	.string "chemin à parcourir!$"
+	.string "Certo, questa è la VIA VITTORIA.\p"
+	.string "Ma non è poi così diversa dalle strade\n"
+	.string "che hai percorso finora.\p"
+	.string "Cerca di divertiti per il resto\n"
+	.string "del cammino!$"
 

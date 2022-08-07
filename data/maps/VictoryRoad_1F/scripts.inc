@@ -121,101 +121,99 @@ VictoryRoad_1F_EventScript_Katelynn::
 	end
 
 VictoryRoad_1F_Text_WallyNotGoingToLoseAnymore:
-	.string "TIMMY: Salut, {PLAYER}!\p"
-	.string "J’parie que ça t’surprend de m’voir ici!\p"
-	.string "J’ai fait le chemin jusqu’ici, et c’est\n"
-	.string "grâce à toi!\p"
-	.string "{PLAYER}, le fait de perdre contre toi\n"
-	.string "l’autre fois m’a rendu plus fort!\p"
-	.string "Mais je ne perdrai plus maintenant!\p"
-	.string "Je vais gagner! Pour les POKéMON qui\n"
-	.string "m’ont donné courage et force!\p"
-	.string "OK… Me voilà!$"
+	.string "LINO: Ciao! {PLAYER}!\p"
+	.string "Hai visto che bella sorpresa ti faccio?!\p"
+	.string "Se sono riuscito ad arrivare fin qui,\n"
+	.string "lo devo interamente a te!\p"
+	.string "{PLAYER}, aver perso contro di te\n"
+	.string "quella volta mi ha reso più forte!\p"
+	.string "Ma questa volta non mi batterai!\p"
+	.string "Vincerò, in onore dei POKéMON\n"
+	.string "che mi hanno dato forza e coraggio!\p"
+	.string "Ok… sono pronto!$"
 
 VictoryRoad_1F_Text_WallyEntranceDefeat:
-	.string "Waouh!\n"
-	.string "{PLAYER}, quelle force tu as quand même!$"
+	.string "Wow!\n"
+	.string "{PLAYER}, la tua forza è strabiliante!$"
 
 VictoryRoad_1F_Text_WallyPostEntranceBattle:
-	.string "TIMMY: Je n’ai pas réussi à te battre\n"
-	.string "aujourd’hui, {PLAYER}, mais un de ces\l"
-	.string "jours, je t’aurai!$"
+	.string "LINO: Oggi non sono riuscito a\n"
+	.string "batterti, {PLAYER}, ma uno di questi\l"
+	.string "giorni mi prenderò la rivincita!$"
 
 VictoryRoad_1F_Text_WallyIntro:
-	.string "TIMMY: Salut, {PLAYER}!\p"
-	.string "Je suis devenu plus fort!\n"
-	.string "Il faut que j’te montre, {PLAYER}!\p"
-	.string "OK… J’arrive!$"
+	.string "LINO: Ciao! {PLAYER}!\p"
+	.string "Sono diventato più forte dell’ultima\n"
+	.string "volta! Volevo dimostrartelo, {PLAYER}!\p"
+	.string "Ok… eccomi qua!$"
 
 VictoryRoad_1F_Text_WallyDefeat:
-	.string "Waouh!\n"
-	.string "{PLAYER}, quelle force tu as quand même!$"
+	.string "Wow!\n"
+	.string "{PLAYER}, la tua forza è strabiliante!$"
 
 VictoryRoad_1F_Text_WallyPostBattle:
-	.string "TIMMY: Je n’ai pas réussi à te battre\n"
-	.string "aujourd’hui, {PLAYER}, mais un de ces\l"
-	.string "jours, je t’aurai…\p"
-	.string "Et j’affronterai la LIGUE POKéMON!$"
+	.string "LINO: Anche questa volta non ce l’ho\n"
+	.string "fatta… Ma un giorno, {PLAYER}, ti farò\l"
+	.string "vedere di che pasta sono fatto!\p"
+	.string "E sfiderò persino la LEGA POKéMON!$"
 
 VictoryRoad_1F_Text_EdgarIntro:
-	.string "J’ai fait ça plus d’une fois, mais la\n"
-	.string "dernière partie est tellement longue…$"
+	.string "Sono arrivato fin qui già due volte,\n"
+	.string "ma quest’ultimo tratto non finisce mai…$"
 
 VictoryRoad_1F_Text_EdgarDefeat:
-	.string "Mon rêve s’arrête là, encore une fois…$"
+	.string "I miei sogni si infrangono qui\n"
+	.string "per la seconda volta…$"
 
 VictoryRoad_1F_Text_EdgarPostBattle:
-	.string "T’as fait un bon bout d’chemin. Continue\n"
-	.string "sur ta lancée et deviens le MAITRE!\l"
-	.string "S’il y en a un qui peut réussir,\l"
-	.string "c’est bien toi.$"
+	.string "Hai fatto tanta strada. Mantieni\n"
+	.string "lo stesso slancio e diventa il CAMPIONE!\l"
+	.string "Tu sì che ce la puoi fare!$"
 
 VictoryRoad_1F_Text_AlbertIntro:
-	.string "Je n’ai pas fait toute cette route pour\n"
-	.string "perdre. Pas question!$"
+	.string "Non ho fatto tanta strada per perdere\n"
+	.string "proprio ora. Non esiste proprio!$"
 
 VictoryRoad_1F_Text_AlbertDefeat:
-	.string "Impossible…\n"
-	.string "J’ai perdu?$"
+	.string "Mi sembra impossibile… ho perso?$"
 
 VictoryRoad_1F_Text_AlbertPostBattle:
-	.string "J’ai perdu à ce niveau…\p"
-	.string "Je n’ai donc pas les qualifications\n"
-	.string "requises pour être le MAITRE…$"
+	.string "Ho perso…\p"
+	.string "Evidentemente non ho ancora le carte\n"
+	.string "in regola per diventare CAMPIONE…$"
 
 VictoryRoad_1F_Text_HopeIntro:
-	.string "Cette route difficile et sans fin\n"
-	.string "porte bien son nom de VICTOIRE.$"
+	.string "Questa via così dura e, all’apparenza,\n"
+	.string "infinita, è degna del nome VITTORIA.$"
 
 VictoryRoad_1F_Text_HopeDefeat:
-	.string "Ton style de combat est génial…$"
+	.string "Hai uno stile di lotta fantastico…$"
 
 VictoryRoad_1F_Text_HopePostBattle:
-	.string "Tu sembles avoir le potentiel pour\n"
-	.string "devenir le MAITRE.$"
+	.string "Sembri avere la stoffa del CAMPIONE.$"
 
 VictoryRoad_1F_Text_QuincyIntro:
-	.string "Qu’est-ce que la ROUTE VICTOIRE?\n"
-	.string "Je te le dirai quand tu gagneras!$"
+	.string "Che cos’è la VIA VITTORIA?\n"
+	.string "Te lo dirò se vinci!$"
 
 VictoryRoad_1F_Text_QuincyDefeat:
-	.string "OK!\n"
-	.string "Bien joué!$"
+	.string "Ok!\n"
+	.string "Ben fatto!$"
 
 VictoryRoad_1F_Text_QuincyPostBattle:
-	.string "Sortir d’ici sain et sauf, c’est\n"
-	.string "le dernier test pour les DRESSEURS\l"
-	.string "qui veulent devenir MAITRE POKéMON.\p"
-	.string "C’est pour cela qu’on appelle ce lieu\n"
-	.string "la ROUTE VICTOIRE.$"
+	.string "Riuscire ad attraversarla è la prova\n"
+	.string "finale che ogni ALLENATORE deve\l"
+	.string "superare per diventare CAMPIONE\l"
+	.string "di POKéMON.\p"
+	.string "Per questo si chiama VIA VITTORIA.$"
 
 VictoryRoad_1F_Text_KatelynnIntro:
-	.string "Je n’ai rien à dire à quelqu’un qui est\n"
-	.string "allé si loin. Viens te battre!$"
+	.string "Ho rispetto per chi è arrivato fin qui.\n"
+	.string "Forza!$"
 
 VictoryRoad_1F_Text_KatelynnDefeat:
-	.string "Une vraie disgrâce…$"
+	.string "Che disgrazia…$"
 
 VictoryRoad_1F_Text_KatelynnPostBattle:
-	.string "Humpf, continue tout droit.\n"
-	.string "Si tu en as le courage…$"
+	.string "Vai pure avanti.\n"
+	.string "A me non importa.$"

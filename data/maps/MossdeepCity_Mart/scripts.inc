@@ -39,25 +39,23 @@ MossdeepCity_Mart_EventScript_Sailor::
 	end
 
 MossdeepCity_Mart_Text_ReviveIsFantastic:
-	.string "RAPPEL est fabuleux!\p"
-	.string "Si tu en donnes à un POKéMON K.O.,\n"
-	.string "il reprend connaissance.\p"
-	.string "Mais attention, RAPPEL ne restitue\n"
-	.string "pas les PP des capacités déjà utilisés.$"
+	.string "Il REVITALIZZANTE è fantastico!\p"
+	.string "Dallo ad un POKéMON esausto\n"
+	.string "e ritornerà subito in sé.\p"
+	.string "Ma attenzione: il REVITALIZZANTE non\n"
+	.string "restituisce i PP esauriti delle mosse.$"
 
 MossdeepCity_Mart_Text_MaxRepelLastsLongest:
-	.string "MAX REPOUSSE maintient les POKéMON\n"
-	.string "faibles à l’écart.\p"
-	.string "Parmi tous les REPOUSSES, c’est celui\n"
-	.string "qui dure le plus longtemps.$"
+	.string "Il REPELLENTE MAX tiene alla larga\n"
+	.string "i POKéMON deboli.\p"
+	.string "È lo spray REPELLENTE che dura\n"
+	.string "più a lungo.$"
 
 MossdeepCity_Mart_Text_NetAndDiveBallsRare:
-	.string "Les FILET BALLS et les SCUBA BALLS\n"
-	.string "sont des POKé BALLS rares, qui ne\l"
-	.string "sont fabriquées qu’à ALGATIA.\p"
-	.string "La FILET BALL est efficace contre les\n"
-	.string "POKéMON des types INSECTE et EAU.\p"
-	.string "La SCUBA BALL est plus efficace\n"
-	.string "contre les POKéMON qui vivent\l"
-	.string "au fond de la mer.$"
+	.string "RETE e SUB BALL sono POKé BALL\n"
+	.string "rare che si fanno solo a VERDEAZZUPOLI.\p"
+	.string "La RETE BALL è efficace contro\n"
+	.string "i POKéMON di tipo COLEOTTERO e ACQUA.\p"
+	.string "La SUB BALL funziona meglio sui POKéMON\n"
+	.string "dei fondali marini.$"
 

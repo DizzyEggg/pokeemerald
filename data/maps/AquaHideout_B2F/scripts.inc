@@ -90,73 +90,72 @@ AquaHideout_B2F_EventScript_Grunt8::
 	end
 
 AquaHideout_B2F_Text_MattIntro:
-	.string "Hé, hé, hé…\p"
-	.string "On avait sous-estimé tes compétences!\p"
-	.string "Mais cette fois, ça y est!\p"
-	.string "Je suis un cran au-dessus des SBIRES\n"
-	.string "que tu as vus.\p"
-	.string "Je n’vais pas flancher.\n"
-	.string "Je vais te pulvériser!$"
+	.string "Eheheh…\p"
+	.string "Sei già qui?\n"
+	.string "Ti ho sottovalutato!\p"
+	.string "Facciamola finita!\p"
+	.string "Sono una spanna al di sopra delle\n"
+	.string "RECLUTE che hai incontrato finora.\p"
+	.string "Veniamo subito al sodo: ti batterò\n"
+	.string "senza possibilità di appello!$"
 
 AquaHideout_B2F_Text_MattDefeat:
-	.string "Hé, hé, hé…\n"
-	.string "Alors moi aussi, j’ai perdu…$"
+	.string "Eheheh… hai vinto persino contro di me…$"
 
 AquaHideout_B2F_Text_OurBossGotThroughHisPreparations:
-	.string "Hé, hé, hé!\p"
-	.string "Pendant que je m’amusais avec toi,\n"
-	.string "notre CHEF a terminé ses préparatifs!$"
+	.string "Eheheh!\p"
+	.string "Mentre me la spassavo con te,\n"
+	.string "il nostro CAPO ha finito i preparativi!$"
 
 AquaHideout_B2F_Text_MattPostBattle:
-	.string "Hé, hé, hé!\p"
-	.string "Notre CHEF est déjà en route vers\n"
-	.string "une caverne sous la mer!\p"
-	.string "Si tu veux te lancer à sa poursuite, tu\n"
-	.string "ferais bien de chercher dans le vaste\l"
-	.string "océan derrière NENUCRIQUE.\p"
-	.string "Mais est-ce que tu vas la trouver?\n"
-	.string "Hé, hé, hé!$"
+	.string "Eheheh!\p"
+	.string "Il nostro CAPO è già diretto verso\n"
+	.string "una grotta in fondo al mare!\p"
+	.string "Se hai intenzione di dargli la caccia,\n"
+	.string "ti conviene cercare nel grande mare\l"
+	.string "oltre ALGHEPOLI.\p"
+	.string "Ma credi veramente di riuscire a\n"
+	.string "trovarlo? Eheheh!$"
 
 AquaHideout_B2F_Text_Grunt4Intro:
-	.string "Ouaaah, ça m’fatigue d’attendre!\n"
-	.string "En plus, tu m’dois un combat!$"
+	.string "Ahahah, mi sono stufato di aspettare!\n"
+	.string "E mi devi pure una lotta!$"
 
 AquaHideout_B2F_Text_Grunt4Defeat:
-	.string "Fatigué d’attendre…\n"
-	.string "Vaincu et abasourdi…$"
+	.string "Meglio girarsi i pollici…\n"
+	.string "che perdere così miseramente…$"
 
 AquaHideout_B2F_Text_Grunt4PostBattle:
-	.string "CHEF…\n"
-	.string "C’est assez bien?$"
+	.string "CAPO…\n"
+	.string "ti ho deluso?$"
 
 AquaHideout_B2F_Text_Grunt6Intro:
-	.string "Les téléporteurs, c’est la fierté et la\n"
-	.string "réussite de notre PLANQUE!\p"
-	.string "Tu n’sais pas trop où tu es,\n"
-	.string "n’est-ce pas?\p"
-	.string "Décontenancer et fatiguer l’ennemi,\n"
-	.string "puis lui serrer la vis! C’est notre plan!$"
+	.string "I pannelli di teletrasferimento sono\n"
+	.string "l’orgoglio del nostro RIFUGIO!\p"
+	.string "Non hai la più pallida idea di dove\n"
+	.string "ti trovi, giusto?\p"
+	.string "Confondi e sfinisci il nemico, e poi vai\n"
+	.string "a segno! Questa è la nostra strategia!$"
 
 AquaHideout_B2F_Text_Grunt6Defeat:
-	.string "Qu’est-ce qui ne va pas chez toi?\n"
-	.string "Tu ne montres pas le moindre signe\l"
-	.string "de fatigue.$"
+	.string "Ma chi sei?\n"
+	.string "Non conosci la fatica!$"
 
 AquaHideout_B2F_Text_Grunt6PostBattle:
-	.string "Ça m’rappelle… Je ne sais plus où\n"
-	.string "j’ai mis la MASTER BALL.\p"
-	.string "Si je n’ai pas réussi à la garder, le\n"
-	.string "CHEF va me passer un savon…$"
+	.string "A proposito… non ricordo più\n"
+	.string "dove ho messo la MASTER BALL.\p"
+	.string "Se la perdo di vista, il nostro CAPO\n"
+	.string "mi mangia viva!$"
 
 AquaHideout_B2F_Text_Grunt8Intro:
-	.string "La première chose que j’ai dû faire en\n"
-	.string "arrivant ici, c’est comprendre comment\l"
-	.string "ces téléporteurs fonctionnent.$"
+	.string "Quando mi sono unito al TEAM IDRO,\n"
+	.string "per prima cosa ho imparato a attivare\l"
+	.string "i pannelli di teletrasferimento.$"
 
 AquaHideout_B2F_Text_Grunt8Defeat:
-	.string "J’étais trop occupé à penser aux\n"
-	.string "téléporteurs…$"
+	.string "Ero troppo impegnato a pensare ai\n"
+	.string "pannelli di teletrasferimento…$"
 
 AquaHideout_B2F_Text_Grunt8PostBattle:
-	.string "Je vais devoir apprendre comment\n"
-	.string "me battre plus efficacement.$"
+	.string "Devo imparare a lottare in modo\n"
+	.string "più efficace…$"

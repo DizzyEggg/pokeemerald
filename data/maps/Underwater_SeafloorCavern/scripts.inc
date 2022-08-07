@@ -41,10 +41,9 @@ Underwater_SeafloorCavern_EventScript_CheckStolenSub::
 	end
 
 Underwater_SeafloorCavern_Text_SubExplorer1:
-	.string "Il est inscrit sur la coque:\n"
-	.string "“SOUS-MARIN D’EXPLORATION 1”.\p"
-	.string "C’est le sous-marin que la TEAM AQUA\n"
-	.string "a volé à POIVRESSEL!\p"
-	.string "La TEAM AQUA a dû venir\n"
-	.string "jusqu’à cette rive.$"
+	.string "Sullo scafo c’è scritto\n"
+	.string "“SOTTOMARINO EXPLORER 1”.\p"
+	.string "È il sottomarino che il TEAM IDRO\n"
+	.string "ha rubato a SELCEPOLI!\p"
+	.string "Il TEAM IDRO deve essersi arenato qui.$"
 

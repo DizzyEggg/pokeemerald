@@ -10,11 +10,12 @@ SootopolisCity_House5_EventScript_Girl::
 	end
 
 SootopolisCity_House5_Text_SootopolisMtPyreConnection:
-	.string "Il semblerait qu’il existe un rapport\n"
-	.string "entre ATALANOPOLIS et le MONT MEMORIA.\p"
-	.string "Avec mes amis, on a fait des recherches\n"
-	.string "à ce sujet au labo où je travaillais.$"
+	.string "Sembra esistere una relazione tra\n"
+	.string "CENERIDE e il MONTE PIRA.\p"
+	.string "Ho condotto delle ricerche insieme ad\n"
+	.string "amici nel laboratorio dove lavoravo.$"
 
 SootopolisCity_House5_Text_BrotherUsedToStudySea:
-	.string "Mon grand frère étudie la mer.$"
+	.string "Mio fratello maggiore ha studiato\n"
+	.string "biologia marina.$"
 

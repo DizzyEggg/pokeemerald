@@ -153,19 +153,20 @@ LilycoveCity_DepartmentStore_5F_EventScript_LittleGirl::
 	end
 
 LilycoveCity_DepartmentStore_5F_Text_PlaceFullOfCuteDolls:
-	.string "Ce lieu regorge d’adorables POUPEES.\p"
-	.string "Je devrais aussi en acheter pour moi\n"
-	.string "et pas que pour les enfants.$"
+	.string "In questo posto si trovano tante\n"
+	.string "BAMBOLE carine.\p"
+	.string "Dovrei comprarne qualcuna per me,\n"
+	.string "non solo per i miei figli.$"
 
 LilycoveCity_DepartmentStore_5F_Text_GettingDollInsteadOfPokemon:
-	.string "J’suis trop petite pour un POKéMON,\n"
-	.string "alors je prends une adorable POUPEE.$"
+	.string "Sono piccolina per allevare POKéMON,\n"
+	.string "quindi mi compro una bella BAMBOLA.$"
 
 LilycoveCity_DepartmentStore_5F_Text_SellManyCuteMatsHere:
-	.string "Ils vendent plein de super TAPIS ici.\p"
-	.string "Je me demande lequel je vais prendre.\n"
-	.string "Je vais peut-être tous les acheter…$"
+	.string "Qui vendono tanti TAPPETI carini.\p"
+	.string "Mi chiedo quale sia meglio comprare?\n"
+	.string "Forse li prenderò tutti…$"
 
 LilycoveCity_DepartmentStore_5F_Text_ClosedRooftopForWeather:
-	.string "Je crois qu’ils ont fermé le toit\n"
-	.string "à cause du mauvais temps.$"
+	.string "Penso che abbiano chiuso la piazzetta\n"
+	.string "sul tetto perché c’è troppo vento oggi.$"

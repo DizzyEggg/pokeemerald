@@ -151,78 +151,83 @@ BattleFrontier_Lounge1_EventScript_Boy2::
 	end
 
 BattleFrontier_Lounge1_Text_PokemonBreederIntro:
-	.string "Ça fait 70 ans que j’élève des POKéMON!\n"
-	.string "On m’appelle l’ELEVEUR DE POKéMON\l"
-	.string "légendaire!\p"
-	.string "Quand tu auras pris autant de bouteille\n"
-	.string "que moi, tu reconnaîtras les capacités\l"
-	.string "d’un POKéMON au premier regard.\p"
-	.string "Tu es un DRESSEUR. Tu veux connaître\n"
-	.string "les capacités de tes POKéMON?\p"
-	.string "Allez!\n"
-	.string "Je vais jeter un œil à tes POKéMON!$"
+	.string "Ho allevato POKéMON per settant’anni!\n"
+	.string "Sono l’uomo che tutti chiamano\l"
+	.string "l’ALLEVA{PKMN} leggendario!\p"
+	.string "Alla mia veneranda età, le abilità\n"
+	.string "dei POKéMON si vedono a colpo\l"
+	.string "d’occhio.\p"
+	.string "Penso che a un ALLENATORE come te\n"
+	.string "interessi conoscere le abilità dei\l"
+	.string "propri POKéMON, o no?\p"
+	.string "Fammi dare un’occhiata ai tuoi\n"
+	.string "POKéMON!$"
 
 BattleFrontier_Lounge1_Text_AverageAbility:
-	.string "Hum…\p"
-	.string "Celui-là, je dirais que ses capacités\n"
-	.string "sont dans la moyenne.$"
+	.string "Ehm…\p"
+	.string "L’abilità di questo POKéMON mi\n"
+	.string "sembra nella media.$"
 
 BattleFrontier_Lounge1_Text_BetterThanAverageAbility:
-	.string "Hum…\p"
-	.string "Celui-là, je dirais que ses capacités\n"
-	.string "sont au-dessus de la moyenne.$"
+	.string "Ehm…\p"
+	.string "L’abilità di questo POKéMON mi\n"
+	.string "sembra superiore alla media.$"
 
 BattleFrontier_Lounge1_Text_ImpressiveAbility:
-	.string "Hum…\p"
-	.string "Celui-là, je dirais que ses capacités\n"
-	.string "sont plutôt impressionnantes!$"
+	.string "Ehm…\p"
+	.string "L’abilità di questo POKéMON mi\n"
+	.string "sembra notevole.$"
 
 BattleFrontier_Lounge1_Text_OutstandingAbility:
-	.string "Hum…\p"
-	.string "Celui-là, je dirais que ses capacités\n"
-	.string "sont vraiment excellentes!$"
+	.string "Ehm…\p"
+	.string "L’abilità di questo POKéMON mi\n"
+	.string "sembra straordinaria.$"
 
 BattleFrontier_Lounge1_Text_BestAspectHP:
-	.string "Son point fort, ce sont ses PV…$"
+	.string "Il suo punto di forza\n"
+	.string "sono i PS…$"
 
 BattleFrontier_Lounge1_Text_BestAspectAtk:
-	.string "Son point fort, c’est son ATTAQUE…$"
+	.string "Il suo punto di forza\n"
+	.string "è l’ATTACCO…$"
 
 BattleFrontier_Lounge1_Text_BestAspectDef:
-	.string "Son point fort, c’est sa DEFENSE…$"
+	.string "Il suo punto di forza\n"
+	.string "è la DIFESA…$"
 
 BattleFrontier_Lounge1_Text_BestAspectSpAtk:
-	.string "Son point fort, c’est son ATTAQUE\n"
-	.string "SPECIALE…$"
+	.string "Il suo punto di forza\n"
+	.string "è l’ATTACCO SPECIALE…$"
 
 BattleFrontier_Lounge1_Text_BestAspectSpDef:
-	.string "Son point fort, c’est sa DEFENSE\n"
-	.string "SPECIALE…$"
+	.string "Il suo punto di forza\n"
+	.string "è la DIFESA SPECIALE…$"
 
 BattleFrontier_Lounge1_Text_BestAspectSpeed:
-	.string "Son point fort, c’est sa VITESSE…$"
+	.string "Il suo punto di forza\n"
+	.string "è la VELOCITÀ…$"
 
 BattleFrontier_Lounge1_Text_StatRelativelyGood:
-	.string "Cette stat est relativement bonne.\n"
-	.string "Hum… Oui, oui.$"
+	.string "Questa statistica non è niente male.\n"
+	.string "Non c’è che dire…$"
 
 BattleFrontier_Lounge1_Text_StatImpressive:
-	.string "Cette stat est assez impressionnante.\n"
-	.string "Hum… Oui, oui.$"
+	.string "Questa statistica è notevole.\n"
+	.string "Non c’è che dire…$"
 
 BattleFrontier_Lounge1_Text_StatOutstanding:
-	.string "Cette stat est excellente!\n"
-	.string "Hum… Oui, oui.$"
+	.string "Questa statistica è straordinaria.\n"
+	.string "Non c’è che dire…$"
 
 BattleFrontier_Lounge1_Text_StatFlawless:
-	.string "Cette stat est parfaite!\n"
-	.string "Hum… Oui, oui.$"
+	.string "Non ha un difetto!\n"
+	.string "Non c’è che dire…$"
 
 BattleFrontier_Lounge1_Text_NoTimeForMyAdvice:
-	.string "Comment?\n"
-	.string "Tu n’as pas le temps?\p"
-	.string "Tu ne devrais jamais refuser l’aide de\n"
-	.string "tes aînés!$"
+	.string "Cosa? Vai troppo di fretta per\n"
+	.string "ascoltare il mio consiglio?\p"
+	.string "Dovresti sempre ascoltare quello che\n"
+	.string "gli anziani hanno da dire!$"
 
 @ Unused
 BattleFrontier_Lounge1_Text_HaveBusinessNeedsTending:
@@ -231,22 +236,24 @@ BattleFrontier_Lounge1_Text_HaveBusinessNeedsTending:
 	.string "Save it for next time!$"
 
 BattleFrontier_Lounge1_Text_LetsLookAtYourPokemon:
-	.string "Dis, mon petit! Tu aimerais en savoir\n"
-	.string "plus sur les capacités de tes POKéMON?\p"
-	.string "Bien, bien!\n"
-	.string "Jetons un œil à ces POKéMON!$"
+	.string "Salve, giovane! Vuoi saperne di più sulle\n"
+	.string "abilità dei tuoi POKéMON?\p"
+	.string "Forza! Fammi dare un’occhiata a uno\n"
+	.string "dei tuoi POKéMON!$"
 
 BattleFrontier_Lounge1_Text_EvenICantTell:
-	.string "Comment pourrais-je évaluer un POKéMON\n"
-	.string "qui n’a pas encore éclos!\p"
-	.string "Montre-moi un POKéMON!\n"
-	.string "C’est un POKéMON que je veux voir!$"
+	.string "Per quanto sia un esperto, non posso\n"
+	.string "esprimermi su un POKéMON non\l"
+	.string "ancora nato!\p"
+	.string "Mostrami un POKéMON!\n"
+	.string "Voglio vedere un POKéMON!$"
 
 BattleFrontier_Lounge1_Text_SaidMyMonIsOutstanding:
-	.string "Il a dit que mon POKéMON est\n"
-	.string "excellent! Je m’en suis bien occupé!$"
+	.string "Mi ha detto che ho un POKéMON\n"
+	.string "straordinario! L’ho allevato con cura!$"
 
 BattleFrontier_Lounge1_Text_DidntDoAnythingSpecialRaisingIt:
-	.string "Mon POKéMON est excellent, il a dit!\n"
-	.string "Je n’ai rien fait de spécial, pourtant…$"
+	.string "Mi ha detto che ho un POKéMON\n"
+	.string "straordinario, anche se non ho fatto\l"
+	.string "nulla di speciale per allevarlo…$"
 

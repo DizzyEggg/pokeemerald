@@ -639,165 +639,163 @@ DewfordTown_EventScript_PhraseNotTrendyEnough::
 	end
 
 DewfordTown_Text_TinyIslandCommunity:
-	.string "Le VILLAGE MYOKARA est une petite\n"
-	.string "communauté insulaire.\p"
-	.string "Ici, quand un truc est à la mode,\n"
-	.string "tout le monde se l’arrache.$"
+	.string "BLURUVIA è una piccola comunità\n"
+	.string "insulare. Le mode fanno presto\l"
+	.string "a diffondersi qui.$"
 
 DewfordTown_Text_TownSign:
-	.string "VILLAGE MYOKARA\n"
-	.string "“Une petite île au cœur de la mer.”$"
+	.string "BLURUVIA\n"
+	.string "“Una minuscola isola nel mare blu”.$"
 
 DewfordTown_Text_GymSign:
-	.string "ARENE POKéMON du VILLAGE MYOKARA\n"
-	.string "CHAMPION: BASTIEN\l"
-	.string "“Une vraie déferlante au combat.”$"
+	.string "PALESTRA POKéMON di BLURUVIA\n"
+	.string "ALLENATORE: RUDI\l"
+	.string "“Una forza della natura nella lotta!”.$"
 
 DewfordTown_Text_HallSign:
-	.string "CENTRE CULTUREL DE MYOKARA\n"
-	.string "“Echange de tous types\l"
-	.string "d’informations!”$"
+	.string "CIRCOLO di BLURUVIA\n"
+	.string "“Scambio di informazioni per tutti!”.$"
 
 Route104_Text_LandedInDewfordDeliverLetter:
-	.string "M. MARCO: Oyé!\n"
-	.string "Nous sommes arrivés à MYOKARA.\p"
-	.string "Je suppose que tu vas aller remettre\n"
-	.string "cette LETTRE à ce… comment… PIERRE!$"
+	.string "SIG. MARINO: Eccoci!\n"
+	.string "Siamo sbarcati a BLURUVIA.\p"
+	.string "Immagino che tu voglia consegnare\n"
+	.string "quella LETTERA a… ROCCO!$"
 
 DewfordTown_Text_SetSailBackToPetalburg:
-	.string "M. MARCO: As-tu donné ta LETTRE?\p"
-	.string "Ou comptes-tu retourner à CLEMENTI?$"
+	.string "SIG. MARINO: Hai consegnato la\n"
+	.string "LETTERA?\p"
+	.string "Oppure hai intenzione di ritornare\n"
+	.string "a PETALIPOLI?$"
 
 DewfordTown_Text_PetalburgWereSettingSail2:
-	.string "M. MARCO: Allons-y pour\n"
-	.string "CLEMENTI-VILLE!\p"
-	.string "On lève l’ancre!\n"
-	.string "PIKO, on embarque, mon chou!$"
+	.string "SIG. MARINO: Vada per PETALIPOLI.\p"
+	.string "Su le ancore! PEEKO, mio prediletto, \n"
+	.string "stiamo per salpare!$"
 
 DewfordTown_Text_GoDeliverIllBeWaiting:
-	.string "M. MARCO: Alors tu y vas et tu donnes la\n"
-	.string "LETTRE. Je t’attendrai.$"
+	.string "SIG. MARINO: Vai pure a consegnare la\n"
+	.string "LETTERA. Io ti aspetterò.$"
 
 DewfordTown_Text_BrineyLandedInDewford:
-	.string "M. MARCO: Oyé!\n"
-	.string "Nous sommes arrivés à MYOKARA!\p"
-	.string "Tu y vas et tu n’auras qu’à me prévenir\n"
-	.string "quand tu voudras repartir en mer!$"
+	.string "SIG. MARINO: Eccoci!\n"
+	.string "Siamo sbarcati a BLURUVIA!\p"
+	.string "Vai pure e fammi sapere quando vuoi\n"
+	.string "salpare di nuovo!$"
 
 DewfordTown_Text_WhereAreWeBound:
-	.string "M. MARCO: Ohé!\n"
-	.string "Pour toi, je sors en mer quand tu veux!\p"
-	.string "Alors, mon camarade, où partons-nous?$"
+	.string "SIG. MARINO: Ehi!\n"
+	.string "Per te partirei in ogni momento!\p"
+	.string "Dove siamo diretti ora?$"
 
 DewfordTown_Text_PetalburgWereSettingSail:
-	.string "M. MARCO: CLEMENTI-VILLE, c’est ça?\p"
-	.string "On lève l’ancre!\n"
-	.string "PIKO, on embarque, mon chou!$"
+	.string "SIG. MARINO: Hai detto PETALIPOLI?\p"
+	.string "Su le ancore! PEEKO, mio prediletto, \n"
+	.string "stiamo per salpare!$"
 
 DewfordTown_Text_SlateportWereSettingSail:
-	.string "M. MARCO: POIVRESSEL, c’est bien ça?\p"
-	.string "On lève l’ancre!\n"
-	.string "PIKO, on embarque, mon chou!$"
+	.string "SIG. MARINO: Hai detto SELCEPOLI?\p"
+	.string "Su le ancore! PEEKO, mio prediletto, \n"
+	.string "stiamo per salpare!$"
 
 DewfordTown_Text_JustTellMeWhenYouNeedToSetSail:
-	.string "M. MARCO: Tu n’auras qu’à me prévenir\n"
-	.string "quand tu auras besoin d’embarquer!$"
+	.string "SIG. MARINO: Fammi sapere quando devi\n"
+	.string "salpare di nuovo!$"
 
 DewfordTown_Text_GettingItchToFish:
-	.string "C’est un endroit renommé pour la pêche.\n"
-	.string "T’as attrapé le virus de la pêche?$"
+	.string "Questa è una zona di pesca molto \n"
+	.string "famosa. Hai voglia di pescare?$"
 
 DewfordTown_Text_GiveYouOneOfMyRods:
-	.string "J’ai entendu ce que tu as dit\n"
-	.string "et j’ai apprécié tes paroles!\p"
-	.string "Je te donne une de mes CANNES à pêche.$"
+	.string "Che piacere sentire queste parole!\p"
+	.string "Ti darò uno dei miei AMI.$"
 
 DewfordTown_Text_ThrowInFishingAdvice:
-	.string "Et en plus, je vais même te donner un\n"
-	.string "petit conseil pour la pêche!\p"
-	.string "Tu dois d’abord te placer face à la mer\n"
-	.string "et ensuite utiliser la CANNE.\p"
-	.string "Concentre-toi…\n"
-	.string "Si ça mord, tire sur la CANNE.\p"
-	.string "Parfois, tu peux attraper quelque\n"
-	.string "chose tout de suite, mais pour les plus\l"
-	.string "grosses prises, il faut prendre le temps\l"
-	.string "de tirer sur la CANNE pour les ramener.$"
+	.string "E, tanto per esagerare, ti darò qualche\n"
+	.string "consiglio utile per la pesca!\p"
+	.string "Prima di tutto devi avvicinarti\n"
+	.string "all’acqua e poi usare l’AMO.\p"
+	.string "Concentrati… se senti che abbocca,\n"
+	.string "tira su l’AMO.\p"
+	.string "A volte riuscirai a catturare subito\n"
+	.string "qualcosa, ma nel caso di prede molto\l"
+	.string "grandi, devi prima riuscire a tenere \l"
+	.string "sotto controllo gli strattoni.$"
 
 DewfordTown_Text_ThatsTooBadThen:
-	.string "Ah, c’est comme ça?\n"
-	.string "C’est vraiment dommage.$"
+	.string "Veramente?\n"
+	.string "Non importa, allora.$"
 
 DewfordTown_Text_HowsYourFishing:
-	.string "Yo!\n"
-	.string "Alors, ça va la pêche?$"
+	.string "Ehi, tu!\n"
+	.string "Come te la cavi con la pesca?$"
 
 DewfordTown_Text_GreatHaulInSomeBigOnes:
-	.string "C’est bien! Super!\n"
-	.string "Ramène de grosses prises!$"
+	.string "Sul serio? Che bello!\n"
+	.string "Fammi vedere qualche bel pescione!$"
 
 DewfordTown_Text_FishingAdvice:
-	.string "Oh, hé, ne t’en va pas! Je vais te donner\n"
-	.string "un petit conseil pour la pêche.\p"
-	.string "Tu dois d’abord te placer face à la mer\n"
-	.string "et ensuite utiliser la CANNE.\p"
-	.string "Concentre-toi…\n"
-	.string "Si ça mord, tire sur la CANNE.\p"
-	.string "Parfois, tu peux attraper quelque\n"
-	.string "chose tout de suite, mais pour les plus\l"
-	.string "grosses prises, il faut prendre le temps\l"
-	.string "de tirer sur la CANNE pour les ramener.$"
+	.string "Non abbatterti! Ti darò io qualche\n"
+	.string "consiglio utile per la pesca.\p"
+	.string "Prima di tutto devi avvicinarti\n"
+	.string "all’acqua e poi usare l’AMO.\p"
+	.string "Concentrati… se senti che abbocca,\n"
+	.string "tira su l’AMO.\p"
+	.string "A volte riuscirai a catturare subito\n"
+	.string "qualcosa, ma nel caso di prede molto\l"
+	.string "grandi, devi prima riuscire a tenere \l"
+	.string "sotto controllo gli strattoni.$"
 
 DewfordTown_Text_XIsTheBiggestHappeningThingRight:
-	.string "J’aime ce qui est en vogue, branché et à\n"
-	.string "la mode. Je me tiens toujours informé.\p"
-	.string "Hé, t’as déjà entendu parler de\n"
+	.string "Amo le cose nuove, attuali e moderne.\n"
+	.string "Io sono sempre aggiornato.\p"
+	.string "Hai mai sentito parlare di\n"
 	.string "“{STR_VAR_1}”?\p"
-	.string "C’est ça!\n"
-	.string "Bien sûr que tu connais!\p"
-	.string "Forcément, ouais,\n"
-	.string "“{STR_VAR_1}”…\l"
-	.string "Y a pas plus cool!\p"
-	.string "Peu importe d’où tu viens,\n"
-	.string "“{STR_VAR_1}”,\l"
-	.string "c’est ce qu’il y a de plus branché, hein?$"
+	.string "Sì, esatto!\n"
+	.string "Certo che ne hai sentito parlare!\p"
+	.string "Voglio dire, sto parlando di\n"
+	.string "“{STR_VAR_1}”.\l"
+	.string "La cosa più “in” che esista!\p"
+	.string "Da qualsiasi parte del mondo tu venga,\n"
+	.string "“{STR_VAR_1}”\l"
+	.string "è la cosa che va di più, non credi?$"
 
 DewfordTown_Text_TellMeWhatsNewAndIn:
-	.string "Hum?\n"
-	.string "C’est pas ce qui est à la mode?\p"
-	.string "Bon, alors dis-moi ce qui est nouveau\n"
-	.string "et “in”?$"
+	.string "Come dici?\n"
+	.string "Non è una cosa tremendamente “in”?\p"
+	.string "Beh, allora dimmelo tu che cos’è\n"
+	.string "all’ultimo grido.$"
 
 DewfordTown_Text_OfCourseIKnowAboutThat:
-	.string "Hum?\n"
+	.string "Cosa?\n"
 	.string "“{STR_VAR_2}”?\p"
 	.string "… …\p"
-	.string "… Hum… Ouais, c’est ça!\n"
-	.string "Ouais, je l’savais! Je l’savais déjà!\p"
-	.string "Bien sûr que j’étais au courant!\n"
-	.string "“{STR_VAR_2}”, hein?\p"
-	.string "Ouais, bien sûr, tout juste!\n"
-	.string "Attends, y a pas plus cool que\l"
-	.string "“{STR_VAR_2}”.\p"
-	.string "Y a pas plus branché en vocabulaire\n"
-	.string "branché. Tu croyais que j’savais pas?\p"
+	.string "… Sì! Bene!\n"
+	.string "Lo sapevo! Lo sapevo!\p"
+	.string "Sì, è così, certo che lo so!\n"
+	.string "“{STR_VAR_2}”, vero?\p"
+	.string "Sì, sì, certo!\n"
+	.string "“{STR_VAR_2}”\l"
+	.string "è eccezionale, non credi?\p"
+	.string "È la cosa più alla moda di tutte.\n"
+	.string "Pensavi non lo sapessi?\p"
 	.string "“{STR_VAR_1}”…\n"
-	.string "C’était cool il y a cinq minutes.\p"
-	.string "Mais “{STR_VAR_2}”,\n"
-	.string "c’est ce qui est à la mode maintenant!$"
+	.string "andava appena cinque minuti fa.\p"
+	.string "Ora, “{STR_VAR_2}” è\n"
+	.string "la novità al passo con i tempi.$"
 
 DewfordTown_Text_XHuhIThinkYIsCool:
-	.string "Hum…\n"
-	.string "“{STR_VAR_2}”, hein?\p"
-	.string "Mais personnellement, je trouve que\n"
+	.string "Uhm…\n"
+	.string "“{STR_VAR_2}”?\p"
+	.string "Personalmente, credo che\n"
 	.string "“{STR_VAR_1}”\l"
-	.string "est définitivement plus cool.$"
+	.string "sia il meglio del meglio.$"
 
 DewfordTown_Text_HearOfAnyTrendsComeShareWithMe:
-	.string "Si tu entends parler de nouvelles\n"
-	.string "modes, viens m’en parler, d’accord?$"
+	.string "Beh, se senti parlare di qualche nuova\n"
+	.string "moda, fammelo sapere, ok?$"
 
 DewfordTown_Text_YeahDefinitionOfInRightNow:
-	.string "Ouais, tout à fait!\p"
-	.string "“{STR_VAR_1}”\n"
-	.string "reflète bien la tendance actuelle.$"
+	.string "Sì, è così!\p"
+	.string "“{STR_VAR_1}” è quello\n"
+	.string "che si dice “in” al giorno d’oggi.$"

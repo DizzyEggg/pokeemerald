@@ -37,6 +37,6 @@ BattleFrontier_BattlePikeRoomFinal_EventScript_TurnPlayerNorth::
 	end
 
 BattleFrontier_BattlePikeRoomFinal_Text_CongratsThisWayPlease:
-	.string "Félicitations…\n"
-	.string "Par ici, s’il vous plaît…$"
+	.string "Complimenti!\n"
+	.string "Da questa parte, prego…$"
 

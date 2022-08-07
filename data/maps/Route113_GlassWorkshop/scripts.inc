@@ -292,89 +292,89 @@ Route113_GlassWorkshop_EventScript_NinjaBoy::
 	end
 
 Route113_GlassWorkshop_Text_GoCollectAshWithThis:
-	.string "Cette zone est couverte de cendres\n"
-	.string "volcaniques, rheu-teu!\p"
-	.string "J’ai un talent unique, rheu-teu.\p"
-	.string "Je peux fabriquer du verre avec des\n"
-	.string "cendres volcaniques, rheu-teu.\p"
-	.string "Va ramasser des cendres, rheu-teu.$"
+	.string "Questa zona è coperta di cenere\n"
+	.string "vulcanica, firulì firulà!\p"
+	.string "Sai, io ho del talento, firulì firulà.\p"
+	.string "Dalla cenere vulcanica ricavo il vetro\n"
+	.string "e creo degli strumenti, firulì firulà.\p"
+	.string "Vai a raccogliere la cenere con questo.$"
 
 Route113_GlassWorkshop_Text_ExplainSootSack:
-	.string "Prends ce SAC A SUIE et marche\n"
-	.string "dans les cendres, rheu-teu.\p"
-	.string "Il se remplira de cendres volcaniques,\n"
-	.string "rheu-teu.\p"
-	.string "Lorsque tu penses en avoir ramassé\n"
-	.string "assez, reviens me voir, rheu-teu.$"
+	.string "Devi prendere il SACCO CENERE ed andare\n"
+	.string "tra i mucchi di cenere, firulì firulà.\p"
+	.string "Si riempirà di cenere vulcanica,\n"
+	.string "firulì firulà.\p"
+	.string "Quando pensi di averne raccolta\n"
+	.string "abbastanza, torna da me, firulì firulà.$"
 
 Route113_GlassWorkshop_Text_LetsSeeCollectedAshes:
-	.string "Tu as ramassé des cendres, rheu-teu?\n"
-	.string "Voyons donc, rheu-teu.$"
+	.string "Hai raccolto della cenere, firulì firulà?\n"
+	.string "Vediamo, firulì firulà.$"
 
 Route113_GlassWorkshop_Text_NotEnoughAshNeedX:
-	.string "Hmmm…\n"
-	.string "Il n’y a pas assez de cendres, rheu-teu.\l"
-	.string "Je ne peux pas faire de verre, rheu-teu.\p"
-	.string "Voyons un peu… Tu dois faire {STR_VAR_1} pas\n"
-	.string "dans la cendre si tu veux que je te\l"
-	.string "fabrique une FLUTE BLEUE, rheu-teu.$"
+	.string "Mhmm… questa cenere non\n"
+	.string "basta, ce ne vuole di più per il vetro,\l"
+	.string "firulì firulà.\p"
+	.string "Vediamo… per farti un FLAUTO BLU\n"
+	.string "ho bisogno che cammini per un numero\l"
+	.string "di passi pari a {STR_VAR_1}, firulì firulà.$"
 
 Route113_GlassWorkshop_Text_WhichGlassItemWoudYouLike:
-	.string "Oh!\n"
-	.string "Tu as beaucoup de cendres, rheu-teu!\p"
-	.string "Je vais te faire un objet en verre,\n"
-	.string "rheu-teu! Que veux-tu, rheu-teu?$"
+	.string "Oh! Hai già raccolto un bel po’ di cenere,\n"
+	.string "firulì firulà!\p"
+	.string "Ti farò uno strumento di vetro!\n"
+	.string "Quale vuoi, firulì firulà?$"
 
 Route113_GlassWorkshop_Text_IsThatTheItemForYou:
-	.string "Une {STR_VAR_1}, rheu-teu?\n"
-	.string "C’est ce que tu veux, rheu-teu?$"
+	.string "{STR_VAR_1} allora? Firulì firulà… è\n"
+	.string "quello che desideri, firulì firulà?$"
 
 Route113_GlassWorkshop_Text_WhichWouldYouLike:
-	.string "Que veux-tu, rheu-teu?$"
+	.string "Quale vuoi, firulì firulà?$"
 
 Route113_GlassWorkshop_Text_IllMakeItemForYou:
-	.string "{STR_VAR_1}? Très bien, rheu-teu!\p"
-	.string "Je vais te faire ça, rheu-teu.\n"
-	.string "Attends une minute, rheu-teu.$"
+	.string "Vada per {STR_VAR_1}, firulì firulà!\p"
+	.string "Ok! Pronta consegna, firulì firulà.\n"
+	.string "Attendi solo un attimino, firulì firulà.$"
 
 Route113_GlassWorkshop_Text_NotEnoughAshToMakeItem:
-	.string "{STR_VAR_1}, rheu-teu?\p"
-	.string "Il n’y a pas assez de cendres pour\n"
-	.string "fabriquer cet objet, rheu-teu.\p"
-	.string "Voyons un peu… Tu dois faire {STR_VAR_2} pas\n"
-	.string "dans la cendre si tu veux que je\l"
-	.string "fabrique cet objet, rheu-teu.\p"
-	.string "Veux-tu que je te fabrique un autre\n"
-	.string "objet à la place, rheu-teu?$"
+	.string "{STR_VAR_1} allora? Firulì firulà…\p"
+	.string "Sì, però questa cenere non basta,\n"
+	.string "firulì firulà.\p"
+	.string "Vediamo… per quello strumento devi\n"
+	.string "camminare tra la cenere per un numero\l"
+	.string "di passi pari a {STR_VAR_2}, firulì firulà.\p"
+	.string "Quale strumento vuoi che ti faccia\n"
+	.string "in alternativa, firulì firulà?$"
 
 Route113_GlassWorkshop_Text_AllThatAshButDontWantAnything:
-	.string "Tu as ramassé toute cette cendre,\n"
-	.string "mais tu ne veux rien, rheu-teu?$"
+	.string "E ora che hai raccolto tutta questa\n"
+	.string "cenere, non vuoi nulla, firulì firulà?$"
 
 Route113_GlassWorkshop_Text_IveFinishedGlassItem:
-	.string "Ah, j’ai fini {STR_VAR_1}.\n"
-	.string "Prends, rheu-teu.$"
+	.string "{STR_VAR_1}… ecco fatto!\n"
+	.string "Prendi, firulì firulà.$"
 
 Route113_GlassWorkshop_Text_NoRoomInBag:
-	.string "C’est vraiment bête,\n"
-	.string "rheu-teu.\p"
-	.string "Je vais garder l’objet. Reviens me voir\n"
-	.string "plus tard, rheu-teu.$"
+	.string "Ma come?! Non hai più spazio\n"
+	.string "nello ZAINO, firulì firulà.\p"
+	.string "Ti aspetterò, torna più tardi,\n"
+	.string "firulì firulà.$"
 
 Route113_GlassWorkshop_Text_NoRoomInPC:
-	.string "C’est vraiment bête,\n"
-	.string "rheu-teu.\p"
-	.string "Je vais garder l’objet. Reviens me voir\n"
-	.string "plus tard, rheu-teu.$"
+	.string "Ma come?! Non hai più spazio nel PC,\n"
+	.string "firulì firulà.\p"
+	.string "Ti aspetterò, torna più tardi,\n"
+	.string "firulì firulà.$"
 
 Route113_GlassWorkshop_Text_HaventGotYourSootSack:
-	.string "Hein? Tu n’as pas ton SAC A SUIE sur\n"
-	.string "toi, rheu-teu.\p"
-	.string "Tu dois l’avoir sur toi pour ramasser\n"
-	.string "des cendres volcaniques, rheu-teu.$"
+	.string "Cosa? Non hai portato il SACCO CENERE,\n"
+	.string "firulì firulà.\p"
+	.string "Devi portarlo con te per raccogliere\n"
+	.string "la cenere vulcanica, firulì firulà.$"
 
 Route113_GlassWorkshop_Text_FunToBlowGlassFlute:
-	.string "C’est rigolo de jouer de la flûte en\n"
-	.string "verre pendant que mon patron discute.\p"
-	.string "Rheu-rheu! Teu-teu!$"
+	.string "È così divertente soffiare nel flauto\n"
+	.string "di vetro mentre il capo parla.\p"
+	.string "Firulì firulà! Firulì firulà!$"
 

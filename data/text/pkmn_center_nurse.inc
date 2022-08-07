@@ -1,47 +1,47 @@
 gText_WouldYouLikeToRestYourPkmn::
-    .string "Bonjour! Bienvenue au CENTRE\n"
-    .string "POKéMON.\p"
-    .string "Nous pouvons soigner vos POKéMON.\p"
-    .string "Voulez-vous les soigner?$"
+	.string "Sei in un CENTRO POKéMON.\p"
+	.string "Rimettiamo in sesto i POKéMON stanchi.\p"
+	.string "Vuoi far riposare la tua squadra?$"
 
 gText_IllTakeYourPkmn::
-    .string "OK, je prends vos POKéMON un instant.$"
+	.string "Ok, mi prendo la tua squadra di POKéMON\n"
+	.string "per qualche secondo.$"
 
 gText_RestoredPkmnToFullHealth::
-    .string "Merci d’avoir attendu.\p"
-    .string "Vos POKéMON sont en super\n"
-    .string "forme.$"
+	.string "Grazie per l’attesa.\p"
+	.string "Ora la tua squadra di POKéMON è \n"
+	.string "in perfetta forma.$"
 
 gText_WeHopeToSeeYouAgain::
-    .string "A une prochaine fois peut-être!$"
+	.string "Torna a farci visita!$"
 
 gText_WelcomeCutShort::
-    .string "Bonjour! Bienvenue au CENTRE\n"
-    .string "POKéMON.\p"
-    .string "Nous pouvons soigner vos POKéMON.\p"
-    .string "Voulez-vous les…$"
+	.string "Sei in un CENTRO POKéMON.\p"
+	.string "Rimettiamo in sesto i POKéMON stanchi.\p"
+	.string "Vuoi…?$"
 
 gText_NoticesGoldCard::
-    .string "Ce… Cette carte…\n"
-    .string "Serait-ce la CARTE OR?!\p"
-    .string "Oh, ce jaune or est si brillant!\n"
-    .string "Les quatre étoiles étincellent presque!\p"
-    .string "J’ai déjà vu des DRESSEURS avec\n"
-    .string "des CARTES ARGENT, mais…\p"
-    .string "Vous êtes le premier DRESSEUR que je\n"
-    .string "vois avec une CARTE OR!\p"
-    .string "Accordez-moi l’honneur de soigner\n"
-    .string "vos POKéMON un instant!$"
+	.string "Que-quella scheda…\n"
+	.string "non è… una SCHEDA d’ORO?!\p"
+	.string "Che lucentezza!\n"
+	.string "Le quattro stelle sono brillantissime!\p"
+	.string "Ho visto molti ALLENATORI con SCHEDE\n"
+	.string "d’ARGENTO ma, ti dico la verità {PLAYER},\l"
+	.string "tu sei il primo ALLENATORE con una\l"
+	.string "SCHEDA d’ORO che io abbia incontrato!\p"
+	.string "{PLAYER}, mi concedi l’onore di rimettere\n"
+	.string "in sesto la tua squadra di POKéMON?$"
 
 gText_YouWantTheUsual::
-    .string "Contente de vous voir, {PLAYER}!\n"
-    .string "On fait comme d’habitude?$"
+	.string "Sono felice di vederti, {PLAYER}!\n"
+	.string "Il solito, suppongo?$"
 
 gText_IllTakeYourPkmn2::
-    .string "OK, je prends vos POKéMON un instant.$"
+	.string "Ok, prenderò i tuoi POKéMON\n"
+	.string "per qualche secondo.$"
 
 gText_ThankYouForWaiting::
-    .string "Merci d’avoir attendu.$"
+	.string "Grazie per l’attesa.$"
 
 gText_WeHopeToSeeYouAgain2::
-    .string "Encore merci et à bientôt!$"
+	.string "Arrivederci!$"

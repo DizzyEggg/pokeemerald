@@ -294,81 +294,80 @@ TrainerHill_Entrance_Pokemart_Expanded:
 	end
 
 TrainerHill_Entrance_Text_StillGettingReady:
-	.string "C’est le MONT DRESSEURS.\n"
-	.string "Ici, vous pouvez combattre contre\l"
-	.string "plein de DRESSEURS.\p"
-	.string "Malheureusement, on est en pleine\n"
-	.string "préparation. Revenez plus tard!$"
+	.string "Questo è il MONTE ALLENATORI!\n"
+	.string "Lungo il cammino potresti incontrare\l"
+	.string "coppie di ALLENATORI!\p"
+	.string "Purtroppo siamo ancora in fase di\n"
+	.string "allestimento, torna più tardi!$"
 
 TrainerHill_Entrance_Text_WelcomeToTrainerHill:
-	.string "Bienvenue!\p"
-	.string "C’est le MONT DRESSEURS.\n"
-	.string "Ici, vous pouvez combattre contre\l"
-	.string "plein de DRESSEURS.$"
+	.string "Salve!\p"
+	.string "Questo è il MONTE ALLENATORI!\n"
+	.string "Lungo il cammino potresti incontrare\l"
+	.string "coppie di ALLENATORI!$"
 
 TrainerHill_Entrance_Text_SaveGameBeforeEnter:
-	.string "C’est votre première visite ici?\p"
-	.string "Avant d’entrer, vous devez sauvegarder\n"
-	.string "la partie.$"
+	.string "È la prima volta che vieni qui?\p"
+	.string "Prima di entrare, devi salvare il gioco.$"
 
 TrainerHill_Entrance_Text_TrainersUpToFloorX:
-	.string "Voyons voir…\n"
-	.string "Les DRESSEURS ici présents sont…\p"
-	.string "Ils sont jusqu’au niveau nº {STR_VAR_1}.$"
+	.string "Vediamo un po’… troverai\n"
+	.string "ALLENATORI fino al…\p"
+	.string "piano numero {STR_VAR_1}.$"
 
 TrainerHill_Entrance_Text_TrainersInEveryRoom:
-	.string "Voyons voir…\n"
-	.string "Les DRESSEURS ici présents sont…\p"
-	.string "On dirait qu’il y a des DRESSEURS dans\n"
-	.string "toutes les salles.$"
+	.string "Vediamo un po’… troverai\n"
+	.string "ALLENATORI fino al…\p"
+	.string "Ehm… pare ci siano ALLENATORI\n"
+	.string "in ogni stanza.$"
 
 TrainerHill_Entrance_Text_LikeToChallengeTrainers:
-	.string "Voulez-vous affronter les\n"
-	.string "DRESSEURS qui patientent?$"
+	.string "Desideri sfidare gli ALLENATORI\n"
+	.string "in attesa?$"
 
 TrainerHill_Entrance_Text_TimeProgessGetSetGo:
-	.string "OK, je compte sur vous pour\n"
-	.string "avoir un beau spectacle.\p"
-	.string "Je mets le chrono en marche.\p"
-	.string "A vos marques…\p"
-	.string "Prêts…\p"
-	.string "Partez!$"
+	.string "Bene. Sto per azionare l’orologio.\n"
+	.string "Metticela tutta!\p"
+	.string "Pronti…\p"
+	.string "ai posti…\p"
+	.string "via!$"
 
 TrainerHill_Entrance_Text_PleaseVisitUsAgain:
-	.string "J’espère que vous reviendrez.$"
+	.string "Torna a trovarci!$"
 
 TrainerHill_Entrance_Text_TooBadTremendousEffort:
-	.string "Quel dommage.\p"
-	.string "Vous avez pourtant fait de\n"
-	.string "votre mieux.\p"
-	.string "Mais n’hésitez pas à revenir\n"
-	.string "nous voir.$"
+	.string "Mi spiace molto.\p"
+	.string "So che hai lottato con il\n"
+	.string "massimo impegno!\p"
+	.string "Beh, quando vuoi riprovare,\n"
+	.string "torna a trovarci!$"
 
 TrainerHill_Entrance_Text_HopeYouGiveItYourBest:
-	.string "Faites de votre mieux!$"
+	.string "Mi raccomando, metticela tutta!$"
 
 TrainerHill_Entrance_Text_MovedReceptionHereForSwitch:
-	.string "Ça peut être assez mouvementé\n"
-	.string "quand les DRESSEURS changent\p"
-	.string "de place. C’est pour ça qu’on est\n"
-	.string "installés ici.\p"
-	.string "Désolé pour ça.$"
+	.string "A volte il via vai di ALLENATORI è\n"
+	.string "davvero intenso.\p"
+	.string "Così abbiamo dovuto spostare qui\n"
+	.string "il banco di accettazione.\p"
+	.string "Scusa per l’inconveniente.$"
 
 TrainerHill_Entrance_Text_ThankYouForPlaying:
-	.string "Merci d’avoir participé!$"
+	.string "Grazie per aver partecipato!$"
 
 TrainerHill_Entrance_Text_ExplainTrainerHill:
-	.string "Au MONT DRESSEURS, il y a\n"
-	.string "une épreuve de Contre-la-Montre.\p"
-	.string "Vous devez aller de ce guichet au\n"
-	.string "propriétaire qui se trouve sur le toit\l"
-	.string "le plus vite possible.\p"
-	.string "Les meilleurs temps sont affichés sur\n"
-	.string "le Panneau des Temps. Essayez de\l"
-	.string "défier vos amis!\p"
-	.string "Vous ne gagnerez pas de points\n"
-	.string "EXP. ni d’argent en battant les\l"
-	.string "DRESSEURS sur votre chemin.$"
+	.string "Sul MONTE ALLENATORI si svolge\n"
+	.string "un evento chiamato SCALATA A TEMPO.\p"
+	.string "Misuriamo il tempo che ci metti a\n"
+	.string "raggiungere il nostro proprietario\l"
+	.string "sul tetto partendo da questo\l"
+	.string "banco di accettazione.\p"
+	.string "I record di velocità sono riportati nel\n"
+	.string "TABELLONE TEMPO. Fai a gara\l"
+	.string "con i tuoi amici.\p"
+	.string "Nelle lotte contro gli ALLENATORI che\n"
+	.string "incontrerai, non guadagnerai né punti\l"
+	.string "ESP. né soldi.$"
 
 @ Unused
 TrainerHill_Entrance_Text_NeedAtLeastTwoPokemon:
@@ -378,47 +377,46 @@ TrainerHill_Entrance_Text_NeedAtLeastTwoPokemon:
 	.string "to enter this event.$"
 
 TrainerHill_Roof_Text_YouFinallyCameBravo:
-	.string "Hum! Hum!\p"
-	.string "Te voilà enfin!\n"
-	.string "Oui, te voilà!\p"
-	.string "Non, ne dis rien!\n"
-	.string "Je sais pourquoi tu as fait tout ce\l"
-	.string "chemin!\p"
-	.string "Tu voulais me voir, moi le propriétaire\n"
-	.string "du MONT DRESSEURS…\p"
-	.string "Tu veux faire équipe avec moi!\n"
-	.string "Youhou!\p"
-	.string "Hein?\n"
-	.string "Ah non?\p"
-	.string "En tout cas, tu as fait de très beaux\n"
-	.string "combats pour arriver ici! Bravo!$"
+	.string "Ehm! Ehm!\p"
+	.string "Finalmente ce l’hai fatta!\p"
+	.string "Aspetta! Non dirmi nulla!\n"
+	.string "So perché hai fatto tanta\l"
+	.string "strada!\p"
+	.string "Volevi conoscere il proprietario del\n"
+	.string "MONTE ALLENATORI, che sarei io…\p"
+	.string "Vuoi formare una squadra a due?!\n"
+	.string "Ahahah!\p"
+	.string "Uh?\n"
+	.string "Non è per questo?\p"
+	.string "Ho visto la tua performance. Lotti\n"
+	.string "incredibilmente bene! Complimenti!$"
 
 TrainerHill_Roof_Text_HaveTheMostMarvelousGift:
-	.string "Tu es un DRESSEUR hors du commun et\n"
-	.string "j’ai un cadeau un peu spécial pour toi!$"
+	.string "Ho la giusta ricompensa per una persona\n"
+	.string "meravigliosa come te!$"
 
 TrainerHill_Roof_Text_FullUpBeBackLaterForThis:
-	.string "Oh? Ton SAC est carrément plein.\n"
-	.string "J’attendrai que tu reviennes!$"
+	.string "Oh, no! Hai troppe cose con te!\n"
+	.string "Torna a prendere il tuo regalo!$"
 
 TrainerHill_Roof_Text_GotHereMarvelouslyQuickly:
-	.string "Oh… Avec quelle rapidité\n"
-	.string "tu as grimpé jusqu’ici!\p"
-	.string "C’est formidable! Tu avais vraiment\n"
-	.string "hâte de me voir!\p"
-	.string "Ça me fait très plaisir. Ton temps va\n"
-	.string "être reporté sur le Panneau des Temps!$"
+	.string "Aspetta un secondo! Come hai fatto\n"
+	.string "ad arrivare così in fretta?\p"
+	.string "Fantastico! Non c’era bisogno di\n"
+	.string "correre come una scheggia!\p"
+	.string "Sono deliziato. Aggiornerò il TABELLONE\n"
+	.string "TEMPO vicino al banco di accettazione!$"
 
 TrainerHill_Roof_Text_YouWerentVeryQuick:
-	.string "Mais, quel dommage…\n"
-	.string "Tu n’as pas été assez rapide.$"
+	.string "Oh…\n"
+	.string "Ce la siamo presa con calma.$"
 
 TrainerHill_Roof_Text_ArriveZippierNextTime:
-	.string "Je pense que ça me ferait encore plus\n"
-	.string "plaisir si tu étais encore plus rapide.\p"
-	.string "Ensuite, je serais ravi de devenir ton\n"
-	.string "partenaire!\p"
-	.string "Nous nous reverrons!$"
+	.string "Spero che tu ci metta un po’\n"
+	.string "meno la prossima volta.\p"
+	.string "In tal caso, sarei persino disposto a\n"
+	.string "formare una squadra a due!\p"
+	.string "Alla prossima!$"
 
 @ Unused
 TrainerHill_Roof_Text_BuiltTrainerHillToFindPartner:
@@ -428,31 +426,32 @@ TrainerHill_Roof_Text_BuiltTrainerHillToFindPartner:
 	.string "with whom I may form a tag team!$"
 
 TrainerHill_Entrance_Text_ChallengeTime:
-	.string "{STR_VAR_1} min {STR_VAR_2},{STR_VAR_3} s$"
+	.string "{STR_VAR_1} min. e {STR_VAR_2},{STR_VAR_3} sec.$"
 
 TrainerHill_Entrance_Text_WhatSortOfTrainersAreAhead:
-	.string "Qui sait quels DRESSEURS et quels\n"
-	.string "POKéMON se trouvent sur mon chemin…\p"
-	.string "Tout ce que je sais, c’est que rien ne\n"
-	.string "m’arrêtera!$"
+	.string "Chissà quante combinazioni di\n"
+	.string "ALLENATORI e POKéMON mi attendono…\p"
+	.string "L’unica cosa certa è che mi farò strada\n"
+	.string "attraverso tutti coloro che incontro!$"
 
 TrainerHill_Entrance_Text_CantWaitToTestTheWaters:
-	.string "Les DRESSEURS viennent de partout\n"
-	.string "pour grimper sur le MONT DRESSEURS.\p"
-	.string "J’ai hâte de commencer!\p"
-	.string "J’écraserai tout ceux qui se trouveront\n"
-	.string "sur mon passage!$"
+	.string "Ho sentito che al MONTE ALLENATORI\n"
+	.string "giungono solo ALLENATORI in gamba.\p"
+	.string "Non vedo l’ora di mettermi alla prova!\p"
+	.string "Mi aprirò un varco attraverso tutti\n"
+	.string "i rivali che troverò lungo il cammino!$"
 
 TrainerHill_Entrance_Text_FriendsTryingToReachTimeBoardTop:
-	.string "Tu vois ce Panneau des Temps?\p"
-	.string "Mes amis et moi voulons voir qui\n"
-	.string "arrivera en haut le plus vite.$"
+	.string "Hai visto il TABELLONE TEMPO?\p"
+	.string "Sto facendo a gara con gli amici per\n"
+	.string "vedere chi arriva in cima per primo.$"
 
 TrainerHill_Entrance_Text_DoYouKnowWhenTheyOpen:
-	.string "Tu sais quand est-ce que ça va\n"
-	.string "ouvrir?\p"
-	.string "J’attends ici car je veux être le\n"
-	.string "premier DRESSEUR à entrer!$"
+	.string "Sai quando inaugureranno questo\n"
+	.string "posto?\p"
+	.string "Sono già in coda per essere\n"
+	.string "la primissima sfidante!$"
 
 TrainerHill_Elevator_Text_ReturnToReception:
-	.string "Voulez-vous retourner à la réception?$"
+	.string "Vuoi tornare al banco di\n"
+	.string "accettazione?$"

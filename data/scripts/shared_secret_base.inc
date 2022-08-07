@@ -202,14 +202,14 @@ SecretBase_EventScript_SkittyTV::
 	end
 
 SecretBase_Text_SmallIndentInWall::
-	.string "Il y a une petite fissure dans le mur.$"
+	.string " una piccola rientranza nella parete.$"
 
 SecretBase_Text_IndentUseSecretPower::
-	.string "Il y a une petite fissure dans le mur.\p"
-	.string "Voulez-vous utiliser FORCE CACHEE?$"
+	.string "C’è una piccola rientranza nella parete.\p"
+	.string "Vuoi usare FORZASEGRETA?$"
 
 SecretBase_Text_DiscoveredSmallCavern::
-	.string "Une petite caverne a été découverte!$"
+	.string "Scoperta una piccola grotta!$"
 
 SecretBase_Text_WantToMakeYourSecretBaseHere:
-	.string "Créer une BASE SECRETE ici?$"
+	.string "Vuoi creare qui la tua BASE SEGRETA?$"

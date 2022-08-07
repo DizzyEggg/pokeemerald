@@ -42,26 +42,26 @@ LavaridgeTown_HerbShop_EventScript_ExplainCharcoal::
 	end
 
 LavaridgeTown_HerbShop_Text_WelcomeToHerbShop:
-	.string "Bienvenue à l’HERBORISTERIE, la maison\n"
-	.string "des médicaments efficaces à bas prix!$"
+	.string "Ti do il benvenuto all’ERBORISTERIA per\n"
+	.string "rimedi naturali, efficaci e convenienti!$"
 
 LavaridgeTown_HerbShop_Text_YouveComeToLookAtHerbalMedicine:
-	.string "Tu viens chercher des médicaments\n"
-	.string "à base de plantes à VERMILAVA?\p"
-	.string "C’est très honorable.\p"
-	.string "Je t’aime bien! Prends ça!$"
+	.string "Sei qui per saperne di più sui rimedi\n"
+	.string "naturali di CUORDILAVA?\p"
+	.string "È lodevole da parte tua.\p"
+	.string "Mi piaci! Prendi questo!$"
 
 LavaridgeTown_HerbShop_Text_ExplainCharcoal:
-	.string "Le CHARBON que je t’ai donné est utilisé\n"
-	.string "pour faire des médicaments naturels.\p"
-	.string "Il fait aussi des merveilles lorsqu’il\n"
-	.string "est tenu par un POKéMON.\p"
-	.string "Il augmente la puissance des attaques\n"
-	.string "de type FEU.$"
+	.string "Questa CARBONELLA che ti ho dato\n"
+	.string "serve per creare rimedi naturali.\p"
+	.string "Inoltre, se la tiene un POKéMON,\n"
+	.string "fa miracoli.\p"
+	.string "Intensifica la potenza delle mosse\n"
+	.string "di tipo FUOCO.$"
 
 LavaridgeTown_HerbShop_Text_HerbalMedicineWorksButMonWillDislike:
-	.string "La médecine à base de plantes est\n"
-	.string "extrêmement efficace. Mais tes POKéMON\p"
-	.string "risquent de ne pas apprécier.\n"
-	.string "Les médicaments sont très amers!$"
+	.string "I rimedi naturali hanno un effetto\n"
+	.string "straordinario. Ma i tuoi POKéMON\l"
+	.string "ti odieranno per questo.\l"
+	.string "Hanno un gustaccio molto amaro!$"
 

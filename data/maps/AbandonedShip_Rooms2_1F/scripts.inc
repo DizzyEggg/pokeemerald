@@ -50,100 +50,99 @@ AbandonedShip_Rooms2_1F_EventScript_Garrison::
 	end
 
 AbandonedShip_Rooms2_1F_Text_DanIntro:
-	.string "JOE: En cherchant des trésors,\n"
-	.string "on a découvert un DRESSEUR!$"
+	.string "DAN: Andando a caccia di tesori…\n"
+	.string "abbiamo trovato un ALLENATORE!$"
 
 AbandonedShip_Rooms2_1F_Text_DanDefeat:
-	.string "JOE: On n’a pas réussi à gagner,\n"
-	.string "même en se mettant ensemble…$"
+	.string "DAN: Anche in due non siamo riusciti\n"
+	.string "a batterti…$"
 
 AbandonedShip_Rooms2_1F_Text_DanPostBattle:
-	.string "JOE: On n’a pas trouvé de trésors…\n"
-	.string "Quelqu’un les aurait-il déjà pris?$"
+	.string "DAN: Non riusciamo a trovare i tesori…\n"
+	.string "Se li sarà già intascati qualcuno?$"
 
 AbandonedShip_Rooms2_1F_Text_DanNotEnoughMons:
-	.string "JOE: Tu n’as même pas deux POKéMON.\n"
-	.string "N’espère pas nous battre comme ça.$"
+	.string "DAN: Non hai nemmeno due POKéMON.\n"
+	.string "Come credi di poterci battere?$"
 
 AbandonedShip_Rooms2_1F_Text_KiraIntro:
-	.string "RITA: Oh?! On cherchait des trésors,\n"
-	.string "mais on n’a trouvé qu’un DRESSEUR.$"
+	.string "CIRA: Oh? Eravamo a caccia di tesori.\n"
+	.string "Ma chi abbiamo incontrato?\l"
+	.string "Un ALLENATORE!$"
 
 AbandonedShip_Rooms2_1F_Text_KiraDefeat:
-	.string "RITA: Oh, waouh, quelle force!$"
+	.string "CIRA: Oh, wow, sei forte!$"
 
 AbandonedShip_Rooms2_1F_Text_KiraPostBattle:
-	.string "RITA: Je me demande où les trésors\n"
-	.string "peuvent bien être cachés.\p"
-	.string "Je sais déjà ce que je vais m’acheter\n"
-	.string "quand on les aura trouvés!$"
+	.string "CIRA: Chissà dove sono nascosti\n"
+	.string "i tesori…\p"
+	.string "So già cosa comprarmi quando li troverò!$"
 
 AbandonedShip_Rooms2_1F_Text_KiraNotEnoughMons:
-	.string "RITA: Tu n’as pas deux POKéMON?\n"
-	.string "On se battra une autre fois alors!$"
+	.string "CIRA: Non hai due POKéMON?\n"
+	.string "Beh, allora dobbiamo rinviare la sfida!$"
 
 AbandonedShip_Rooms2_1F_Text_KiraRegister:
-	.string "RITA: Tu m’as mise en colère!\n"
-	.string "Je vais t’enregistrer pour la peine!$"
+	.string "CIRA: Che rabbia che mi fai!\n"
+	.string "Ti registrerò nel POKéNAV!$"
 
 AbandonedShip_Rooms2_1F_Text_DanRematchIntro:
-	.string "JOE: On a passé tout ce temps à\n"
-	.string "chercher des trésors.\p"
-	.string "Nos POKéMON sont devenus plus forts.\n"
-	.string "On t’fait voir, OK?$"
+	.string "DAN: È da tempo che siamo a caccia\n"
+	.string "di tesori.\p"
+	.string "I nostri POKéMON si sono rafforzati.\n"
+	.string "Vuoi una dimostrazione?$"
 
 AbandonedShip_Rooms2_1F_Text_DanRematchDefeat:
-	.string "JOE: Toujours autant de force!$"
+	.string "DAN: Sei forte, come sempre!$"
 
 AbandonedShip_Rooms2_1F_Text_DanPostRematch:
-	.string "JOE: On n’a pas trouvé de trésors,\n"
-	.string "on a perdu notre combat de POKéMON…\p"
-	.string "Je veux rentrer à la maison… Mais si je\n"
-	.string "dis ça, elle va m’en vouloir…$"
+	.string "DAN: Non troviamo tesori, perdiamo\n"
+	.string "con i POKéMON…\p"
+	.string "Voglio andare a casa… Ma se oso dirlo\n"
+	.string "a mia moglie, va su tutte le furie…$"
 
 AbandonedShip_Rooms2_1F_Text_DanRematchNotEnoughMons:
-	.string "JOE: Tu n’as même pas deux POKéMON.\n"
-	.string "N’espère pas nous battre comme ça.$"
+	.string "DAN: Non hai nemmeno due POKéMON.\n"
+	.string "Come credi di poterci battere?$"
 
 AbandonedShip_Rooms2_1F_Text_KiraRematchIntro:
-	.string "RITA: Oh, salut! Comme on s’retrouve!\p"
-	.string "Tout comme nous, t’as pas arrêté de\n"
-	.string "chercher des trésors!\p"
-	.string "Si on se battait? Et le perdant arrête\n"
-	.string "de chercher!$"
+	.string "CIRA: Ehi, chi si rivede!\p"
+	.string "Vedo che anche tu non hai rinunciato\n"
+	.string "a dare la caccia ai tesori!\p"
+	.string "Che ne dici di lottare e chi perde\n"
+	.string "rinuncia al bottino?$"
 
 AbandonedShip_Rooms2_1F_Text_KiraRematchDefeat:
-	.string "RITA: Oh, on a encore perdu…$"
+	.string "CIRA: Oh no, ancora una volta…$"
 
 AbandonedShip_Rooms2_1F_Text_KiraPostRematch:
-	.string "RITA: On va élever le niveau de nos\n"
-	.string "POKéMON.\p"
-	.string "Et on ne rentrera pas à la maison avant\n"
-	.string "d’avoir trouvé des trésors!$"
+	.string "CIRA: Resteremo qui ad allenare\n"
+	.string "i nostri POKéMON! Non si torna\l"
+	.string "a casa a mani vuote!$"
 
 AbandonedShip_Rooms2_1F_Text_KiraRematchNotEnoughMons:
-	.string "RITA: Tu n’as pas deux POKéMON?\n"
-	.string "On se battra une autre fois alors!$"
+	.string "CIRA: Non hai due POKéMON?\n"
+	.string "Beh, allora è tutto rimandato!$"
 
 AbandonedShip_Rooms2_1F_Text_JaniIntro:
-	.string "Je ne sais pas bien nager, mais quand\n"
-	.string "il s’agit de se battre…$"
+	.string "Nuotare non è il mio forte,\n"
+	.string "ma le lotte sì!$"
 
 AbandonedShip_Rooms2_1F_Text_JaniDefeat:
-	.string "Oups, ça n’a pas vraiment bien marché.$"
+	.string "Oops.\n"
+	.string "Qualcosa è andato storto.$"
 
 AbandonedShip_Rooms2_1F_Text_JaniPostBattle:
-	.string "Ça ne se fait pas vraiment de marcher\n"
-	.string "pieds nus sur un bateau.$"
+	.string "Non mi piace camminare a piedi nudi\n"
+	.string "su questa nave.$"
 
 AbandonedShip_Rooms2_1F_Text_GarrisonIntro:
-	.string "Force et compassion…\n"
-	.string "Ce sont les trésors d’un DRESSEUR!$"
+	.string "Forza e compassione…\n"
+	.string "sono i tesori di un ALLENATORE!$"
 
 AbandonedShip_Rooms2_1F_Text_GarrisonDefeat:
-	.string "Quelque chose brille en toi, ça se\n"
-	.string "voit tout de suite.$"
+	.string "C’è qualcosa di luccicante in te.$"
 
 AbandonedShip_Rooms2_1F_Text_GarrisonPostBattle:
-	.string "J’ai vu quelque chose briller dans une\n"
-	.string "des cabines du bateau.$"
+	.string "Ho visto qualcosa luccicare in\n"
+	.string "una cabina a bordo.$"

@@ -9,17 +9,17 @@ MtPyre_4F_EventScript_Tasha::
 	end
 
 MtPyre_4F_Text_TashaIntro:
-	.string "J’aime tout ce qui fait peur…\n"
-	.string "C’est comme une maladie…\p"
-	.string "Quand je suis ici…\n"
-	.string "Je tremble de peur…$"
+	.string "Mi piacciono le cose che fanno paura…\n"
+	.string "È più forte di me…\p"
+	.string "Quando sono qui…\n"
+	.string "mi viene la tremarella…$"
 
 MtPyre_4F_Text_TashaDefeat:
-	.string "Perdre, je déteste ça…$"
+	.string "Non mi piace perdere…$"
 
 MtPyre_4F_Text_TashaPostBattle:
-	.string "Je veux voir des choses atroces…\n"
-	.string "Je ne peux pas partir…\p"
-	.string "Reste…\n"
-	.string "Tu ne vas pas rester avec moi?$"
+	.string "Ho il batticuore…\n"
+	.string "ma non mi va di andarmene…\p"
+	.string "Vuoi…\n"
+	.string "vuoi farmi compagnia?$"
 

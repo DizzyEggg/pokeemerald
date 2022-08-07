@@ -27,14 +27,16 @@ VerdanturfTown_PokemonCenter_1F_EventScript_ExpertM::
 	end
 
 VerdanturfTown_PokemonCenter_1F_Text_FaithInYourPokemon:
-	.string "Tu n’es pas un vrai DRESSEUR\n"
-	.string "si tu ne crois pas en tes POKéMON.\p"
-	.string "Pour réussir, il faut avoir une entière\n"
-	.string "confiance en ses POKéMON.$"
+	.string "Chi non ha fiducia nei propri POKéMON,\n"
+	.string "non può considerarsi un vero\l"
+	.string "ALLENATORE.\p"
+	.string "Solo coloro che credono nei POKéMON\n"
+	.string "che mandano in campo possono \l"
+	.string "sperare di uscirne vittoriosi.$"
 
 VerdanturfTown_PokemonCenter_1F_Text_VisitForBattleTent:
-	.string "Si les gens viennent à VERGAZON…\p"
-	.string "c’est pour la TENTE DE COMBAT, bien sûr.\p"
-	.string "Tiens, toi par exemple. Que viens-tu\n"
-	.string "faire ici?$"
+	.string "Il motivo che spinge chiunque a\n"
+	.string "venire a MENTANIA…\p"
+	.string "è il TENDONE LOTTA. Non ci piove.\p"
+	.string "O sei qui per far visita a qualcuno?$"
 

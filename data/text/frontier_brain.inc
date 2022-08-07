@@ -1,108 +1,108 @@
 @ Battle Tower
 gText_AnabelWonSilver::
-	.string "C’est très décevant…$"
+	.string "Che delusione…$"
 
 gText_AnabelDefeatSilver::
-	.string "D’accord, je vois…$"
+	.string "Capisco…$"
 
 gText_AnabelWonGold::
-	.string "Je suis désolée…$"
+	.string "Mi dispiace molto…$"
 
 gText_AnabelDefeatGold::
-	.string "Merci…$"
+	.string "Grazie…$"
 
 @ Battle Dome
 gText_TuckerWonSilver::
-	.string "Tu n’as pas honte?\n"
-	.string "Tout le monde nous regarde!$"
+	.string "Ahahahah! Non provi imbarazzo?\n"
+	.string "Ci stanno guardando tutti!$"
 
 gText_TuckerDefeatSilver::
-	.string "Grr…\n"
-	.string "Mais…$"
+	.string "Grrr…\n"
+	.string "Peccato…$"
 
 gText_TuckerWonGold::
-	.string "Ce n’est pas pour rien qu’on m’appelle\n"
-	.string "la STAR DU DOME!$"
+	.string "Il titolo di ASTRO CUPOLA mi calza\n"
+	.string "a pennello!$"
 
 gText_TuckerDefeatGold::
-	.string "Ha, ha, ha!\n"
-	.string "Tu m’amuses!$"
+	.string "Ahahahah!\n"
+	.string "Sei una fonte di ispirazione!$"
 
 @ Battle Factory
 gText_NolandWonSilver::
-	.string "On t’a donné une bonne leçon, non?$"
+	.string "Non ci siamo!\n"
+	.string "Niente male come lezione, eh?$"
 
 gText_NolandDefeatSilver::
-	.string "Joli travail!\n"
-	.string "Tu te débrouilles plutôt bien!$"
+	.string "Ottimo lavoro!\n"
+	.string "Sai quel che fai!$"
 
 gText_NolandWonGold::
-	.string "Hé, hé, hé!\n"
-	.string "C’est déjà fini?$"
+	.string "Ehi!\n"
+	.string "Sei già KO?$"
 
 gText_NolandDefeatGold::
-	.string "Je n’y crois pas…$"
+	.string "Che cosa è successo?$"
 
 @ Battle Pike
 gText_LucyWonSilver::
-	.string "Oh, j’ai gagné…$"
+	.string "Wow…$"
 
 gText_LucyDefeatSilver::
-	.string "Oh, j’ai perdu…$"
+	.string "Uhm…$"
 
 gText_LucyWonGold::
-	.string "Oui!$"
+	.string "Ah!$"
 
 gText_LucyDefeatGold::
-	.string "Grrr…$"
+	.string "Accidenti…$"
 
 @ Battle Arena
 gText_GretaWonSilver::
-	.string "Tu n’étais pas à fond!\n"
-	.string "Tu dois te surpasser!$"
+	.string "Dai, forza!\n"
+	.string "Mettici più impegno!$"
 
 gText_GretaDefeatSilver::
-	.string "Pas possible!\n"
-	.string "Chapeau!$"
+	.string "Non ci credo!\n"
+	.string "Hai fatto un ottimo lavoro!$"
 
 gText_GretaWonGold::
-	.string "Hé, hé!\n"
-	.string "Mais qu’est-ce que tu espérais?$"
+	.string "Eheh!\n"
+	.string "Con chi credevi di avere a che fare?$"
 
 gText_GretaDefeatGold::
-	.string "Quoi?\n"
-	.string "Mais c’est impossible…$"
+	.string "Uh?\n"
+	.string "È uno scherzo, vero?$"
 
 @ Battle Palace
 gText_SpenserWonSilver::
-	.string "Tes POKéMON sont nuls!\n"
-	.string "Et toi, tu es une mauviette!$"
+	.string "I tuoi POKéMON sono deboli perché\n"
+	.string "il loro ALLENATORE è debole!$"
 
 gText_SpenserDefeatSilver::
-	.string "Ah…\n"
-	.string "Je ne m’attendais pas à ça…$"
+	.string "Ah! Questa non me l’aspettavo…$"
 
 gText_SpenserWonGold::
-	.string "Ha, ha, ha!\n"
-	.string "Nous ne craignons personne!$"
+	.string "Ahahahah! Insieme alla mia\n"
+	.string "squadra sono un portento!$"
 
 gText_SpenserDefeatGold::
-	.string "Non!\n"
-	.string "Ahhhh!!!$"
+	.string "Ah!\n"
+	.string "Ahahahah!$"
 
 @ Battle Pyramid
 gText_BrandonWonSilver::
-	.string "Hé, quel est ton problème?\n"
-	.string "Un peu de nerf!$"
+	.string "Ehi! Qualcosa non va?\n"
+	.string "Voglio più grinta!$"
 
 gText_BrandonDefeatSilver::
-	.string "Bravo! Tu as été superbe!\n"
-	.string "Cette victoire, tu la mérites!$"
+	.string "Un’ottima prestazione la tua!\n"
+	.string "Si vede che ci hai messo impegno!$"
 
 gText_BrandonWonGold::
-	.string "Ne baisse pas les bras!\n"
-	.string "Tu dois croire en toi!$"
+	.string "Non mollare l’osso!\n"
+	.string "Non perdere la fiducia!$"
 
 gText_BrandonDefeatGold::
-	.string "Tu as réussi!\n"
-	.string "Tes efforts ont enfin payé!$"
+	.string "Ce l’hai fatta!\n"
+	.string "Hai lavorato sodo!$"

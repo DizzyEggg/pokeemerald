@@ -18,22 +18,22 @@ GraniteCave_1F_EventScript_ReceivedFlash::
 	end
 
 GraniteCave_1F_Text_GetsDarkAheadHereYouGo:
-	.string "Hé, toi!\n"
-	.string "Il fait terriblement sombre là-dedans.\l"
-	.string "Ça va être difficile à explorer.\p"
-	.string "Ce type qui est passé tout à l’heure…\n"
-	.string "PIERRE, je crois que c’était ça.\p"
-	.string "Il savait utiliser FLASH, alors il n’a pas\n"
-	.string "dû avoir de problème, mais…\p"
-	.string "Pour nous, les MONTAGNARDS, la devise\n"
-	.string "est d’aider ceux que l’on rencontre.\p"
-	.string "Vas-y et bon courage!$"
+	.string "Ehi, tu!\n"
+	.string "Più avanti è davvero buio.\l"
+	.string "Non sarà facile addentrarsi.\p"
+	.string "Quel ragazzo che è passato prima…\n"
+	.string "si chiamava ROCCO…\p"
+	.string "Lui sapeva usare FLASH, quindi di sicuro\n"
+	.string "se la starà cavando bene, ma…\p"
+	.string "aiutare chi incontriamo è il motto di noi\n"
+	.string "AVVENTURIERI!\p"
+	.string "Prendi questo, ti sarà utile.$"
 
 GraniteCave_1F_Text_ExplainFlash:
-	.string "Apprends cette CS FLASH\n"
-	.string "à un POKéMON et utilise-la.\p"
-	.string "Ça permet d’éclairer même les cavernes\n"
-	.string "les plus sombres.\p"
-	.string "Mais pour l’utiliser, il faut le BADGE\n"
-	.string "de l’ARENE POKéMON de MYOKARA.$"
+	.string "Insegna la mossa MN FLASH\n"
+	.string "ad un POKéMON.\p"
+	.string "FLASH illumina anche gli angoli\n"
+	.string "più oscuri delle grotte.\p"
+	.string "Ma senza la MEDAGLIA della PALESTRA\n"
+	.string "POKéMON di BLURUVIA non puoi usarla.$"
 

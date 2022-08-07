@@ -166,64 +166,60 @@ SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideRight:
 	step_end
 
 SootopolisCity_MysteryEventsHouse_1F_Text_OnlyAmusementWatchingBattles:
-	.string "Quand j’étais jeune, j’étais DRESSEUR\n"
-	.string "de POKéMON et j’ai parcouru le monde.\p"
-	.string "Maintenant que je ne suis plus qu’un\n"
-	.string "vieillard, mon seul plaisir, c’est de voir\l"
-	.string "les combats des jeunes DRESSEURS.$"
+	.string "I.$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_DoorAppearsToBeLocked:
 	.string "The door appears to be locked.$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_ChallengeVisitingTrainer:
-	.string "Un DRESSEUR nommé {STR_VAR_1}\n"
-	.string "est ici pour me rendre visite.\p"
-	.string "Ça te dirait de te battre contre\n"
-	.string "{STR_VAR_1}?$"
+	.string "A casa mia c’è un ALLENATORE\n"
+	.string "di nome {STR_VAR_1}.\p"
+	.string "Vuoi sfidare {STR_VAR_1}?$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_YouWontBattle:
-	.string "Tu ne vas pas combattre? Je suis déçu\n"
-	.string "de ne pas pouvoir te voir au combat…$"
+	.string "Non lo vuoi sfidare? Mi dispiace\n"
+	.string "non vedervi lottare…$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_KeepItTo3On3:
-	.string "Bon, très bien!\p"
-	.string "Mais ma maison n’est pas si solide\n"
-	.string "que ça!\p"
-	.string "On se contente d’un combat 3 contre 3?$"
+	.string "Oh, bene, bene!\p"
+	.string "Ma la mia casa non è molto solida.\p"
+	.string "Potete limitarvi ad un incontro tre\n"
+	.string "contro tre?$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_SaveProgressBeforeBattle:
-	.string "Avant de combattre, tu devrais\n"
-	.string "sauvegarder ta partie.$"
+	.string "Prima di lottare, dovresti salvare\n"
+	.string "il gioco.$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_HopeToSeeGoodMatch:
-	.string "J’espère voir un beau combat!$"
+	.string "Spero di vedere un buon incontro!$"
 
 @ Unused
 SootopolisCity_MysteryEventsHouse_1F_Text_StrVar1Tie:
 	.string "{STR_VAR_1}$"
 
 SootopolisCity_MysteryEventsHouse_B1F_Text_MatchEndedUpDraw:
-	.string "Il y a égalité.$"
+	.string "L’incontro è finito in parità.$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_BrilliantStandoff:
-	.string "Il est impossible de vous départager.\p"
-	.string "C’était un excellent combat, au cours\n"
-	.string "duquel personne n’a rien concédé!$"
+	.string "Quindi è stato un pareggio.\p"
+	.string "È stata una partita magnifica in cui\n"
+	.string "nessuno ha concesso nulla!$"
 
 @ Unused
 SootopolisCity_MysteryEventsHouse_1F_Text_StrVar1Won:
 	.string "{STR_VAR_1}$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_ThatWasSuperlative:
-	.string "Excellent!\p"
-	.string "Je me suis revu dans ma jeunesse!$"
+	.string "È stato superlativo!\p"
+	.string "Mi è sembrato di tornare agli anni\n"
+	.string "della giovinezza!$"
 
 @ Unused
 SootopolisCity_MysteryEventsHouse_1F_Text_StrVar1Lost:
 	.string "{STR_VAR_1}$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_TooBadForYou:
-	.string "Ah, dommage pour toi!\p"
-	.string "Mais c’était un beau combat. J’espère\n"
-	.string "que tu gagneras la prochaine fois.$"
+	.string "Mi dispiace per te…\p"
+	.string "ma è stata una buona partita.\n"
+	.string "Avrai la rivincita, non ho dubbi.$"
 

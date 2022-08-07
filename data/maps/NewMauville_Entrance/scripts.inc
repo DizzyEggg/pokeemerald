@@ -47,12 +47,12 @@ NewMauville_Entrance_EventScript_DontOpenDoor::
 	end
 
 NewMauville_Entrance_Text_DoorIsLocked:
-	.string "La porte est fermée.$"
+	.string "La porta è chiusa.$"
 
 NewMauville_Entrance_Text_UseBasementKey:
-	.string "Utiliser la CLE SOUS-SOL?$"
+	.string "Usa la CHIAVE SOTTERRANEI?$"
 
 NewMauville_Entrance_Text_UsedBasementKey:
-	.string "{PLAYER} utilise la CLE SOUS-SOL.\p"
-	.string "La porte s’ouvre!$"
+	.string "{PLAYER} usa la CHIAVE SOTTERRANEI.\p"
+	.string "La porta è aperta!$"
 

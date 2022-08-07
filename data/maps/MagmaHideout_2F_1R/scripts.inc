@@ -22,53 +22,53 @@ MagmaHideout_2F_1R_EventScript_Grunt5::
 	end
 
 MagmaHideout_2F_1R_Text_Grunt14Intro:
-	.string "Pas si vite!\p"
-	.string "Seuls les membres de la TEAM MAGMA\n"
-	.string "sont autorisés à être ici!\p"
-	.string "Mais tu ne portes pas notre uniforme…\p"
-	.string "Il vaut mieux que je sois sûre!\n"
-	.string "Allez, viens te battre!$"
+	.string "Cosa, cosa, cosa?\p"
+	.string "Qui ci dovrebbero essere solo i\n"
+	.string "membri del TEAM MAGMA!\p"
+	.string "Tu non indossi l’uniforme del\n"
+	.string "TEAM MAGMA…\p"
+	.string "Sei un tipo sospetto!\n"
+	.string "Lottiamo!$"
 
 MagmaHideout_2F_1R_Text_Grunt14Defeat:
-	.string "Aïe…\n"
-	.string "Mon honneur vient d’en prendre un coup.$"
+	.string "Ahi ahi… il mio orgoglio\n"
+	.string "di membro del TEAM MAGMA…$"
 
 MagmaHideout_2F_1R_Text_Grunt14PostBattle:
-	.string "Si tu n’aimes pas avoir froid,\n"
-	.string "rejoins la TEAM MAGMA!$"
+	.string "Se soffri il freddo, dovresti unirti al\n"
+	.string "TEAM MAGMA.$"
 
 MagmaHideout_2F_1R_Text_Grunt3Intro:
-	.string "Attends un peu toi!\p"
-	.string "Tu pensais vraiment pouvoir passer\n"
-	.string "devant moi comme ça?$"
+	.string "Aspetta!\p"
+	.string "Non penserai che ti lasci passare\n"
+	.string "come niente fosse?$"
 
 MagmaHideout_2F_1R_Text_Grunt3Defeat:
-	.string "Bon d’accord, j’ai rien dit.$"
+	.string "Wow!\n"
+	.string "Ti cedo il passo!$"
 
 MagmaHideout_2F_1R_Text_Grunt3PostBattle:
-	.string "J’aurais sûrement mieux fait de\n"
-	.string "te laisser passer directement…$"
+	.string "Sarebbe stato meglio se non ti avessi\n"
+	.string "sfidato…$"
 
 MagmaHideout_2F_1R_Text_Grunt4Intro:
-	.string "Ah ah!\n"
-	.string "Un intrus!$"
+	.string "Ah!\n"
+	.string "Un intruso!$"
 
 MagmaHideout_2F_1R_Text_Grunt4Defeat:
 	.string "Graaah!$"
 
 MagmaHideout_2F_1R_Text_Grunt4PostBattle:
-	.string "J’ai perdu…\p"
-	.string "Est-ce que je dois continuer à\n"
-	.string "tourner en rond bêtement?$"
+	.string "Ho già perso.\p"
+	.string "Perché continuo a girare in tondo?$"
 
 MagmaHideout_2F_1R_Text_Grunt5Intro:
-	.string "Oh oh!\n"
-	.string "Un intrus!$"
+	.string "Oh, oh!\n"
+	.string "Un intruso!$"
 
 MagmaHideout_2F_1R_Text_Grunt5Defeat:
-	.string "Humpff…$"
+	.string "Grrr…$"
 
 MagmaHideout_2F_1R_Text_Grunt5PostBattle:
-	.string "En fait, les combats n’ont jamais été\n"
-	.string "ma spécialité…$"
+	.string "La lotta non è mai stata il mio forte…$"
 

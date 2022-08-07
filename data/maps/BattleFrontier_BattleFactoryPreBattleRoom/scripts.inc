@@ -450,197 +450,197 @@ BattleFrontier_BattleFactoryPreBattleRoom_Movement_AttendantReturnToPlayer:
 	step_end
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_HoldMonsChooseFromSelection:
-	.string "Nous allons garder vos POKéMON.\p"
-	.string "Vous pourrez choisir trois POKéMON\n"
-	.string "dans notre sélection.$"
+	.string "\n"
+	.string "ÎÎÎ \n"
+	.string "Ci prenderemo cura noi dei tuoi POKéMON.\p"
+	.string "Potrai scegliere fra una selezione\n"
+	.string "di POKéMON.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_LetUsRestoreMons:
-	.string "Merci pour votre participation!\n"
-	.string "Je vais soigner vos POKéMON!$"
+	.string "Grazie per la partecipazione! Rimetterò\n"
+	.string "in sesto la tua squadra di POKéMON!$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyFor2ndOpponent:
-	.string "Le deuxième combat va avoir lieu!\n"
-	.string "Pouvons-nous commencer?$"
+	.string "Ti attende la 2ª lotta!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyFor3rdOpponent:
-	.string "Le troisième combat va avoir lieu!\n"
-	.string "Pouvons-nous commencer?$"
+	.string "Ti attende la 3ª lotta!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyFor4thOpponent:
-	.string "Le quatrième combat va avoir lieu!\n"
-	.string "Pouvons-nous commencer?$"
+	.string "Ti attende la 4ª lotta!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyFor5thOpponent:
-	.string "Le cinquième combat va avoir lieu!\n"
-	.string "Pouvons-nous commencer?$"
+	.string "Ti attende la 5ª lotta!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyFor6thOpponent:
-	.string "Le sixième combat va avoir lieu!\n"
-	.string "Pouvons-nous commencer?$"
+	.string "Ti attende la 6ª lotta!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyFor7thOpponent:
-	.string "Le septième combat va avoir lieu!\n"
-	.string "Pouvons-nous commencer?$"
+	.string "Ti attende la 7ª e ultima lotta!\n"
+	.string "Vuoi andare avanti?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_SaveAndQuitGame:
-	.string "Voulez-vous sauvegarder la partie et\n"
-	.string "arrêter de jouer?$"
+	.string "Vuoi salvare e uscire dal gioco?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_RetireFromChallenge:
-	.string "Voulez-vous abandonner ce\n"
-	.string "COMBAT ECHANGE?$"
+	.string "Vuoi ritirarti dalla sfida\n"
+	.string "LOTTA SCAMBIO?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_InvestigatedUpcomingOpponent:
-	.string "J’ai fait ma petite enquête sur votre\n"
-	.string "prochain adversaire.$"
+	.string "Ho fatto delle ricerche sull’avversario\n"
+	.string "che dovrai sfidare.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInNormalType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type NORMAL.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo NORMALE.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInFireType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type FEU.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo FUOCO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInWaterType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type EAU.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo ACQUA.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInElectricType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type ELECTRIK.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo ELETTRO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInGrassType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type PLANTE.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo ERBA.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInIceType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type GLACE.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo GHIACCIO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInFightingType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type COMBAT.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo LOTTA.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInPoisonType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type POISON.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo VELENO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInGroundType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type SOL.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo TERRA.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInFlyingType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type VOL.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo VOLANTE.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInPsychicType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type PSY.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo PSICO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInBugType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type INSECTE.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo COLEOTTERO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInRockType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type ROCHE.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo ROCCIA.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInGhostType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type SPECTRE.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo SPETTRO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInDragonType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type DRAGON.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo DRAGO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInDarkType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type TENEBRES.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo BUIO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerSkilledInSteelType:
-	.string "Ce DRESSEUR semble être doué\n"
-	.string "en ce qui concerne le type ACIER.$"
+	.string "L’ALLENATORE pare essere abile con\n"
+	.string "il tipo ACCIAIO.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_TrainerHasNoClearFavorite:
-	.string "Ce DRESSEUR ne semble avoir de\n"
-	.string "préférence pour aucun type.$"
+	.string "L’ALLENATORE pare non avere un tipo\n"
+	.string "prediletto.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_StyleSlowAndSteady:
-	.string "Il semble aimer combattre de\n"
-	.string "façon lente et régulière.$"
+	.string "In lotta sembra adottare uno stile\n"
+	.string "flemmatico, ma deciso.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_StyleEndurance:
-	.string "Il semble aimer les combats qui\n"
-	.string "requièrent de l’endurance.$"
+	.string "In lotta sembra adottare uno stile\n"
+	.string "basato sulla resistenza.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_StyleHighRisk:
-	.string "Au combat, il semble aimer risquer\n"
-	.string "gros pour gagner gros.$"
+	.string "In lotta sembra adottare uno stile\n"
+	.string "ad alto rischio, ma efficace.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_StyleDependsOnFlow:
-	.string "Au combat, il semble préférer\n"
-	.string "suivre le mouvement.$"
+	.string "In lotta sembra adottare uno stile che\n"
+	.string "si adatta all’andamento della sfida.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_StyleTotalPreparation:
-	.string "Au combat, il semble donner une\n"
-	.string "importance primordiale à la préparation.$"
+	.string "In lotta sembra adottare uno stile\n"
+	.string "basato sulla competenza.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_StyleWeakenFoe:
-	.string "Au combat, il semble aimer affaiblir\n"
-	.string "l’ennemi dès le début.$"
+	.string "In lotta sembra adottare uno stile\n"
+	.string "che indebolisce il nemico da subito.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_StyleFlexible:
-	.string "Au combat, il semble être flexible et\n"
-	.string "aimer s’adapter à la situation.$"
+	.string "In lotta sembra adottare uno stile\n"
+	.string "basato sulla flessibilità.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_StyleImpossibleToPredict:
-	.string "Son style de combat est impossible\n"
-	.string "à prévoir.$"
+	.string "In lotta sembra adottare uno stile\n"
+	.string "imprevedibile.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_StyleUnrestrained:
-	.string "Il est libre d’esprit et se bat de façon\n"
-	.string "effrénée.$"
+	.string "In lotta sembra adottare uno stile\n"
+	.string "ribelle e senza limitazioni.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_LikeToSwapMon:
-	.string "Avant de commencer le combat,\n"
-	.string "voulez-vous échanger un POKéMON?$"
+	.string "Vuoi scambiare un POKéMON prima\n"
+	.string "di iniziare la lotta?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_YourSwapIsComplete:
-	.string "Merci!\n"
-	.string "L’échange de POKéMON est terminé.$"
+	.string "Grazie!\n"
+	.string "Scambio completato.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_RightThisWay:
-	.string "Par ici, s’il vous plaît!$"
+	.string "Da questa parte, prego!$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_SavingDataPleaseWait:
-	.string "Je sauvegarde vos données.\n"
-	.string "Veuillez patienter.$"
+	.string "Sto salvando i tuoi dati.\n"
+	.string "Attendi.$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_RecordLatestBattle:
-	.string "Voulez-vous enregistrer votre dernier\n"
-	.string "combat sur votre PASSE ZONE?$"
+	.string "Vuoi registrare la tua ultima lotta\n"
+	.string "nel PASS PARCO?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_WaitFewMoments:
-	.string "Je suis désolé!\n"
-	.string "Pouvez-vous patienter un instant?$"
+	.string "Scusa! Puoi attendere per qualche\n"
+	.string "istante?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_UnderstoodSirWillDo:
-	.string "Comment? Que dites-vous? Waouh…\n"
-	.string "C’est entendu!$"
+	.string "…Uh? Cosa?! …Wow!\n"
+	.string "Sissignore!$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_MessageFromHeadComeRightNow:
-	.string "Eh bien…\n"
-	.string "Désolé de vous avoir fait attendre!\p"
-	.string "J’ai un message pour vous du patron,\n"
-	.string "le CHEF D’USINE.\p"
-	.string "Il dit: “Nous allons nous battre!\n"
-	.string "Viens ici tout de suite!”$"
+	.string "Oh…\n"
+	.string "Scusami se ti ho fatto attendere!\p"
+	.string "Ho un messaggio da parte del\n"
+	.string "nostro capo, il BOSS AZIENDA.\p"
+	.string "Dice che desidera incontrarti adesso!$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_PreparedToFaceHead:
-	.string "Le CHEF D’USINE veut se battre contre\n"
-	.string "vous. Vous sentez-vous à la hauteur?$"
+	.string "Il BOSS AZIENDA vuole misurarsi con\n"
+	.string "te. Ti senti alla sua altezza?$"
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_CantTellAnythingAboutHead:
-	.string "Je suis désolé, je ne peux absolument\n"
-	.string "rien vous dire sur le CHEF D’USINE.$"
+	.string "Spiacente, ma non posso svelarti nulla\n"
+	.string "sul nostro BOSS AZIENDA.$"

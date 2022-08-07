@@ -12,25 +12,25 @@ SeafloorCavern_Room4_EventScript_Grunt4::
 	end
 
 SeafloorCavern_Room4_Text_Grunt3Intro:
-	.string "Qui es-tu?\n"
-	.string "Comment as-tu atterri ici?$"
+	.string "Chi sei?\n"
+	.string "Da dove vieni?$"
 
 SeafloorCavern_Room4_Text_Grunt3Defeat:
-	.string "J’ai perdu…$"
+	.string "Ho perso…$"
 
 SeafloorCavern_Room4_Text_Grunt3PostBattle:
-	.string "J’arrive pas à trouver d’issue!\p"
-	.string "J’ai pas peur. Comprends-moi bien!$"
+	.string "Non trovo la via di uscita!\p"
+	.string "Non fraintendermi, non ho paura!$"
 
 SeafloorCavern_Room4_Text_Grunt4Intro:
-	.string "Qui es-tu?\n"
-	.string "Pour qui est-ce que tu te prends?$"
+	.string "Chi sei?\n"
+	.string "Dove pensi di andare?$"
 
 SeafloorCavern_Room4_Text_Grunt4Defeat:
-	.string "Tu m’as eue!$"
+	.string "Non sono riuscita a vincere!$"
 
 SeafloorCavern_Room4_Text_Grunt4PostBattle:
-	.string "Mon partenaire a oublié la carte dans\n"
-	.string "le sous-marin!\p"
-	.string "C’est le roi des incapables!$"
+	.string "Il mio compagno ha dimenticato\n"
+	.string "la mappa nel sottomarino!\p"
+	.string "Che incapace!$"
 

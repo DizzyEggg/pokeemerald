@@ -245,58 +245,56 @@ Route118_EventScript_Deandre::
 	end
 
 Route118_Text_StevenQuestions:
-	.string "PIERRE: Salut, {PLAYER}{KUN}!\n"
-	.string "C’est moi, PIERRE!\p"
-	.string "Nous nous sommes rencontrés près\n"
-	.string "du VILLAGE MYOKARA.\p"
-	.string "As-tu vu beaucoup de sortes de\n"
-	.string "POKéMON depuis la dernière fois?\p"
-	.string "Dans ce vaste monde, il existe\n"
-	.string "tellement de POKéMON différents.\p"
-	.string "Elèves-tu différents types de\n"
-	.string "POKéMON?\p"
-	.string "Ou te concentres-tu sur un type\n"
-	.string "précis?\p"
-	.string "Qu’en penses-tu en tant que DRESSEUR?\p"
-	.string "Désolé, ça ne me regarde pas vraiment,\n"
-	.string "pas vrai?\p"
-	.string "Bon, en tout cas, j’espère qu’on se\n"
-	.string "reverra.$"
+	.string "ROCCO: Ciao, {PLAYER}{KUN}!\p"
+	.string "Sono io, ROCCO! Ci siamo\n"
+	.string "incontrati nella grotta vicino\l"
+	.string "a BLURUVIA!\p"
+	.string "Hai trovato specie diverse di POKéMON\n"
+	.string "dall’ultima volta che ci siamo visti?\p"
+	.string "Il mondo è vasto ed esistono tanti\n"
+	.string "POKéMON diversi.\p"
+	.string "Se vuoi allevare solo i tuoi POKéMON\n"
+	.string "preferiti, va bene.\p"
+	.string "Ma forse sarebbe più interessante\n"
+	.string "per te allevarne di specie diverse.\p"
+	.string "Qual è la tua opinione da ALLENATORE?\p"
+	.string "Scusa, le mie domande sono fuori luogo.\p"
+	.string "Comunque, spero di vederti ancora.$"
 
 Route118_Text_YouAgreeGoodRodIsGood:
-	.string "Hum!\n"
-	.string "Une SUPER CANNE, c’est vraiment bien!\p"
-	.string "Pas vrai?$"
+	.string "Uhmmm!\n"
+	.string "Un AMO BUONO è una buona cosa!\p"
+	.string "Non lo pensi anche tu?$"
 
 Route118_Text_IdenticalMindsTakeThis:
-	.string "Hum!\n"
-	.string "On est sur la même longueur d’ondes!\p"
-	.string "Hum!\n"
-	.string "Prends cette SUPER CANNE!$"
+	.string "Uhmm!\n"
+	.string "La pensiamo allo stesso modo!\p"
+	.string "Uhmm!\n"
+	.string "Prendi questo AMO BUONO!$"
 
 Route118_Text_TryYourLuckFishing:
-	.string "Lance ta CANNE partout où il y a de\n"
-	.string "l’eau. On n’sait jamais!$"
+	.string "Dove trovi dell’acqua, metti alla prova \n"
+	.string "la tua fortuna nella pesca!$"
 
 Route118_Text_DontYouLikeToFish:
-	.string "Tu n’aimes pas pêcher?$"
+	.string "Non ti piace pescare?$"
 
 Route118_Text_TryCatchingMonWithGoodRod:
-	.string "Essaie d’attraper toutes sortes de\n"
-	.string "POKéMON avec ta SUPER CANNE.$"
+	.string "Prova ad acchiappare tanti POKéMON\n"
+	.string "con il tuo AMO BUONO!$"
 
 Route118_Text_CanCrossRiversWithSurf:
-	.string "Même sans bateau, tu peux traverser\n"
-	.string "les rivières et la mer si tu as un\l"
-	.string "POKéMON qui connaît SURF.\p"
-	.string "On peut compter sur les POKéMON\n"
-	.string "pour tellement de choses!$"
+	.string "Se uno dei tuoi POKéMON conosce SURF,\n"
+	.string "potrai attraversare i fiumi e il mare\l"
+	.string "anche senza barca!\p"
+	.string "Si può contare sui POKéMON per così\n"
+	.string "tante cose!$"
 
 Route118_Text_RouteSignMauville:
-	.string "ROUTE 118\n"
-	.string "{LEFT_ARROW} LAVANDIA$"
+	.string "PERCORSO 118\n"
+	.string "{LEFT_ARROW} CICLAMIPOLI$"
 
 Route118_Text_RouteSign119:
-	.string "ROUTE 118\n"
-	.string "{UP_ARROW} ROUTE 119$"
+	.string "PERCORSO 118\n"
+	.string "{UP_ARROW} PERCORSO 119$"
 

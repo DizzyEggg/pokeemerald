@@ -315,78 +315,79 @@ Route110_TrickHousePuzzle7_EventScript_Everett::
 	end
 
 Route110_TrickHousePuzzle7_EventScript_WroteSecretCodeLockOpened::
-	.string "{PLAYER} écrit le code secret\n"
-	.string "sur la porte.\p"
-	.string "“Le MAITRE DES PIEGES est trognon!”\n"
+	.string "{PLAYER} scrive il codice segreto\n"
+	.string "sulla porta.\p"
+	.string "“Il MAGO del QUIZ è da baciare”.\n"
 	.string "… … … … … … … …\p"
-	.string "La porte s’ouvre!$"
+	.string "La porta si apre!$"
 
 Route110_TrickHousePuzzle7_Text_JoshuaIntro:
-	.string "Le MAITRE DES PIEGES disparaît dans\n"
-	.string "un nuage de fumée. Comment fait-il?$"
+	.string "Il MAGO del QUIZ svanisce sempre\n"
+	.string "nel nulla. Ma come fa, mi chiedo!$"
 
 Route110_TrickHousePuzzle7_Text_JoshuaDefeat:
-	.string "Aïeuuuuh! Tu es drôlement balèze!\n"
-	.string "Comment fais-tu?$"
+	.string "Ah no!!! Sei troppo forte!\n"
+	.string "Ma come fai?$"
 
 Route110_TrickHousePuzzle7_Text_JoshuaPostBattle:
-	.string "Moi aussi, j’aimerais pouvoir\n"
-	.string "disparaître dans un nuage de fumée.$"
+	.string "Piacerebbe anche a me apparire e\n"
+	.string "svanire nel nulla!$"
 
 Route110_TrickHousePuzzle7_Text_PatriciaIntro:
-	.string "Tourner en rond sans arrêt…\n"
-	.string "Ça porte malheur…$"
+	.string "Girare sempre attorno allo stesso\n"
+	.string "punto… porta sfortuna…$"
 
 Route110_TrickHousePuzzle7_Text_PatriciaDefeat:
-	.string "Une défaite!\n"
-	.string "C’est un mauvais présage…$"
+	.string "Ho perso!\n"
+	.string "È un brutto segno…$"
 
 Route110_TrickHousePuzzle7_Text_PatriciaPostBattle:
-	.string "Ça fait dix fois que je reviens au même\n"
-	.string "endroit. Ça va me porter malheur.$"
+	.string "Ho girato attorno allo stesso punto\n"
+	.string "più di 10 volte ormai… porta sfortuna…$"
 
 Route110_TrickHousePuzzle7_Text_AlexisIntro:
-	.string "Le gagnant passera la porte le premier.\n"
-	.string "Voilà ce que j’en dis.$"
+	.string "Chiunque vinca, deve passare prima\n"
+	.string "di qui. Questa è la mia sensazione.$"
 
 Route110_TrickHousePuzzle7_Text_AlexisDefeat:
 	.string "Oh!\n"
-	.string "Bon, allez, après toi!$"
+	.string "Beh, vai avanti allora!$"
 
 Route110_TrickHousePuzzle7_Text_AlexisPostBattle:
-	.string "Je pense que tu finiras par résoudre\n"
-	.string "toutes les énigmes de la\l"
-	.string "MAISON DES PIEGES.$"
+	.string "Risolverai i rompicapo della\n"
+	.string "QUIZZOTECA. Questa è la mia sensazione.$"
 
 Route110_TrickHousePuzzle7_Text_MarielaIntro:
-	.string "Tiens, te voilà enfin, toi!\n"
-	.string "Il n’y a plus de temps à perdre!$"
+	.string "Nufufufu, finalmente qui!\n"
+	.string "Mettiamo subito le cose in chiaro!$"
 
 Route110_TrickHousePuzzle7_Text_MarielaDefeat:
-	.string "Un petit sourire, tu as gagné!$"
+	.string "Vinci con nonchalance!$"
 
 Route110_TrickHousePuzzle7_Text_MarielaPostBattle:
-	.string "Je ne suis pas en colère.\n"
-	.string "Je ne suis pas comme ça, moi!$"
+	.string "Uff! Non me la sono presa!\n"
+	.string "Non sono il tipo!$"
 
 Route110_TrickHousePuzzle7_Text_AlvaroIntro:
-	.string "Je dois dire que je te voyais venir!$"
+	.string "Mentre ti avvicinavi avevi un fare\n"
+	.string "sicuro!$"
 
 Route110_TrickHousePuzzle7_Text_AlvaroDefeat:
-	.string "Par contre, ça, je ne l’ai pas vu venir…$"
+	.string "Hai vinto con fare sicuro…$"
 
 Route110_TrickHousePuzzle7_Text_AlvaroPostBattle:
-	.string "Oui, enfin ce n’est pas le meilleur\n"
-	.string "endroit pour faire connaissance.\p"
-	.string "On ne doit pas être très nets, tous\n"
-	.string "les deux!$"
+	.string "Abbiamo scelto un posto strano\n"
+	.string "per incontrarci.\p"
+	.string "Di certo molto adatto a due tipi\n"
+	.string "bizzarri come noi!$"
 
 Route110_TrickHousePuzzle7_Text_EverettIntro:
-	.string "On est un peu à l’étroit ici…$"
+	.string "Questo è un posto molto stretto…$"
 
 Route110_TrickHousePuzzle7_Text_EverettDefeat:
-	.string "Quelle force! Je m’incline.$"
+	.string "Sei forte. Punto.$"
 
 Route110_TrickHousePuzzle7_Text_EverettPostBattle:
-	.string "Ce que j’aimerais être toi…$"
+	.string "Volevo proporti uno scambio di posto\n"
+	.string "qualora avessi vinto, ma…$"
 

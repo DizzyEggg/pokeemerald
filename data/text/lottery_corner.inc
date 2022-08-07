@@ -1,78 +1,79 @@
 LilycoveCity_DepartmentStore_1F_Text_LotteryCornerDrawTicket:
-	.string "Vous êtes à la LOTERIE POKéMON.\p"
-	.string "Tous les clients du CENTRE COMMERCIAL\n"
-	.string "peuvent retirer un BILLET DE LOTERIE\l"
-	.string "POKéMON.\p"
-	.string "Si le numéro sur le BILLET DE LOTERIE\n"
-	.string "correspond au numéro ID d’un de vos\l"
-	.string "POKéMON, vous recevrez un beau cadeau.\p"
-	.string "Voulez-vous retirer un BILLET DE\n"
-	.string "LOTERIE POKéMON?$"
+	.string "Questo è l’ANGOLO LOTTERIA POKéMON.\p"
+	.string "Tutti i visitatori del nostro CENTRO\n"
+	.string "COMMERCIALE possono pescare\l"
+	.string "un BIGLIETTO del POKéLOTTO.\p"
+	.string "Se il numero del BIGLIETTO corrisponde\n"
+	.string "al numero d’identità di un tuo POKéMON,\l"
+	.string "riceverai un magnifico regalo.\p"
+	.string "Vuoi pescare un BIGLIETTO del\n"
+	.string "POKéLOTTO?$"
 
 LilycoveCity_DepartmentStore_1F_Text_ComeBackTomorrow:
-	.string "Revenez demain.$"
+	.string "Ritorna domani.$"
 
 LilycoveCity_DepartmentStore_1F_Text_PleaseVisitAgain:
-	.string "A bientôt.$"
+	.string "Torna a trovarci.$"
 
 LilycoveCity_DepartmentStore_1F_Text_PleasePickTicket:
-	.string "Veuillez prendre un BILLET DE LOTERIE.\n"
+	.string "Pesca un BIGLIETTO del POKéLOTTO.\n"
 	.string "…{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}…{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}…{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}$"
 
 LilycoveCity_DepartmentStore_1F_Text_TicketNumberIsXPleaseWait:
-	.string "Le numéro du BILLET DE LOTERIE est\n"
-	.string "{STR_VAR_1}.\p"
-	.string "Je vais voir si ce numéro correspond\n"
-	.string "à l’un des numéros ID de vos POKéMON.\p"
-	.string "Veuillez patienter.$"
+	.string "Il numero del BIGLIETTO del\n"
+	.string "POKéLOTTO è {STR_VAR_1}.\p"
+	.string "Devo controllare se il numero\n"
+	.string "corrisponde al numero d’identità di\l"
+	.string "uno dei tuoi POKéMON. Attendi, prego.$"
 
 LilycoveCity_DepartmentStore_1F_Text_TicketMatchesPartyMon:
-	.string "Félicitations!\p"
-	.string "Le numéro ID de {STR_VAR_1}, qui est\n"
-	.string "dans votre équipe, correspond à celui\l"
-	.string "du BILLET DE LOTERIE!$"
+	.string "Complimenti!\p"
+	.string "C’è corrispondenza fra il numero del\n"
+	.string "BIGLIETTO e il numero d’identità di\l"
+	.string "{STR_VAR_1} della tua squadra!$"
 
 LilycoveCity_DepartmentStore_1F_Text_TicketMatchesPCMon:
-	.string "Félicitations!\p"
-	.string "Le numéro ID de {STR_VAR_1}, qui est\n"
-	.string "stocké sur le PC, correspond à\l"
-	.string "celui du BILLET DE LOTERIE!$"
+	.string "Complimenti!\p"
+	.string "C’è corrispondenza fra il numero del\n"
+	.string "BIGLIETTO e il numero d’identità di\l"
+	.string "{STR_VAR_1} nel tuo BOX PC.$"
 
 LilycoveCity_DepartmentStore_1F_Text_NoNumbersMatched:
-	.string "Quel dommage!\n"
-	.string "Aucun des numéros ne correspond.$"
+	.string "Spiacente.\n"
+	.string "Non ci sono corrispondenze.$"
 
 LilycoveCity_DepartmentStore_1F_Text_TwoDigitsMatched:
-	.string "Deux chiffres correspondent, vous\n"
-	.string "remportez le troisième prix!\p"
-	.string "Vous avez gagné {STR_VAR_1}!$"
+	.string "Due cifre corrispondono!\n"
+	.string "Hai vinto il terzo premio!\l"
+	.string "Hai vinto {STR_VAR_1}!$"
 
 LilycoveCity_DepartmentStore_1F_Text_ThreeDigitsMatched:
-	.string "Trois chiffres correspondent, vous\n"
-	.string "remportez le deuxième prix!\p"
-	.string "Vous avez gagné {STR_VAR_1}!$"
+	.string "Tre cifre corrispondono!\n"
+	.string "Hai vinto il secondo premio!\l"
+	.string "Hai vinto {STR_VAR_1}!$"
 
 LilycoveCity_DepartmentStore_1F_Text_FourDigitsMatched:
-	.string "Quatre chiffres correspondent, vous\n"
-	.string "remportez le premier prix!\p"
-	.string "Vous avez gagné {STR_VAR_1}!$"
+	.string "Quattro cifre corrispondono!\n"
+	.string "Hai vinto il primo premio!\l"
+	.string "Hai vinto {STR_VAR_1}!$"
 
 LilycoveCity_DepartmentStore_1F_Text_AllFiveDigitsMatched:
-	.string "Magnifique, tous les chiffres\n"
-	.string "correspondent!\p"
-	.string "Vous avez gagné le super prix!\n"
-	.string "Vous avez gagné {STR_VAR_1}!$"
+	.string "Incredibile! Tutte e cinque le cifre\n"
+	.string "corrispondono!\p"
+	.string "Hai vinto il jackpot!\n"
+	.string "Hai vinto {STR_VAR_1}!$"
 
 LilycoveCity_DepartmentStore_1F_Text_NoRoomForThis:
-	.string "Oh?\n"
-	.string "On dirait que vous n’avez plus de place.\p"
-	.string "Faites de la place dans votre SAC et\n"
-	.string "revenez me voir.$"
+	.string "Cosa?\n"
+	.string "Non hai proprio più spazio?\p"
+	.string "Fai spazio nel tuo ZAINO e poi\n"
+	.string "fammi sapere.$"
 
 LilycoveCity_DepartmentStore_1F_Text_PrizeWeveBeenHolding:
 	.string "{PLAYER}?\n"
-	.string "Oui, je vous attendais.\p"
-	.string "Nous vous avons gardé votre prix.$"
+	.string "Sì, ti stavamo aspettando.\p"
+	.string "Abbiamo conservato questo premio\n"
+	.string "per te.$"
 
 LilycoveCity_DepartmentStore_1F_Text_PleaseVisitAgain2:
-	.string "A bientôt.$"
+	.string "Torna a trovarci.$"

@@ -71,66 +71,62 @@ Route119_WeatherInstitute_1F_EventScript_Grunt4::
 	end
 
 Route119_WeatherInstitute_1F_Text_Grunt1Intro:
-	.string "Le CHEF s’intéresse aux recherches\n"
-	.string "qu’ils font ici.\l"
-	.string "C’est pour ça qu’il nous envoie.\p"
-	.string "Occupe-toi de tes oignons!$"
+	.string "Il CAPO è interessato alla ricerca\n"
+	.string "condotta qui, per questo ci ha mandato.\p"
+	.string "Tu stanne fuori!$"
 
 Route119_WeatherInstitute_1F_Text_Grunt1Defeat:
-	.string "Quelle humiliation!\n"
-	.string "Se faire battre par un gosse…$"
+	.string "Battuto… battuto da una pulce…$"
 
 Route119_WeatherInstitute_1F_Text_Grunt1PostBattle:
-	.string "Notre CHEF sait tout.\p"
-	.string "Mais je ne suis qu’un SBIRE. Je n’ai\n"
-	.string "aucune idée de ce qu’il prépare!$"
+	.string "Il nostro CAPO sa tutto.\p"
+	.string "Ma io sono solo una RECLUTA.\n"
+	.string "Non posso sapere cos’ha in testa!$"
 
 Route119_WeatherInstitute_1F_Text_Grunt4Intro:
-	.string "Hein?\n"
-	.string "Qu’est-ce que ce môme fait ici?$"
+	.string "Eh? Che ci fai tu qui?\n"
+	.string "Non è posto per bambini questo!$"
 
 Route119_WeatherInstitute_1F_Text_Grunt4Defeat:
-	.string "Hein?\n"
-	.string "J’ai perdu?!?$"
+	.string "Eh?\n"
+	.string "Ho perso?!$"
 
 Route119_WeatherInstitute_1F_Text_Grunt4PostBattle:
-	.string "Oh, non… J’ai perdu contre un môme.\n"
-	.string "Je vais me prendre un de ces savons…\p"
-	.string "Je vais aller me reposer…$"
+	.string "Oh, no… chissà che lavata di capo\n"
+	.string "per aver perso contro di te…\p"
+	.string "Meglio che mi riposi un po’…$"
 
 Route119_WeatherInstitute_1F_Text_EveryoneWentUpstairs:
-	.string "Tout le monde est monté à l’étage\n"
-	.string "pendant que je dormais!$"
+	.string "Mentre dormivo, sono andati tutti \n"
+	.string "di sopra!$"
 
 Route119_WeatherInstitute_1F_Text_WowYoureStrong:
-	.string "Ouah, tu es super balèze!\p"
-	.string "J’aimerais devenir un DRESSEUR DE\n"
-	.string "POKéMON comme toi!$"
+	.string "Però, sei davvero forte!\p"
+	.string "Magari diventassi un ALLENATORE\n"
+	.string "di POKéMON come te!$"
 
 Route119_WeatherInstitute_1F_Text_ProfStudyingRain:
-	.string "Le PROFESSEUR adore la pluie.\n"
-	.string "C’est indéniable.\p"
-	.string "Mais s’il continue de pleuvoir, les gens\n"
-	.string "auront des ennuis.\p"
-	.string "Ça aussi, c’est indéniable.\p"
-	.string "Le PROFESSEUR étudie donc la pluie\n"
-	.string "pour savoir si elle peut être bénéfique.$"
+	.string "Il PROFESSORE ama la pioggia.\n"
+	.string "È un dato di fatto.\p"
+	.string "Se continua a piovere, la gente sarà nei\n"
+	.string "guai. Anche questo è un dato di fatto.\p"
+	.string "Così il PROFESSORE sta studiando\n"
+	.string "come sfruttare la pioggia in modo utile.$"
 
 Route119_WeatherInstitute_1F_Text_NoticingAbnormalWeather:
-	.string "Au premier étage du CENTRE, nous\n"
-	.string "étudions les conditions météo dans la\l"
-	.string "région de HOENN.\p"
-	.string "Nous avons observé récemment des\n"
-	.string "périodes de sécheresse brèves et\l"
-	.string "isolées suivies de fortes pluies…$"
+	.string "Al primo piano dell’ISTITUTO,\n"
+	.string "studiamo i microclimi della\l"
+	.string "regione di HOENN.\p"
+	.string "Ultimamente abbiamo registrato\n"
+	.string "casi isolati di siccità e piogge\l"
+	.string "battenti…$"
 
 Route119_WeatherInstitute_1F_Text_WhatWereAquasUpTo:
-	.string "Bonjour!\n"
-	.string "Tes actions nous ont sauvés!\p"
-	.string "Mais je ne comprends pas ce que\n"
-	.string "la TEAM AQUA vient faire là-dedans.$"
+	.string "Ciao! Grazie, ci hai tolto dai pasticci!\p"
+	.string "Ma non capisco quale fosse\n"
+	.string "lo scopo degli IDRO.$"
 
 Route119_WeatherInstitute_1F_Text_TakeRestInBed:
-	.string "Il y a un lit…\n"
-	.string "Je vais me reposer.$"
+	.string "Oh, c’è un letto!\n"
+	.string "Meglio riposarsi un po’…$"
 

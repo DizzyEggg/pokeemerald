@@ -134,35 +134,34 @@ Route113_EventScript_Wyatt::
 	end
 
 Route113_Text_AshCanBeFashionedIntoGlass:
-	.string "Waaaah! Quelle merveille la technologie\n"
-	.string "d’aujourd’hui!\p"
-	.string "Prends ces cendres volcaniques.\n"
-	.string "On peut en faire des objets en verre.$"
+	.string "Wow! La tecnologia moderna è qualcosa\n"
+	.string "di straordinario!\p"
+	.string "Guarda questa cenere vulcanica!\n"
+	.string "La si può trasformare in vetro!$"
 
 Route113_Text_FunWalkingThroughAsh:
-	.string "C’est drôle de marcher dans les cendres\n"
-	.string "volcaniques sur le sol et dans l’herbe.\p"
-	.string "Tu peux voir où tu as marché. C’est\n"
-	.string "trop fort!$"
+	.string "Che bello camminare sulla cenere del\n"
+	.string "vulcano posata a terra o sull’erba!\p"
+	.string "Lasci le tracce ovunque passi. \n"
+	.string "Fantastico!$"
 
 Route113_Text_RouteSign111:
-	.string "ROUTE 113\n"
-	.string "{RIGHT_ARROW} ROUTE 111$"
+	.string "PERCORSO 113\n"
+	.string "{RIGHT_ARROW} PERCORSO 111$"
 
 Route113_Text_RouteSignFallarbor:
-	.string "ROUTE 113\n"
-	.string "{LEFT_ARROW} AUTEQUIA$"
+	.string "PERCORSO 113\n"
+	.string "{LEFT_ARROW} BRUNIFOGLIA$"
 
 Route113_Text_TrainerTipsRegisterKeyItems:
-	.string "CONSEILS AUX DRESSEURS\p"
-	.string "Vous pouvez enregistrer un des OBJETS\n"
-	.string "RARES de votre SAC comme fonction\l"
-	.string "du bouton SELECT.\p"
-	.string "Il suffit d’appuyer sur SELECT pour\n"
-	.string "utiliser l’objet enregistré à votre gré.$"
+	.string "CONSIGLI UTILI\p"
+	.string "Puoi assegnare a SELECT uno degli\n"
+	.string "STRUMENTI BASE nello ZAINO.\p"
+	.string "Basta premere SELECT per usare lo\n"
+	.string "strumento al momento desiderato.$"
 
 Route113_Text_GlassWorkshopSign:
-	.string "ATELIER DU VERRE\n"
-	.string "“Ici, on transforme les cendres\l"
-	.string "volcaniques en objets en verre!”$"
+	.string "VETRERIA\n"
+	.string "“Cenere vulcanica? Da noi si trasforma\l"
+	.string "in strumenti di vetro!”.$"
 

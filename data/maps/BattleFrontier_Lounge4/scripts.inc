@@ -14,17 +14,18 @@ BattleFrontier_Lounge4_EventScript_Man::
 	end
 
 BattleFrontier_Lounge4_Text_WonderIfInterviewsAiring:
-	.string "Je me demande s’il y aura des interviews\n"
-	.string "de bons DRESSEURS aujourd’hui.$"
+	.string "Chissà se oggi mandano in onda\n"
+	.string "interviste con ALLENATORI forti…$"
 
 BattleFrontier_Lounge4_Text_IfIOpenedRestaurantHere:
-	.string "Si j’ouvrais un restaurant ici, je\n"
-	.string "ferais fortune!$"
+	.string "Aprendo un ristorante qui, si\n"
+	.string "farebbero soldi a palate.$"
 
 BattleFrontier_Lounge4_Text_NeedBreatherAfterBattles:
-	.string "Pfiou…\p"
-	.string "J’aurais besoin de faire le vide dans\n"
-	.string "ma tête entre deux combats…\p"
-	.string "Mais je n’arrête jamais de penser à\n"
-	.string "ma stratégie.$"
+	.string "Eheh…\p"
+	.string "Dopo aver lottato così intensamente\n"
+	.string "ho bisogno di una pausa…\p"
+	.string "Ma anche quando mi riposo, non\n"
+	.string "smetto mai di inventare nuove\l"
+	.string "strategie e combo.$"
 

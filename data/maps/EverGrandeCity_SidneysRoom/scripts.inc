@@ -65,23 +65,22 @@ EverGrandeCity_SidneysRoom_EventScript_Defeated::
 	end
 
 EverGrandeCity_SidneysRoom_Text_IntroSpeech:
-	.string "Bienvenue, adversaire!\n"
-	.string "Je suis DAMIEN du CONSEIL 4.\p"
-	.string "J’aime la façon dont tu me regardes.\n"
-	.string "Tu vas sûrement faire un bon combat.\p"
-	.string "C’est bien! Vraiment bien!\p"
-	.string "Bon! Toi et moi, livrons un combat\n"
-	.string "comme on ne peut en voir qu’ici, à\l"
-	.string "la LIGUE POKéMON!$"
+	.string "Ti do il benvenuto, sfidante!\n"
+	.string "Sono FOSCO dei SUPERQUATTRO.\p"
+	.string "Mi piace il tuo sguardo fiero.\n"
+	.string "Ci aspetta una grande sfida.\l"
+	.string "Non sto più nella pelle!\p"
+	.string "Bene! Diamo il via ad una sfida che\n"
+	.string "può avere luogo solo in questa sede,\l"
+	.string "nella LEGA POKéMON!$"
 
 EverGrandeCity_SidneysRoom_Text_Defeat:
-	.string "Alors, ça te fait plaisir? J’ai perdu!\n"
-	.string "Tant pis, c’était sympa.$"
+	.string "Uhm… lo ammetto… ho perso!\n"
+	.string "Beh, non importa, è stato divertente!$"
 
 EverGrandeCity_SidneysRoom_Text_PostBattleSpeech:
-	.string "Bon, écoute ce que le perdant veut\n"
-	.string "te dire.\p"
-	.string "Tu as ce qu’il faut pour continuer.\n"
-	.string "Alors va dans la prochaine pièce et\l"
-	.string "bon combat!$"
+	.string "Ascolta bene quello che ti sto per dire…\p"
+	.string "Hai la stoffa del campione.\n"
+	.string "Entra nella prossima sala e preparati\l"
+	.string "ad una nuova sfida!$"
 

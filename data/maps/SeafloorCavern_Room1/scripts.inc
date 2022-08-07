@@ -12,25 +12,24 @@ SeafloorCavern_Room1_EventScript_Grunt2::
 	end
 
 SeafloorCavern_Room1_Text_Grunt1Intro:
-	.string "Pas besoin d’un môme dans nos pattes!\n"
-	.string "Rentre chez toi!$"
+	.string "Togli il disturbo, scricciolo!\n"
+	.string "Tornatene a casa!$"
 
 SeafloorCavern_Room1_Text_Grunt1Defeat:
-	.string "Je veux rentrer chez moi…$"
+	.string "Casetta mia, aspettami…$"
 
 SeafloorCavern_Room1_Text_Grunt1PostBattle:
-	.string "Je veux avoir une promotion pour\n"
-	.string "donner des ordres aux SBIRES…$"
+	.string "Voglio una promozione, così potrò\n"
+	.string "fare il gradasso con le RECLUTE…$"
 
 SeafloorCavern_Room1_Text_Grunt2Intro:
-	.string "Ce sous-marin… C’est minuscule à\n"
-	.string "l’intérieur. J’ai mal partout!$"
+	.string "Il sottomarino… dentro è così stretto.\n"
+	.string "Sono tutto ammaccato!$"
 
 SeafloorCavern_Room1_Text_Grunt2Defeat:
-	.string "Ça m’énerve de perdre!$"
+	.string "Ho subito uno smacco!$"
 
 SeafloorCavern_Room1_Text_Grunt2PostBattle:
-	.string "Ce sous-marin qu’on a piqué…\n"
-	.string "Plutôt brutale la balade!\p"
-	.string "C’est trop étroit là-dedans!$"
+	.string "Nel sottomarino che abbiamo rubato\n"
+	.string "si sta stretti come delle sardine!$"
 

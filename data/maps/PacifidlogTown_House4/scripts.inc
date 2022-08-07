@@ -28,28 +28,26 @@ PacifidlogTown_House4_EventScript_No::
 	end
 
 PacifidlogTown_House4_Text_PeopleSawHighFlyingPokemon:
-	.string "Les gens racontent qu’ils ont vu un\n"
-	.string "POKéMON VOLANT au-dessus de\l"
-	.string "la région de HOENN.\p"
-	.string "Est-ce qu’il vole tout le temps?\n"
-	.string "Il doit bien se reposer, non?$"
+	.string "Gira voce di un POKéMON che vola\n"
+	.string "nei cieli della regione di HOENN.\p"
+	.string "Chissà se vola senza sosta!\n"
+	.string "Chissà se non si riposa mai!$"
 
 PacifidlogTown_House4_Text_SkyPokemon:
-	.string "Un POKéMON ciel!\n"
-	.string "Un POKéMON ciel!$"
+	.string "Un POKéMON in cielo!\n"
+	.string "Un POKéMON in cielo!$"
 
 PacifidlogTown_House4_Text_WhereDidYouComeFrom:
-	.string "D’où viens-tu?$"
+	.string "Puoi dirmi da dove vieni?$"
 
 PacifidlogTown_House4_Text_YesTown:
-	.string "Oui?\n"
-	.string "OUI VILLE?\p"
-	.string "Je n’ai jamais entendu parler de\n"
-	.string "cet endroit.$"
+	.string "Vieni da SÌ?\n"
+	.string "È una città?\p"
+	.string "Mai sentito di una città con quel nome.$"
 
 PacifidlogTown_House4_Text_YouHaveToComeFromSomewhere:
-	.string "Non? Mais c’est n’importe quoi.\n"
-	.string "Tu dois bien venir de quelque part.\p"
-	.string "Oh! Attends! Tu ne vas pas me dire que\n"
-	.string "tu viens du fond de l’océan?$"
+	.string "Non me lo dici?\n"
+	.string "Verrai pure da qualche posto.\p"
+	.string "Oh! Un momento… non vorrai darmi\n"
+	.string "a bere che vieni dagli abissi marini?!$"
 

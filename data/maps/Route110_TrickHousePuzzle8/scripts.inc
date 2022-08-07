@@ -28,43 +28,44 @@ Route110_TrickHousePuzzle8_EventScript_Leroy::
 	end
 
 Route110_TrickHousePuzzle8_EventScript_WroteSecretCodeLockOpened::
-	.string "{PLAYER} écrit le code secret\n"
-	.string "sur la porte.\p"
-	.string "“J’aime le MAITRE DES PIEGES.”\n"
+	.string "{PLAYER} scrive il codice segreto\n"
+	.string "sulla porta.\p"
+	.string "“Il MAGO del QUIZ è un amore”.\n"
 	.string "… … … … … … … …\p"
-	.string "La porte s’ouvre!$"
+	.string "La porta si apre!$"
 
 Route110_TrickHousePuzzle8_Text_VincentIntro:
-	.string "Peu de DRESSEURS sont arrivés\n"
-	.string "aussi loin.$"
+	.string "Non sono molti gli ALLENATORI\n"
+	.string "che sono arrivati fin qui.$"
 
 Route110_TrickHousePuzzle8_Text_VincentDefeat:
-	.string "Ça doit vouloir dire que tu es balèze…$"
+	.string "Devi essere proprio forte, dunque…$"
 
 Route110_TrickHousePuzzle8_Text_VincentPostBattle:
-	.string "Tu as battu le MAITRE de la LIGUE\n"
-	.string "POKéMON? Les bras m’en tombent!$"
+	.string "Hai battuto il CAMPIONE della LEGA\n"
+	.string "POKéMON? Davvero un bel colpo!$"
 
 Route110_TrickHousePuzzle8_Text_KeiraIntro:
-	.string "C’est une sacrée chance de se battre\n"
-	.string "contre moi!$"
+	.string "Considerala una fortuna lottare\n"
+	.string "contro di me!$"
 
 Route110_TrickHousePuzzle8_Text_KeiraDefeat:
-	.string "C’est impossible!\n"
-	.string "Je ne peux pas perdre!$"
+	.string "Non è giusto!\n"
+	.string "Non posso perdere!$"
 
 Route110_TrickHousePuzzle8_Text_KeiraPostBattle:
-	.string "Ta victoire tient du miracle.\n"
-	.string "Tu vas pouvoir frimer.$"
+	.string "Mi hai battuto per miracolo. \n"
+	.string "Non fartene un vanto!$"
 
 Route110_TrickHousePuzzle8_Text_LeroyIntro:
-	.string "Toi aussi, tu luttes pour relever le défi\n"
-	.string "de la MAISON DES PIEGES.$"
+	.string "Arranchi anche tu nella\n"
+	.string "QUIZZOTECA, eh?$"
 
 Route110_TrickHousePuzzle8_Text_LeroyDefeat:
-	.string "Mmmh. Je vois…\n"
-	.string "Ton style est très impressionnant.$"
+	.string "Capisco.\n"
+	.string "Hai una tecnica straordinaria!$"
 
 Route110_TrickHousePuzzle8_Text_LeroyPostBattle:
-	.string "Tu devrais plaire au MAITRE DES PIEGES.$"
+	.string "Il MAGO del QUIZ non potrà che\n"
+	.string "essere felice di conoscerti.$"
 

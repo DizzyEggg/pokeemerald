@@ -46,28 +46,29 @@ SootopolisCity_PokemonCenter_1F_EventScript_WomanNoLegendaries::
 	end
 
 SootopolisCity_PokemonCenter_1F_Text_WallaceToughestInHoenn:
-	.string "On raconte que MARC est le DRESSEUR\n"
-	.string "le plus fort de tout HOENN.\p"
-	.string "L’ARENE de cette ville est dirigée par\n"
-	.string "celui qui lui a tout appris.\p"
-	.string "Mais le CONSEIL 4…\p"
-	.string "On dit qu’ils sont encore plus forts\n"
-	.string "que le mentor de MARC.\p"
-	.string "Mais jusqu’à quel point?$"
+	.string "Si dice che ADRIANO sia il migliore \n"
+	.string "ALLENATORE di tutta la regione\l"
+	.string "di HOENN.\p"
+	.string "La PALESTRA di questa città è guidata\n"
+	.string "dall’ALLENATORE che è stato maestro\l"
+	.string "di ADRIANO.\p"
+	.string "Corre voce, però, che i SUPERQUATTRO\n"
+	.string "siano ancora più forti del maestro\l"
+	.string "di ADRIANO.\p"
+	.string "Ma quanto saranno forti?$"
 
 SootopolisCity_PokemonCenter_1F_Text_EveryoneTakenRefuge:
-	.string "Tout le monde en ville s’est réfugié\n"
-	.string "chez soi et personne ne veut sortir.\p"
-	.string "Même moi je ferais bien de ne pas\n"
-	.string "m’aventurer dehors.$"
+	.string "Tutti in città si sono tappati in casa.\n"
+	.string "Anch’io preferirei non uscire.$"
 
 SootopolisCity_PokemonCenter_1F_Text_AlwaysBeFriendsWithPokemon:
-	.string "Peu importe ce qui se passera, où\n"
-	.string "et quand ça se passera, je resterai\l"
-	.string "toujours amie avec les POKéMON.\p"
-	.string "Car c’est cool d’être avec les POKéMON!$"
+	.string "Nella buona e nella cattiva sorte,\n"
+	.string "i POKéMON saranno sempre miei amici.\p"
+	.string "Ci si diverte sempre tanto con\n"
+	.string "i POKéMON!$"
 
 SootopolisCity_PokemonCenter_1F_Text_ArentPokemonOurFriends:
-	.string "Je ne sais pas pourquoi…\n"
-	.string "mais… j’ai vraiment peur…$"
+	.string "I POKéMON non sono nostri amici?\p"
+	.string "Perché stanno impazzendo in\n"
+	.string "questo modo?$"
 

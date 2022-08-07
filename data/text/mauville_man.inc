@@ -1,63 +1,63 @@
 @ Only contains the text for the Mauville Man named Giddy. The rest is in scripts/mauville_man.inc
 GiddyText_SoPretty::
-	.string " vraiment bien!$"
+	.string "che piacevole!$"
 
 GiddyText_SoDarling::
-	.string " vraiment adorable!$"
+	.string "che dolce!$"
 
 GiddyText_SoRelaxed::
-	.string " vraiment cool!$"
+	.string "che riposante!$"
 
 GiddyText_SoSunny::
-	.string " extraordinaire!$"
+	.string "che solare!$"
 
 GiddyText_SoDesirable::
-	.string " vraiment fantastique!$"
+	.string "che spasso!$"
 
 GiddyText_SoExciting::
-	.string " vraiment super!$"
+	.string "che frizzante!$"
 
 GiddyText_SoAmusing::
-	.string " vraiment drôle!$"
+	.string "che divertente!$"
 
 GiddyText_SoMagical::
-	.string " vraiment magique!$"
+	.string "che mistero!$"
 
 GiddyText_Is::
-	.string " est$"
+	.string ": $"
 
 GiddyText_DontYouAgree::
 	.string "\n"
-	.string "Tu es d’accord?$"
+	.string "Non sei d’accordo?$"
 
 GiddyText_ISoWantToGoOnAVacation::
-	.string "J’ai vraiment envie d’aller en vacances.\n"
-	.string "Il y a un endroit sympa dans le coin?$"
+	.string "Ho tanta voglia di andare in vacanza.\n"
+	.string "Per caso conosci qualche bel posto?$"
 
 GiddyText_IBoughtCrayonsWith120Colors::
-	.string "J’ai acheté des crayons de 120 couleurs\n"
-	.string "différentes! Ils sont pas beaux?$"
+	.string "Ho comprato dei pastelli di 120 colori!\n"
+	.string "Che bella cosa, vero?$"
 
 GiddyText_WouldntItBeNiceIfWeCouldFloat::
-	.string "Ne serait-ce pas génial, si on pouvait\n"
-	.string "s’envoler sur un nuage de bulles?$"
+	.string "Non sarebbe stupendo volar via\n"
+	.string "su una nube di bollicine?$"
 
 GiddyText_WhenYouWriteOnASandyBeach::
-	.string "Quand on écrit sur du sable, tout est\n"
-	.string "effacé par les vagues. C’est triste.$"
+	.string "Quando scrivi sulla spiaggia, l’acqua\n"
+	.string "lava via le parole. È così triste!$"
 
 GiddyText_WhatsTheBottomOfTheSeaLike::
-	.string "J’aimerais aller voir les fonds marins!\n"
-	.string "Ça doit être beau, tu crois pas?$"
+	.string "Com’è il fondo del mare?\n"
+	.string "Vorrei tanto andarci una volta!$"
 
 GiddyText_WhenYouSeeTheSettingSunDoesIt::
-	.string "Les couchers de soleil, ça donne envie\n"
-	.string "de rentrer chez soi, non?$"
+	.string "Quando vedi il tramonto, non ti viene\n"
+	.string "voglia di andare a casa?$"
 
 GiddyText_LyingBackInTheGreenGrass::
-	.string "S’allonger sur de l’herbe bien verte…\n"
-	.string "Waouh, ça c’est super!$"
+	.string "Stendersi su un bel tappeto d’erba!\n"
+	.string "Oh, è così bello!$"
 
 GiddyText_SecretBasesAreSoWonderful::
-	.string "Les BASES SECRETES, c’est génial!\n"
-	.string "Non?$"
+	.string "Le BASI SEGRETE sono fantastiche!\n"
+	.string "Non sei d’accordo?$"

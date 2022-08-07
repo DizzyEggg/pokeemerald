@@ -12,30 +12,28 @@ SSTidalLowerDeck_EventScript_Leonard::
 	end
 
 SSTidalLowerDeck_Text_PhillipIntro:
-	.string "Arrrg! J’en ai plein le dos de nettoyer\n"
-	.string "cet endroit gigantesque!\p"
-	.string "C’est l’heure de la pause,\n"
-	.string "battons-nous!$"
+	.string "Grrr! Sono arcistufo di pulire\n"
+	.string "questo posto enorme!\p"
+	.string "Avanti, lottiamo!$"
 
 SSTidalLowerDeck_Text_PhillipDefeat:
-	.string "Hé, p’tit frère, j’ai perdu!$"
+	.string "Incredibile, ho perso!$"
 
 SSTidalLowerDeck_Text_PhillipPostBattle:
-	.string "Nous sommes les FRERES PROPRETE!\p"
-	.string "L’aîné répand le détergent et le\n"
-	.string "benjamin frotte!$"
+	.string "Siamo i FRATELLI RIPULISTI!\p"
+	.string "Il più grande sparge il detersivo,\n"
+	.string "il più piccolo passa lo straccio!$"
 
 SSTidalLowerDeck_Text_LeonardIntro:
-	.string "Nous sommes dans la cale du navire.\n"
-	.string "Il y a beaucoup de place.\l"
-	.string "Profitons-en pour faire un combat\l"
-	.string "de POKéMON.$"
+	.string "Siamo all’interno dello scafo della\n"
+	.string "nave. C’è un sacco di spazio. Proprio\l"
+	.string "il posto giusto per una bella lotta.$"
 
 SSTidalLowerDeck_Text_LeonardDefeat:
-	.string "Hé, grand frère, j’ai perdu!$"
+	.string "Inammissibile, ho perso!$"
 
 SSTidalLowerDeck_Text_LeonardPostBattle:
-	.string "Nous sommes les FRERES PROPRETE!\p"
-	.string "L’aîné répand le détergent et le\n"
-	.string "benjamin frotte!$"
+	.string "Siamo i FRATELLI RIPULISTI!\p"
+	.string "Il più grande sparge il detersivo,\n"
+	.string "il più piccolo passa lo straccio!$"
 

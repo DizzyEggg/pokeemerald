@@ -211,83 +211,87 @@ Route119_WeatherInstitute_2F_EventScript_WeatherScientist::
 	end
 
 Route119_WeatherInstitute_2F_Text_Grunt2Intro:
-	.string "Le CENTRE METEO a créé un type\n"
-	.string "de POKéMON basé sur le climat.\p"
-	.string "Nous sommes là pour le voler!$"
+	.string "L’ISTITUTO ha creato un POKéMON che ha\n"
+	.string "qualcosa a che fare con le condizioni\l"
+	.string "meteorologiche. Ce lo prenderemo noi!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt2Defeat:
-	.string "Notre plan échoue à cause d’un mioche?$"
+	.string "Il nostro piano mandato in fumo\n"
+	.string "da una piccola peste?!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt2PostBattle:
-	.string "Si le POKéMON qu’ils ont créé peut\n"
-	.string "contrôler le climat, la TEAM AQUA doit\l"
-	.string "absolument l’avoir!$"
+	.string "Se il POKéMON creato qui riesce a\n"
+	.string "influenzare il tempo, allora dobbiamo\l"
+	.string "assolutamente averlo noi,\l"
+	.string "il grande TEAM IDRO!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt3Intro:
-	.string "Nous sommes la TEAM AQUA!\n"
-	.string "Nous surgissons dès que quelque chose\l"
-	.string "de rare se produit!$"
+	.string "Siamo il TEAM IDRO!\n"
+	.string "Ci materializziamo ovunque venga\l"
+	.string "scoperto qualcosa di raro!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt3Defeat:
-	.string "Tu m’as eu!$"
+	.string "Mi hai battuto!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt3PostBattle:
-	.string "Tu n’as aucune idée de ce que nous,\n"
-	.string "la TEAM AQUA, avons l’intention de\l"
-	.string "faire! Ne reste pas dans nos pattes!$"
+	.string "Non hai idea di cosa abbia in serbo\n"
+	.string "il TEAM IDRO! Lasciaci lavorare\l"
+	.string "in pace e non immischiarti!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt5Intro:
-	.string "Ne me dis pas que tu cherches le\n"
-	.string "POKéMON météo, toi aussi?\p"
-	.string "Alors là, non!!!\n"
-	.string "Nous étions là avant!$"
+	.string "Non dirmi che anche tu stai\n"
+	.string "cercando il POKéMON che\l"
+	.string "influenza il tempo?!\p"
+	.string "Il nostro è un no secco!\n"
+	.string "Siamo arrivati prima noi!$"
 
 Route119_WeatherInstitute_2F_Text_Grunt5Defeat:
-	.string "Tu jettes un œil à mes POKéMON?$"
+	.string "Puoi dare un’occhiata ai miei\n"
+	.string "POKéMON?$"
 
 Route119_WeatherInstitute_2F_Text_Grunt5PostBattle:
-	.string "Alors?\n"
-	.string "Ce que nous voulons…\p"
-	.string "Ce que nous voulons vraiment n’est\n"
-	.string "pas ici…$"
+	.string "Allora?\n"
+	.string "Quello che stiamo cercando…\p"
+	.string "Quello che stiamo davvero cercando\n"
+	.string "non si trova qui! Ihihihih…$"
 
 Route119_WeatherInstitute_2F_Text_ShellyIntro:
-	.string "Ha, ha, ha, ha, ha!\p"
-	.string "Tu veux te mêler des affaires de la\n"
-	.string "TEAM AQUA?\p"
-	.string "Soit tu es intrépide, soit tu es\n"
-	.string "complètement stupide, ou les deux!\p"
-	.string "Tu es tellement chou, c’est dégoûtant!\n"
-	.string "Je vais t’apprendre la vie, sale mioche!$"
+	.string "Ahahahahah!\p"
+	.string "Intendi immischiarti negli affari\n"
+	.string "del TEAM IDRO?\p"
+	.string "Sei incosciente o solo incompetente?\n"
+	.string "Mi sa che sei entrambe le cose!\p"
+	.string "La tua innocenza mi indispone!\n"
+	.string "Ora ti faccio vedere io!$"
 
 Route119_WeatherInstitute_2F_Text_ShellyDefeat:
-	.string "Ha, ha, ha, ha, ha! Tu es tellement\n"
-	.string "balèze, c’est dégoûtant!$"
+	.string "Ahaaa! La tua forza mi indispone!$"
 
 Route119_WeatherInstitute_2F_Text_ShellyPostBattle:
-	.string "On en avait déjà marre de la TEAM MAGMA,\n"
-	.string "et maintenant te voilà!\p"
-	.string "Mais qu’est-ce que tu viens fouiner ici?$"
+	.string "Ne avevamo già abbastanza del TEAM\n"
+	.string "MAGMA, ma adesso ti ci metti pure tu!\p"
+	.string "Perché vuoi immischiarti nei\n"
+	.string "nostri affari?$"
 
 Route119_WeatherInstitute_2F_Text_TeamMagmaJustPassedBy:
-	.string "On a un problème!\p"
-	.string "Un groupe de la TEAM MAGMA vient de\n"
-	.string "passer devant le CENTRE METEO.\p"
-	.string "Ils se dirigeaient vers le MONT MEMORIA!$"
+	.string "La situazione è allarmante!\p"
+	.string "Un gruppetto del TEAM MAGMA è passato\n"
+	.string "davanti all’ISTITUTO METEO.\p"
+	.string "Sembrava diretto al\n"
+	.string "MONTE PIRA!$"
 
 Route119_WeatherInstitute_2F_Text_WeHaveToHurryToMtPyre:
-	.string "Quoi?!?\p"
-	.string "Ne perdons pas de temps!\n"
-	.string "Vite, au MONT MEMORIA!\p"
-	.string "Ahhh!\n"
-	.string "On va lui apprendre à vivre, à cette\l"
-	.string "TEAM MAGMA!$"
+	.string "Cosa?!\p"
+	.string "Non c’è tempo da perdere! Rechiamoci\n"
+	.string "al MONTE PIRA, in fretta!\p"
+	.string "Ahahahah!\n"
+	.string "TEAM MAGMA, aspetta e vedrai!$"
 
 Route119_WeatherInstitute_2F_Text_ThanksPleaseTakePokemon:
-	.string "Merci mille fois!\n"
-	.string "Grâce à toi, nous sommes sauvés!\p"
-	.string "C’est peut-être une drôle de façon de\n"
-	.string "te remercier, mais prends ce POKéMON.$"
+	.string "Come possiamo sdebitarci?\n"
+	.string "Grazie a te siamo salvi!\p"
+	.string "Magari è una strana ricompensa, ma\n"
+	.string "ti prego, accetta questo POKéMON!$"
 
 @ Unused
 Route119_WeatherInstitute_2F_Text_NoRoomForPokemon:
@@ -295,39 +299,38 @@ Route119_WeatherInstitute_2F_Text_NoRoomForPokemon:
 	.string "for this POKéMON.$"
 
 Route119_WeatherInstitute_2F_Text_PlayerReceivedCastform:
-	.string "{PLAYER} reçoit MORPHEO!$"
+	.string "{PLAYER} riceve CASTFORM!$"
 
 Route119_WeatherInstitute_2F_Text_PokemonChangesWithWeather:
-	.string "Ce POKéMON change de forme en\n"
-	.string "fonction des conditions météo.\p"
-	.string "On en a plusieurs au CENTRE METEO.\n"
-	.string "Vas-y, prends-le.$"
+	.string "Questo POKéMON cambia aspetto secondo\n"
+	.string "le condizioni meteorologiche.\p"
+	.string "Ne abbiamo molti all’ISTITUTO.\n"
+	.string "Avanti, dunque, prendilo! È tuo!$"
 
 Route119_WeatherInstitute_2F_Text_ChangingWeatherRidiculous:
-	.string "Je fais des études sur la pluie depuis\n"
-	.string "des années, mais c’est ridicule de\l"
-	.string "croire qu’il est possible de contrôler\l"
-	.string "le temps.$"
+	.string "Studio la pioggia da molti anni, ma\n"
+	.string "è assurdo pensare che l’uomo possa\l"
+	.string "controllare il tempo a suo piacimento!$"
 
 Route119_WeatherInstitute_2F_Text_GroudonWeather:
-	.string "J’étudie les conditions météo dans\n"
-	.string "la région de HOENN.\p"
-	.string "Nous observons actuellement une\n"
-	.string "sécheresse sur la {STR_VAR_1}.\p"
-	.string "Enfin, quelque part dans cette\n"
-	.string "zone…$"
+	.string "Studio i microclimi della regione\n"
+	.string "di HOENN.\p"
+	.string "{STR_VAR_1}… attualmente vi si\n"
+	.string "registra siccità.\p"
+	.string "Si potrebbe fare un sopralluogo\n"
+	.string "lì vicino…$"
 
 Route119_WeatherInstitute_2F_Text_KyogreWeather:
-	.string "J’étudie les conditions météo dans\n"
-	.string "la région de HOENN.\p"
-	.string "Nous enregistrons actuellement de\n"
-	.string "fortes pluies sur le {STR_VAR_1}.\p"
-	.string "Enfin, quelque part dans cette\n"
-	.string "zone…$"
+	.string "Studio i microclimi della regione\n"
+	.string "di HOENN.\p"
+	.string "{STR_VAR_1}… attualmente vi si\n"
+	.string "registrano piogge pesanti.\p"
+	.string "Si potrebbe fare un sopralluogo\n"
+	.string "lì vicino…$"
 
 Route119_WeatherInstitute_2F_Text_NoAbnormalWeather:
-	.string "Pas de conditions météo anormales\n"
-	.string "enregistrées actuellement.\p"
-	.string "Les chutes de pluie occasionnelles\n"
-	.string "sont une vraie bénédiction.$"
+	.string "Non si registrano più condizioni\n"
+	.string "meteorologiche anomale.\p"
+	.string "I piovaschi occasionali sono\n"
+	.string "una benedizione.$"
 

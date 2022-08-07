@@ -23,19 +23,18 @@ AbandonedShip_CaptainsOffice_EventScript_ThisIsSSCactus::
 	end
 
 AbandonedShip_CaptainsOffice_Text_NoSuccessFindingScanner:
-	.string "J’examine ce bateau pour le\n"
-	.string "CAPT. POUPE.\p"
-	.string "Il m’a aussi demandé de rapporter un\n"
-	.string "SCANNER, mais je n’en ai pas trouvé…$"
+	.string "Il CAP. REMO mi ha mandato ad esplorare\n"
+	.string "questa nave.\p"
+	.string "Devo trovare uno SCANNER,\n"
+	.string "ma ancora non ci sono riuscito…$"
 
 AbandonedShip_CaptainsOffice_Text_OhCanYouDeliverScanner:
-	.string "Oh, c’est un SCANNER!\p"
-	.string "Ecoute, je peux te demander d’apporter\n"
-	.string "ça au CAPT. POUPE?\p"
-	.string "Je voudrais continuer d’examiner ce\n"
-	.string "bateau.$"
+	.string "Oh! È uno SCANNER!\p"
+	.string "Potresti consegnarlo tu al CAP. REMO?\p"
+	.string "Vorrei continuare ad esplorare la nave\n"
+	.string "ancora un po’…$"
 
 AbandonedShip_CaptainsOffice_Text_ThisIsSSCactus:
-	.string "Ce navire s’appelle LE CACTUS.\n"
-	.string "Il semble être d’une autre époque.$"
+	.string "La nave si chiama M/N CACTUS.\n"
+	.string "Sembra essere d’epoca.$"
 

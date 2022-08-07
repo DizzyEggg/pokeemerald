@@ -1,87 +1,82 @@
 BerryBlender_Text_BlendWithTheBlendMaster:
-	.string "MAITRE MIXEUR: C’est moi!\n"
-	.string "Je suis le MAITRE MIXEUR!\p"
-	.string "Mixe avec moi et tu verras le\n"
-	.string "maître à l’œuvre!$"
+	.string "MAESTRO MIX: È proprio il caso di dirlo!\n"
+	.string "Sono il MAESTRO MIX!\p"
+	.string "Facciamo un mix insieme. Vedrai\n"
+	.string "quanto sono bravo!$"
 
 BerryBlender_Text_SeeMyMasteryInAction:
-	.string "MAITRE MIXEUR: Hum! Alors comme ça,\n"
-	.string "tu veux voir le maître à l’œuvre?$"
+	.string "MAESTRO MIX: Ah! Quindi vuoi vedere\n"
+	.string "il maestro in azione?$"
 
 BerryBlender_Text_TooBusyNowIsee:
-	.string "Hum!\p"
-	.string "Tu n’as pas le temps, je vois!\p"
-	.string "Mais ne crains rien!\n"
-	.string "Je ne bouge pas d’ici aujourd’hui!\l"
-	.string "Reviens vite!$"
+	.string "Mhmm!\p"
+	.string "Capisco, hai troppi impegni!\p"
+	.string "Non c’è problema!\n"
+	.string "Io starò qui tutto il giorno!\l"
+	.string "Fai quello che devi fare e torna!$"
 
 BerryBlender_Text_BlendMasterNoBerries:
-	.string "Hum!\p"
-	.string "Tu n’as pas une seule BAIE!\p"
-	.string "Je ne bouge pas d’ici aujourd’hui!\n"
-	.string "Reviens vite!$"
+	.string "Mhmm!\p"
+	.string "Sei senza BACCHE!\p"
+	.string "Io starò qui tutto il giorno!\n"
+	.string "Torna presto con qualche BACCA!$"
 
 BerryBlender_Text_BlendMasterKnowHowToMakePokeblocks:
-	.string "Bien sûr!\n"
-	.string "Bien sûr!\p"
-	.string "Au fait…\n"
-	.string "Tu sais comment mixer des BAIES\l"
-	.string "pour faire des {POKEBLOCK}S?$"
+	.string "Sono qui apposta!\p"
+	.string "A proposito… sai come si creano\n"
+	.string "{POKEMELLE} usando le BACCHE?$"
 
 BerryBlender_Text_BlendMasterExplainBerryBlending:
-	.string "Hum!\p"
-	.string "C’est simple comme bonjour!\p"
-	.string "Lorsque la flèche du MIXEUR passe\n"
-	.string "devant ton marqueur, appuie simplement\l"
-	.string "sur le bouton A.\p"
-	.string "C’est tout.\p"
-	.string "Quand tu me verras appuyer sur le\n"
-	.string "bouton A, tu comprendras comme\l"
-	.string "c’est facile.$"
+	.string "Mhmm!\p"
+	.string "In realtà è molto semplice!\p"
+	.string "Quando la freccia del MIXER raggiunge\n"
+	.string "la tua posizione, premi il pulsante A.\p"
+	.string "Tutto qui.\p"
+	.string "Capirai tutto quando vedrai con quale\n"
+	.string "precisione premo il pulsante A.$"
 
 BerryBlender_Text_BlendMasterLetsBerryBlender:
-	.string "Bien!\p"
-	.string "Dans ce cas, allons-y!\p"
-	.string "C’est parti pour le MIXEUR,\n"
-	.string "avec le MAITRE MIXEUR!$"
+	.string "Bene!\p"
+	.string "Allora iniziamo!\p"
+	.string "Al MIXER BACCHE insieme al\n"
+	.string "MAESTRO MIX!$"
 
 BerryBlender_Text_BlendMasterNoPokeblockCase:
-	.string "Hum!\p"
-	.string "On dirait que tu n’as pas encore\n"
-	.string "de BOITE {POKEBLOCK}S!\p"
-	.string "Je ne bouge pas d’ici aujourd’hui!\n"
-	.string "Trouve vite une BOITE {POKEBLOCK}S!$"
+	.string "Mhmm!\p"
+	.string "Ti manca il PORTA{POKEMELLE}!\p"
+	.string "Io starò qui tutto il giorno! Procurati\n"
+	.string "il PORTA{POKEMELLE} e torna presto!$"
 
 BerryBlender_Text_BlendMasterPokeblockCaseFull:
-	.string "Hum!\p"
-	.string "Ta BOITE {POKEBLOCK}S est pleine!\p"
-	.string "Je ne bouge pas d’ici aujourd’hui!\n"
-	.string "Utilise quelques {POKEBLOCK}S et reviens!$"
+	.string "Mhmm!\p"
+	.string "Il tuo PORTA{POKEMELLE} è pieno!\p"
+	.string "Io starò qui tutto il giorno!\n"
+	.string "Usa qualche {POKEMELLA} e torna presto!$"
 
 BerryBlender_Text_WhoaAwesome:
-	.string "Waouh!\n"
-	.string "Joli!$"
+	.string "Wow!\n"
+	.string "Incredibile!$"
 
 BerryBlender_Text_WickedlyFast:
-	.string "Super rapide!$"
+	.string "Che velocità!$"
 
 BerryBlender_Text_WhatAnExpert:
-	.string "Formidable!$"
+	.string "Che maestria!$"
 
 BerryBlender_Text_MadeAmazingPokeblocksWithMaster:
-	.string "J’ai mixé avec le MAITRE MIXEUR et on\n"
-	.string "a fait de superbes {POKEBLOCK}S!$"
+	.string "Insieme al MAESTRO, ho creato\n"
+	.string "{POKEMELLE} fantastiche!$"
 
 BerryBlender_Text_QualitiesOfBlendMaster:
-	.string "Des yeux de lynx qui suivent la\n"
-	.string "flèche au centième de millimètre près…\p"
-	.string "Une main qui appuie sur le bouton A\n"
-	.string "avec la précision d’un métronome…\p"
-	.string "C’est ça qui fait le succès du\n"
-	.string "MAITRE MIXEUR.$"
+	.string "Lo sguardo puntato sulla freccia \n"
+	.string "come un dispositivo meccanico…\p"
+	.string "Una mano che preme il pulsante A\n"
+	.string "con la precisione di un ingranaggio…\p"
+	.string "Sono queste le qualità che rendono\n"
+	.string "il MAESTRO MIX insuperabile.$"
 
 BerryBlender_Text_MasterWorksOnSkillsInMountains:
-	.string "Le MAITRE MIXEUR passe tout son\n"
-	.string "temps à s’entraîner dans la montagne.\p"
-	.string "Parfois, il nous fait l’honneur de venir\n"
-	.string "à NENUCRIQUE pour y mixer des BAIES.$"
+	.string "Il MAESTRO MIX si allena nel cuore\n"
+	.string "della montagna.\p"
+	.string "A volte viene ad ALGHEPOLI per fare\n"
+	.string "mix di BACCHE tutto il giorno.$"
