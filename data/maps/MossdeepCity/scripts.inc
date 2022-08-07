@@ -311,8 +311,6 @@ MossdeepCity_Movement_ScottExitEast:
 	step_end
 
 MossdeepCity_Text_WantKingsRockStevenGaveMe:
-	.string "\n"
-	.string "Ë0xa0xa0xa0xa0xa0xa0xa0xa0xa\n"
 	.string "Me l’ha dato ROCCO, ma non so\n"
 	.string "a che cosa serva.\p"
 	.string "Penso si chiami ROCCIA di RE.\n"

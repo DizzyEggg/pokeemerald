@@ -67,7 +67,10 @@ PetalburgCity_Mart_EventScript_Man::
 	end
 
 PetalburgCity_Mart_Text_WeakWillGrowStronger:
-	.string "MON!$"
+	.string "Anche se un POKéMON ora è debole,\n"
+	.string "si rafforzerà.\p"
+	.string "L’amore è la cosa più importante!\n"
+	.string "Ama i tuoi POKéMON!$"
 
 PetalburgCity_Mart_Text_RepelIsUseful:
 	.string "Usi il REPELLENTE?\n"

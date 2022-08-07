@@ -299,7 +299,7 @@ BattleFrontier_ReceptionGate_EventScript_ExitFrontierPassGuide::
 	end
 
 BattleFrontier_ReceptionGate_Text_FirstTimeHereThisWay:
-	.string " la tua prima visita?\n"
+	.string "È la tua prima visita?\n"
 	.string "Prego, da questa parte!$"
 
 BattleFrontier_ReceptionGate_Text_WelcomeToBattleFrontier:

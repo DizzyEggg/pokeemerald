@@ -926,7 +926,6 @@ BattleFrontier_BattleDomeBattleRoom_Movement_RefereeExit:
 	step_end
 
 BattleFrontier_BattleDomeBattleRoom_Text_PlayerHasEnteredDome:
-	.string "\n"
 	.string "{PLAYER} fa il suo ingresso\n"
 	.string "nella CUPOLA LOTTA!$"
 

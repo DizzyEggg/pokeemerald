@@ -3,50 +3,45 @@
 @       this macro you must also stop it from skipping over this
 @       section by editing ScrCmd_braillemessage.
 
-@ For some reason, French version ends sentences with an apostrophe and not a period.
-@ It's also possible that the braille gfx are different and that's the reason for this.
-
 Underwater_SealedChamber_Braille_GoUpHere::
 	brailleformat 4, 6, 26, 13, 7, 9
-	.braille "RENDS-TOI\n"
-	.braille "DANS LES\n"
-	.braille "PROFONDEURS'$"
+	.braille "RISALI DA QUI$"
 
 SealedChamber_OuterRoom_Braille_ABC:
 	brailleformat 7, 6, 21, 13, 10, 9
-	.braille "ABCD$"
+	.braille "ABC$"
 
 SealedChamber_OuterRoom_Braille_GHI:
 	brailleformat 7, 6, 21, 13, 10, 9
-	.braille "IJKL$"
+	.braille "GHI$"
 
 SealedChamber_OuterRoom_Braille_MNO:
 	brailleformat 7, 6, 21, 13, 10, 9
-	.braille "QRST$"
+	.braille "MNO$"
 
 SealedChamber_OuterRoom_Braille_TUV:
 	brailleformat 7, 6, 21, 13, 10, 9
-	.braille "YZ$"
+	.braille "TUV$"
 
 SealedChamber_OuterRoom_Braille_DEF:
 	brailleformat 7, 6, 21, 13, 10, 9
-	.braille "EFGH$"
+	.braille "DEF$"
 
 SealedChamber_OuterRoom_Braille_JKL:
 	brailleformat 7, 6, 21, 13, 10, 9
-	.braille "MNOP$"
+	.braille "JKL$"
 
 SealedChamber_OuterRoom_Braille_PQRS:
 	brailleformat 7, 6, 21, 13, 10, 9
-	.braille "UVWX$"
+	.braille "PQRS$"
 
 SealedChamber_OuterRoom_Braille_Period:
 	brailleformat 9, 6, 19, 13, 12, 9
-	.braille "'$"
+	.braille ".$"
 
 SealedChamber_OuterRoom_Braille_WXYZ:
 	brailleformat 7, 6, 21, 13, 10, 9
-	.braille "-$"
+	.braille "WXYZ$"
 
 SealedChamber_OuterRoom_Braille_Comma:
 	brailleformat 9, 6, 19, 13, 12, 9
@@ -54,70 +49,70 @@ SealedChamber_OuterRoom_Braille_Comma:
 
 SealedChamber_OuterRoom_Braille_DigHere:
 	brailleformat 7, 4, 23, 15, 10, 7
-	.braille "RETOURNE\n"
-	.braille "LA TERRE'$"
+	.braille "QUI DEVI\n"
+	.braille "SCAVARE$"
 
 SealedChamber_InnerRoom_Braille_FirstWailordLastRelicanth:
 	brailleformat 0, 0, 29, 19, 3, 3
-	.braille "COMMENCE PAR\n"
-	.braille "WAILORD\n"
-	.braille "ET FINIS AVEC\n"
-	.braille "RELICANTH'$"
+	.braille "PRIMO\n"
+	.braille "WAILORD,\n"
+	.braille "ULTIMO\n"
+	.braille "RELICANTH$"
 
 SealedChamber_InnerRoom_Braille_InThisCaveWeHaveLived:
 	brailleformat 2, 0, 26, 19, 5, 3
-	.braille "DANS CETTE\n"
-	.braille "CAVERNE VIVAIT\n"
-	.braille "AUTREFOIS\n"
-	.braille "NOTRE PEUPLE'$"
+	.braille "QUESTA GROTTA\n"
+	.braille "FU LA NOSTRA\n"
+	.braille "CASA$"
 
 SealedChamber_InnerRoom_Braille_WeOweAllToThePokemon:
 	brailleformat 7, 2, 23, 17, 10, 5
-	.braille "NOUS DEVONS\n"
-	.braille "TOUT AUX\n"
-	.braille "POKEMON'$"
+	.braille "AI POKEMON\n"
+	.braille "DOBBIAMO\n"
+	.braille "TUTTO$"
 
 SealedChamber_InnerRoom_Braille_ButWeSealedThePokemonAway:
 	brailleformat 3, 0, 25, 19, 6, 3
-	.braille "MAIS NOUS LES\n"
-	.braille "AVONS RETENUS\n"
-	.braille "LOIN DE NOUS'$"
+	.braille "MA DOVEMMO\n"
+	.braille "RINCHIUDERLI\n"
+	.braille "IN UN LUOGO\n"
+	.braille "SEGRETO$"
 
 SealedChamber_InnerRoom_Braille_WeFearedIt:
 	brailleformat 5, 6, 25, 13, 8, 9
-	.braille "JADIS, NOUS\n"
-	.braille "CRAIGNIONS LES\n"
-	.braille "POKEMON'$"
+	.braille "NE AVEVAMO\n"
+	.braille "PAURA$"
 
 SealedChamber_InnerRoom_Braille_ThoseWithCourageHope:
 	brailleformat 6, 0, 24, 19, 9, 3
-	.braille "DEMONTRE TON\n"
-	.braille "COURAGE'$"
+	.braille "SE AVRAI\n"
+	.braille "CORAGGIO E\n"
+	.braille "SPERANZA$"
 
 SealedChamber_InnerRoom_Braille_OpenDoorEternalPokemonWaits:
 	brailleformat 3, 2, 27, 17, 6, 5
-	.braille "OUVRE LA PORTE\n"
-	.braille "ET LIBERE UN\n"
-	.braille "POKEMON\n"
-	.braille "ETERNEL'$"
+	.braille "DIETRO AD UNA\n"
+	.braille "PORTA\n"
+	.braille "TROVERAI UN\n"
+	.braille "POKEMON ETERNO$"
 
 DesertRuins_Braille_UseRockSmash:
 	brailleformat 1, 0, 27, 19, 4, 3
-	.braille "GAUCHE,\n"
-	.braille "GAUCHE, BAS,\n"
-	.braille "BAS ET UTILISE\n"
-	.braille "ECLATE-ROC'$"
+	.braille "SINISTRA PER\n"
+	.braille "DUE, SCENDI\n"
+	.braille "SCENDI, POI\n"
+	.braille "SPACCAROCCIA$"
 
 IslandCave_Braille_RunLapAroundWall:
 	brailleformat 5, 0, 25, 19, 8, 3
-	.braille "RESTE PRES\n"
-	.braille "DU MUR'\n"
-	.braille "TOURNE AUTOUR\n"
-	.braille "UNE FOIS'$"
+	.braille "STAI VICINO\n"
+	.braille "ALLA PARETE,\n"
+	.braille "FAI UN GIRO\n"
+	.braille "COMPLETO$"
 
 AncientTomb_Braille_ShineInTheMiddle:
 	brailleformat 3, 0, 25, 19, 6, 3
-	.braille "HERITEZ DE\n"
-	.braille "NOTRE VOLONTE,\n"
-	.braille "EN BRILLANT AU\n"
-	.braille "MILIEU'$"
+	.braille "CHI CONDIVIDE\n"
+	.braille "I NOSTRI SOGNI\n"
+	.braille "CHE BRILLI AL\n"
+	.braille "CENTRO$"

@@ -11,7 +11,8 @@ AbandonedShip_Corridors_1F_EventScript_Charlie::
 	end
 
 AbandonedShip_Corridors_1F_Text_CharlieIntro:
-	.string "…$"
+	.string "Con la mia ciambella a bordo\n"
+	.string "sono imbattibile…$"
 
 AbandonedShip_Corridors_1F_Text_CharlieDefeat:
 	.string "Colpito e affondato!$"

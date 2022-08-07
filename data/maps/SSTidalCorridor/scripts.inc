@@ -254,11 +254,6 @@ SSTidalCorridor_Movement_SailorReturn:
 	step_end
 
 SSTidalCorridor_Text_ScottBattleFrontierInvite:
-	.string "\n"
-	.string "œÑÑÑÑË0xa\n"
-	.string "ÑÑÑÑÛœ\n"
-	.string "ÑÎÎùÑú\n"
-	.string "0xa0xaù\n"
 	.string "SCOTT: Ciao, {PLAYER}{KUN}!\p"
 	.string "A causa di un impegno improvviso devo\n"
 	.string "sbarcare, ma sono contento di vederti!\p"

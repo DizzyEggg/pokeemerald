@@ -344,7 +344,6 @@ OldaleTown_Movement_ReturnToOriginalPosition:
 	step_end
 
 OldaleTown_Text_SavingMyProgress:
-	.string "\n"
 	.string "Voglio riposarmi un po’, quindi salverò\n"
 	.string "i miei progressi di gioco.$"
 

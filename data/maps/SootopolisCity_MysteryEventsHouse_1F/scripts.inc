@@ -166,7 +166,11 @@ SootopolisCity_MysteryEventsHouse_1F_Movement_OldManMoveAsideRight:
 	step_end
 
 SootopolisCity_MysteryEventsHouse_1F_Text_OnlyAmusementWatchingBattles:
-	.string "I.$"
+	.string "Quando ero giovane, ho girato il mondo\n"
+	.string "come ALLENATORE di POKéMON.\p"
+	.string "Ora che sono vecchio, il mio unico\n"
+	.string "divertimento è assistere alle lotte\l"
+	.string "dei giovani ALLENATORI.$"
 
 SootopolisCity_MysteryEventsHouse_1F_Text_DoorAppearsToBeLocked:
 	.string "The door appears to be locked.$"

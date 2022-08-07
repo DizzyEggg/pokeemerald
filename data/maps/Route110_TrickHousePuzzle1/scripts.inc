@@ -37,7 +37,11 @@ Route110_TrickHousePuzzle1_EventScript_Robin::
 	end
 
 Route110_TrickHousePuzzle1_Text_WroteSecretCodeLockOpened::
-	.string "e!$"
+	.string "{PLAYER} scrive il codice segreto\n"
+	.string "sulla porta.\p"
+	.string "“Il MAGO del QUIZ è un mito”.\n"
+	.string "… … … … … … … …\p"
+	.string "La porta si apre!$"
 
 Route110_TrickHousePuzzle1_Text_SallyIntro:
 	.string "Mi farò strada verso la vittoria\n"

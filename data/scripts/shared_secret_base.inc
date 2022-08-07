@@ -202,7 +202,7 @@ SecretBase_EventScript_SkittyTV::
 	end
 
 SecretBase_Text_SmallIndentInWall::
-	.string " una piccola rientranza nella parete.$"
+	.string "C’è una piccola rientranza nella parete.$"
 
 SecretBase_Text_IndentUseSecretPower::
 	.string "C’è una piccola rientranza nella parete.\p"

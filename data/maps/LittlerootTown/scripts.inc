@@ -910,7 +910,7 @@ LittlerootTown_EventScript_GiveRunningShoes::
 	return
 
 LittlerootTown_Text_OurNewHomeLetsGoInside:
-	.string "ÌÇÔ {SUPER_RE}{SUPER_E}ìËÌÇâûì ÂMAMMA: {PLAYER}, sono qui, tesoro!\p"
+	.string "MAMMA: {PLAYER}, sono qui, tesoro!\p"
 	.string "Il viaggio sul camion dei traslochi\n"
 	.string "dev’essere stato faticoso!\p"
 	.string "Questa è ALBANOVA.\p"

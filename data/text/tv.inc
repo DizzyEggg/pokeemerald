@@ -1208,6 +1208,8 @@ gTVTodaysRivalTrainerText10::
 	.string "un traghetto.\p"
 	.string "{STR_VAR_1} ha registrato finora\n"
 	.string "{STR_VAR_2} POKéMON nel POKéDEX.$"
+	
+	.string "$"
 
 gTVTodaysRivalTrainerText01::
 	.string "Quante MEDAGLIE possiede il nostro\n"

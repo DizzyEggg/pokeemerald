@@ -311,7 +311,7 @@ LittlerootTown_MaysHouse_2F_EventScript_TurnOffPlayerPC::
 	end
 
 RivalsHouse_2F_Text_MayWhoAreYou:
-	.string "\n"
+	.string "Eh?\n"
 	.string "E tu?… Chi sei?\p"
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"

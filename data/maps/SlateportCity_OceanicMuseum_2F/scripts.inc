@@ -273,7 +273,7 @@ SlateportCity_OceanicMuseum_2F_EventScript_MuseumPatron3::
 	end
 
 SlateportCity_OceanicMuseum_2F_Text_ThankYouForTheParts:
-	.string "? Se stai cercando il CAP. REMO,\n"
+	.string "Sì? Se stai cercando il CAP. REMO,\n"
 	.string "sono io in persona!\p"
 	.string "Ah! Devono essere i pezzi che ho\n"
 	.string "ordinato dal SIG. PETRI della DEVON.\p"

@@ -163,7 +163,7 @@ EventScript_CancelStrength::
 	end
 
 Text_WantToStrength:
-	.string " un masso enorme, ma un POKéMON\n"
+	.string "È un masso enorme, ma un POKéMON\n"
 	.string "dovrebbe poterlo spostare.\p"
 	.string "Vuoi usare FORZA?$"
 

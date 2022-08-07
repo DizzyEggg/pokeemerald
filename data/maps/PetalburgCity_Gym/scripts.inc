@@ -1142,7 +1142,7 @@ PetalburgCity_Gym_EventScript_GymStatue::
 	end
 
 PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon:
-	.string ": Uhm?\p"
+	.string "PAPÀ: Uhm?\p"
 	.string "Sei proprio tu, {PLAYER}!\n"
 	.string "Ne hai fatta di strada!\p"
 	.string "Sono sorpreso che ce l’abbia\n"

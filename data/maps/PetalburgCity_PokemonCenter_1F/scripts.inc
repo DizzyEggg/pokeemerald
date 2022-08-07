@@ -55,7 +55,9 @@ PetalburgCity_PokemonCenter_1F_EventScript_SayMudkipType::
 	return
 
 PetalburgCity_PokemonCenter_1F_Text_PCStorageSystem:
-	.string "ica!$"
+	.string "Quel Sistema Memoria POKéMON del PC…\p"
+	.string "Chiunque l’abbia inventato dev’essere\n"
+	.string "un mago dell’informatica!$"
 
 PetalburgCity_PokemonCenter_1F_Text_OranBerryRegainedHP:
 	.string "Mangiando una BACCARANCIA\n"

@@ -62,7 +62,7 @@ Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection::
 	end
 
 Route111_WinstrateFamilysHouse_Text_MySonIsStrongerThanYou:
-	.string " la prima volta che vedo un ALLENATORE\n"
+	.string "È la prima volta che vedo un ALLENATORE\n"
 	.string "usare i POKéMON con tanta maestria.\p"
 	.string "Ma lasciamelo dire: mio figlio è più forte\n"
 	.string "di te.\p"

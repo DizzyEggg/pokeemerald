@@ -450,8 +450,6 @@ BattleFrontier_BattleFactoryPreBattleRoom_Movement_AttendantReturnToPlayer:
 	step_end
 
 BattleFrontier_BattleFactoryPreBattleRoom_Text_HoldMonsChooseFromSelection:
-	.string "\n"
-	.string "ÎÎÎ \n"
 	.string "Ci prenderemo cura noi dei tuoi POKéMON.\p"
 	.string "Potrai scegliere fra una selezione\n"
 	.string "di POKéMON.$"

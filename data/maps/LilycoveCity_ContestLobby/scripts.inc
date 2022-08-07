@@ -983,6 +983,7 @@ LilycoveCity_ContestLobby_EventScript_LittleGirlHaveCase::
 	end
 
 LilycoveCity_ContestLobby_Text_LadyGaveMePokeblockCase:
+	.string "Urrà!\p"
 	.string "La signora al banco di accettazione\n"
 	.string "mi ha dato un contenitore per le {POKEMELLE}!$"
 

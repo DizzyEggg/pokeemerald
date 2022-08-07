@@ -1,291 +1,282 @@
 SecretBase_Text_Trainer0Intro:
-	.string "Tu as déjà créé une BASE SECRETE?\p"
-	.string "J’ai parcouru le monde avant de choisir\n"
-	.string "cet endroit.\p"
-	.string "Puisque tu es ici, qu’est-ce que tu\n"
-	.string "dirais d’un petit combat?$"
+	.string "Hai già creato una BASE SEGRETA?\p"
+	.string "Ho valutato ogni postazione possibile\n"
+	.string "prima di scegliere questo posto.\p"
+	.string "Dato che sei già qui,\n"
+	.string "ti va di lottare?$"
 
 SecretBase_Text_Trainer0AcceptBattle:
-	.string "OK!\n"
-	.string "C’est parti!$"
+	.string "Benissimo!\n"
+	.string "Fatti sotto allora!$"
 
 SecretBase_Text_Trainer0DeclineBattle:
-	.string "Hein?\n"
-	.string "Oh, tu n’as pas le temps, maintenant…$"
+	.string "Cosa?\n"
+	.string "Oh, capisco… ora non puoi!$"
 
 SecretBase_Text_Trainer0Defeated::
-	.string "Ouaaarg! Tu es trop balèze!\n"
-	.string "Heu, ne parle de ma défaite à personne!$"
+	.string "Che disdetta! Sei troppo forte! Acqua\n"
+	.string "in bocca sulla mia sconfitta!$"
 
 SecretBase_Text_Trainer0PostBattle:
-	.string "Qu’est-ce que tu penses de ma BASE\n"
-	.string "SECRETE? Reviens me voir demain.$"
+	.string "Cosa ne pensi della mia BASE SEGRETA?\n"
+	.string "Torna a trovarmi domani…$"
 
 SecretBase_Text_Trainer0PreChampion:
-	.string "Tu as déjà créé une BASE SECRETE?\p"
-	.string "J’ai parcouru le monde avant de choisir\n"
-	.string "cet endroit.\p"
-	.string "Tu peux y venir quand tu veux!$"
+	.string "Hai già creato una BASE SEGRETA?\p"
+	.string "Ho valutato ogni postazione possibile\n"
+	.string "prima di scegliere questo posto.\p"
+	.string "Fai come se fossi a casa tua!$"
 
 SecretBase_Text_Trainer5Intro:
-	.string "Tu peux faire une BASE SECRETE dans de\n"
-	.string "nombreux endroits.\p"
-	.string "Mais cet endroit est mon préféré.\n"
-	.string "Il est cool, non?\p"
-	.string "Oh, ça te dirait, un petit combat?$"
+	.string "Ci sono un sacco di posti dove\n"
+	.string "si può creare una BASE SEGRETA.\p"
+	.string "A me piace questa postazione.\n"
+	.string "Non è meravigliosa?\p"
+	.string "Ehi, hai voglia di lottare?$"
 
 SecretBase_Text_Trainer5AcceptBattle:
-	.string "OK, c’est parti!$"
+	.string "Forza, allora, iniziamo!$"
 
 SecretBase_Text_Trainer5DeclineBattle:
-	.string "Oh… Tu n’as pas le temps, maintenant?\n"
-	.string "Tant pis.$"
+	.string "Oh… ora non puoi… va bene…$"
 
 SecretBase_Text_Trainer5Defeated::
-	.string "Humm… Une défaite…\n"
-	.string "N’en parle à personne!\p"
-	.string "Motus et bouche cousue!$"
+	.string "Mhmm… ho perso!\n"
+	.string "Ok… ma acqua in bocca!\l"
+	.string "È un segreto segretissimo!$"
 
 SecretBase_Text_Trainer5PostBattle:
-	.string "Si tu repasses dans le coin,\n"
-	.string "j’espère que tu me rendras visite.$"
+	.string "Se torni da queste parti,\n"
+	.string "vieni a trovarmi, ti aspetto!$"
 
 SecretBase_Text_Trainer5PreChampion:
-	.string "Tu peux faire une BASE SECRETE dans de\n"
-	.string "nombreux endroits.\p"
-	.string "Mais cet endroit est mon préféré.\n"
-	.string "Il est cool, non?$"
+	.string "Ci sono un sacco di posti dove\n"
+	.string "si può creare una BASE SEGRETA.\p"
+	.string "A me piace questa postazione.\n"
+	.string "Non è meravigliosa?$"
 
 SecretBase_Text_Trainer1Intro:
-	.string "Cet endroit est très apprécié.\n"
-	.string "Il est toujours occupé par quelqu’un.\p"
-	.string "Oh! Tu pensais occuper cet endroit\n"
-	.string "aussi?\p"
-	.string "Dans ce cas, si tu parviens à me battre,\n"
-	.string "je te le laisserai.$"
+	.string "Questa postazione è molto gettonata.\n"
+	.string "C’è sempre qualcuno…\p"
+	.string "Oh! Stavi pensando di prendertela tu?\p"
+	.string "Sai come facciamo?\n"
+	.string "Te la cedo se riesci a battermi.$"
 
 SecretBase_Text_Trainer1AcceptBattle:
-	.string "OK!\n"
-	.string "Je vais défendre ma BASE SECRETE!$"
+	.string "Perfetto! Vedrai come difenderò\n"
+	.string "la mia BASE SEGRETA!$"
 
 SecretBase_Text_Trainer1DeclineBattle:
-	.string "Quoi? C’est vrai?\n"
-	.string "Cet endroit ne t’intéresse pas?$"
+	.string "Eh? Ho capito bene?\n"
+	.string "Questa postazione non ti interessa?$"
 
 SecretBase_Text_Trainer1Defeated::
-	.string "Je n’en peux plus!\n"
-	.string "Je me rends!$"
+	.string "Non posso continuare così!\n"
+	.string "Mi arrendo!$"
 
 SecretBase_Text_Trainer1PostBattle:
-	.string "OK, quand je partirai d’ici, tu pourras\n"
-	.string "prendre possession de l’endroit!$"
+	.string "Bene, un giorno, quando mi sposterò,\n"
+	.string "questa postazione sarà tua!$"
 
 SecretBase_Text_Trainer1PreChampion:
-	.string "Cet endroit est très apprécié.\n"
-	.string "Il est toujours occupé par quelqu’un.\p"
-	.string "J’ai dû attendre longtemps avant d’y\n"
-	.string "entrer. Finalement, j’ai réussi!$"
+	.string "Questa postazione è molto gettonata.\n"
+	.string "C’è sempre qualcuno…\p"
+	.string "Ho aspettato tanto per poterla\n"
+	.string "occupare. E ora finalmente è mia!$"
 
 SecretBase_Text_Trainer6Intro:
-	.string "Bienvenue dans mon LABO POKéMON.\p"
-	.string "J’étudie secrètement les méthodes de\n"
-	.string "combat.\p"
-	.string "Tu veux voir comme je suis forte?$"
+	.string "Ti do il benvenuto al mio\n"
+	.string "LABORATORIO POKéMON.\p"
+	.string "Conduco una ricerca sulla\n"
+	.string "lotta in segreto.\p"
+	.string "Vuoi vedere quanto sono forte?$"
 
 SecretBase_Text_Trainer6AcceptBattle:
-	.string "Je vais me donner à fond!$"
+	.string "Non avrò nessuna pietà!$"
 
 SecretBase_Text_Trainer6DeclineBattle:
-	.string "Oh.\n"
-	.string "Tant pis. Ce sera pour une autre fois!$"
+	.string "Oh… un’altra volta allora!$"
 
 SecretBase_Text_Trainer6Defeated::
-	.string "Hum… J’ai encore beaucoup à apprendre.\n"
-	.string "Je vais continuer mes recherches.$"
+	.string "Mhmm… ho ancora molto da imparare.\n"
+	.string "Devo studiare di più.$"
 
 SecretBase_Text_Trainer6PostBattle:
-	.string "Merci d’avoir accepté ce combat.\n"
-	.string "Reviens me voir demain.$"
+	.string "Grazie per aver lottato con me.\n"
+	.string "Torna a trovarmi domani.$"
 
 SecretBase_Text_Trainer6PreChampion:
-	.string "Bienvenue dans mon LABO POKéMON.\p"
-	.string "J’étudie secrètement les méthodes de\n"
-	.string "combat.$"
+	.string "Ti do il benvenuto al mio\n"
+	.string "LABORATORIO POKéMON.\p"
+	.string "Conduco una ricerca sulla\n"
+	.string "lotta in segreto.$"
 
 SecretBase_Text_Trainer2Intro:
-	.string "C’est sympa d’avoir un grand manoir,\n"
-	.string "mais je préfère cet endroit.\p"
-	.string "Je l’aime bien, car des gens de tous\n"
-	.string "les horizons viennent me rendre visite.\p"
-	.string "A part ça, que dirais-tu d’un combat?$"
+	.string "Ho una bella casa, sai, ma mi piacciono\n"
+	.string "di più i posti come questo.\p"
+	.string "Mi piacciono perché vengono a trovarmi\n"
+	.string "persone di ogni tipo.\p"
+	.string "Allora, vuoi lottare?$"
 
 SecretBase_Text_Trainer2AcceptBattle:
-	.string "Excellent!$"
+	.string "Sì, così si fa!$"
 
 SecretBase_Text_Trainer2DeclineBattle:
-	.string "Préviens-moi quand tu voudras!$"
+	.string "Quando ti va, sai dove trovarmi!$"
 
 SecretBase_Text_Trainer2Defeated::
-	.string "Pfffou! Je suis épuisé!\n"
-	.string "Mais c’est toujours marrant, un combat!$"
+	.string "Ahaaa! Sono distrutto!\n"
+	.string "Comunque è stato un piacere!$"
 
 SecretBase_Text_Trainer2PostBattle:
-	.string "Quoi qu’il en soit, je dois aller acheter\n"
-	.string "des meubles et des décorations.\p"
-	.string "Je veux que les gens se sentent\n"
-	.string "bien dans ma BASE SECRETE.$"
+	.string "Dovrò andare a comprare qualche\n"
+	.string "decorazione e anche dei mobili.\p"
+	.string "Voglio che la mia BASE SEGRETA sia\n"
+	.string "accogliente per i miei ospiti.$"
 
 SecretBase_Text_Trainer2PreChampion:
-	.string "C’est sympa d’avoir un grand manoir,\n"
-	.string "mais je préfère cet endroit.\p"
-	.string "Je l’aime bien, car des gens de tous\n"
-	.string "les horizons viennent me rendre visite.$"
+	.string "Ho una bella casa, sai, ma mi piacciono\n"
+	.string "di più i posti come questo.\p"
+	.string "Mi piacciono perché vengono a trovarmi\n"
+	.string "persone di ogni tipo!$"
 
 SecretBase_Text_Trainer7Intro:
-	.string "J’adore faire du shopping pour trouver\n"
-	.string "des meubles et des décorations.\p"
-	.string "Mais j’aime bien aussi élever\n"
-	.string "des POKéMON.\p"
-	.string "Tu as l’air sympa. Tu veux te battre\n"
-	.string "contre mes POKéMON et moi?$"
+	.string "Adoro acquistare mobili e decorazioni.\p"
+	.string "Mi piace tanto quanto allevare\n"
+	.string "i POKéMON.\p"
+	.string "Hai voglia di lottare con me e\n"
+	.string "i miei POKéMON?$"
 
 SecretBase_Text_Trainer7AcceptBattle:
-	.string "Cool.\n"
-	.string "On commence?$"
+	.string "Fantastico.\n"
+	.string "Allora, iniziamo?$"
 
 SecretBase_Text_Trainer7DeclineBattle:
-	.string "Oh.\n"
-	.string "Je suis terriblement déçue…$"
+	.string "Oh… che delusione…$"
 
 SecretBase_Text_Trainer7Defeated::
-	.string "J’abandonne…$"
+	.string "Mi arrendo…$"
 
 SecretBase_Text_Trainer7PostBattle:
-	.string "C’était super marrant! Je vais aller\n"
-	.string "faire du shopping maintenant.$"
+	.string "Beh, però mi sono divertita!\n"
+	.string "Ora vado a fare spese. Che bello!$"
 
 SecretBase_Text_Trainer7PreChampion:
-	.string "J’adore faire du shopping pour trouver\n"
-	.string "des meubles et des décorations.\p"
-	.string "Mais j’aime bien aussi élever\n"
-	.string "des POKéMON.$"
+	.string "Adoro acquistare mobili e decorazioni.\p"
+	.string "Mi piace tanto quanto allevare\n"
+	.string "i POKéMON.$"
 
 SecretBase_Text_Trainer3Intro:
-	.string "Certaines personnes font leur BASE\n"
-	.string "SECRETE dans des endroits bien cachés.\l"
-	.string "Est-ce qu’ils veulent éviter de se\l"
-	.string "faire remarquer?\p"
-	.string "Bon, puisque tu m’as trouvé, qu’est-ce\n"
-	.string "que tu dirais d’un combat?$"
+	.string "Alcune persone creano le loro BASI\n"
+	.string "SEGRETE nei posti più impensati.\l"
+	.string "Vorranno starsene rintanate?\p"
+	.string "Vabbè, dato che mi hai trovato,\n"
+	.string "tanto vale lottare…$"
 
 SecretBase_Text_Trainer3AcceptBattle:
-	.string "Je vais te donner du fil à retordre!$"
+	.string "Non andrò tanto per il sottile!$"
 
 SecretBase_Text_Trainer3DeclineBattle:
-	.string "Oh… Tu as sûrement fait beaucoup\n"
-	.string "d’efforts pour trouver cet endroit.$"
+	.string "Oh… beh, è stancante cercare\n"
+	.string "posti come questo…$"
 
 SecretBase_Text_Trainer3Defeated::
-	.string "Je me suis étalé…$"
+	.string "Che disdetta! Ho perso…$"
 
 SecretBase_Text_Trainer3PostBattle:
-	.string "Où est ta BASE SECRETE?\n"
-	.string "Je viendrai te rendre visite.$"
+	.string "Dov’è la tua BASE SEGRETA?\n"
+	.string "Mi piacerebbe venire a trovarti…$"
 
 SecretBase_Text_Trainer3PreChampion:
-	.string "Certaines personnes font leur BASE\n"
-	.string "SECRETE dans des endroits bien cachés.\p"
-	.string "Est-ce qu’ils veulent éviter de se\n"
-	.string "faire remarquer?$"
+	.string "Alcune persone creano le loro BASI\n"
+	.string "SEGRETE nei posti più impensati.\l"
+	.string "Vorranno starsene rintanate?$"
 
 SecretBase_Text_Trainer8Intro:
-	.string "On m’a dit qu’il y avait plusieurs façons\n"
-	.string "d’obtenir des décorations.\p"
-	.string "On devrait faire un concours et voir\n"
-	.string "qui aura les plus belles décorations!\p"
-	.string "En attendant, ça te tente un combat?$"
+	.string "Mi è stato detto che ci sono vari\n"
+	.string "modi per ottenere le decorazioni.\p"
+	.string "Sai cosa? Dovremmo fare a gara per\n"
+	.string "vedere chi riesce ad averne di più belle!\p"
+	.string "Ma, nel frattempo, vuoi lottare?$"
 
 SecretBase_Text_Trainer8AcceptBattle:
-	.string "Nous sommes dans ma BASE SECRETE.\n"
-	.string "Je ne peux pas perdre!$"
+	.string "Questa è la mia BASE SEGRETA.\n"
+	.string "Non posso perdere!$"
 
 SecretBase_Text_Trainer8DeclineBattle:
-	.string "Quand tu voudras, alors!$"
+	.string "Vieni a lottare quando vuoi.$"
 
 SecretBase_Text_Trainer8Defeated::
-	.string "Quoi?\n"
-	.string "J’ai perdu, là?$"
+	.string "Eh?\n"
+	.string "Ho perso così miseramente?$"
 
 SecretBase_Text_Trainer8PostBattle:
-	.string "Je me rattraperai sur les décorations.\n"
-	.string "Reviens me faire un petit coucou!$"
+	.string "Sì, ma non perderò nella gara per\n"
+	.string "le decorazioni. Vieni a trovarmi!$"
 
 SecretBase_Text_Trainer8PreChampion:
-	.string "On m’a dit qu’il y avait plusieurs façons\n"
-	.string "d’obtenir des décorations.\p"
-	.string "On devrait faire un concours et voir\n"
-	.string "qui aura les plus belles décorations!$"
+	.string "Mi è stato detto che ci sono vari\n"
+	.string "modi per ottenere le decorazioni.\p"
+	.string "Sai cosa? Dovremmo fare a gara per\n"
+	.string "vedere chi riesce ad averne di più belle!$"
 
 SecretBase_Text_Trainer4Intro:
-	.string "J’ai trouvé un endroit qui me plaisait et\n"
-	.string "je l’ai décoré avec mes objets préférés.\p"
-	.string "En plus, j’élève mon POKéMON préféré.\n"
-	.string "Grâce à lui, je suis plus fort.\p"
-	.string "C’est mon passe-temps préféré.\n"
-	.string "Tu veux te battre contre moi?$"
+	.string "Ho scovato una postazione stupenda\n"
+	.string "e ci ho messo le mie decorazioni\l"
+	.string "preferite.\p"
+	.string "Allevo il mio POKéMON prediletto e\n"
+	.string "diventiamo forti insieme.\p"
+	.string "Questo è ciò che faccio.\n"
+	.string "Ti va di lottare?$"
 
 SecretBase_Text_Trainer4AcceptBattle:
-	.string "Montre-moi de quoi tu es capable!$"
+	.string "Mostrami cosa sai fare!$"
 
 SecretBase_Text_Trainer4DeclineBattle:
-	.string "Je suppose que tu n’as pas toujours\n"
-	.string "envie de te battre.$"
+	.string "Beh, capita di non averne voglia…$"
 
 SecretBase_Text_Trainer4Defeated::
-	.string "OK, je sais de quoi tu es capable.\n"
-	.string "Pas la peine d’insister!$"
+	.string "Ora so esattamente cosa sai fare!$"
 
 SecretBase_Text_Trainer4PostBattle:
-	.string "On pourrait tous les deux devenir plus\n"
-	.string "forts. Continuons à nous entraîner!$"
+	.string "Ma possiamo diventare più forti.\n"
+	.string "Continuiamo ad allenarci!$"
 
 SecretBase_Text_Trainer4PreChampion:
-	.string "J’ai trouvé un endroit qui me plaisait et\n"
-	.string "je l’ai décoré avec mes objets préférés.\p"
-	.string "En plus, j’élève mon POKéMON préféré.\n"
-	.string "Grâce à lui, je suis plus fort.\p"
-	.string "Chaque jour est une aventure.$"
+	.string "Ho scovato una postazione stupenda\n"
+	.string "e ci ho messo le mie decorazioni\l"
+	.string "preferite.\p"
+	.string "Allevo il mio POKéMON prediletto e\n"
+	.string "diventiamo forti insieme.\p"
+	.string "Ogni giorno è meraviglioso!$"
 
 SecretBase_Text_Trainer9Intro:
-	.string "Tu peux en apprendre beaucoup sur les\n"
-	.string "goûts des autres en regardant leurs\l"
-	.string "décorations et la façon dont elles\l"
-	.string "sont disposées.\p"
-	.string "Qu’est-ce que tu penses de mes goûts?\n"
-	.string "Tu restes sans voix, hein?\p"
-	.string "Tu veux connaître mes goûts\n"
-	.string "en matière de combat?$"
+	.string "Si capiscono molte cose sui gusti\n"
+	.string "degli altri osservando le decorazioni\l"
+	.string "che usano e come le dispongono.\p"
+	.string "Cosa pensi dei miei gusti?\n"
+	.string "Sei senza parole?\p"
+	.string "Vuoi vedere i miei gusti in fatto\n"
+	.string "di lotta?$"
 
 SecretBase_Text_Trainer9AcceptBattle:
-	.string "Il est trop tard pour reculer\n"
-	.string "maintenant!$"
+	.string "Non hai scampo!$"
 
 SecretBase_Text_Trainer9DeclineBattle:
-	.string "Je peux te faire une démonstration\n"
-	.string "de mon style quand tu veux.$"
+	.string "Sarò felice di mostrarti il mio stile\n"
+	.string "in qualunque momento.$"
 
 SecretBase_Text_Trainer9Defeated::
-	.string "Quel talent formidable!\n"
-	.string "Ton pouvoir semble sans limites…$"
+	.string "Hai un talento straordinario!\n"
+	.string "La tua forza non ha eguali…$"
 
 SecretBase_Text_Trainer9PostBattle:
-	.string "Alors, qu’est-ce que tu as pensé de\n"
-	.string "mon style? Je vais encore le peaufiner!$"
+	.string "Allora, che ne pensi del mio stile?\n"
+	.string "Lo affinerò ancora!$"
 
 SecretBase_Text_Trainer9PreChampion:
-	.string "Tu peux en apprendre beaucoup sur les\n"
-	.string "goûts des autres en regardant leurs\l"
-	.string "décorations et la façon dont elles\l"
-	.string "sont disposées.\p"
-	.string "Qu’est-ce que tu penses de mes goûts?\n"
-	.string "Tu restes sans voix, hein?$"
+	.string "Si capiscono molte cose sui gusti\n"
+	.string "degli altri osservando le decorazioni\l"
+	.string "che usano e come le dispongono.\p"
+	.string "Cosa pensi dei miei gusti?\n"
+	.string "Sei senza parole?$"

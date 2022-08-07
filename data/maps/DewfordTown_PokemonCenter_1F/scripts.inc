@@ -27,7 +27,7 @@ DewfordTown_PokemonCenter_1F_EventScript_Man::
 	end
 
 DewfordTown_PokemonCenter_1F_Text_StoneCavern:
-	.string " una grotta di pietra appena\n"
+	.string "C’è una grotta di pietra appena\n"
 	.string "fuori città.\p"
 	.string "Ho sentito dire che lì si possono\n"
 	.string "trovare pietre rare.$"

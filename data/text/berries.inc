@@ -1,5 +1,5 @@
 PetalburgCity_Gym_Text_GiveEnigmaBerry:
-	.string "Ciao, {PLAYER}!\p"
+	.string "PAPÀ: Ciao, {PLAYER}!\p"
 	.string "Ho appena ricevuto una BACCA molto\n"
 	.string "rara. Vorrei che la prendessi tu!$"
 

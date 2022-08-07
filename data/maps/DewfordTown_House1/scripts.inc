@@ -20,7 +20,7 @@ DewfordTown_House1_EventScript_Zigzagoon::
 	end
 
 DewfordTown_House1_Text_LotToBeSaidForLivingOnIsland:
-	.string " molto da dire sulla vita su\n"
+	.string "C’è molto da dire sulla vita su\n"
 	.string "un’isoletta come questa, in perfetta\l"
 	.string "armonia con i POKéMON e la famiglia.$"
 
