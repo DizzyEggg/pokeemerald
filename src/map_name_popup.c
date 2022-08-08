@@ -177,14 +177,14 @@ static const u8 sRegionMapSectionId_To_PopUpThemeIdMapping[] =
     [MAPSEC_TRAINER_HILL - KANTO_MAPSEC_COUNT] = MAPPOPUP_THEME_MARBLE
 };
 
-static const u8 sText_PyramidFloor1[] = _("PYRAMIDE Niv.1");
-static const u8 sText_PyramidFloor2[] = _("PYRAMIDE Niv.2");
-static const u8 sText_PyramidFloor3[] = _("PYRAMIDE Niv.3");
-static const u8 sText_PyramidFloor4[] = _("PYRAMIDE Niv.4");
-static const u8 sText_PyramidFloor5[] = _("PYRAMIDE Niv.5");
-static const u8 sText_PyramidFloor6[] = _("PYRAMIDE Niv.6");
-static const u8 sText_PyramidFloor7[] = _("PYRAMIDE Niv.7");
-static const u8 sText_Pyramid[] = _("PYRAMIDE");
+static const u8 sText_PyramidFloor1[] = _("PIRAMIDE 1º P.");
+static const u8 sText_PyramidFloor2[] = _("PIRAMIDE 2º P.");
+static const u8 sText_PyramidFloor3[] = _("PIRAMIDE 3º P.");
+static const u8 sText_PyramidFloor4[] = _("PIRAMIDE 4º P.");
+static const u8 sText_PyramidFloor5[] = _("PIRAMIDE 5º P.");
+static const u8 sText_PyramidFloor6[] = _("PIRAMIDE 6º P.");
+static const u8 sText_PyramidFloor7[] = _("PIRAMIDE 7º P.");
+static const u8 sText_Pyramid[] = _("PIRAMIDE");
 
 static const u8 * const sBattlePyramid_MapHeaderStrings[FRONTIER_STAGES_PER_CHALLENGE + 1] =
 {

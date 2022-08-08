@@ -448,12 +448,6 @@ static const union AnimCmd sSpriteAnim_MenuText[] =
     ANIMCMD_END
 };
 
-static const union AnimCmd sSpriteAnim_Unused[] =
-{
-    ANIMCMD_FRAME(200, 30),
-    ANIMCMD_END
-};
-
 static const union AnimCmd sSpriteAnim_SeenText[] =
 {
     ANIMCMD_FRAME(64, 30),
@@ -625,11 +619,6 @@ static const union AnimCmd *const sSpriteAnimTable_InterfaceText[] =
     sSpriteAnim_SearchText,
     sSpriteAnim_SelectButton,
     sSpriteAnim_MenuText
-};
-
-static const union AnimCmd *const sSpriteAnimTable_Unused[] =
-{
-    sSpriteAnim_Unused
 };
 
 static const union AnimCmd *const sSpriteAnimTable_SeenOwnText[] =
