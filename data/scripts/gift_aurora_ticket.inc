@@ -35,23 +35,23 @@ AuroraTicket_Obtained:
 	end
 
 sText_AuroraTicketForYou:
-	.string "Merci d’utiliser le système\n"
-	.string "CADEAU MYST.\p"
-	.string "Vous devez être {PLAYER}.\n"
-	.string "Il y a un ticket pour vous.$"
+	.string "Grazie per usare il Sistema\n"
+	.string "DONO SEGRETO.\p"
+	.string "Tu sei {PLAYER}, vero? Ho qui\n"
+	.string "un biglietto per te.$"
 
 sText_AuroraTicketUseAtPort:
-	.string "Il peut être utilisé au port de\n"
-	.string "NENUCRIQUE.\p"
-	.string "Essayez-le pour voir de quoi \n"
-	.string "il s’agit.$"
+	.string "Dovrebbe servirti allo scalo di\n"
+	.string "PORTO ALGHEPOLI.\p"
+	.string "Ti conviene andare a vedere\n"
+	.string "di persona.$"
 
 sText_AuroraTicketThankYou:
-	.string "Merci d’utiliser le système\n"
-	.string "CADEAU MYST.$"
+	.string "Grazie per usare il Sistema\n"
+	.string "DONO SEGRETO.$"
 
 sText_AuroraTicketBagFull:
-	.string "Oh, je regrette, {PLAYER}. La POCHE\n"
-	.string "OBJ. RARES du SAC est pleine.\p"
-	.string "Faites de la place dans votre SAC\n"
-	.string "et revenez me voir.$"
+	.string "Oh, mi spiace. La TASCA STRUMENTI\n"
+	.string "BASE del tuo ZAINO è piena.\p"
+	.string "Torna a trovarmi dopo aver\n"
+	.string "depositato qualcosa nel PC.$"
