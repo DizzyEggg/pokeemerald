@@ -761,7 +761,7 @@ static void ShowLeftHeaderSprites(u32 startY, bool32 isOnRightSide)
     if (!isOnRightSide)
         start = -96, end = 32;
     else
-        start = 256, end = 144;
+        start = 256, end = 160;
 
     for (i = 0; i < (s32)ARRAY_COUNT(menu->leftHeaderSprites); i++)
     {

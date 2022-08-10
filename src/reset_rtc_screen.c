@@ -388,7 +388,7 @@ static void ShowChooseTimeWindow(u8 windowId, u16 days, u8 hours, u8 minutes, u8
 {
     DrawStdFrameWithCustomTileAndPalette(windowId, FALSE, 0x214, 0xE);
     PrintTime(windowId, 0, 1, days, hours, minutes, seconds);
-    AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Confirm2, 126, 1, 0, NULL);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Confirm2, 156, 1, 0, NULL);
     ScheduleBgCopyTilemapToVram(0);
 }
 

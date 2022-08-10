@@ -4770,7 +4770,7 @@ static void ShowResults(void)
     case 2:
         FillWindowPixelBuffer(sGfx->windowIds[0], PIXEL_FILL(1));
         FillWindowPixelBuffer(sGfx->windowIds[1], PIXEL_FILL(1));
-        strWidth = GetStringWidth(FONT_NORMAL, gText_BerryPickingResults, -1);
+        strWidth = GetStringWidth(FONT_NARROW, gText_BerryPickingResults, -1);
         x = (224 - strWidth) / 2;
         AddTextPrinterParameterized(sGfx->windowIds[0], FONT_NARROW, gText_BerryPickingResults, x, 1, TEXT_SKIP_DRAW, NULL);
         AddTextPrinterParameterized(sGfx->windowIds[1], FONT_NORMAL, gText_10P30P50P50P, 68, 17, TEXT_SKIP_DRAW, NULL);
@@ -4824,9 +4824,9 @@ static void ShowResults(void)
     case 5:
         FillWindowPixelBuffer(sGfx->windowIds[0], PIXEL_FILL(1));
         FillWindowPixelBuffer(sGfx->windowIds[1], PIXEL_FILL(1));
-        strWidth = GetStringWidth(FONT_NORMAL, gText_AnnouncingRankings, -1);
+        strWidth = GetStringWidth(FONT_NARROW, gText_AnnouncingRankings, -1);
         x = (224 - strWidth) / 2;
-        AddTextPrinterParameterized(sGfx->windowIds[0], FONT_NORMAL, gText_AnnouncingRankings, x, 1, TEXT_SKIP_DRAW, NULL);
+        AddTextPrinterParameterized(sGfx->windowIds[0], FONT_NARROW, gText_AnnouncingRankings, x, 1, TEXT_SKIP_DRAW, NULL);
         sGfx->state++;
         break;
     case 6:
@@ -4870,9 +4870,9 @@ static void ShowResults(void)
         PlayNewMapMusic(MUS_LEVEL_UP);
         FillWindowPixelBuffer(sGfx->windowIds[0], PIXEL_FILL(1));
         FillWindowPixelBuffer(sGfx->windowIds[1], PIXEL_FILL(1));
-        strWidth = GetStringWidth(FONT_NORMAL, gText_AnnouncingPrizes, -1);
+        strWidth = GetStringWidth(FONT_NARROW, gText_AnnouncingPrizes, -1);
         x = (224 - strWidth) / 2;
-        AddTextPrinterParameterized(sGfx->windowIds[0], FONT_NORMAL, gText_AnnouncingPrizes, x, 1, TEXT_SKIP_DRAW, NULL);
+        AddTextPrinterParameterized(sGfx->windowIds[0], FONT_NARROW, gText_AnnouncingPrizes, x, 1, TEXT_SKIP_DRAW, NULL);
         DynamicPlaceholderTextUtil_Reset();
         CopyItemName(GetPrizeItemId(), gStringVar1);
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);

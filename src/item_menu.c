@@ -2533,7 +2533,7 @@ static void DisplayCurrentMoneyWindow(void)
 {
     u8 windowId = BagMenu_AddWindow(ITEMWIN_MONEY);
     PrintMoneyAmountInMoneyBoxWithBorder(windowId, 1, 14, GetMoney(&gSaveBlock1Ptr->money));
-    AddMoneyLabelObject(24, 11);
+    AddMoneyLabelObject(19, 11);
 }
 
 static void RemoveMoneyWindow(void)
