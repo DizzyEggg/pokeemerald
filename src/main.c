@@ -33,9 +33,9 @@ static void IntrDummy(void);
 
 const u8 gGameVersion = GAME_VERSION;
 
-const u8 gGameLanguage = GAME_LANGUAGE; // English
+const u8 gGameLanguage = GAME_LANGUAGE; // Italian
 
-const char BuildDateTime[] = "2005 07 01 18:30";
+const char BuildDateTime[] = "2005 07 07 18:00";
 
 const IntrFunc gIntrTableTemplate[] =
 {

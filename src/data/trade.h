@@ -1005,7 +1005,7 @@ const struct InGameTrade sIngameTrades[] =
 {
     [INGAME_TRADE_SEEDOT] =
     {
-        .nickname = _("PIPIO"),
+        .nickname = _("DOTS"),
         .species = SPECIES_SEEDOT,
         .ivs = {5, 4, 5, 4, 4, 4},
         .abilityNum = 1,
@@ -1014,14 +1014,14 @@ const struct InGameTrade sIngameTrades[] =
         .personality = 0x84,
         .heldItem = ITEM_CHESTO_BERRY,
         .mailNum = -1,
-        .otName = _("KOBE"),
+        .otName = _("KIKO"),
         .otGender = MALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_RALTS
     },
     [INGAME_TRADE_PLUSLE] =
     {
-        .nickname = _("SIPO"),
+        .nickname = _("PLUSES"),
         .species = SPECIES_PLUSLE,
         .ivs = {4, 4, 4, 5, 5, 4},
         .abilityNum = 0,
@@ -1030,14 +1030,14 @@ const struct InGameTrade sIngameTrades[] =
         .personality = 0x6F,
         .heldItem = ITEM_WOOD_MAIL,
         .mailNum = 0,
-        .otName = _("ALBAN"),
+        .otName = _("ROMAN"),
         .otGender = MALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_VOLBEAT
     },
     [INGAME_TRADE_HORSEA] =
     {
-        .nickname = _("HYPY"),
+        .nickname = _("SEASOR"),
         .species = SPECIES_HORSEA,
         .ivs = {5, 4, 4, 4, 5, 4},
         .abilityNum = 0,
@@ -1046,14 +1046,14 @@ const struct InGameTrade sIngameTrades[] =
         .personality = 0x7F,
         .heldItem = ITEM_WAVE_MAIL,
         .mailNum = 1,
-        .otName = _("LUDOVIC"),
+        .otName = _("SERGINO"),
         .otGender = MALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_BAGON
     },
     [INGAME_TRADE_MEOWTH] =
     {
-        .nickname = _("GNAGNAA"),
+        .nickname = _("MEOWOW"),
         .species = SPECIES_MEOWTH,
         .ivs = {4, 5, 4, 5, 4, 4},
         .abilityNum = 0,
@@ -1072,35 +1072,35 @@ const struct InGameTrade sIngameTrades[] =
 const u16 sIngameTradeMail[][MAIL_WORDS_COUNT + 1] =
 {
     {
-        EC_WORD_LET_S,
-        EC_WORD_NICE,
-        EC_WORD_WITH,
+        EC_WORD_OVERDO,
+        EC_WORD_CONCEDE,
+        EC_WORD_MEET,
+        EC_WORD_LAY,
         EC_POKEMON(PLUSLE),
-        EC_WORD_AND,
+        EC_WORD_EXCL_EXCL,
         EC_POKEMON(VOLBEAT),
         EC_WORD_IS,
-        EC_WORD_FANTASTIC,
-        EC_EMPTY_WORD
+        EC_WORD_BORED,
     }, {
-        EC_POKEMON(BAGON),
-        EC_WORD_IS,
-        EC_WORD_TOUGH,
-        EC_WORD_EXCL,
-        EC_WORD_TRAINS,
+        EC_WORD_WHICH,
+        EC_WORD_LIKES,
         EC_POKEMON(HORSEA),
-        EC_WORD_PLEASE,
-        EC_WORD_EXCL,
-        EC_EMPTY_WORD
+        EC_WORD_QUES,
+        EC_WORD_NOW,
+        EC_WORD_ARE,
+        EC_WORD_TRAINER,
+        EC_WORD_LISTEN,
+        EC_POKEMON(BAGON),
     }, {
-        EC_WORD_THANK_YOU,
-        EC_WORD_FOR,
+        EC_WORD_THANKS,
+        EC_WORD_NITWIT,
         EC_POKEMON(SKITTY),
-        EC_EMPTY_WORD,
+        EC_WORD_EXCL,
         EC_POKEMON_NATIONAL(MEOWTH),
-        EC_WORD_EVEN_SO,
-        EC_WORD_A,
-        EC_WORD_SUPER,
-        EC_WORD_CRY
+        EC_WORD_IS,
+        EC_WORD_PERFECT,
+        EC_WORD_BEAUTIFUL,
+        EC_EMPTY_WORD,
     }
 };
 

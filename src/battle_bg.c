@@ -555,9 +555,9 @@ static const struct WindowTemplate sBattleArenaWindowTemplates[] =
     },
     [ARENA_WIN_SKILL] = {
         .bg = 0,
-        .tilemapLeft = 11,
+        .tilemapLeft = 12,
         .tilemapTop = 6,
-        .width = 8,
+        .width = 6,
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x0130,
@@ -569,7 +569,7 @@ static const struct WindowTemplate sBattleArenaWindowTemplates[] =
         .width = 6,
         .height = 2,
         .paletteNum = 5,
-        .baseBlock = 0x0140,
+        .baseBlock = 0x013C,
     },
     [ARENA_WIN_JUDGEMENT_TITLE] = {
         .bg = 0,
@@ -578,7 +578,7 @@ static const struct WindowTemplate sBattleArenaWindowTemplates[] =
         .width = 14,
         .height = 2,
         .paletteNum = 5,
-        .baseBlock = 0x014C,
+        .baseBlock = 0x0148,
     },
     [ARENA_WIN_JUDGEMENT_TEXT] = {
         .bg = 0,
