@@ -1624,7 +1624,7 @@ const u16 gCryMeter_Pal[] = INCBIN_U16("graphics/pokedex/cry_meter.gbapal");
 const u8 gCryMeter_Gfx[] = INCBIN_U8("graphics/pokedex/cry_meter.4bpp.lz");
 
 // random garbage at the end.
-static const u8 sEmpty3[0x4EA98] = {0};
+static const u8 sEmpty3[0x4EC30] = {0};
 static const u8 sUnused1[]       = {0x0D, 0x00, 0x58, 0x02};
 static const u8 sEmpty4[0x1145]  = {0};
 static const u8 sUnused2[]       = {0x02};
