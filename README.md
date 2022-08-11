@@ -1,10 +1,10 @@
-# Pokémon Émeraude
+# Pokémon Smeraldo
 
-This is a decompilation of Pokémon Émeraude(Pokémon Emerald French version).
+This is a decompilation of Pokémon Smeraldo(Pokémon Emerald Italian version).
 
 It builds the following ROM:
 
-* [**pokeemerald_fr.gba**](https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1961) `sha1: ca666651374d89ca439007bed54d839eb7bd14d0`
+* [**pokeemerald_it.gba**](https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1961) `sha1: 1692db322400c3141c5de2db38469913ceb1f4d4`
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
