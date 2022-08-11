@@ -29,17 +29,17 @@ const u8 gEasyChatWord_Emerald[] = _("SMERALDO");
 const struct EasyChatWordInfo gEasyChatGroup_Trainer[] = {
     {
         .text = gEasyChatWord_IChooseYou,
-        .alphabeticalOrder = 25,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Gotcha,
         .alphabeticalOrder = 10,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_Gotcha,
+        .alphabeticalOrder = 11,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_Trade,
-        .alphabeticalOrder = 0,
+        .alphabeticalOrder = 25,
         .enabled = TRUE,
     },
     {
@@ -49,117 +49,117 @@ const struct EasyChatWordInfo gEasyChatGroup_Trainer[] = {
     },
     {
         .text = gEasyChatWord_Evolve,
-        .alphabeticalOrder = 9,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Encyclopedia,
-        .alphabeticalOrder = 11,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Nature,
-        .alphabeticalOrder = 2,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Center,
-        .alphabeticalOrder = 26,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Egg,
         .alphabeticalOrder = 5,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Link,
+        .text = gEasyChatWord_Encyclopedia,
         .alphabeticalOrder = 4,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_SpAbility,
-        .alphabeticalOrder = 24,
+        .text = gEasyChatWord_Nature,
+        .alphabeticalOrder = 0,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Trainer,
+        .text = gEasyChatWord_Center,
         .alphabeticalOrder = 22,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Version,
-        .alphabeticalOrder = 1,
+        .text = gEasyChatWord_Egg,
+        .alphabeticalOrder = 24,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Pokenav,
-        .alphabeticalOrder = 6,
+        .text = gEasyChatWord_Link,
+        .alphabeticalOrder = 9,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Pokemon,
+        .text = gEasyChatWord_SpAbility,
         .alphabeticalOrder = 18,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Get,
-        .alphabeticalOrder = 15,
+        .text = gEasyChatWord_Trainer,
+        .alphabeticalOrder = 6,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Pokedex,
-        .alphabeticalOrder = 8,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Ruby,
+        .text = gEasyChatWord_Version,
         .alphabeticalOrder = 23,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Level,
+        .text = gEasyChatWord_Pokenav,
+        .alphabeticalOrder = 15,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Pokemon,
         .alphabeticalOrder = 16,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Red,
+        .text = gEasyChatWord_Get,
         .alphabeticalOrder = 14,
-        .enabled = FALSE,
+        .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Green,
+        .text = gEasyChatWord_Pokedex,
         .alphabeticalOrder = 13,
-        .enabled = FALSE,
+        .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Bag,
+        .text = gEasyChatWord_Ruby,
+        .alphabeticalOrder = 1,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Level,
         .alphabeticalOrder = 19,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Flame,
+        .text = gEasyChatWord_Red,
         .alphabeticalOrder = 17,
         .enabled = FALSE,
     },
     {
+        .text = gEasyChatWord_Green,
+        .alphabeticalOrder = 2,
+        .enabled = FALSE,
+    },
+    {
+        .text = gEasyChatWord_Bag,
+        .alphabeticalOrder = 26,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Flame,
+        .alphabeticalOrder = 8,
+        .enabled = FALSE,
+    },
+    {
         .text = gEasyChatWord_Gold,
-        .alphabeticalOrder = 21,
+        .alphabeticalOrder = 20,
         .enabled = FALSE,
     },
     {
         .text = gEasyChatWord_Leaf,
-        .alphabeticalOrder = 3,
-        .enabled = FALSE,
-    },
-    {
-        .text = gEasyChatWord_Silver,
         .alphabeticalOrder = 12,
         .enabled = FALSE,
     },
     {
+        .text = gEasyChatWord_Silver,
+        .alphabeticalOrder = 3,
+        .enabled = FALSE,
+    },
+    {
         .text = gEasyChatWord_Emerald,
-        .alphabeticalOrder = 20,
+        .alphabeticalOrder = 21,
         .enabled = TRUE,
     },
 };

@@ -38,12 +38,12 @@ static EWRAM_DATA struct MauvilleManStoryteller * sStorytellerPtr = NULL;
 static EWRAM_DATA u8 sStorytellerWindowId = 0;
 
 static const u16 sDefaultBardSongLyrics[BARD_SONG_LENGTH] = {
-    EC_WORD_FEELING,
-    EC_WORD_DIET,
-    EC_WORD_IT_S,
-    EC_EMPTY_WORD,
-    EC_WORD_COOL,
-    EC_EMPTY_WORD
+    EC_WORD_DANCE,
+    EC_WORD_WHICH,
+    EC_WORD_PLAYED,
+    EC_WORD_MAGAZINE,
+    EC_WORD_LISTEN,
+    EC_WORD_PLUS,
 };
 
 static const u8 * const sGiddyAdjectives[] = {

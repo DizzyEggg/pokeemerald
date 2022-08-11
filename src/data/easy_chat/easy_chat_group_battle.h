@@ -65,87 +65,87 @@ const u8 gEasyChatWord_Move[] = _("MOSSA");
 const struct EasyChatWordInfo gEasyChatGroup_Battle[] = {
     {
         .text = gEasyChatWord_MatchUp,
-        .alphabeticalOrder = 45,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Go,
-        .alphabeticalOrder = 53,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_No1,
         .alphabeticalOrder = 1,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Decide,
-        .alphabeticalOrder = 17,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_LetMeWin,
+        .text = gEasyChatWord_Go,
         .alphabeticalOrder = 18,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_No1,
+        .alphabeticalOrder = 27,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Decide,
+        .alphabeticalOrder = 16,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_LetMeWin,
+        .alphabeticalOrder = 55,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_Wins,
-        .alphabeticalOrder = 15,
+        .alphabeticalOrder = 60,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Win,
-        .alphabeticalOrder = 9,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Won,
-        .alphabeticalOrder = 39,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_IfIWin,
-        .alphabeticalOrder = 62,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_WhenIWin,
-        .alphabeticalOrder = 41,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_CantWin,
-        .alphabeticalOrder = 28,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_CanWin,
-        .alphabeticalOrder = 20,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_NoMatch,
-        .alphabeticalOrder = 3,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Spirit,
-        .alphabeticalOrder = 46,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Decided,
-        .alphabeticalOrder = 31,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_TrumpCard,
         .alphabeticalOrder = 14,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_Won,
+        .alphabeticalOrder = 51,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_IfIWin,
+        .alphabeticalOrder = 0,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_WhenIWin,
+        .alphabeticalOrder = 28,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_CantWin,
+        .alphabeticalOrder = 57,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_CanWin,
+        .alphabeticalOrder = 56,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_NoMatch,
+        .alphabeticalOrder = 50,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Spirit,
+        .alphabeticalOrder = 41,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Decided,
+        .alphabeticalOrder = 32,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_TrumpCard,
+        .alphabeticalOrder = 33,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_TakeThat,
-        .alphabeticalOrder = 29,
+        .alphabeticalOrder = 17,
         .enabled = TRUE,
     },
     {
@@ -155,167 +155,167 @@ const struct EasyChatWordInfo gEasyChatGroup_Battle[] = {
     },
     {
         .text = gEasyChatWord_Attack,
-        .alphabeticalOrder = 10,
+        .alphabeticalOrder = 20,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Surrender,
-        .alphabeticalOrder = 35,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Gutsy,
-        .alphabeticalOrder = 13,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Talent,
-        .alphabeticalOrder = 56,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Strategy,
-        .alphabeticalOrder = 57,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Smite,
-        .alphabeticalOrder = 32,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Match,
-        .alphabeticalOrder = 26,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Victory,
-        .alphabeticalOrder = 5,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Offensive,
-        .alphabeticalOrder = 6,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Sense,
-        .alphabeticalOrder = 36,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Versus,
-        .alphabeticalOrder = 11,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Fights,
-        .alphabeticalOrder = 54,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Power,
-        .alphabeticalOrder = 60,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Challenge,
-        .alphabeticalOrder = 37,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Strong,
-        .alphabeticalOrder = 40,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_TooStrong,
         .alphabeticalOrder = 24,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_GoEasy,
-        .alphabeticalOrder = 2,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Foe,
+        .text = gEasyChatWord_Gutsy,
         .alphabeticalOrder = 59,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Genius,
-        .alphabeticalOrder = 51,
+        .text = gEasyChatWord_Talent,
+        .alphabeticalOrder = 9,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Legend,
-        .alphabeticalOrder = 49,
+        .text = gEasyChatWord_Strategy,
+        .alphabeticalOrder = 54,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Escape,
-        .alphabeticalOrder = 48,
+        .text = gEasyChatWord_Smite,
+        .alphabeticalOrder = 40,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Aim,
-        .alphabeticalOrder = 43,
+        .text = gEasyChatWord_Match,
+        .alphabeticalOrder = 3,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Battle,
-        .alphabeticalOrder = 16,
+        .text = gEasyChatWord_Victory,
+        .alphabeticalOrder = 29,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Fight,
-        .alphabeticalOrder = 30,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Resuscitate,
-        .alphabeticalOrder = 55,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Points,
-        .alphabeticalOrder = 52,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Serious,
-        .alphabeticalOrder = 42,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_GiveUp,
-        .alphabeticalOrder = 7,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Loss,
+        .text = gEasyChatWord_Offensive,
         .alphabeticalOrder = 19,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_IfILose,
-        .alphabeticalOrder = 27,
+        .text = gEasyChatWord_Sense,
+        .alphabeticalOrder = 21,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Lost,
+        .text = gEasyChatWord_Versus,
+        .alphabeticalOrder = 62,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Fights,
+        .alphabeticalOrder = 2,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Power,
+        .alphabeticalOrder = 35,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Challenge,
+        .alphabeticalOrder = 12,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Strong,
+        .alphabeticalOrder = 10,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_TooStrong,
+        .alphabeticalOrder = 26,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_GoEasy,
         .alphabeticalOrder = 44,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_Foe,
+        .alphabeticalOrder = 47,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Genius,
+        .alphabeticalOrder = 23,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Legend,
+        .alphabeticalOrder = 36,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Escape,
+        .alphabeticalOrder = 53,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Aim,
+        .alphabeticalOrder = 49,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Battle,
+        .alphabeticalOrder = 45,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Fight,
+        .alphabeticalOrder = 48,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Resuscitate,
+        .alphabeticalOrder = 30,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Points,
+        .alphabeticalOrder = 43,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Serious,
+        .alphabeticalOrder = 52,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_GiveUp,
+        .alphabeticalOrder = 42,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Loss,
+        .alphabeticalOrder = 61,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_IfILose,
+        .alphabeticalOrder = 46,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Lost,
+        .alphabeticalOrder = 31,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_Lose,
-        .alphabeticalOrder = 8,
+        .alphabeticalOrder = 15,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Guard,
-        .alphabeticalOrder = 47,
+        .alphabeticalOrder = 34,
         .enabled = TRUE,
     },
     {
@@ -325,57 +325,57 @@ const struct EasyChatWordInfo gEasyChatGroup_Battle[] = {
     },
     {
         .text = gEasyChatWord_Reject,
-        .alphabeticalOrder = 21,
+        .alphabeticalOrder = 11,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Accept,
-        .alphabeticalOrder = 0,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Invincible,
         .alphabeticalOrder = 4,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_Invincible,
+        .alphabeticalOrder = 5,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_Received,
-        .alphabeticalOrder = 34,
+        .alphabeticalOrder = 8,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Easy,
-        .alphabeticalOrder = 58,
+        .alphabeticalOrder = 39,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Weak,
-        .alphabeticalOrder = 33,
+        .alphabeticalOrder = 13,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_TooWeak,
-        .alphabeticalOrder = 12,
+        .alphabeticalOrder = 37,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Pushover,
-        .alphabeticalOrder = 25,
+        .alphabeticalOrder = 6,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Leader,
-        .alphabeticalOrder = 50,
+        .alphabeticalOrder = 58,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Rule,
-        .alphabeticalOrder = 23,
+        .alphabeticalOrder = 7,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Move,
-        .alphabeticalOrder = 61,
+        .alphabeticalOrder = 25,
         .enabled = TRUE,
     },
 };

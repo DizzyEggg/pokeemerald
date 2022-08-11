@@ -70,117 +70,117 @@ const struct EasyChatWordInfo gEasyChatGroup_Voices[] = {
     },
     {
         .text = gEasyChatWord_ExclExcl,
-        .alphabeticalOrder = 1,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_QuesExcl,
-        .alphabeticalOrder = 7,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Ques,
-        .alphabeticalOrder = 8,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Ellipsis,
-        .alphabeticalOrder = 4,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_EllipsisExcl,
-        .alphabeticalOrder = 5,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_EllipsisEllipsisEllipsis,
         .alphabeticalOrder = 6,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Dash,
+        .text = gEasyChatWord_QuesExcl,
+        .alphabeticalOrder = 5,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Ques,
+        .alphabeticalOrder = 7,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Ellipsis,
+        .alphabeticalOrder = 1,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_EllipsisExcl,
+        .alphabeticalOrder = 4,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_EllipsisEllipsisEllipsis,
         .alphabeticalOrder = 3,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_DashDashDash,
+        .text = gEasyChatWord_Dash,
         .alphabeticalOrder = 2,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_DashDashDash,
+        .alphabeticalOrder = 39,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_UhOh,
-        .alphabeticalOrder = 28,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Waaah,
-        .alphabeticalOrder = 17,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Ahaha,
-        .alphabeticalOrder = 27,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_OhQues,
-        .alphabeticalOrder = 52,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Nope,
-        .alphabeticalOrder = 40,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Urgh,
-        .alphabeticalOrder = 35,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Hmm,
-        .alphabeticalOrder = 25,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Whoah,
-        .alphabeticalOrder = 34,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_WroooaarExcl,
-        .alphabeticalOrder = 23,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Wow,
-        .alphabeticalOrder = 51,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Giggle,
-        .alphabeticalOrder = 19,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Sigh,
-        .alphabeticalOrder = 33,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Unbelievable,
-        .alphabeticalOrder = 50,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Cries,
         .alphabeticalOrder = 38,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Agree,
+        .text = gEasyChatWord_Waaah,
         .alphabeticalOrder = 11,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Ahaha,
+        .alphabeticalOrder = 40,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_OhQues,
+        .alphabeticalOrder = 34,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Nope,
+        .alphabeticalOrder = 62,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Urgh,
+        .alphabeticalOrder = 8,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Hmm,
+        .alphabeticalOrder = 27,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Whoah,
+        .alphabeticalOrder = 42,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_WroooaarExcl,
+        .alphabeticalOrder = 31,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Wow,
+        .alphabeticalOrder = 52,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Giggle,
+        .alphabeticalOrder = 46,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Sigh,
+        .alphabeticalOrder = 23,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Unbelievable,
+        .alphabeticalOrder = 35,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Cries,
+        .alphabeticalOrder = 48,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Agree,
+        .alphabeticalOrder = 24,
         .enabled = TRUE,
     },
     {
@@ -195,92 +195,92 @@ const struct EasyChatWordInfo gEasyChatGroup_Voices[] = {
     },
     {
         .text = gEasyChatWord_Ehehe,
-        .alphabeticalOrder = 48,
+        .alphabeticalOrder = 47,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_OiOiOi,
-        .alphabeticalOrder = 59,
+        .alphabeticalOrder = 16,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_OhYeah,
-        .alphabeticalOrder = 44,
+        .alphabeticalOrder = 41,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Oh,
-        .alphabeticalOrder = 53,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Oops,
-        .alphabeticalOrder = 49,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Shocked,
-        .alphabeticalOrder = 31,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Eek,
-        .alphabeticalOrder = 12,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Graaah,
         .alphabeticalOrder = 43,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Gwahahaha,
-        .alphabeticalOrder = 46,
+        .text = gEasyChatWord_Oops,
+        .alphabeticalOrder = 33,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Way,
-        .alphabeticalOrder = 9,
+        .text = gEasyChatWord_Shocked,
+        .alphabeticalOrder = 17,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Tch,
-        .alphabeticalOrder = 15,
+        .text = gEasyChatWord_Eek,
+        .alphabeticalOrder = 61,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Hehe,
+        .text = gEasyChatWord_Graaah,
         .alphabeticalOrder = 21,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Hah,
+        .text = gEasyChatWord_Gwahahaha,
         .alphabeticalOrder = 57,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Yup,
+        .text = gEasyChatWord_Way,
+        .alphabeticalOrder = 60,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Tch,
         .alphabeticalOrder = 54,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Hahaha,
-        .alphabeticalOrder = 55,
+        .text = gEasyChatWord_Hehe,
+        .alphabeticalOrder = 53,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Aiyeeh,
+        .text = gEasyChatWord_Hah,
         .alphabeticalOrder = 13,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Hiyah,
+        .text = gEasyChatWord_Yup,
         .alphabeticalOrder = 29,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_Hahaha,
+        .alphabeticalOrder = 12,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Aiyeeh,
+        .alphabeticalOrder = 51,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Hiyah,
+        .alphabeticalOrder = 44,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_Fufufu,
-        .alphabeticalOrder = 56,
+        .alphabeticalOrder = 59,
         .enabled = TRUE,
     },
     {
@@ -290,22 +290,22 @@ const struct EasyChatWordInfo gEasyChatGroup_Voices[] = {
     },
     {
         .text = gEasyChatWord_Snort,
-        .alphabeticalOrder = 62,
+        .alphabeticalOrder = 9,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Humph,
-        .alphabeticalOrder = 42,
+        .alphabeticalOrder = 49,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Hehehe,
-        .alphabeticalOrder = 32,
+        .alphabeticalOrder = 28,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Heh,
-        .alphabeticalOrder = 61,
+        .alphabeticalOrder = 56,
         .enabled = TRUE,
     },
     {
@@ -315,67 +315,67 @@ const struct EasyChatWordInfo gEasyChatGroup_Voices[] = {
     },
     {
         .text = gEasyChatWord_UhHuh,
-        .alphabeticalOrder = 22,
+        .alphabeticalOrder = 32,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_OhDear,
-        .alphabeticalOrder = 36,
+        .alphabeticalOrder = 19,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Arrgh,
-        .alphabeticalOrder = 24,
+        .alphabeticalOrder = 36,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Mufufu,
-        .alphabeticalOrder = 45,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Mmm,
         .alphabeticalOrder = 20,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_Mmm,
+        .alphabeticalOrder = 45,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_OhKay,
-        .alphabeticalOrder = 14,
+        .alphabeticalOrder = 15,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Okay,
-        .alphabeticalOrder = 47,
+        .alphabeticalOrder = 50,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Lalala,
-        .alphabeticalOrder = 16,
+        .alphabeticalOrder = 14,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Yay,
-        .alphabeticalOrder = 60,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Aww,
-        .alphabeticalOrder = 18,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Wowee,
         .alphabeticalOrder = 58,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_Aww,
+        .alphabeticalOrder = 55,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Wowee,
+        .alphabeticalOrder = 22,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_Gwah,
-        .alphabeticalOrder = 41,
+        .alphabeticalOrder = 25,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Wahahaha,
-        .alphabeticalOrder = 39,
+        .alphabeticalOrder = 18,
         .enabled = TRUE,
     },
 };

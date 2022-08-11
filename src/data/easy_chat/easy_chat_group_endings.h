@@ -71,252 +71,252 @@ const u8 gEasyChatWord_Anywhere[] = _("QUESTI");
 const struct EasyChatWordInfo gEasyChatGroup_Endings[] = {
     {
         .text = gEasyChatWord_Will,
-        .alphabeticalOrder = 50,
+        .alphabeticalOrder = 8,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_WillBeHere,
-        .alphabeticalOrder = 40,
+        .alphabeticalOrder = 9,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Or,
-        .alphabeticalOrder = 26,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Times,
-        .alphabeticalOrder = 14,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Wonder,
-        .alphabeticalOrder = 48,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_IsItQues,
-        .alphabeticalOrder = 30,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Be,
-        .alphabeticalOrder = 64,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Gimme,
-        .alphabeticalOrder = 18,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Could,
-        .alphabeticalOrder = 4,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_LikelyTo,
-        .alphabeticalOrder = 5,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Would,
-        .alphabeticalOrder = 7,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Is,
-        .alphabeticalOrder = 63,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_IsntItQues,
-        .alphabeticalOrder = 52,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Lets,
-        .alphabeticalOrder = 56,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Other,
-        .alphabeticalOrder = 51,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Are,
-        .alphabeticalOrder = 46,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Was,
-        .alphabeticalOrder = 1,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Were,
-        .alphabeticalOrder = 65,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Those,
-        .alphabeticalOrder = 55,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Isnt,
-        .alphabeticalOrder = 25,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Wont,
-        .alphabeticalOrder = 11,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Cant,
         .alphabeticalOrder = 17,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Can,
-        .alphabeticalOrder = 16,
+        .text = gEasyChatWord_Times,
+        .alphabeticalOrder = 4,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Dont,
-        .alphabeticalOrder = 6,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Do,
-        .alphabeticalOrder = 60,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Does,
-        .alphabeticalOrder = 39,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Whom,
-        .alphabeticalOrder = 61,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Which,
-        .alphabeticalOrder = 20,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Wasnt,
-        .alphabeticalOrder = 3,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Werent,
-        .alphabeticalOrder = 35,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Have,
-        .alphabeticalOrder = 59,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Havent,
-        .alphabeticalOrder = 21,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_A,
-        .alphabeticalOrder = 58,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_An,
-        .alphabeticalOrder = 23,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Not,
-        .alphabeticalOrder = 24,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_There,
-        .alphabeticalOrder = 22,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_OkQues,
-        .alphabeticalOrder = 0,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_So,
-        .alphabeticalOrder = 54,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Maybe,
-        .alphabeticalOrder = 28,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_About,
-        .alphabeticalOrder = 27,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Over,
-        .alphabeticalOrder = 31,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_It,
-        .alphabeticalOrder = 29,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_All,
-        .alphabeticalOrder = 49,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_For,
-        .alphabeticalOrder = 19,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_On,
-        .alphabeticalOrder = 12,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Off,
+        .text = gEasyChatWord_Wonder,
         .alphabeticalOrder = 36,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_As,
-        .alphabeticalOrder = 66,
+        .text = gEasyChatWord_IsItQues,
+        .alphabeticalOrder = 14,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_To,
-        .alphabeticalOrder = 2,
+        .text = gEasyChatWord_Be,
+        .alphabeticalOrder = 11,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_With,
+        .text = gEasyChatWord_Gimme,
+        .alphabeticalOrder = 31,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Could,
+        .alphabeticalOrder = 30,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_LikelyTo,
+        .alphabeticalOrder = 0,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Would,
+        .alphabeticalOrder = 10,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Is,
+        .alphabeticalOrder = 5,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_IsntItQues,
+        .alphabeticalOrder = 42,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Lets,
+        .alphabeticalOrder = 41,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Other,
+        .alphabeticalOrder = 12,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Are,
+        .alphabeticalOrder = 43,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Was,
+        .alphabeticalOrder = 29,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Were,
+        .alphabeticalOrder = 39,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Those,
+        .alphabeticalOrder = 18,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Isnt,
+        .alphabeticalOrder = 38,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Wont,
+        .alphabeticalOrder = 28,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Cant,
+        .alphabeticalOrder = 22,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Can,
+        .alphabeticalOrder = 19,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Dont,
+        .alphabeticalOrder = 23,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Do,
+        .alphabeticalOrder = 26,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Does,
+        .alphabeticalOrder = 49,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Whom,
+        .alphabeticalOrder = 58,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Which,
         .alphabeticalOrder = 57,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Better,
+        .text = gEasyChatWord_Wasnt,
+        .alphabeticalOrder = 48,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Werent,
+        .alphabeticalOrder = 40,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Have,
+        .alphabeticalOrder = 20,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Havent,
+        .alphabeticalOrder = 54,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_A,
+        .alphabeticalOrder = 64,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_An,
+        .alphabeticalOrder = 63,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Not,
+        .alphabeticalOrder = 53,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_There,
+        .alphabeticalOrder = 7,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_OkQues,
+        .alphabeticalOrder = 6,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_So,
+        .alphabeticalOrder = 16,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Maybe,
+        .alphabeticalOrder = 45,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_About,
+        .alphabeticalOrder = 67,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Over,
         .alphabeticalOrder = 68,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_It,
+        .alphabeticalOrder = 44,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_All,
+        .alphabeticalOrder = 25,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_For,
+        .alphabeticalOrder = 1,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_On,
+        .alphabeticalOrder = 35,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Off,
+        .alphabeticalOrder = 2,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_As,
+        .alphabeticalOrder = 3,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_To,
+        .alphabeticalOrder = 15,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_With,
+        .alphabeticalOrder = 52,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Better,
+        .alphabeticalOrder = 62,
         .enabled = TRUE,
     },
     {
@@ -326,92 +326,92 @@ const struct EasyChatWordInfo gEasyChatGroup_Endings[] = {
     },
     {
         .text = gEasyChatWord_Since,
-        .alphabeticalOrder = 38,
+        .alphabeticalOrder = 61,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Of,
-        .alphabeticalOrder = 8,
+        .alphabeticalOrder = 24,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_BelongsTo,
-        .alphabeticalOrder = 43,
+        .alphabeticalOrder = 27,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_At,
-        .alphabeticalOrder = 62,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_In,
-        .alphabeticalOrder = 37,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Out,
         .alphabeticalOrder = 13,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_In,
+        .alphabeticalOrder = 51,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Out,
+        .alphabeticalOrder = 60,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_Too,
-        .alphabeticalOrder = 15,
+        .alphabeticalOrder = 50,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Like,
-        .alphabeticalOrder = 42,
+        .alphabeticalOrder = 59,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Did,
-        .alphabeticalOrder = 47,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Didnt,
-        .alphabeticalOrder = 10,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Doesnt,
-        .alphabeticalOrder = 9,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_Without,
-        .alphabeticalOrder = 41,
-        .enabled = TRUE,
-    },
-    {
-        .text = gEasyChatWord_After,
         .alphabeticalOrder = 32,
         .enabled = TRUE,
     },
     {
-        .text = gEasyChatWord_Before,
+        .text = gEasyChatWord_Didnt,
         .alphabeticalOrder = 33,
         .enabled = TRUE,
     },
     {
+        .text = gEasyChatWord_Doesnt,
+        .alphabeticalOrder = 47,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Without,
+        .alphabeticalOrder = 46,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_After,
+        .alphabeticalOrder = 37,
+        .enabled = TRUE,
+    },
+    {
+        .text = gEasyChatWord_Before,
+        .alphabeticalOrder = 21,
+        .enabled = TRUE,
+    },
+    {
         .text = gEasyChatWord_While,
-        .alphabeticalOrder = 67,
+        .alphabeticalOrder = 56,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Than,
-        .alphabeticalOrder = 53,
+        .alphabeticalOrder = 66,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Once,
-        .alphabeticalOrder = 44,
+        .alphabeticalOrder = 65,
         .enabled = TRUE,
     },
     {
         .text = gEasyChatWord_Anywhere,
-        .alphabeticalOrder = 45,
+        .alphabeticalOrder = 55,
         .enabled = TRUE,
     },
 };
