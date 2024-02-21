@@ -56,7 +56,7 @@ static void OpponentHandleIntroTrainerBallThrow(u32 battler);
 static void OpponentHandleDrawPartyStatusSummary(u32 battler);
 static void OpponentHandleBattleAnimation(u32 battler);
 static void OpponentHandleEndLinkBattle(u32 battler);
-static u8 CountAIAliveNonEggMonsExcept(u8 slotToIgnore);
+u32 CountAIAliveNonEggMonsExcept(u32 slotToIgnore);
 
 static void OpponentBufferRunCommand(u32 battler);
 static void OpponentBufferExecCompleted(u32 battler);
@@ -704,9 +704,9 @@ static void OpponentHandleChoosePokemon(u32 battler)
 
 }
 
-static u8 CountAIAliveNonEggMonsExcept(u8 slotToIgnore)
+u32 CountAIAliveNonEggMonsExcept(u32 slotToIgnore)
 {
-    u16 i, count;
+    u32 i, count;
 
     for (i = 0, count = 0; i < PARTY_SIZE; i++)
     {

@@ -138,9 +138,12 @@ Debug_EventScript_Text_DefensiveIV:
 	.string "HP IV: {STR_VAR_1}, DEF IV: {STR_VAR_2}, SPDEF IV: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
+	setflag FLAG_UNUSED_0x020
+	ai_vs_ai_battle TRAINER_JUAN_1, TRAINER_PHOEBE
 	end
 
 Debug_EventScript_Script_2::
+	setflag FLAG_UNUSED_0x020
 	end
 
 Debug_EventScript_Script_3::

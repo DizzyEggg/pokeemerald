@@ -177,7 +177,10 @@ static u32 GetAiFlags(u16 trainerId)
 
 void BattleAI_SetupFlags(void)
 {
-    AI_THINKING_STRUCT->aiFlags[B_POSITION_PLAYER_LEFT] = 0; // player has no AI
+    if (IsAiVsAiBattle())
+        AI_THINKING_STRUCT->aiFlags[B_POSITION_PLAYER_LEFT] = GetAiFlags(gPartnerTrainerId);
+    else
+        AI_THINKING_STRUCT->aiFlags[B_POSITION_PLAYER_LEFT] = 0; // player has no AI
 
 #if DEBUG_OVERWORLD_MENU == TRUE
     if (gIsDebugBattle)

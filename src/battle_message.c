@@ -1571,7 +1571,7 @@ const u16 gMentalHerbCureStringIds[] =
     [B_MSG_MENTALHERBCURE_DISABLE]     = STRINGID_PKMNMOVEDISABLEDNOMORE,
 };
 
-const u16 gStartingStatusStringIds[B_MSG_STARTING_STATUS_COUNT] = 
+const u16 gStartingStatusStringIds[B_MSG_STARTING_STATUS_COUNT] =
 {
     [B_MSG_TERRAIN_SET_MISTY]       = STRINGID_TERRAINBECOMESMISTY,
     [B_MSG_TERRAIN_SET_ELECTRIC]    = STRINGID_TERRAINBECOMESELECTRIC,
@@ -2736,29 +2736,40 @@ static const struct BattleWindowText *const sBattleTextOnWindowsInfo[] =
 
 static const u8 sRecordedBattleTextSpeeds[] = {8, 4, 1, 0};
 
-void BufferStringBattle(u16 stringID, u32 battler)
+void BufferStringBattle(u32 stringID, u32 battler, bool32 copyFromBuffer)
 {
     s32 i;
     const u8 *stringPtr = NULL;
 
     gBattleMsgDataPtr = (struct BattleMsgData *)(&gBattleResources->bufferA[battler][4]);
-    gLastUsedItem = gBattleMsgDataPtr->lastItem;
-    gLastUsedAbility = gBattleMsgDataPtr->lastAbility;
-    gBattleScripting.battler = gBattleMsgDataPtr->scrActive;
-    gBattleStruct->scriptPartyIdx = gBattleMsgDataPtr->bakScriptPartyIdx;
-    gBattleStruct->hpScale = gBattleMsgDataPtr->hpScale;
-    gPotentialItemEffectBattler = gBattleMsgDataPtr->itemEffectBattler;
-    gBattleStruct->stringMoveType = gBattleMsgDataPtr->moveType;
+    if (copyFromBuffer)
+    {
+        gLastUsedItem = gBattleMsgDataPtr->lastItem;
+        gLastUsedAbility = gBattleMsgDataPtr->lastAbility;
+        gBattleScripting.battler = gBattleMsgDataPtr->scrActive;
+        gBattleStruct->scriptPartyIdx = gBattleMsgDataPtr->bakScriptPartyIdx;
+        gBattleStruct->hpScale = gBattleMsgDataPtr->hpScale;
+        gPotentialItemEffectBattler = gBattleMsgDataPtr->itemEffectBattler;
+        gBattleStruct->stringMoveType = gBattleMsgDataPtr->moveType;
 
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    {
-        sBattlerAbilities[i] = gBattleMsgDataPtr->abilities[i];
+        for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+        {
+            sBattlerAbilities[i] = gBattleMsgDataPtr->abilities[i];
+        }
+        for (i = 0; i < TEXT_BUFF_ARRAY_COUNT; i++)
+        {
+            gBattleTextBuff1[i] = gBattleMsgDataPtr->textBuffs[0][i];
+            gBattleTextBuff2[i] = gBattleMsgDataPtr->textBuffs[1][i];
+            gBattleTextBuff3[i] = gBattleMsgDataPtr->textBuffs[2][i];
+        }
     }
-    for (i = 0; i < TEXT_BUFF_ARRAY_COUNT; i++)
+    else
     {
-        gBattleTextBuff1[i] = gBattleMsgDataPtr->textBuffs[0][i];
-        gBattleTextBuff2[i] = gBattleMsgDataPtr->textBuffs[1][i];
-        gBattleTextBuff3[i] = gBattleMsgDataPtr->textBuffs[2][i];
+        SetBattleMsgData(gBattleMsgDataPtr);
+        for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+        {
+            sBattlerAbilities[i] = gBattleMsgDataPtr->abilities[i];
+        }
     }
 
     switch (stringID)

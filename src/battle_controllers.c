@@ -43,6 +43,67 @@ static void Task_StartSendOutAnim(u8 taskId);
 static void SpriteCB_FreePlayerSpriteLoadMonSprite(struct Sprite *sprite);
 static void SpriteCB_FreeOpponentSprite(struct Sprite *sprite);
 
+bool32 IsBattleSim(void)
+{
+    return TRUE;
+}
+
+bool32 CanSpeedUpBattle(void)
+{
+    if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
+        return FALSE;
+    if (IsBattleSim())
+        return TRUE;
+    if (IsAiVsAiBattle())
+        return TRUE;
+    return FALSE;
+}
+
+void BattleSim_Print(u32 id, u32 battler)
+{
+    //DebugPrintf("Turn: %d Frame: %d", gBattleResults.battleTurnCounter, gMain.vblankCounter1);
+    switch (id)
+    {
+    case BATTLE_SIM_PRINT_ABILITY_POP_UP:
+        DebugPrintf("%S's %S - Ability pop-up! Frame %d",
+                    GetSpeciesName(gBattleMons[battler].species),
+                    gAbilitiesInfo[GetBattlerAbility(gBattlerAbility)].name,
+                    gMain.vblankCounter1);
+        break;
+    case BATTLE_SIM_PRINT_BATTLE_STRING:
+        DebugPrintf("%S Frame %d", gDisplayedStringBattle, gMain.vblankCounter1);
+        break;
+    case BATTLE_SIM_PRINT_MOVE_ANIMATION:
+        DebugPrintf("%S's %S move animation! Frame %d",
+                    GetSpeciesName(gBattleMons[battler].species),
+                    gMovesInfo[gCurrentMove].name,
+                    gMain.vblankCounter1);
+        break;
+    case BATTLE_SIM_PRINT_STAT_CHANGE_ANIMATION:
+        DebugPrintf("%S stat change: %S %c %d! Frame %d",
+                    GetSpeciesName(gBattleMons[battler].species),
+                    gStatNamesTable[GET_STAT_BUFF_ID(gBattleScripting.statChanger)],
+                    (gBattleScripting.statChanger & STAT_BUFF_NEGATIVE) ? '-' : '+',
+                    GET_STAT_BUFF_VALUE(gBattleScripting.statChanger),
+                    gMain.vblankCounter1);
+        break;
+    case BATTLE_SIM_PRINT_HP_CHANGE:
+        DebugPrintf("%S's hp: %c %d Frame %d",
+                    GetSpeciesName(gBattleMons[battler].species),
+                    (gBattleMoveDamage > 0) ? '-' : '+',
+                    abs(gBattleMoveDamage),
+                    gMain.vblankCounter1);
+        break;
+    case BATTLE_SIM_PRINT_BALL_THROW:
+        DebugPrintf("Battler: %d ball throw Frame %d", battler, gMain.vblankCounter1);
+        break;
+    case BATTLE_SIM_PRINT_FAINTED:
+        DebugPrintf("%S's faint animation Frame %d",
+                    GetSpeciesName(gBattleMons[battler].species), gMain.vblankCounter1);
+        break;
+    }
+}
+
 void HandleLinkBattleSetup(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
@@ -1096,17 +1157,10 @@ void BtlController_EmitMoveAnimation(u32 battler, u32 bufferId, u16 move, u8 tur
     PrepareBufferDataTransfer(battler, bufferId, gBattleResources->transferBuffer, 16 + sizeof(struct DisableStruct));
 }
 
-void BtlController_EmitPrintString(u32 battler, u32 bufferId, u16 stringID)
+void SetBattleMsgData(struct BattleMsgData *stringInfo)
 {
     s32 i;
-    struct BattleMsgData *stringInfo;
 
-    gBattleResources->transferBuffer[0] = CONTROLLER_PRINTSTRING;
-    gBattleResources->transferBuffer[1] = gBattleOutcome;
-    gBattleResources->transferBuffer[2] = stringID;
-    gBattleResources->transferBuffer[3] = (stringID & 0xFF00) >> 8;
-
-    stringInfo = (struct BattleMsgData *)(&gBattleResources->transferBuffer[4]);
     stringInfo->currentMove = gCurrentMove;
     stringInfo->originallyUsedMove = gChosenMove;
     stringInfo->lastItem = gLastUsedItem;
@@ -1125,6 +1179,20 @@ void BtlController_EmitPrintString(u32 battler, u32 bufferId, u16 stringID)
         stringInfo->textBuffs[1][i] = gBattleTextBuff2[i];
         stringInfo->textBuffs[2][i] = gBattleTextBuff3[i];
     }
+}
+
+void BtlController_EmitPrintString(u32 battler, u32 bufferId, u16 stringID)
+{
+    struct BattleMsgData *stringInfo;
+
+    gBattleResources->transferBuffer[0] = CONTROLLER_PRINTSTRING;
+    gBattleResources->transferBuffer[1] = gBattleOutcome;
+    gBattleResources->transferBuffer[2] = stringID;
+    gBattleResources->transferBuffer[3] = (stringID & 0xFF00) >> 8;
+
+    stringInfo = (struct BattleMsgData *)(&gBattleResources->transferBuffer[4]);
+    SetBattleMsgData(stringInfo);
+
     PrepareBufferDataTransfer(battler, bufferId, gBattleResources->transferBuffer, sizeof(struct BattleMsgData) + 4);
 }
 
@@ -2661,8 +2729,8 @@ void BtlController_HandlePrintString(u32 battler, bool32 updateTvData, bool32 ar
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
     stringId = (u16 *)(&gBattleResources->bufferA[battler][2]);
-    BufferStringBattle(*stringId, battler);
 
+    BufferStringBattle(*stringId, battler, TRUE);
     if (gTestRunnerEnabled)
     {
         TestRunner_Battle_RecordMessage(gDisplayedStringBattle);

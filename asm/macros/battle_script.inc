@@ -1364,6 +1364,12 @@
 	.macro allyswitchswapbattlers
 	callnative BS_AllySwitchSwapBattler
 	.endm
+	
+	.macro jumpifbattlesim strId:req, jumpInstr:req
+	callnative BS_JumpIfBattleSim
+	.byte \strId
+	.4byte \jumpInstr
+	.endm
 
 	.macro allyswitchfailchance jumpInstr:req
 	callnative BS_AllySwitchFailChance

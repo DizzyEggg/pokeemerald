@@ -111,6 +111,7 @@ BattleScript_EffectDoodle::
 BattleScript_EffectDoodle_CopyAbility:
 	trycopyability BS_ATTACKER, BattleScript_ButItFailed
 .if B_ABILITY_POP_UP == TRUE
+	jumpifbattlesim 0, BattleScript_EffectDoodle_CopyAbility_AfterPopUp
 	setbyte sFIXED_ABILITY_POPUP, TRUE
 	showabilitypopup BS_ATTACKER
 	pause 60
@@ -120,6 +121,7 @@ BattleScript_EffectDoodle_CopyAbility:
 	destroyabilitypopup
 	pause 40
 .endif
+BattleScript_EffectDoodle_CopyAbility_AfterPopUp:
 	printstring STRINGID_PKMNCOPIEDFOE
 	waitmessage B_WAIT_TIME_LONG
 	switchinabilities BS_ATTACKER
@@ -5070,6 +5072,7 @@ BattleScript_EffectRolePlay::
 	attackanimation
 	waitanimation
 .if B_ABILITY_POP_UP == TRUE
+	jumpifbattlesim 0, BattleScript_EffectRolePlay_AfterAbilityPopUp
 	setbyte sFIXED_ABILITY_POPUP, TRUE
 	showabilitypopup BS_ATTACKER
 	pause 60
@@ -5079,6 +5082,7 @@ BattleScript_EffectRolePlay::
 	destroyabilitypopup
 	pause 40
 .endif
+BattleScript_EffectRolePlay_AfterAbilityPopUp:
 	printstring STRINGID_PKMNCOPIEDFOE
 	waitmessage B_WAIT_TIME_LONG
 	switchinabilities BS_ATTACKER
@@ -5222,11 +5226,13 @@ BattleScript_EffectSkillSwap::
 	attackanimation
 	waitanimation
 .if B_ABILITY_POP_UP == TRUE
+	jumpifbattlesim 0, BattleScript_EffectSkillSwap_AfterAbilityPopUp
 	call BattleScript_AbilityPopUpTarget
 	pause 20
 	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
 .endif
+BattleScript_EffectSkillSwap_AfterAbilityPopUp:
 	printstring STRINGID_PKMNSWAPPEDABILITIES
 	waitmessage B_WAIT_TIME_LONG
 .if B_SKILL_SWAP >= GEN_4
@@ -7563,9 +7569,11 @@ BattleScript_AbilityPopUpTarget:
 	copybyte gBattlerAbility, gBattlerTarget
 BattleScript_AbilityPopUp:
 	.if B_ABILITY_POP_UP == TRUE
+	jumpifbattlesim 0, BattleScript_AbilityPopUp_AfterPopUp
 	showabilitypopup BS_ABILITY_BATTLER
 	pause 40
 	.endif
+BattleScript_AbilityPopUp_AfterPopUp:
 	recordability BS_ABILITY_BATTLER
 	sethword sABILITY_OVERWRITE, 0
 	return
@@ -7759,10 +7767,12 @@ BattleScript_TryAdrenalineOrbRet:
 	return
 
 BattleScript_IntimidateActivates::
-	showabilitypopup BS_ATTACKER
 	copybyte sSAVED_BATTLER, gBattlerTarget
+	jumpifbattlesim 0, BattleScript_IntimidateActivates_AfterPopUp1
+	showabilitypopup BS_ATTACKER
 	pause B_WAIT_TIME_LONG
 	destroyabilitypopup
+BattleScript_IntimidateActivates_AfterPopUp1:
 	setbyte gBattlerTarget, 0
 BattleScript_IntimidateLoop:
 	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_IntimidateLoopIncrement
@@ -7787,7 +7797,9 @@ BattleScript_IntimidateLoopIncrement:
 	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_IntimidateLoop
 BattleScript_IntimidateEnd:
 	copybyte sBATTLER, gBattlerAttacker
+	jumpifbattlesim 0xFF, BattleScript_IntimidateActivates_AfterPopUp2
 	destroyabilitypopup
+BattleScript_IntimidateActivates_AfterPopUp2:
 	copybyte gBattlerTarget, sSAVED_BATTLER
 	pause B_WAIT_TIME_MED
 	end3
@@ -8305,6 +8317,7 @@ BattleScript_MummyActivates::
 
 BattleScript_WanderingSpiritActivates::
 .if B_ABILITY_POP_UP == TRUE
+	jumpifbattlesim 0, BattleScript_WanderingSpiritActivates_AfterAbilityPopUp
 	setbyte sFIXED_ABILITY_POPUP, TRUE
 	sethword sABILITY_OVERWRITE, ABILITY_WANDERING_SPIRIT
 	showabilitypopup BS_TARGET
@@ -8325,6 +8338,7 @@ BattleScript_WanderingSpiritActivates::
 	destroyabilitypopup
 	pause 40
 .endif
+BattleScript_WanderingSpiritActivates_AfterAbilityPopUp:
 	printstring STRINGID_SWAPPEDABILITIES
 	waitmessage B_WAIT_TIME_LONG
 	switchinabilities BS_ATTACKER

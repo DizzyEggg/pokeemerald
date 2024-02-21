@@ -1132,4 +1132,21 @@ static inline struct Pokemon *GetBattlerParty(u32 battler)
     return GetSideParty(GetBattlerSide(battler));
 }
 
+static inline struct Pokemon *GetBattlerMonPtr(u32 battler)
+{
+    return GetBattlerParty(battler) + gBattlerPartyIndexes[battler];
+}
+
+bool32 CanSpeedUpBattle(void);
+bool32 IsBattleSim(void);
+#define BATTLE_SIM_PRINT_ABILITY_POP_UP 0
+#define BATTLE_SIM_PRINT_BATTLE_STRING 1
+#define BATTLE_SIM_PRINT_MOVE_ANIMATION 2
+#define BATTLE_SIM_PRINT_STAT_CHANGE_ANIMATION 3
+#define BATTLE_SIM_PRINT_HP_CHANGE 4
+#define BATTLE_SIM_PRINT_BALL_THROW 5
+#define BATTLE_SIM_PRINT_FAINTED 6
+#define BATTLE_SIM_PRINT_NOTHING 0xFF
+void BattleSim_Print(u32 id, u32 battler);
+
 #endif // GUARD_BATTLE_H

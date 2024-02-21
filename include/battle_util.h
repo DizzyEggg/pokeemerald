@@ -99,6 +99,8 @@ enum
 
 extern const struct TypePower gNaturalGiftTable[];
 
+void SetBattlerMonDataStatus(u32 battler);
+void SetBattlerMonDataItem(u32 battler, u16 *item);
 void HandleAction_ThrowBall(void);
 bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide, u32 move);
 void HandleAction_UseMove(void);
@@ -159,7 +161,6 @@ void BattleScriptExecute(const u8 *BS_ptr);
 void BattleScriptPushCursorAndCallback(const u8 *BS_ptr);
 u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn);
 void ClearVariousBattlerFlags(u32 battler);
-void HandleAction_RunBattleScript(void);
 u32 SetRandomTarget(u32 battler);
 u32 GetMoveTarget(u16 move, u8 setTarget);
 u8 IsMonDisobedient(void);
