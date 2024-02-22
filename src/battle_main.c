@@ -3712,7 +3712,7 @@ static inline void RunBattleCommand(u32 endCmd)
     while (1)
     {
         u8 prevInstr = *gBattlescriptCurrInstr;
-        DebugPrintf("Cmd: %s, Frame: %d", sCmdNames[prevInstr], gMain.vblankCounter1);
+        //DebugPrintf("Cmd: %s, Frame: %d", sCmdNames[prevInstr], gMain.vblankCounter1);
         gBattleScriptingCommandsTable[prevInstr]();
         if (prevInstr == endCmd) // end2
             break;
@@ -6842,7 +6842,7 @@ void RunBattleScriptCommands(void)
         while (1)
         {
             u8 prevInstr = *gBattlescriptCurrInstr;
-            DebugPrintf("Cmd: %s, Frame: %d", sCmdNames[prevInstr], gMain.vblankCounter1);
+            //DebugPrintf("Cmd: %s, Frame: %d", sCmdNames[prevInstr], gMain.vblankCounter1);
             gBattleScriptingCommandsTable[*gBattlescriptCurrInstr]();
             if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED || prevInstr == 0x3F) // end3
                 break;
