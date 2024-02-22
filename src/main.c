@@ -86,7 +86,7 @@ static void SeedRngWithRtc(void);
 #endif
 static void ReadKeys(void);
 void InitIntrHandlers(void);
-static void WaitForVBlank(void);
+void WaitForVBlank(void);
 void EnableVCountIntrAtLine150(void);
 
 #define B_START_SELECT (B_BUTTON | START_BUTTON | SELECT_BUTTON)
@@ -433,7 +433,7 @@ static void SerialIntr(void)
 static void IntrDummy(void)
 {}
 
-static void WaitForVBlank(void)
+void WaitForVBlank(void)
 {
     gMain.intrCheck &= ~INTR_FLAG_VBLANK;
     VBlankIntrWait();

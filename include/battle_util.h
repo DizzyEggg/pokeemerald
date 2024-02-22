@@ -136,7 +136,7 @@ bool32 AreAllMovesUnusable(u32 battler);
 u8 GetImprisonedMovesCount(u32 battler, u16 move);
 u8 DoFieldEndTurnEffects(void);
 s32 GetDrainedBigRootHp(u32 battler, s32 hp);
-u8 DoBattlerEndTurnEffects(void);
+u32 DoBattlerEndTurnEffects(void);
 bool32 HandleWishPerishSongOnTurnEnd(void);
 bool32 HandleFaintedMonActions(void);
 void TryClearRageAndFuryCutter(void);

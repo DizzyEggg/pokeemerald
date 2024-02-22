@@ -6665,61 +6665,56 @@ static void ChooseMonToSendOut(u32 battler, u8 slotId)
 
 extern u32 CountAIAliveNonEggMonsExcept(u32 slotToIgnore);
 
-s32 ChooseMonForAiToSwitchInto(u32 battler)
+static inline s32 ChooseFirstAvailableMon(u32 battler)
 {
     s32 battler1, battler2, firstId, lastId;
+    s32 chosenMonId;
     s32 pokemonInBattle = 1;
-    s32 chosenMonId = GetMostSuitableMonToSwitchInto(battler, TRUE);
 
-    if (chosenMonId == PARTY_SIZE)
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
     {
-        if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
         {
-            if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
-            {
-                battler2 = battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-            }
-            else
-            {
-                battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-                battler2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
-                pokemonInBattle = 2;
-            }
-
-            GetAIPartyIndexes(battler, &firstId, &lastId);
-
-            for (chosenMonId = (lastId-1); chosenMonId >= firstId; chosenMonId--)
-            {
-                if (IsValidForBattle(&gEnemyParty[chosenMonId])
-                    && chosenMonId != gBattlerPartyIndexes[battler1]
-                    && chosenMonId != gBattlerPartyIndexes[battler2]
-                    && (chosenMonId != CalculateEnemyPartyCount() - 1
-                        || CountAIAliveNonEggMonsExcept(PARTY_SIZE) == pokemonInBattle))
-                {
-                    break;
-                }
-            }
+            battler2 = battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
         }
         else
         {
-            if (chosenMonId == PARTY_SIZE || !IsValidForBattle(&gPlayerParty[chosenMonId])) // just switch to the next mon
-            {
-                firstId = (IsAiVsAiBattle()) ? 0 : (PARTY_SIZE / 2);
-                battler1 = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-                battler2 = IsDoubleBattle() ? GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT) : battler1;
+            battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            battler2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+            pokemonInBattle = 2;
+        }
 
-                for (chosenMonId = firstId; chosenMonId < PARTY_SIZE; chosenMonId++)
-                {
-                    if (GetMonData(&gPlayerParty[chosenMonId], MON_DATA_HP) != 0
-                        && chosenMonId != gBattlerPartyIndexes[battler1]
-                        && chosenMonId != gBattlerPartyIndexes[battler2])
-                    {
-                        break;
-                    }
-                }
+        GetAIPartyIndexes(battler, &firstId, &lastId);
+
+        for (chosenMonId = (lastId-1); chosenMonId >= firstId; chosenMonId--)
+        {
+            if (IsValidForBattle(&gEnemyParty[chosenMonId])
+                && chosenMonId != gBattlerPartyIndexes[battler1]
+                && chosenMonId != gBattlerPartyIndexes[battler2]
+                && (chosenMonId != CalculateEnemyPartyCount() - 1
+                    || CountAIAliveNonEggMonsExcept(PARTY_SIZE) == pokemonInBattle))
+            {
+                break;
             }
         }
     }
+    else
+    {
+        firstId = (IsAiVsAiBattle()) ? 0 : (PARTY_SIZE / 2);
+        battler1 = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+        battler2 = IsDoubleBattle() ? GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT) : battler1;
+
+        for (chosenMonId = firstId; chosenMonId < PARTY_SIZE; chosenMonId++)
+        {
+            if (GetMonData(&gPlayerParty[chosenMonId], MON_DATA_HP) != 0
+                && chosenMonId != gBattlerPartyIndexes[battler1]
+                && chosenMonId != gBattlerPartyIndexes[battler2])
+            {
+                break;
+            }
+        }
+    }
+
     *(gBattleStruct->monToSwitchIntoId + battler) = chosenMonId;
     return chosenMonId;
 }
@@ -6978,7 +6973,7 @@ static void Cmd_openpartyscreen(void)
             if (IsBattleSim())
             {
                 gBattleResources->bufferB[battler][0] = CONTROLLER_CHOSENMONRETURNVALUE;
-                gBattleResources->bufferB[battler][1] = ChooseMonForAiToSwitchInto(battler);
+                gBattleResources->bufferB[battler][1] = ChooseFirstAvailableMon(battler);
                 for (i = 0; i < ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
                     gBattleResources->bufferB[battler][2 + i] = gBattleStruct->battlerPartyOrders[battler][i];
             }

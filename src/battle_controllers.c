@@ -43,6 +43,10 @@ static void Task_StartSendOutAnim(u8 taskId);
 static void SpriteCB_FreePlayerSpriteLoadMonSprite(struct Sprite *sprite);
 static void SpriteCB_FreeOpponentSprite(struct Sprite *sprite);
 
+ALIGNED(4) const bool8 sTable8[] = {1, 0};
+ALIGNED(4) const bool16 sTable16[] = {1, 0};
+ALIGNED(4) const bool32 sTable32[] = {1, 0};
+
 bool32 IsBattleSim(void)
 {
     return TRUE;
