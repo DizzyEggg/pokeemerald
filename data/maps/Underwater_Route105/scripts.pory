@@ -1,0 +1,21 @@
+raw `
+Underwater_Route105_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, Underwater_Route105_OnResume
+	.byte 0
+
+Underwater_Route105_OnResume:
+	call AbnormalWeather_Underwater_SetupEscapeWarp
+	end
+
+`
+
+script Underwater_Route105_Sign1 {
+	random(5)
+	switch (var(VAR_RESULT)) {
+		case 0: msgbox("Panneau.", MSGBOX_SIGN)
+		case 1: msgbox("Questo è un cartello.", MSGBOX_SIGN)
+		case 2: msgbox("Esto es una señal.", MSGBOX_SIGN)
+		case 3: msgbox("This is a signpost.", MSGBOX_SIGN)
+		case 4: msgbox("German: TODO.", MSGBOX_SIGN)
+	}
+}
