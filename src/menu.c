@@ -1314,6 +1314,11 @@ static u8 InitMenuGrid(u8 windowId, u8 fontId, u8 left, u8 top, u8 optionWidth, 
     return sMenu.cursorPos;
 }
 
+void Menu_ChangeMaxCursorPos(s32 maxPos)
+{
+    sMenu.maxCursorPos = maxPos;
+}
+
 static u8 UNUSED InitMenuGridDefaultCursorHeight(u8 windowId, u8 fontId, u8 left, u8 top, u8 width, u8 columns, u8 rows, u8 cursorPos)
 {
     u8 cursorHeight = GetMenuCursorDimensionByFont(fontId, 1);

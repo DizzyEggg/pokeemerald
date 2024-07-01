@@ -404,6 +404,38 @@ static const struct WindowTemplate sNewGameBirchSpeechTextWindows[] =
     DUMMY_WIN_TEMPLATE
 };
 
+static const struct WindowTemplate sNewGameBirchSpeechTextWindows_Hacked[] =
+{
+    {
+        .bg = 0,
+        .tilemapLeft = 2,
+        .tilemapTop = 15,
+        .width = 27,
+        .height = 4,
+        .paletteNum = 15,
+        .baseBlock = 1
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 3,
+        .tilemapTop = 5,
+        .width = 3,
+        .height = 6,
+        .paletteNum = 15,
+        .baseBlock = 0x6D
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 3,
+        .tilemapTop = 2,
+        .width = 9,
+        .height = 10,
+        .paletteNum = 15,
+        .baseBlock = 0x85
+    },
+    DUMMY_WIN_TEMPLATE
+};
+
 static const u16 sMainMenuBgPal[] = INCBIN_U16("graphics/interface/main_menu_bg.gbapal");
 static const u16 sMainMenuTextPal[] = INCBIN_U16("graphics/interface/main_menu_text.gbapal");
 
@@ -458,6 +490,12 @@ static const struct MenuAction sMenuActions_Gender[] = {
     {gText_BirchGirl, {NULL}}
 };
 
+static const struct MenuAction sMenuActions_Gender_Hacked[] = {
+    {gText_MaleSymbol, {NULL}},
+    {gText_FemaleSymbol, {NULL}},
+    {gText_QuestionMark, {NULL}},
+};
+
 static const u8 *const sMalePresetNames[] = {
     gText_DefaultNameStu,
     gText_DefaultNameMilton,
@@ -504,6 +542,55 @@ static const u8 *const sFemalePresetNames[] = {
     gText_DefaultNameHalie
 };
 
+static const u8 *const sMalePresetNames_Hacked[] =
+{
+    COMPOUND_STRING("Boy"),
+    COMPOUND_STRING("Random"),
+    COMPOUND_STRING("???"),
+    COMPOUND_STRING("NotGirl"),
+    COMPOUND_STRING("Birch"),
+    COMPOUND_STRING("Oak"),
+    COMPOUND_STRING("Elm"),
+    COMPOUND_STRING("deez"),
+    COMPOUND_STRING("vœu"),
+    COMPOUND_STRING("Èññ!!"),
+    COMPOUND_STRING("PickleR"),
+    COMPOUND_STRING("ÖÖÖÖÖ"),
+    COMPOUND_STRING("Name"),
+    COMPOUND_STRING("Meme"),
+    COMPOUND_STRING("ßÛŒÏ"),
+    COMPOUND_STRING("Gary"),
+    COMPOUND_STRING("GaryOak"),
+    COMPOUND_STRING("No"),
+    COMPOUND_STRING("♂♂♂♂"),
+    COMPOUND_STRING("So it's"),
+};
+
+static const u8 *const sFemalePresetNames_Hacked[] = {
+    COMPOUND_STRING("Girl"),
+    COMPOUND_STRING("Random"),
+    COMPOUND_STRING("????"),
+    COMPOUND_STRING("Not Boy"),
+    COMPOUND_STRING("Cynthia"),
+    COMPOUND_STRING("May"),
+    COMPOUND_STRING("MONICA"),
+    COMPOUND_STRING("Yuri"),
+    COMPOUND_STRING("SayoRi"),
+    COMPOUND_STRING("NaTsuki"),
+    COMPOUND_STRING("Leaf"),
+    COMPOUND_STRING("♀"),
+    COMPOUND_STRING("Unknown"),
+    COMPOUND_STRING("Secret"),
+    COMPOUND_STRING("Blank"),
+    COMPOUND_STRING("Empty"),
+    COMPOUND_STRING("NotSure"),
+    COMPOUND_STRING("Yes"),
+    COMPOUND_STRING("Woman"),
+    COMPOUND_STRING("Female"),
+    COMPOUND_STRING("!= Male"),
+    COMPOUND_STRING("So it's"),
+};
+
 // The number of male vs. female names is assumed to be the same.
 // If they aren't, the smaller of the two sizes will be used and any extra names will be ignored.
 #define NUM_PRESET_NAMES min(ARRAY_COUNT(sMalePresetNames), ARRAY_COUNT(sFemalePresetNames))
@@ -514,6 +601,7 @@ enum
     HAS_SAVED_GAME,     //CONTINUE, NEW GAME, OPTION
     HAS_MYSTERY_GIFT,   //CONTINUE, NEW GAME, MYSTERY GIFT, OPTION
     HAS_MYSTERY_EVENTS, //CONTINUE, NEW GAME, MYSTERY GIFT, MYSTERY EVENTS, OPTION
+    HAS_ONLY_NEW_GAME_QM,  //NEW GAME?
 };
 
 enum
@@ -688,6 +776,12 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
         sCurrItemAndOptionMenuCheck &= ~OPTION_MENU_FLAG;  // turn off the "returning from options menu" flag
         tCurrItem = sCurrItemAndOptionMenuCheck;
         tItemCount = tMenuType + 2;
+
+        if (tMenuType == HAS_NO_SAVED_GAME && !gSaveBlock1Ptr->hackGameBeaten)
+        {
+            tMenuType = HAS_ONLY_NEW_GAME_QM;
+            tItemCount = 1;
+        }
     }
 }
 
@@ -736,6 +830,8 @@ static void Task_WaitForBatteryDryErrorWindow(u8 taskId)
         gTasks[taskId].func = Task_DisplayMainMenu;
     }
 }
+
+static const u8 sText_NewGameQM[] = _("New Game?");
 
 static void Task_DisplayMainMenu(u8 taskId)
 {
@@ -791,6 +887,13 @@ static void Task_DisplayMainMenu(u8 taskId)
                 CopyWindowToVram(1, COPYWIN_GFX);
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[0], MAIN_MENU_BORDER_TILE);
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[1], MAIN_MENU_BORDER_TILE);
+                break;
+            case HAS_ONLY_NEW_GAME_QM:
+                FillWindowPixelBuffer(0, PIXEL_FILL(0xA));
+                AddTextPrinterParameterized3(0, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, sText_NewGameQM);
+                PutWindowTilemap(0);
+                CopyWindowToVram(0, COPYWIN_GFX);
+                DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[0], MAIN_MENU_BORDER_TILE);
                 break;
             case HAS_SAVED_GAME:
                 FillWindowPixelBuffer(2, PIXEL_FILL(0xA));
@@ -892,7 +995,7 @@ static bool8 HandleMainMenuInput(u8 taskId)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
         gTasks[taskId].func = Task_HandleMainMenuAPressed;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW(B_BUTTON) && gSaveBlock1Ptr->hackGameBeaten)
     {
         PlaySE(SE_SELECT);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_WHITEALPHA);
@@ -953,6 +1056,9 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
         wirelessAdapterConnected = IsWirelessAdapterConnected();
         switch (gTasks[taskId].tMenuType)
         {
+            case HAS_ONLY_NEW_GAME_QM:
+                action = ACTION_NEW_GAME;
+                break;
             case HAS_NO_SAVED_GAME:
             default:
                 switch (gTasks[taskId].tCurrItem)
@@ -1173,6 +1279,9 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
 
     switch (menuType)
     {
+        case HAS_ONLY_NEW_GAME_QM:
+            SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(0));
+            break;
         case HAS_NO_SAVED_GAME:
         default:
             switch (selectedMenuItem)
@@ -1317,6 +1426,16 @@ static void Task_NewGameBirchSpeech_WaitToShowBirch(u8 taskId)
     }
 }
 
+static inline const u8 *ChooseIntroStr(const u8 *strNormal, const u8 *strHacked)
+{
+    return gSaveBlock1Ptr->hackGameBeaten ? strNormal : strHacked;
+}
+
+static inline const struct WindowTemplate *ChooseBirchWindows(void)
+{
+    return gSaveBlock1Ptr->hackGameBeaten ? sNewGameBirchSpeechTextWindows : sNewGameBirchSpeechTextWindows_Hacked;
+}
+
 static void Task_NewGameBirchSpeech_WaitForSpriteFadeInWelcome(u8 taskId)
 {
     if (gTasks[taskId].tIsDoneFadingSprites)
@@ -1328,14 +1447,14 @@ static void Task_NewGameBirchSpeech_WaitForSpriteFadeInWelcome(u8 taskId)
         }
         else
         {
-            InitWindows(sNewGameBirchSpeechTextWindows);
+            InitWindows(ChooseBirchWindows());
             LoadMainMenuWindowFrameTiles(0, 0xF3);
             LoadMessageBoxGfx(0, 0xFC, BG_PLTT_ID(15));
             NewGameBirchSpeech_ShowDialogueWindow(0, 1);
             PutWindowTilemap(0);
             CopyWindowToVram(0, COPYWIN_GFX);
             NewGameBirchSpeech_ClearWindow(0);
-            StringExpandPlaceholders(gStringVar4, gText_Birch_Welcome);
+            StringExpandPlaceholders(gStringVar4, ChooseIntroStr(gText_Birch_Welcome, gText_Birch_Welcome_Hacked));
             AddTextPrinterForMessage(TRUE);
             gTasks[taskId].func = Task_NewGameBirchSpeech_ThisIsAPokemon;
         }
@@ -1347,7 +1466,7 @@ static void Task_NewGameBirchSpeech_ThisIsAPokemon(u8 taskId)
     if (!gPaletteFade.active && !RunTextPrintersAndIsPrinter0Active())
     {
         gTasks[taskId].func = Task_NewGameBirchSpeech_MainSpeech;
-        StringExpandPlaceholders(gStringVar4, gText_ThisIsAPokemon);
+        StringExpandPlaceholders(gStringVar4, ChooseIntroStr(gText_ThisIsAPokemon, gText_Birch_Pokemon_Hacked));
         AddTextPrinterWithCallbackForMessage(TRUE, NewGameBirchSpeech_WaitForThisIsPokemonText);
         sBirchSpeechMainTaskId = taskId;
     }
@@ -1357,9 +1476,12 @@ static void Task_NewGameBirchSpeech_MainSpeech(u8 taskId)
 {
     if (!RunTextPrintersAndIsPrinter0Active())
     {
-        StringExpandPlaceholders(gStringVar4, gText_Birch_MainSpeech);
+        StringExpandPlaceholders(gStringVar4, ChooseIntroStr(gText_Birch_MainSpeech, gText_Birch_MainSpeech_Hacked));
         AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_AndYouAre;
+        if (gSaveBlock1Ptr->hackGameBeaten)
+            gTasks[taskId].func = Task_NewGameBirchSpeech_AndYouAre;
+        else
+            gTasks[taskId].func = Task_NewGameBirchSpeech_StartBirchLotadPlatformFade;
     }
 }
 
@@ -1484,7 +1606,7 @@ static void Task_NewGameBirchSpeech_WaitForPlayerFadeIn(u8 taskId)
 static void Task_NewGameBirchSpeech_BoyOrGirl(u8 taskId)
 {
     NewGameBirchSpeech_ClearWindow(0);
-    StringExpandPlaceholders(gStringVar4, gText_Birch_BoyOrGirl);
+    StringExpandPlaceholders(gStringVar4, ChooseIntroStr(gText_Birch_BoyOrGirl, gText_Birch_BoyOrGirl_Hacked));
     AddTextPrinterForMessage(TRUE);
     gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowGenderMenu;
 }
@@ -1500,24 +1622,26 @@ static void Task_NewGameBirchSpeech_WaitToShowGenderMenu(u8 taskId)
 
 static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
 {
-    int gender = NewGameBirchSpeech_ProcessGenderMenuInput();
+    bool32 change = FALSE;
     int gender2;
 
+    int gender = NewGameBirchSpeech_ProcessGenderMenuInput();
     switch (gender)
     {
-        case MALE:
-            PlaySE(SE_SELECT);
-            gSaveBlock2Ptr->playerGender = gender;
-            NewGameBirchSpeech_ClearGenderWindow(1, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
-            break;
-        case FEMALE:
-            PlaySE(SE_SELECT);
-            gSaveBlock2Ptr->playerGender = gender;
-            NewGameBirchSpeech_ClearGenderWindow(1, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
-            break;
+    case MALE:
+    case FEMALE:
+        change = TRUE;
+        break;
     }
+
+    if (change)
+    {
+        PlaySE(SE_SELECT);
+        gSaveBlock2Ptr->playerGender = gender;
+        NewGameBirchSpeech_ClearGenderWindow(1, 1);
+        gTasks[taskId].func = gSaveBlock1Ptr->hackGameBeaten ? Task_NewGameBirchSpeech_WhatsYourName : Task_NewGameBirchSpeech_WaitPressBeforeNameChoice;
+    }
+
     gender2 = Menu_GetCursorPos();
     if (gender2 != gTasks[taskId].tPlayerGender)
     {
@@ -1587,7 +1711,8 @@ static void Task_NewGameBirchSpeech_WaitForWhatsYourNameToPrint(u8 taskId)
 
 static void Task_NewGameBirchSpeech_WaitPressBeforeNameChoice(u8 taskId)
 {
-    if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+    // Don't wait for a button press in hacked intro.
+    if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)) || !gSaveBlock1Ptr->hackGameBeaten)
     {
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_NewGameBirchSpeech_StartNamingScreen;
@@ -1600,7 +1725,7 @@ static void Task_NewGameBirchSpeech_StartNamingScreen(u8 taskId)
     {
         FreeAllWindowBuffers();
         FreeAndDestroyMonPicSprite(gTasks[taskId].tLotadSpriteId);
-        NewGameBirchSpeech_SetDefaultPlayerName(Random() % NUM_PRESET_NAMES);
+        NewGameBirchSpeech_SetDefaultPlayerName();
         DestroyTask(taskId);
         DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_NewGameBirchSpeech_ReturnFromNamingScreen);
     }
@@ -1687,14 +1812,39 @@ static void Task_NewGameBirchSpeech_WaitForSpriteFadeInAndTextPrinter(u8 taskId)
     {
         gSprites[gTasks[taskId].tBirchSpriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
         gSprites[gTasks[taskId].tLotadSpriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
-        if (!RunTextPrintersAndIsPrinter0Active())
+        if (gSaveBlock1Ptr->hackGameBeaten)
         {
-            gSprites[gTasks[taskId].tBirchSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
-            gSprites[gTasks[taskId].tLotadSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
-            NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
-            NewGameBirchSpeech_StartFadePlatformIn(taskId, 1);
-            gTasks[taskId].tTimer = 64;
-            gTasks[taskId].func = Task_NewGameBirchSpeech_AreYouReady;
+            if (!RunTextPrintersAndIsPrinter0Active())
+            {
+                gSprites[gTasks[taskId].tBirchSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+                gSprites[gTasks[taskId].tLotadSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+                NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
+                NewGameBirchSpeech_StartFadePlatformIn(taskId, 1);
+                gTasks[taskId].tTimer = 64;
+                gTasks[taskId].func = Task_NewGameBirchSpeech_AreYouReady;
+            }
+        }
+        else
+        {
+            u8 spriteId;
+
+            RunTextPrintersAndIsPrinter0Active();
+            if (gSaveBlock2Ptr->playerGender != MALE)
+                spriteId = gTasks[taskId].tMaySpriteId;
+            else
+                spriteId = gTasks[taskId].tBrendanSpriteId;
+
+            gSprites[spriteId].x = 120;
+            gSprites[spriteId].y = 60;
+            gSprites[spriteId].invisible = FALSE;
+            gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+            gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
+            gSprites[spriteId].affineAnims = sSpriteAffineAnimTable_PlayerShrink;
+            gTasks[taskId].tPlayerSpriteId = spriteId;
+            InitSpriteAffineAnim(&gSprites[spriteId]);
+            StartSpriteAffineAnim(&gSprites[spriteId], 0);
+            gSprites[spriteId].callback = SpriteCB_MovePlayerDownWhileShrinking;
+            gTasks[taskId].func = Task_NewGameBirchSpeech_ShrinkPlayer;
         }
     }
 }
@@ -1731,22 +1881,30 @@ static void Task_NewGameBirchSpeech_AreYouReady(u8 taskId)
 
 static void Task_NewGameBirchSpeech_ShrinkPlayer(u8 taskId)
 {
-    u8 spriteId;
+    u8 spriteId = gTasks[taskId].tPlayerSpriteId;;
 
-    if (gTasks[taskId].tIsDoneFadingSprites)
+    if (!gSaveBlock1Ptr->hackGameBeaten)
     {
-        gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
-        if (!RunTextPrintersAndIsPrinter0Active())
+        RunTextPrintersAndIsPrinter0Active();
+        if (gSprites[spriteId].affineAnimEnded)
+            gTasks[taskId].func = Task_NewGameBirchSpeech_FadePlayerToWhite;
+    }
+    else
+    {
+        if (gTasks[taskId].tIsDoneFadingSprites)
         {
-            spriteId = gTasks[taskId].tPlayerSpriteId;
-            gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
-            gSprites[spriteId].affineAnims = sSpriteAffineAnimTable_PlayerShrink;
-            InitSpriteAffineAnim(&gSprites[spriteId]);
-            StartSpriteAffineAnim(&gSprites[spriteId], 0);
-            gSprites[spriteId].callback = SpriteCB_MovePlayerDownWhileShrinking;
-            BeginNormalPaletteFade(PALETTES_BG, 0, 0, 16, RGB_BLACK);
-            FadeOutBGM(4);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WaitForPlayerShrink;
+            gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
+            if (!RunTextPrintersAndIsPrinter0Active())
+            {
+                gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
+                gSprites[spriteId].affineAnims = sSpriteAffineAnimTable_PlayerShrink;
+                InitSpriteAffineAnim(&gSprites[spriteId]);
+                StartSpriteAffineAnim(&gSprites[spriteId], 0);
+                gSprites[spriteId].callback = SpriteCB_MovePlayerDownWhileShrinking;
+                BeginNormalPaletteFade(PALETTES_BG, 0, 0, 16, RGB_BLACK);
+                FadeOutBGM(4);
+                gTasks[taskId].func = Task_NewGameBirchSpeech_WaitForPlayerShrink;
+            }
         }
     }
 }
@@ -1854,7 +2012,7 @@ static void CB2_NewGameBirchSpeech_ReturnFromNamingScreen(void)
     REG_IME = savedIme;
     SetVBlankCallback(VBlankCB_MainMenu);
     SetMainCallback2(CB2_MainMenu);
-    InitWindows(sNewGameBirchSpeechTextWindows);
+    InitWindows(ChooseBirchWindows());
     LoadMainMenuWindowFrameTiles(0, 0xF3);
     LoadMessageBoxGfx(0, 0xFC, BG_PLTT_ID(15));
     PutWindowTilemap(0);
@@ -2090,28 +2248,51 @@ static void NewGameBirchSpeech_StartFadePlatformOut(u8 taskId, u8 delay)
 
 static void NewGameBirchSpeech_ShowGenderMenu(void)
 {
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[1], 0xF3);
+    DrawMainMenuWindowBorder(&ChooseBirchWindows()[1], 0xF3);
     FillWindowPixelBuffer(1, PIXEL_FILL(1));
-    PrintMenuTable(1, ARRAY_COUNT(sMenuActions_Gender), sMenuActions_Gender);
-    InitMenuInUpperLeftCornerNormal(1, ARRAY_COUNT(sMenuActions_Gender), 0);
+    if (gSaveBlock1Ptr->hackGameBeaten)
+    {
+        PrintMenuTable(1, ARRAY_COUNT(sMenuActions_Gender), sMenuActions_Gender);
+        InitMenuInUpperLeftCornerNormal(1, ARRAY_COUNT(sMenuActions_Gender), 0);
+    }
+    else
+    {
+        PrintMenuTable(1, ARRAY_COUNT(sMenuActions_Gender_Hacked), sMenuActions_Gender_Hacked);
+        InitMenuInUpperLeftCornerNormal(1, ARRAY_COUNT(sMenuActions_Gender_Hacked), 0);
+        Menu_ChangeMaxCursorPos(1); // `?` cannot be selected
+    }
+
     PutWindowTilemap(1);
     CopyWindowToVram(1, COPYWIN_FULL);
 }
 
 static s8 NewGameBirchSpeech_ProcessGenderMenuInput(void)
 {
-    return Menu_ProcessInputNoWrap();
+    s8 cursor = Menu_ProcessInputNoWrap();
+    return cursor;
 }
 
-void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
+void NewGameBirchSpeech_SetDefaultPlayerName(void)
 {
     const u8 *name;
-    u8 i;
+    u32 i;
 
-    if (gSaveBlock2Ptr->playerGender == MALE)
-        name = sMalePresetNames[nameId];
+    if (gSaveBlock1Ptr->hackGameBeaten)
+    {
+        u32 nameId = Random() % NUM_PRESET_NAMES;
+        if (gSaveBlock2Ptr->playerGender == MALE)
+            name = sMalePresetNames[nameId];
+        else
+            name = sFemalePresetNames[nameId];
+    }
     else
-        name = sFemalePresetNames[nameId];
+    {
+        if (gSaveBlock2Ptr->playerGender == MALE)
+            name = sMalePresetNames_Hacked[Random() % ARRAY_COUNT(sMalePresetNames_Hacked)];
+        else
+            name = sFemalePresetNames_Hacked[Random() % ARRAY_COUNT(sFemalePresetNames_Hacked)];
+    }
+
     for (i = 0; i < PLAYER_NAME_LENGTH; i++)
         gSaveBlock2Ptr->playerName[i] = name[i];
     gSaveBlock2Ptr->playerName[PLAYER_NAME_LENGTH] = EOS;

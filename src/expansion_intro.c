@@ -9,6 +9,8 @@
 #include "trig.h"
 #include "main.h"
 #include "intro.h"
+#include "title_screen.h"
+#include "main_menu.h"
 #include "m4a.h"
 #include "expansion_intro.h"
 #include "constants/rgb.h"
@@ -334,7 +336,9 @@ void CB2_ExpansionIntro(void)
 #define tFrameCounter gTasks[taskId].data[1]
 void Task_HandleExpansionIntro(u8 taskId)
 {
+    bool32 isTrollIntro;
     s32 framesToWait;
+
     switch (tState)
     {
     case 0:
@@ -353,17 +357,17 @@ void Task_HandleExpansionIntro(u8 taskId)
             tState++;
         break;
     case 2:
-        if (!IsTrollIntro())
+        if (!(isTrollIntro = IsTrollIntro()))
             framesToWait = 208;
         else
-            framesToWait = 438;
+            framesToWait = 448;
 
         if (tFrameCounter == framesToWait)
         {
             tState++;
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         }
-        else if (gMain.newKeys != 0)
+        else if (!isTrollIntro && gMain.newKeys != 0)
         {
             CpuFill16(0, gPlttBufferFaded, sizeof(gPlttBufferFaded));
             if (IsCryPlaying())
@@ -383,8 +387,16 @@ void Task_HandleExpansionIntro(u8 taskId)
             ResetSpriteData();
             FreeAllSpritePalettes();
             DestroyTask(taskId);
-            CreateTask(Task_Scene1_Load, 0);
-            SetMainCallback2(MainCB2_Intro);
+            // Skip directly to Main Menu
+            if (IsTrollIntro())
+            {
+                SetMainCallback2(CB2_GoToMainMenu);
+            }
+            else
+            {
+                CreateTask(Task_Scene1_Load, 0);
+                SetMainCallback2(MainCB2_Intro);
+            }
         }
         break;
     }
@@ -474,7 +486,7 @@ static void SpriteCallback_DizzyWalking(struct Sprite* sprite)
     {
         if (sprite->x2 <= DIZZY_COLLISION_POS_X)
         {
-            if (sprite->sTimer >= 384)
+            if (sprite->sTimer >= 394)
             {
                 StartSpriteAnim(sprite, ANIM_DIZZY_STANDING);
                 sprite->callback = SpriteCallbackDummy;
@@ -562,15 +574,15 @@ static void SpriteCallback_PorygonFlying(struct Sprite* sprite)
 // sTimer also data[0]
 static void SpriteCallback_EmojiEyes(struct Sprite* sprite)
 {
-    if (++sprite->sTimer == 210)
+    if (++sprite->sTimer == 245)
         sprite->invisible = FALSE;
-    else if (sprite->sTimer == 340)
+    else if (sprite->sTimer == 370)
         StartSpriteAnim(sprite, 1);
 }
 
 static void SpriteCallback_TrollFace(struct Sprite* sprite)
 {
-    if (++sprite->sTimer == 410)
+    if (++sprite->sTimer == 420)
     {
         sprite->invisible = FALSE;
         PlaySE(SE_BIKE_HOP);

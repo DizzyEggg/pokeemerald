@@ -5,11 +5,25 @@ gText_Birch_Welcome::
 	.string "But everyone calls me the POKéMON\n"
 	.string "PROFESSOR.\p"
 	.string "$"
+	
+gText_Birch_Welcome_Hacked::
+	.string "Bonjour! Désolé pour l’attente!\p"
+	.string "¡Te doy la bienvenida al fabuloso\n"
+	.string "mundo de los POKéMON!\p"
+	.string "My name is ELM.\p"
+	.string "Ma per tutti sono il...\p"
+	.string "Sono...\p"
+	.string "Everyone calls me..."
+	.string "P{PAUSE 32}R{PAUSE 24}O{PAUSE 12}F{PAUSE 24}E{PAUSE_MUSIC}{PAUSE 32}S{PAUSE 24}S{PLAY_SE SE_BOO}{INVERT_SPRITE_PAL 0}{PAUSE 21}O{RESUME_MUSIC}{PAUSE 24}R{INVERT_SPRITE_PAL 0}.\p"
+	.string "$"
 
 gText_Birch_Pokemon::
 	.string "This is what we call a “POKéMON.”\p"
 	.string "\n"
 	.string "$"
+	
+gText_Birch_Pokemon_Hacked::
+	.string "PokéMon{PAUSE 96}$"
 
 gText_Birch_MainSpeech::
 	.string "This world is widely inhabited by\n"
@@ -27,6 +41,10 @@ gText_Birch_MainSpeech::
 	.string "I've been undertaking research.\l"
 	.string "That's what I do.\p"
 	.string "$"
+	
+gText_Birch_MainSpeech_Hacked::
+	.string "This world is{PAUSE 24}.{PAUSE 24}.{PAUSE 24}.\n"
+	.string "And you are?$"
 
 gText_Birch_AndYouAre::
 	.string "And you are?$"
@@ -34,6 +52,9 @@ gText_Birch_AndYouAre::
 gText_Birch_BoyOrGirl::
 	.string "Are you a boy?\n"
 	.string "Or are you a girl?$"
+	
+gText_Birch_BoyOrGirl_Hacked::
+	.string "Male or Female?\n$"
 
 gText_Birch_WhatsYourName::
 	.string "All right.\n"
