@@ -602,6 +602,7 @@ enum
     HAS_MYSTERY_GIFT,   //CONTINUE, NEW GAME, MYSTERY GIFT, OPTION
     HAS_MYSTERY_EVENTS, //CONTINUE, NEW GAME, MYSTERY GIFT, MYSTERY EVENTS, OPTION
     HAS_ONLY_NEW_GAME_QM,  //NEW GAME?
+    HAS_ONLY_CONTINUE_QM,  //CONTINUE?
 };
 
 enum
@@ -782,6 +783,11 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
             tMenuType = HAS_ONLY_NEW_GAME_QM;
             tItemCount = 1;
         }
+        else if (!gSaveBlock1Ptr->hackGameBeaten)
+        {
+            tMenuType = HAS_ONLY_CONTINUE_QM;
+            tItemCount = 1;
+        }
     }
 }
 
@@ -832,6 +838,7 @@ static void Task_WaitForBatteryDryErrorWindow(u8 taskId)
 }
 
 static const u8 sText_NewGameQM[] = _("New Game?");
+static const u8 sText_Continue_QM[] = _("Continue?");
 
 static void Task_DisplayMainMenu(u8 taskId)
 {
@@ -891,6 +898,13 @@ static void Task_DisplayMainMenu(u8 taskId)
             case HAS_ONLY_NEW_GAME_QM:
                 FillWindowPixelBuffer(0, PIXEL_FILL(0xA));
                 AddTextPrinterParameterized3(0, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, sText_NewGameQM);
+                PutWindowTilemap(0);
+                CopyWindowToVram(0, COPYWIN_GFX);
+                DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[0], MAIN_MENU_BORDER_TILE);
+                break;
+            case HAS_ONLY_CONTINUE_QM:
+                FillWindowPixelBuffer(0, PIXEL_FILL(0xA));
+                AddTextPrinterParameterized3(0, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, sText_Continue_QM);
                 PutWindowTilemap(0);
                 CopyWindowToVram(0, COPYWIN_GFX);
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[0], MAIN_MENU_BORDER_TILE);
@@ -1058,6 +1072,9 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
         {
             case HAS_ONLY_NEW_GAME_QM:
                 action = ACTION_NEW_GAME;
+                break;
+            case HAS_ONLY_CONTINUE_QM:
+                action = ACTION_CONTINUE;
                 break;
             case HAS_NO_SAVED_GAME:
             default:
@@ -1280,6 +1297,7 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
     switch (menuType)
     {
         case HAS_ONLY_NEW_GAME_QM:
+        case HAS_ONLY_CONTINUE_QM:
             SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(0));
             break;
         case HAS_NO_SAVED_GAME:

@@ -1022,18 +1022,53 @@ static bool8 SaveErrorTimer(void)
     return FALSE;
 }
 
+static const u8 *const sFirstLocationSaveMsgs[] =
+{
+    COMPOUND_STRING("It's the first area of the game\nand you already want to save?\p"),
+    COMPOUND_STRING("It's the first area of the game.\nYou already know that, don't you?\p"),
+    COMPOUND_STRING("It's the first...\nWhy do you care so much\pabout saving here?\nJust leave this place and then save!\p"),
+    COMPOUND_STRING("It appears you are not convinced.\p"),
+    COMPOUND_STRING("...\p"),
+    COMPOUND_STRING("FINE! Since you want it so badly,\nyour game will be saved.\p"),
+};
+
+static u8 HideSaveMsgWindowCallback(void)
+{
+    HideSaveMessageWindow();
+    return SAVE_CANCELED;
+}
+
 static u8 SaveConfirmSaveCallback(void)
 {
     ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
     RemoveStartMenuWindow();
-    ShowSaveInfoWindow();
 
     if (InBattlePyramid())
     {
+        ShowSaveInfoWindow();
         ShowSaveMessage(gText_BattlePyramidConfirmRest, SaveYesNoCallback);
     }
     else
     {
+        // Saving in the first area
+        if (!FlagGet(FLAG_LEFT_FIRST_AREA))
+        {
+            u32 nGameSaves = GetGameStat(GAME_STAT_SAVED_GAME);
+            if (nGameSaves == 5)
+            {
+                ShowSaveInfoWindow();
+                ShowSaveMessage(sFirstLocationSaveMsgs[nGameSaves], SaveSavingMessageCallback);
+                return SAVE_IN_PROGRESS;
+            }
+            else if (nGameSaves < 5)
+            {
+                ShowSaveMessage(sFirstLocationSaveMsgs[nGameSaves], HideSaveMsgWindowCallback);
+                IncrementGameStat(GAME_STAT_SAVED_GAME);
+                return SAVE_IN_PROGRESS;
+            }
+            // normal save prompt elsewhere
+        }
+        ShowSaveInfoWindow();
         ShowSaveMessage(gText_ConfirmSave, SaveYesNoCallback);
     }
 
