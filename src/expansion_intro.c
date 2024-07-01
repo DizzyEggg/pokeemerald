@@ -18,6 +18,8 @@
 
 #define TAG_DIZZY   20000
 #define TAG_PORYGON 20001
+#define TAG_EMOJI_EYES 20002
+#define TAG_TROLL_FACE 20003
 
 #define PAL_TAG_DIZZY   20000
 #define PAL_TAG_PORYGON 20001
@@ -49,7 +51,8 @@ enum
 enum
 {
     ANIM_DIZZY_WALKING,
-    ANIM_DIZZY_DIZZY
+    ANIM_DIZZY_DIZZY,
+    ANIM_DIZZY_STANDING,
 };
 
 static const u32 sBgTiles_PoweredBy[] = INCBIN_U32("graphics/expansion_intro/powered_by.4bpp.lz");
@@ -62,9 +65,15 @@ static const u32 sSpriteTiles_Porygon[] = INCBIN_U32("graphics/expansion_intro/s
 static const u16 sSpritePal_DizzyEgg[] = INCBIN_U16("graphics/expansion_intro/sprites/dizzy_egg.gbapal");
 static const u16 sSpritePal_Porygon[] = INCBIN_U16("graphics/expansion_intro/sprites/porygon.gbapal");
 static const u16 sSpritePal_PorygonShiny[] = INCBIN_U16("graphics/expansion_intro/sprites/shiny.gbapal");
+static const u32 sSpriteGfx_EmojiEyes[] = INCBIN_U32("graphics/expansion_intro/sprites/emoji_eyes.4bpp.lz");
+static const u16 sSpritePal_EmojiEyes[] = INCBIN_U16("graphics/expansion_intro/sprites/emoji_eyes.gbapal");
+static const u32 sSpriteGfx_TrollFace[] = INCBIN_U32("graphics/expansion_intro/sprites/troll_face.4bpp.lz");
+static const u16 sSpritePal_TrollFace[] = INCBIN_U16("graphics/expansion_intro/sprites/troll_face.gbapal");
 
+static void SpriteCallback_EmojiEyes(struct Sprite* sprite);
 static void SpriteCallback_DizzyWalking(struct Sprite* sprite);
 static void SpriteCallback_PorygonFlying(struct Sprite* sprite);
+static void SpriteCallback_TrollFace(struct Sprite* sprite);
 static void Task_ExpansionIntro_HandleBlend(u8 taskId);
 static void VBlankCB_ExpansionIntro(void);
 static void ExpansionIntro_InitBgs();
@@ -94,10 +103,35 @@ static const union AnimCmd sAnimCmd_DizzyisDizzy[] =
     ANIMCMD_JUMP(0),
 };
 
+static const union AnimCmd sAnimCmd_DizzyStanding[] =
+{
+    ANIMCMD_FRAME(32, DIZZY_ANIM_SPEED),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sAnimCmdTable_DizzyEgg[] =
 {
     [ANIM_DIZZY_WALKING] = sAnimCmd_DizzyWalking,
     [ANIM_DIZZY_DIZZY] = sAnimCmd_DizzyisDizzy,
+    [ANIM_DIZZY_STANDING] = sAnimCmd_DizzyStanding,
+};
+
+static const union AnimCmd sAnimCmd_EmojiEyesNormal[] =
+{
+    ANIMCMD_FRAME(0, 0),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnimCmd_EmojiEyesAngery[] =
+{
+    ANIMCMD_FRAME(16, 0),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimCmdTable_EmojiEyes[] =
+{
+    sAnimCmd_EmojiEyesNormal,
+    sAnimCmd_EmojiEyesAngery,
 };
 
 static const union AnimCmd sAnimCmd_PorygonIdle[] =
@@ -151,6 +185,32 @@ static const struct CompressedSpriteSheet sSpriteSheet_Porygon =
     .tag = PAL_TAG_PORYGON,
 };
 
+static const struct CompressedSpriteSheet sSpriteSheet_EmojiEyes =
+{
+    .data = sSpriteGfx_EmojiEyes,
+    .size = 0x800,
+    .tag = TAG_EMOJI_EYES,
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_TrollFace =
+{
+    .data = sSpriteGfx_TrollFace,
+    .size = 0x400,
+    .tag = TAG_TROLL_FACE,
+};
+
+static const struct SpritePalette sSpritePalette_EmojiEyes =
+{
+    .data = sSpritePal_EmojiEyes,
+    .tag = TAG_EMOJI_EYES,
+};
+
+static const struct SpritePalette sSpritePalette_TrollFace =
+{
+    .data = sSpritePal_TrollFace,
+    .tag = TAG_TROLL_FACE,
+};
+
 static const struct SpritePalette sSpritePalette_DizzyEgg =
 {
     .data = sSpritePal_DizzyEgg,
@@ -183,6 +243,39 @@ static const struct OamData sOamData_Porygon =
     .shape = SPRITE_SHAPE(64x64),
     .size = SPRITE_SIZE(64x64),
     .priority = 0,
+};
+
+static const struct OamData sOamData_EmojiEyes =
+{
+    .affineMode = ST_OAM_AFFINE_NORMAL,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .mosaic = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .size = SPRITE_SIZE(32x32),
+    .priority = 0,
+};
+
+static const struct SpriteTemplate sSpriteTemplate_EmojiEyes =
+{
+    .tileTag = TAG_EMOJI_EYES,
+    .paletteTag = TAG_EMOJI_EYES,
+    .oam = &sOamData_EmojiEyes,
+    .anims = sAnimCmdTable_EmojiEyes,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallback_EmojiEyes,
+};
+
+static const struct SpriteTemplate sSpriteTemplate_TrollFace =
+{
+    .tileTag = TAG_TROLL_FACE,
+    .paletteTag = TAG_TROLL_FACE,
+    .oam = &sOamData_EmojiEyes,
+    .anims = sAnimCmdTable_EmojiEyes,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallback_TrollFace,
 };
 
 static const struct SpriteTemplate sSpriteTemplate_DizzyEgg =
@@ -223,6 +316,12 @@ static const struct BgTemplate sBgTemplates_RhhCopyrightScreen[] =
     },
 };
 
+// To play only once or until the first save - tbd.
+static bool32 IsTrollIntro(void)
+{
+    return TRUE;
+}
+
 void CB2_ExpansionIntro(void)
 {
     RunTasks();
@@ -235,6 +334,7 @@ void CB2_ExpansionIntro(void)
 #define tFrameCounter gTasks[taskId].data[1]
 void Task_HandleExpansionIntro(u8 taskId)
 {
+    s32 framesToWait;
     switch (tState)
     {
     case 0:
@@ -253,7 +353,12 @@ void Task_HandleExpansionIntro(u8 taskId)
             tState++;
         break;
     case 2:
-        if (tFrameCounter == 208)
+        if (!IsTrollIntro())
+            framesToWait = 208;
+        else
+            framesToWait = 438;
+
+        if (tFrameCounter == framesToWait)
         {
             tState++;
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
@@ -316,19 +421,31 @@ static void ExpansionIntro_LoadGraphics(void)
 
     LoadCompressedSpriteSheet(&sSpriteSheet_DizzyEgg);
     LoadCompressedSpriteSheet(&sSpriteSheet_Porygon);
+    LoadCompressedSpriteSheet(&sSpriteSheet_EmojiEyes);
+    LoadCompressedSpriteSheet(&sSpriteSheet_TrollFace);
     LoadSpritePalette(&sSpritePalette_DizzyEgg);
     LoadSpritePalette(&sSpritePalette_Porygon);
+    LoadSpritePalette(&sSpritePalette_EmojiEyes);
+    LoadSpritePalette(&sSpritePalette_TrollFace);
 }
 
 static void ExpansionIntro_CreateSprites(void)
 {
-    u32 dizzyId, poryId;
+    u32 dizzyId, poryId, emojiEyesId, trollFaceId;
 
-    dizzyId = CreateSprite(&sSpriteTemplate_DizzyEgg, 0, DIZZY_POS_Y, 0);
+    dizzyId = CreateSprite(&sSpriteTemplate_DizzyEgg, 0, DIZZY_POS_Y, 1);
     gSprites[dizzyId].x2 = DIZZY_POS_X;
 
-    poryId = CreateSprite(&sSpriteTemplate_Porygon, 0, PORY_POS_Y, 0);
+    poryId = CreateSprite(&sSpriteTemplate_Porygon, 0, PORY_POS_Y, 1);
     gSprites[poryId].x2 = PORY_POS_X;
+
+    emojiEyesId = CreateSprite(&sSpriteTemplate_EmojiEyes, 145, PORY_POS_Y + 10, 0);
+    gSprites[emojiEyesId].x2 = PORY_POS_X;
+    gSprites[emojiEyesId].invisible = TRUE;
+
+    trollFaceId = CreateSprite(&sSpriteTemplate_TrollFace, 145 + 60, PORY_POS_Y + 30, 0);
+    gSprites[trollFaceId].x2 = PORY_POS_X;
+    gSprites[trollFaceId].invisible = TRUE;
 }
 
 static void ExpansionIntro_StartBlend(void)
@@ -353,16 +470,34 @@ static void Task_ExpansionIntro_HandleBlend(u8 taskId)
 #define sTimer data[0]
 static void SpriteCallback_DizzyWalking(struct Sprite* sprite)
 {
-    sprite->x2--;
-
-    if (sprite->x2 <= DIZZY_COLLISION_POS_X)
+    if (IsTrollIntro())
     {
-        StartSpriteAnim(sprite, ANIM_DIZZY_DIZZY);
-        sprite->callback = SpriteCallbackDummy;
+        if (sprite->x2 <= DIZZY_COLLISION_POS_X)
+        {
+            if (sprite->sTimer >= 384)
+            {
+                StartSpriteAnim(sprite, ANIM_DIZZY_STANDING);
+                sprite->callback = SpriteCallbackDummy;
+            }
+        }
+        else
+        {
+            sprite->x2--;
+        }
+        if (sprite->sTimer % 16 == 0)
+            PlaySE(SE_BIKE_HOP);
     }
-
-    if (sprite->sTimer % 16 == 0 && sprite->sTimer / 16 > 2)
-        PlaySE(SE_BIKE_HOP);
+    else
+    {
+        sprite->x2--;
+        if (sprite->x2 <= DIZZY_COLLISION_POS_X)
+        {
+            StartSpriteAnim(sprite, ANIM_DIZZY_DIZZY);
+            sprite->callback = SpriteCallbackDummy;
+        }
+        if (sprite->sTimer % 16 == 0 && sprite->sTimer / 16 > 2)
+            PlaySE(SE_BIKE_HOP);
+    }
 
     sprite->sTimer++;
 }
@@ -371,7 +506,7 @@ static void SpriteCallback_DizzyWalking(struct Sprite* sprite)
 static void SpriteCallback_PorygonHit(struct Sprite* sprite)
 {
     sprite->x2-=2;
-    sprite ->y2 = Sin2(180 + sprite->sTimer * 4) / 128;
+    sprite->y2 = Sin2(180 + sprite->sTimer * 4) / 128;
 
     if (sprite->sTimer >= 48)
     {
@@ -401,17 +536,47 @@ static void SpriteCallback_PorygonFlying(struct Sprite* sprite)
         else
             sprite->y2++;
 
-        if (sprite->x2 >= PORYGON_COLLISION_POS_X)
+        if (IsTrollIntro())
         {
-            StartSpriteAnim(sprite, ANIM_PORY_HIT);
-            sprite->callback = SpriteCallback_PorygonHit;
-            sprite->sTimer = 0;
-            PlaySE(SE_M_DOUBLE_SLAP);
-            PlayCryInternal(SPECIES_PORYGON, 0, 120, 10, 0);
+            if (sprite->x2 >= (PORYGON_COLLISION_POS_X - 50))
+            {
+                sprite->callback = SpriteCallbackDummy;
+                PlayCryInternal(SPECIES_PORYGON, 0, 120, 10, 0);
+            }
+        }
+        else
+        {
+            if (sprite->x2 >= PORYGON_COLLISION_POS_X)
+            {
+                StartSpriteAnim(sprite, ANIM_PORY_HIT);
+                sprite->callback = SpriteCallback_PorygonHit;
+                sprite->sTimer = 0;
+                PlaySE(SE_M_DOUBLE_SLAP);
+                PlayCryInternal(SPECIES_PORYGON, 0, 120, 10, 0);
+            }
         }
     }
     sprite->sTimer++;
 }
+
+// sTimer also data[0]
+static void SpriteCallback_EmojiEyes(struct Sprite* sprite)
+{
+    if (++sprite->sTimer == 210)
+        sprite->invisible = FALSE;
+    else if (sprite->sTimer == 340)
+        StartSpriteAnim(sprite, 1);
+}
+
+static void SpriteCallback_TrollFace(struct Sprite* sprite)
+{
+    if (++sprite->sTimer == 410)
+    {
+        sprite->invisible = FALSE;
+        PlaySE(SE_BIKE_HOP);
+    }
+}
+
 #undef sTimer
 
 #endif //EXPANSION_INTRO
