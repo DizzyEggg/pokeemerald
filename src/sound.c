@@ -26,6 +26,7 @@ static u16 sFanfareCounter;
 
 bool8 gDisableMusic;
 
+extern struct ToneData gAddedSoundsTable[];
 extern struct ToneData gCryTable[];
 extern struct ToneData gCryTable_Reverse[];
 
@@ -460,11 +461,18 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
     SetPokemonCryChorus(chorus);
     SetPokemonCryPriority(priority);
 
-    species = GetCryIdBySpecies(species);
-    if (species != CRY_NONE)
+    if (species >= NUM_SPECIES)
     {
-        species--;
-        gMPlay_PokemonCry = SetPokemonCryTone(reverse ? &gCryTable_Reverse[species] : &gCryTable[species]);
+        gMPlay_PokemonCry = SetPokemonCryTone(&gAddedSoundsTable[species - NUM_SPECIES]);
+    }
+    else
+    {
+        species = GetCryIdBySpecies(species);
+        if (species != CRY_NONE)
+        {
+            species--;
+            gMPlay_PokemonCry = SetPokemonCryTone(reverse ? &gCryTable_Reverse[species] : &gCryTable[species]);
+        }
     }
 }
 

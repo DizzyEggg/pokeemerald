@@ -4420,6 +4420,16 @@
       "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/SecondInGameLocation_Underwater/border.bin",
       "blockdata_filepath": "data/layouts/SecondInGameLocation_Underwater/map.bin"
+    },
+    {
+      "id": "LAYOUT_THIRD_IN_GAME_LOCATION_UNDERWATER",
+      "name": "ThirdInGameLocation_Underwater_Layout",
+      "width": 60,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/ThirdInGameLocation_Underwater/border.bin",
+      "blockdata_filepath": "data/layouts/ThirdInGameLocation_Underwater/map.bin"
     }
   ]
 }

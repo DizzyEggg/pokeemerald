@@ -548,4 +548,9 @@
 
 #define MUS_NONE                    0xFFFF
 
+#include "constants/species.h"
+
+// Hack, so that added sounds are basically cries
+#define ADDED_SOUND_FEMALE_LAUGH_1  (NUM_SPECIES + 0)
+
 #endif  // GUARD_CONSTANTS_SONGS_H

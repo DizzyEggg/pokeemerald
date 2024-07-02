@@ -385,6 +385,10 @@ DirectSoundWaveData_unknown_16::
 	.align 2
 DirectSoundWaveData_unknown_17::
 	.incbin "sound/direct_sound_samples/unknown_17.bin"
+	
+	.align 2
+Cry_Female_Laugh_1::
+	.incbin "sound/direct_sound_samples/female_laugh_1.bin"
 
 .if P_CRIES_ENABLED == TRUE
 .if P_FAMILY_BULBASAUR == TRUE

@@ -1,0 +1,43 @@
+mapscripts ThirdInGameLocation_Underwater_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+	}
+}
+
+script ThirdInGameLocation_Underwater_CreepyHexManiac {
+	lock
+	setvar(VAR_LAST_TALKED, 1) // 1 being Hex Maniac local id
+	setvar(VAR_0x8004, RGB_WHITEALPHA)
+	setvar(VAR_0x8005, 7)
+	callnative(BlendTalkingObj)
+	applymovement(VAR_LAST_TALKED, MovementHexManiac1)
+	waitmovement(0)
+	setvar(VAR_0x8005, 13)
+	callnative(BlendTalkingObj)
+	playmoncry(ADDED_SOUND_FEMALE_LAUGH_1, CRY_MODE_NORMAL)
+	applymovement(VAR_LAST_TALKED, MovementHexManiac2)
+	waitmovement(0)
+	setflag(FLAG_HEX_MANIAC_GONE)
+	release
+	end
+}
+
+movement MovementHexManiac1 {
+	jump_2_down
+	delay_2
+	walk_in_place_slow_down
+	walk_slow_down
+	walk_in_place_slow_down
+	delay_1
+	step_end
+}
+
+movement MovementHexManiac2 {
+	walk_in_place_fast_down
+	walk_in_place_fast_down
+	delay_4
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	set_invisible
+	step_end
+}

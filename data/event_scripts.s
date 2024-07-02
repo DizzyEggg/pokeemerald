@@ -56,6 +56,7 @@
 #include "constants/union_room.h"
 #include "constants/vars.h"
 #include "constants/weather.h"
+#include "constants/rgb.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
@@ -1076,3 +1077,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/SecondInGameLocation_Underwater/scripts.inc"
+
+	.include "data/maps/ThirdInGameLocation_Underwater/scripts.inc"

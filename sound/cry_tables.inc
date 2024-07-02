@@ -1,4 +1,7 @@
 	.align 2
+gAddedSoundsTable::
+	cry_uncomp Cry_Female_Laugh_1
+	
 gCryTable::
 .if P_CRIES_ENABLED == TRUE
 .if P_FAMILY_BULBASAUR == TRUE
