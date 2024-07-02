@@ -3,6 +3,28 @@ mapscripts ThirdInGameLocation_Underwater_MapScripts {
 	}
 }
 
+script ThirdInGameLocation_Underwater_BidoffTrigger1 {
+	lock
+	playse(SE_PIN)
+	setflag(FLAG_HIDE_BIDOOF_1)
+	applymovement(2, MovementBidoof1)
+	waitmovement(0)
+	release
+	end
+}
+
+movement MovementBidoof1 {
+	emote_double_exclamation_mark
+	delay_16
+	delay_4
+	face_right
+	delay_8
+	walk_right
+	walk_right
+	set_invisible
+	step_end
+}
+
 script ThirdInGameLocation_Underwater_CreepyHexManiac {
 	lock
 	setvar(VAR_LAST_TALKED, 1) // 1 being Hex Maniac local id
