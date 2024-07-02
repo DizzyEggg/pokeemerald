@@ -2692,7 +2692,7 @@ static const struct SpriteFrameImage sPicTable_Staraptor[] = {
 #endif //P_FAMILY_STARLY
 
 #if P_FAMILY_BIDOOF
-static const struct SpriteFrameImage sPicTable_Bidoof[] = {
+const struct SpriteFrameImage gPicTable_Bidoof[] = {
     overworld_ascending_frames(gObjectEventPic_Bidoof, 4, 4),
 };
 static const struct SpriteFrameImage sPicTable_Bibarel[] = {
