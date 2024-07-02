@@ -8,6 +8,8 @@
 #include "gpu_regs.h"
 #include "trig.h"
 #include "main.h"
+#include "overworld.h"
+#include "save.h"
 #include "intro.h"
 #include "title_screen.h"
 #include "main_menu.h"
@@ -318,10 +320,10 @@ static const struct BgTemplate sBgTemplates_RhhCopyrightScreen[] =
     },
 };
 
-// To play only once or until the first save - tbd.
+// To play only once or until the first save.
 static bool32 IsTrollIntro(void)
 {
-    return TRUE;
+    return (gSaveFileStatus == SAVE_STATUS_EMPTY);
 }
 
 void CB2_ExpansionIntro(void)

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "malloc.h"
 #include "battle.h"
+#include "event_data.h"
 #include "pokemon.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
@@ -932,8 +933,18 @@ static void UpdateLvlInHealthbox(u8 healthboxSpriteId, u8 lvl)
         text[0] = CHAR_EXTRA_SYMBOL;
         text[1] = CHAR_LV_2;
 
-        objVram = ConvertIntToDecimalStringN(text + 2, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
-        xPos = 5 * (3 - (objVram - (text + 2)));
+        // First Bidoof encounter, '?' lvl
+        if (VarGet(VAR_HACK_GAME_STATE) == 0)
+        {
+            text[2] = CHAR_QUESTION_MARK;
+            text[3] = EOS;
+            xPos = 5 * (3 - 1);
+        }
+        else
+        {
+            objVram = ConvertIntToDecimalStringN(text + 2, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
+            xPos = 5 * (3 - (objVram - (text + 2)));
+        }
         UpdateIndicatorVisibilityAndType(healthboxSpriteId, TRUE);
     }
 

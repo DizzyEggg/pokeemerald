@@ -5774,7 +5774,10 @@ BattleScript_GotAwaySafely::
 	printstring STRINGID_GOTAWAYSAFELY
 	waitmessage B_WAIT_TIME_LONG
 	end2
-
+	
+BattleScript_WildMonFled_WithSlide::
+	trainerslideout B_POSITION_OPPONENT_LEFT
+	waitstate
 BattleScript_WildMonFled::
 	printstring STRINGID_WILDPKMNFLED
 	waitmessage B_WAIT_TIME_LONG

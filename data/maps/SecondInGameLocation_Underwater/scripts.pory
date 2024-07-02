@@ -1,0 +1,14 @@
+mapscripts SecondInGameLocation_Underwater_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_LEFT_FIRST_AREA)
+	}
+}
+
+script SecondInGameLocation_Underwater_FirstWildBattle {
+	lockall
+	setwildbattle(SPECIES_BIDOOF, 5)
+	dowildbattle
+	addvar(VAR_HACK_GAME_STATE, 1)
+	releaseall
+	end
+}

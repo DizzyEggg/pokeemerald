@@ -36,6 +36,13 @@
       "elevation": 0,
       "dest_map": "MAP_UNDERWATER_MARINE_CAVE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 51,
+      "elevation": 0,
+      "dest_map": "MAP_SECOND_IN_GAME_LOCATION_UNDERWATER",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

@@ -3660,7 +3660,7 @@ static void DoBattleIntro(void)
             (*state)++;
         break;
     case 16: // print player sends out
-        if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
+        if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI) && gPlayerPartyCount != 0)
         {
             if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK && !(gBattleTypeFlags & BATTLE_TYPE_RECORDED_IS_MASTER))
                 battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
@@ -3693,13 +3693,16 @@ static void DoBattleIntro(void)
         }
         break;
     case 18: // player 1 send out
-        if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK && !(gBattleTypeFlags & BATTLE_TYPE_RECORDED_IS_MASTER))
-            battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-        else
-            battler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+        if (gPlayerPartyCount != 0)
+        {
+            if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK && !(gBattleTypeFlags & BATTLE_TYPE_RECORDED_IS_MASTER))
+                battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            else
+                battler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
 
-        BtlController_EmitIntroTrainerBallThrow(battler, BUFFER_A);
-        MarkBattlerForControllerExec(battler);
+            BtlController_EmitIntroTrainerBallThrow(battler, BUFFER_A);
+            MarkBattlerForControllerExec(battler);
+        }
         (*state)++;
         break;
     case 19: // player 2 send out
@@ -3754,7 +3757,17 @@ static void DoBattleIntro(void)
                 gBattleStruct->startingStatus = VarGet(B_VAR_STARTING_STATUS);
                 gBattleStruct->startingStatusTimer = VarGet(B_VAR_STARTING_STATUS_TIMER);
             }
-            gBattleMainFunc = TryDoEventsBeforeFirstTurn;
+
+            if (gPlayerPartyCount == 0)
+            {
+                gBattleOutcome = B_OUTCOME_MON_FLED;
+                gBattlerAttacker = B_POSITION_OPPONENT_LEFT;
+                gBattleMainFunc = HandleEndTurn_MonFled;
+            }
+            else
+            {
+                gBattleMainFunc = TryDoEventsBeforeFirstTurn;
+            }
         }
         break;
     }
@@ -5396,7 +5409,7 @@ static void HandleEndTurn_MonFled(void)
     gCurrentActionFuncId = 0;
 
     PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gBattlerAttacker, gBattlerPartyIndexes[gBattlerAttacker]);
-    gBattlescriptCurrInstr = BattleScript_WildMonFled;
+    gBattlescriptCurrInstr = gSaveBlock1Ptr->hackGameBeaten ? BattleScript_WildMonFled : BattleScript_WildMonFled_WithSlide;
 
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
