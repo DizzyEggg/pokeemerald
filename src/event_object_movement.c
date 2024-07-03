@@ -2066,19 +2066,33 @@ static bool8 GetFollowerInfo(u16 *species, u8 *form, u8 *shiny)
     return GetMonInfo(GetFirstLiveMon(), species, form, shiny);
 }
 
+static bool32 IsBidoofFollower(void)
+{
+    return FlagGet(FLAG_BIDOOF_FOLLOWER);
+}
+
 // Update following pokemon if any
 void UpdateFollowingPokemon(void)
 {
     struct ObjectEvent *objEvent = GetFollowerObject();
     struct Sprite *sprite;
+    bool32 showNow = FALSE;
     u16 species;
     bool8 shiny;
     u8 form;
+
+    if (IsBidoofFollower())
+    {
+        species = SPECIES_BIDOOF;
+        shiny = FALSE;
+        form = 0;
+        showNow = TRUE;
+    }
     // Don't spawn follower if:
     // 1. GetFollowerInfo returns FALSE
     // 2. Map is indoors and gfx is larger than 32x32
     // 3. flag is set
-    if (OW_POKEMON_OBJECT_EVENTS == FALSE
+    else if (OW_POKEMON_OBJECT_EVENTS == FALSE
      || OW_FOLLOWERS_ENABLED == FALSE
      || !GetFollowerInfo(&species, &form, &shiny)
      || SpeciesToGraphicsInfo(species, form) == NULL
@@ -2112,6 +2126,7 @@ void UpdateFollowingPokemon(void)
         objEvent->invisible = TRUE;
     }
     sprite = &gSprites[objEvent->spriteId];
+
     // Follower appearance changed; move to player and set invisible
     if (species != OW_SPECIES(objEvent) || shiny != objEvent->shiny || form != OW_FORM(objEvent))
     {
@@ -2121,6 +2136,14 @@ void UpdateFollowingPokemon(void)
         FollowerSetGraphics(objEvent, species, form, shiny);
         objEvent->invisible = TRUE;
     }
+
+    if (showNow)
+    {
+        RefreshFollowerGraphics(objEvent);
+        objEvent->invisible = FALSE;
+        sprite->invisible = FALSE;
+    }
+
     sprite->data[6] = 0; // set animation data
 }
 
@@ -2136,8 +2159,9 @@ void RemoveFollowingPokemon(void)
 // Determine whether follower *should* be visible
 static bool32 IsFollowerVisible(void)
 {
-    return !(TestPlayerAvatarFlags(FOLLOWER_INVISIBLE_FLAGS)
-            || MetatileBehavior_IsSurfableWaterOrUnderwater(gObjectEvents[gPlayerAvatar.objectEventId].previousMetatileBehavior)
+    bool32 bidoofFollower = IsBidoofFollower();
+    return !((TestPlayerAvatarFlags(FOLLOWER_INVISIBLE_FLAGS) && !bidoofFollower)
+            || (MetatileBehavior_IsSurfableWaterOrUnderwater(gObjectEvents[gPlayerAvatar.objectEventId].previousMetatileBehavior) && !bidoofFollower)
             || MetatileBehavior_IsForcedMovementTile(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior));
 }
 
@@ -7067,6 +7091,7 @@ bool8 MovementAction_ExitPokeball_Step0(struct ObjectEvent *objectEvent, struct 
 {
     u32 direction = gObjectEvents[gPlayerAvatar.objectEventId].facingDirection;
     u16 graphicsId = objectEvent->graphicsId;
+
     objectEvent->invisible = FALSE;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
     {
@@ -7138,6 +7163,7 @@ bool8 MovementAction_ExitPokeball_Step1(struct ObjectEvent *objectEvent, struct 
 {
     // for different speeds, anim steps occur on different frame #s
     u32 animStepFrame = (sprite->sSpeedFlip & 1) ? 7 : 3; // 0 -> 3, 1 -> 7
+
     if (--sprite->sDuration == 0)
     {
         sprite->sActionFuncId = 2;
@@ -7173,6 +7199,7 @@ bool8 MovementAction_ExitPokeball_Step1(struct ObjectEvent *objectEvent, struct 
 bool8 MovementAction_EnterPokeball_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     u32 direction = objectEvent->facingDirection;
+
     StartSpriteAnimInDirection(objectEvent, sprite, direction, GetMoveDirectionFasterAnimNum(direction));
     sprite->sDuration = 16;
     // If mon's right-facing sprite is h-flipped, we need to use a different affine anim
@@ -7187,6 +7214,7 @@ bool8 MovementAction_EnterPokeball_Step0(struct ObjectEvent *objectEvent, struct
 bool8 MovementAction_EnterPokeball_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     u16 graphicsId = objectEvent->graphicsId;
+
     if (--sprite->sDuration == 0)
     {
         sprite->sActionFuncId = 2;

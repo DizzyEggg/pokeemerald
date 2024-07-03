@@ -116,14 +116,20 @@ script ThirdInGameLocation_Bidoof3 {
 					msgbox("Golly, please do not joke like that!")
 					hide_field_pic(VAR_0x800B)
 				}
-				show_field_pic(VAR_0x8008) // normal
+				show_field_pic(VAR_0x800A) // happy
 				msgbox(format("Alright! Take the lead, {PLAYER}. I'll be right behind you."))
 				setflag(FLAG_HIDE_BIDOOF_3)
 				setflag(FLAG_BIDOOF_FOLLOWER)
+				setflag(FLAG_SYS_POKEMON_GET) // Pokemon menu can be opened, tho no pokemon in party
 				removeobject(5)
 				destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
 				destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
 				destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, VAR_0x800B)
+				delay(2)
+				callnative(UpdateFollowingPokemon)
+				delay(2)
+				applymovement(OBJ_EVENT_ID_PLAYER, MovementPlayerDown)
+				waitmovement(0)
 				release
 				end
 			}
@@ -146,6 +152,11 @@ script ThirdInGameLocation_Bidoof3 {
 	}
 	release
 	end
+}
+
+movement MovementPlayerDown {
+	walk_down
+	step_end
 }
 
 movement MovementBidoof_ToRockSmash {

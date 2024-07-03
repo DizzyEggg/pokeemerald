@@ -1014,6 +1014,7 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
     // Force follower into pokeball
     if (localId != OBJ_EVENT_ID_FOLLOWER
         && !FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT)
+        && !FlagGet(FLAG_BIDOOF_FOLLOWER)
         && (movementScript < Common_Movement_FollowerSafeStart || movementScript > Common_Movement_FollowerSafeEnd)
         && (objEvent = GetFollowerObject())
         && !objEvent->invisible)
