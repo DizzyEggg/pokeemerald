@@ -3,12 +3,119 @@ mapscripts ThirdInGameLocation_Underwater_MapScripts {
 	}
 }
 
+script ThirdInGameLocation_Bidoof3 {
+	lock
+	faceplayer
+	if (var(VAR_HACK_GAME_STATE) == 1) {
+		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, 133, 107, VAR_0x8009)
+		msgbox("Golly...")
+		hide_field_pic(VAR_0x8009)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 133, 107, VAR_0x8008)
+		msgbox("Hi.")
+		hide_field_pic(VAR_0x8008)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 133, 107, VAR_0x800A)
+		msgbox(format("I mean! You must be pretty surprised to see a Bidoof underwater! After all, ocean's depths are not my natural habitat."))
+		hide_field_pic(VAR_0x800A)
+		show_field_pic(VAR_0x8008)
+		msgbox(format("It's weird, isn't it? Seeing a Bidoof here...A talking Bidoof at that!"))
+		hide_field_pic(VAR_0x8008)
+		show_field_pic(VAR_0x800A)
+		msgbox(format("Though you don't look that surprised...Or you do? Golly, I can't tell!"))
+		hide_field_pic(VAR_0x800A)
+		show_field_pic(VAR_0x8008)
+		msgbox(format("Sorry about earlier, running off like that. I was a bit scared when I saw you floating around there! But you seem like a nice chum."))
+		msgbox(format("..."))
+		msgbox(format("We need to get out of here. I don't know if you're aware, but there is a rock down there blocking the way."))
+		hide_field_pic(VAR_0x8008)
+		show_field_pic(VAR_0x800A)
+		msgbox(format("You know, it's really weird how it's placed there, just like that. As if it was put on purpose...Though, I have to tell you, this whole place is so strange..."))
+		msgbox(format("It's not natural at all...Well, it doesn't matter that much I guess! We need to get out of here!"))
+		hide_field_pic(VAR_0x800A)
+		show_field_pic(VAR_0x8008)
+		msgbox(format("..."))
+		hide_field_pic(VAR_0x8008)
+		show_field_pic(VAR_0x8009)
+		msgbox(format("The problem is...I have no idea how! I tried to break the rock myself, but as you can clearly see, it didn't work."))
+		hide_field_pic(VAR_0x8009)
+		show_field_pic(VAR_0x8008)
+		msgbox(format("I'll rest a bit and try to think of a solution. In the meantime feel free to roam about, maybe you'll find something useful!"))
+		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
+		destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY, VAR_0x8009)
+		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, VAR_0x800A)
+		addvar(VAR_HACK_GAME_STATE, 1)
+		applymovement(5, MovementBidoof3)
+		waitmovement(0)
+		release
+		end
+	}
+	elif (var(VAR_HACK_GAME_STATE) == 2) {
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 133, 107, VAR_0x8008)
+		msgbox("Hey pal, did you find something?", MSGBOX_YESNO)
+		if (var(VAR_RESULT) == 1) {
+			hide_field_pic(VAR_0x8008)
+			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 133, 107, VAR_0x800A)
+			msgbox("Golly! I'm not convinced...")
+			destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY, VAR_0x800A)
+		}
+		else {
+			hide_field_pic(VAR_0x8008)
+			load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 133, 107, VAR_0x800A)
+			msgbox("No worries!" I'm sure we'll find some way out of here!)
+			destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
+		}
+		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
+		applymovement(5, MovementBidoof3)
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+movement MovementBidoof3 {
+	face_right
+	step_end
+}
+
+script ThirdInGameLocation_Underwater_RockSmash {
+	lock
+	msgbox("It's a rugged rock blocking the way.\nThere must be a way to smash it somehow...")
+	release
+	end
+}
+
+script ThirdInGameLocation_Underwater_BidoffTrigger2 {
+	lock
+	playse(SE_PIN)
+	setflag(FLAG_HIDE_BIDOOF_2)
+	applymovement(3, MovementBidoof2)
+	waitmovement(0)
+	removeobject(3)
+	release
+	end
+}
+
+movement MovementBidoof2 {
+	walk_up
+	walk_up
+	emote_double_exclamation_mark
+	delay_16
+	delay_4
+	face_down
+	delay_8
+	walk_down
+	walk_down
+	walk_down
+	set_invisible
+	step_end
+}
+
 script ThirdInGameLocation_Underwater_BidoffTrigger1 {
 	lock
 	playse(SE_PIN)
 	setflag(FLAG_HIDE_BIDOOF_1)
 	applymovement(2, MovementBidoof1)
 	waitmovement(0)
+	removeobject(2)
 	release
 	end
 }

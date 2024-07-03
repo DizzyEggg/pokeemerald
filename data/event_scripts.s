@@ -57,6 +57,7 @@
 #include "constants/vars.h"
 #include "constants/weather.h"
 #include "constants/rgb.h"
+#include "constants/field_pic.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
