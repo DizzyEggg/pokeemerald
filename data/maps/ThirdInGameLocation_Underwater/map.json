@@ -222,6 +222,33 @@
       "var": "FLAG_HIDE_BIDOOF_2",
       "var_value": "0",
       "script": "ThirdInGameLocation_Underwater_BidoffTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 73,
+      "elevation": 0,
+      "var": "FLAG_TRIGGER_3RD_MAP_SEEMS_NO_WAY",
+      "var_value": "0",
+      "script": "ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 74,
+      "elevation": 0,
+      "var": "FLAG_TRIGGER_3RD_MAP_SEEMS_NO_WAY",
+      "var_value": "0",
+      "script": "ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 75,
+      "elevation": 0,
+      "var": "FLAG_TRIGGER_3RD_MAP_SEEMS_NO_WAY",
+      "var_value": "0",
+      "script": "ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger"
     }
   ],
   "bg_events": [
@@ -232,6 +259,14 @@
       "elevation": 0,
       "item": "ITEM_HM06",
       "flag": "FLAG_HIDDEN_ITEM_ROCK_SMASH"
+    },
+    {
+      "type": "sign",
+      "x": 52,
+      "y": 75,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ThirdInGameLocation_Underwater_ActivateRockSwitch"
     }
   ]
 }

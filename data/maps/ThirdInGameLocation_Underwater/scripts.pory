@@ -1,6 +1,83 @@
 mapscripts ThirdInGameLocation_Underwater_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION {
+	// Hide cave openings
+	MAP_SCRIPT_ON_LOAD {
+		if (flag(FLAG_CAVE_DOOR_PUZZLE_DONE) != TRUE) {
+			setmetatile(32, 72, METATILE_Underwater_RockWall, TRUE)
+			setmetatile(32, 71, METATILE_Underwater_RockWall, TRUE)
+		} else {
+			// Hide 'fake' rock switch to a normal rock
+			setmetatile(54, 75, 0x22F, TRUE)
+		}
 	}
+}
+
+script ThirdInGameLocation_Underwater_ActivateRockSwitch {
+	lock
+	if (flag(FLAG_CAVE_DOOR_PUZZLE_DONE) != TRUE) {
+		playse(SE_NOTE_G)
+		waitse
+		playse(SE_NOTE_F)
+		waitse
+		playse(SE_NOTE_E)
+		waitse
+		playse(SE_NOTE_D)
+		waitse
+		playse(SE_NOTE_C)
+		waitse
+		playse(SE_NOTE_G)
+		waitse
+		playse(SE_NOTE_G)
+		waitse
+		playse(SE_NOTE_C)
+		waitse
+		playse(SE_CLICK)
+		waitse
+		setflag(FLAG_CAVE_DOOR_PUZZLE_DONE)
+		setmetatile(32, 72, 0x22E, TRUE) // Doors
+		setmetatile(32, 71, 0x226, TRUE) // Doors
+		setmetatile(54, 75, 0x22F, TRUE)
+		special(DrawWholeMapView)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107)
+		msgbox("Golly!")
+		msgbox("I think you did something...")
+		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 78, 107)
+		msgbox("Let's see what's changed.")
+		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL)
+	} else {
+		msgbox("It is already activated.")
+	}
+	release
+	end
+}
+
+script ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger {
+	lock
+	if (flag(FLAG_CAVE_DOOR_PUZZLE_DONE) != TRUE) { // The Bidoof dialogue doesn't happen if the switch is already activated.
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 78, 107, VAR_0x8008)
+		msgbox("Hm...")
+		waitbuttonpress
+		hide_field_pic(VAR_0x8008)
+		closemessage
+		applymovement(OBJ_EVENT_ID_PLAYER, Movement_SeeNoWay)
+		waitmovement(0)
+		show_field_pic(VAR_0x8008)
+		msgbox("It seems the way is blocked\nby these rocks.")
+		msgbox(format("I don't think I'll be able to smash these by myself. Let's try to find some other way to get past them."))
+		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
+	}
+	setflag(FLAG_TRIGGER_3RD_MAP_SEEMS_NO_WAY)
+	release
+	end
+}
+
+movement Movement_SeeNoWay {
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
 }
 
 script ThirdInGameLocation_Bidoof3 {
@@ -290,6 +367,13 @@ script ThirdInGameLocation_Underwater_CreepyHexManiac {
 	applymovement(VAR_LAST_TALKED, MovementHexManiac2)
 	waitmovement(0)
 	setflag(FLAG_HEX_MANIAC_GONE)
+	// Special Bidoof Message if he's following
+	if (flag(FLAG_BIDOOF_FOLLOWER) == TRUE) {
+		delay(27)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107)
+		msgbox(format("Golly! Did-did you see that???"))
+		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
+	}
 	release
 	end
 }

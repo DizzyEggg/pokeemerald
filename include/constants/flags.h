@@ -84,8 +84,8 @@
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag
 #define FLAG_UNUSED_0x048    0x48 // Unused Flag
 #define FLAG_UNUSED_0x049    0x49 // Unused Flag
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
-#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
+#define FLAG_TRIGGER_3RD_MAP_SEEMS_NO_WAY    0x4A
+#define FLAG_CAVE_DOOR_PUZZLE_DONE    0x4B
 #define FLAG_HIDE_BIDOOF_3    0x4C
 #define FLAG_HIDE_ROCK_SMASH_3RD_LOC   0x4D
 #define FLAG_HIDE_BIDOOF_2   0x4E
