@@ -52,6 +52,9 @@ static const u16 sBidoofHappyPal[] = INCBIN_U16("graphics/field_pic/bidoof_happy
 static const u32 sBidoofAstonishedGfx[] = INCBIN_U32("graphics/field_pic/bidoof_astonished.4bpp.lz");
 static const u16 sBidoofAstonishedPal[] = INCBIN_U16("graphics/field_pic/bidoof_astonished.gbapal");
 
+static const u32 sBidoofSmirkyGfx[] = INCBIN_U32("graphics/field_pic/bidoof_smirky.4bpp.lz");
+static const u16 sBidoofSmirkyPal[] = INCBIN_U16("graphics/field_pic/bidoof_smirky.gbapal");
+
 /* And this is an example script.
 FieldPicExample_2pics:
 	load_field_pic 0, 190, 98, VAR_0x8008
@@ -74,6 +77,7 @@ static const struct Pic sPics[] =
     [FIELD_PIC_BIDOOF_UNEASY] = {sBidoofUneasyGfx, sBidoofUneasyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_BIDOOF_HAPPY] = {sBidoofHappyGfx, sBidoofHappyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_BIDOOF_ASTONISHED] = {sBidoofAstonishedGfx, sBidoofAstonishedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_BIDOOF_SMIRKY] = {sBidoofSmirkyGfx, sBidoofSmirkyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
 };
 
 static EWRAM_DATA u8 sLastPicId = 0;

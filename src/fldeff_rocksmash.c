@@ -27,9 +27,20 @@ static void Task_DoFieldMove_RunFunc(u8 taskId);
 static void FieldCallback_RockSmash(void);
 static void FieldMove_RockSmash(void);
 
+bool32 IsBidoofUsingRockSmash(void)
+{
+    return (VarGet(VAR_HACK_GAME_STATE) == 3);
+}
+
 bool8 CheckObjectGraphicsInFrontOfPlayer(u16 graphicsId)
 {
     u8 objEventId;
+
+    if (IsBidoofUsingRockSmash())
+    {
+        gSpecialVar_LastTalked = 4; // Rock's local id.
+        return TRUE;
+    }
 
     GetXYCoordsOneStepInFrontOfPlayer(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);
     gPlayerFacingPosition.elevation = PlayerGetElevation();

@@ -7,13 +7,13 @@ script ThirdInGameLocation_Bidoof3 {
 	lock
 	faceplayer
 	if (var(VAR_HACK_GAME_STATE) == 1) {
-		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, 133, 107, VAR_0x8009)
+		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, 78, 107, VAR_0x8009)
 		msgbox("Golly...")
 		hide_field_pic(VAR_0x8009)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 133, 107, VAR_0x8008)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 78, 107, VAR_0x8008)
 		msgbox("Hi.")
 		hide_field_pic(VAR_0x8008)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 133, 107, VAR_0x800A)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107, VAR_0x800A)
 		msgbox(format("I mean! You must be pretty surprised to see a Bidoof underwater! After all, ocean's depths are not my natural habitat."))
 		hide_field_pic(VAR_0x800A)
 		show_field_pic(VAR_0x8008)
@@ -49,17 +49,94 @@ script ThirdInGameLocation_Bidoof3 {
 		end
 	}
 	elif (var(VAR_HACK_GAME_STATE) == 2) {
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 133, 107, VAR_0x8008)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 78, 107, VAR_0x8008)
 		msgbox("Hey pal, did you find something?", MSGBOX_YESNO)
 		if (var(VAR_RESULT) == 1) {
-			hide_field_pic(VAR_0x8008)
-			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 133, 107, VAR_0x800A)
-			msgbox("Golly! I'm not convinced...")
-			destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY, VAR_0x800A)
+			checkitem(ITEM_HM06)
+			if (var(VAR_RESULT) == 1) {
+				msgbox(format("Hm...Hidden machines...I know how these work!"))
+				hide_field_pic(VAR_0x8008)
+				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 78, 107, VAR_0x800A)
+				msgbox(format("And it just so happens that I can learn this move!"))
+				destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
+				load_field_pic(FIELD_PIC_BIDOOF_SMIRKY, 78, 107, VAR_0x800A)
+				msgbox(format("Let's get some rocks broken!"))
+				destroy_field_pic(FIELD_PIC_BIDOOF_SMIRKY, VAR_0x800A)
+				addvar(VAR_HACK_GAME_STATE, 1)
+				closemessage
+				specialvar(VAR_RESULT, GetPlayerFacingDirection)
+				if (var(VAR_RESULT) == DIR_EAST) {
+					applymovement(5, MovementBidoof_East)
+					waitmovement(0)
+					applymovement(OBJ_EVENT_ID_PLAYER, MovementPlayer_East)
+					waitmovement(0)
+				}
+				else { // must be facing up
+					applymovement(5, MovementBidoof_Up)
+					waitmovement(0)
+					applymovement(OBJ_EVENT_ID_PLAYER, MovementPlayer_Up)
+					waitmovement(0)
+				}
+				applymovement(5, MovementBidoof_ToRockSmash)
+				applymovement(OBJ_EVENT_ID_PLAYER, MovementPlayer_ToRockSmash)
+				waitmovement(0)
+				playse(SE_PC_LOGIN)
+				msgbox("Bidoof learned {COLOR RED}Rock Smash{COLOR DARK_GRAY}!")
+				msgbox("Bidoof used {COLOR RED}Rock Smash{COLOR DARK_GRAY}!")
+				closemessage
+				setvar(VAR_LAST_TALKED, 4)
+				dofieldeffect(FLDEFF_USE_ROCK_SMASH)
+				waitstate
+				applymovement(VAR_LAST_TALKED, Movement_SmashRock)
+				waitmovement(0)
+				removeobject(VAR_LAST_TALKED)
+				setflag(FLAG_HIDE_ROCK_SMASH_3RD_LOC)
+				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 78, 107, VAR_0x800A)
+				msgbox(format("And it's done! We make quite the team, huh?"))
+				hide_field_pic(VAR_0x800A)
+				show_field_pic(VAR_0x8008) // normal
+				msgbox(format("You know, I think it'll be better if we hold together. At least, until we're out of here."))
+				hide_field_pic(VAR_0x8008)
+				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107, VAR_0x800B)
+				msgbox(format("Who knows whatever may loom here..."))
+				hide_field_pic(VAR_0x800B)
+				show_field_pic(VAR_0x8008) // normal
+				msgbox("I hope you agree with me, {PLAYER}!", MSGBOX_YESNO)
+				if (var(VAR_RESULT) != 1) {
+					do {
+						hide_field_pic(VAR_0x8008)
+						show_field_pic(VAR_0x800B) // astonished
+						msgbox("Golly, you can't be serious!\n")
+						hide_field_pic(VAR_0x800B)
+						show_field_pic(VAR_0x8008)
+						msgbox("Let's get out of here together, {PLAYER}!", MSGBOX_YESNO)
+					} while (var(VAR_RESULT) != 1)
+					hide_field_pic(VAR_0x8008)
+					show_field_pic(VAR_0x800B) // astonished
+					msgbox("Golly, please do not joke like that!")
+					hide_field_pic(VAR_0x800B)
+				}
+				show_field_pic(VAR_0x8008) // normal
+				msgbox(format("Alright! Take the lead, {PLAYER}. I'll be right behind you."))
+				setflag(FLAG_HIDE_BIDOOF_3)
+				setflag(FLAG_BIDOOF_FOLLOWER)
+				removeobject(5)
+				destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
+				destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
+				destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, VAR_0x800B)
+				release
+				end
+			}
+			else {
+				hide_field_pic(VAR_0x8008)
+				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107, VAR_0x800A)
+				msgbox("Golly! I'm not convinced...")
+				destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY, VAR_0x800A)
+			}
 		}
 		else {
 			hide_field_pic(VAR_0x8008)
-			load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 133, 107, VAR_0x800A)
+			load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 78, 107, VAR_0x800A)
 			msgbox("No worries!" I'm sure we'll find some way out of here!)
 			destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
 		}
@@ -71,6 +148,56 @@ script ThirdInGameLocation_Bidoof3 {
 	end
 }
 
+movement MovementBidoof_ToRockSmash {
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+}
+
+movement MovementPlayer_ToRockSmash {
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+}
+
+movement MovementBidoof_East {
+	walk_down
+	walk_left
+	walk_left
+	step_end
+}
+
+movement MovementPlayer_East {
+	walk_down
+	step_end
+}
+
+movement MovementBidoof_Up {
+	walk_left
+	walk_down
+	walk_left
+	step_end
+}
+
+movement MovementPlayer_Up {
+	walk_left
+	step_end
+}
+
 movement MovementBidoof3 {
 	face_right
 	step_end
@@ -78,7 +205,13 @@ movement MovementBidoof3 {
 
 script ThirdInGameLocation_Underwater_RockSmash {
 	lock
-	msgbox("It's a rugged rock blocking the way.\nThere must be a way to smash it somehow...")
+	checkitem(ITEM_HM06)
+	if (var(VAR_RESULT) == 1) {
+		msgbox(format("It's a rugged rock blocking the way. Pokemon knowing the move {COLOR RED}Rock Smash{COLOR DARK_GRAY} could smash it."))
+	}
+	else {
+		msgbox("It's a rugged rock blocking the way.\nThere must be a way to smash it somehow...")
+	}
 	release
 	end
 }
