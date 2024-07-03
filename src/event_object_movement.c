@@ -26,6 +26,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "pokemon.h"
+#include "new.h"
 #include "pokeball.h"
 #include "random.h"
 #include "region_map.h"
@@ -2304,6 +2305,7 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     u32 emotion;
     struct ObjectEvent *objEvent = GetFollowerObject();
     struct Pokemon *mon = GetFirstLiveMon();
+    bool32 isBidoof = IsBidoofFollower();
     u8 emotion_weight[FOLLOWER_EMOTION_LENGTH] =
     {
         [FOLLOWER_EMOTION_HAPPY] = 10,
@@ -2320,6 +2322,13 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     };
     u32 i, j;
     bool32 pickedCondition = FALSE;
+
+    if (isBidoof)
+    {
+        ChooseMsgForBidoofFollower(ctx);
+        return;
+    }
+
     if (mon == NULL) // failsafe
     {
         ScriptCall(ctx, EventScript_FollowerLovesYou);
@@ -2327,6 +2336,7 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     }
     // Set the script to the very end; we'll be calling another script dynamically
     ScriptJump(ctx, EventScript_FollowerEnd);
+
     species = GetMonData(mon, MON_DATA_SPECIES);
     multi = GetMonData(mon, MON_DATA_FRIENDSHIP);
     if (multi > 80)

@@ -274,6 +274,8 @@ static void RemoveSaveInfoWindow(void);
 static void HideStartMenuWindow(void);
 static void HideStartMenuDebug(void);
 
+static EWRAM_DATA bool8 sStartMenuClosed = 0;
+
 void SetDexPokemonPokenavFlags(void) // unused
 {
     FlagSet(FLAG_SYS_POKEDEX_GET);
@@ -591,6 +593,7 @@ void Task_ShowStartMenu(u8 taskId)
     switch(task->data[0])
     {
     case 0:
+        sStartMenuClosed = FALSE;
         if (InUnionRoom() == TRUE)
             SetUsingUnionRoomStartMenu();
 
@@ -600,6 +603,15 @@ void Task_ShowStartMenu(u8 taskId)
     case 1:
         if (gMenuCallback() == TRUE)
             DestroyTask(taskId);
+        // Bidoof's remark about no Pokemon.
+        if (sStartMenuClosed
+            && gPlayerPartyCount == 0
+            && FlagGet(FLAG_SAW_EMPTY_PARTY_MENU)
+            && FlagGet(FLAG_BIDOOF_FOLLOWER)
+            && !FlagGet(FLAG_BIDOOF_NO_POKES_COMMENT))
+        {
+            ScriptContext_SetupScript(EventScript_BidoofNoPokemonTalk);
+        }
         break;
     }
 }
@@ -657,6 +669,7 @@ static bool8 HandleStartMenuInput(void)
     {
         RemoveExtraStartMenuWindows();
         HideStartMenu();
+        sStartMenuClosed = TRUE;
         return TRUE;
     }
 
@@ -775,6 +788,7 @@ static bool8 StartMenuExitCallback(void)
 {
     RemoveExtraStartMenuWindows();
     HideStartMenu(); // Hide start menu
+    sStartMenuClosed = TRUE;
 
     return TRUE;
 }
@@ -878,6 +892,7 @@ static bool8 SaveCallback(void)
         ScriptUnfreezeObjectEvents();
         UnlockPlayerFieldControls();
         SoftResetInBattlePyramid();
+        sStartMenuClosed = TRUE;
         return TRUE;
     }
 

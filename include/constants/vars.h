@@ -270,8 +270,8 @@
 #define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_ALWAYS_0                              0x40FE // For trigger events to always trigger
+#define VAR_BIDOOF_FOLLOWER_NO_TALKS                     0x40FD // How many times Bidoof was asked while following
+#define VAR_UNUSED_ALWAYS_0                              0x40FE // To be changed
 #define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
 
 #define VARS_END                                         0x40FF

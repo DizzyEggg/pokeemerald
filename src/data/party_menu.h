@@ -659,6 +659,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_ALREADY_HOLDING_ONE]    = gText_AlreadyHoldingOne,
     [PARTY_MSG_WHICH_APPLIANCE]        = gText_WhichAppliance,
     [PARTY_MSG_CHOOSE_SECOND_FUSION]   = gText_NextFusionMon,
+    [PARTY_MSG_NO_POKEMON]             = COMPOUND_STRING("You have no POKéMON."),
 };
 
 static const u8 *const sDescriptionStringTable[] =

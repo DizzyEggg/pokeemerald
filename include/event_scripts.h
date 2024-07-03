@@ -37,6 +37,10 @@ extern const u8 EventScript_TryDoNormalTrainerBattle[];
 extern const u8 EventScript_TryDoDoubleRematchBattle[];
 extern const u8 EventScript_TryDoRematchBattle[];
 
+extern const u8 EventScript_BidoofNoPokemonTalk[];
+extern const u8 EventScript_BidoofFirstMsg[];
+extern const u8 EventScript_BidoofFollowerTypicalMsg[];
+
 extern const u8 BerryTreeScript[];
 
 extern const u8 gTVBravoTrainerText00[];
