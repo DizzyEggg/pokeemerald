@@ -12,6 +12,7 @@
 #include "decompress.h"
 #include "malloc.h"
 #include "gpu_regs.h"
+#include "field_pic.h"
 #include "text.h"
 #include "text_window.h"
 #include "event_data.h"
@@ -144,16 +145,16 @@ struct BerryBlender
 {
     u8 mainState;
     u8 loadGfxState;
-    u8 unused0[66];
-    u16 unk0; // never read
     u8 scoreIconIds[NUM_SCORE_TYPES];
     u16 arrowPos;
     s16 speed;
     u16 maxRPM;
     u8 playerArrowSpriteIds[BLENDER_MAX_PLAYERS];
     u8 playerArrowSpriteIds2[BLENDER_MAX_PLAYERS];
-    u8 unused1[11];
     u8 gameEndState;
+    bool8 playerWonBestScore;
+    u8 wingullMsgState;
+    u8 mugshotSpriteIds[2];
     u16 playerContinueResponses[BLENDER_MAX_PLAYERS];
     u16 canceledPlayerCmd;
     u16 canceledPlayerId;
@@ -161,15 +162,12 @@ struct BerryBlender
     u8 slowdownTimer;
     u16 chosenItemId[BLENDER_MAX_PLAYERS];
     u8 numPlayers;
-    u8 unused2[16];
     u16 arrowIdToPlayerId[BLENDER_MAX_PLAYERS];
     u16 playerIdToArrowId[BLENDER_MAX_PLAYERS];
     u8 yesNoAnswer;
     u8 stringVar[100];
     u32 gameFrameTime;
     s32 framesToWait;
-    u32 unk1; // never read
-    u8 unused3[4];
     u8 playerToThrowBerry;
     u16 progressBarValue;
     u16 maxProgressBarValue;
@@ -197,6 +195,7 @@ static void SetBgPos(void);
 static void Task_HandleOpponent1(u8);
 static void Task_HandleOpponent2(u8);
 static void Task_HandleOpponent3(u8);
+static void Task_HandleWingullOpponent(u8 taskId);
 static void Task_HandleBerryMaster(u8);
 static void Task_PlayPokeblockFanfare(u8);
 static void SpriteCB_PlayerArrow(struct Sprite *);
@@ -230,6 +229,7 @@ static void ProcessLinkPlayerCmds(void);
 static void CB2_EndBlenderGame(void);
 static bool8 PrintBlendingRanking(void);
 static bool8 PrintBlendingResults(void);
+static bool32 WingullDuelLost(void);
 static void CB2_CheckPlayAgainLocal(void);
 static void CB2_CheckPlayAgainLink(void);
 static void UpdateProgressBar(u16, u16);
@@ -240,6 +240,7 @@ EWRAM_DATA static struct BerryBlender *sBerryBlender = NULL;
 EWRAM_DATA static s32 sDebug_PokeblockFactorFlavors[FLAVOR_COUNT] = {0};
 EWRAM_DATA static s32 sDebug_PokeblockFactorFlavorsAfterRPM[FLAVOR_COUNT] = {0};
 EWRAM_DATA static u32 sDebug_PokeblockFactorRPM = 0;
+EWRAM_DATA static u32 sPlayerLostCount = 0;
 
 static s16 sPokeblockFlavors[FLAVOR_COUNT + 1]; // + 1 for feel
 static s16 sPokeblockPresentFlavors[FLAVOR_COUNT + 1];
@@ -251,16 +252,6 @@ u8 gInGameOpponentsNo;
 static const u16 sBlenderCenter_Pal[] = INCBIN_U16("graphics/berry_blender/center.gbapal");
 static const u8 sBlenderCenter_Tilemap[] = INCBIN_U8("graphics/berry_blender/center_map.bin");
 static const u16 sBlenderOuter_Pal[] = INCBIN_U16("graphics/berry_blender/outer.gbapal");
-
-static const u16 sUnused_Pal[] = INCBIN_U16("graphics/berry_blender/unused.gbapal");
-static const u16 sEmpty_Pal[16 * 14] = {0};
-
-// unused text
-static const u8 sUnusedText_YesNo[] = _("YES\nNO");
-static const u8 sUnusedText_2[] = _("▶");
-static const u8 sUnusedText_Space[] = _(" ");
-static const u8 sUnusedText_Terminating[] = _("Terminating.");
-static const u8 sUnusedText_LinkPartnerNotFound[] = _("Link partner(s) not found.\nPlease try again.\p");
 
 static const u8 sText_BerryBlenderStart[] = _("Starting up the BERRY BLENDER.\pPlease select a BERRY from your BAG\nto put in the BERRY BLENDER.\p");
 static const u8 sText_NewParagraph[] = _("\p");
@@ -280,6 +271,12 @@ static const u8 *const sBlenderOpponentsNames[] =
     [BLENDER_MASTER] = sText_Master,
     [BLENDER_DUDE]   = sText_Dude,
     [BLENDER_MISS]   = sText_Miss
+};
+
+static const u8 *const sWingullOpponents[] =
+{
+    COMPOUND_STRING("Bidoof"),
+    COMPOUND_STRING("WinGull"),
 };
 
 static const u8 sText_PressAToStart[] = _("Press the A Button to start.");
@@ -916,16 +913,6 @@ static const u8 sBlackPokeblockFlavorFlags[] = {
     (1 << FLAVOR_SOUR)   | (1 << FLAVOR_SWEET)  | (1 << FLAVOR_SPICY),
 };
 
-static const u8 sUnused[] =
-{
-    0xfe, 0x02, 0x02, 0xce, 0xd0, 0x37, 0x44, 0x07, 0x1f, 0x0c, 0x10,
-    0x00, 0xff, 0xfe, 0x91, 0x72, 0xce, 0xd0, 0x37, 0x44, 0x07, 0x1f,
-    0x0c, 0x10, 0x00, 0xff, 0x06, 0x27, 0x02, 0xff, 0x00, 0x0c, 0x48,
-    0x02, 0xff, 0x00, 0x01, 0x1f, 0x02, 0xff, 0x00, 0x16, 0x37, 0x02,
-    0xff, 0x00, 0x0d, 0x50, 0x4b, 0x02, 0xff, 0x06, 0x06, 0x06, 0x06,
-    0x05, 0x03, 0x03, 0x03, 0x02, 0x02, 0x03, 0x03, 0x03, 0x03, 0x02
-};
-
 static const struct WindowTemplate sBlenderRecordWindowTemplate =
 {
     .bg = 0,
@@ -1221,6 +1208,11 @@ static void ConvertItemToBlenderBerry(struct BlenderBerry* berry, u16 itemId)
     berry->flavors[FLAVOR_COUNT] = berryInfo->smoothness;
 }
 
+static bool32 IsWingullBlenderDuel(void)
+{
+    return (VarGet(VAR_HACK_GAME_STATE) == 5);
+}
+
 static void InitLocalPlayers(u8 opponentsNum)
 {
     switch (opponentsNum)
@@ -1244,9 +1236,18 @@ static void InitLocalPlayers(u8 opponentsNum)
     case 2:
         gInGameOpponentsNo = 2;
         sBerryBlender->numPlayers = 3;
-        StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
-        StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_DUDE]);
-        StringCopy(gLinkPlayers[2].name, sBlenderOpponentsNames[BLENDER_LASSIE]);
+        if (IsWingullBlenderDuel()) // Wingull berry blender challenge
+        {
+            StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
+            StringCopy(gLinkPlayers[1].name, sWingullOpponents[0]);
+            StringCopy(gLinkPlayers[2].name, sWingullOpponents[1]);
+        }
+        else
+        {
+            StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
+            StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_DUDE]);
+            StringCopy(gLinkPlayers[2].name, sBlenderOpponentsNames[BLENDER_LASSIE]);
+        }
 
         gLinkPlayers[0].language = GAME_LANGUAGE;
         gLinkPlayers[1].language = GAME_LANGUAGE;
@@ -1277,7 +1278,6 @@ static void StartBlender(void)
         sBerryBlender = AllocZeroed(sizeof(*sBerryBlender));
 
     sBerryBlender->mainState = 0;
-    sBerryBlender->unk1 = 0;
 
     for (i = 0; i < BLENDER_MAX_PLAYERS; i++)
         sBerryBlender->chosenItemId[i] = ITEM_NONE;
@@ -1514,7 +1514,6 @@ static void InitBlenderBgs(void)
     LoadMessageBoxGfx(0, 0x14, BG_PLTT_ID(15));
     InitBerryBlenderWindows();
 
-    sBerryBlender->unk0 = 0;
     sBerryBlender->speed = 0;
     sBerryBlender->arrowPos = 0;
     sBerryBlender->maxRPM = 0;
@@ -1544,7 +1543,7 @@ static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct B
     u16 opponentSetId = 0;
     u16 opponentBerryId;
     u16 berryMasterDiff;
-    u16 i;
+    u32 i;
 
     if (playerBerryItemId == ITEM_ENIGMA_BERRY_E_READER)
     {
@@ -1563,17 +1562,25 @@ static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct B
     }
     for (i = 0; i < playersNum - 1; i++)
     {
-        opponentBerryId = sOpponentBerrySets[opponentSetId][i];
-        berryMasterDiff = ITEM_TO_BERRY(playerBerryItemId) - ITEM_TO_BERRY(ITEM_SPELON_BERRY);
-        if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER) && gSpecialVar_0x8004 == 1)
+        if (IsWingullBlenderDuel())
         {
-            opponentSetId %= ARRAY_COUNT(sBerryMasterBerries);
-            opponentBerryId = sBerryMasterBerries[opponentSetId];
+            u32 itemId = (i == 1) ? ITEM_WACAN_BERRY : ITEM_ORAN_BERRY; // Wingull berry which lowers ELECTRIC super effective, bidoof also Oran;
+            opponentBerryId = ITEM_TO_BERRY(itemId) - 1;
+        }
+        else
+        {
+            opponentBerryId = sOpponentBerrySets[opponentSetId][i];
+            berryMasterDiff = ITEM_TO_BERRY(playerBerryItemId) - ITEM_TO_BERRY(ITEM_SPELON_BERRY);
+            if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER) && gSpecialVar_0x8004 == 1)
+            {
+                opponentSetId %= ARRAY_COUNT(sBerryMasterBerries);
+                opponentBerryId = sBerryMasterBerries[opponentSetId];
 
-            // If the player's berry is any of the Berry Master's berries,
-            // then use the next lower set of berries
-            if (berryMasterDiff < ARRAY_COUNT(sBerryMasterBerries))
-                opponentBerryId -= ARRAY_COUNT(sBerryMasterBerries);
+                // If the player's berry is any of the Berry Master's berries,
+                // then use the next lower set of berries
+                if (berryMasterDiff < ARRAY_COUNT(sBerryMasterBerries))
+                    opponentBerryId -= ARRAY_COUNT(sBerryMasterBerries);
+            }
         }
         SetPlayerBerryData(i + 1, opponentBerryId + FIRST_BERRY_INDEX);
     }
@@ -1773,18 +1780,28 @@ static void CB2_StartBlenderLocal(void)
         sBerryBlender->slowdownTimer = 0;
         SetMainCallback2(CB2_PlayBlender);
 
-        if (gSpecialVar_0x8004 == 1)
+        if (IsWingullBlenderDuel())
         {
-            if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER))
-                sBerryBlender->opponentTaskIds[0] = CreateTask(Task_HandleBerryMaster, 10);
-            else
-                sBerryBlender->opponentTaskIds[0] = CreateTask(sLocalOpponentTasks[0], 10);
+            // Wingull is better than gf's best
+            // Bidoof is vanilla
+            sBerryBlender->opponentTaskIds[0] = CreateTask(Task_HandleOpponent1, 10);
+            sBerryBlender->opponentTaskIds[1] = CreateTask(Task_HandleWingullOpponent, 11);
         }
-
-        if (gSpecialVar_0x8004 > 1)
+        else
         {
-            for (i = 0; i < gSpecialVar_0x8004; i++)
-                sBerryBlender->opponentTaskIds[i] = CreateTask(sLocalOpponentTasks[i], 10 + i);
+            if (gSpecialVar_0x8004 == 1)
+            {
+                if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER))
+                    sBerryBlender->opponentTaskIds[0] = CreateTask(Task_HandleBerryMaster, 10);
+                else
+                    sBerryBlender->opponentTaskIds[0] = CreateTask(sLocalOpponentTasks[0], 10);
+            }
+
+            if (gSpecialVar_0x8004 > 1)
+            {
+                for (i = 0; i < gSpecialVar_0x8004; i++)
+                    sBerryBlender->opponentTaskIds[i] = CreateTask(sLocalOpponentTasks[i], 10 + i);
+            }
         }
 
         if (GetCurrentMapMusic() != MUS_CYCLING)
@@ -1991,6 +2008,41 @@ static void Task_HandleOpponent3(u8 taskId)
                 gRecvCmds[3][BLENDER_COMM_SCORE] = LINKCMD_BLENDER_SCORE_BEST;
                 gTasks[taskId].tDidInput = TRUE;
             }
+        }
+    }
+    else
+    {
+        gTasks[taskId].tDidInput = FALSE;
+    }
+}
+
+// Harder than regular opponents, but doesn't always score best like Blend Master
+static void Task_HandleWingullOpponent(u8 taskId)
+{
+    u32 var1 = (sBerryBlender->arrowPos + 0x1800) & 0xFFFF;
+    u32 arrowId = sBerryBlender->playerIdToArrowId[2] & 0xFF;
+    if ((var1 >> 8) > sArrowHitRangeStart[arrowId] + 20 && (var1 >> 8) < sArrowHitRangeStart[arrowId] + 40)
+    {
+        if (gTasks[taskId].data[0] == 0)
+        {
+            u8 rand = (Random() / 655);
+            if (sBerryBlender->speed < 500)
+            {
+                if (rand > 27)
+                    gRecvCmds[2][BLENDER_COMM_SCORE] = LINKCMD_BLENDER_SCORE_BEST;
+                else
+                    gRecvCmds[2][BLENDER_COMM_SCORE] = LINKCMD_BLENDER_SCORE_GOOD;
+            }
+            else
+            {
+                if (rand > 46)
+                    gRecvCmds[2][BLENDER_COMM_SCORE] = LINKCMD_BLENDER_SCORE_BEST;
+                else if (rand > 8)
+                    gRecvCmds[2][BLENDER_COMM_SCORE] = LINKCMD_BLENDER_SCORE_GOOD;
+                else
+                    CreateOpponentMissTask(3, 5);
+            }
+            gTasks[taskId].tDidInput = TRUE;
         }
     }
     else
@@ -2560,6 +2612,66 @@ static void SendContinuePromptResponse(u16 *cmd)
         *cmd = LINKCMD_SEND_PACKET;
 }
 
+static const u8 *const sWingullLostTexts[] =
+{
+    COMPOUND_STRING("Come on! You really thought\nit would be that easy?\lYou gotta try more the next time!\p"),
+    COMPOUND_STRING("Not bad, huh?\nCome on, let's make it\lmore challenging the next time!\p"),
+    COMPOUND_STRING("Third time's the charm!\p"),
+    COMPOUND_STRING("That's the fourth in a row for me!\p"),
+    COMPOUND_STRING("5:0, come on!\p"),
+};
+
+static const u8 sWingullLostDefaultText[] = COMPOUND_STRING("I'm sure you can do better than this!\p");
+static const u8 sBidoofLostDefaultText[] = COMPOUND_STRING("{PLAYER}! You can't give up now!\nLet's try again!\p");
+static const u8 sBidoofSoCloseText[] = COMPOUND_STRING("You're almost there {PLAYER}!\p");
+
+static bool32 PrintTextWhenLostToWingull(s32 textSpeed)
+{
+    const u8 *str;
+
+    switch (sBerryBlender->wingullMsgState)
+    {
+    // Begin printing Wingull Msg and show field pic
+    case 0:
+        if (sPlayerLostCount >= ARRAY_COUNT(sWingullLostTexts))
+            str = sWingullLostDefaultText;
+        else
+            str = sWingullLostTexts[sPlayerLostCount];
+        PrintMessage(&sBerryBlender->textState, str, textSpeed);
+        sBerryBlender->mugshotSpriteIds[0] = LoadFieldPicVars(FIELD_PIC_WINGULL, 97, 107);
+        sBerryBlender->wingullMsgState++;
+        break;
+    // Wait for msg
+    case 1:
+        if (PrintMessage(&sBerryBlender->textState, NULL, textSpeed))
+        {
+            DestroyFieldPicVars(FIELD_PIC_WINGULL, sBerryBlender->mugshotSpriteIds[0]);
+            sBerryBlender->wingullMsgState++;
+        }
+        break;
+    // Bidoof msg
+    case 2:
+        str = sBidoofLostDefaultText;
+        // Close score
+        if (abs(sBerryBlender->scores[2][SCORE_BEST] - sBerryBlender->scores[0][SCORE_BEST]) <= 2)
+            str = sBidoofSoCloseText;
+        StringExpandPlaceholders(sBerryBlender->stringVar, str);
+        PrintMessage(&sBerryBlender->textState, sBerryBlender->stringVar, textSpeed);
+        sBerryBlender->mugshotSpriteIds[1] = LoadFieldPicVars(FIELD_PIC_BIDOOF_NORMAL, 97, 107);
+        sBerryBlender->wingullMsgState++;
+        break;
+    case 3:
+        if (PrintMessage(&sBerryBlender->textState, NULL, textSpeed))
+        {
+            DestroyFieldPicVars(FIELD_PIC_BIDOOF_NORMAL, sBerryBlender->mugshotSpriteIds[1]);
+            sBerryBlender->wingullMsgState = 0;
+            return TRUE;
+        }
+        break;
+    }
+    return FALSE;
+}
+
 static void CB2_EndBlenderGame(void)
 {
     u8 i, j;
@@ -2670,8 +2782,24 @@ static void CB2_EndBlenderGame(void)
         }
         break;
     case 7:
-        if (PrintMessage(&sBerryBlender->textState, sText_WouldLikeToBlendAnotherBerry, GetPlayerTextSpeedDelay()))
-            sBerryBlender->gameEndState++;
+        if (IsWingullBlenderDuel())
+        {
+            if (WingullDuelLost())
+            {
+                if (PrintTextWhenLostToWingull(GetPlayerTextSpeedDelay()))
+                    sBerryBlender->gameEndState = 11; // Skip Yes/No
+            }
+            else
+            {
+                sBerryBlender->yesNoAnswer = 1;
+                sBerryBlender->gameEndState = 11;
+            }
+        }
+        else
+        {
+            if (PrintMessage(&sBerryBlender->textState, sText_WouldLikeToBlendAnotherBerry, GetPlayerTextSpeedDelay()))
+                sBerryBlender->gameEndState++;
+        }
         break;
     case 9:
         sBerryBlender->yesNoAnswer = 0;
@@ -3461,6 +3589,11 @@ static void TryUpdateBerryBlenderRecord(void)
         gSaveBlock1Ptr->berryBlenderRecords[sBerryBlender->numPlayers - 2] = sBerryBlender->maxRPM;
 }
 
+static bool32 WingullDuelLost(void)
+{
+    return (IsWingullBlenderDuel() && !sBerryBlender->playerWonBestScore);
+}
+
 static bool8 PrintBlendingResults(void)
 {
     u16 i;
@@ -3469,7 +3602,6 @@ static bool8 PrintBlendingResults(void)
     struct Pokeblock pokeblock;
     u8 flavors[FLAVOR_COUNT + 1];
     u8 text[40];
-    u16 UNUSED berryIds[4];
 
     switch (sBerryBlender->mainState)
     {
@@ -3563,8 +3695,6 @@ static bool8 PrintBlendingResults(void)
 
         for (i = 0; i < BLENDER_MAX_PLAYERS; i++)
         {
-            if (sBerryBlender->chosenItemId[i] != 0)
-                berryIds[i] = sBerryBlender->chosenItemId[i] - FIRST_BERRY_INDEX;
             if (sBerryBlender->arrowIdToPlayerId[i] != NO_PLAYER)
             {
                 PutWindowTilemap(i);
@@ -3573,18 +3703,27 @@ static bool8 PrintBlendingResults(void)
         }
 
         Debug_SetStageVars();
-        CalculatePokeblock(sBerryBlender->blendedBerries, &pokeblock, sBerryBlender->numPlayers, flavors, sBerryBlender->maxRPM);
-        PrintMadePokeblockString(&pokeblock, sBerryBlender->stringVar);
-        TryAddContestLinkTvShow(&pokeblock, &sBerryBlender->tvBlender);
+        // Don't give pokeblocks if player lost against Wingull
+        if (WingullDuelLost())
+        {
+            RemoveBagItem(gSpecialVar_ItemId, 1);
+            return TRUE;
+        }
+        else
+        {
+            CalculatePokeblock(sBerryBlender->blendedBerries, &pokeblock, sBerryBlender->numPlayers, flavors, sBerryBlender->maxRPM);
+            PrintMadePokeblockString(&pokeblock, sBerryBlender->stringVar);
+            TryAddContestLinkTvShow(&pokeblock, &sBerryBlender->tvBlender);
 
-        CreateTask(Task_PlayPokeblockFanfare, 6);
-        IncrementDailyBerryBlender();
+            CreateTask(Task_PlayPokeblockFanfare, 6);
+            IncrementDailyBerryBlender();
 
-        RemoveBagItem(gSpecialVar_ItemId, 1);
-        AddPokeblock(&pokeblock);
+            RemoveBagItem(gSpecialVar_ItemId, 1);
+            AddPokeblock(&pokeblock);
 
-        sBerryBlender->textState = 0;
-        sBerryBlender->mainState++;
+            sBerryBlender->textState = 0;
+            sBerryBlender->mainState++;
+        }
         break;
     case 6:
         if (PrintMessage(&sBerryBlender->textState, sBerryBlender->stringVar, GetPlayerTextSpeedDelay()))
@@ -3667,7 +3806,12 @@ static void SortScores(void)
     for (i = 0; i < sBerryBlender->numPlayers; i++)
     {
         if (sBerryBlender->playerPlaces[i] == playerId)
+        {
             sBerryBlender->ownRanking = i;
+            sBerryBlender->playerWonBestScore = (sBerryBlender->ownRanking == 0);
+            if (!sBerryBlender->playerWonBestScore)
+                sPlayerLostCount++;
+        }
     }
 }
 

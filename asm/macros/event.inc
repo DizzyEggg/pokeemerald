@@ -2341,3 +2341,9 @@
 	setvar VAR_0x8005, \sprite_id
 	callnative DestroyFieldPic
 	.endm
+	
+	.macro msgbox_pic text:req, picId:req, type=MSGBOX_DEFAULT
+	show_field_pic \picId
+	msgbox \text, \type
+	hide_field_pic \picId
+	.endm

@@ -1,5 +1,6 @@
 #include "global.h"
 #include "event_data.h"
+#include "field_pic.h"
 #include "decompress.h"
 #include "sprite.h"
 #include "constants/field_pic.h"
@@ -88,20 +89,15 @@ static EWRAM_DATA u8 sLastPicId = 0;
 
 #define sTag data[0]
 
-void LoadFieldPic(void)
+u32 LoadFieldPicVars(u32 id, s16 x, s16 y)
 {
     struct CompressedSpriteSheet sheet;
     struct SpritePalette palSheet;
     struct SpriteTemplate spriteTempl;
     struct OamData oam = {0};
-    u32 id = VarGet(gSpecialVar_0x8004);
-    s16 x = (s16)(VarGet(gSpecialVar_0x8005));
-    s16 y = (s16)(VarGet(gSpecialVar_0x8006));
-
-    gSpecialVar_Result = 0xFF;
 
     if (id >= ARRAY_COUNT(sPics))
-        return;
+        return 0xFF;
 
     if (GetSpriteTileStartByTag(TAG_PIC + id) == 0xFFFF)
     {
@@ -136,11 +132,20 @@ void LoadFieldPic(void)
 
     sLastPicId = CreateSprite(&spriteTempl, x, y, 0);
     if (sLastPicId == MAX_SPRITES)
-        return;
+        return 0xFF;
 
     gSprites[sLastPicId].sTag = TAG_PIC + id;
 
-    gSpecialVar_Result = sLastPicId;
+    return sLastPicId;
+}
+
+void LoadFieldPic(void)
+{
+    u32 id = VarGet(gSpecialVar_0x8004);
+    s16 x = (s16)(VarGet(gSpecialVar_0x8005));
+    s16 y = (s16)(VarGet(gSpecialVar_0x8006));
+
+    gSpecialVar_Result = LoadFieldPicVars(id, x, y);
 }
 
 void HideFieldPic(void)
@@ -174,11 +179,8 @@ void ChangeFieldPicFrame(void)
         StartSpriteAnim(&gSprites[spriteId], num);
 }
 
-void DestroyFieldPic(void)
+void DestroyFieldPicVars(u32 id, u32 spriteId)
 {
-    u32 id = VarGet(gSpecialVar_0x8004);
-    u32 spriteId = VarGet(gSpecialVar_0x8005);
-
     if (spriteId == 0xFF)
         DestroySprite(&gSprites[sLastPicId]);
     else
@@ -189,6 +191,14 @@ void DestroyFieldPic(void)
         FreeSpritePaletteByTag(TAG_PIC + id);
         FreeSpriteTilesByTag(TAG_PIC + id);
     }
+}
+
+void DestroyFieldPic(void)
+{
+    u32 id = VarGet(gSpecialVar_0x8004);
+    u32 spriteId = VarGet(gSpecialVar_0x8005);
+
+    DestroyFieldPicVars(id, spriteId);
 }
 
 void SpiteCb_AlwaysVisible(struct Sprite *sprite)

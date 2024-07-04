@@ -138,6 +138,12 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
+	additem ITEM_ORAN_BERRY, 30
+	setvar VAR_HACK_GAME_STATE, 5
+	setvar VAR_0x8004, 2
+	fadescreen FADE_TO_BLACK
+	special DoBerryBlending
+	waitstate
 	release
 	end
 
