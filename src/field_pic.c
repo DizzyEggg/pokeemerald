@@ -55,6 +55,9 @@ static const u16 sBidoofAstonishedPal[] = INCBIN_U16("graphics/field_pic/bidoof_
 static const u32 sBidoofSmirkyGfx[] = INCBIN_U32("graphics/field_pic/bidoof_smirky.4bpp.lz");
 static const u16 sBidoofSmirkyPal[] = INCBIN_U16("graphics/field_pic/bidoof_smirky.gbapal");
 
+static const u32 sWingullGfx[] = INCBIN_U32("graphics/field_pic/wingull.4bpp.lz");
+static const u16 sWingullPal[] = INCBIN_U16("graphics/field_pic/wingull.gbapal");
+
 /* And this is an example script.
 FieldPicExample_2pics:
 	load_field_pic 0, 190, 98, VAR_0x8008
@@ -78,9 +81,12 @@ static const struct Pic sPics[] =
     [FIELD_PIC_BIDOOF_HAPPY] = {sBidoofHappyGfx, sBidoofHappyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_BIDOOF_ASTONISHED] = {sBidoofAstonishedGfx, sBidoofAstonishedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_BIDOOF_SMIRKY] = {sBidoofSmirkyGfx, sBidoofSmirkyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_WINGULL] = {sWingullGfx, sWingullPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
 };
 
 static EWRAM_DATA u8 sLastPicId = 0;
+
+#define sTag data[0]
 
 void LoadFieldPic(void)
 {
@@ -131,6 +137,8 @@ void LoadFieldPic(void)
     sLastPicId = CreateSprite(&spriteTempl, x, y, 0);
     if (sLastPicId == MAX_SPRITES)
         return;
+
+    gSprites[sLastPicId].sTag = TAG_PIC + id;
 
     gSpecialVar_Result = sLastPicId;
 }
@@ -187,3 +195,5 @@ void SpiteCb_AlwaysVisible(struct Sprite *sprite)
 {
     sprite->invisible = FALSE;
 }
+
+#undef sTag

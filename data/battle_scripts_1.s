@@ -5775,6 +5775,11 @@ BattleScript_GotAwaySafely::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 	
+BattleScript_FakeWingullFight::
+	printstring STRINGID_WINGULLFAKEFIGHT1
+	waitmessage B_WAIT_TIME_LONG
+	end2
+	
 BattleScript_WildMonFled_WithSlide::
 	trainerslideout B_POSITION_OPPONENT_LEFT
 	waitstate

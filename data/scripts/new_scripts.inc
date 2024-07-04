@@ -2,7 +2,7 @@ EventScript_BidoofNoPokemonTalk::
 # 2 "data/scripts/new_scripts.pory"
 	lockall
 # 3 "data/scripts/new_scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 78, 107
+	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107
 # 4 "data/scripts/new_scripts.pory"
 	msgbox EventScript_BidoofNoPokemonTalk_Text_0
 # 5 "data/scripts/new_scripts.pory"
@@ -10,7 +10,7 @@ EventScript_BidoofNoPokemonTalk::
 # 6 "data/scripts/new_scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL
 # 7 "data/scripts/new_scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 78, 107
+	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107
 # 8 "data/scripts/new_scripts.pory"
 	msgbox EventScript_BidoofNoPokemonTalk_Text_2
 # 9 "data/scripts/new_scripts.pory"
@@ -66,7 +66,7 @@ EventScript_BidoofFirstMsg::
 # 39 "data/scripts/new_scripts.pory"
 	setvar VAR_0x8008, FIELD_PIC_BIDOOF_NORMAL
 # 40 "data/scripts/new_scripts.pory"
-	load_field_pic VAR_0x8008, 78, 107, VAR_0x800A
+	load_field_pic VAR_0x8008, 33, 107, VAR_0x800A
 # 41 "data/scripts/new_scripts.pory"
 	msgbox EventScript_BidoofFirstMsg_Text_0
 # 42 "data/scripts/new_scripts.pory"
@@ -80,7 +80,7 @@ EventScript_BidoofFollowerTypicalMsg::
 # 47 "data/scripts/new_scripts.pory"
 	setvar VAR_0x8008, FIELD_PIC_BIDOOF_NORMAL
 # 48 "data/scripts/new_scripts.pory"
-	load_field_pic VAR_0x8008, 78, 107, VAR_0x800A
+	load_field_pic VAR_0x8008, 33, 107, VAR_0x800A
 # 49 "data/scripts/new_scripts.pory"
 	random 7
 # 50 "data/scripts/new_scripts.pory"

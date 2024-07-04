@@ -11,6 +11,35 @@ mapscripts ThirdInGameLocation_Underwater_MapScripts {
 	}
 }
 
+script ThirdInGameLocation_Underwater_PsychicGuru {
+	lock
+	faceplayer
+	if (flag(FLAG_PSYHIC_GURU_TALKED_WITH) != TRUE) {
+		msgbox("Y{PAUSE 15}-O{PAUSE 25}-U!")
+		msgbox(format("Yes, you two! Do not be timid! Welcome in my domain - the forest!"))
+		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, 33, 107)
+		msgbox("Forest? We're underwater...")
+		destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY)
+		msgbox(format("YES! The trees are my servants, look at their majestic movements. Observe how they gracely dance with the wind!\nYes, yes, do you hear them talking?"))
+		msgbox("Listen closely!")
+		msgbox("V2UncmUgcm9ja3MsIG5vdCB0cmVlcy\n4gV2UncmUgdW5kZXJ3YXRlciBhbmQg\lbm90IGluc2lkZSBhIGZvcmVzdC4gQW\l5kIHRoaXMgZ3V5IGlzIGEgZnUqKmluZy\lBtb3JvbiwgZG9uJ3QgbGlzdGVuIHRv\lIGhpbSB+IHNpbmNlcmVseSwgd\lGhlIHJvY2tzLg==")
+		msgbox("Aren't they magnificent?")
+		waitmessage
+		closemessage
+		delay(29)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107)
+		msgbox("Psst! {PLAYER}!")
+		msgbox(format("I don't think this person is going to help us much..."))
+		msgbox("Let's leave and go our way.")
+		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL)
+		setflag(FLAG_PSYHIC_GURU_TALKED_WITH)
+	} else {
+		msgbox("I take good care of my servants.")
+	}
+	release
+	end
+}
+
 script ThirdInGameLocation_Underwater_ActivateRockSwitch {
 	lock
 	if (flag(FLAG_CAVE_DOOR_PUZZLE_DONE) != TRUE) {
@@ -33,15 +62,15 @@ script ThirdInGameLocation_Underwater_ActivateRockSwitch {
 		playse(SE_CLICK)
 		waitse
 		setflag(FLAG_CAVE_DOOR_PUZZLE_DONE)
-		setmetatile(32, 72, 0x22E, TRUE) // Doors
-		setmetatile(32, 71, 0x226, TRUE) // Doors
+		setmetatile(32, 72, 0x22E, FALSE) // Doors
+		setmetatile(32, 71, 0x226, FALSE) // Doors
 		setmetatile(54, 75, 0x22F, TRUE)
 		special(DrawWholeMapView)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107)
 		msgbox("Golly!")
 		msgbox("I think you did something...")
 		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 78, 107)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107)
 		msgbox("Let's see what's changed.")
 		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL)
 	} else {
@@ -54,7 +83,7 @@ script ThirdInGameLocation_Underwater_ActivateRockSwitch {
 script ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger {
 	lock
 	if (flag(FLAG_CAVE_DOOR_PUZZLE_DONE) != TRUE) { // The Bidoof dialogue doesn't happen if the switch is already activated.
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 78, 107, VAR_0x8008)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
 		msgbox("Hm...")
 		waitbuttonpress
 		hide_field_pic(VAR_0x8008)
@@ -84,13 +113,13 @@ script ThirdInGameLocation_Bidoof3 {
 	lock
 	faceplayer
 	if (var(VAR_HACK_GAME_STATE) == 1) {
-		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, 78, 107, VAR_0x8009)
+		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, 33, 107, VAR_0x8009)
 		msgbox("Golly...")
 		hide_field_pic(VAR_0x8009)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 78, 107, VAR_0x8008)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
 		msgbox("Hi.")
 		hide_field_pic(VAR_0x8008)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107, VAR_0x800A)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800A)
 		msgbox(format("I mean! You must be pretty surprised to see a Bidoof underwater! After all, ocean's depths are not my natural habitat."))
 		hide_field_pic(VAR_0x800A)
 		show_field_pic(VAR_0x8008)
@@ -126,17 +155,17 @@ script ThirdInGameLocation_Bidoof3 {
 		end
 	}
 	elif (var(VAR_HACK_GAME_STATE) == 2) {
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 78, 107, VAR_0x8008)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
 		msgbox("Hey pal, did you find something?", MSGBOX_YESNO)
 		if (var(VAR_RESULT) == 1) {
 			checkitem(ITEM_HM06)
 			if (var(VAR_RESULT) == 1) {
 				msgbox(format("Hm...Hidden machines...I know how these work!"))
 				hide_field_pic(VAR_0x8008)
-				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 78, 107, VAR_0x800A)
+				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x800A)
 				msgbox(format("And it just so happens that I can learn this move!"))
 				destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
-				load_field_pic(FIELD_PIC_BIDOOF_SMIRKY, 78, 107, VAR_0x800A)
+				load_field_pic(FIELD_PIC_BIDOOF_SMIRKY, 33, 107, VAR_0x800A)
 				msgbox(format("Let's get some rocks broken!"))
 				destroy_field_pic(FIELD_PIC_BIDOOF_SMIRKY, VAR_0x800A)
 				addvar(VAR_HACK_GAME_STATE, 1)
@@ -168,13 +197,13 @@ script ThirdInGameLocation_Bidoof3 {
 				waitmovement(0)
 				removeobject(VAR_LAST_TALKED)
 				setflag(FLAG_HIDE_ROCK_SMASH_3RD_LOC)
-				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 78, 107, VAR_0x800A)
+				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x800A)
 				msgbox(format("And it's done! We make quite the team, huh?"))
 				hide_field_pic(VAR_0x800A)
 				show_field_pic(VAR_0x8008) // normal
 				msgbox(format("You know, I think it'll be better if we hold together. At least, until we're out of here."))
 				hide_field_pic(VAR_0x8008)
-				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107, VAR_0x800B)
+				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800B)
 				msgbox(format("Who knows whatever may loom here..."))
 				hide_field_pic(VAR_0x800B)
 				show_field_pic(VAR_0x8008) // normal
@@ -212,14 +241,14 @@ script ThirdInGameLocation_Bidoof3 {
 			}
 			else {
 				hide_field_pic(VAR_0x8008)
-				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107, VAR_0x800A)
+				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800A)
 				msgbox("Golly! I'm not convinced...")
 				destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY, VAR_0x800A)
 			}
 		}
 		else {
 			hide_field_pic(VAR_0x8008)
-			load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 78, 107, VAR_0x800A)
+			load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x800A)
 			msgbox("No worries!" I'm sure we'll find some way out of here!)
 			destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
 		}
@@ -370,7 +399,7 @@ script ThirdInGameLocation_Underwater_CreepyHexManiac {
 	// Special Bidoof Message if he's following
 	if (flag(FLAG_BIDOOF_FOLLOWER) == TRUE) {
 		delay(27)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 78, 107)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107)
 		msgbox(format("Golly! Did-did you see that???"))
 		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
 	}

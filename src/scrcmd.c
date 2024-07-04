@@ -1016,7 +1016,6 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
         && !FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT)
         && !FlagGet(FLAG_BIDOOF_FOLLOWER)
         && (movementScript < Common_Movement_FollowerSafeStart || movementScript > Common_Movement_FollowerSafeEnd)
-        && (objEvent = GetFollowerObject())
         && !objEvent->invisible)
     {
         ClearObjectEventMovement(objEvent, &gSprites[objEvent->spriteId]);

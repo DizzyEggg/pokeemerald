@@ -115,6 +115,7 @@ static void HandleEndTurn_BattleWon(void);
 static void HandleEndTurn_BattleLost(void);
 static void HandleEndTurn_RanFromBattle(void);
 static void HandleEndTurn_MonFled(void);
+static void HandleWingullFakeBattleMsg(void);
 static void HandleEndTurn_FinishBattle(void);
 static void SpriteCB_UnusedBattleInit(struct Sprite *sprite);
 static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite);
@@ -3762,7 +3763,14 @@ static void DoBattleIntro(void)
             {
                 gBattleOutcome = B_OUTCOME_MON_FLED;
                 gBattlerAttacker = B_POSITION_OPPONENT_LEFT;
-                gBattleMainFunc = HandleEndTurn_MonFled;
+                if (VarGet(VAR_HACK_GAME_STATE) == 4) // Wingull
+                {
+                    gBattleMainFunc = HandleWingullFakeBattleMsg;
+                }
+                else // Bidoof
+                {
+                    gBattleMainFunc = HandleEndTurn_MonFled;
+                }
             }
             else
             {
@@ -5411,6 +5419,13 @@ static void HandleEndTurn_MonFled(void)
     PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gBattlerAttacker, gBattlerPartyIndexes[gBattlerAttacker]);
     gBattlescriptCurrInstr = gSaveBlock1Ptr->hackGameBeaten ? BattleScript_WildMonFled : BattleScript_WildMonFled_WithSlide;
 
+    gBattleMainFunc = HandleEndTurn_FinishBattle;
+}
+
+static void HandleWingullFakeBattleMsg(void)
+{
+    gCurrentActionFuncId = 0;
+    gBattlescriptCurrInstr = BattleScript_FakeWingullFight;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 

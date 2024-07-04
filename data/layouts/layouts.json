@@ -4430,6 +4430,16 @@
       "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/ThirdInGameLocation_Underwater/border.bin",
       "blockdata_filepath": "data/layouts/ThirdInGameLocation_Underwater/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINGULL_HOUSE_BETWEEN_CAVES_IN_UNDERWATER",
+      "name": "WingullHouseBetweenCavesInUnderwater_Layout",
+      "width": 14,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
+      "border_filepath": "data/layouts/WingullHouseBetweenCavesInUnderwater/border.bin",
+      "blockdata_filepath": "data/layouts/WingullHouseBetweenCavesInUnderwater/map.bin"
     }
   ]
 }

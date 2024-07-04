@@ -78,6 +78,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ThirdInGameLocation_Bidoof3",
       "flag": "FLAG_HIDE_BIDOOF_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
+      "x": 23,
+      "y": 59,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ThirdInGameLocation_Underwater_PsychicGuru",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -93,6 +106,20 @@
       "y": 16,
       "elevation": 0,
       "dest_map": "MAP_SECOND_IN_GAME_LOCATION_UNDERWATER",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 32,
+      "y": 72,
+      "elevation": 0,
+      "dest_map": "MAP_WINGULL_HOUSE_BETWEEN_CAVES_IN_UNDERWATER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 72,
+      "elevation": 0,
+      "dest_map": "MAP_WINGULL_HOUSE_BETWEEN_CAVES_IN_UNDERWATER",
       "dest_warp_id": "2"
     }
   ],

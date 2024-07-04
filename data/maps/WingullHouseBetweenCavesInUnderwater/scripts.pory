@@ -1,0 +1,239 @@
+mapscripts WingullHouseBetweenCavesInUnderwater_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_HACK_GAME_STATE, 3: WingullHouseBetweenCavesInUnderwater_WeMadeit
+	]
+}
+
+script WingullHouseBetweenCavesInUnderwater_WeMadeit {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, Movement_Up)
+	waitmovement(0)
+	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+	msgbox("Whew, we did it!")
+	msgbox(format("Nice thinking with the rock-switch, {PLAYER}!"))
+	hide_field_pic(VAR_0x8008)
+	load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107)
+	msgbox(format("Though...We were underwater and now we're inside...a house? Talk about ambient change. This whole area is so messed up, {PLAYER}. It could be some sort of illusion, or even a spell. I'm not exactly sure."))
+	destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
+	show_field_pic(VAR_0x8008)
+	msgbox(format("In any case, let's explore and continue forward."))
+	setvar(VAR_HACK_GAME_STATE, 4)
+	setflag(FLAG_RECEIVED_RUNNING_SHOES)
+	waitmessage
+	closemessage
+	destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
+	end
+}
+
+script WingullHouseBetweenCavesInUnderwater_BellNotWorking {
+	lock
+	msgbox("There's a Bell.\nRing it?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == 1) {
+		msgbox("The Bell is broken.")
+	} else {
+		msgbox("You left the bell untouched.")
+	}
+	release
+	end
+}
+
+script WingullHouseBetweenCavesInUnderwater_CallWingull {
+	lock
+	msgbox("There's a Bell.\nRing it?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == 1) {
+		msgbox("{PLAYER} rang the bell.")
+		playse(SE_BIKE_BELL)
+		waitse
+		playse(SE_M_HEAL_BELL)
+		waitse
+		playse(SE_BIKE_BELL)
+		waitse
+		delay(30)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+		msgbox("Hmm...Let's try again.")
+		waitmessage
+		closemessage
+		hide_field_pic(VAR_0x8008)
+		playse(SE_M_HEAL_BELL)
+		waitse
+		playse(SE_BIKE_BELL)
+		waitse
+		show_field_pic(VAR_0x8008)
+		msgbox(format("You know, I would expect something to happen."))
+		waitmessage
+		hide_field_pic(VAR_0x8008)
+		closemessage
+		fadeoutbgm(3)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
+		hide_field_pic(VAR_0x8009)
+		callnative(FadeAllExceptBg0AndMugshots)
+		delay(30)
+		show_field_pic(VAR_0x8009)
+		msgbox("{PLAYER}!")
+		waitmessage
+		msgbox(format("Golly, it got dark all of a sudden!"))
+		waitmessage
+		hide_field_pic(VAR_0x8009)
+		closemessage
+		playse(SE_THUNDER)
+		callnative(RemoveFollowingPokemon)
+		clearflag(FLAG_BIDOOF_FOLLOWER) // Hack, we'll use OW Bidoof
+		waitse
+		playse(SE_THUNDER2)
+		waitse
+		show_field_pic(VAR_0x8009)
+		msgbox("Did you hear that?")
+		waitmessage
+		closemessage
+		hide_field_pic(VAR_0x8009)
+		playse(SE_THUNDER)
+		playse(SE_THUNDER)
+		msgbox("WHO?!")
+		delay(30)
+		waitmessage
+		msgbox("Who is it...")
+		playse(SE_THUNDER)
+		delay(20)
+		msgbox("SPEAK!")
+		waitmessage
+		show_field_pic(VAR_0x8009)
+		msgbox(format("We didn't want to disturb you, I swear! We actually want to leave!"))
+		waitmessage
+		hide_field_pic(VAR_0x8009)
+		msgbox("W{PAUSE 30}A{PAUSE 30}I{PAUSE 30}T!")
+		waitmessage
+		msgbox(format("I can't let you {PAUSE 20}go that easily..."))
+		waitmessage
+		show_field_pic(VAR_0x8009)
+		msgbox("Golly!")
+		waitmessage
+		hide_field_pic(VAR_0x8009)
+		msgbox("T{PAUSE 10}u{PAUSE 20}r{PAUSE 30}n a{PAUSE 25}r{PAUSE 28}o{PAUSE 22}u{PAUSE 22}n{PAUSE 22}d.")
+		applymovement(OBJ_EVENT_ID_PLAYER, Movement_LookDown)
+		waitmovement(0)
+		addobject(1) // Wingull
+		addobject(2) // Bidoof
+		setobjectxy(1, 7, 5)
+		fadeinbgm(3)
+		callnative(FadeOutAllExceptBg0AndMugshots)
+		delay(5)
+		load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+		msgbox("Hey y'all! I'm Wingull!\nWingull, the gull!")
+		hide_field_pic(VAR_0x800A)
+		show_field_pic(VAR_0x8009)
+		msgbox("...")
+		msgbox("Really?\lTalk about anticlamatic...")
+		hide_field_pic(VAR_0x8009)
+		show_field_pic(VAR_0x800A)
+		msgbox("Hmm? You were sayin'?")
+		hide_field_pic(VAR_0x800A)
+		show_field_pic(VAR_0x8009)
+		msgbox("Golly, no! Nothing!")
+		hide_field_pic(VAR_0x8009)
+		show_field_pic(VAR_0x800A)
+		msgbox(format("Welcome in my humble domain!\nThe rules are simple: if you wish to pass, you'll need to defeat me in a duel!"))
+		hide_field_pic(VAR_0x800A)
+		show_field_pic(VAR_0x8009)
+		msgbox("Duel?")
+		hide_field_pic(VAR_0x8009)
+		show_field_pic(VAR_0x800A)
+		msgbox(format("Yes! It's time to du-du-du-duel!"))
+		waitmessage
+		closemessage
+		hide_field_pic(VAR_0x800A)
+		setwildbattle(SPECIES_WINGULL, 19)
+		dowildbattle
+		setvar(VAR_HACK_GAME_STATE, 5)
+		load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+		msgbox("Hey!\nLet me finish first!\pWe'll have a...\la...\la...\la...\la...\la...\la...\la...")
+		hide_field_pic(VAR_0x800A)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
+		msgbox("Oh come on!\nSpit it out already!")
+		hide_field_pic(VAR_0x8009)
+		show_field_pic(VAR_0x800A)
+		msgbox("As I was saying!\pWe'll have a...\lBerry Blending duel!")
+		playse(SE_APPLAUSE)
+		waitse
+		hide_field_pic(VAR_0x800A)
+		show_field_pic(VAR_0x8009)
+		msgbox(format("Right, exactly what I had in mind..."))
+		hide_field_pic(VAR_0x8009)
+		show_field_pic(VAR_0x800A)
+		msgbox("Follow me!")
+		waitmessage
+		closemessage
+		hide_field_pic(VAR_0x800A)
+		applymovement(1, MovementToBlenderWingull)
+		applymovement(OBJ_EVENT_ID_PLAYER, MovementToBlenderPlayer)
+		applymovement(2, MovementToBlenderBidoof)
+		waitmovement(0)
+	} else {
+		msgbox("You left the bell untouched.")
+	}
+	release
+	end
+}
+
+movement MovementToBlenderWingull {
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	step_end
+}
+
+movement MovementToBlenderPlayer {
+	delay_16
+	delay_16
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	face_right
+	step_end
+}
+
+movement MovementToBlenderBidoof {
+	delay_16
+	delay_16
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	face_left
+	step_end
+}
+
+script WingullHouseBetweenCavesInUnderwater_BerryBlenderMachine {
+	lockall
+	msgbox("It's a Berry Blender.\nIt can't be used at the moment.")
+	releaseall
+	end
+}
+
+movement Movement_LookDown {
+	face_down
+	step_end
+}
+
+movement Movement_Up {
+	walk_up
+	face_down
+	step_end
+}
+
+movement Movement_LookUp {
+	face_up
+	step_end
+}
+

@@ -756,6 +756,7 @@ extern const u8 BattleScript_EffectReflectType[];
 extern const u8 BattleScript_EffectSoak[];
 extern const u8 BattleScript_EffectGrowth[];
 extern const u8 BattleScript_EffectLastResort[];
+extern const u8 BattleScript_FakeWingullFight[];
 extern const u8 BattleScript_EffectShellSmash[];
 extern const u8 BattleScript_EffectShiftGear[];
 extern const u8 BattleScript_EffectDefenseUp3[];

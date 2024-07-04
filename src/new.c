@@ -3,12 +3,14 @@
 #include "palette.h"
 #include "script.h"
 #include "event_scripts.h"
+#include "event_object_movement.h"
 #include "constants/rgb.h"
 
 // New functions
 void BlendTalkingObj(void)
 {
-    u32 spriteId = gObjectEvents[gSpecialVar_LastTalked].spriteId;
+    u32 objectEventId = GetObjectEventIdByLocalIdAndMap(gSpecialVar_LastTalked, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    u32 spriteId = gObjectEvents[objectEventId].spriteId;
     u32 palNum = gSprites[spriteId].oam.paletteNum;
     u32 clr = gSpecialVar_0x8004;
     u32 coeff = gSpecialVar_0x8005;
@@ -29,4 +31,22 @@ void ChooseMsgForBidoofFollower(struct ScriptContext *ctx)
     {
         ScriptCall(ctx, EventScript_BidoofFollowerTypicalMsg);
     }
+}
+
+static u32 GetPalsToBlend(void)
+{
+    u32 palNum = IndexOfSpritePaletteTag(gSprites[gSpecialVar_0x8009].data[0]);
+    u32 pals = 1 | (1 << (palNum + 16));
+
+    return ~pals;
+}
+
+void FadeAllExceptBg0AndMugshots(void)
+{
+    BeginNormalPaletteFade(GetPalsToBlend(), 0, 0, 16, RGB_BLACK);
+}
+
+void FadeOutAllExceptBg0AndMugshots(void)
+{
+    BeginNormalPaletteFade(GetPalsToBlend(), 0, 16, 0, RGB_BLACK);
 }

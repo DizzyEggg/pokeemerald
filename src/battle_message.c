@@ -850,12 +850,14 @@ static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\
 static const u8 sText_PkmnTerastallizedInto[] = _("{B_ATK_NAME_WITH_PREFIX} terastallized\ninto the {B_BUFF1} type!");
 static const u8 sText_SupersweetAromaWafts[] = _("A supersweet aroma is wafting from\nthe syrup covering {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
+static const u8 sText_WingullFakeFight[] = _("Wait, wait!\nI didn't mean that kind of a duel!{PAUSE_UNTIL_PRESS}");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
     [STRINGID_PKMNTERASTALLIZEDINTO - BATTLESTRINGS_TABLE_START] = sText_PkmnTerastallizedInto,
     [STRINGID_TIDYINGUPCOMPLETE - BATTLESTRINGS_TABLE_START] = sText_TidyingUpComplete,
     [STRINGID_SUPERSWEETAROMAWAFTS - BATTLESTRINGS_TABLE_START] = sText_SupersweetAromaWafts,
+    [STRINGID_WINGULLFAKEFIGHT1 - BATTLESTRINGS_TABLE_START] = sText_WingullFakeFight,
     [STRINGID_SHEDITSTAIL - BATTLESTRINGS_TABLE_START] = sText_ShedItsTail,
     [STRINGID_ELECTROSHOTCHARGING - BATTLESTRINGS_TABLE_START] = sText_ElectroShotCharging,
     [STRINGID_HOSPITALITYRESTORATION - BATTLESTRINGS_TABLE_START] = sText_HospitalityRestoration,
@@ -2787,7 +2789,13 @@ void BufferStringBattle(u16 stringID, u32 battler)
     switch (stringID)
     {
     case STRINGID_INTROMSG: // first battle msg
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        if (VarGet(VAR_HACK_GAME_STATE) == 4) // Wingull fight
+        {
+            static const u8 text[] = _("Duel against Wingull!{PAUSE_UNTIL_PRESS}");
+
+            stringPtr = text;
+        }
+        else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
             if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
             {
