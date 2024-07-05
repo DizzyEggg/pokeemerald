@@ -929,6 +929,12 @@ static void UpdateHitPitch(void)
     m4aMPlayPitchControl(&gMPlayInfo_SE2, TRACKS_ALL, 2 * (sBerryBlender->speed - MIN_ARROW_SPEED));
 }
 
+u32 BerryBlenderGetLostCount(void)
+{
+    gSpecialVar_Result = sPlayerLostCount;
+    return sPlayerLostCount;
+}
+
 static void VBlankCB_BerryBlender(void)
 {
     SetBgPos();
@@ -2035,7 +2041,7 @@ static void Task_HandleWingullOpponent(u8 taskId)
             }
             else
             {
-                if (rand > 46)
+                if (rand > 56)
                     gRecvCmds[2][BLENDER_COMM_SCORE] = LINKCMD_BLENDER_SCORE_BEST;
                 else if (rand > 8)
                     gRecvCmds[2][BLENDER_COMM_SCORE] = LINKCMD_BLENDER_SCORE_GOOD;
@@ -2784,7 +2790,7 @@ static void CB2_EndBlenderGame(void)
     case 7:
         if (IsWingullBlenderDuel())
         {
-            if (WingullDuelLost())
+            if (WingullDuelLost() && 0)
             {
                 if (PrintTextWhenLostToWingull(GetPlayerTextSpeedDelay()))
                     sBerryBlender->gameEndState = 11; // Skip Yes/No

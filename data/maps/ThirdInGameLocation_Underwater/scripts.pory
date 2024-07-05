@@ -62,6 +62,7 @@ script ThirdInGameLocation_Underwater_ActivateRockSwitch {
 		playse(SE_CLICK)
 		waitse
 		setflag(FLAG_CAVE_DOOR_PUZZLE_DONE)
+		setflag(FLAG_HIDE_WINGULL)
 		setmetatile(32, 72, 0x22E, FALSE) // Doors
 		setmetatile(32, 71, 0x226, FALSE) // Doors
 		setmetatile(54, 75, 0x22F, TRUE)

@@ -1,4 +1,19 @@
 mapscripts WingullHouseBetweenCavesInUnderwater_MapScripts {
+	// Metatile changes with the blender machine
+	MAP_SCRIPT_ON_LOAD {
+		if (flag(FLAG_WINGULL_BLENDER_BEATEN) == TRUE) {
+			setmetatile(2, 2, 0x221, FALSE) // Wall shadow
+			setmetatile(2, 3, 0x2DD, TRUE) // Blender machine
+		}
+	}
+	// removes invisible ninja objects
+	MAP_SCRIPT_ON_TRANSITION {
+		if (flag(FLAG_WINGULL_BLENDER_BEATEN) == TRUE) {
+			setobjectxyperm(3, 13, 0)
+		} else {
+			setobjectxyperm(4, 13, 0)
+		}
+	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_HACK_GAME_STATE, 3: WingullHouseBetweenCavesInUnderwater_WeMadeit
 	]
@@ -39,157 +54,250 @@ script WingullHouseBetweenCavesInUnderwater_BellNotWorking {
 
 script WingullHouseBetweenCavesInUnderwater_CallWingull {
 	lock
-	msgbox("There's a Bell.\nRing it?", MSGBOX_YESNO)
-	if (var(VAR_RESULT) == 1) {
-		msgbox("{PLAYER} rang the bell.")
-		playse(SE_BIKE_BELL)
-		waitse
-		playse(SE_M_HEAL_BELL)
-		waitse
-		playse(SE_BIKE_BELL)
-		waitse
-		delay(30)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
-		msgbox("Hmm...Let's try again.")
-		waitmessage
-		closemessage
-		hide_field_pic(VAR_0x8008)
-		playse(SE_M_HEAL_BELL)
-		waitse
-		playse(SE_BIKE_BELL)
-		waitse
-		show_field_pic(VAR_0x8008)
-		msgbox(format("You know, I would expect something to happen."))
-		waitmessage
-		hide_field_pic(VAR_0x8008)
-		closemessage
-		fadeoutbgm(3)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
-		hide_field_pic(VAR_0x8009)
-		callnative(FadeAllExceptBg0AndMugshots)
-		delay(30)
-		show_field_pic(VAR_0x8009)
-		msgbox("{PLAYER}!")
-		waitmessage
-		msgbox(format("Golly, it got dark all of a sudden!"))
-		waitmessage
-		hide_field_pic(VAR_0x8009)
-		closemessage
-		playse(SE_THUNDER)
-		callnative(RemoveFollowingPokemon)
-		clearflag(FLAG_BIDOOF_FOLLOWER) // Hack, we'll use OW Bidoof
-		waitse
-		playse(SE_THUNDER2)
-		waitse
-		show_field_pic(VAR_0x8009)
-		msgbox("Did you hear that?")
-		waitmessage
-		closemessage
-		hide_field_pic(VAR_0x8009)
-		playse(SE_THUNDER)
-		playse(SE_THUNDER)
-		msgbox("WHO?!")
-		delay(30)
-		waitmessage
-		msgbox("Who is it...")
-		playse(SE_THUNDER)
-		delay(20)
-		msgbox("SPEAK!")
-		waitmessage
-		show_field_pic(VAR_0x8009)
-		msgbox(format("We didn't want to disturb you, I swear! We actually want to leave!"))
-		waitmessage
-		hide_field_pic(VAR_0x8009)
-		msgbox("W{PAUSE 30}A{PAUSE 30}I{PAUSE 30}T!")
-		waitmessage
-		msgbox(format("I can't let you {PAUSE 20}go that easily..."))
-		waitmessage
-		show_field_pic(VAR_0x8009)
-		msgbox("Golly!")
-		waitmessage
-		hide_field_pic(VAR_0x8009)
-		msgbox("T{PAUSE 10}u{PAUSE 20}r{PAUSE 30}n a{PAUSE 25}r{PAUSE 28}o{PAUSE 22}u{PAUSE 22}n{PAUSE 22}d.")
-		applymovement(OBJ_EVENT_ID_PLAYER, Movement_LookDown)
-		waitmovement(0)
-		addobject(1) // Wingull
-		addobject(2) // Bidoof
-		setobjectxy(1, 7, 5)
-		fadeinbgm(3)
-		callnative(FadeOutAllExceptBg0AndMugshots)
-		delay(5)
-		load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
-		msgbox("Hey y'all! I'm Wingull!\nWingull, the gull!")
-		hide_field_pic(VAR_0x800A)
-		show_field_pic(VAR_0x8009)
-		msgbox("...")
-		msgbox("Really?\lTalk about anticlamatic...")
-		hide_field_pic(VAR_0x8009)
-		show_field_pic(VAR_0x800A)
-		msgbox("Hmm? You were sayin'?")
-		hide_field_pic(VAR_0x800A)
-		show_field_pic(VAR_0x8009)
-		msgbox("Golly, no! Nothing!")
-		hide_field_pic(VAR_0x8009)
-		show_field_pic(VAR_0x800A)
-		msgbox(format("Welcome in my humble domain!\nThe rules are simple: if you wish to pass, you'll need to defeat me in a duel!"))
-		hide_field_pic(VAR_0x800A)
-		show_field_pic(VAR_0x8009)
-		msgbox("Duel?")
-		hide_field_pic(VAR_0x8009)
-		show_field_pic(VAR_0x800A)
-		msgbox(format("Yes! It's time to du-du-du-duel!"))
-		waitmessage
-		closemessage
-		hide_field_pic(VAR_0x800A)
-		setwildbattle(SPECIES_WINGULL, 19)
-		dowildbattle
-		setvar(VAR_HACK_GAME_STATE, 5)
-		load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
-		msgbox("Hey!\nLet me finish first!\pWe'll have a...\la...\la...\la...\la...\la...\la...\la...")
-		hide_field_pic(VAR_0x800A)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
-		msgbox("Oh come on!\nSpit it out already!")
-		hide_field_pic(VAR_0x8009)
-		show_field_pic(VAR_0x800A)
-		msgbox("As I was saying!\pWe'll have a...\lBerry Blending duel!")
-		playse(SE_APPLAUSE)
-		waitse
-		hide_field_pic(VAR_0x800A)
-		show_field_pic(VAR_0x8009)
-		msgbox(format("Right, exactly what I had in mind..."))
-		hide_field_pic(VAR_0x8009)
-		show_field_pic(VAR_0x800A)
-		msgbox("Follow me!")
-		waitmessage
-		closemessage
-		hide_field_pic(VAR_0x800A)
-		applymovement(1, MovementToBlenderWingull)
-		applymovement(OBJ_EVENT_ID_PLAYER, MovementToBlenderPlayer)
-		applymovement(2, MovementToBlenderBidoof)
-		waitmovement(0)
-		msgbox_pic(format("Alright! There's three of us, so that's even better. I was hoping for a quartet, but whatever.\lTHE RULES!\lThe rules are fairly simple, you just need the right equipment. Which you are missing, but fear not! I have a spare Pokeblock Case and some berries. Here!"), VAR_0x800A)
-		giveitem(ITEM_POKEBLOCK_CASE, 1)
-		giveitem(ITEM_ORAN_BERRY, 31)
-		msgbox_pic("Now we're ready!", VAR_0x800A)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
-		msgbox_pic("What about the rules?", VAR_0x8008)
-		msgbox_pic("Rules? You want me to explain\nthe rules?", VAR_0x800A, MSGBOX_YESNO)
+	if (flag(FLAG_WINGULL_BLENDER_BEATEN) == FALSE) {
+		msgbox("There's a Bell.\nRing it?", MSGBOX_YESNO)
 		if (var(VAR_RESULT) == 1) {
-			msgbox_pic(format("Well, ugh...\nYou throw a Berry and then the thing spins...I'm sure you'll quickly get the hang of it!"), VAR_0x800A)
-			msgbox_pic("For sure...", VAR_0x8009)
+			msgbox("{PLAYER} rang the bell.")
+			playse(SE_BIKE_BELL)
+			waitse
+			playse(SE_M_HEAL_BELL)
+			waitse
+			playse(SE_BIKE_BELL)
+			waitse
+			delay(30)
+			load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+			msgbox("Hmm...Let's try again.")
+			waitmessage
+			closemessage
+			hide_field_pic(VAR_0x8008)
+			playse(SE_M_HEAL_BELL)
+			waitse
+			playse(SE_BIKE_BELL)
+			waitse
+			show_field_pic(VAR_0x8008)
+			msgbox(format("You know, I would expect something to happen."))
+			waitmessage
+			hide_field_pic(VAR_0x8008)
+			closemessage
+			fadeoutbgm(3)
+			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
+			hide_field_pic(VAR_0x8009)
+			callnative(FadeAllExceptBg0AndMugshots)
+			delay(30)
+			show_field_pic(VAR_0x8009)
+			msgbox("{PLAYER}!")
+			waitmessage
+			msgbox(format("Golly, it got dark all of a sudden!"))
+			waitmessage
+			hide_field_pic(VAR_0x8009)
+			closemessage
+			playse(SE_THUNDER)
+			callnative(RemoveFollowingPokemon)
+			clearflag(FLAG_BIDOOF_FOLLOWER) // Hack, we'll use OW Bidoof
+			waitse
+			playse(SE_THUNDER2)
+			waitse
+			show_field_pic(VAR_0x8009)
+			msgbox("Did you hear that?")
+			waitmessage
+			closemessage
+			hide_field_pic(VAR_0x8009)
+			playse(SE_THUNDER)
+			playse(SE_THUNDER)
+			msgbox("WHO?!")
+			delay(30)
+			waitmessage
+			msgbox("Who is it...")
+			playse(SE_THUNDER)
+			delay(20)
+			msgbox("SPEAK!")
+			waitmessage
+			show_field_pic(VAR_0x8009)
+			msgbox(format("We didn't want to disturb you, I swear! We actually want to leave!"))
+			waitmessage
+			hide_field_pic(VAR_0x8009)
+			msgbox("W{PAUSE 30}A{PAUSE 30}I{PAUSE 30}T!")
+			waitmessage
+			msgbox(format("I can't let you {PAUSE 20}go that easily..."))
+			waitmessage
+			show_field_pic(VAR_0x8009)
+			msgbox("Golly!")
+			waitmessage
+			hide_field_pic(VAR_0x8009)
+			msgbox("T{PAUSE 10}u{PAUSE 20}r{PAUSE 30}n a{PAUSE 25}r{PAUSE 28}o{PAUSE 22}u{PAUSE 22}n{PAUSE 22}d.")
+			applymovement(OBJ_EVENT_ID_PLAYER, Movement_LookDown)
+			waitmovement(0)
+			addobject(1) // Wingull
+			clearflag(FLAG_HIDE_WINGULL)
+			addobject(2) // Bidoof
+			setobjectxy(1, 7, 5)
+			fadeinbgm(3)
+			callnative(FadeOutAllExceptBg0AndMugshots)
+			delay(5)
+			load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+			msgbox("Hey y'all! I'm Wingull!\nWingull, the gull!")
+			hide_field_pic(VAR_0x800A)
+			show_field_pic(VAR_0x8009)
+			msgbox("...")
+			msgbox("Really?\lTalk about anticlamatic...")
+			hide_field_pic(VAR_0x8009)
+			show_field_pic(VAR_0x800A)
+			msgbox("Hmm? You were sayin'?")
+			hide_field_pic(VAR_0x800A)
+			show_field_pic(VAR_0x8009)
+			msgbox("Golly, no! Nothing!")
+			hide_field_pic(VAR_0x8009)
+			show_field_pic(VAR_0x800A)
+			msgbox(format("Welcome in my humble domain!\nThe rules are simple: if you wish to pass, you'll need to defeat me in a duel!"))
+			hide_field_pic(VAR_0x800A)
+			show_field_pic(VAR_0x8009)
+			msgbox("Duel?")
+			hide_field_pic(VAR_0x8009)
+			show_field_pic(VAR_0x800A)
+			msgbox(format("Yes! It's time to du-du-du-duel!"))
+			waitmessage
+			closemessage
+			hide_field_pic(VAR_0x800A)
+			setwildbattle(SPECIES_WINGULL, 19)
+			dowildbattle
+			setvar(VAR_HACK_GAME_STATE, 5)
+			load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+			msgbox("Hey!\nLet me finish first!\pWe'll have a...\la...\la...\la...\la...\la...\la...\la...")
+			hide_field_pic(VAR_0x800A)
+			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
+			msgbox("Oh come on!\nSpit it out already!")
+			hide_field_pic(VAR_0x8009)
+			show_field_pic(VAR_0x800A)
+			msgbox("As I was saying!\pWe'll have a...\lBerry Blending duel!")
+			playse(SE_APPLAUSE)
+			waitse
+			hide_field_pic(VAR_0x800A)
+			show_field_pic(VAR_0x8009)
+			msgbox(format("Right, exactly what I had in mind..."))
+			hide_field_pic(VAR_0x8009)
+			show_field_pic(VAR_0x800A)
+			msgbox("Follow me!")
+			waitmessage
+			closemessage
+			hide_field_pic(VAR_0x800A)
+			applymovement(1, MovementToBlenderWingull)
+			applymovement(OBJ_EVENT_ID_PLAYER, MovementToBlenderPlayer)
+			applymovement(2, MovementToBlenderBidoof)
+			waitmovement(0)
+			msgbox_pic(format("Alright! There's three of us, so that's even better. I was hoping for a quartet, but whatever.\lTHE RULES!\lThe rules are fairly simple, you just need the right equipment. Which you are missing, but fear not! I have a spare Pokeblock Case and some berries. Here!"), VAR_0x800A)
+			giveitem(ITEM_POKEBLOCK_CASE, 1)
+			giveitem(ITEM_ORAN_BERRY, 31)
+			msgbox_pic("Now we're ready!", VAR_0x800A)
+			load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+			msgbox_pic("What about the rules?", VAR_0x8008)
+			msgbox_pic("Rules? You want me to explain\nthe rules?", VAR_0x800A, MSGBOX_YESNO)
+			if (var(VAR_RESULT) == 1) {
+				msgbox_pic(format("Well, ugh...\nYou throw a Berry and then the thing spins...I'm sure you'll quickly get the hang of it!"), VAR_0x800A)
+				msgbox_pic("For sure...", VAR_0x8009)
+			} else {
+				msgbox_pic("Yeah, I'm sure you already know them!", VAR_0x800A)
+			}
+			msgbox_pic("Let's go!", VAR_0x800A)
+			setvar(VAR_0x8004, 2)
+			fadescreen(FADE_TO_BLACK)
+			special(DoBerryBlending)
+			waitstate
+			load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+			playbgm(MUS_LINK_CONTEST_P1, FALSE) // For some reason the music changes
+			callnative(BerryBlenderGetLostCount)
+			switch (var(VAR_RESULT)) {
+			case 0: msgbox_pic(format("Wow! You beat me on the first try! You're like a Berry Blending Master!"), VAR_0x800A)
+			case 1: msgbox_pic(format("Wow, you're pretty good! It only took you 2 attempts to beat me!"), VAR_0x800A)
+			case 2: msgbox_pic(format("You're good, I'll give you that!"), VAR_0x800A)
+			case 3: msgbox_pic(format("It took you 4 tries, but you've got it. Grats!"), VAR_0x800A)
+			case 4: msgbox_pic(format("You got me, not bad!"), VAR_0x800A)
+			case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12: case 13: msgbox_pic(format("You did it champ! It took you long enough, but you beat me fair and square."), VAR_0x800A)
+			default: msgbox_pic(format("Well...Every streak has to end, mine too! As for you, I fell like you'll have enough Berry Blending for quite some time, haha!"), VAR_0x800A)
+			}
+			message("{PLAYER} received the Blender Badge\nfrom Wingull.")
+			waitmessage
+			call(Common_EventScript_PlayGymBadgeFanfare)
+			setflag(FLAG_BADGE01_GET)
+			setflag(FLAG_WINGULL_BLENDER_BEATEN)
+			msgbox_pic(format("You earned it, champ!"), VAR_0x800A)
+			load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+			msgbox_pic(format("Oh, I see {PLAYER}!\nIf things were normal, you would've received a Badge only after beating a Gym leader! I believe there are 8 Gym Leaders you need to beat, before facing the ultimate challenge. Or something similar, I'm not 100% sure.\l...\lGiven the actual state of affairs here, you'll probably obtain the badges in other, weirder ways, just like here with Wingull."), VAR_0x8008)
+			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
+			msgbox_pic(format("Golly! I struggle to think what the next 'Gym Leader' will be like!"), VAR_0x8009)
+			msgbox_pic(format("That's how things work here in the Underwater.\lThough, Bidoof. Out of everyone, you should've known that already.\lAfter all..."), VAR_0x800A)
+			msgbox_pic(format("What are you even talking about!? Whatever, {PLAYER} won, which means we can leave."), VAR_0x8009)
+			msgbox_pic(format("I was hoping you'd stay here for a bit longer! But it's fine! Let me move this thing..."), VAR_0x800A)
+			applymovement(1, MovementOneDown)
+			setmetatile(2, 2, 0x221, FALSE) // Wall shadow
+			setmetatile(2, 3, 0x2DD, TRUE) // Blender machine
+			setobjectxy(3, 13, 0)
+			setobjectxy(4, 2, 3)
+			setobjectxyperm(4, 2, 3)
+			special(DrawWholeMapView)
+			waitmovement(0)
+			msgbox_pic(format("Much better!\pI'm not going anywhere, so if you need something, just let me know!\lSmell ya later!"), VAR_0x800A)
+			applymovement(1, MovementWingullFromBlender)
+			msgbox_pic(format("Alright, {PLAYER}! Let's get out of here!"), VAR_0x8008)
+			waitmessage
+			closemessage
+			waitmovement(0)
+			applymovement(2, MovementBidoofLeft)
+			waitmovement(0)
+			setflag(FLAG_BIDOOF_FOLLOWER)
+			callnative(UpdateFollowingPokemon)
+			removeobject(2)
+			applymovement(OBJ_EVENT_ID_PLAYER, MovementPlayerFaceUp_WingullHouse)
+			waitmovement(0)
+			delay(2)
+			setvar(VAR_HACK_GAME_STATE, 6)
+			destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, VAR_0x8009)
+			destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
+			destroy_field_pic(FIELD_PIC_WINGULL, VAR_0x800A)
 		} else {
-			msgbox_pic("Yeah, I'm sure you already know them!", VAR_0x800A)
+			msgbox("You left the bell untouched.")
 		}
-		msgbox_pic("Let's go!", VAR_0x800A)
-		setvar(VAR_0x8004, 2)
-		fadescreen(FADE_TO_BLACK)
-		special(DoBerryBlending)
-		waitstate
 	} else {
-		msgbox("You left the bell untouched.")
+		load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+		hide_field_pic(VAR_0x800A)
+		if (var(VAR_HACK_GAME_STATE) == 6) {
+			msgbox_pic(format("Thanks for playing with me! I'm sure we'll see each other again!"), VAR_0x800A)
+		} else {
+			msgbox_pic(format("Hey guys! Nice to see you again!"), VAR_0x800A)
+		}
+		destroy_field_pic(FIELD_PIC_WINGULL, VAR_0x800A)
 	}
 	release
 	end
+}
+
+movement MovementPlayerFaceUp_WingullHouse {
+	walk_down
+	face_up
+	step_end
+}
+
+movement MovementBidoofLeft {
+	walk_left
+	walk_left
+	face_down
+	step_end
+}
+
+movement MovementWingullFromBlender {
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	face_down
+	step_end
+}
+
+movement MovementOneDown {
+	walk_down
+	step_end
 }
 
 movement MovementToBlenderWingull {
