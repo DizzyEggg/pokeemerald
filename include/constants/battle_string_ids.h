@@ -714,8 +714,10 @@
 #define STRINGID_FOGLIFTED                            712
 #define STRINGID_PKMNMADESHELLGLEAM                   713
 #define STRINGID_WINGULLFAKEFIGHT1                   714
+#define STRINGID_BIDOOF_USE_PKBL                   715
+#define STRINGID_BIDOOF_THROW_BALL                   716
 
-#define BATTLESTRINGS_COUNT                           715
+#define BATTLESTRINGS_COUNT                           717
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -890,6 +892,8 @@
 // gSafariGetNearStringIds
 #define B_MSG_CREPT_CLOSER    0
 #define B_MSG_CANT_GET_CLOSER 1
+#define B_MSG_NO_NEAR_USE_PKBL 2
+#define B_MSG_NO_NEAR_THROW_BALL 3
 
 // gSafariPokeblockResultStringIds
 #define B_MSG_MON_CURIOUS    0

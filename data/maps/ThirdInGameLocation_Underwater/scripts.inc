@@ -18,640 +18,652 @@ ThirdInGameLocation_Underwater_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 	return
 
 
-ThirdInGameLocation_Underwater_PsychicGuru::
+ThirdInGameLocation_Underwater_WildMonsSoon_Down::
 # 15 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	lock
 # 16 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	faceplayer
+	applymovement OBJ_EVENT_ID_PLAYER, MovementJustFaceDown
 # 17 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	goto_if_unset FLAG_PSYHIC_GURU_TALKED_WITH, ThirdInGameLocation_Underwater_PsychicGuru_2
+	goto ThirdInGameLocation_Underwater_WildMonsSoon
+	return
+
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Left::
+# 21 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	lock
+# 22 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, MovementJustFaceLeft
+# 23 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	goto ThirdInGameLocation_Underwater_WildMonsSoon
+	return
+
+
+ThirdInGameLocation_Underwater_WildMonsSoon::
+# 27 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	waitmovement 0
+# 28 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	setvar VAR_HACK_GAME_STATE, 7
+# 29 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
+# 30 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox_pic ThirdInGameLocation_Underwater_WildMonsSoon_Text_0, VAR_0x8008
+# 31 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800A
+# 32 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox_pic ThirdInGameLocation_Underwater_WildMonsSoon_Text_1, VAR_0x800A
+# 33 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox_pic ThirdInGameLocation_Underwater_WildMonsSoon_Text_2, VAR_0x8008
+# 34 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox_pic ThirdInGameLocation_Underwater_WildMonsSoon_Text_3, VAR_0x8008
+# 35 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox_pic ThirdInGameLocation_Underwater_WildMonsSoon_Text_4, VAR_0x800A
+# 36 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	show_field_pic VAR_0x8008
 # 37 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox ThirdInGameLocation_Underwater_WildMonsSoon_Text_5
+# 38 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	dynmultichoice 0, 5, TRUE, 1, 0, DYN_MULTICHOICE_CB_NONE, ThirdInGameLocation_Underwater_WildMonsSoon_Text_6
+# 39 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox_pic ThirdInGameLocation_Underwater_WildMonsSoon_Text_7, VAR_0x8008
+# 40 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox_pic ThirdInGameLocation_Underwater_WildMonsSoon_Text_8, VAR_0x8008
+# 41 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	waitmessage
+# 42 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	closemessage
+# 43 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, MovementPlayerIntoGrass
+# 44 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	waitmovement 0
+# 46 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	setflag FLAG_SYS_SAFARI_MODE
+# 47 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	setbyte gNumSafariBalls, 1
+# 48 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	setwildbattle SPECIES_CHINCHOU, 35
+# 49 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	dowildbattle
+# 50 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	clearflag FLAG_SYS_SAFARI_MODE
+# 51 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	load_field_pic FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x8009
+# 52 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox_pic ThirdInGameLocation_Underwater_WildMonsSoon_Text_9, VAR_0x8009
+# 53 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
+# 54 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox_pic ThirdInGameLocation_Underwater_WildMonsSoon_Text_10, VAR_0x8008
+# 55 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	setvar VAR_HACK_GAME_STATE, 8
+# 56 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	destroy_field_pic FIELD_PIC_BIDOOF_HAPPY, VAR_0x8009
+# 57 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008
+# 58 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	release
+	end
+
+
+# 62 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementJustFaceDown:
+# 63 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	face_down
+# 64 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
+
+# 67 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementJustFaceLeft:
+# 68 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	face_left
+# 69 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
+
+# 72 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementPlayerIntoGrass:
+# 73 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_up
+# 74 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_right
+# 74 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_right
+# 74 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_right
+# 75 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	jump_in_place_up_down
+# 76 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	jump_in_place_right_left
+# 77 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	jump_in_place_up_down
+# 78 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	jump_in_place_right_left
+# 79 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
+
+ThirdInGameLocation_Underwater_PsychicGuru::
+# 83 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	lock
+# 84 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	faceplayer
+# 85 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	goto_if_unset FLAG_PSYHIC_GURU_TALKED_WITH, ThirdInGameLocation_Underwater_PsychicGuru_2
+# 105 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_10
 ThirdInGameLocation_Underwater_PsychicGuru_1:
-# 39 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 107 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	release
 	end
 
 ThirdInGameLocation_Underwater_PsychicGuru_2:
-# 18 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 86 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_0
-# 19 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 87 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_1
-# 20 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 88 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_UNEASY, 33, 107
-# 21 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 89 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_2
-# 22 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 90 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_UNEASY
-# 23 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 91 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_3
-# 24 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 92 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_4
-# 25 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 93 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_5
-# 26 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 94 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_6
-# 27 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 95 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmessage
-# 28 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 96 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	closemessage
-# 29 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 97 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay 29
-# 30 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 98 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107
-# 31 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 99 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_7
-# 32 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 100 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_8
-# 33 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 101 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_PsychicGuru_Text_9
-# 34 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 102 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL
-# 35 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 103 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setflag FLAG_PSYHIC_GURU_TALKED_WITH
 	goto ThirdInGameLocation_Underwater_PsychicGuru_1
 
 
 ThirdInGameLocation_Underwater_ActivateRockSwitch::
-# 44 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 112 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	lock
-# 45 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 113 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	goto_if_unset FLAG_CAVE_DOOR_PUZZLE_DONE, ThirdInGameLocation_Underwater_ActivateRockSwitch_2
-# 78 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 146 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_ActivateRockSwitch_Text_3
 ThirdInGameLocation_Underwater_ActivateRockSwitch_1:
-# 80 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 148 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	release
 	end
 
 ThirdInGameLocation_Underwater_ActivateRockSwitch_2:
-# 46 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 114 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_NOTE_G
-# 47 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 115 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitse
-# 48 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 116 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_NOTE_F
-# 49 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 117 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitse
-# 50 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 118 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_NOTE_E
-# 51 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 119 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitse
-# 52 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 120 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_NOTE_D
-# 53 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 121 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitse
-# 54 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 122 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_NOTE_C
-# 55 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 123 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitse
-# 56 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 124 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_NOTE_G
-# 57 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 125 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitse
-# 58 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 126 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_NOTE_G
-# 59 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 127 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitse
-# 60 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 128 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_NOTE_C
-# 61 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 129 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitse
-# 62 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 130 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_CLICK
-# 63 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 131 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitse
-# 64 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 132 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setflag FLAG_CAVE_DOOR_PUZZLE_DONE
-# 65 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 133 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setflag FLAG_HIDE_WINGULL
-# 66 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 134 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setmetatile 32, 72, 0x22E, FALSE
-# 67 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 135 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setmetatile 32, 71, 0x226, FALSE
-# 68 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 136 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setmetatile 54, 75, 0x22F, TRUE
-# 69 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 137 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	special DrawWholeMapView
-# 70 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 138 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107
-# 71 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 139 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_ActivateRockSwitch_Text_0
-# 72 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 140 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_ActivateRockSwitch_Text_1
-# 73 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 141 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_ASTONISHED
-# 74 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 142 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107
-# 75 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 143 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_ActivateRockSwitch_Text_2
-# 76 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 144 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL
 	goto ThirdInGameLocation_Underwater_ActivateRockSwitch_1
 
 
 ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger::
-# 85 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 153 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	lock
-# 86 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 154 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	goto_if_unset FLAG_CAVE_DOOR_PUZZLE_DONE, ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_2
 ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_1:
-# 99 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 167 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setflag FLAG_TRIGGER_3RD_MAP_SEEMS_NO_WAY
-# 100 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 168 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	release
 	end
 
 ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_2:
-# 87 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 155 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
-# 88 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 156 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_Text_0
-# 89 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 157 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitbuttonpress
-# 90 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 158 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 91 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 159 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	closemessage
-# 92 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 160 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_SeeNoWay
-# 93 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 161 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
-# 94 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 162 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x8008
-# 95 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 163 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_Text_1
-# 96 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 164 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_Text_2
-# 97 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 165 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008
 	goto ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_1
 
 
-# 104 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 172 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 Movement_SeeNoWay:
-# 105 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 173 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_left
-# 106 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 174 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_left
-# 107 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 175 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_left
-# 108 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 176 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_left
-# 109 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 177 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_left
-# 110 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 178 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	step_end
 
 ThirdInGameLocation_Bidoof3::
-# 114 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 182 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	lock
-# 115 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 183 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	faceplayer
-# 116 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 184 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	compare VAR_HACK_GAME_STATE, 1
 	goto_if_eq ThirdInGameLocation_Bidoof3_2
-# 158 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 226 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	compare VAR_HACK_GAME_STATE, 2
 	goto_if_eq ThirdInGameLocation_Bidoof3_3
 ThirdInGameLocation_Bidoof3_1:
-# 260 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 328 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	release
 	end
 
 ThirdInGameLocation_Bidoof3_2:
-# 117 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 185 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_UNEASY, 33, 107, VAR_0x8009
-# 118 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 186 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_0
-# 119 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 187 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8009
-# 120 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 188 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
-# 121 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 189 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_1
-# 122 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 190 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 123 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 191 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800A
-# 124 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 192 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_2
-# 125 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 193 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x800A
-# 126 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 194 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x8008
-# 127 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 195 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_3
-# 128 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 196 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 129 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 197 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x800A
-# 130 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 198 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_4
-# 131 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 199 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x800A
-# 132 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 200 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x8008
-# 133 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 201 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_5
-# 134 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 202 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_6
-# 135 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 203 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_7
-# 136 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 204 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 137 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 205 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x800A
-# 138 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 206 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_8
-# 139 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 207 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_9
-# 140 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 208 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x800A
-# 141 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 209 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x8008
-# 142 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 210 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_6
-# 143 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 211 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 144 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 212 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x8009
-# 145 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 213 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_10
-# 146 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 214 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8009
-# 147 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 215 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x8008
-# 148 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 216 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_11
-# 149 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 217 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008
-# 150 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 218 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_UNEASY, VAR_0x8009
-# 151 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 219 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_ASTONISHED, VAR_0x800A
-# 152 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 220 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	addvar VAR_HACK_GAME_STATE, 1
-# 153 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 221 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement 5, MovementBidoof3
-# 154 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 222 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
-# 155 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 223 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	release
 	end
 
 ThirdInGameLocation_Bidoof3_3:
-# 159 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 227 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
-# 160 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 228 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_12, MSGBOX_YESNO
-# 161 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 229 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq ThirdInGameLocation_Bidoof3_7
-# 251 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 319 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 252 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 320 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x800A
-# 253 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 321 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_27
-# 254 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 322 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A
 ThirdInGameLocation_Bidoof3_6:
-# 256 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 324 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008
-# 257 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 325 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement 5, MovementBidoof3
-# 258 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 326 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
 	goto ThirdInGameLocation_Bidoof3_1
 
 ThirdInGameLocation_Bidoof3_7:
-# 162 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 230 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	checkitem ITEM_HM06
-# 163 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 231 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq ThirdInGameLocation_Bidoof3_10
-# 244 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 312 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 245 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 313 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800A
-# 246 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 314 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_26
-# 247 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 315 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_UNEASY, VAR_0x800A
 	goto ThirdInGameLocation_Bidoof3_6
 
 ThirdInGameLocation_Bidoof3_10:
-# 164 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 232 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_13
-# 165 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 233 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 166 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 234 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x800A
-# 167 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 235 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_14
-# 168 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 236 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A
-# 169 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 237 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_SMIRKY, 33, 107, VAR_0x800A
-# 170 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 238 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_15
-# 171 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 239 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_SMIRKY, VAR_0x800A
-# 172 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 240 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	addvar VAR_HACK_GAME_STATE, 1
-# 173 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 241 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	closemessage
-# 174 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 242 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	specialvar VAR_RESULT, GetPlayerFacingDirection
-# 175 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 243 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	compare VAR_RESULT, DIR_EAST
 	goto_if_eq ThirdInGameLocation_Bidoof3_14
-# 182 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 250 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement 5, MovementBidoof_Up
-# 183 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 251 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
-# 184 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 252 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, MovementPlayer_Up
-# 185 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 253 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
 ThirdInGameLocation_Bidoof3_13:
-# 187 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 255 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement 5, MovementBidoof_ToRockSmash
-# 188 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 256 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, MovementPlayer_ToRockSmash
-# 189 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 257 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
-# 190 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 258 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playse SE_PC_LOGIN
-# 191 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 259 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_16
-# 192 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 260 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_17
-# 193 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 261 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	closemessage
-# 194 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 262 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setvar VAR_LAST_TALKED, 4
-# 195 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 263 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	dofieldeffect FLDEFF_USE_ROCK_SMASH
-# 196 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 264 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitstate
-# 197 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 265 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement VAR_LAST_TALKED, Movement_SmashRock
-# 198 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 266 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
-# 199 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 267 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 200 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 268 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setflag FLAG_HIDE_ROCK_SMASH_3RD_LOC
-# 201 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 269 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x800A
-# 202 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 270 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_18
-# 203 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 271 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x800A
-# 204 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 272 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x8008
-# 205 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 273 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_19
-# 206 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 274 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 207 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 275 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800B
-# 208 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 276 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_20
-# 209 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 277 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x800B
-# 210 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 278 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x8008
-# 211 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 279 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_21, MSGBOX_YESNO
-# 212 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 280 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_ne ThirdInGameLocation_Bidoof3_18
 ThirdInGameLocation_Bidoof3_17:
-# 226 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 294 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x800A
-# 227 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 295 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_25
-# 228 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 296 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setflag FLAG_HIDE_BIDOOF_3
-# 229 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 297 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setflag FLAG_BIDOOF_FOLLOWER
-# 230 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 298 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
-# 231 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 299 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	removeobject 5
-# 232 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 300 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008
-# 233 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 301 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A
-# 234 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 302 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_ASTONISHED, VAR_0x800B
-# 235 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 303 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay 2
-# 236 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 304 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	callnative UpdateFollowingPokemon
-# 237 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 305 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay 2
-# 238 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 306 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, MovementPlayerDown
-# 239 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 307 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
-# 240 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 308 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	release
 	end
 
 ThirdInGameLocation_Bidoof3_14:
-# 176 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 244 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement 5, MovementBidoof_East
-# 177 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 245 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
-# 178 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 246 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, MovementPlayer_East
-# 179 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 247 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
 	goto ThirdInGameLocation_Bidoof3_13
 
 ThirdInGameLocation_Bidoof3_18:
 ThirdInGameLocation_Bidoof3_22:
-# 214 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 282 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 215 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 283 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x800B
-# 216 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 284 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_22
-# 217 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 285 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x800B
-# 218 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 286 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x8008
-# 219 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 287 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_23, MSGBOX_YESNO
-# 220 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 288 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_ne ThirdInGameLocation_Bidoof3_22
-# 221 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 289 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x8008
-# 222 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 290 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	show_field_pic VAR_0x800B
-# 223 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 291 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Bidoof3_Text_24
-# 224 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 292 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	hide_field_pic VAR_0x800B
 	goto ThirdInGameLocation_Bidoof3_17
 
 
-# 264 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 332 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 MovementPlayerDown:
-# 265 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 266 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	step_end
-
-# 269 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-MovementBidoof_ToRockSmash:
-# 270 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 271 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 272 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 273 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 274 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 275 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 276 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 277 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 278 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 279 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	step_end
-
-# 282 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-MovementPlayer_ToRockSmash:
-# 283 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 284 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 285 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 286 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 287 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 288 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 289 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 290 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 291 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 292 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	step_end
-
-# 295 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-MovementBidoof_East:
-# 296 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 297 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 298 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 299 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	step_end
-
-# 302 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-MovementPlayer_East:
-# 303 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 304 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	step_end
-
-# 307 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-MovementBidoof_Up:
-# 308 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 309 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_down
-# 310 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 311 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	step_end
-
-# 314 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-MovementPlayer_Up:
-# 315 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_left
-# 316 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	step_end
-
-# 319 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-MovementBidoof3:
-# 320 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	face_right
-# 321 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	step_end
-
-ThirdInGameLocation_Underwater_RockSmash::
-# 325 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	lock
-# 326 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	checkitem ITEM_HM06
-# 327 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	compare VAR_RESULT, 1
-	goto_if_eq ThirdInGameLocation_Underwater_RockSmash_2
-# 331 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	msgbox ThirdInGameLocation_Underwater_RockSmash_Text_1
-ThirdInGameLocation_Underwater_RockSmash_1:
 # 333 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	release
-	end
+	walk_down
+# 334 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
 
-ThirdInGameLocation_Underwater_RockSmash_2:
-# 328 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	msgbox ThirdInGameLocation_Underwater_RockSmash_Text_0
-	goto ThirdInGameLocation_Underwater_RockSmash_1
-
-
-ThirdInGameLocation_Underwater_BidoffTrigger2::
+# 337 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementBidoof_ToRockSmash:
 # 338 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	lock
+	walk_left
 # 339 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	playse SE_PIN
+	walk_left
 # 340 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	setflag FLAG_HIDE_BIDOOF_2
+	walk_down
 # 341 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	applymovement 3, MovementBidoof2
+	walk_down
 # 342 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	waitmovement 0
+	walk_down
 # 343 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	removeobject 3
+	walk_down
 # 344 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	release
-	end
+	walk_down
+# 345 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_down
+# 346 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_down
+# 347 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
 
-
-# 348 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-MovementBidoof2:
-# 349 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_up
 # 350 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_up
+MovementPlayer_ToRockSmash:
 # 351 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	emote_double_exclamation_mark
+	walk_left
 # 352 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	delay_16
+	walk_left
 # 353 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	delay_4
+	walk_left
 # 354 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	face_down
+	walk_down
 # 355 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	delay_8
+	walk_down
 # 356 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_down
 # 357 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
@@ -659,255 +671,428 @@ MovementBidoof2:
 # 358 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_down
 # 359 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	set_invisible
+	walk_down
 # 360 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	step_end
 
-ThirdInGameLocation_Underwater_BidoffTrigger1::
+# 363 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementBidoof_East:
 # 364 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	lock
+	walk_down
 # 365 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	playse SE_PIN
+	walk_left
 # 366 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	setflag FLAG_HIDE_BIDOOF_1
+	walk_left
 # 367 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	applymovement 2, MovementBidoof1
-# 368 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	waitmovement 0
-# 369 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	removeobject 2
+	step_end
+
 # 370 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementPlayer_East:
+# 371 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_down
+# 372 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
+
+# 375 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementBidoof_Up:
+# 376 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_left
+# 377 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_down
+# 378 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_left
+# 379 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
+
+# 382 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementPlayer_Up:
+# 383 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_left
+# 384 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
+
+# 387 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementBidoof3:
+# 388 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	face_right
+# 389 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
+
+ThirdInGameLocation_Underwater_RockSmash::
+# 393 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	lock
+# 394 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	checkitem ITEM_HM06
+# 395 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_eq ThirdInGameLocation_Underwater_RockSmash_2
+# 399 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox ThirdInGameLocation_Underwater_RockSmash_Text_1
+ThirdInGameLocation_Underwater_RockSmash_1:
+# 401 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	release
+	end
+
+ThirdInGameLocation_Underwater_RockSmash_2:
+# 396 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	msgbox ThirdInGameLocation_Underwater_RockSmash_Text_0
+	goto ThirdInGameLocation_Underwater_RockSmash_1
+
+
+ThirdInGameLocation_Underwater_BidoffTrigger2::
+# 406 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	lock
+# 407 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	playse SE_PIN
+# 408 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	setflag FLAG_HIDE_BIDOOF_2
+# 409 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	applymovement 3, MovementBidoof2
+# 410 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	waitmovement 0
+# 411 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	removeobject 3
+# 412 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	release
 	end
 
 
-# 374 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-MovementBidoof1:
-# 375 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 416 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementBidoof2:
+# 417 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_up
+# 418 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_up
+# 419 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	emote_double_exclamation_mark
-# 376 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 420 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay_16
-# 377 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 421 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay_4
-# 378 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	face_right
-# 379 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 422 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	face_down
+# 423 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay_8
-# 380 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_right
-# 381 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	walk_right
-# 382 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 424 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_down
+# 425 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_down
+# 426 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_down
+# 427 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	set_invisible
-# 383 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 428 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	step_end
+
+ThirdInGameLocation_Underwater_BidoffTrigger1::
+# 432 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	lock
+# 433 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	playse SE_PIN
+# 434 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	setflag FLAG_HIDE_BIDOOF_1
+# 435 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	applymovement 2, MovementBidoof1
+# 436 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	waitmovement 0
+# 437 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	removeobject 2
+# 438 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	release
+	end
+
+
+# 442 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+MovementBidoof1:
+# 443 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	emote_double_exclamation_mark
+# 444 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	delay_16
+# 445 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	delay_4
+# 446 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	face_right
+# 447 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	delay_8
+# 448 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_right
+# 449 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	walk_right
+# 450 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	set_invisible
+# 451 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	step_end
 
 ThirdInGameLocation_Underwater_CreepyHexManiac::
-# 387 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 455 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	lock
-# 388 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 456 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setvar VAR_LAST_TALKED, 1
-# 389 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 457 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setvar VAR_0x8004, RGB_WHITEALPHA
-# 390 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 458 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setvar VAR_0x8005, 7
-# 391 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 459 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	callnative BlendTalkingObj
-# 392 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 460 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement VAR_LAST_TALKED, MovementHexManiac1
-# 393 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 461 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
-# 394 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 462 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setvar VAR_0x8005, 13
-# 395 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 463 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	callnative BlendTalkingObj
-# 396 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 464 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	playmoncry ADDED_SOUND_FEMALE_LAUGH_1, CRY_MODE_NORMAL
-# 397 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 465 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	applymovement VAR_LAST_TALKED, MovementHexManiac2
-# 398 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 466 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	waitmovement 0
-# 399 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 467 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setflag FLAG_HEX_MANIAC_GONE
-# 401 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 469 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	goto_if_set FLAG_BIDOOF_FOLLOWER, ThirdInGameLocation_Underwater_CreepyHexManiac_2
 ThirdInGameLocation_Underwater_CreepyHexManiac_1:
-# 407 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 475 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	release
 	end
 
 ThirdInGameLocation_Underwater_CreepyHexManiac_2:
-# 402 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 470 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay 27
-# 403 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 471 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107
-# 404 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 472 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	msgbox ThirdInGameLocation_Underwater_CreepyHexManiac_Text_0
-# 405 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 473 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_BIDOOF_ASTONISHED
 	goto ThirdInGameLocation_Underwater_CreepyHexManiac_1
 
 
-# 411 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 479 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 MovementHexManiac1:
-# 412 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 480 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	jump_2_down
-# 413 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 481 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay_2
-# 414 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 482 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_in_place_slow_down
-# 415 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 483 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_slow_down
-# 416 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 484 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_in_place_slow_down
-# 417 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 485 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay_1
-# 418 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 486 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	step_end
 
-# 421 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 489 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 MovementHexManiac2:
-# 422 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 490 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_in_place_fast_down
-# 423 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 491 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_in_place_fast_down
-# 424 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 492 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	delay_4
-# 425 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 493 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_faster_down
-# 426 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 494 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_faster_down
-# 427 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 495 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	walk_faster_down
-# 428 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 496 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	set_invisible
-# 429 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 497 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	step_end
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_0:
+# 30 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "Hey, {PLAYER}! There's long grass\n"
+	.string "ahead. Do you know what it means? Well,\l"
+	.string "it means that it's dangerous to go\l"
+	.string "there without a Pokemon!$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_1:
+# 32 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "Golly, don't give me that look! I'm too\n"
+	.string "weak to handle all of these by my own!$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_2:
+# 33 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "But don't you worry, chum. I've got a\n"
+	.string "plan!\p"
+	.string "Listen carefully!\p"
+	.string "I'll give you one of these Poke Balls,\n"
+	.string "you'll use it to capture the wild\l"
+	.string "Pokemon, and then we'll be able to cross\l"
+	.string "the grass! Clever, isn't it?$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_3:
+# 34 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "Uhm? Where did I get the Poke Ball from?$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_4:
+# 35 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "Well, sometimes it's better not to know\n"
+	.string "everything!$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_5:
+# 37 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "So, what do you say? Are you in?$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_6:
+# 38 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "What if it doesn't get caught?$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_7:
+# 39 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "No worries! I've already taken that into\n"
+	.string "account. Remember how we blended\l"
+	.string "berries with Wingull? You actually got a\l"
+	.string "{POKEBLOCK}, which can be fed to Pokemon!\l"
+	.string "That'll make it easier to catch!$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_8:
+# 40 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "Alright, let's go!$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_9:
+# 52 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "Nicely done, {PLAYER}! You've just\n"
+	.string "caught your very first Pokemon! I\l"
+	.string "certainly hope it won't be your last!$"
+
+ThirdInGameLocation_Underwater_WildMonsSoon_Text_10:
+# 54 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+	.string "Alright {PLAYER}, I believe we can go\n"
+	.string "into the long grass without worrying\l"
+	.string "about wild Pokemon. Let's continue\l"
+	.string "ahead.$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_0:
-# 18 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 86 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Y{PAUSE 15}-O{PAUSE 25}-U!$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_1:
-# 19 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 87 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Yes, you two! Do not be timid! Welcome in\n"
 	.string "my domain - the forest!$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_2:
-# 21 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 89 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Forest? We're underwater...$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_3:
-# 23 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 91 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "YES! The trees are my servants, look at\n"
 	.string "their majestic movements. Observe how\l"
 	.string "they gracely dance with the wind!\n"
 	.string "Yes, yes, do you hear them talking?$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_4:
-# 24 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 92 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Listen closely!$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_5:
-# 25 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 93 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "V2UncmUgcm9ja3MsIG5vdCB0cmVlcy\n4gV2UncmUgdW5kZXJ3YXRlciBhbmQg\lbm90IGluc2lkZSBhIGZvcmVzdC4gQW\l5kIHRoaXMgZ3V5IGlzIGEgZnUqKmluZy\lBtb3JvbiwgZG9uJ3QgbGlzdGVuIHRv\lIGhpbSB+IHNpbmNlcmVseSwgd\lGhlIHJvY2tzLg==$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_6:
-# 26 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 94 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Aren't they magnificent?$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_7:
-# 31 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 99 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Psst! {PLAYER}!$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_8:
-# 32 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 100 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "I don't think this person is going to\n"
 	.string "help us much...$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_9:
-# 33 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 101 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Let's leave and go our way.$"
 
 ThirdInGameLocation_Underwater_PsychicGuru_Text_10:
-# 37 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 105 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "I take good care of my servants.$"
 
 ThirdInGameLocation_Underwater_ActivateRockSwitch_Text_0:
-# 71 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 139 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Golly!$"
 
 ThirdInGameLocation_Underwater_ActivateRockSwitch_Text_1:
-# 72 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 140 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "I think you did something...$"
 
 ThirdInGameLocation_Underwater_ActivateRockSwitch_Text_2:
-# 75 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 143 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Let's see what's changed.$"
 
 ThirdInGameLocation_Underwater_ActivateRockSwitch_Text_3:
-# 78 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 146 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "It is already activated.$"
 
 ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_Text_0:
-# 88 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 156 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Hm...$"
 
 ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_Text_1:
-# 95 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 163 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "It seems the way is blocked\nby these rocks.$"
 
 ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger_Text_2:
-# 96 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 164 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "I don't think I'll be able to smash these\n"
 	.string "by myself. Let's try to find some other\l"
 	.string "way to get past them.$"
 
 ThirdInGameLocation_Bidoof3_Text_0:
-# 118 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 186 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Golly...$"
 
 ThirdInGameLocation_Bidoof3_Text_1:
-# 121 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 189 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Hi.$"
 
 ThirdInGameLocation_Bidoof3_Text_2:
-# 124 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 192 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "I mean! You must be pretty surprised to\n"
 	.string "see a Bidoof underwater! After all,\l"
 	.string "ocean's depths are not my natural\l"
 	.string "habitat.$"
 
 ThirdInGameLocation_Bidoof3_Text_3:
-# 127 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 195 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "It's weird, isn't it? Seeing a Bidoof\n"
 	.string "here...A talking Bidoof at that!$"
 
 ThirdInGameLocation_Bidoof3_Text_4:
-# 130 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 198 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Though you don't look that\n"
 	.string "surprised...Or you do? Golly, I can't\l"
 	.string "tell!$"
 
 ThirdInGameLocation_Bidoof3_Text_5:
-# 133 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 201 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Sorry about earlier, running off like\n"
 	.string "that. I was a bit scared when I saw you\l"
 	.string "floating around there! But you seem\l"
 	.string "like a nice chum.$"
 
 ThirdInGameLocation_Bidoof3_Text_6:
-# 134 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 202 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "...$"
 
 ThirdInGameLocation_Bidoof3_Text_7:
-# 135 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 203 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "We need to get out of here. I don't know\n"
 	.string "if you're aware, but there is a rock down\l"
 	.string "there blocking the way.$"
 
 ThirdInGameLocation_Bidoof3_Text_8:
-# 138 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 206 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "You know, it's really weird how it's\n"
 	.string "placed there, just like that. As if it\l"
 	.string "was put on purpose...Though, I have to\l"
@@ -915,104 +1100,104 @@ ThirdInGameLocation_Bidoof3_Text_8:
 	.string "strange...$"
 
 ThirdInGameLocation_Bidoof3_Text_9:
-# 139 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 207 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "It's not natural at all...Well, it doesn't\n"
 	.string "matter that much I guess! We need to\l"
 	.string "get out of here!$"
 
 ThirdInGameLocation_Bidoof3_Text_10:
-# 145 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 213 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "The problem is...I have no idea how! I\n"
 	.string "tried to break the rock myself, but as\l"
 	.string "you can clearly see, it didn't work.$"
 
 ThirdInGameLocation_Bidoof3_Text_11:
-# 148 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 216 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "I'll rest a bit and try to think of a\n"
 	.string "solution. In the meantime feel free to\l"
 	.string "roam about, maybe you'll find something\l"
 	.string "useful!$"
 
 ThirdInGameLocation_Bidoof3_Text_12:
-# 160 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 228 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Hey pal, did you find something?$"
 
 ThirdInGameLocation_Bidoof3_Text_13:
-# 164 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 232 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Hm...Hidden machines...I know how these\n"
 	.string "work!$"
 
 ThirdInGameLocation_Bidoof3_Text_14:
-# 167 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 235 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "And it just so happens that I can learn\n"
 	.string "this move!$"
 
 ThirdInGameLocation_Bidoof3_Text_15:
-# 170 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 238 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Let's get some rocks broken!$"
 
 ThirdInGameLocation_Bidoof3_Text_16:
-# 191 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 259 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Bidoof learned {COLOR RED}Rock Smash{COLOR DARK_GRAY}!$"
 
 ThirdInGameLocation_Bidoof3_Text_17:
-# 192 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 260 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Bidoof used {COLOR RED}Rock Smash{COLOR DARK_GRAY}!$"
 
 ThirdInGameLocation_Bidoof3_Text_18:
-# 202 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 270 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "And it's done! We make quite the team,\n"
 	.string "huh?$"
 
 ThirdInGameLocation_Bidoof3_Text_19:
-# 205 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 273 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "You know, I think it'll be better if we\n"
 	.string "hold together. At least, until we're out\l"
 	.string "of here.$"
 
 ThirdInGameLocation_Bidoof3_Text_20:
-# 208 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 276 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Who knows whatever may loom here...$"
 
 ThirdInGameLocation_Bidoof3_Text_21:
-# 211 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 279 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "I hope you agree with me, {PLAYER}!$"
 
 ThirdInGameLocation_Bidoof3_Text_22:
-# 216 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 284 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Golly, you can't be serious!\n$"
 
 ThirdInGameLocation_Bidoof3_Text_23:
-# 219 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 287 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Let's get out of here together, {PLAYER}!$"
 
 ThirdInGameLocation_Bidoof3_Text_24:
-# 223 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 291 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Golly, please do not joke like that!$"
 
 ThirdInGameLocation_Bidoof3_Text_25:
-# 227 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 295 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Alright! Take the lead, {PLAYER}. I'll\n"
 	.string "be right behind you.$"
 
 ThirdInGameLocation_Bidoof3_Text_26:
-# 246 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 314 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Golly! I'm not convinced...$"
 
 ThirdInGameLocation_Bidoof3_Text_27:
-# 253 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 321 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "No worries!$"
 
 ThirdInGameLocation_Underwater_RockSmash_Text_0:
-# 328 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 396 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "It's a rugged rock blocking the way.\n"
 	.string "Pokemon knowing the move {COLOR RED}Rock Smash{COLOR DARK_GRAY}\l"
 	.string "could smash it.$"
 
 ThirdInGameLocation_Underwater_RockSmash_Text_1:
-# 331 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 399 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "It's a rugged rock blocking the way.\nThere must be a way to smash it somehow...$"
 
 ThirdInGameLocation_Underwater_CreepyHexManiac_Text_0:
-# 404 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
+# 472 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Golly! Did-did you see that???$"

@@ -432,7 +432,8 @@
     "MeteorFalls_StevensCave",
     "SecondInGameLocation_Underwater",
     "ThirdInGameLocation_Underwater",
-    "WingullHouseBetweenCavesInUnderwater"
+    "WingullHouseBetweenCavesInUnderwater",
+    "SecondChallengeRoom"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

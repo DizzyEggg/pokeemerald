@@ -364,6 +364,14 @@ bool8 ScrCmd_copybyte(struct ScriptContext *ctx)
     return FALSE;
 }
 
+void Script_SetByte(struct ScriptContext *ctx)
+{
+    u8 *ptr = (u8 *)ScriptReadWord(ctx);
+    u8 value = ScriptReadByte(ctx);
+
+    *ptr = value;
+}
+
 bool8 ScrCmd_setvar(struct ScriptContext *ctx)
 {
     u16 *ptr = GetVarPointer(ScriptReadHalfword(ctx));

@@ -11491,6 +11491,40 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_THIRD_IN_GAME_LOCATION_UNDERWATER",
+          "base_label": "gThirdInGameLocation_Underwater0",
+          "water_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 21,
+                "max_level": 33,
+                "species": "SPECIES_CLAMPERL"
+              },
+              {
+                "min_level": 22,
+                "max_level": 34,
+                "species": "SPECIES_WISHIWASHI"
+              },
+              {
+                "min_level": 27,
+                "max_level": 30,
+                "species": "SPECIES_RELICANTH"
+              },
+              {
+                "min_level": 21,
+                "max_level": 28,
+                "species": "SPECIES_CHINCHOU"
+              },
+              {
+                "min_level": 31,
+                "max_level": 35,
+                "species": "SPECIES_GOREBYSS"
+              }
+            ]
+          }
         }
       ]
     },

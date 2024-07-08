@@ -1,0 +1,32 @@
+mapscripts SecondChallengeRoom_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_HACK_GAME_STATE, 8: SecondChallengeRoom_FirstBidoofMsg
+	]
+}
+
+script SecondChallengeRoom_FirstBidoofMsg {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, Movement_Up)
+	waitmovement(0)
+	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+	msgbox(format("Looks like we've entered another transition cave. And this time, it is actually a cave. Let's keep our eyes open. Who knows what we'll find here."))
+	setvar(VAR_HACK_GAME_STATE, 9)
+	waitmessage
+	closemessage
+	destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
+	release
+	end
+}
+
+script SecondChallengeRoom_NurseJoy {
+	lock
+	faceplayer
+	msgbox(format("I'll heal your Pokemon."))
+	playfanfare(FANFARE_HEAL)
+	special(HealPlayerParty)
+	applymovement(2, Movement_PkmnCenterNurse_Bow)
+	waitmovement(0)
+	waitfanfare
+	release
+	end
+}

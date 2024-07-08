@@ -268,11 +268,11 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_5:
 # 128 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_LookDown
 # 129 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	waitmovement 0
-# 130 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	addobject 1
-# 131 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 130 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	clearflag FLAG_HIDE_WINGULL
+# 131 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	turnobject 1, DIR_NORTH
 # 132 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	addobject 2
 # 133 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -721,7 +721,7 @@ Movement_Up:
 	step_end
 
 # 361 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-Movement_LookUp:
+Movement_LookUpWingull:
 # 362 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	face_up
 # 363 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"

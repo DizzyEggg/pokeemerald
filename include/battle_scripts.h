@@ -89,6 +89,7 @@ extern const u8 BattleScript_AllStatsUpZMove[];
 extern const u8 BattleScript_AllStatsUp[];
 extern const u8 BattleScript_RapidSpinAway[];
 extern const u8 BattleScript_WrapFree[];
+extern const u8 BattleScript_ActionGetNear_FirstHack[];
 extern const u8 BattleScript_LeechSeedFree[];
 extern const u8 BattleScript_SpikesFree[];
 extern const u8 BattleScript_MonTookFutureAttack[];

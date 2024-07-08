@@ -121,6 +121,20 @@
       "elevation": 0,
       "dest_map": "MAP_WINGULL_HOUSE_BETWEEN_CAVES_IN_UNDERWATER",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 15,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_SECOND_CHALLENGE_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SECOND_CHALLENGE_ROOM",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
@@ -276,6 +290,42 @@
       "var": "FLAG_TRIGGER_3RD_MAP_SEEMS_NO_WAY",
       "var_value": "0",
       "script": "ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 51,
+      "elevation": 0,
+      "var": "VAR_HACK_GAME_STATE",
+      "var_value": "6",
+      "script": "ThirdInGameLocation_Underwater_WildMonsSoon_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 50,
+      "elevation": 0,
+      "var": "VAR_HACK_GAME_STATE",
+      "var_value": "6",
+      "script": "ThirdInGameLocation_Underwater_WildMonsSoon_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 50,
+      "elevation": 0,
+      "var": "VAR_HACK_GAME_STATE",
+      "var_value": "6",
+      "script": "ThirdInGameLocation_Underwater_WildMonsSoon_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 22,
+      "elevation": 0,
+      "var": "FLAG_HEX_MANIAC_GONE",
+      "var_value": "0",
+      "script": "ThirdInGameLocation_Underwater_CreepyHexManiac"
     }
   ],
   "bg_events": [

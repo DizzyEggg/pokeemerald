@@ -2041,7 +2041,7 @@ static void Task_HandleWingullOpponent(u8 taskId)
             }
             else
             {
-                if (rand > 56)
+                if (rand > 46)
                     gRecvCmds[2][BLENDER_COMM_SCORE] = LINKCMD_BLENDER_SCORE_BEST;
                 else if (rand > 8)
                     gRecvCmds[2][BLENDER_COMM_SCORE] = LINKCMD_BLENDER_SCORE_GOOD;
@@ -2639,10 +2639,10 @@ static bool32 PrintTextWhenLostToWingull(s32 textSpeed)
     {
     // Begin printing Wingull Msg and show field pic
     case 0:
-        if (sPlayerLostCount >= ARRAY_COUNT(sWingullLostTexts))
+        if ((sPlayerLostCount - 1) >= ARRAY_COUNT(sWingullLostTexts))
             str = sWingullLostDefaultText;
         else
-            str = sWingullLostTexts[sPlayerLostCount];
+            str = sWingullLostTexts[(sPlayerLostCount - 1)];
         PrintMessage(&sBerryBlender->textState, str, textSpeed);
         sBerryBlender->mugshotSpriteIds[0] = LoadFieldPicVars(FIELD_PIC_WINGULL, 97, 107);
         sBerryBlender->wingullMsgState++;
@@ -2790,7 +2790,7 @@ static void CB2_EndBlenderGame(void)
     case 7:
         if (IsWingullBlenderDuel())
         {
-            if (WingullDuelLost() && 0)
+            if (WingullDuelLost())
             {
                 if (PrintTextWhenLostToWingull(GetPlayerTextSpeedDelay()))
                     sBerryBlender->gameEndState = 11; // Skip Yes/No

@@ -9809,6 +9809,16 @@ void UnfreezeObjectEvent(struct ObjectEvent *objectEvent)
     }
 }
 
+void Script_UnfreezeObjectEvent(struct ScriptContext *ctx)
+{
+    u32 id = ScriptReadByte(ctx);
+    u32 objEventId = GetObjectEventIdByLocalId(id);
+    struct ObjectEvent *objEvent = &gObjectEvents[objEventId];
+
+    ObjectEventClearHeldMovementIfFinished(objEvent);
+    UnfreezeObjectEvent(objEvent);
+}
+
 void UnfreezeObjectEvents(void)
 {
     u8 i;

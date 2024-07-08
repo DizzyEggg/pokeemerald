@@ -4440,6 +4440,16 @@
       "secondary_tileset": "gTileset_Contest",
       "border_filepath": "data/layouts/WingullHouseBetweenCavesInUnderwater/border.bin",
       "blockdata_filepath": "data/layouts/WingullHouseBetweenCavesInUnderwater/map.bin"
+    },
+    {
+      "id": "LAYOUT_SECOND_CHALLENGE_ROOM",
+      "name": "SecondChallengeRoom_Layout",
+      "width": 12,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/SecondChallengeRoom/border.bin",
+      "blockdata_filepath": "data/layouts/SecondChallengeRoom/map.bin"
     }
   ]
 }

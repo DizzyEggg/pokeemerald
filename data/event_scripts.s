@@ -1083,3 +1083,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/ThirdInGameLocation_Underwater/scripts.inc"
 
 	.include "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.inc"
+
+	.include "data/maps/SecondChallengeRoom/scripts.inc"

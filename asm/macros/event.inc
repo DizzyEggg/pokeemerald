@@ -126,6 +126,12 @@
 	.byte \srcIndex
 	.4byte \destination
 	.endm
+	
+	.macro setbyte destination:req, value:req
+	callnative Script_SetByte
+	.4byte \destination
+	.byte \value
+	.endm
 
 	@ Copies the contents of the script data from one index to another.
 	.macro copylocal destIndex:req, srcIndex:req
@@ -2346,4 +2352,9 @@
 	show_field_pic \picId
 	msgbox \text, \type
 	hide_field_pic \picId
+	.endm
+	
+	.macro unfreezeobject localId:req
+	callnative Script_UnfreezeObjectEvent
+	.byte \localId
 	.endm

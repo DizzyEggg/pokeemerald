@@ -126,9 +126,9 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			hide_field_pic(VAR_0x8009)
 			msgbox("T{PAUSE 10}u{PAUSE 20}r{PAUSE 30}n a{PAUSE 25}r{PAUSE 28}o{PAUSE 22}u{PAUSE 22}n{PAUSE 22}d.")
 			applymovement(OBJ_EVENT_ID_PLAYER, Movement_LookDown)
-			waitmovement(0)
 			addobject(1) // Wingull
 			clearflag(FLAG_HIDE_WINGULL)
+			turnobject(1, DIR_NORTH)
 			addobject(2) // Bidoof
 			setobjectxy(1, 7, 5)
 			fadeinbgm(3)
@@ -358,7 +358,7 @@ movement Movement_Up {
 	step_end
 }
 
-movement Movement_LookUp {
+movement Movement_LookUpWingull {
 	face_up
 	step_end
 }

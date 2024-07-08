@@ -854,6 +854,8 @@ static const u8 sText_WingullFakeFight[] = _("Wait, wait!\nI didn't mean that ki
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_BIDOOF_THROW_BALL - BATTLESTRINGS_TABLE_START] = COMPOUND_STRING("Bidoof: No, {B_PLAYER_NAME}!\nThrow {POKEBLOCK} instead!\p"),
+    [STRINGID_BIDOOF_USE_PKBL - BATTLESTRINGS_TABLE_START] = COMPOUND_STRING("Bidoof: No, {B_PLAYER_NAME}!\nUse Poke Ball now!\p"),
     [STRINGID_PKMNTERASTALLIZEDINTO - BATTLESTRINGS_TABLE_START] = sText_PkmnTerastallizedInto,
     [STRINGID_TIDYINGUPCOMPLETE - BATTLESTRINGS_TABLE_START] = sText_TidyingUpComplete,
     [STRINGID_SUPERSWEETAROMAWAFTS - BATTLESTRINGS_TABLE_START] = sText_SupersweetAromaWafts,
@@ -1979,7 +1981,9 @@ const u16 gInobedientStringIds[] =
 const u16 gSafariGetNearStringIds[] =
 {
     [B_MSG_CREPT_CLOSER]    = STRINGID_CREPTCLOSER,
-    [B_MSG_CANT_GET_CLOSER] = STRINGID_CANTGETCLOSER
+    [B_MSG_CANT_GET_CLOSER] = STRINGID_CANTGETCLOSER,
+    [B_MSG_NO_NEAR_USE_PKBL] = STRINGID_BIDOOF_USE_PKBL,
+    [B_MSG_NO_NEAR_THROW_BALL] = STRINGID_BIDOOF_THROW_BALL,
 };
 
 const u16 gSafariPokeblockResultStringIds[] =

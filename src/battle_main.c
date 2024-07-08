@@ -3694,7 +3694,7 @@ static void DoBattleIntro(void)
         }
         break;
     case 18: // player 1 send out
-        if (gPlayerPartyCount != 0)
+        if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI) && gPlayerPartyCount != 0)
         {
             if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK && !(gBattleTypeFlags & BATTLE_TYPE_RECORDED_IS_MASTER))
                 battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
@@ -3759,7 +3759,7 @@ static void DoBattleIntro(void)
                 gBattleStruct->startingStatusTimer = VarGet(B_VAR_STARTING_STATUS_TIMER);
             }
 
-            if (gPlayerPartyCount == 0)
+            if (gPlayerPartyCount == 0 && !(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
             {
                 gBattleOutcome = B_OUTCOME_MON_FLED;
                 gBattlerAttacker = B_POSITION_OPPONENT_LEFT;
@@ -4146,6 +4146,12 @@ enum
     STATE_SELECTION_SCRIPT_MAY_RUN
 };
 
+// Player has to throw a pokeblock and then throw a ball
+bool32 IsFirstHackEncounter(void)
+{
+    return (VarGet(VAR_HACK_GAME_STATE) == 7);
+}
+
 static void HandleTurnActionSelectionState(void)
 {
     s32 i, battler;
@@ -4325,10 +4331,28 @@ static void HandleTurnActionSelectionState(void)
                         *(gBattleStruct->stateIdAfterSelScript + battler) = STATE_BEFORE_ACTION_CHOSEN;
                         return;
                     }
+                    else if (IsFirstHackEncounter() && gBattleStruct->safariPkblThrowCounter == 0)
+                        goto BIDOOF_TEXT_THROW_PKBL;
                     break;
                 case B_ACTION_SAFARI_POKEBLOCK:
                     BtlController_EmitChooseItem(battler, BUFFER_A, gBattleStruct->battlerPartyOrders[battler]);
                     MarkBattlerForControllerExec(battler);
+                    break;
+                case B_ACTION_SAFARI_RUN:
+                case B_ACTION_SAFARI_GO_NEAR:
+                    if (IsFirstHackEncounter())
+                    {
+                        BIDOOF_TEXT_THROW_PKBL:
+                        if (gBattleStruct->safariPkblThrowCounter)
+                            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_NO_NEAR_USE_PKBL;
+                        else
+                            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_NO_NEAR_THROW_BALL;
+                        gSelectionBattleScripts[battler] = BattleScript_ActionGetNear_FirstHack;
+                        gBattleCommunication[battler] = STATE_SELECTION_SCRIPT;
+                        *(gBattleStruct->selectionScriptFinished + battler) = FALSE;
+                        *(gBattleStruct->stateIdAfterSelScript + battler) = STATE_BEFORE_ACTION_CHOSEN;
+                        return;
+                    }
                     break;
                 case B_ACTION_CANCEL_PARTNER:
                     gBattleCommunication[battler] = STATE_WAIT_SET_BEFORE_ACTION;
