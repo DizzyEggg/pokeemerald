@@ -11525,6 +11525,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_WILD_POKEMON_CAVE_ROOM",
+          "base_label": "gWildPokemonCaveRoom0",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 21,
+                "max_level": 34,
+                "species": "SPECIES_ARON"
+              },
+              {
+                "min_level": 23,
+                "max_level": 31,
+                "species": "SPECIES_MINIOR"
+              },
+              {
+                "min_level": 23,
+                "max_level": 34,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 45,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 31,
+                "max_level": 36,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 35,
+                "max_level": 39,
+                "species": "SPECIES_WOOBAT"
+              },
+              {
+                "min_level": 25,
+                "max_level": 41,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 22,
+                "max_level": 37,
+                "species": "SPECIES_CARBINK"
+              },
+              {
+                "min_level": 21,
+                "max_level": 34,
+                "species": "SPECIES_NACLI"
+              },
+              {
+                "min_level": 23,
+                "max_level": 39,
+                "species": "SPECIES_KLAWF"
+              },
+              {
+                "min_level": 21,
+                "max_level": 40,
+                "species": "SPECIES_ROLYCOLY"
+              },
+              {
+                "min_level": 39,
+                "max_level": 67,
+                "species": "SPECIES_SANDSHREW"
+              }
+            ]
+          }
         }
       ]
     },

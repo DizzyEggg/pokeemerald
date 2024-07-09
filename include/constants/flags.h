@@ -79,8 +79,8 @@
 #define FLAG_UNUSED_0x042    0x42 // Unused Flag
 #define FLAG_UNUSED_0x043    0x43 // Unused Flag
 #define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
+#define FLAG_HIKER_FIRST_ENCOUNTER_DONE    0x45
+#define FLAG_HIKER_CHALLENGE_DONE    0x46
 #define FLAG_HIDE_WINGULL    0x47
 #define FLAG_WINGULL_BLENDER_BEATEN    0x48
 #define FLAG_PSYHIC_GURU_TALKED_WITH    0x49

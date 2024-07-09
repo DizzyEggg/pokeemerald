@@ -4450,6 +4450,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SecondChallengeRoom/border.bin",
       "blockdata_filepath": "data/layouts/SecondChallengeRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_WILD_POKEMON_CAVE_ROOM",
+      "name": "WildPokemonCaveRoom_Layout",
+      "width": 8,
+      "height": 14,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/WildPokemonCaveRoom/border.bin",
+      "blockdata_filepath": "data/layouts/WildPokemonCaveRoom/map.bin"
     }
   ]
 }

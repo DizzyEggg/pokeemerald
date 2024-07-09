@@ -433,7 +433,8 @@
     "SecondInGameLocation_Underwater",
     "ThirdInGameLocation_Underwater",
     "WingullHouseBetweenCavesInUnderwater",
-    "SecondChallengeRoom"
+    "SecondChallengeRoom",
+    "WildPokemonCaveRoom"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

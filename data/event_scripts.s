@@ -1085,3 +1085,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.inc"
 
 	.include "data/maps/SecondChallengeRoom/scripts.inc"
+
+	.include "data/maps/WildPokemonCaveRoom/scripts.inc"

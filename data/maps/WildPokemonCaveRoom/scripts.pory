@@ -1,0 +1,8 @@
+mapscripts WildPokemonCaveRoom_MapScripts {
+	
+}
+
+script WildPokemonCaveRoom_Sign {
+	msgbox(format("Wild Pokemon can be found here."), MSGBOX_SIGN)
+	end
+}

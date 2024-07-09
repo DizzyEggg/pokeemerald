@@ -227,9 +227,6 @@ const union AnimCmd *const sAnims_Trainer[] ={
 
 #include "data/trainer_parties.h"
 
-const struct Trainer gTrainers[] =
-{
 #include "data/trainers.h"
-};
 
 #include "data/text/follower_messages.h"
