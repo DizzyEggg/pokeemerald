@@ -5396,7 +5396,8 @@ static void HandleEndTurn_BattleLost(void)
     }
     else
     {
-        gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
+        if (gTrainerBattleOpponent_A != TRAINER_HIKER_CHALLENGE)
+            gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
     }
 
     gBattleMainFunc = HandleEndTurn_FinishBattle;

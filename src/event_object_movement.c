@@ -2067,7 +2067,7 @@ static bool8 GetFollowerInfo(u16 *species, u8 *form, u8 *shiny)
     return GetMonInfo(GetFirstLiveMon(), species, form, shiny);
 }
 
-static bool32 IsBidoofFollower(void)
+bool32 IsBidoofFollower(void)
 {
     return FlagGet(FLAG_BIDOOF_FOLLOWER);
 }

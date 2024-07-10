@@ -372,6 +372,14 @@ void Script_SetByte(struct ScriptContext *ctx)
     *ptr = value;
 }
 
+void Script_ByteToVar(struct ScriptContext *ctx)
+{
+    u8 *bytePtr = (u8 *)ScriptReadWord(ctx);
+    u16 *varPtr = GetVarPointer(ScriptReadHalfword(ctx));
+
+    *varPtr = *bytePtr;
+}
+
 bool8 ScrCmd_setvar(struct ScriptContext *ctx)
 {
     u16 *ptr = GetVarPointer(ScriptReadHalfword(ctx));
@@ -907,6 +915,24 @@ bool8 ScrCmd_getplayerxy(struct ScriptContext *ctx)
     *pX = gSaveBlock1Ptr->pos.x;
     *pY = gSaveBlock1Ptr->pos.y;
     return FALSE;
+}
+
+void ScrCmd_getfollowerxy(struct ScriptContext *ctx)
+{
+    u16 *pX = GetVarPointer(ScriptReadHalfword(ctx));
+    u16 *pY = GetVarPointer(ScriptReadHalfword(ctx));
+    struct ObjectEvent *obj = GetFollowerObject();
+
+    if (obj == NULL)
+    {
+        *pX = -1;
+        *pY = -1;
+    }
+    else
+    {
+        *pX = obj->currentCoords.x - MAP_OFFSET;
+        *pY = obj->currentCoords.y - MAP_OFFSET;
+    }
 }
 
 bool8 ScrCmd_getpartysize(struct ScriptContext *ctx)

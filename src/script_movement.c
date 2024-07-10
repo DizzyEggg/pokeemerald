@@ -1,5 +1,6 @@
 #include "global.h"
 #include "script_movement.h"
+#include "field_player_avatar.h"
 #include "event_object_movement.h"
 #include "task.h"
 #include "util.h"
@@ -221,6 +222,9 @@ static void ScriptMovement_TakeStep(u8 taskId, u8 moveScrId, u8 objEventId, cons
     }
     else
     {
+        if (IsBidoofFollower() && gObjectEvents[objEventId].isPlayer)
+            PlayerSetCopyableMovement(COPY_MOVE_WALK);
+
         if (!ObjectEventSetHeldMovement(&gObjectEvents[objEventId], nextMoveActionId))
         {
             movementScript++;

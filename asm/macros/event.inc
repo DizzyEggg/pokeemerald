@@ -132,6 +132,12 @@
 	.4byte \destination
 	.byte \value
 	.endm
+	
+	.macro getbyte src:req, varId:req
+	callnative Script_ByteToVar
+	.4byte \src
+	.2byte \varId
+	.endm
 
 	@ Copies the contents of the script data from one index to another.
 	.macro copylocal destIndex:req, srcIndex:req
@@ -507,6 +513,12 @@
 	@ Retrieves the player's zero-indexed x- and y-coordinates in the map, and stores them in the specified variables.
 	.macro getplayerxy x:req, y:req
 	.byte 0x42
+	.2byte \x
+	.2byte \y
+	.endm
+	
+	.macro getfollowerxy x:req, y:req
+	callnative ScrCmd_getfollowerxy
 	.2byte \x
 	.2byte \y
 	.endm
