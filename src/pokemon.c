@@ -10,6 +10,7 @@
 #include "battle_setup.h"
 #include "battle_tower.h"
 #include "battle_z_move.h"
+#include "daycare.h"
 #include "data.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -5565,41 +5566,76 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
     }
 }
 
-u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
+static u32 TryAddMoveToArray(u16 *moves, u16 *learnedMoves, u32 numMoves, u16 newMove)
+{
+    int j, k;
+
+    for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != newMove; j++)
+        ;
+
+    if (j == MAX_MON_MOVES)
+    {
+        for (k = 0; k < numMoves && moves[k] != newMove; k++)
+            ;
+
+        if (k == numMoves)
+            moves[numMoves++] = newMove;
+    }
+    return numMoves;
+}
+
+static u32 GetMovesBeforeLvl(u16 *moves, u16 *learnedMoves, const struct LevelUpMove *learnset, u32 level, u32 numMoves)
+{
+    int i;
+
+    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    {
+        if (learnset[i].move == LEVEL_UP_MOVE_END)
+            break;
+
+        if (learnset[i].level <= level)
+            numMoves = TryAddMoveToArray(moves, learnedMoves, numMoves, learnset[i].move);
+    }
+    return numMoves;
+}
+
+static u32 AddEggMovesToArray(u32 species, u16 *moves, u16 *learnedMoves, u32 numMoves)
+{
+    int i;
+    u32 numEggMoves;
+    u16 eggMovesArray[40];
+
+    numEggMoves = GetEggMovesBySpecies(species, eggMovesArray);
+    for (i = 0; i < numEggMoves; i++)
+        numMoves = TryAddMoveToArray(moves, learnedMoves, numMoves, eggMovesArray[i]);
+
+    return numMoves;
+}
+
+u32 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
 {
     u16 learnedMoves[4];
-    u8 numMoves = 0;
-    u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
-    u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+    u32 numMoves = 0;
+    u32 species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    u32 level = GetMonData(mon, MON_DATA_LEVEL, 0);
     const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
-    int i, j, k;
+    int i;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
 
-    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    if (gSaveBlock1Ptr->hackGameBeaten)
     {
-        u16 moveLevel;
-
-        if (learnset[i].move == LEVEL_UP_MOVE_END)
-            break;
-
-        moveLevel = learnset[i].level;
-
-        if (moveLevel <= level)
-        {
-            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != learnset[i].move; j++)
-                ;
-
-            if (j == MAX_MON_MOVES)
-            {
-                for (k = 0; k < numMoves && moves[k] != learnset[i].move; k++)
-                    ;
-
-                if (k == numMoves)
-                    moves[numMoves++] = learnset[i].move;
-            }
-        }
+        numMoves = GetMovesBeforeLvl(moves, learnedMoves, learnset, level, numMoves);
+    }
+    // Add Egg Moves and level-up moves before evo for hack game
+    else
+    {
+        u32 eggSpecies = GetEggSpecies(species);
+        numMoves = GetMovesBeforeLvl(moves, learnedMoves, learnset, level, numMoves);
+        numMoves = GetMovesBeforeLvl(moves, learnedMoves, GetSpeciesLevelUpLearnset(eggSpecies), level, numMoves);
+        numMoves = AddEggMovesToArray(species, moves, learnedMoves, numMoves);
+        numMoves = AddEggMovesToArray(eggSpecies, moves, learnedMoves, numMoves);
     }
 
     return numMoves;
@@ -6926,7 +6962,7 @@ void UpdateDaysPassedSinceFormChange(u16 days)
         if (daysSinceFormChange == 0)
         {
             u16 targetSpecies = GetFormChangeTargetSpecies(mon, FORM_CHANGE_DAYS_PASSED, 0);
-            
+
             if (targetSpecies != SPECIES_NONE)
             {
                 SetMonData(mon, MON_DATA_SPECIES, &targetSpecies);

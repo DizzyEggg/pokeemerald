@@ -25,65 +25,67 @@ SecondChallengeRoom_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 SecondChallengeRoom_Hiker::
 # 15 "data/maps/SecondChallengeRoom/scripts.pory"
-	faceplayer
+	lock
 # 16 "data/maps/SecondChallengeRoom/scripts.pory"
+	faceplayer
+# 17 "data/maps/SecondChallengeRoom/scripts.pory"
 	goto_if_unset FLAG_HIKER_CHALLENGE_DONE, SecondChallengeRoom_Hiker_2
-# 38 "data/maps/SecondChallengeRoom/scripts.pory"
+# 39 "data/maps/SecondChallengeRoom/scripts.pory"
 	msgbox SecondChallengeRoom_Hiker_Text_7
 SecondChallengeRoom_Hiker_1:
-# 40 "data/maps/SecondChallengeRoom/scripts.pory"
+# 41 "data/maps/SecondChallengeRoom/scripts.pory"
 	release
 	end
 
 SecondChallengeRoom_Hiker_2:
-# 17 "data/maps/SecondChallengeRoom/scripts.pory"
+# 18 "data/maps/SecondChallengeRoom/scripts.pory"
 	goto_if_unset FLAG_HIKER_FIRST_ENCOUNTER_DONE, SecondChallengeRoom_Hiker_5
-# 30 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox SecondChallengeRoom_Hiker_Text_5
 # 31 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox SecondChallengeRoom_Hiker_Text_6, MSGBOX_YESNO
+	msgbox SecondChallengeRoom_Hiker_Text_5
 # 32 "data/maps/SecondChallengeRoom/scripts.pory"
+	msgbox SecondChallengeRoom_Hiker_Text_6, MSGBOX_YESNO
+# 33 "data/maps/SecondChallengeRoom/scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq SecondChallengeRoom_Hiker_8
 	goto SecondChallengeRoom_Hiker_1
 
 SecondChallengeRoom_Hiker_5:
-# 18 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox SecondChallengeRoom_Hiker_Text_0
 # 19 "data/maps/SecondChallengeRoom/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
+	msgbox SecondChallengeRoom_Hiker_Text_0
 # 20 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox_pic SecondChallengeRoom_Hiker_Text_1, VAR_0x8008
+	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
 # 21 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox SecondChallengeRoom_Hiker_Text_2
+	msgbox_pic SecondChallengeRoom_Hiker_Text_1, VAR_0x8008
 # 22 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox_pic SecondChallengeRoom_Hiker_Text_3, VAR_0x8008
+	msgbox SecondChallengeRoom_Hiker_Text_2
 # 23 "data/maps/SecondChallengeRoom/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_SMIRKY, 33, 107, VAR_0x800A
+	msgbox_pic SecondChallengeRoom_Hiker_Text_3, VAR_0x8008
 # 24 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox_pic SecondChallengeRoom_Hiker_Text_4, VAR_0x800A
+	load_field_pic FIELD_PIC_BIDOOF_SMIRKY, 33, 107, VAR_0x800A
 # 25 "data/maps/SecondChallengeRoom/scripts.pory"
-	setflag FLAG_HIKER_FIRST_ENCOUNTER_DONE
+	msgbox_pic SecondChallengeRoom_Hiker_Text_4, VAR_0x800A
 # 26 "data/maps/SecondChallengeRoom/scripts.pory"
-	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008
+	setflag FLAG_HIKER_FIRST_ENCOUNTER_DONE
 # 27 "data/maps/SecondChallengeRoom/scripts.pory"
-	destroy_field_pic FIELD_PIC_BIDOOF_SMIRKY, VAR_0x800A
+	destroy_field_pic FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008
 # 28 "data/maps/SecondChallengeRoom/scripts.pory"
+	destroy_field_pic FIELD_PIC_BIDOOF_SMIRKY, VAR_0x800A
+# 29 "data/maps/SecondChallengeRoom/scripts.pory"
 	goto SecondChallengeRoom_HikerBattle
 	goto SecondChallengeRoom_Hiker_1
 
 SecondChallengeRoom_Hiker_8:
-# 33 "data/maps/SecondChallengeRoom/scripts.pory"
+# 34 "data/maps/SecondChallengeRoom/scripts.pory"
 	goto SecondChallengeRoom_HikerBattle
 	goto SecondChallengeRoom_Hiker_1
 
 
 SecondChallengeRoom_HikerBattle::
-# 45 "data/maps/SecondChallengeRoom/scripts.pory"
-	trainerbattle_no_intro TRAINER_HIKER_CHALLENGE, 0
 # 46 "data/maps/SecondChallengeRoom/scripts.pory"
-	getbyte gBattleOutcome, VAR_RESULT
+	trainerbattle_no_intro TRAINER_HIKER_CHALLENGE, 0
 # 47 "data/maps/SecondChallengeRoom/scripts.pory"
+	getbyte gBattleOutcome, VAR_RESULT
+# 48 "data/maps/SecondChallengeRoom/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_LOST
 	goto_if_eq SecondChallengeRoom_HikerBattle_2
 # 71 "data/maps/SecondChallengeRoom/scripts.pory"
@@ -96,21 +98,21 @@ SecondChallengeRoom_HikerBattle_1:
 	end
 
 SecondChallengeRoom_HikerBattle_2:
-# 48 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox SecondChallengeRoom_HikerBattle_Text_0
 # 49 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox SecondChallengeRoom_HikerBattle_Text_1
+	msgbox SecondChallengeRoom_HikerBattle_Text_0
 # 50 "data/maps/SecondChallengeRoom/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
+	msgbox SecondChallengeRoom_HikerBattle_Text_1
 # 51 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox_pic SecondChallengeRoom_HikerBattle_Text_2, VAR_0x8008
+	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
 # 52 "data/maps/SecondChallengeRoom/scripts.pory"
-	msgbox_pic SecondChallengeRoom_HikerBattle_Text_3, VAR_0x8008
+	msgbox_pic SecondChallengeRoom_HikerBattle_Text_2, VAR_0x8008
 # 53 "data/maps/SecondChallengeRoom/scripts.pory"
-	waitmessage
+	msgbox_pic SecondChallengeRoom_HikerBattle_Text_3, VAR_0x8008
 # 54 "data/maps/SecondChallengeRoom/scripts.pory"
-	closemessage
+	waitmessage
 # 55 "data/maps/SecondChallengeRoom/scripts.pory"
+	closemessage
+# 56 "data/maps/SecondChallengeRoom/scripts.pory"
 	special HealPlayerParty
 # 57 "data/maps/SecondChallengeRoom/scripts.pory"
 	getplayerxy VAR_0x8004, VAR_0x8005
@@ -361,118 +363,128 @@ SecondChallengeRoom_MoveRelearner::
 # 148 "data/maps/SecondChallengeRoom/scripts.pory"
 	waitmessage
 # 149 "data/maps/SecondChallengeRoom/scripts.pory"
-SecondChallengeRoom_MoveRelearner_ChooseMon:
+	closemessage
 # 150 "data/maps/SecondChallengeRoom/scripts.pory"
-	special ChooseMonForMoveRelearner
+SecondChallengeRoom_MoveRelearner_ChooseMon:
 # 151 "data/maps/SecondChallengeRoom/scripts.pory"
-	waitstate
+	special ChooseMonForMoveRelearner
 # 152 "data/maps/SecondChallengeRoom/scripts.pory"
+	waitstate
+# 153 "data/maps/SecondChallengeRoom/scripts.pory"
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_ne SecondChallengeRoom_MoveRelearner_2
 SecondChallengeRoom_MoveRelearner_1:
-# 166 "data/maps/SecondChallengeRoom/scripts.pory"
+# 167 "data/maps/SecondChallengeRoom/scripts.pory"
 	release
 	end
 
 SecondChallengeRoom_MoveRelearner_2:
-# 153 "data/maps/SecondChallengeRoom/scripts.pory"
-	special IsSelectedMonEgg
 # 154 "data/maps/SecondChallengeRoom/scripts.pory"
+	special IsSelectedMonEgg
+# 155 "data/maps/SecondChallengeRoom/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq SecondChallengeRoom_MoveRelearner_4
 	goto SecondChallengeRoom_MoveRelearner_1
 
 SecondChallengeRoom_MoveRelearner_4:
-# 155 "data/maps/SecondChallengeRoom/scripts.pory"
+# 156 "data/maps/SecondChallengeRoom/scripts.pory"
 	compare VAR_0x8005, 0
 	goto_if_eq SecondChallengeRoom_MoveRelearner_6
-# 158 "data/maps/SecondChallengeRoom/scripts.pory"
-	special TeachMoveRelearnerMove
 # 159 "data/maps/SecondChallengeRoom/scripts.pory"
-	waitstate
+	special TeachMoveRelearnerMove
 # 160 "data/maps/SecondChallengeRoom/scripts.pory"
+	waitstate
+# 161 "data/maps/SecondChallengeRoom/scripts.pory"
 	compare VAR_0x8004, 0
 	goto_if_eq SecondChallengeRoom_MoveRelearner_9
 	goto SecondChallengeRoom_MoveRelearner_1
 
 SecondChallengeRoom_MoveRelearner_6:
-# 156 "data/maps/SecondChallengeRoom/scripts.pory"
+# 157 "data/maps/SecondChallengeRoom/scripts.pory"
 	message SecondChallengeRoom_MoveRelearner_Text_1
 	goto SecondChallengeRoom_MoveRelearner_1
 
 SecondChallengeRoom_MoveRelearner_9:
-# 161 "data/maps/SecondChallengeRoom/scripts.pory"
+# 162 "data/maps/SecondChallengeRoom/scripts.pory"
 	goto SecondChallengeRoom_MoveRelearner_ChooseMon
 	goto SecondChallengeRoom_MoveRelearner_1
 
 
 	.align 2
-# 170 "data/maps/SecondChallengeRoom/scripts.pory"
-SecondChallengeRoom_Mart:
 # 171 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_POKE_BALL
+SecondChallengeRoom_Mart:
 # 172 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LUCKY_EGG
 # 173 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_EXP_SHARE
 # 174 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_POKE_BALL
 # 175 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_GREAT_BALL
 # 176 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_ULTRA_BALL
 # 177 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_LOVE_BALL
 # 178 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_ABILITY_CAPSULE
+	.2byte ITEM_DIVE_BALL
 # 179 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_ABILITY_PATCH
+	.2byte ITEM_DUSK_BALL
 # 180 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_FRIEND_BALL
 # 181 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_ABILITY_CAPSULE
 # 182 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ABILITY_PATCH
 # 183 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_POTION
+	.2byte ITEM_FULL_RESTORE
 # 184 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_PARLYZ_HEAL
+	.2byte ITEM_HYPER_POTION
 # 185 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_SUPER_POTION
 # 186 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_HEAL_POWDER
+	.2byte ITEM_POTION
 # 187 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_ETHER
+	.2byte ITEM_PARLYZ_HEAL
 # 188 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_ELIXIR
+	.2byte ITEM_ANTIDOTE
 # 189 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_BERRY_JUICE
+	.2byte ITEM_HEAL_POWDER
 # 190 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_HP_UP
+	.2byte ITEM_ETHER
 # 191 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_ELIXIR
 # 192 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_X_DEFEND
+	.2byte ITEM_BERRY_JUICE
 # 193 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_X_SP_DEF
+	.2byte ITEM_HP_UP
 # 194 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_CHOICE_BAND
+	.2byte ITEM_MAX_REPEL
 # 195 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_CHOICE_SPECS
+	.2byte ITEM_X_DEFEND
 # 196 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_CHOICE_SCARF
+	.2byte ITEM_X_SP_DEF
 # 197 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_FLAME_ORB
+	.2byte ITEM_CHOICE_BAND
 # 198 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_TOXIC_ORB
+	.2byte ITEM_CHOICE_SPECS
 # 199 "data/maps/SecondChallengeRoom/scripts.pory"
-	.2byte ITEM_FOCUS_SASH
+	.2byte ITEM_CHOICE_SCARF
 # 200 "data/maps/SecondChallengeRoom/scripts.pory"
+	.2byte ITEM_FLAME_ORB
+# 201 "data/maps/SecondChallengeRoom/scripts.pory"
+	.2byte ITEM_TOXIC_ORB
+# 202 "data/maps/SecondChallengeRoom/scripts.pory"
+	.2byte ITEM_FOCUS_SASH
+# 203 "data/maps/SecondChallengeRoom/scripts.pory"
+	.2byte ITEM_CHARTI_BERRY
+# 204 "data/maps/SecondChallengeRoom/scripts.pory"
+	.2byte ITEM_SHUCA_BERRY
+# 205 "data/maps/SecondChallengeRoom/scripts.pory"
 	.2byte ITEM_ZOOM_LENS
 	.2byte ITEM_NONE
 
 SecondChallengeRoom_Hiker_Text_0:
-# 18 "data/maps/SecondChallengeRoom/scripts.pory"
+# 19 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "Yo. Listen, I'll make it short for all of\n"
 	.string "us. As you may have already guessed, I\l"
 	.string "am the second leader here. And I can't\l"
@@ -480,56 +492,56 @@ SecondChallengeRoom_Hiker_Text_0:
 	.string "I've made myself clear.$"
 
 SecondChallengeRoom_Hiker_Text_1:
-# 20 "data/maps/SecondChallengeRoom/scripts.pory"
+# 21 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "Be careful {PLAYER}. We don't know\n"
 	.string "what we'll need to do in order to get\l"
 	.string "past him.$"
 
 SecondChallengeRoom_Hiker_Text_2:
-# 21 "data/maps/SecondChallengeRoom/scripts.pory"
+# 22 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "You just need to beat me in a battle,\n"
 	.string "pal. Simple as that.$"
 
 SecondChallengeRoom_Hiker_Text_3:
-# 22 "data/maps/SecondChallengeRoom/scripts.pory"
-	.string "Looks like it'll be simpler this time\n"
-	.string "around.$"
+# 23 "data/maps/SecondChallengeRoom/scripts.pory"
+	.string "Oh, it looks like it'll be simpler this\n"
+	.string "time around then.$"
 
 SecondChallengeRoom_Hiker_Text_4:
-# 24 "data/maps/SecondChallengeRoom/scripts.pory"
+# 25 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "Let's beat this guy, {PLAYER}!$"
 
 SecondChallengeRoom_Hiker_Text_5:
-# 30 "data/maps/SecondChallengeRoom/scripts.pory"
+# 31 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "It's you again.$"
 
 SecondChallengeRoom_Hiker_Text_6:
-# 31 "data/maps/SecondChallengeRoom/scripts.pory"
+# 32 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "You wanna try one more time?$"
 
 SecondChallengeRoom_Hiker_Text_7:
-# 38 "data/maps/SecondChallengeRoom/scripts.pory"
+# 39 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "Good luck on your journey, you'll need\n"
 	.string "it.$"
 
 SecondChallengeRoom_HikerBattle_Text_0:
-# 48 "data/maps/SecondChallengeRoom/scripts.pory"
+# 49 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "You lost, punk.$"
 
 SecondChallengeRoom_HikerBattle_Text_1:
-# 49 "data/maps/SecondChallengeRoom/scripts.pory"
-	.string "You need stronger Pokemon, if you wish\n"
+# 50 "data/maps/SecondChallengeRoom/scripts.pory"
+	.string "You need stronger Pokemon, if you want\n"
 	.string "to defeat me.$"
 
 SecondChallengeRoom_HikerBattle_Text_2:
-# 51 "data/maps/SecondChallengeRoom/scripts.pory"
+# 52 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "Ow...Don't worry, {PLAYER}! I'm sure\n"
 	.string "you'll beat this guy. Look around the\l"
 	.string "place, try to find new Pokemon and come\l"
 	.string "with a better plan next time!$"
 
 SecondChallengeRoom_HikerBattle_Text_3:
-# 52 "data/maps/SecondChallengeRoom/scripts.pory"
+# 53 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "For now, let's get your Party members\n"
 	.string "healed.$"
 
@@ -561,8 +573,8 @@ SecondChallengeRoom_MartGuy_Text_0:
 
 SecondChallengeRoom_MoveRelearner_Text_0:
 # 147 "data/maps/SecondChallengeRoom/scripts.pory"
-	.string "I'm the Move Reminder.$"
+	.string "I'm the Move Reminder.\p$"
 
 SecondChallengeRoom_MoveRelearner_Text_1:
-# 156 "data/maps/SecondChallengeRoom/scripts.pory"
+# 157 "data/maps/SecondChallengeRoom/scripts.pory"
 	.string "This Pokemon cannot learn anything.$"

@@ -54,7 +54,6 @@ script SecondChallengeRoom_HikerBattle {
 		waitmessage
 		closemessage
 		special(HealPlayerParty)
-		// Todo: follower 
 		getplayerxy(VAR_0x8004, VAR_0x8005)
 		if (var(VAR_0x8004) == 7 && var(VAR_0x8005) == 4) {
 			applymovement(OBJ_EVENT_ID_PLAYER, Movement_PlayerToNurse3)
@@ -145,8 +144,9 @@ script SecondChallengeRoom_MartGuy {
 script SecondChallengeRoom_MoveRelearner {
 	lock
 	faceplayer
-	message("I'm the Move Reminder.")
+	message("I'm the Move Reminder.\p")
 	waitmessage
+	closemessage
 SecondChallengeRoom_MoveRelearner_ChooseMon:
 	special(ChooseMonForMoveRelearner)
 	waitstate
@@ -169,6 +169,8 @@ SecondChallengeRoom_MoveRelearner_ChooseMon:
 }
 
 mart SecondChallengeRoom_Mart {
+	ITEM_LUCKY_EGG
+	ITEM_EXP_SHARE
 	ITEM_POKE_BALL
 	ITEM_GREAT_BALL
 	ITEM_ULTRA_BALL
@@ -198,5 +200,7 @@ mart SecondChallengeRoom_Mart {
 	ITEM_FLAME_ORB
 	ITEM_TOXIC_ORB
 	ITEM_FOCUS_SASH
+	ITEM_CHARTI_BERRY
+	ITEM_SHUCA_BERRY
 	ITEM_ZOOM_LENS
 }

@@ -11594,6 +11594,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_WILD_POKEMON_CAVE_ROOM2",
+          "base_label": "gWildPokemonCaveRoom20",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 35,
+                "max_level": 41,
+                "species": "SPECIES_SABLEYE"
+              },
+              {
+                "min_level": 35,
+                "max_level": 35,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 35,
+                "max_level": 37,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 33,
+                "max_level": 37,
+                "species": "SPECIES_DWEBBLE"
+              },
+              {
+                "min_level": 31,
+                "max_level": 37,
+                "species": "SPECIES_SOLROCK"
+              },
+              {
+                "min_level": 33,
+                "max_level": 37,
+                "species": "SPECIES_ARCHEN"
+              },
+              {
+                "min_level": 31,
+                "max_level": 37,
+                "species": "SPECIES_LARVITAR"
+              },
+              {
+                "min_level": 35,
+                "max_level": 40,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 33,
+                "max_level": 33,
+                "species": "SPECIES_MAWILE"
+              },
+              {
+                "min_level": 40,
+                "max_level": 50,
+                "species": "SPECIES_GOLURK"
+              },
+              {
+                "min_level": 31,
+                "max_level": 37,
+                "species": "SPECIES_BALTOY"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_BAGON"
+              }
+            ]
+          }
         }
       ]
     },

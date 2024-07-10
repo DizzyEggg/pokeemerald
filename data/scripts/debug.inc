@@ -149,6 +149,7 @@ Debug_EventScript_Script_1::
 
 Debug_EventScript_Script_2::
 	release
+	addmoney 497000
 	end
 
 Debug_EventScript_Script_3::

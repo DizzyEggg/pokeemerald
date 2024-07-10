@@ -23,6 +23,13 @@
       "elevation": 0,
       "dest_map": "MAP_SECOND_CHALLENGE_ROOM",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_WILD_POKEMON_CAVE_ROOM2",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

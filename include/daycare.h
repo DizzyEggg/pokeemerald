@@ -10,6 +10,7 @@ struct RecordMixingDaycareMail
     bool16 cantHoldItem[DAYCARE_MON_COUNT];
 };
 
+u16 GetEggSpecies(u16 species);
 u8 *GetMonNicknameVanilla(struct Pokemon *mon, u8 *dest);
 u8 *GetBoxMonNickname(struct BoxPokemon *mon, u8 *dest);
 u8 CountPokemonInDaycare(struct DayCare *daycare);

@@ -405,6 +405,7 @@
 #define MAP_WINGULL_HOUSE_BETWEEN_CAVES_IN_UNDERWATER (110 | (24 << 8))
 #define MAP_SECOND_CHALLENGE_ROOM                     (111 | (24 << 8))
 #define MAP_WILD_POKEMON_CAVE_ROOM                    (112 | (24 << 8))
+#define MAP_WILD_POKEMON_CAVE_ROOM2                   (113 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))
