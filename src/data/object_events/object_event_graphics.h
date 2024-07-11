@@ -232,8 +232,16 @@ const u16 gObjectEventPal_Vigoroth[] = INCBIN_U16("graphics/object_events/palett
 const u32 gObjectEventPic_BirchsBag[] = INCBIN_U32("graphics/object_events/pics/misc/birchs_bag.4bpp");
 const u32 gObjectEventPic_EnemyZigzagoon[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/enemy_zigzagoon.4bpp");
 const u16 gObjectEventPal_EnemyZigzagoon[] = INCBIN_U16("graphics/object_events/palettes/enemy_zigzagoon.gbapal");
+
 const u32 gObjectEventPic_BidoofOW[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/bidoof.4bpp");
 const u16 gObjectEventPal_BidoofOW[] = INCBIN_U16("graphics/object_events/pics/pokemon_old/bidoof.gbapal");
+
+const u32 gObjectEventPic_SuicuneOW[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/suicune.4bpp");
+const u16 gObjectEventPal_SuicuneOW[] = INCBIN_U16("graphics/object_events/pics/pokemon_old/suicune.gbapal");
+
+const u32 gObjectEventPic_HikerHg[] = INCBIN_U32("graphics/object_events/pics/people/hiker_hg.4bpp");
+const u16 gObjectEventPal_HikerHg[] = INCBIN_U16("graphics/object_events/pics/people/hiker_hg.gbapal");
+
 const u16 gObjectEventPal_Poochyena[] = INCBIN_U16("graphics/object_events/palettes/poochyena.gbapal");
 const u32 gObjectEventPic_CableCar[] = INCBIN_U32("graphics/object_events/pics/misc/cable_car.4bpp");
 const u16 gObjectEventPal_CableCar[] = INCBIN_U16("graphics/object_events/palettes/cable_car.gbapal");

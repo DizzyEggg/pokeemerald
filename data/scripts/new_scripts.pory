@@ -1,10 +1,10 @@
 script EventScript_BidoofNoPokemonTalk {
 	lockall
-	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107)
+	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
 	msgbox("Hmmm? Are you surprised?")
 	msgbox("We agreed to form a team.\nThat's true.")
 	destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL)
-	load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107)
+	load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
 	msgbox(format("But I'm not going to become one of your, so called, 'Party Members'! Especially not closed in that weird 'Poke Ball' thing!"))
 	destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
 	setflag(FLAG_BIDOOF_NO_POKES_COMMENT)
@@ -14,47 +14,32 @@ script EventScript_BidoofNoPokemonTalk {
 
 // Note: for Bidoof follower scripts always use var 0x8008 and 0x8009 for the mugshot id and 0x800A and 0x800B for sprite id
 
-script EventScript_BidoofFollowerTypicalStart {
-	lock
-	faceplayer
-	setvar(VAR_0x8008, 0xFF)
-	setvar(VAR_0x8009, 0xFF)
-	return
-}
-
-script EventScript_BidoofFollowerTypicalEnd {
-	addvar(VAR_BIDOOF_FOLLOWER_NO_TALKS, 1)
-	waitmessage
-	if (var(VAR_0x8008) != 0xFF) {
-		destroy_field_pic(VAR_0x8008, VAR_0x800A)
-	}
-	if (var(VAR_0x8009) != 0xFF) {
-		destroy_field_pic(VAR_0x8009, VAR_0x800B)
-	}
-	return
-}
 
 script EventScript_BidoofFirstMsg {
-	call(EventScript_BidoofFollowerTypicalStart)
+	lock
+	faceplayer
 	setvar(VAR_0x8008, FIELD_PIC_BIDOOF_NORMAL)
-	load_field_pic(VAR_0x8008, 33, 107, VAR_0x800A)
+	load_field_pic(VAR_0x8008, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 	msgbox(format("Aren't you excited? The adventure is calling us!"))
-	goto(EventScript_BidoofFollowerTypicalEnd)
+	addvar(VAR_BIDOOF_FOLLOWER_NO_TALKS, 1)
+	waitmessage
+	return
 }
 
 script EventScript_BidoofFollowerTypicalMsg {
-	call(EventScript_BidoofFollowerTypicalStart)
-	setvar(VAR_0x8008, FIELD_PIC_BIDOOF_NORMAL)
-	load_field_pic(VAR_0x8008, 33, 107, VAR_0x800A)
+	lock
+	faceplayer
 	random(7)
 	switch (var(VAR_RESULT)) {
-		case 0: msgbox("Let's continue.")
-		case 1: msgbox("Let's go!")
-		case 2: msgbox("Hmm? You want to take a break?")
-		case 3: msgbox("This place is so weird...")
-		case 4: msgbox("Lead the way.")
-		case 5: msgbox("I've got your back.")
-		case 6: msgbox("Yup!")
+		case 0: msgbox_portrait("Let's continue.", FIELD_PIC_BIDOOF_NORMAL)
+		case 1: msgbox_portrait("Let's go!", FIELD_PIC_BIDOOF_NORMAL)
+		case 2: msgbox_portrait("Hmm? You want to take a break?", FIELD_PIC_BIDOOF_NORMAL)
+		case 3: msgbox_portrait("This place is so weird...", FIELD_PIC_BIDOOF_NORMAL)
+		case 4: msgbox_portrait("Lead the way.", FIELD_PIC_BIDOOF_NORMAL)
+		case 5: msgbox_portrait("I've got your back.", FIELD_PIC_BIDOOF_NORMAL)
+		case 6: msgbox_portrait("Yup!", FIELD_PIC_BIDOOF_NORMAL)
 	}
-	goto(EventScript_BidoofFollowerTypicalEnd)
+	addvar(VAR_BIDOOF_FOLLOWER_NO_TALKS, 1)
+	waitmessage
+	return
 }

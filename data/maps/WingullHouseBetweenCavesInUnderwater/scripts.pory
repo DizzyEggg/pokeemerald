@@ -23,11 +23,11 @@ script WingullHouseBetweenCavesInUnderwater_WeMadeit {
 	lock
 	applymovement(OBJ_EVENT_ID_PLAYER, Movement_Up)
 	waitmovement(0)
-	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
 	msgbox("Whew, we did it!")
 	msgbox(format("Nice thinking with the rock-switch, {PLAYER}!"))
 	hide_field_pic(VAR_0x8008)
-	load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107)
+	load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
 	msgbox(format("Though...We were underwater and now we're inside...a house? Talk about ambient change. This whole area is so messed up, {PLAYER}. It could be some sort of illusion, or even a spell. I'm not exactly sure."))
 	destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
 	show_field_pic(VAR_0x8008)
@@ -65,7 +65,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			playse(SE_BIKE_BELL)
 			waitse
 			delay(30)
-			load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+			load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
 			msgbox("Hmm...Let's try again.")
 			waitmessage
 			closemessage
@@ -80,7 +80,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			hide_field_pic(VAR_0x8008)
 			closemessage
 			fadeoutbgm(3)
-			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
+			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009)
 			hide_field_pic(VAR_0x8009)
 			callnative(FadeAllExceptBg0AndMugshots)
 			delay(30)
@@ -134,7 +134,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			fadeinbgm(3)
 			callnative(FadeOutAllExceptBg0AndMugshots)
 			delay(5)
-			load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+			load_field_pic(FIELD_PIC_WINGULL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 			msgbox("Hey y'all! I'm Wingull!\nWingull, the gull!")
 			hide_field_pic(VAR_0x800A)
 			show_field_pic(VAR_0x8009)
@@ -161,10 +161,10 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			setwildbattle(SPECIES_WINGULL, 19)
 			dowildbattle
 			setvar(VAR_HACK_GAME_STATE, 5)
-			load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+			load_field_pic(FIELD_PIC_WINGULL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 			msgbox("Hey!\nLet me finish first!\pWe'll have a...\la...\la...\la...\la...\la...\la...\la...")
 			hide_field_pic(VAR_0x800A)
-			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
+			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009)
 			msgbox("Oh come on!\nSpit it out already!")
 			hide_field_pic(VAR_0x8009)
 			show_field_pic(VAR_0x800A)
@@ -188,7 +188,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			giveitem(ITEM_POKEBLOCK_CASE, 1)
 			giveitem(ITEM_ORAN_BERRY, 31)
 			msgbox_pic("Now we're ready!", VAR_0x800A)
-			load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+			load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
 			msgbox_pic("What about the rules?", VAR_0x8008)
 			msgbox_pic("Rules? You want me to explain\nthe rules?", VAR_0x800A, MSGBOX_YESNO)
 			if (var(VAR_RESULT) == 1) {
@@ -202,7 +202,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			fadescreen(FADE_TO_BLACK)
 			special(DoBerryBlending)
 			waitstate
-			load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+			load_field_pic(FIELD_PIC_WINGULL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 			playbgm(MUS_LINK_CONTEST_P1, FALSE) // For some reason the music changes
 			callnative(BerryBlenderGetLostCount)
 			switch (var(VAR_RESULT)) {
@@ -220,9 +220,9 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			setflag(FLAG_BADGE01_GET)
 			setflag(FLAG_WINGULL_BLENDER_BEATEN)
 			msgbox_pic(format("You earned it, champ!"), VAR_0x800A)
-			load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+			load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
 			msgbox_pic(format("Oh, I see {PLAYER}!\nIf things were normal, you would've received a Badge only after beating a Gym leader! I believe there are 8 Gym Leaders you need to beat, before facing the ultimate challenge. Or something similar, I'm not 100% sure.\l...\lGiven the actual state of affairs here, you'll probably obtain the badges in other, weirder ways, just like here with Wingull."), VAR_0x8008)
-			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009)
+			load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009)
 			msgbox_pic(format("Golly! I struggle to think what the next 'Gym Leader' will be like!"), VAR_0x8009)
 			msgbox_pic(format("That's how things work here in the Underwater.\lThough, Bidoof. Out of everyone, you should've known that already.\lAfter all..."), VAR_0x800A)
 			msgbox_pic(format("What are you even talking about!? Whatever, {PLAYER} won, which means we can leave."), VAR_0x8009)
@@ -257,7 +257,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			msgbox("You left the bell untouched.")
 		}
 	} else {
-		load_field_pic(FIELD_PIC_WINGULL, 33, 107, VAR_0x800A)
+		load_field_pic(FIELD_PIC_WINGULL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 		hide_field_pic(VAR_0x800A)
 		if (var(VAR_HACK_GAME_STATE) == 6) {
 			msgbox_pic(format("Thanks for playing with me! I'm sure we'll see each other again!"), VAR_0x800A)

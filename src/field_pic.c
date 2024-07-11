@@ -2,6 +2,12 @@
 #include "event_data.h"
 #include "field_pic.h"
 #include "decompress.h"
+#include "window.h"
+#include "main.h"
+#include "palette.h"
+#include "script.h"
+#include "text_window.h"
+#include "menu.h"
 #include "sprite.h"
 #include "constants/field_pic.h"
 
@@ -59,6 +65,9 @@ static const u16 sBidoofSmirkyPal[] = INCBIN_U16("graphics/field_pic/bidoof_smir
 static const u32 sWingullGfx[] = INCBIN_U32("graphics/field_pic/wingull.4bpp.lz");
 static const u16 sWingullPal[] = INCBIN_U16("graphics/field_pic/wingull.gbapal");
 
+static const u32 sHikerGfx[] = INCBIN_U32("graphics/field_pic/hiker.4bpp.lz");
+static const u16 sHikerPal[] = INCBIN_U16("graphics/field_pic/hiker.gbapal");
+
 /* And this is an example script.
 FieldPicExample_2pics:
 	load_field_pic 0, 190, 98, VAR_0x8008
@@ -83,11 +92,13 @@ static const struct Pic sPics[] =
     [FIELD_PIC_BIDOOF_ASTONISHED] = {sBidoofAstonishedGfx, sBidoofAstonishedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_BIDOOF_SMIRKY] = {sBidoofSmirkyGfx, sBidoofSmirkyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_WINGULL] = {sWingullGfx, sWingullPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_HIKER] = {sHikerGfx, sHikerPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
 };
 
 static EWRAM_DATA u8 sLastPicId = 0;
 
 #define sTag data[0]
+#define sDestroy data[1]
 
 u32 LoadFieldPicVars(u32 id, s16 x, s16 y)
 {
@@ -206,4 +217,25 @@ void SpiteCb_AlwaysVisible(struct Sprite *sprite)
     sprite->invisible = FALSE;
 }
 
+void SpriteCb_DestroyOnButonPress(struct Sprite *sprite)
+{
+    if (sprite->sDestroy == 0)
+    {
+        // The delay, so that the pic disappears along with the textbox.
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
+            sprite->sDestroy = 1;
+    }
+    else
+    {
+        if (sprite->sDestroy++ >= 3)
+        {
+            FreeSpritePaletteByTag(sprite->sTag);
+            FreeSpriteTilesByTag(sprite->sTag);
+            DestroySprite(sprite);
+        }
+    }
+}
+
 #undef sTag
+#undef sDestroy
+

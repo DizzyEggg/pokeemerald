@@ -11,6 +11,10 @@ mapscripts ThirdInGameLocation_Underwater_MapScripts {
 	}
 }
 
+script ThirdInGameLocation_Underwater_SuicuneTrigger {
+	
+}
+
 script ThirdInGameLocation_Underwater_WildMonsSoon_Down {
 	lock
 	applymovement(OBJ_EVENT_ID_PLAYER, MovementJustFaceDown)
@@ -26,9 +30,9 @@ script ThirdInGameLocation_Underwater_WildMonsSoon_Left {
 script ThirdInGameLocation_Underwater_WildMonsSoon {
 	waitmovement(0)
 	setvar(VAR_HACK_GAME_STATE, 7)
-	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
 	msgbox_pic(format("Hey, {PLAYER}! There's long grass ahead. Do you know what it means? Well, it means that it's dangerous to go there without a Pokemon!"), VAR_0x8008)
-	load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800A)
+	load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 	msgbox_pic(format("Golly, don't give me that look! I'm too weak to handle all of these by my own!"), VAR_0x800A)
 	msgbox_pic(format("But don't you worry, chum. I've got a plan!\pListen carefully!\pI'll give you one of these Poke Balls, you'll use it to capture the wild Pokemon, and then we'll be able to cross the grass! Clever, isn't it?"), VAR_0x8008)
 	msgbox_pic(format("Uhm? Where did I get the Poke Ball from?"), VAR_0x8008)
@@ -48,9 +52,9 @@ script ThirdInGameLocation_Underwater_WildMonsSoon {
 	setwildbattle(SPECIES_CHINCHOU, 35)
 	dowildbattle
 	clearflag(FLAG_SYS_SAFARI_MODE)
-	load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x8009)
+	load_field_pic(FIELD_PIC_BIDOOF_HAPPY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009)
 	msgbox_pic(format("Nicely done, {PLAYER}! You've just caught your very first Pokemon! I certainly hope it won't be your last!"), VAR_0x8009)
-	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
 	msgbox_pic(format("Alright {PLAYER}, I believe we can go into the long grass without worrying about wild Pokemon. Let's continue ahead."), VAR_0x8008)
 	setvar(VAR_HACK_GAME_STATE, 8)
 	destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x8009)
@@ -85,7 +89,7 @@ script ThirdInGameLocation_Underwater_PsychicGuru {
 	if (flag(FLAG_PSYHIC_GURU_TALKED_WITH) != TRUE) {
 		msgbox("Y{PAUSE 15}-O{PAUSE 25}-U!")
 		msgbox(format("Yes, you two! Do not be timid! Welcome in my domain - the forest!"))
-		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, 33, 107)
+		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
 		msgbox("Forest? We're underwater...")
 		destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY)
 		msgbox(format("YES! The trees are my servants, look at their majestic movements. Observe how they gracely dance with the wind!\nYes, yes, do you hear them talking?"))
@@ -95,7 +99,7 @@ script ThirdInGameLocation_Underwater_PsychicGuru {
 		waitmessage
 		closemessage
 		delay(29)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
 		msgbox("Psst! {PLAYER}!")
 		msgbox(format("I don't think this person is going to help us much..."))
 		msgbox("Let's leave and go our way.")
@@ -135,11 +139,11 @@ script ThirdInGameLocation_Underwater_ActivateRockSwitch {
 		setmetatile(32, 71, 0x226, FALSE) // Doors
 		setmetatile(54, 75, 0x22F, TRUE)
 		special(DrawWholeMapView)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
 		msgbox("Golly!")
 		msgbox("I think you did something...")
 		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
 		msgbox("Let's see what's changed.")
 		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL)
 	} else {
@@ -152,7 +156,7 @@ script ThirdInGameLocation_Underwater_ActivateRockSwitch {
 script ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger {
 	lock
 	if (flag(FLAG_CAVE_DOOR_PUZZLE_DONE) != TRUE) { // The Bidoof dialogue doesn't happen if the switch is already activated.
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
 		msgbox("Hm...")
 		waitbuttonpress
 		hide_field_pic(VAR_0x8008)
@@ -182,13 +186,13 @@ script ThirdInGameLocation_Bidoof3 {
 	lock
 	faceplayer
 	if (var(VAR_HACK_GAME_STATE) == 1) {
-		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, 33, 107, VAR_0x8009)
+		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009)
 		msgbox("Golly...")
 		hide_field_pic(VAR_0x8009)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
 		msgbox("Hi.")
 		hide_field_pic(VAR_0x8008)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800A)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 		msgbox(format("I mean! You must be pretty surprised to see a Bidoof underwater! After all, ocean's depths are not my natural habitat."))
 		hide_field_pic(VAR_0x800A)
 		show_field_pic(VAR_0x8008)
@@ -224,17 +228,17 @@ script ThirdInGameLocation_Bidoof3 {
 		end
 	}
 	elif (var(VAR_HACK_GAME_STATE) == 2) {
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008)
+		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
 		msgbox("Hey pal, did you find something?", MSGBOX_YESNO)
 		if (var(VAR_RESULT) == 1) {
 			checkitem(ITEM_HM06)
 			if (var(VAR_RESULT) == 1) {
 				msgbox(format("Hm...Hidden machines...I know how these work!"))
 				hide_field_pic(VAR_0x8008)
-				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x800A)
+				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 				msgbox(format("And it just so happens that I can learn this move!"))
 				destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
-				load_field_pic(FIELD_PIC_BIDOOF_SMIRKY, 33, 107, VAR_0x800A)
+				load_field_pic(FIELD_PIC_BIDOOF_SMIRKY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 				msgbox(format("Let's get some rocks broken!"))
 				destroy_field_pic(FIELD_PIC_BIDOOF_SMIRKY, VAR_0x800A)
 				addvar(VAR_HACK_GAME_STATE, 1)
@@ -266,13 +270,13 @@ script ThirdInGameLocation_Bidoof3 {
 				waitmovement(0)
 				removeobject(VAR_LAST_TALKED)
 				setflag(FLAG_HIDE_ROCK_SMASH_3RD_LOC)
-				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x800A)
+				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 				msgbox(format("And it's done! We make quite the team, huh?"))
 				hide_field_pic(VAR_0x800A)
 				show_field_pic(VAR_0x8008) // normal
 				msgbox(format("You know, I think it'll be better if we hold together. At least, until we're out of here."))
 				hide_field_pic(VAR_0x8008)
-				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800B)
+				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800B)
 				msgbox(format("Who knows whatever may loom here..."))
 				hide_field_pic(VAR_0x800B)
 				show_field_pic(VAR_0x8008) // normal
@@ -310,14 +314,14 @@ script ThirdInGameLocation_Bidoof3 {
 			}
 			else {
 				hide_field_pic(VAR_0x8008)
-				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x800A)
+				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 				msgbox("Golly! I'm not convinced...")
 				destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY, VAR_0x800A)
 			}
 		}
 		else {
 			hide_field_pic(VAR_0x8008)
-			load_field_pic(FIELD_PIC_BIDOOF_HAPPY, 33, 107, VAR_0x800A)
+			load_field_pic(FIELD_PIC_BIDOOF_HAPPY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
 			msgbox("No worries!" I'm sure we'll find some way out of here!)
 			destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
 		}
@@ -468,7 +472,7 @@ script ThirdInGameLocation_Underwater_CreepyHexManiac {
 	// Special Bidoof Message if he's following
 	if (flag(FLAG_BIDOOF_FOLLOWER) == TRUE) {
 		delay(27)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, 33, 107)
+		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
 		msgbox(format("Golly! Did-did you see that???"))
 		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
 	}

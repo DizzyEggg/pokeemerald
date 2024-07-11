@@ -29704,7 +29704,7 @@ F_TRAINER_FEMALE |
     {
         .trainerName = _("KERHI"),
         .trainerClass = TRAINER_CLASS_HIKER,
-        .trainerPic = TRAINER_PIC_HIKER,
+        .trainerPic = TRAINER_PIC_HIKER_HG,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_RISKY | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES | AI_FLAG_OMNISCIENT,

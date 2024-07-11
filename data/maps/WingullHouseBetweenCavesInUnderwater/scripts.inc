@@ -45,7 +45,7 @@ WingullHouseBetweenCavesInUnderwater_WeMadeit::
 # 25 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	waitmovement 0
 # 26 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
+	load_field_pic FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008
 # 27 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox WingullHouseBetweenCavesInUnderwater_WeMadeit_Text_0
 # 28 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -53,7 +53,7 @@ WingullHouseBetweenCavesInUnderwater_WeMadeit::
 # 29 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	hide_field_pic VAR_0x8008
 # 30 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107
+	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y
 # 31 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox WingullHouseBetweenCavesInUnderwater_WeMadeit_Text_2
 # 32 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -102,19 +102,22 @@ WingullHouseBetweenCavesInUnderwater_CallWingull::
 # 57 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	goto_if_unset FLAG_WINGULL_BLENDER_BEATEN, WingullHouseBetweenCavesInUnderwater_CallWingull_2
 # 260 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_WINGULL, 33, 107, VAR_0x800A
+	load_field_pic FIELD_PIC_WINGULL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A
 # 261 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	hide_field_pic VAR_0x800A
 # 262 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	compare VAR_HACK_GAME_STATE, 6
 	goto_if_eq WingullHouseBetweenCavesInUnderwater_CallWingull_9
-# 265 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_52, VAR_0x800A
+# 264 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	goto_if_set FLAG_HIKER_CHALLENGE_DONE, WingullHouseBetweenCavesInUnderwater_CallWingull_12
+WingullHouseBetweenCavesInUnderwater_CallWingull_11:
+# 270 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_54, VAR_0x800A
 WingullHouseBetweenCavesInUnderwater_CallWingull_8:
-# 267 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 272 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	destroy_field_pic FIELD_PIC_WINGULL, VAR_0x800A
 WingullHouseBetweenCavesInUnderwater_CallWingull_1:
-# 269 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 274 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	release
 	end
 
@@ -146,7 +149,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_5:
 # 67 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	delay 30
 # 68 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
+	load_field_pic FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008
 # 69 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox WingullHouseBetweenCavesInUnderwater_CallWingull_Text_1
 # 70 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -176,7 +179,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_5:
 # 82 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	fadeoutbgm 3
 # 83 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009
+	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009
 # 84 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	hide_field_pic VAR_0x8009
 # 85 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -284,7 +287,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_5:
 # 136 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	delay 5
 # 137 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_WINGULL, 33, 107, VAR_0x800A
+	load_field_pic FIELD_PIC_WINGULL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A
 # 138 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox WingullHouseBetweenCavesInUnderwater_CallWingull_Text_14
 # 139 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -338,13 +341,13 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_5:
 # 163 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	setvar VAR_HACK_GAME_STATE, 5
 # 164 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_WINGULL, 33, 107, VAR_0x800A
+	load_field_pic FIELD_PIC_WINGULL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A
 # 165 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox WingullHouseBetweenCavesInUnderwater_CallWingull_Text_22
 # 166 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	hide_field_pic VAR_0x800A
 # 167 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009
+	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009
 # 168 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox WingullHouseBetweenCavesInUnderwater_CallWingull_Text_23
 # 169 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -392,17 +395,17 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_5:
 # 190 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_28, VAR_0x800A
 # 191 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
+	load_field_pic FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008
 # 192 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_29, VAR_0x8008
 # 193 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_30, VAR_0x800A, MSGBOX_YESNO
 # 194 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	compare VAR_RESULT, 1
-	goto_if_eq WingullHouseBetweenCavesInUnderwater_CallWingull_13
+	goto_if_eq WingullHouseBetweenCavesInUnderwater_CallWingull_17
 # 198 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_33, VAR_0x800A
-WingullHouseBetweenCavesInUnderwater_CallWingull_12:
+WingullHouseBetweenCavesInUnderwater_CallWingull_16:
 # 200 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_34, VAR_0x800A
 # 201 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -414,7 +417,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_12:
 # 204 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	waitstate
 # 205 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_WINGULL, 33, 107, VAR_0x800A
+	load_field_pic FIELD_PIC_WINGULL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A
 # 206 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	playbgm MUS_LINK_CONTEST_P1, FALSE
 # 207 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -422,36 +425,36 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_12:
 # 208 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	switch VAR_RESULT
 # 209 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 0, WingullHouseBetweenCavesInUnderwater_CallWingull_18
+	case 0, WingullHouseBetweenCavesInUnderwater_CallWingull_22
 # 210 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 1, WingullHouseBetweenCavesInUnderwater_CallWingull_19
+	case 1, WingullHouseBetweenCavesInUnderwater_CallWingull_23
 # 211 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 2, WingullHouseBetweenCavesInUnderwater_CallWingull_20
+	case 2, WingullHouseBetweenCavesInUnderwater_CallWingull_24
 # 212 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 3, WingullHouseBetweenCavesInUnderwater_CallWingull_21
+	case 3, WingullHouseBetweenCavesInUnderwater_CallWingull_25
 # 213 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 4, WingullHouseBetweenCavesInUnderwater_CallWingull_22
+	case 4, WingullHouseBetweenCavesInUnderwater_CallWingull_26
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 5, WingullHouseBetweenCavesInUnderwater_CallWingull_23
+	case 5, WingullHouseBetweenCavesInUnderwater_CallWingull_27
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 6, WingullHouseBetweenCavesInUnderwater_CallWingull_23
+	case 6, WingullHouseBetweenCavesInUnderwater_CallWingull_27
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 7, WingullHouseBetweenCavesInUnderwater_CallWingull_23
+	case 7, WingullHouseBetweenCavesInUnderwater_CallWingull_27
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 8, WingullHouseBetweenCavesInUnderwater_CallWingull_23
+	case 8, WingullHouseBetweenCavesInUnderwater_CallWingull_27
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 9, WingullHouseBetweenCavesInUnderwater_CallWingull_23
+	case 9, WingullHouseBetweenCavesInUnderwater_CallWingull_27
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 10, WingullHouseBetweenCavesInUnderwater_CallWingull_23
+	case 10, WingullHouseBetweenCavesInUnderwater_CallWingull_27
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 11, WingullHouseBetweenCavesInUnderwater_CallWingull_23
+	case 11, WingullHouseBetweenCavesInUnderwater_CallWingull_27
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 12, WingullHouseBetweenCavesInUnderwater_CallWingull_23
+	case 12, WingullHouseBetweenCavesInUnderwater_CallWingull_27
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	case 13, WingullHouseBetweenCavesInUnderwater_CallWingull_23
+	case 13, WingullHouseBetweenCavesInUnderwater_CallWingull_27
 # 215 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_41, VAR_0x800A
-WingullHouseBetweenCavesInUnderwater_CallWingull_16:
+WingullHouseBetweenCavesInUnderwater_CallWingull_20:
 # 217 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	message WingullHouseBetweenCavesInUnderwater_CallWingull_Text_42
 # 218 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -465,11 +468,11 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_16:
 # 222 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_43, VAR_0x800A
 # 223 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_NORMAL, 33, 107, VAR_0x8008
+	load_field_pic FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008
 # 224 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_44, VAR_0x8008
 # 225 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, 33, 107, VAR_0x8009
+	load_field_pic FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009
 # 226 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_45, VAR_0x8009
 # 227 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -537,194 +540,208 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_9:
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_51, VAR_0x800A
 	goto WingullHouseBetweenCavesInUnderwater_CallWingull_8
 
-WingullHouseBetweenCavesInUnderwater_CallWingull_13:
+WingullHouseBetweenCavesInUnderwater_CallWingull_10:
+# 265 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_52, VAR_0x800A
+# 266 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_53, VAR_0x800A
+# 267 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	setflag FLAG_WINGULL_COMMENTARY_HIKER
+	goto WingullHouseBetweenCavesInUnderwater_CallWingull_8
+
+WingullHouseBetweenCavesInUnderwater_CallWingull_12:
+# 264 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	goto_if_unset FLAG_WINGULL_COMMENTARY_HIKER, WingullHouseBetweenCavesInUnderwater_CallWingull_10
+	goto WingullHouseBetweenCavesInUnderwater_CallWingull_11
+
+WingullHouseBetweenCavesInUnderwater_CallWingull_17:
 # 195 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_31, VAR_0x800A
 # 196 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_32, VAR_0x8009
-	goto WingullHouseBetweenCavesInUnderwater_CallWingull_12
-
-WingullHouseBetweenCavesInUnderwater_CallWingull_18:
-# 209 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_35, VAR_0x800A
-	goto WingullHouseBetweenCavesInUnderwater_CallWingull_16
-
-WingullHouseBetweenCavesInUnderwater_CallWingull_19:
-# 210 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_36, VAR_0x800A
-	goto WingullHouseBetweenCavesInUnderwater_CallWingull_16
-
-WingullHouseBetweenCavesInUnderwater_CallWingull_20:
-# 211 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_37, VAR_0x800A
-	goto WingullHouseBetweenCavesInUnderwater_CallWingull_16
-
-WingullHouseBetweenCavesInUnderwater_CallWingull_21:
-# 212 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_38, VAR_0x800A
 	goto WingullHouseBetweenCavesInUnderwater_CallWingull_16
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_22:
-# 213 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_39, VAR_0x800A
-	goto WingullHouseBetweenCavesInUnderwater_CallWingull_16
+# 209 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_35, VAR_0x800A
+	goto WingullHouseBetweenCavesInUnderwater_CallWingull_20
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_23:
+# 210 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_36, VAR_0x800A
+	goto WingullHouseBetweenCavesInUnderwater_CallWingull_20
+
+WingullHouseBetweenCavesInUnderwater_CallWingull_24:
+# 211 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_37, VAR_0x800A
+	goto WingullHouseBetweenCavesInUnderwater_CallWingull_20
+
+WingullHouseBetweenCavesInUnderwater_CallWingull_25:
+# 212 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_38, VAR_0x800A
+	goto WingullHouseBetweenCavesInUnderwater_CallWingull_20
+
+WingullHouseBetweenCavesInUnderwater_CallWingull_26:
+# 213 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_39, VAR_0x800A
+	goto WingullHouseBetweenCavesInUnderwater_CallWingull_20
+
+WingullHouseBetweenCavesInUnderwater_CallWingull_27:
 # 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_pic WingullHouseBetweenCavesInUnderwater_CallWingull_Text_40, VAR_0x800A
-	goto WingullHouseBetweenCavesInUnderwater_CallWingull_16
+	goto WingullHouseBetweenCavesInUnderwater_CallWingull_20
 
 
-# 273 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 278 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 MovementPlayerFaceUp_WingullHouse:
-# 274 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_down
-# 275 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_up
-# 276 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	step_end
-
 # 279 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementBidoofLeft:
-# 280 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
-# 281 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
-# 282 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_down
-# 283 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	step_end
-
-# 286 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementWingullFromBlender:
-# 287 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_right
-# 288 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_right
-# 289 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_right
-# 290 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_right
-# 291 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_right
-# 292 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
-# 293 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
-# 294 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_down
-# 295 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	step_end
-
-# 298 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementOneDown:
-# 299 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_down
+# 280 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_up
+# 281 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	step_end
+
+# 284 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+MovementBidoofLeft:
+# 285 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 286 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 287 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_down
+# 288 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	step_end
+
+# 291 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+MovementWingullFromBlender:
+# 292 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_right
+# 293 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_right
+# 294 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_right
+# 295 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_right
+# 296 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_right
+# 297 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_up
+# 298 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_up
+# 299 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_down
 # 300 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
 # 303 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementToBlenderWingull:
+MovementOneDown:
 # 304 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+	walk_down
 # 305 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
-# 306 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
-# 307 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
-# 308 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
-# 309 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
-# 310 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
-# 311 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
+# 308 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+MovementToBlenderWingull:
+# 309 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 310 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 311 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 312 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 313 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
 # 314 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementToBlenderPlayer:
+	walk_up
 # 315 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	delay_16
+	walk_up
 # 316 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	delay_16
-# 317 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
-# 318 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+	step_end
+
 # 319 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+MovementToBlenderPlayer:
 # 320 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+	delay_16
 # 321 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+	delay_16
 # 322 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_left
 # 323 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
+	walk_left
 # 324 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
+	walk_left
 # 325 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_right
+	walk_left
 # 326 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 327 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 328 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_up
+# 329 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_up
+# 330 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_right
+# 331 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
-# 329 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementToBlenderBidoof:
-# 330 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	delay_16
-# 331 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	delay_16
-# 332 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
-# 333 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
 # 334 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+MovementToBlenderBidoof:
 # 335 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+	delay_16
 # 336 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+	delay_16
 # 337 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
+	walk_left
 # 338 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
+	walk_left
 # 339 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_left
+	walk_left
 # 340 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 341 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_left
+# 342 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_up
+# 343 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_up
+# 344 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_left
+# 345 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
 WingullHouseBetweenCavesInUnderwater_BerryBlenderMachine::
-# 344 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 349 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	lockall
-# 345 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 350 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox WingullHouseBetweenCavesInUnderwater_BerryBlenderMachine_Text_0
-# 346 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 351 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	releaseall
 	end
 
 
-# 350 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-Movement_LookDown:
-# 351 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_down
-# 352 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	step_end
-
 # 355 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-Movement_Up:
+Movement_LookDown:
 # 356 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
-# 357 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	face_down
-# 358 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 357 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
+# 360 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+Movement_Up:
 # 361 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-Movement_LookUpWingull:
+	walk_up
 # 362 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_up
+	face_down
 # 363 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	step_end
+
+# 366 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+Movement_LookUpWingull:
+# 367 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_up
+# 368 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
 WingullHouseBetweenCavesInUnderwater_WeMadeit_Text_0:
@@ -1019,8 +1036,18 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_51:
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_52:
 # 265 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	.string "I see you've beaten that Hiker asshole!\n"
+	.string "Nicely done. Seriously, screw him.$"
+
+WingullHouseBetweenCavesInUnderwater_CallWingull_Text_53:
+# 266 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	.string "Thanks for stepping by and sharing the\n"
+	.string "news with me!$"
+
+WingullHouseBetweenCavesInUnderwater_CallWingull_Text_54:
+# 270 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	.string "Hey guys! Nice to see you again!$"
 
 WingullHouseBetweenCavesInUnderwater_BerryBlenderMachine_Text_0:
-# 345 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 350 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	.string "It's a Berry Blender.\nIt can't be used at the moment.$"

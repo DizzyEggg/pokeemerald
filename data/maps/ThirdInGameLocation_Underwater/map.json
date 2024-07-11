@@ -106,7 +106,7 @@
       "flag": "FLAG_ITEM_PC_BOX"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_AZUMARILL",
+      "graphics_id": "OBJ_EVENT_GFX_SUICUNE",
       "x": 27,
       "y": 3,
       "elevation": 0,
@@ -348,15 +348,6 @@
       "type": "trigger",
       "x": 16,
       "y": 22,
-      "elevation": 0,
-      "var": "FLAG_HEX_MANIAC_GONE",
-      "var_value": "0",
-      "script": "ThirdInGameLocation_Underwater_CreepyHexManiac"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 16,
       "elevation": 0,
       "var": "FLAG_HEX_MANIAC_GONE",
       "var_value": "0",

@@ -2057,6 +2057,13 @@
 	loadword 0, \text
 	callstd \type
 	.endm
+	
+	.macro msgbox_portrait text:req, picId:req, type=MSGBOX_DEFAULT
+	setbyte gMsgType, \type
+	setbyte gPortraitId, \picId + 1
+	loadword 0, \text
+	callstd \type
+	.endm
 
 	@ Gives 'amount' of the specified 'item' to the player and prints a message with fanfare.
 	@ If the player doesn't have space for all the items then as many are added as possible, the
@@ -2335,7 +2342,7 @@
 	
 	@ Passing 0xFF in all of these below as sprite id will use the last pic.
 	@ Hides a pic that was loaded. 
-	.macro hide_field_pic sprite_id:req
+	.macro hide_field_pic sprite_id=0xff
 	setvar VAR_0x8004, \sprite_id
 	callnative HideFieldPic
 	.endm
