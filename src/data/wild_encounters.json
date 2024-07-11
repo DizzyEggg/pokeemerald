@@ -11663,6 +11663,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_WILD_POKEMON_CAVE_ROOM3",
+          "base_label": "gWildPokemonCaveRoom30",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 22,
+                "max_level": 40,
+                "species": "SPECIES_GABITE"
+              },
+              {
+                "min_level": 21,
+                "max_level": 33,
+                "species": "SPECIES_FERROSEED"
+              },
+              {
+                "min_level": 42,
+                "max_level": 47,
+                "species": "SPECIES_HAXORUS"
+              },
+              {
+                "min_level": 25,
+                "max_level": 31,
+                "species": "SPECIES_NOIBAT"
+              },
+              {
+                "min_level": 33,
+                "max_level": 41,
+                "species": "SPECIES_GOLISOPOD"
+              },
+              {
+                "min_level": 91,
+                "max_level": 99,
+                "species": "SPECIES_METAPOD"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_CHANSEY"
+              },
+              {
+                "min_level": 25,
+                "max_level": 31,
+                "species": "SPECIES_DEINO"
+              },
+              {
+                "min_level": 45,
+                "max_level": 46,
+                "species": "SPECIES_TURTONATOR"
+              },
+              {
+                "min_level": 5,
+                "max_level": 11,
+                "species": "SPECIES_BULBASAUR"
+              },
+              {
+                "min_level": 86,
+                "max_level": 92,
+                "species": "SPECIES_KAKUNA"
+              },
+              {
+                "min_level": 55,
+                "max_level": 75,
+                "species": "SPECIES_STEELIX"
+              }
+            ]
+          }
         }
       ]
     },

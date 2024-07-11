@@ -1089,3 +1089,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/WildPokemonCaveRoom/scripts.inc"
 
 	.include "data/maps/WildPokemonCaveRoom2/scripts.inc"
+
+	.include "data/maps/WildPokemonCaveRoom3/scripts.inc"

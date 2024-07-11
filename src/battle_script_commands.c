@@ -7622,6 +7622,10 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
     {
         moneyReward = 20 * gBattleResources->secretBase->party.levels[0] * gBattleStruct->moneyMultiplier;
     }
+    else if (trainerId == TRAINER_HIKER_CHALLENGE)
+    {
+        moneyReward = 1302137;
+    }
     else
     {
         const struct TrainerMon *party = GetTrainerPartyFromId(trainerId);
@@ -7676,7 +7680,7 @@ static void Cmd_getmoneyreward(void)
         RemoveMoney(&gSaveBlock1Ptr->money, money);
     }
 
-    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
+    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, money > 1000000 ? 8 : 5, money);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

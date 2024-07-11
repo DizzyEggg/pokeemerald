@@ -4470,6 +4470,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/WildPokemonCaveRoom2/border.bin",
       "blockdata_filepath": "data/layouts/WildPokemonCaveRoom2/map.bin"
+    },
+    {
+      "id": "LAYOUT_WILD_POKEMON_CAVE_ROOM3",
+      "name": "WildPokemonCaveRoom3_Layout",
+      "width": 8,
+      "height": 14,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/WildPokemonCaveRoom3/border.bin",
+      "blockdata_filepath": "data/layouts/WildPokemonCaveRoom3/map.bin"
     }
   ]
 }
