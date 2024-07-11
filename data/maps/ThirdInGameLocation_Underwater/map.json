@@ -91,6 +91,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ThirdInGameLocation_Underwater_PsychicGuru",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 15,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_POKEMON_BOX_LINK",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_PC_BOX"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AZUMARILL",
+      "x": 27,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_SUICUNE"
     }
   ],
   "warp_events": [
@@ -326,6 +352,51 @@
       "var": "FLAG_HEX_MANIAC_GONE",
       "var_value": "0",
       "script": "ThirdInGameLocation_Underwater_CreepyHexManiac"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 16,
+      "elevation": 0,
+      "var": "FLAG_HEX_MANIAC_GONE",
+      "var_value": "0",
+      "script": "ThirdInGameLocation_Underwater_CreepyHexManiac"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 3,
+      "elevation": 0,
+      "var": "FLAG_SUICUNE_TRIGGER_DONE",
+      "var_value": "0",
+      "script": "ThirdInGameLocation_Underwater_SuicuneTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 3,
+      "elevation": 0,
+      "var": "FLAG_SUICUNE_TRIGGER_DONE",
+      "var_value": "0",
+      "script": "ThirdInGameLocation_Underwater_SuicuneTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 3,
+      "elevation": 0,
+      "var": "FLAG_SUICUNE_TRIGGER_DONE",
+      "var_value": "0",
+      "script": "ThirdInGameLocation_Underwater_SuicuneTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 3,
+      "elevation": 0,
+      "var": "FLAG_SUICUNE_TRIGGER_DONE",
+      "var_value": "0",
+      "script": "ThirdInGameLocation_Underwater_SuicuneTrigger"
     }
   ],
   "bg_events": [

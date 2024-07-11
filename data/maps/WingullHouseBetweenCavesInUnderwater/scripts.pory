@@ -261,7 +261,12 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 		hide_field_pic(VAR_0x800A)
 		if (var(VAR_HACK_GAME_STATE) == 6) {
 			msgbox_pic(format("Thanks for playing with me! I'm sure we'll see each other again!"), VAR_0x800A)
-		} else {
+		} elif (flag(FLAG_HIKER_CHALLENGE_DONE) == TRUE && flag(FLAG_WINGULL_COMMENTARY_HIKER) == FALSE) {
+			msgbox_pic(format("I see you've beaten that Hiker asshole! Nicely done. Seriously, screw him."), VAR_0x800A)
+			msgbox_pic(format("Thanks for stepping by and sharing the news with me!"), VAR_0x800A)
+			setflag(FLAG_WINGULL_COMMENTARY_HIKER)
+		}		
+		else {
 			msgbox_pic(format("Hey guys! Nice to see you again!"), VAR_0x800A)
 		}
 		destroy_field_pic(FIELD_PIC_WINGULL, VAR_0x800A)
