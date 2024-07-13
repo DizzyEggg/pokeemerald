@@ -25,6 +25,7 @@ void FieldEffectScript_LoadTiles(u8 **script);
 void FieldEffectScript_LoadFadedPalette(u8 **script);
 void FieldEffectScript_LoadPalette(u8 **script);
 void FieldEffectScript_CallNative(u8 **script, u32 *val);
+u8 CreateMonSprite_FieldMove(u16 species, bool8 isShiny, u32 personality, s16 x, s16 y, u8 subpriority);
 void FieldEffectFreeGraphicsResources(struct Sprite *sprite);
 void FieldEffectFreeTilesIfUnused(u16 tileStart);
 void FieldEffectFreePaletteIfUnused(u8 paletteNum);

@@ -9,6 +9,7 @@
 #include "field_effect.h"
 #include "field_weather.h"
 #include "gpu_regs.h"
+#include "event_data.h"
 #include "main.h"
 #include "malloc.h"
 #include "overworld.h"
@@ -17,6 +18,7 @@
 #include "scanline_effect.h"
 #include "sound.h"
 #include "sprite.h"
+#include "script.h"
 #include "task.h"
 #include "trig.h"
 #include "util.h"
@@ -61,8 +63,6 @@ struct TransitionData
     u16 WINOUT;
     u16 WIN0H;
     u16 WIN0V;
-    u16 unused1;
-    u16 unused2;
     u16 BLDCNT;
     u16 BLDALPHA;
     u16 BLDY;
@@ -71,9 +71,7 @@ struct TransitionData
     s16 BG0HOFS_Lower;
     s16 BG0HOFS_Upper;
     s16 BG0VOFS; // used but not set
-    s16 unused3;
     s16 counter;
-    s16 unused4;
     s16 data[11];
 };
 
@@ -110,6 +108,7 @@ static void Task_WhiteBarsFade(u8);
 static void Task_GridSquares(u8);
 static void Task_AngledWipes(u8);
 static void Task_Mugshot(u8);
+static void Task_SuicuneEncounter(u8);
 static void Task_Aqua(u8);
 static void Task_Magma(u8);
 static void Task_Regice(u8);
@@ -262,6 +261,7 @@ static void VBlankCB_Mugshots(void);
 static void VBlankCB_MugshotsFadeOut(void);
 static void HBlankCB_Mugshots(void);
 static void InitTransitionData(void);
+static bool32 IsSuicuneMugShot(void);
 static void FadeScreenBlack(void);
 static void CreateIntroTask(s16, s16, s16, s16, s16);
 static void SetCircularMask(u16 *, s16, s16, s16);
@@ -332,6 +332,7 @@ static const u32 sFrontierSquares_EmptyBg_Tileset[] = INCBIN_U32("graphics/battl
 static const u32 sFrontierSquares_Shrink1_Tileset[] = INCBIN_U32("graphics/battle_transitions/frontier_square_3.4bpp.lz");
 static const u32 sFrontierSquares_Shrink2_Tileset[] = INCBIN_U32("graphics/battle_transitions/frontier_square_4.4bpp.lz");
 static const u32 sFrontierSquares_Tilemap[] = INCBIN_U32("graphics/battle_transitions/frontier_squares.bin");
+static const u16 sSuicuneEncounter_Tilemap[] = INCBIN_U16("graphics/battle_transitions/suicune_encounter.bin");
 
 // All battle transitions use the same intro
 static const TaskFunc sTasks_Intro[B_TRANSITION_COUNT] =
@@ -356,6 +357,7 @@ static const TaskFunc sTasks_Main[B_TRANSITION_COUNT] =
     [B_TRANSITION_GRID_SQUARES] = Task_GridSquares,
     [B_TRANSITION_ANGLED_WIPES] = Task_AngledWipes,
     [B_TRANSITION_MUGSHOT] = Task_Mugshot,
+    [B_TRANSITION_SUICUNE_ENCOUNTER] = Task_SuicuneEncounter,
     [B_TRANSITION_AQUA] = Task_Aqua,
     [B_TRANSITION_MAGMA] = Task_Magma,
     [B_TRANSITION_REGICE] = Task_Regice,
@@ -974,7 +976,7 @@ static void CB2_TestBattleTransition(void)
         if (IsBattleTransitionDone())
         {
             sTestingTransitionState = 0;
-            SetMainCallback2(CB2_ReturnToField);
+            SetMainCallback2(CB2_ReturnToFieldContinueScript);
         }
         break;
     }
@@ -985,10 +987,15 @@ static void CB2_TestBattleTransition(void)
     UpdatePaletteFade();
 }
 
-static void UNUSED TestBattleTransition(u8 transitionId)
+void TestBattleTransition(u8 transitionId)
 {
     sTestingTransitionId = transitionId;
     SetMainCallback2(CB2_TestBattleTransition);
+}
+
+void ScrCmd_PlayBattleTransition(struct ScriptContext *ctx)
+{
+    TestBattleTransition(B_TRANSITION_SUICUNE_ENCOUNTER);
 }
 
 void BattleTransition_StartOnField(u8 transitionId)
@@ -2471,6 +2478,12 @@ static bool8 Mugshot_FadeToBlack(struct Task *task)
         task->tState++;
 
     sTransitionData->VBlank_DMA++;
+    // Make Suicune appear on-screen
+    if (IsSuicuneMugShot() && VarGet(VAR_HACK_GAME_STATE) == 9)
+    {
+        FlagClear(FLAG_HIDE_SUICUNE);
+        TrySpawnObjectEvent(8, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup); // 8 = Suicune's local id
+    }
     return FALSE;
 }
 
@@ -2513,18 +2526,32 @@ static void HBlankCB_Mugshots(void)
         REG_BG0HOFS = sTransitionData->BG0HOFS_Upper;
 }
 
+static bool32 IsSuicuneMugShot(void)
+{
+    return (sTestingTransitionId == B_TRANSITION_SUICUNE_ENCOUNTER);
+}
+
 static void Mugshots_CreateTrainerPics(struct Task *task)
 {
     struct Sprite *opponentSprite, *playerSprite;
 
     u8 trainerPicId = GetTrainerPicFromId(gTrainerBattleOpponent_A);
     s16 opponentRotationScales = 0;
+    bool32 isSuicune = IsSuicuneMugShot();
 
     gReservedSpritePaletteCount = 10;
-    task->tOpponentSpriteId = CreateTrainerSprite(trainerPicId,
+    if (isSuicune)
+    {
+        task->tOpponentSpriteId = CreateMonSprite_FieldMove(SPECIES_SUICUNE, FALSE, 0, -92, 62, 0);
+    }
+    else
+    {
+        task->tOpponentSpriteId = CreateTrainerSprite(trainerPicId,
                                                   gTrainerSprites[trainerPicId].mugshotCoords.x - 32,
                                                   gTrainerSprites[trainerPicId].mugshotCoords.y + 42,
                                                   0, gDecompressionBuffer);
+    }
+
     gReservedSpritePaletteCount = 12;
 
     task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender),
@@ -2544,14 +2571,23 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
     opponentSprite->oam.matrixNum = AllocOamMatrix();
     playerSprite->oam.matrixNum = AllocOamMatrix();
 
-    opponentSprite->oam.shape = SPRITE_SHAPE(64x32);
-    playerSprite->oam.shape = SPRITE_SHAPE(64x32);
+    if (isSuicune)
+    {
+        opponentSprite->oam.shape = SPRITE_SHAPE(64x64);
+        opponentSprite->oam.size = SPRITE_SIZE(64x64);
+        CalcCenterToCornerVec(opponentSprite, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), ST_OAM_AFFINE_DOUBLE);
+    }
+    else
+    {
+        opponentSprite->oam.shape = SPRITE_SHAPE(64x32);
+        playerSprite->oam.shape = SPRITE_SHAPE(64x32);
 
-    opponentSprite->oam.size = SPRITE_SIZE(64x32);
-    playerSprite->oam.size = SPRITE_SIZE(64x32);
+        opponentSprite->oam.size = SPRITE_SIZE(64x32);
+        playerSprite->oam.size = SPRITE_SIZE(64x32);
 
-    CalcCenterToCornerVec(opponentSprite, SPRITE_SHAPE(64x32), SPRITE_SIZE(64x32), ST_OAM_AFFINE_DOUBLE);
-    CalcCenterToCornerVec(playerSprite, SPRITE_SHAPE(64x32), SPRITE_SIZE(64x32), ST_OAM_AFFINE_DOUBLE);
+        CalcCenterToCornerVec(opponentSprite, SPRITE_SHAPE(64x32), SPRITE_SIZE(64x32), ST_OAM_AFFINE_DOUBLE);
+        CalcCenterToCornerVec(playerSprite, SPRITE_SHAPE(64x32), SPRITE_SIZE(64x32), ST_OAM_AFFINE_DOUBLE);
+    }
 
     opponentRotationScales = gTrainerSprites[trainerPicId].mugshotRotation;
 
@@ -2597,8 +2633,26 @@ static bool8 MugshotTrainerPic_Slide(struct Sprite *sprite)
     return FALSE;
 }
 
+void Task_WaitForMonAnim(u8 taskId)
+{
+    struct Sprite *sprite;
+    u32 spritePtr;
+
+    LoadWordFromTwoHalfwords((void *) &gTasks[taskId].data[0], &spritePtr);
+    sprite = (void *) spritePtr;
+
+    if (sprite->callback == SpriteCallbackDummy)
+    {
+        sprite->callback = SpriteCB_MugshotTrainerPic;
+        sprite->sState = 0;
+        sprite->sDone = TRUE;
+        DestroyTask(taskId);
+    }
+}
+
 static bool8 MugshotTrainerPic_SlideSlow(struct Sprite *sprite)
 {
+    u32 taskId;
     // Add acceleration value to speed, then add speed.
     // For both sides acceleration is opposite speed, so slide slows down.
     sprite->sSlideSpeed += sprite->sSlideAccel;
@@ -2609,7 +2663,17 @@ static bool8 MugshotTrainerPic_SlideSlow(struct Sprite *sprite)
     {
         sprite->sState++;
         sprite->sSlideAccel = -sprite->sSlideAccel;
-        sprite->sDone = TRUE;
+        if (IsSuicuneMugShot())
+        {
+            DoMonFrontSpriteAnimation(sprite, SPECIES_SUICUNE, FALSE, 2);
+            taskId = CreateTask(Task_WaitForMonAnim, 3);
+            StoreWordInTwoHalfwords((void *) &gTasks[taskId].data[0], (u32) sprite);
+        }
+        else
+        {
+            sprite->sDone = TRUE;
+        }
+
     }
     return FALSE;
 }
@@ -2639,6 +2703,167 @@ static void IncrementTrainerPicState(s16 spriteId)
 static s16 IsTrainerPicSlideDone(s16 spriteId)
 {
     return gSprites[spriteId].sDone;
+}
+
+static bool8 SuicuneEncounter_Init(struct Task *task)
+{
+    u8 i;
+
+    InitTransitionData();
+    ScanlineEffect_Clear();
+    Mugshots_CreateTrainerPics(task);
+
+    task->tSinIndex = 0;
+    task->tTopBannerX = 1;
+    sTransitionData->WININ = WININ_WIN0_ALL;
+    sTransitionData->WINOUT = WINOUT_WIN01_BG1 | WINOUT_WIN01_BG2 | WINOUT_WIN01_BG3 | WINOUT_WIN01_OBJ | WINOUT_WIN01_CLR;
+    sTransitionData->WIN0V = DISPLAY_HEIGHT;
+
+    for (i = 0; i < DISPLAY_HEIGHT; i++)
+        gScanlineEffectRegBuffers[1][i] = (DISPLAY_WIDTH << 8) | (DISPLAY_WIDTH + 1);
+
+    SetVBlankCallback(VBlankCB_Mugshots);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 SuicuneEncounter_SetGfx(struct Task *task)
+{
+    s16 i, j;
+    u16 *tilemap, *tileset;
+    const u16 *mugshotsMap = sSuicuneEncounter_Tilemap;
+    u8 mugshotColor = MUGSHOT_COLOR_PURPLE;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuSet(sEliteFour_Tileset, tileset, 0xF0);
+
+    LoadPalette(sOpponentMugshotsPals[mugshotColor], 0xF0, 0x20);
+
+    for (i = 0; i < 20; i++)
+    {
+        for (j = 0; j < 32; j++, mugshotsMap++)
+            SET_TILE(tilemap, i, j, *mugshotsMap);
+    }
+
+    EnableInterrupts(INTR_FLAG_HBLANK);
+
+    SetHBlankCallback(HBlankCB_Mugshots);
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 SuicuneEncounter_ShowBanner(struct Task *task)
+{
+    u8 i, sinIndex;
+    u16 *toStore;
+    s16 x;
+    s32 mergedValue;
+
+    sTransitionData->VBlank_DMA = FALSE;
+
+    toStore = gScanlineEffectRegBuffers[0];
+    sinIndex = task->tSinIndex;
+    task->tSinIndex += 16;
+
+    // Update top banner
+    for (i = 0; i < DISPLAY_HEIGHT / 2; i++, toStore++, sinIndex += 16)
+    {
+        x = task->tTopBannerX + Sin(sinIndex, 16);
+        if (x < 0)
+            x = 1;
+        if (x > DISPLAY_WIDTH)
+            x = DISPLAY_WIDTH;
+        *toStore = x;
+    }
+
+    // Slide banners across screen
+    task->tTopBannerX += 8;
+
+    if (task->tTopBannerX > DISPLAY_WIDTH)
+        task->tTopBannerX = DISPLAY_WIDTH;
+
+    mergedValue = *(s32 *)(&task->tTopBannerX);
+    if (mergedValue == DISPLAY_WIDTH)
+        task->tState++;
+
+    sTransitionData->BG0HOFS_Lower -= 8;
+    sTransitionData->BG0HOFS_Upper += 8;
+    sTransitionData->VBlank_DMA++;
+    return FALSE;
+}
+
+static bool8 SuicuneEncounter_StartSuicuneSlide(struct Task *task)
+{
+    u8 i;
+    u16 *toStore;
+
+    sTransitionData->VBlank_DMA = FALSE;
+
+    for (i = 0, toStore = gScanlineEffectRegBuffers[0]; i < DISPLAY_HEIGHT; i++, toStore++)
+        *toStore = DISPLAY_WIDTH;
+
+    task->tState++;
+
+    // Clear old data
+    task->tSinIndex = 0;
+    task->tTopBannerX = 0;
+    task->tBottomBannerX = 0;
+
+    sTransitionData->BG0HOFS_Lower -= 8;
+    sTransitionData->BG0HOFS_Upper += 8;
+
+    SetTrainerPicSlideDirection(task->tOpponentSpriteId, 0);
+
+    // Start opponent slide
+    IncrementTrainerPicState(task->tOpponentSpriteId);
+
+    PlaySE(SE_MUGSHOT);
+
+    sTransitionData->VBlank_DMA++;
+    return FALSE;
+}
+
+static bool8 SuicuneEncounter_WaitSlide(struct Task *task)
+{
+    sTransitionData->BG0HOFS_Lower -= 8;
+    sTransitionData->BG0HOFS_Upper += 8;
+
+    // Start player's slide in once the opponent is finished
+    if (IsTrainerPicSlideDone(task->tOpponentSpriteId))
+    {
+        sTransitionData->VBlank_DMA = FALSE;
+        SetVBlankCallback(NULL);
+        DmaStop(0);
+        memset(gScanlineEffectRegBuffers[0], 0, DISPLAY_HEIGHT * 2);
+        memset(gScanlineEffectRegBuffers[1], 0, DISPLAY_HEIGHT * 2);
+        SetGpuReg(REG_OFFSET_WIN0H, DISPLAY_WIDTH);
+        SetGpuReg(REG_OFFSET_BLDY, 0);
+        task->tState++;
+        task->tTimer = 0;
+        task->tFadeSpread = 0;
+        sTransitionData->BLDCNT = BLDCNT_TGT1_ALL | BLDCNT_EFFECT_LIGHTEN;
+        SetVBlankCallback(VBlankCB_MugshotsFadeOut);
+    }
+    return FALSE;
+}
+
+static const TransitionStateFunc sSuicuneEncounter_Funcs[] =
+{
+    SuicuneEncounter_Init,
+    SuicuneEncounter_SetGfx,
+    SuicuneEncounter_ShowBanner,
+    SuicuneEncounter_StartSuicuneSlide,
+    SuicuneEncounter_WaitSlide,
+    Mugshot_GradualWhiteFade,
+    Mugshot_InitFadeWhiteToBlack,
+    Mugshot_FadeToBlack,
+    Mugshot_End
+};
+
+static void Task_SuicuneEncounter(u8 taskId)
+{
+    while (sSuicuneEncounter_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
 #undef sState

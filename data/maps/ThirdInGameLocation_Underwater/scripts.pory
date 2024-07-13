@@ -12,7 +12,34 @@ mapscripts ThirdInGameLocation_Underwater_MapScripts {
 }
 
 script ThirdInGameLocation_Underwater_SuicuneTrigger {
-	
+	lock
+	fadeoutbgm(1)
+	playse(SE_DOWNPOUR)
+	callnative(ScrCmd_PlayBattleTransition)
+	waitstate
+	playse(SE_DOWNPOUR_STOP)
+	fadeinbgm(2)
+	applymovement(8, MovementSuicuneJump)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, MovementExclamationMark)
+	applymovement(OBJ_EVENT_ID_FOLLOWER, MovementExclamationMark)
+	waitmovement(0)
+	msgbox_portrait("Golly!", FIELD_PIC_BIDOOF_ASTONISHED)
+	setflag(FLAG_SUICUNE_TRIGGER_DONE)
+	release
+	end
+}
+
+movement MovementSuicuneJump {
+	jump_up
+	walk_left
+	face_down
+	step_end
+}
+
+movement MovementExclamationMark {
+	emote_exclamation_mark
+	step_end
 }
 
 script ThirdInGameLocation_Underwater_WildMonsSoon_Down {
