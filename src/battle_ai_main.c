@@ -147,6 +147,10 @@ static u32 GetAiFlags(u16 trainerId)
 {
     u32 flags = 0;
 
+    if (IsSuicuneBattle())
+    {
+        return AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT;
+    }
     if (!(gBattleTypeFlags & BATTLE_TYPE_HAS_AI) && !IsWildMonSmart())
         return 0;
     if (trainerId == 0xFFFF)

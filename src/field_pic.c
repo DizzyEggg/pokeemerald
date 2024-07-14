@@ -68,6 +68,9 @@ static const u16 sWingullPal[] = INCBIN_U16("graphics/field_pic/wingull.gbapal")
 static const u32 sHikerGfx[] = INCBIN_U32("graphics/field_pic/hiker.4bpp.lz");
 static const u16 sHikerPal[] = INCBIN_U16("graphics/field_pic/hiker.gbapal");
 
+static const u32 sSuicuneGfx[] = INCBIN_U32("graphics/field_pic/suicune.4bpp.lz");
+static const u16 sSuicunePal[] = INCBIN_U16("graphics/field_pic/suicune.gbapal");
+
 /* And this is an example script.
 FieldPicExample_2pics:
 	load_field_pic 0, 190, 98, VAR_0x8008
@@ -93,6 +96,7 @@ static const struct Pic sPics[] =
     [FIELD_PIC_BIDOOF_SMIRKY] = {sBidoofSmirkyGfx, sBidoofSmirkyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_WINGULL] = {sWingullGfx, sWingullPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_HIKER] = {sHikerGfx, sHikerPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SUICUNE] = {sSuicuneGfx, sSuicunePal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
 };
 
 static EWRAM_DATA u8 sLastPicId = 0;

@@ -436,7 +436,8 @@
     "SecondChallengeRoom",
     "WildPokemonCaveRoom",
     "WildPokemonCaveRoom2",
-    "WildPokemonCaveRoom3"
+    "WildPokemonCaveRoom3",
+    "DarknessTransitionMap"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

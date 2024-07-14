@@ -1030,6 +1030,16 @@ STATIC_ASSERT(MAX_DYNAMAX_LEVEL < (1 << 4), PokemonSubstruct3_dynamaxLevel_TooSm
 STATIC_ASSERT(MAX_PER_STAT_IVS < (1 << 5), PokemonSubstruct3_ivs_TooSmall);
 STATIC_ASSERT(NUM_NATURES <= (1 << 5), BoxPokemon_hiddenNatureModifier_TooSmall);
 
+bool32 IsSuicuneBattle(void)
+{
+    return (VarGet(VAR_HACK_GAME_STATE) == 10 && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL) == SPECIES_SUICUNE);
+}
+
+static bool32 IsSuicuneMon(struct BoxPokemon *boxMon)
+{
+    return (IsSuicuneBattle() && boxMon == &gEnemyParty[0].box);
+}
+
 static u32 CompressStatus(u32 status)
 {
     s32 i;
@@ -1853,8 +1863,11 @@ void BoxMonToMon(const struct BoxPokemon *src, struct Pokemon *dest)
     SetMonData(dest, MON_DATA_HP, &value);
 }
 
-u8 GetLevelFromMonExp(struct Pokemon *mon)
+u32 GetLevelFromMonExp(struct Pokemon *mon)
 {
+    if (IsSuicuneMon(&mon->box))
+        return 862;
+
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     u32 exp = GetMonData(mon, MON_DATA_EXP, NULL);
     s32 level = 1;
@@ -1865,8 +1878,11 @@ u8 GetLevelFromMonExp(struct Pokemon *mon)
     return level - 1;
 }
 
-u8 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon)
+u32 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon)
 {
+    if (IsSuicuneMon(boxMon))
+        return 862;
+
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
     u32 exp = GetBoxMonData(boxMon, MON_DATA_EXP, NULL);
     s32 level = 1;
@@ -2336,6 +2352,8 @@ u32 GetMonData3(struct Pokemon *mon, s32 field, u8 *data)
         ret = mon->status;
         break;
     case MON_DATA_LEVEL:
+        if (IsSuicuneMon(&mon->box))
+            return 862;
         ret = mon->level;
         break;
     case MON_DATA_HP:
@@ -5722,7 +5740,11 @@ bool32 IsSpeciesInHoennDex(u16 species)
 
 u16 GetBattleBGM(void)
 {
-    if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
+    if (IsSuicuneBattle())
+    {
+        return MUS_C_VS_LEGEND_BEAST;
+    }
+    else if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
     {
         switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
         {

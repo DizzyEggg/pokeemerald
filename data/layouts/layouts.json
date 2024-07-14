@@ -4480,6 +4480,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/WildPokemonCaveRoom3/border.bin",
       "blockdata_filepath": "data/layouts/WildPokemonCaveRoom3/map.bin"
+    },
+    {
+      "id": "LAYOUT_DARKNESS_TRANSITION_MAP",
+      "name": "DarknessTransitionMap_Layout",
+      "width": 20,
+      "height": 35,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Unused1",
+      "border_filepath": "data/layouts/DarknessTransitionMap/border.bin",
+      "blockdata_filepath": "data/layouts/DarknessTransitionMap/map.bin"
     }
   ]
 }

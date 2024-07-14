@@ -1773,8 +1773,10 @@ static u32 GetBattlerMonData(u32 battler, struct Pokemon *party, u32 monId, u8 *
         size = 4;
         break;
     case REQUEST_LEVEL_BATTLE:
-        dst[0] = GetMonData(&party[monId], MON_DATA_LEVEL);
-        size = 1;
+        data16 = GetMonData(&party[monId], MON_DATA_LEVEL);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
         break;
     case REQUEST_HP_BATTLE:
         data16 = GetMonData(&party[monId], MON_DATA_HP);

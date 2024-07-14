@@ -1574,10 +1574,10 @@
 	.macro setwildbattle species:req, level:req, item=ITEM_NONE, species2=SPECIES_NONE, level2=0, item2=ITEM_NONE
 	.byte 0xb6
 	.2byte \species
-	.byte \level
+	.2byte \level
 	.2byte \item
 	.2byte \species2
-	.byte \level2
+	.2byte \level2
 	.2byte \item2
 	.endm
 

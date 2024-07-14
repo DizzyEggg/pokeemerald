@@ -2042,15 +2042,22 @@ bool8 ScrCmd_cleartrainerflag(struct ScriptContext *ctx)
 bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
 {
     u16 species = ScriptReadHalfword(ctx);
-    u8 level = ScriptReadByte(ctx);
+    u16 level = ScriptReadHalfword(ctx);
     u16 item = ScriptReadHalfword(ctx);
     u16 species2 = ScriptReadHalfword(ctx);
-    u8 level2 = ScriptReadByte(ctx);
+    u16 level2 = ScriptReadHalfword(ctx);
     u16 item2 = ScriptReadHalfword(ctx);
 
     if(species2 == SPECIES_NONE)
     {
         CreateScriptedWildMon(species, level, item);
+        if (species == SPECIES_SUICUNE && VarGet(VAR_HACK_GAME_STATE) == 10)
+        {
+            s32 i;
+            static const u16 moves[] = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_EXTREMESPEED, MOVE_EXTRASENSORY};
+            for (i = 0; i < 4; i++)
+                SetMonData(&gEnemyParty[0], MON_DATA_MOVE1 + i, &moves[i]);
+        }
         sIsScriptedWildDouble = FALSE;
     }
     else

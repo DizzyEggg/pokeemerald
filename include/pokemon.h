@@ -328,7 +328,7 @@ struct BattlePokemon
     /*0x24*/ u8 type3;
     /*0x25*/ u8 pp[MAX_MON_MOVES];
     /*0x29*/ u16 hp;
-    /*0x2B*/ u8 level;
+    /*0x2B*/ u16 level;
     /*0x2C*/ u8 friendship;
     /*0x2D*/ u16 maxHP;
     /*0x2F*/ u16 item;
@@ -700,6 +700,7 @@ extern const u32 sExpCandyExperienceTable[];
 extern const struct Ability gAbilitiesInfo[];
 extern const struct NatureInfo gNaturesInfo[];
 
+bool32 IsSuicuneBattle(void);
 void ZeroBoxMonData(struct BoxPokemon *boxMon);
 void ZeroMonData(struct Pokemon *mon);
 void ZeroPlayerPartyMons(void);
@@ -723,8 +724,8 @@ u16 GetUnionRoomTrainerClass(void);
 void CreateEnemyEventMon(void);
 void CalculateMonStats(struct Pokemon *mon);
 void BoxMonToMon(const struct BoxPokemon *src, struct Pokemon *dest);
-u8 GetLevelFromMonExp(struct Pokemon *mon);
-u8 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon);
+u32 GetLevelFromMonExp(struct Pokemon *mon);
+u32 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon);
 u16 GiveMoveToMon(struct Pokemon *mon, u16 move);
 u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 u16 GiveMoveToBattleMon(struct BattlePokemon *mon, u16 move);

@@ -2478,11 +2478,22 @@ static bool8 Mugshot_FadeToBlack(struct Task *task)
         task->tState++;
 
     sTransitionData->VBlank_DMA++;
-    // Make Suicune appear on-screen
-    if (IsSuicuneMugShot() && VarGet(VAR_HACK_GAME_STATE) == 9)
+    // Make Suicune appear/disappear on-screen
+    if (IsSuicuneMugShot())
     {
-        FlagClear(FLAG_HIDE_SUICUNE);
-        TrySpawnObjectEvent(8, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup); // 8 = Suicune's local id
+        u16 var = VarGet(VAR_HACK_GAME_STATE);
+
+        if (var == 9)
+        {
+            FlagClear(FLAG_HIDE_SUICUNE);
+            TrySpawnObjectEvent(8, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup); // 8 = Suicune's local id
+        }
+        else if (var == 11)
+        {
+            FlagSet(FLAG_HIDE_SUICUNE);
+            RemoveObjectEventByLocalIdAndMap(8, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup); // 8 = Suicune's local id
+        }
+
     }
     return FALSE;
 }

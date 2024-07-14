@@ -1,0 +1,13 @@
+mapscripts DarknessTransitionMap_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_HACK_GAME_STATE, 11: DarknessTransitionMap_FirstComment
+	]
+}
+
+script DarknessTransitionMap_FirstComment {
+	lock
+	msgbox_portrait(format("Wow...\pSuicune wasn't joking around! This place...\pLet's go upwards, maybe we'll find some sort of exit there. I mean, assuming there is any 'up' here!"), FIELD_PIC_BIDOOF_ASTONISHED)
+	setvar(VAR_HACK_GAME_STATE, 12)
+	release
+	end
+}

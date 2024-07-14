@@ -407,6 +407,7 @@
 #define MAP_WILD_POKEMON_CAVE_ROOM                    (112 | (24 << 8))
 #define MAP_WILD_POKEMON_CAVE_ROOM2                   (113 | (24 << 8))
 #define MAP_WILD_POKEMON_CAVE_ROOM3                   (114 | (24 << 8))
+#define MAP_DARKNESS_TRANSITION_MAP                   (115 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))

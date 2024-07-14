@@ -9,6 +9,71 @@ mapscripts ThirdInGameLocation_Underwater_MapScripts {
 			setmetatile(54, 75, 0x22F, TRUE)
 		}
 	}
+	MAP_SCRIPT_ON_TRANSITION {
+		if (var(VAR_HACK_GAME_STATE) == 10) { // after Suicune encounter, before defeating him
+			setobjectxyperm(8, 26, 2)
+		}
+	}
+}
+
+script ThirdInGameLocation_Underwater_EscapeTrigger {
+	lock
+	msgbox_portrait(format("Do you really want to leave, {PLAYER}?"), FIELD_PIC_BIDOOF_NORMAL, MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		msgbox_portrait("Golly, I'm really nervous about it!\pWelp!", FIELD_PIC_BIDOOF_ASTONISHED)
+		warpteleport(MAP_DARKNESS_TRANSITION_MAP, 9, 34)
+	} else {
+		closemessage
+		applymovement(OBJ_EVENT_ID_PLAYER, Movement_PlayerStepBack)
+		waitmovement(0)
+		msgbox_portrait(format("You're right, let's prepare ourselves first!"), FIELD_PIC_BIDOOF_NORMAL)
+	}
+	release
+	end
+}
+
+movement Movement_PlayerStepBack {
+	walk_down
+	walk_left
+	step_end
+}
+
+script ThirdInGameLocation_Underwater_SuicuneBattle {
+	lock
+	faceplayer
+	msgbox_portrait(format("Do you wish to battle me?"), FIELD_PIC_SUICUNE, MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		playmoncry(SPECIES_SUICUNE, CRY_MODE_NORMAL)
+		msgbox_portrait(format("Here I come!"), FIELD_PIC_SUICUNE)
+		closemessage
+		setwildbattle(SPECIES_SUICUNE, 862)
+		dowildbattle
+		getbyte(gBattleOutcome, VAR_RESULT)
+		if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+			msgbox_portrait(format("Not yet! Come back when you're better prepeared."), FIELD_PIC_SUICUNE)
+			msgbox_portrait(format("You can't give up now, {PLAYER}!\pThere must be some way to defeat him, I believe in you!"), FIELD_PIC_BIDOOF_NORMAL)
+			special(HealPlayerParty)
+		} else {
+			setvar(VAR_HACK_GAME_STATE, 11)
+			msgbox_portrait(format("Splendid!\pI admit my defeat. Please take this as a proof of overcoming this challenge."), FIELD_PIC_SUICUNE)
+			message("{PLAYER} received the Suicune Badge.")
+			waitmessage
+			call(Common_EventScript_PlayGymBadgeFanfare)
+			setflag(FLAG_BADGE03_GET)
+			msgbox_portrait(format("Wow! You're rocking it, {PLAYER}!"), FIELD_PIC_BIDOOF_HAPPY)
+			msgbox_portrait(format("As I promised earlier, you are free to leave this place. However, let me warn you. I cannot guarantee you'll be able to return here. The things you will experience from now on, are nothing like you have ever seen before. This world may already seem beyond repair, but it gets worse.\pBidoof."), FIELD_PIC_SUICUNE)
+			msgbox_portrait("Golly, what!", FIELD_PIC_BIDOOF_ASTONISHED)
+			msgbox_portrait(format("I hope you are aware of the dangers, and know what you are doing."), FIELD_PIC_SUICUNE)
+			msgbox_portrait(format("I have absolutely no idea what you're referring to!"), FIELD_PIC_BIDOOF_ASTONISHED)
+			msgbox_portrait(format("I'll take that as a yes. That was my final warning. Proceed with caution.\p{PLAYER}.\pBidoof.\pAu revoir."), FIELD_PIC_SUICUNE)
+			closemessage
+			callnative(ScrCmd_PlayBattleTransition)
+			waitstate
+			msgbox_portrait(format("Wow, that was certainly something!\pHe did sound serious though...I have no idea what awaits us once we leave this place, {PLAYER}. Let's prepare ourselves for the worst. As Suicune said, I have no idea if we'll be able to go back. Make sure to equip everything you think could be useful in the future. Once you're ready, let's go!"), FIELD_PIC_BIDOOF_NORMAL)
+		}
+	}
+	release
+	end
 }
 
 script ThirdInGameLocation_Underwater_SuicuneTrigger {
@@ -21,11 +86,19 @@ script ThirdInGameLocation_Underwater_SuicuneTrigger {
 	fadeinbgm(2)
 	applymovement(8, MovementSuicuneJump)
 	waitmovement(0)
+	setobjectxyperm(8, 26, 2)
 	applymovement(OBJ_EVENT_ID_PLAYER, MovementExclamationMark)
 	applymovement(OBJ_EVENT_ID_FOLLOWER, MovementExclamationMark)
 	waitmovement(0)
 	msgbox_portrait("Golly!", FIELD_PIC_BIDOOF_ASTONISHED)
+	msgbox_portrait(format("It is a pleasure to finally meet you, {PLAYER}!\pYou too Bidoof, it has been a while since the last time."), FIELD_PIC_SUICUNE)
+	msgbox_portrait(format("Is this the legendary Suicune?!"), FIELD_PIC_BIDOOF_ASTONISHED)
+	msgbox_portrait(format("The guardian's role has been assigned to me, and I'll do my best to fulfill it.\pI will not let you pass, until you have proved your worth to me. You see, this distorted world has given me an immense power, I feel stronger than ever. As such, this trial will pertain to your craftiness. In order to defeat me in a battle, you will need to think outside the box, to come up with non-standard solutions."), FIELD_PIC_SUICUNE)
+	msgbox_portrait(format("Golly, sounds scary!"), FIELD_PIC_BIDOOF_ASTONISHED)
+	msgbox_portrait(format("There is nothing scary about it, Bidoof. You and I both know this. In fact, if there is anything you should be scared about, it's triumphing over me and passing through that door.\pNonetheless, I'll be waiting for you here. Whenever you feel ready, I'll take on your challenge."), FIELD_PIC_SUICUNE)
+	msgbox_portrait(format("Hmm, this looks different than what we have faced before! Be careful, {PLAYER}! It probably won't be as easy as that Hiker's battle.\pIn any case, let's do our best!"), FIELD_PIC_BIDOOF_NORMAL)
 	setflag(FLAG_SUICUNE_TRIGGER_DONE)
+	setvar(VAR_HACK_GAME_STATE, 10)
 	release
 	end
 }

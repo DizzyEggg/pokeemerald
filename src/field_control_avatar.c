@@ -34,6 +34,7 @@
 #include "constants/event_objects.h"
 #include "constants/field_poison.h"
 #include "constants/map_types.h"
+#include "constants/maps.h"
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 
@@ -194,9 +195,17 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         return TRUE;
     if (input->pressedStartButton)
     {
-        PlaySE(SE_WIN_OPEN);
-        ShowStartMenu();
-        return TRUE;
+        // No Start Menu in darkness map
+        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(DARKNESS_TRANSITION_MAP) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DARKNESS_TRANSITION_MAP))
+        {
+            input->pressedStartButton = 0;
+        }
+        else
+        {
+            PlaySE(SE_WIN_OPEN);
+            ShowStartMenu();
+            return TRUE;
+        }
     }
     if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
         return TRUE;
