@@ -17,6 +17,7 @@
 #include "menu.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
+#include "main_menu.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokemon.h"
@@ -338,6 +339,12 @@ static const struct SpriteFrameImage sPicTable_NewGameBirch[] =
 static const struct SpritePalette sSpritePalette_NewGameBirch =
 {
     .data = sNewGameBirch_Pal,
+    .tag = 0x1006
+};
+
+static const struct SpritePalette sSpritePalette_NewGameBirchGlitch =
+{
+    .data = sNewGameBirch_Pal + 2,
     .tag = 0x1006
 };
 
@@ -913,8 +920,20 @@ static void UNUSED LoadTrainerGfx_TrainerCard(u8 gender, u16 palOffset, u8 *dest
 
 u8 AddNewGameBirchObject(s16 x, s16 y, u8 subpriority)
 {
-    LoadSpritePalette(&sSpritePalette_NewGameBirch);
-    return CreateSprite(&sSpriteTemplate_NewGameBirch, x, y, subpriority);
+    u8 spriteId;
+    if (Is4thBadgeGlitch())
+    {
+        LoadSpritePalette(&sSpritePalette_NewGameBirchGlitch);
+        spriteId = CreateSprite(&sSpriteTemplate_NewGameBirch, x, y + 120, subpriority);
+        gSprites[spriteId].oam.shape = SPRITE_SHAPE(64x32);
+        gSprites[spriteId].oam.size = SPRITE_SIZE(64x32);
+        return spriteId;
+    }
+    else
+    {
+        LoadSpritePalette(&sSpritePalette_NewGameBirch);
+        return CreateSprite(&sSpriteTemplate_NewGameBirch, x, y, subpriority);
+    }
 }
 
 u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)

@@ -35,7 +35,7 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 34,
+      "y": 2,
       "elevation": 0,
       "var": "VAR_HACK_GAME_STATE",
       "var_value": "12",

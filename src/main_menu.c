@@ -6,6 +6,7 @@
 #include "constants/trainers.h"
 #include "data.h"
 #include "decompress.h"
+#include "m4a.h"
 #include "event_data.h"
 #include "field_effect.h"
 #include "gpu_regs.h"
@@ -618,6 +619,11 @@ enum
 
 #define MAIN_MENU_BORDER_TILE   0x1D5
 
+bool32 Is4thBadgeGlitch(void)
+{
+    return (VarGet(VAR_HACK_GAME_STATE) == 13);
+}
+
 static void CB2_MainMenu(void)
 {
     RunTasks();
@@ -643,6 +649,25 @@ void CB2_ReinitMainMenu(void)
     InitMainMenu(TRUE);
 }
 
+void Task_RandomlyGlitchScreen(u8 taskId)
+{
+    if (gTasks[taskId].data[0]++ % 4 == 0)
+    {
+        u8 *vram = (void*) BG_VRAM + 0xF000;
+        vram[Random() % 0x2000] = Random();
+
+        vram = (void*) BG_VRAM + 0x8000;
+        vram[Random() % 0x2000] = Random();
+
+        gPlttBufferFaded[Random() % 16] = Random();
+    }
+    if (JOY_NEW(A_BUTTON))
+    {
+        DestroyTask(taskId);
+    }
+
+}
+
 static u32 InitMainMenu(bool8 returningFromOptionsMenu)
 {
     SetVBlankCallback(NULL);
@@ -658,13 +683,32 @@ static u32 InitMainMenu(bool8 returningFromOptionsMenu)
     SetGpuReg(REG_OFFSET_BG0HOFS, 0);
     SetGpuReg(REG_OFFSET_BG0VOFS, 0);
 
-    DmaFill16(3, 0, (void *)VRAM, VRAM_SIZE);
-    DmaFill32(3, 0, (void *)OAM, OAM_SIZE);
-    DmaFill16(3, 0, (void *)(PLTT + 2), PLTT_SIZE - 2);
+    if (Is4thBadgeGlitch())
+    {
+        DmaFill16(3, 31, (void *)VRAM, VRAM_SIZE);
+        DmaFill32(3, 31, (void *)OAM, OAM_SIZE);
+        DmaFill16(3, 31, (void *)(PLTT + 2), PLTT_SIZE - 2);
+    }
+    else
+    {
+        DmaFill16(3, 0, (void *)VRAM, VRAM_SIZE);
+        DmaFill32(3, 0, (void *)OAM, OAM_SIZE);
+        DmaFill16(3, 0, (void *)(PLTT + 2), PLTT_SIZE - 2);
+    }
 
     ResetPaletteFade();
-    LoadPalette(sMainMenuBgPal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
-    LoadPalette(sMainMenuTextPal, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+    if (Is4thBadgeGlitch())
+    {
+        // Garbage pal
+        LoadPalette((void *)sMalePresetNames_Hacked, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+        LoadPalette((void *)sFemalePresetNames, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+    }
+    else
+    {
+        LoadPalette(sMainMenuBgPal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+        LoadPalette(sMainMenuTextPal, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+    }
+
     ScanlineEffect_Stop();
     ResetTasks();
     ResetSpriteData();
@@ -697,6 +741,8 @@ static u32 InitMainMenu(bool8 returningFromOptionsMenu)
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
     ShowBg(0);
     HideBg(1);
+    if (Is4thBadgeGlitch())
+        CreateTask(Task_RandomlyGlitchScreen, 2);
     CreateTask(Task_MainMenuCheckSaveFile, 0);
 
     return 0;
@@ -1074,7 +1120,10 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
                 action = ACTION_NEW_GAME;
                 break;
             case HAS_ONLY_CONTINUE_QM:
-                action = ACTION_CONTINUE;
+                if (Is4thBadgeGlitch()) // Fake new game
+                    action = ACTION_NEW_GAME;
+                else
+                    action = ACTION_CONTINUE;
                 break;
             case HAS_NO_SAVED_GAME:
             default:
@@ -1404,8 +1453,17 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
 
     LZ77UnCompVram(sBirchSpeechShadowGfx, (void *)VRAM);
     LZ77UnCompVram(sBirchSpeechBgMap, (void *)(BG_SCREEN_ADDR(7)));
-    LoadPalette(sBirchSpeechBgPals, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
-    LoadPalette(sBirchSpeechPlatformBlackPal, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
+    if (Is4thBadgeGlitch())
+    {
+        LoadPalette(sBirchSpeechBgPals + 2, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+        LoadPalette(sBirchSpeechPlatformBlackPal + 2, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
+    }
+    else
+    {
+        LoadPalette(sBirchSpeechBgPals, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+        LoadPalette(sBirchSpeechPlatformBlackPal, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
+    }
+
     ScanlineEffect_Stop();
     ResetSpriteData();
     FreeAllSpritePalettes();
@@ -1418,6 +1476,12 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     gTasks[taskId].data[3] = 0xFF;
     gTasks[taskId].tTimer = 0xD8;
     PlayBGM(MUS_ROUTE122);
+    if (Is4thBadgeGlitch())
+    {
+        gMPlayInfo_BGM.tempoU = 22;
+        gMPlayInfo_BGM.tempoC = 18;
+        gMPlayInfo_BGM.tempoD = 52;
+    }
     ShowBg(0);
     ShowBg(1);
 }
@@ -1433,8 +1497,17 @@ static void Task_NewGameBirchSpeech_WaitToShowBirch(u8 taskId)
     else
     {
         spriteId = gTasks[taskId].tBirchSpriteId;
-        gSprites[spriteId].x = 136;
-        gSprites[spriteId].y = 60;
+        if (Is4thBadgeGlitch())
+        {
+            gSprites[spriteId].x = 166;
+            gSprites[spriteId].y = 160;
+        }
+        else
+        {
+            gSprites[spriteId].x = 136;
+            gSprites[spriteId].y = 60;
+        }
+
         gSprites[spriteId].invisible = FALSE;
         gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         NewGameBirchSpeech_StartFadeInTarget1OutTarget2(taskId, 10);
@@ -1466,8 +1539,17 @@ static void Task_NewGameBirchSpeech_WaitForSpriteFadeInWelcome(u8 taskId)
         else
         {
             InitWindows(ChooseBirchWindows());
-            LoadMainMenuWindowFrameTiles(0, 0xF3);
-            LoadMessageBoxGfx(0, 0xFC, BG_PLTT_ID(15));
+            if (Is4thBadgeGlitch())
+            {
+                LoadMainMenuWindowFrameTiles(0, 0xD3);
+                LoadMessageBoxGfx(0, 0xFA, BG_PLTT_ID(0));
+            }
+            else
+            {
+                LoadMainMenuWindowFrameTiles(0, 0xF3);
+                LoadMessageBoxGfx(0, 0xFC, BG_PLTT_ID(15));
+            }
+
             NewGameBirchSpeech_ShowDialogueWindow(0, 1);
             PutWindowTilemap(0);
             CopyWindowToVram(0, COPYWIN_GFX);
@@ -1514,7 +1596,7 @@ static void Task_NewGameBirchSpeechSub_InitPokeBall(u8 taskId)
     gSprites[spriteId].invisible = FALSE;
     gSprites[spriteId].data[0] = 0;
 
-    CreatePokeballSpriteToReleaseMon(spriteId, gSprites[spriteId].oam.paletteNum, 112, 58, 0, 0, 32, PALETTES_BG, SPECIES_LOTAD);
+    CreatePokeballSpriteToReleaseMon(spriteId, gSprites[spriteId].oam.paletteNum, 112, 58, 0, 0, 32, PALETTES_BG, Is4thBadgeGlitch() ? SPECIES_BIDOOF : SPECIES_LOTAD);
     gTasks[taskId].func = Task_NewGameBirchSpeechSub_WaitForLotad;
     gTasks[sBirchSpeechMainTaskId].tTimer = 0;
 }
@@ -1547,6 +1629,11 @@ static void Task_NewGameBirchSpeechSub_WaitForLotad(u8 taskId)
 
 #undef tState
 
+static void Task_Test(u8 taskId)
+{
+    RunTextPrintersAndIsPrinter0Active();
+}
+
 static void Task_NewGameBirchSpeech_AndYouAre(u8 taskId)
 {
     if (!RunTextPrintersAndIsPrinter0Active())
@@ -1562,6 +1649,11 @@ static void Task_NewGameBirchSpeech_StartBirchLotadPlatformFade(u8 taskId)
 {
     if (!RunTextPrintersAndIsPrinter0Active())
     {
+        if (Is4thBadgeGlitch())
+        {
+            gTasks[taskId].func = Task_Test;
+            return;
+        }
         gSprites[gTasks[taskId].tBirchSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         gSprites[gTasks[taskId].tLotadSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
@@ -2052,7 +2144,7 @@ static void SpriteCB_MovePlayerDownWhileShrinking(struct Sprite *sprite)
 
 static u8 NewGameBirchSpeech_CreateLotadSprite(u8 x, u8 y)
 {
-    return CreateMonPicSprite_Affine(SPECIES_LOTAD, FALSE, 0, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
+    return CreateMonPicSprite_Affine(Is4thBadgeGlitch() ? SPECIES_BIDOOF : SPECIES_LOTAD, FALSE, 0, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
 }
 
 static void AddBirchSpeechObjects(u8 taskId)

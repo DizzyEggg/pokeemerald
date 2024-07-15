@@ -6,9 +6,10 @@ mapscripts DarknessTransitionMap_MapScripts {
 
 script DarknessTransitionMap_GameSave {
 	lock
-	//callnative(ScrCmd_SaveGame)
-	callnative(GlitchScreen)
 	setvar(VAR_HACK_GAME_STATE, 13)
+	callnative(ScrCmd_SaveGame)
+	callnative(GlitchScreen)
+	callnative(GlitchSound)
 	delay(1)
 	callnative(DoSoftReset)
 	release

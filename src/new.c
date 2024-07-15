@@ -73,7 +73,10 @@ void GlitchScreen(void)
     DrawWholeMapView();
     for (i = 0; i < PLTT_BUFFER_SIZE; i++)
         gPlttBufferFaded[i] = Random();
+}
 
+void GlitchSound(void)
+{
     m4aSongNumStart(MUS_RG_SURF);
     gMPlayInfo_BGM.tempoU = 0xabbb;
     gMPlayInfo_BGM.tempoC = 0x7999;

@@ -9,6 +9,7 @@
 #include "trig.h"
 #include "main.h"
 #include "overworld.h"
+#include "event_data.h"
 #include "save.h"
 #include "intro.h"
 #include "title_screen.h"
@@ -323,7 +324,7 @@ static const struct BgTemplate sBgTemplates_RhhCopyrightScreen[] =
 // To play only once or until the first save.
 static bool32 IsTrollIntro(void)
 {
-    return (gSaveFileStatus == SAVE_STATUS_EMPTY);
+    return (gSaveFileStatus == SAVE_STATUS_EMPTY || VarGet(VAR_HACK_GAME_STATE) == 13);
 }
 
 void CB2_ExpansionIntro(void)
