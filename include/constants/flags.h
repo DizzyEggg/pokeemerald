@@ -75,7 +75,7 @@
 #define FLAG_UNUSED_0x03E    0x3E // Unused Flag
 #define FLAG_UNUSED_0x03F    0x3F // Unused Flag
 #define FLAG_UNUSED_0x040    0x40 // Unused Flag
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
+#define FLAG_HIDE_GLITCH_4TH    0x41
 #define FLAG_HIDE_SUICUNE    0x42
 #define FLAG_SUICUNE_BEATEN    0x43
 #define FLAG_SUICUNE_TRIGGER_DONE    0x44

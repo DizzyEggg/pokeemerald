@@ -36,6 +36,7 @@
 #include "overworld.h"
 #include "rotating_tile_puzzle.h"
 #include "rtc.h"
+#include "save.h"
 #include "script.h"
 #include "script_menu.h"
 #include "script_movement.h"
@@ -1111,6 +1112,11 @@ bool8 ScrCmd_waitmovementat(struct ScriptContext *ctx)
     sMovingNpcMapNum = mapNum;
     SetupNativeScript(ctx, WaitForMovementFinish);
     return TRUE;
+}
+
+void ScrCmd_SaveGame(struct ScriptContext *ctx)
+{
+    gSpecialVar_Result = TrySavingData(SAVE_NORMAL);
 }
 
 bool8 ScrCmd_removeobject(struct ScriptContext *ctx)

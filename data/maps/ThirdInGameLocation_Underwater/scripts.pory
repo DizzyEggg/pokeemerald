@@ -21,7 +21,7 @@ script ThirdInGameLocation_Underwater_EscapeTrigger {
 	msgbox_portrait(format("Do you really want to leave, {PLAYER}?"), FIELD_PIC_BIDOOF_NORMAL, MSGBOX_YESNO)
 	if (var(VAR_RESULT) == YES) {
 		msgbox_portrait("Golly, I'm really nervous about it!\pWelp!", FIELD_PIC_BIDOOF_ASTONISHED)
-		warpteleport(MAP_DARKNESS_TRANSITION_MAP, 9, 34)
+		warpteleport(MAP_DARKNESS_TRANSITION_MAP, 9, 76)
 	} else {
 		closemessage
 		applymovement(OBJ_EVENT_ID_PLAYER, Movement_PlayerStepBack)

@@ -1,10 +1,18 @@
 #include "global.h"
 #include "event_data.h"
 #include "palette.h"
+#include "decompress.h"
+#include "random.h"
+#include "bg.h"
+#include "m4a.h"
+#include "gpu_regs.h"
 #include "script.h"
+#include "field_camera.h"
+#include "fieldmap.h"
 #include "event_scripts.h"
 #include "event_object_movement.h"
 #include "constants/rgb.h"
+#include "constants/songs.h"
 
 // New functions
 void BlendTalkingObj(void)
@@ -49,4 +57,24 @@ void FadeAllExceptBg0AndMugshots(void)
 void FadeOutAllExceptBg0AndMugshots(void)
 {
     BeginNormalPaletteFade(GetPalsToBlend(), 0, 16, 0, RGB_BLACK);
+}
+
+void GlitchScreen(void)
+{
+    s32 i, x, y;
+
+    for (x = 0; x < (MAP_OFFSET * 2) + 1; x++)
+    {
+        for (y = 0; y < (MAP_OFFSET * 2) + 1; y++)
+        {
+            MapGridSetMetatileIdAt(gSaveBlock1Ptr->pos.x + x, gSaveBlock1Ptr->pos.y + y, Random() % 0x200);
+        }
+    }
+    DrawWholeMapView();
+    for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+        gPlttBufferFaded[i] = Random();
+
+    m4aSongNumStart(MUS_RG_SURF);
+    gMPlayInfo_BGM.tempoU = 0xabbb;
+    gMPlayInfo_BGM.tempoC = 0x7999;
 }

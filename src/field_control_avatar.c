@@ -145,6 +145,11 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
 #endif
 }
 
+static bool32 IsInDarknessMap(void)
+{
+    return (gSaveBlock1Ptr->location.mapNum == MAP_NUM(DARKNESS_TRANSITION_MAP) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DARKNESS_TRANSITION_MAP));
+}
+
 int ProcessPlayerFieldInput(struct FieldInput *input)
 {
     struct MapPosition position;
@@ -196,7 +201,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (input->pressedStartButton)
     {
         // No Start Menu in darkness map
-        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(DARKNESS_TRANSITION_MAP) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DARKNESS_TRANSITION_MAP))
+        if (IsInDarknessMap())
         {
             input->pressedStartButton = 0;
         }
@@ -207,8 +212,16 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
             return TRUE;
         }
     }
-    if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
-        return TRUE;
+    if (input->pressedSelectButton)
+    {
+        if (IsInDarknessMap())
+        {
+            input->pressedSelectButton = 0;
+        }
+        else if (UseRegisteredKeyItemOnField() == TRUE)
+            return TRUE;
+    }
+
 
 #if DEBUG_OVERWORLD_MENU == TRUE && DEBUG_OVERWORLD_IN_MENU == FALSE
     if (input->input_field_1_2)

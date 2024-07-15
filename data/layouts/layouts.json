@@ -4485,7 +4485,7 @@
       "id": "LAYOUT_DARKNESS_TRANSITION_MAP",
       "name": "DarknessTransitionMap_Layout",
       "width": 20,
-      "height": 35,
+      "height": 77,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/DarknessTransitionMap/border.bin",

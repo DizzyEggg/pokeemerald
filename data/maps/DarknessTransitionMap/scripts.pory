@@ -4,10 +4,38 @@ mapscripts DarknessTransitionMap_MapScripts {
 	]
 }
 
+script DarknessTransitionMap_GameSave {
+	lock
+	//callnative(ScrCmd_SaveGame)
+	callnative(GlitchScreen)
+	setvar(VAR_HACK_GAME_STATE, 13)
+	delay(1)
+	callnative(DoSoftReset)
+	release
+	end
+}
+
 script DarknessTransitionMap_FirstComment {
 	lock
 	msgbox_portrait(format("Wow...\pSuicune wasn't joking around! This place...\pLet's go upwards, maybe we'll find some sort of exit there. I mean, assuming there is any 'up' here!"), FIELD_PIC_BIDOOF_ASTONISHED)
 	setvar(VAR_HACK_GAME_STATE, 12)
+	release
+	end
+}
+
+script DarknessTransitionMap_FourthLeader {
+	lock
+	msgbox("I am the fourth???\pTo defffeatme? you neeeeed t0 defffeat mee?")
+	setvar(VAR_0x8004, RGB_WHITEALPHA)
+	setvar(VAR_0x8005, 14)
+	callnative(BlendTalkingObj)
+	message("HELP ME{FILL_WINDOW}{PLAYER} r-?-d the RGFya25lc3M= Badge.")
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	setflag(FLAG_BADGE04_GET)
+	setflag(FLAG_HIDE_GLITCH_4TH)
+	removeobject(1)
+	msgbox_portrait(format("What...what did just happen???\pDid-did you just get the fourth Badge? I guess there was no challenge this time around...\pGolly, this place is giving me the creeps!"), FIELD_PIC_BIDOOF_ASTONISHED)
 	release
 	end
 }
