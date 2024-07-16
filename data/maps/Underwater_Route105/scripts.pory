@@ -1,13 +1,42 @@
-raw `
-Underwater_Route105_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, Underwater_Route105_OnResume
-	.byte 0
+mapscripts Underwater_Route105_MapScripts {
+	MAP_SCRIPT_ON_RESUME: Script_Underwater_Route105_OnResume
+	MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_HACK_GAME_STATE, 14: Script_UnderwaterRoute105_SaveGame
+    ]
+	MAP_SCRIPT_ON_LOAD {
+		if (var(VAR_HACK_GAME_STATE) >= 13) {
+			// Block north exit
+			setmetatile(20, 51, 0x21B, TRUE)
+			setmetatile(20, 50, 0x21B, TRUE)
+			setmetatile(54, 75, 0x22F, TRUE)
+			// Unlock path south
+			setmetatile(21, 59, 0x2A9, FALSE)
+			setmetatile(20, 60, 0x2A9, FALSE)
+			setmetatile(21, 60, 0x2A9, FALSE)
+			setmetatile(21, 61, 0x2A9, FALSE)
+			// For better look
+			setmetatile(20, 58, 0x27E, TRUE)
+			setmetatile(20, 59, 0x286, TRUE)
+			setmetatile(19, 60, 0x286, TRUE)
+			setmetatile(20, 61, 0x27E, TRUE)
+		}
+	}
+}
 
-Underwater_Route105_OnResume:
-	call AbnormalWeather_Underwater_SetupEscapeWarp
+script Script_Underwater_Route105_OnResume {
+	call(AbnormalWeather_Underwater_SetupEscapeWarp)
 	end
+}
 
-`
+script Script_UnderwaterRoute105_SaveGame {
+	lock
+	setvar(VAR_HACK_GAME_STATE, 15)
+	msgbox("WAIT...")
+	callnative(ScrCmd_SaveGame)
+	closemessage
+	release
+	end
+}
 
 script Underwater_Route105_Sign1 {
 	random(5)

@@ -1597,6 +1597,24 @@ void CB2_NewGame(void)
     SetMainCallback2(CB2_Overworld);
 }
 
+void CB2_AfterGlitchTutorial(void)
+{
+    FieldClearVBlankHBlankCallbacks();
+    StopMapMusic();
+    ResetSafariZoneFlag_();
+    SetWarpDestination(MAP_GROUP(UNDERWATER_ROUTE105), MAP_NUM(UNDERWATER_ROUTE105), WARP_ID_NONE, 20, 55);
+    WarpIntoMap();
+    ResetInitialPlayerAvatarState();
+    ScriptContext_Init();
+    UnlockPlayerFieldControls();
+    gFieldCallback = NULL;
+    gFieldCallback2 = NULL;
+    DoMapLoadLoop(&gMain.state);
+    SetFieldVBlankCallback();
+    SetMainCallback1(CB1_Overworld);
+    SetMainCallback2(CB2_Overworld);
+}
+
 void CB2_WhiteOut(void)
 {
     u8 state;

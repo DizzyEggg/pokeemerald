@@ -11732,6 +11732,40 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_UNDERWATER_ROUTE105",
+          "base_label": "gUnderwater_Route1050",
+          "water_mons": {
+            "encounter_rate": 13,
+            "mons": [
+              {
+                "min_level": 55,
+                "max_level": 75,
+                "species": "SPECIES_WIGLETT"
+              },
+              {
+                "min_level": 37,
+                "max_level": 49,
+                "species": "SPECIES_TATSUGIRI"
+              },
+              {
+                "min_level": 44,
+                "max_level": 55,
+                "species": "SPECIES_HUNTAIL"
+              },
+              {
+                "min_level": 45,
+                "max_level": 56,
+                "species": "SPECIES_BASCULEGION_FEMALE"
+              },
+              {
+                "min_level": 60,
+                "max_level": 99,
+                "species": "SPECIES_CORSOLA"
+              }
+            ]
+          }
         }
       ]
     },

@@ -34,7 +34,7 @@ script EventScript_BidoofFollowerTypicalMsg {
 		case 0: msgbox_portrait("Let's continue.", FIELD_PIC_BIDOOF_NORMAL)
 		case 1: msgbox_portrait("Let's go!", FIELD_PIC_BIDOOF_NORMAL)
 		case 2: msgbox_portrait("Hmm? You want to take a break?", FIELD_PIC_BIDOOF_NORMAL)
-		case 3: msgbox_portrait("This place is so weird...", FIELD_PIC_BIDOOF_NORMAL)
+		case 3: msgbox_portrait("This place is so weird…", FIELD_PIC_BIDOOF_NORMAL)
 		case 4: msgbox_portrait("Lead the way.", FIELD_PIC_BIDOOF_NORMAL)
 		case 5: msgbox_portrait("I've got your back.", FIELD_PIC_BIDOOF_NORMAL)
 		case 6: msgbox_portrait("Yup!", FIELD_PIC_BIDOOF_NORMAL)
@@ -42,4 +42,8 @@ script EventScript_BidoofFollowerTypicalMsg {
 	addvar(VAR_BIDOOF_FOLLOWER_NO_TALKS, 1)
 	waitmessage
 	return
+}
+
+text gText_BidoofTalkDuringGlitchIntro {
+    format("Golly! What a mess! I guess you didn't expect to see me here, {PLAYER}…Well, I didn't expect to see…THIS, whatever it is. Suicune really knew what he was talking about, huh? Maybe I should've listened to him…Well, it's too late now anyway. Listen, {PLAYER}. I'll try to get us out of this mess.\p How? Well, uhm…\pThere MUST be some way out, right? I'm sure{PAUSE 25} that once the intro finishes, we")
 }

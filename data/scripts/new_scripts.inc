@@ -140,7 +140,7 @@ EventScript_BidoofFollowerTypicalMsg_Text_2:
 
 EventScript_BidoofFollowerTypicalMsg_Text_3:
 # 37 "data/scripts/new_scripts.pory"
-	.string "This place is so weird...$"
+	.string "This place is so weird…$"
 
 EventScript_BidoofFollowerTypicalMsg_Text_4:
 # 38 "data/scripts/new_scripts.pory"
@@ -153,3 +153,17 @@ EventScript_BidoofFollowerTypicalMsg_Text_5:
 EventScript_BidoofFollowerTypicalMsg_Text_6:
 # 40 "data/scripts/new_scripts.pory"
 	.string "Yup!$"
+
+gText_BidoofTalkDuringGlitchIntro::
+# 47 "data/scripts/new_scripts.pory"
+	.string "Golly! What a mess! I guess you didn't\n"
+	.string "expect to see me here, {PLAYER}…Well,\l"
+	.string "I didn't expect to see…THIS, whatever\l"
+	.string "it is. Suicune really knew what he was\l"
+	.string "talking about, huh? Maybe I should've\l"
+	.string "listened to him…Well, it's too late now\l"
+	.string "anyway. Listen, {PLAYER}. I'll try to\l"
+	.string "get us out of this mess.\p"
+	.string "How? Well, uhm…\p"
+	.string "There MUST be some way out, right? I'm\n"
+	.string "sure{PAUSE 25} that once the intro finishes, we$"

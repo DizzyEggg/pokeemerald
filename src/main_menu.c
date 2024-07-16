@@ -26,6 +26,9 @@
 #include "pokedex.h"
 #include "pokemon.h"
 #include "random.h"
+#include "save.h"
+#include "script.h"
+#include "event_scripts.h"
 #include "rtc.h"
 #include "save.h"
 #include "scanline_effect.h"
@@ -1629,9 +1632,86 @@ static void Task_NewGameBirchSpeechSub_WaitForLotad(u8 taskId)
 
 #undef tState
 
-static void Task_Test(u8 taskId)
+extern const u8 gText_BidoofTalkDuringGlitchIntro[];
+extern u32 gBattleMoveDamage;
+
+static void Task_BidoofShowsUpAndTalks(u8 taskId)
 {
-    RunTextPrintersAndIsPrinter0Active();
+    s32 i;
+    u32 *vram;
+
+    switch (gTasks[taskId].data[0])
+    {
+    case 0:
+        gSprites[gTasks[taskId].tBirchSpriteId].invisible = TRUE;
+        LoadMainMenuWindowFrameTiles(0, 0xF3);
+        LoadMessageBoxGfx(0, 0xFC, BG_PLTT_ID(15));
+        PutWindowTilemap(0);
+        CopyWindowToVram(0, COPYWIN_GFX);
+        NewGameBirchSpeech_ClearWindow(0);
+        StringExpandPlaceholders(gStringVar4, gText_BidoofTalkDuringGlitchIntro);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].data[0]++;
+        break;
+    case 1:
+        if (!RunTextPrintersAndIsPrinter0Active())
+            gTasks[taskId].data[0]++;
+        break;
+    // Glitch Bidoof Sprite
+    case 2:
+        for (i = 0; i < (64 * 64) / 4 ; i++)
+        {
+            u8 *vramu8 = (u8 *)OBJ_VRAM0 + TILE_SIZE_4BPP * gSprites[gTasks[taskId].tLotadSpriteId].oam.tileNum;
+            vramu8 += i * 4;
+            vram = (void *)vramu8;
+            *vram = PIXEL_FILL(i) | (PIXEL_FILL(i * i) << 0x8) | (PIXEL_FILL(i * i * i) << 0x10) | (0x01 << 0x18);
+        }
+        gTasks[taskId].data[0]++;
+        break;
+    // Glitch music more
+    case 3:
+        m4aMPlayPitchControl(&gMPlayInfo_BGM, 0xFFFF, 19999); // hell sounds
+        gTasks[taskId].data[0]++;
+        break;
+    // Stop the sound after a while
+    case 573:
+        m4aMPlayStop(&gMPlayInfo_BGM);
+        gTasks[taskId].data[0]++;
+        break;
+    // Finally warp to the map
+    case 589:
+        FreeAllWindowBuffers();
+        FreeAndDestroyMonPicSprite(gTasks[taskId].tLotadSpriteId);
+        ResetAllPicSprites();
+        SetMainCallback2(CB2_AfterGlitchTutorial);
+        VarSet(VAR_HACK_GAME_STATE, 14); // End of glitching
+        FlagClear(FLAG_BIDOOF_FOLLOWER);
+        DestroyTask(taskId);
+        break;
+    // In the meantime glitch text
+    case 4:
+    default:
+        if (gTasks[taskId].data[0] % 30 == 0)
+        {
+            s32 n = Random() % 95;
+            gStringVar4[0] = EXT_CTRL_CODE_BEGIN;
+            gStringVar4[1] = EXT_CTRL_CODE_COLOR;
+            gStringVar4[2] = Random() % 15;
+            gStringVar4[3] = EXT_CTRL_CODE_BEGIN;
+            gStringVar4[4] = EXT_CTRL_CODE_SHADOW;
+            gStringVar4[5] = Random() % 15;
+            for (i = 6; i < n; i++)
+                gStringVar4[i] = Random() % 0xEE;
+            gStringVar4[i] = EOS;
+            AddTextPrinterForMessage(TRUE);
+        }
+        else
+        {
+            RunTextPrintersAndIsPrinter0Active();
+        }
+        gTasks[taskId].data[0]++;
+        break;
+    }
 }
 
 static void Task_NewGameBirchSpeech_AndYouAre(u8 taskId)
@@ -1651,7 +1731,8 @@ static void Task_NewGameBirchSpeech_StartBirchLotadPlatformFade(u8 taskId)
     {
         if (Is4thBadgeGlitch())
         {
-            gTasks[taskId].func = Task_Test;
+            gTasks[taskId].data[0] = 0;
+            gTasks[taskId].func = Task_BidoofShowsUpAndTalks;
             return;
         }
         gSprites[gTasks[taskId].tBirchSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
