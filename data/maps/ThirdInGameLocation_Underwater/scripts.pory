@@ -130,18 +130,15 @@ script ThirdInGameLocation_Underwater_WildMonsSoon_Left {
 script ThirdInGameLocation_Underwater_WildMonsSoon {
 	waitmovement(0)
 	setvar(VAR_HACK_GAME_STATE, 7)
-	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
-	msgbox_pic(format("Hey, {PLAYER}! There's long grass ahead. Do you know what it means? Well, it means that it's dangerous to go there without a Pokemon!"), VAR_0x8008)
-	load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
-	msgbox_pic(format("Golly, don't give me that look! I'm too weak to handle all of these by my own!"), VAR_0x800A)
-	msgbox_pic(format("But don't you worry, chum. I've got a plan!\pListen carefully!\pI'll give you one of these Poke Balls, you'll use it to capture the wild Pokemon, and then we'll be able to cross the grass! Clever, isn't it?"), VAR_0x8008)
-	msgbox_pic(format("Uhm? Where did I get the Poke Ball from?"), VAR_0x8008)
-	msgbox_pic(format("Well, sometimes it's better not to know everything!"), VAR_0x800A)
-	show_field_pic(VAR_0x8008)
-	msgbox(format("So, what do you say? Are you in?"))
+	msgbox_portrait(format("Hey, {PLAYER}! There's long grass ahead. Do you know what it means? Well, it means that it's dangerous to go there without a Pokemon!"), FIELD_PIC_BIDOOF_NORMAL)
+	msgbox_portrait(format("Golly, don't give me that look! I'm too weak to handle all of these by my own!"), FIELD_PIC_BIDOOF_ASTONISHED)
+	msgbox_portrait(format("But don't you worry, chum. I've got a plan!\pListen carefully!\pI'll give you one of these Poke Balls, you'll use it to capture the wild Pokemon, and then we'll be able to cross the grass! Clever, isn't it?"), FIELD_PIC_BIDOOF_NORMAL)
+	msgbox_portrait(format("Uhm? Where did I get the Poke Ball from?"), FIELD_PIC_BIDOOF_NORMAL)
+	msgbox_portrait(format("Well, sometimes it's better not to know everything!"), FIELD_PIC_BIDOOF_ASTONISHED)
+	msgbox_portrait(format("So, what do you say? Are you in?"), FIELD_PIC_BIDOOF_NORMAL)
 	dynmultichoice(0, 5, TRUE, 1, 0, DYN_MULTICHOICE_CB_NONE, "What if it doesn't get caught?")
-	msgbox_pic(format("No worries! I've already taken that into account. Remember how we blended berries with Wingull? You actually got a {POKEBLOCK}, which can be fed to Pokemon! That'll make it easier to catch!"), VAR_0x8008)
-	msgbox_pic(format("Alright, let's go!"), VAR_0x8008)
+	msgbox_portrait(format("No worries! I've already taken that into account. Remember how we blended berries with Wingull? You actually got a {POKEBLOCK}, which can be fed to Pokemon! That'll make it easier to catch!"), FIELD_PIC_BIDOOF_NORMAL)
+	msgbox_portrait(format("Alright, let's go!"), FIELD_PIC_BIDOOF_NORMAL)
 	waitmessage
 	closemessage
 	applymovement(OBJ_EVENT_ID_PLAYER, MovementPlayerIntoGrass)
@@ -152,13 +149,9 @@ script ThirdInGameLocation_Underwater_WildMonsSoon {
 	setwildbattle(SPECIES_CHINCHOU, 35)
 	dowildbattle
 	clearflag(FLAG_SYS_SAFARI_MODE)
-	load_field_pic(FIELD_PIC_BIDOOF_HAPPY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009)
-	msgbox_pic(format("Nicely done, {PLAYER}! You've just caught your very first Pokemon! I certainly hope it won't be your last!"), VAR_0x8009)
-	load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
-	msgbox_pic(format("Alright {PLAYER}, I believe we can go into the long grass without worrying about wild Pokemon. Let's continue ahead."), VAR_0x8008)
+	msgbox_portrait(format("Nicely done, {PLAYER}! You've just caught your very first Pokemon! I certainly hope it won't be your last!"), FIELD_PIC_BIDOOF_HAPPY)
+	msgbox_portrait(format("Alright {PLAYER}, I believe we can go into the long grass without worrying about wild Pokemon. Let's continue ahead."), FIELD_PIC_BIDOOF_NORMAL)
 	setvar(VAR_HACK_GAME_STATE, 8)
-	destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x8009)
-	destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
 	release
 	end
 }
@@ -189,9 +182,7 @@ script ThirdInGameLocation_Underwater_PsychicGuru {
 	if (flag(FLAG_PSYHIC_GURU_TALKED_WITH) != TRUE) {
 		msgbox("Y{PAUSE 15}-O{PAUSE 25}-U!")
 		msgbox(format("Yes, you two! Do not be timid! Welcome in my domain - the forest!"))
-		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
-		msgbox("Forest? We're underwater...")
-		destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY)
+		msgbox_portrait("Forest? We're underwater...", FIELD_PIC_BIDOOF_UNEASY)
 		msgbox(format("YES! The trees are my servants, look at their majestic movements. Observe how they gracely dance with the wind!\nYes, yes, do you hear them talking?"))
 		msgbox("Listen closely!")
 		msgbox("V2UncmUgcm9ja3MsIG5vdCB0cmVlcy\n4gV2UncmUgdW5kZXJ3YXRlciBhbmQg\lbm90IGluc2lkZSBhIGZvcmVzdC4gQW\l5kIHRoaXMgZ3V5IGlzIGEgZnUqKmluZy\lBtb3JvbiwgZG9uJ3QgbGlzdGVuIHRv\lIGhpbSB+IHNpbmNlcmVseSwgd\lGhlIHJvY2tzLg==")
@@ -199,11 +190,7 @@ script ThirdInGameLocation_Underwater_PsychicGuru {
 		waitmessage
 		closemessage
 		delay(29)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
-		msgbox("Psst! {PLAYER}!")
-		msgbox(format("I don't think this person is going to help us much..."))
-		msgbox("Let's leave and go our way.")
-		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL)
+		msgbox_portrait(format("Psst! {PLAYER}!\pI don't think this person is going to help us much...\pLet's leave and go our way."), FIELD_PIC_BIDOOF_NORMAL)
 		setflag(FLAG_PSYHIC_GURU_TALKED_WITH)
 	} else {
 		msgbox("I take good care of my servants.")
@@ -239,13 +226,8 @@ script ThirdInGameLocation_Underwater_ActivateRockSwitch {
 		setmetatile(32, 71, 0x226, FALSE) // Doors
 		setmetatile(54, 75, 0x22F, TRUE)
 		special(DrawWholeMapView)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
-		msgbox("Golly!")
-		msgbox("I think you did something...")
-		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
-		msgbox("Let's see what's changed.")
-		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL)
+		msgbox_portrait("Golly!\pI think you did something...", FIELD_PIC_BIDOOF_ASTONISHED)
+		msgbox_portrait("Let's see what's changed.", FIELD_PIC_BIDOOF_NORMAL)
 	} else {
 		msgbox("It is already activated.")
 	}
@@ -256,17 +238,11 @@ script ThirdInGameLocation_Underwater_ActivateRockSwitch {
 script ThirdInGameLocation_Underwater_SeemsTheWayIsBlockedTrigger {
 	lock
 	if (flag(FLAG_CAVE_DOOR_PUZZLE_DONE) != TRUE) { // The Bidoof dialogue doesn't happen if the switch is already activated.
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
-		msgbox("Hm...")
-		waitbuttonpress
-		hide_field_pic(VAR_0x8008)
+		msgbox_portrait("Hm...", FIELD_PIC_BIDOOF_NORMAL)
 		closemessage
 		applymovement(OBJ_EVENT_ID_PLAYER, Movement_SeeNoWay)
 		waitmovement(0)
-		show_field_pic(VAR_0x8008)
-		msgbox("It seems the way is blocked\nby these rocks.")
-		msgbox(format("I don't think I'll be able to smash these by myself. Let's try to find some other way to get past them."))
-		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
+		msgbox_portrait(format("It seems the way is blocked\nby these rocks.\pI don't think I'll be able to smash these by myself. Let's try to find some other way to get past them."), FIELD_PIC_BIDOOF_NORMAL)
 	}
 	setflag(FLAG_TRIGGER_3RD_MAP_SEEMS_NO_WAY)
 	release
@@ -286,41 +262,16 @@ script ThirdInGameLocation_Bidoof3 {
 	lock
 	faceplayer
 	if (var(VAR_HACK_GAME_STATE) == 1) {
-		load_field_pic(FIELD_PIC_BIDOOF_UNEASY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8009)
-		msgbox("Golly...")
-		hide_field_pic(VAR_0x8009)
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
-		msgbox("Hi.")
-		hide_field_pic(VAR_0x8008)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
-		msgbox(format("I mean! You must be pretty surprised to see a Bidoof underwater! After all, ocean's depths are not my natural habitat."))
-		hide_field_pic(VAR_0x800A)
-		show_field_pic(VAR_0x8008)
-		msgbox(format("It's weird, isn't it? Seeing a Bidoof here...A talking Bidoof at that!"))
-		hide_field_pic(VAR_0x8008)
-		show_field_pic(VAR_0x800A)
-		msgbox(format("Though you don't look that surprised...Or you do? Golly, I can't tell!"))
-		hide_field_pic(VAR_0x800A)
-		show_field_pic(VAR_0x8008)
-		msgbox(format("Sorry about earlier, running off like that. I was a bit scared when I saw you floating around there! But you seem like a nice chum."))
-		msgbox(format("..."))
-		msgbox(format("We need to get out of here. I don't know if you're aware, but there is a rock down there blocking the way."))
-		hide_field_pic(VAR_0x8008)
-		show_field_pic(VAR_0x800A)
-		msgbox(format("You know, it's really weird how it's placed there, just like that. As if it was put on purpose...Though, I have to tell you, this whole place is so strange..."))
-		msgbox(format("It's not natural at all...Well, it doesn't matter that much I guess! We need to get out of here!"))
-		hide_field_pic(VAR_0x800A)
-		show_field_pic(VAR_0x8008)
-		msgbox(format("..."))
-		hide_field_pic(VAR_0x8008)
-		show_field_pic(VAR_0x8009)
-		msgbox(format("The problem is...I have no idea how! I tried to break the rock myself, but as you can clearly see, it didn't work."))
-		hide_field_pic(VAR_0x8009)
-		show_field_pic(VAR_0x8008)
-		msgbox(format("I'll rest a bit and try to think of a solution. In the meantime feel free to roam about, maybe you'll find something useful!"))
-		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
-		destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY, VAR_0x8009)
-		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, VAR_0x800A)
+		msgbox_portrait("Golly...", FIELD_PIC_BIDOOF_UNEASY)
+		msgbox_portrait("Hi.", FIELD_PIC_BIDOOF_NORMAL)
+		msgbox_portrait(format("I mean! You must be pretty surprised to see a Bidoof underwater! After all, ocean's depths are not my natural habitat."), FIELD_PIC_BIDOOF_ASTONISHED)
+		msgbox_portrait(format("It's weird, isn't it? Seeing a Bidoof here...A talking Bidoof at that!"), FIELD_PIC_BIDOOF_NORMAL)
+		msgbox_portrait(format("Though you don't look that surprised...Or you do? Golly, I can't tell!"), FIELD_PIC_BIDOOF_ASTONISHED)
+		msgbox_portrait(format("Sorry about earlier, running off like that. I was a bit scared when I saw you floating around there! But you seem like a nice chum.\p...\pWe need to get out of here. I don't know if you're aware, but there is a rock down there blocking the way."), FIELD_PIC_BIDOOF_NORMAL)
+		msgbox_portrait(format("You know, it's really weird how it's placed there, just like that. As if it was put on purpose...Though, I have to tell you, this whole place is so strange...\pIt's not natural at all...Well, it doesn't matter that much I guess! We need to get out of here!"), FIELD_PIC_BIDOOF_ASTONISHED)
+		msgbox_portrait(format("..."), FIELD_PIC_BIDOOF_NORMAL)
+		msgbox_portrait(format("The problem is...I have no idea how! I tried to break the rock myself, but as you can clearly see, it didn't work."), FIELD_PIC_BIDOOF_UNEASY)
+		msgbox_portrait(format("I'll rest a bit and try to think of a solution. In the meantime feel free to roam about, maybe you'll find something useful!"), FIELD_PIC_BIDOOF_NORMAL)
 		addvar(VAR_HACK_GAME_STATE, 1)
 		applymovement(5, MovementBidoof3)
 		waitmovement(0)
@@ -328,19 +279,13 @@ script ThirdInGameLocation_Bidoof3 {
 		end
 	}
 	elif (var(VAR_HACK_GAME_STATE) == 2) {
-		load_field_pic(FIELD_PIC_BIDOOF_NORMAL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
-		msgbox("Hey pal, did you find something?", MSGBOX_YESNO)
+		msgbox_portrait("Hey pal, did you find something?", FIELD_PIC_BIDOOF_NORMAL, MSGBOX_YESNO)
 		if (var(VAR_RESULT) == 1) {
 			checkitem(ITEM_HM06)
 			if (var(VAR_RESULT) == 1) {
-				msgbox(format("Hm...Hidden machines...I know how these work!"))
-				hide_field_pic(VAR_0x8008)
-				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
-				msgbox(format("And it just so happens that I can learn this move!"))
-				destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
-				load_field_pic(FIELD_PIC_BIDOOF_SMIRKY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
-				msgbox(format("Let's get some rocks broken!"))
-				destroy_field_pic(FIELD_PIC_BIDOOF_SMIRKY, VAR_0x800A)
+				msgbox_portrait(format("Hm...Hidden machines...I know how these work!"), FIELD_PIC_BIDOOF_NORMAL)
+				msgbox_portrait(format("And it just so happens that I can learn this move!"), FIELD_PIC_BIDOOF_HAPPY)
+				msgbox_portrait(format("Let's get some rocks broken!"), FIELD_PIC_BIDOOF_SMIRKY)
 				addvar(VAR_HACK_GAME_STATE, 1)
 				closemessage
 				specialvar(VAR_RESULT, GetPlayerFacingDirection)
@@ -370,40 +315,23 @@ script ThirdInGameLocation_Bidoof3 {
 				waitmovement(0)
 				removeobject(VAR_LAST_TALKED)
 				setflag(FLAG_HIDE_ROCK_SMASH_3RD_LOC)
-				load_field_pic(FIELD_PIC_BIDOOF_HAPPY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
-				msgbox(format("And it's done! We make quite the team, huh?"))
-				hide_field_pic(VAR_0x800A)
-				show_field_pic(VAR_0x8008) // normal
-				msgbox(format("You know, I think it'll be better if we hold together. At least, until we're out of here."))
-				hide_field_pic(VAR_0x8008)
-				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800B)
-				msgbox(format("Who knows whatever may loom here..."))
-				hide_field_pic(VAR_0x800B)
-				show_field_pic(VAR_0x8008) // normal
-				msgbox("I hope you agree with me, {PLAYER}!", MSGBOX_YESNO)
+				msgbox_portrait(format("And it's done! We make quite the team, huh?"), FIELD_PIC_BIDOOF_HAPPY)
+				msgbox_portrait(format("You know, I think it'll be better if we hold together. At least, until we're out of here."), FIELD_PIC_BIDOOF_NORMAL)
+				msgbox_portrait(format("Who knows whatever may loom here..."), FIELD_PIC_BIDOOF_ASTONISHED)
+				msgbox_portrait("I hope you agree with me, {PLAYER}!", FIELD_PIC_BIDOOF_NORMAL, MSGBOX_YESNO)
 				if (var(VAR_RESULT) != 1) {
 					do {
-						hide_field_pic(VAR_0x8008)
-						show_field_pic(VAR_0x800B) // astonished
-						msgbox("Golly, you can't be serious!\n")
-						hide_field_pic(VAR_0x800B)
-						show_field_pic(VAR_0x8008)
-						msgbox("Let's get out of here together, {PLAYER}!", MSGBOX_YESNO)
+						msgbox_portrait("Golly, you can't be serious!\n", FIELD_PIC_BIDOOF_ASTONISHED)
+						msgbox_portrait("Let's get out of here together, {PLAYER}!", FIELD_PIC_BIDOOF_NORMAL, MSGBOX_YESNO)
 					} while (var(VAR_RESULT) != 1)
-					hide_field_pic(VAR_0x8008)
-					show_field_pic(VAR_0x800B) // astonished
-					msgbox("Golly, please do not joke like that!")
-					hide_field_pic(VAR_0x800B)
+					msgbox_portrait("Golly, please do not joke like that!", FIELD_PIC_BIDOOF_ASTONISHED)
 				}
-				show_field_pic(VAR_0x800A) // happy
-				msgbox(format("Alright! Take the lead, {PLAYER}. I'll be right behind you."))
+				msgbox_portrait(format("Alright! Take the lead, {PLAYER}. I'll be right behind you."), FIELD_PIC_BIDOOF_HAPPY)
+				closemessage
 				setflag(FLAG_HIDE_BIDOOF_3)
 				setflag(FLAG_BIDOOF_FOLLOWER)
 				setflag(FLAG_SYS_POKEMON_GET) // Pokemon menu can be opened, tho no pokemon in party
 				removeobject(5)
-				destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
-				destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
-				destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, VAR_0x800B)
 				delay(2)
 				callnative(UpdateFollowingPokemon)
 				delay(2)
@@ -413,17 +341,11 @@ script ThirdInGameLocation_Bidoof3 {
 				end
 			}
 			else {
-				hide_field_pic(VAR_0x8008)
-				load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
-				msgbox("Golly! I'm not convinced...")
-				destroy_field_pic(FIELD_PIC_BIDOOF_UNEASY, VAR_0x800A)
+				msgbox_portrait("Golly! I'm not convinced...", FIELD_PIC_BIDOOF_ASTONISHED)
 			}
 		}
 		else {
-			hide_field_pic(VAR_0x8008)
-			load_field_pic(FIELD_PIC_BIDOOF_HAPPY, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x800A)
-			msgbox("No worries!" I'm sure we'll find some way out of here!)
-			destroy_field_pic(FIELD_PIC_BIDOOF_HAPPY, VAR_0x800A)
+			msgbox_portrait(format("No worries! I'm sure we'll find some way out of here!"), FIELD_PIC_BIDOOF_HAPPY)
 		}
 		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
 		applymovement(5, MovementBidoof3)
@@ -572,9 +494,7 @@ script ThirdInGameLocation_Underwater_CreepyHexManiac {
 	// Special Bidoof Message if he's following
 	if (flag(FLAG_BIDOOF_FOLLOWER) == TRUE) {
 		delay(27)
-		load_field_pic(FIELD_PIC_BIDOOF_ASTONISHED, MSG_PORTRAIT_X, MSG_PORTRAIT_Y)
-		msgbox(format("Golly! Did-did you see that???"))
-		destroy_field_pic(FIELD_PIC_BIDOOF_ASTONISHED)
+		msgbox_portrait(format("Golly! Did-did you see that???"), FIELD_PIC_BIDOOF_ASTONISHED)
 	}
 	release
 	end

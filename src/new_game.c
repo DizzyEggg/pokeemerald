@@ -127,10 +127,14 @@ static void ClearFrontierRecord(void)
 static void WarpToTruck(void)
 {
     if (gSaveBlock1Ptr->hackGameBeaten)
+    {
         SetWarpDestination(MAP_GROUP(INSIDE_OF_TRUCK), MAP_NUM(INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+        FlagSet(FLAG_HIDE_MAP_NAME_POPUP);
+    }
     else
+    {
         SetWarpDestination(MAP_GROUP(UNDERWATER_ROUTE105), MAP_NUM(UNDERWATER_ROUTE105), WARP_ID_NONE, 20, 55);
-    FlagSet(FLAG_HIDE_MAP_NAME_POPUP);
+    }
     WarpIntoMap();
 }
 
