@@ -1,9 +1,39 @@
-raw `
-Underwater_MarineCave_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, Underwater_MarineCave_OnResume
-	map_script MAP_SCRIPT_ON_TRANSITION, Underwater_MarineCave_OnTransition
-	.byte 0
+mapscripts Underwater_MarineCave_MapScripts {
+	MAP_SCRIPT_ON_RESUME: Underwater_MarineCave_OnResume
+	MAP_SCRIPT_ON_TRANSITION: Underwater_MarineCave_OnTransition
+}
 
+script Underwater_MarineCave_TriggerScript {
+	lock
+	msgbox("Would you like to emerge?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		msgbox(format("That means leaving the Underwater. Do you really want to leave?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			msgbox("Are you sure???", MSGBOX_YESNO)
+			if (var(VAR_RESULT) == YES) {
+				msgbox("{PLAYER} is about to emerge!")
+				fadeoutbgm(5)
+				delay(30)
+				msgbox("But it failed!\pT{PAUSE 30}-H{PAUSE 30}-E{PAUSE 30}-R{PAUSE 30}-E I{PAUSE 30}-S N{PAUSE 30}-O E{PAUSE 30}-S{PAUSE 30}-C{PAUSE 30}-A{PAUSE 30}-P-{PAUSE 30}I-N{PAUSE 30}-G\n{COLOR BLUE}UNDERWATER{COLOR DARK_GRAY}")
+				setvar(VAR_HACK_GAME_STATE, 16)
+				release
+				end
+			}
+		}
+	}
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, Movement_GoDown)
+	waitmovement(0)
+	release
+	end
+}
+
+movement Movement_GoDown {
+	walk_down
+	step_end
+}
+
+raw `
 Underwater_MarineCave_OnTransition:
 	setflag FLAG_ARRIVED_AT_MARINE_CAVE_EMERGE_SPOT
 	end
