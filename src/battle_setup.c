@@ -712,7 +712,7 @@ static void DowngradeBadPoison(void)
     }
 }
 
-static bool32 IsHackUnderwaterLocation(void)
+bool32 IsHackUnderwaterLocation(void)
 {
     return (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(THIRD_IN_GAME_LOCATION_UNDERWATER)
             && gSaveBlock1Ptr->location.mapNum == MAP_NUM(THIRD_IN_GAME_LOCATION_UNDERWATER));

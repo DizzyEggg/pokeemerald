@@ -18,6 +18,7 @@ extern u16 gTrainerBattleOpponent_A;
 extern u16 gTrainerBattleOpponent_B;
 extern u16 gPartnerTrainerId;
 
+bool32 IsHackUnderwaterLocation(void);
 void BattleSetup_StartWildBattle(void);
 void BattleSetup_StartDoubleWildBattle(void);
 void BattleSetup_StartBattlePikeWildBattle(void);
