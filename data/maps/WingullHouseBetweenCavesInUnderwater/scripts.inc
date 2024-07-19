@@ -87,16 +87,16 @@ WingullHouseBetweenCavesInUnderwater_CallWingull::
 	lock
 # 50 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	goto_if_unset FLAG_WINGULL_BLENDER_BEATEN, WingullHouseBetweenCavesInUnderwater_CallWingull_2
-# 203 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 204 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	compare VAR_HACK_GAME_STATE, 6
 	goto_if_eq WingullHouseBetweenCavesInUnderwater_CallWingull_8
-# 205 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 206 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	goto_if_set FLAG_HIKER_CHALLENGE_DONE, WingullHouseBetweenCavesInUnderwater_CallWingull_11
 WingullHouseBetweenCavesInUnderwater_CallWingull_10:
-# 210 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 211 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_portrait WingullHouseBetweenCavesInUnderwater_CallWingull_Text_51, FIELD_PIC_WINGULL
 WingullHouseBetweenCavesInUnderwater_CallWingull_1:
-# 213 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 214 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	release
 	end
 
@@ -106,7 +106,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_2:
 # 52 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq WingullHouseBetweenCavesInUnderwater_CallWingull_5
-# 200 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 201 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox WingullHouseBetweenCavesInUnderwater_BellNotWorking_Text_2
 	goto WingullHouseBetweenCavesInUnderwater_CallWingull_1
 
@@ -367,67 +367,69 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_19:
 # 175 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_portrait WingullHouseBetweenCavesInUnderwater_CallWingull_Text_46, FIELD_PIC_WINGULL
 # 176 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	applymovement 1, MovementOneDown
-# 177 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	setmetatile 2, 2, 0x221, FALSE
-# 178 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	setmetatile 2, 3, 0x2DD, TRUE
-# 179 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	setobjectxy 3, 13, 0
-# 180 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	setobjectxy 4, 2, 3
-# 181 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	setobjectxyperm 4, 2, 3
-# 182 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	special DrawWholeMapView
-# 183 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	waitmovement 0
-# 184 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox_portrait WingullHouseBetweenCavesInUnderwater_CallWingull_Text_47, FIELD_PIC_WINGULL
-# 185 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	applymovement 1, MovementWingullFromBlender
-# 186 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox_portrait WingullHouseBetweenCavesInUnderwater_CallWingull_Text_48, FIELD_PIC_BIDOOF_NORMAL
-# 187 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	waitmessage
-# 188 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	closemessage
+# 177 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	applymovement 1, MovementOneDown
+# 178 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	setmetatile 2, 2, 0x221, FALSE
+# 179 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	setmetatile 2, 3, 0x2DD, TRUE
+# 180 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	setobjectxy 3, 13, 0
+# 181 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	setobjectxy 4, 2, 3
+# 182 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	setobjectxyperm 4, 2, 3
+# 183 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	special DrawWholeMapView
+# 184 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	waitmovement 0
+# 185 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_portrait WingullHouseBetweenCavesInUnderwater_CallWingull_Text_47, FIELD_PIC_WINGULL
+# 186 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	applymovement 1, MovementWingullFromBlender
+# 187 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_portrait WingullHouseBetweenCavesInUnderwater_CallWingull_Text_48, FIELD_PIC_BIDOOF_NORMAL
+# 188 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	waitmessage
 # 189 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	waitmovement 0
+	closemessage
 # 190 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	applymovement 2, MovementBidoofLeft
+	waitmovement 0
 # 191 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	waitmovement 0
+	applymovement 2, MovementBidoofLeft
 # 192 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	setflag FLAG_BIDOOF_FOLLOWER
-# 193 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	callnative UpdateFollowingPokemon
-# 194 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	removeobject 2
-# 195 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MovementPlayerFaceUp_WingullHouse
-# 196 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	waitmovement 0
+# 193 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	setflag FLAG_BIDOOF_FOLLOWER
+# 194 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	callnative UpdateFollowingPokemon
+# 195 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	removeobject 2
+# 196 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, MovementPlayerFaceUp_WingullHouse
 # 197 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	delay 2
+	waitmovement 0
 # 198 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	delay 2
+# 199 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	setvar VAR_HACK_GAME_STATE, 6
 	goto WingullHouseBetweenCavesInUnderwater_CallWingull_1
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_8:
-# 204 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 205 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	msgbox_portrait WingullHouseBetweenCavesInUnderwater_CallWingull_Text_49, FIELD_PIC_WINGULL
 	goto WingullHouseBetweenCavesInUnderwater_CallWingull_1
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_9:
-# 206 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox_portrait WingullHouseBetweenCavesInUnderwater_CallWingull_Text_50, FIELD_PIC_WINGULL
 # 207 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox_portrait WingullHouseBetweenCavesInUnderwater_CallWingull_Text_50, FIELD_PIC_WINGULL
+# 208 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	setflag FLAG_WINGULL_COMMENTARY_HIKER
 	goto WingullHouseBetweenCavesInUnderwater_CallWingull_1
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_11:
-# 205 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 206 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	goto_if_unset FLAG_WINGULL_COMMENTARY_HIKER, WingullHouseBetweenCavesInUnderwater_CallWingull_9
 	goto WingullHouseBetweenCavesInUnderwater_CallWingull_10
 
@@ -469,30 +471,28 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_26:
 	goto WingullHouseBetweenCavesInUnderwater_CallWingull_19
 
 
-# 217 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementPlayerFaceUp_WingullHouse:
 # 218 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_down
+MovementPlayerFaceUp_WingullHouse:
 # 219 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_up
+	walk_down
 # 220 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_up
+# 221 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
-# 223 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementBidoofLeft:
 # 224 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+MovementBidoofLeft:
 # 225 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_left
 # 226 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_down
+	walk_left
 # 227 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_down
+# 228 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
-# 230 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementWingullFromBlender:
 # 231 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_right
+MovementWingullFromBlender:
 # 232 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_right
 # 233 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -502,25 +502,25 @@ MovementWingullFromBlender:
 # 235 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_right
 # 236 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
+	walk_right
 # 237 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_up
 # 238 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_down
+	walk_up
 # 239 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_down
+# 240 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
-# 242 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementOneDown:
 # 243 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_down
+MovementOneDown:
 # 244 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_down
+# 245 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
-# 247 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementToBlenderWingull:
 # 248 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+MovementToBlenderWingull:
 # 249 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_left
 # 250 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -530,20 +530,20 @@ MovementToBlenderWingull:
 # 252 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_left
 # 253 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
+	walk_left
 # 254 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_up
 # 255 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_up
+# 256 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
-# 258 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementToBlenderPlayer:
 # 259 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	delay_16
+MovementToBlenderPlayer:
 # 260 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	delay_16
 # 261 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+	delay_16
 # 262 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_left
 # 263 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -555,22 +555,22 @@ MovementToBlenderPlayer:
 # 266 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_left
 # 267 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
+	walk_left
 # 268 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_up
 # 269 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_right
+	walk_up
 # 270 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_right
+# 271 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
-# 273 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-MovementToBlenderBidoof:
 # 274 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	delay_16
+MovementToBlenderBidoof:
 # 275 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	delay_16
 # 276 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_left
+	delay_16
 # 277 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_left
 # 278 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -580,45 +580,47 @@ MovementToBlenderBidoof:
 # 280 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_left
 # 281 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
+	walk_left
 # 282 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	walk_up
 # 283 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_left
+	walk_up
 # 284 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_left
+# 285 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
 WingullHouseBetweenCavesInUnderwater_BerryBlenderMachine::
-# 288 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	lockall
 # 289 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	msgbox WingullHouseBetweenCavesInUnderwater_BerryBlenderMachine_Text_0
+	lockall
 # 290 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	msgbox WingullHouseBetweenCavesInUnderwater_BerryBlenderMachine_Text_0
+# 291 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	releaseall
 	end
 
 
-# 294 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-Movement_LookDown:
 # 295 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_down
+Movement_LookDown:
 # 296 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	step_end
-
-# 299 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-Movement_Up:
-# 300 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	walk_up
-# 301 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	face_down
-# 302 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 297 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
-# 305 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-Movement_LookUpWingull:
+# 300 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+Movement_Up:
+# 301 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	walk_up
+# 302 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_down
+# 303 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	step_end
+
 # 306 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	face_up
+Movement_LookUpWingull:
 # 307 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+	face_up
+# 308 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	step_end
 
 WingullHouseBetweenCavesInUnderwater_WeMadeit_Text_0:
@@ -885,33 +887,33 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_46:
 	.string "thing...$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_47:
-# 184 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 185 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	.string "Much better!\p"
 	.string "I'm not going anywhere, so if you need\n"
 	.string "something, just let me know!\l"
 	.string "Smell ya later!$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_48:
-# 186 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 187 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	.string "Alright, {PLAYER}! Let's get out of\n"
 	.string "here!$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_49:
-# 204 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 205 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	.string "Thanks for playing with me! I'm sure\n"
 	.string "we'll see each other again!$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_50:
-# 206 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 207 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	.string "I see you've beaten that Hiker asshole!\n"
 	.string "Nicely done. Seriously, screw him.\p"
 	.string "Thanks for stepping by and sharing the\n"
 	.string "news with me!$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_51:
-# 210 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 211 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	.string "Hey guys! Nice to see you again!$"
 
 WingullHouseBetweenCavesInUnderwater_BerryBlenderMachine_Text_0:
-# 289 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
+# 290 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	.string "It's a Berry Blender.\nIt can't be used at the moment.$"

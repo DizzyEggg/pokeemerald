@@ -25,6 +25,8 @@
 #define TEMP_VARS_END              VAR_TEMP_F
 #define NUM_TEMP_VARS              (TEMP_VARS_END - TEMP_VARS_START + 1)
 
+#define VAR_VALUE_GOT_KOED  0x55
+
 // object gfx id vars
 // These 0x10 vars are used to dynamically control a map object's sprite.
 // For example, the rival's sprite id is dynamically set based on the player's gender.

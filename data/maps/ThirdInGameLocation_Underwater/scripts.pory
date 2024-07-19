@@ -14,6 +14,19 @@ mapscripts ThirdInGameLocation_Underwater_MapScripts {
 			setobjectxyperm(8, 26, 2)
 		}
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, VAR_VALUE_GOT_KOED: ThirdInGameLocation_Underwater_GotKOedByWild
+    ]
+}
+
+script ThirdInGameLocation_Underwater_GotKOedByWild {
+	lock
+	special(HealPlayerParty)
+	msgbox_portrait(format("Golly, {PLAYER}! Your Pokemon fainted!"), FIELD_PIC_BIDOOF_ASTONISHED)
+	msgbox_portrait(format("I'll heal your Party, but you need to be more careful the next time!"), FIELD_PIC_BIDOOF_NORMAL)
+	setvar(VAR_TEMP_0, 0)
+	release
+	end
 }
 
 script ThirdInGameLocation_Underwater_EscapeTrigger {

@@ -49,6 +49,7 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "constants/maps.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -711,17 +712,26 @@ static void DowngradeBadPoison(void)
     }
 }
 
+static bool32 IsHackUnderwaterLocation(void)
+{
+    return (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(THIRD_IN_GAME_LOCATION_UNDERWATER)
+            && gSaveBlock1Ptr->location.mapNum == MAP_NUM(THIRD_IN_GAME_LOCATION_UNDERWATER));
+}
+
 static void CB2_EndWildBattle(void)
 {
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
 
-    if (IsPlayerDefeated(gBattleOutcome) == TRUE && !InBattlePyramid() && !InBattlePike())
+    if (IsPlayerDefeated(gBattleOutcome) == TRUE && !InBattlePyramid() && !InBattlePike()
+        && !IsHackUnderwaterLocation())
     {
         SetMainCallback2(CB2_WhiteOut);
     }
     else
     {
+        if (!gSaveBlock1Ptr->hackGameBeaten && IsPlayerDefeated(gBattleOutcome))
+            VarSet(VAR_TEMP_0, VAR_VALUE_GOT_KOED);
         SetMainCallback2(CB2_ReturnToField);
         DowngradeBadPoison();
         gFieldCallback = FieldCB_ReturnToFieldNoScriptCheckMusic;
