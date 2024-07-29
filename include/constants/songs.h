@@ -552,5 +552,6 @@
 
 // Hack, so that added sounds are basically cries
 #define ADDED_SOUND_FEMALE_LAUGH_1  (NUM_SPECIES + 0)
+#define ADDED_SOUND_EVIL_LAUGH_1  (NUM_SPECIES + 1)
 
 #endif  // GUARD_CONSTANTS_SONGS_H

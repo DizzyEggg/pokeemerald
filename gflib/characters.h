@@ -232,6 +232,7 @@
 #define EXT_CTRL_CODE_RESUME_MUSIC           0x18
 // New ones
 #define EXT_CTRL_CODE_INVERT_SPRITE_PAL      0x19
+#define EXT_CTRL_CODE_PLAY_CRY               0x20
 
 #define TEXT_COLOR_TRANSPARENT  0x0
 #define TEXT_COLOR_WHITE        0x1

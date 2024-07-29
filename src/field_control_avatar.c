@@ -145,9 +145,11 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
 #endif
 }
 
+#define IS_CURRENT_MAP(map)(gSaveBlock1Ptr->location.mapNum == MAP_NUM(map) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(map))
+
 static bool32 IsInDarknessMap(void)
 {
-    return (gSaveBlock1Ptr->location.mapNum == MAP_NUM(DARKNESS_TRANSITION_MAP) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DARKNESS_TRANSITION_MAP));
+    return (IS_CURRENT_MAP(DARKNESS_TRANSITION_MAP));
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)
@@ -409,14 +411,23 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *position
     return bgEvent->bgUnion.script;
 }
 
+static bool32 IsHackFifthLeader(void)
+{
+    return (IS_CURRENT_MAP(MAP_FIFTH_LEADER));
+}
+
 static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 metatileBehavior, u8 direction)
 {
     s8 elevation;
 
     if (MetatileBehavior_IsPlayerFacingTVScreen(metatileBehavior, direction) == TRUE)
         return EventScript_TV;
-    if (MetatileBehavior_IsPC(metatileBehavior) == TRUE)
+    if (MetatileBehavior_IsPC(metatileBehavior) == TRUE) {
+        if (IsHackFifthLeader())
+            return Script_HackFifthLeader;
         return EventScript_PC;
+    }
+
     if (MetatileBehavior_IsClosedSootopolisDoor(metatileBehavior) == TRUE)
         return EventScript_ClosedSootopolisDoor;
     if (MetatileBehavior_IsSkyPillarClosedDoor(metatileBehavior) == TRUE)

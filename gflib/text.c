@@ -1126,6 +1126,13 @@ static u16 RenderText(struct TextPrinter *textPrinter)
                 textPrinter->printerTemplate.currentChar++;
                 PlaySE(currChar);
                 return RENDER_REPEAT;
+            case EXT_CTRL_CODE_PLAY_CRY:
+                currChar = *textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.currentChar++;
+                currChar |= (*textPrinter->printerTemplate.currentChar << 8);
+                textPrinter->printerTemplate.currentChar++;
+                PlayCry_Normal(currChar, 123);
+                return RENDER_REPEAT;
             case EXT_CTRL_CODE_SHIFT_RIGHT:
                 textPrinter->printerTemplate.currentX = textPrinter->printerTemplate.x + *textPrinter->printerTemplate.currentChar;
                 textPrinter->printerTemplate.currentChar++;

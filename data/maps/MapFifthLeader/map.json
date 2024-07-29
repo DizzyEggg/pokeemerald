@@ -1,0 +1,28 @@
+{
+  "id": "MAP_MAP_FIFTH_LEADER",
+  "name": "MapFifthLeader",
+  "layout": "LAYOUT_MAP_FIFTH_LEADER",
+  "music": "MUS_GYM",
+  "region_map_section": "MAPSEC_UNDERWATER_105",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -1032,11 +1032,11 @@ static void PCTurnOnEffect(struct Task *task)
             break;
         case DIR_WEST:
             dx = -1;
-            dy = -1;
+            dy = 0;
             break;
         case DIR_EAST:
             dx = 1;
-            dy = -1;
+            dy = 0;
             break;
         }
 

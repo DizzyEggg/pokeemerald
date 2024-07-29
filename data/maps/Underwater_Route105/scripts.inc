@@ -68,43 +68,88 @@ Script_UnderwaterRoute105_SaveGame::
 
 Underwater_Route105_Sign1::
 # 42 "data/maps/Underwater_Route105/scripts.pory"
+	compare VAR_HACK_GAME_STATE, 15
+	goto_if_ge Underwater_Route105_Sign1_1
+# 53 "data/maps/Underwater_Route105/scripts.pory"
 	random 5
-# 43 "data/maps/Underwater_Route105/scripts.pory"
+# 54 "data/maps/Underwater_Route105/scripts.pory"
 	switch VAR_RESULT
+# 55 "data/maps/Underwater_Route105/scripts.pory"
+	case 0, Underwater_Route105_Sign1_11
+# 56 "data/maps/Underwater_Route105/scripts.pory"
+	case 1, Underwater_Route105_Sign1_12
+# 57 "data/maps/Underwater_Route105/scripts.pory"
+	case 2, Underwater_Route105_Sign1_13
+# 58 "data/maps/Underwater_Route105/scripts.pory"
+	case 3, Underwater_Route105_Sign1_14
+# 59 "data/maps/Underwater_Route105/scripts.pory"
+	case 4, Underwater_Route105_Sign1_15
+	return
+
+Underwater_Route105_Sign1_1:
+# 43 "data/maps/Underwater_Route105/scripts.pory"
+	random 5
 # 44 "data/maps/Underwater_Route105/scripts.pory"
-	case 0, Underwater_Route105_Sign1_2
+	switch VAR_RESULT
 # 45 "data/maps/Underwater_Route105/scripts.pory"
-	case 1, Underwater_Route105_Sign1_3
+	case 0, Underwater_Route105_Sign1_5
 # 46 "data/maps/Underwater_Route105/scripts.pory"
-	case 2, Underwater_Route105_Sign1_4
+	case 1, Underwater_Route105_Sign1_6
 # 47 "data/maps/Underwater_Route105/scripts.pory"
-	case 3, Underwater_Route105_Sign1_5
+	case 2, Underwater_Route105_Sign1_7
 # 48 "data/maps/Underwater_Route105/scripts.pory"
-	case 4, Underwater_Route105_Sign1_6
-	return
-
-Underwater_Route105_Sign1_2:
-# 44 "data/maps/Underwater_Route105/scripts.pory"
-	msgbox Underwater_Route105_Sign1_Text_0, MSGBOX_SIGN
-	return
-
-Underwater_Route105_Sign1_3:
-# 45 "data/maps/Underwater_Route105/scripts.pory"
-	msgbox Underwater_Route105_Sign1_Text_1, MSGBOX_SIGN
-	return
-
-Underwater_Route105_Sign1_4:
-# 46 "data/maps/Underwater_Route105/scripts.pory"
-	msgbox Underwater_Route105_Sign1_Text_2, MSGBOX_SIGN
+	case 3, Underwater_Route105_Sign1_8
+# 49 "data/maps/Underwater_Route105/scripts.pory"
+	case 4, Underwater_Route105_Sign1_9
 	return
 
 Underwater_Route105_Sign1_5:
-# 47 "data/maps/Underwater_Route105/scripts.pory"
-	msgbox Underwater_Route105_Sign1_Text_3, MSGBOX_SIGN
+# 45 "data/maps/Underwater_Route105/scripts.pory"
+	msgbox Underwater_Route105_Sign1_Text_0, MSGBOX_SIGN
 	return
 
 Underwater_Route105_Sign1_6:
+# 46 "data/maps/Underwater_Route105/scripts.pory"
+	msgbox Underwater_Route105_Sign1_Text_1, MSGBOX_SIGN
+	return
+
+Underwater_Route105_Sign1_7:
+# 47 "data/maps/Underwater_Route105/scripts.pory"
+	msgbox Underwater_Route105_Sign1_Text_2, MSGBOX_SIGN
+	return
+
+Underwater_Route105_Sign1_8:
 # 48 "data/maps/Underwater_Route105/scripts.pory"
+	msgbox Underwater_Route105_Sign1_Text_3, MSGBOX_SIGN
+	return
+
+Underwater_Route105_Sign1_9:
+# 49 "data/maps/Underwater_Route105/scripts.pory"
+	msgbox Underwater_Route105_Sign1_Text_4, MSGBOX_SIGN
+	return
+
+Underwater_Route105_Sign1_11:
+# 55 "data/maps/Underwater_Route105/scripts.pory"
+	msgbox Underwater_Route105_Sign1_Text_5, MSGBOX_SIGN
+	return
+
+Underwater_Route105_Sign1_12:
+# 56 "data/maps/Underwater_Route105/scripts.pory"
+	msgbox Underwater_Route105_Sign1_Text_6, MSGBOX_SIGN
+	return
+
+Underwater_Route105_Sign1_13:
+# 57 "data/maps/Underwater_Route105/scripts.pory"
+	msgbox Underwater_Route105_Sign1_Text_7, MSGBOX_SIGN
+	return
+
+Underwater_Route105_Sign1_14:
+# 58 "data/maps/Underwater_Route105/scripts.pory"
+	msgbox Underwater_Route105_Sign1_Text_8, MSGBOX_SIGN
+	return
+
+Underwater_Route105_Sign1_15:
+# 59 "data/maps/Underwater_Route105/scripts.pory"
 	msgbox Underwater_Route105_Sign1_Text_4, MSGBOX_SIGN
 	return
 
@@ -114,21 +159,37 @@ Script_UnderwaterRoute105_SaveGame_Text_0:
 	.string "WAIT...$"
 
 Underwater_Route105_Sign1_Text_0:
-# 44 "data/maps/Underwater_Route105/scripts.pory"
-	.string "Panneau.$"
+# 45 "data/maps/Underwater_Route105/scripts.pory"
+	.string "C'est un panneau.$"
 
 Underwater_Route105_Sign1_Text_1:
-# 45 "data/maps/Underwater_Route105/scripts.pory"
+# 46 "data/maps/Underwater_Route105/scripts.pory"
 	.string "Questo è un cartello.$"
 
 Underwater_Route105_Sign1_Text_2:
-# 46 "data/maps/Underwater_Route105/scripts.pory"
+# 47 "data/maps/Underwater_Route105/scripts.pory"
 	.string "Esto es una señal.$"
 
 Underwater_Route105_Sign1_Text_3:
-# 47 "data/maps/Underwater_Route105/scripts.pory"
+# 48 "data/maps/Underwater_Route105/scripts.pory"
 	.string "This is a signpost.$"
 
 Underwater_Route105_Sign1_Text_4:
-# 48 "data/maps/Underwater_Route105/scripts.pory"
+# 49 "data/maps/Underwater_Route105/scripts.pory"
 	.string "German: TODO.$"
+
+Underwater_Route105_Sign1_Text_5:
+# 55 "data/maps/Underwater_Route105/scripts.pory"
+	.string "C'est PAS un panneau.$"
+
+Underwater_Route105_Sign1_Text_6:
+# 56 "data/maps/Underwater_Route105/scripts.pory"
+	.string "Questo NON è un cartello.$"
+
+Underwater_Route105_Sign1_Text_7:
+# 57 "data/maps/Underwater_Route105/scripts.pory"
+	.string "Esto NO es una señal.$"
+
+Underwater_Route105_Sign1_Text_8:
+# 58 "data/maps/Underwater_Route105/scripts.pory"
+	.string "This is NOT a signpost.$"

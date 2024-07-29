@@ -15,11 +15,13 @@ Underwater_MarineCave_TriggerScript::
 	compare VAR_RESULT, YES
 	goto_if_eq Underwater_MarineCave_TriggerScript_2
 Underwater_MarineCave_TriggerScript_1:
-# 24 "data/maps/Underwater_MarineCave/scripts.pory"
+# 27 "data/maps/Underwater_MarineCave/scripts.pory"
+	closemessage
+# 28 "data/maps/Underwater_MarineCave/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_GoDown
-# 25 "data/maps/Underwater_MarineCave/scripts.pory"
+# 29 "data/maps/Underwater_MarineCave/scripts.pory"
 	waitmovement 0
-# 26 "data/maps/Underwater_MarineCave/scripts.pory"
+# 30 "data/maps/Underwater_MarineCave/scripts.pory"
 	release
 	end
 
@@ -47,37 +49,53 @@ Underwater_MarineCave_TriggerScript_6:
 # 16 "data/maps/Underwater_MarineCave/scripts.pory"
 	delay 30
 # 17 "data/maps/Underwater_MarineCave/scripts.pory"
-	msgbox Underwater_MarineCave_TriggerScript_Text_4
+	msgbox MessageWithLaugh
 # 18 "data/maps/Underwater_MarineCave/scripts.pory"
 	setvar VAR_HACK_GAME_STATE, 16
 # 19 "data/maps/Underwater_MarineCave/scripts.pory"
+	waitmoncry
+# 20 "data/maps/Underwater_MarineCave/scripts.pory"
 	release
+# 21 "data/maps/Underwater_MarineCave/scripts.pory"
+	warpspinenter MAP_MAP_FIFTH_LEADER, 8, 13
+# 22 "data/maps/Underwater_MarineCave/scripts.pory"
+	waitstate
 	end
 
 
-# 30 "data/maps/Underwater_MarineCave/scripts.pory"
+# 34 "data/maps/Underwater_MarineCave/scripts.pory"
 Movement_GoDown:
-# 31 "data/maps/Underwater_MarineCave/scripts.pory"
+# 35 "data/maps/Underwater_MarineCave/scripts.pory"
 	walk_down
-# 32 "data/maps/Underwater_MarineCave/scripts.pory"
+# 36 "data/maps/Underwater_MarineCave/scripts.pory"
 	step_end
 
-# 35 "data/maps/Underwater_MarineCave/scripts.pory"
-
-# 36 "data/maps/Underwater_MarineCave/scripts.pory"
-Underwater_MarineCave_OnTransition:
-# 37 "data/maps/Underwater_MarineCave/scripts.pory"
-	setflag FLAG_ARRIVED_AT_MARINE_CAVE_EMERGE_SPOT
-# 38 "data/maps/Underwater_MarineCave/scripts.pory"
-	end
 # 39 "data/maps/Underwater_MarineCave/scripts.pory"
 
 # 40 "data/maps/Underwater_MarineCave/scripts.pory"
-Underwater_MarineCave_OnResume:
+Underwater_MarineCave_OnTransition:
 # 41 "data/maps/Underwater_MarineCave/scripts.pory"
-	setdivewarp MAP_MARINE_CAVE_ENTRANCE, 10, 17
+	setflag FLAG_ARRIVED_AT_MARINE_CAVE_EMERGE_SPOT
 # 42 "data/maps/Underwater_MarineCave/scripts.pory"
 	end
+# 43 "data/maps/Underwater_MarineCave/scripts.pory"
+
+# 44 "data/maps/Underwater_MarineCave/scripts.pory"
+Underwater_MarineCave_OnResume:
+# 45 "data/maps/Underwater_MarineCave/scripts.pory"
+	setdivewarp MAP_MARINE_CAVE_ENTRANCE, 10, 17
+# 46 "data/maps/Underwater_MarineCave/scripts.pory"
+	end
+# 47 "data/maps/Underwater_MarineCave/scripts.pory"
+	
+# 48 "data/maps/Underwater_MarineCave/scripts.pory"
+MessageWithLaugh:
+# 49 "data/maps/Underwater_MarineCave/scripts.pory"
+.string "But it failed!\pT{PAUSE 30}H{PAUSE 30}E{PAUSE 30}R{PAUSE 30}E I{PAUSE 30}S N{PAUSE 30}O E{PAUSE 30}S{PAUSE 30}{PLAY_CRY}"
+# 50 "data/maps/Underwater_MarineCave/scripts.pory"
+.2byte ADDED_SOUND_EVIL_LAUGH_1
+# 51 "data/maps/Underwater_MarineCave/scripts.pory"
+.string "C{PAUSE 30}A{PAUSE 30}P{PAUSE 30}IN{PAUSE 30}G\n{COLOR BLUE}UNDERWATER{COLOR DARK_GRAY}$"
 
 Underwater_MarineCave_TriggerScript_Text_0:
 # 8 "data/maps/Underwater_MarineCave/scripts.pory"
@@ -95,7 +113,3 @@ Underwater_MarineCave_TriggerScript_Text_2:
 Underwater_MarineCave_TriggerScript_Text_3:
 # 14 "data/maps/Underwater_MarineCave/scripts.pory"
 	.string "{PLAYER} is about to emerge!$"
-
-Underwater_MarineCave_TriggerScript_Text_4:
-# 17 "data/maps/Underwater_MarineCave/scripts.pory"
-	.string "But it failed!\pT{PAUSE 30}-H{PAUSE 30}-E{PAUSE 30}-R{PAUSE 30}-E I{PAUSE 30}-S N{PAUSE 30}-O E{PAUSE 30}-S{PAUSE 30}-C{PAUSE 30}-A{PAUSE 30}-P-{PAUSE 30}I-N{PAUSE 30}-G\n{COLOR BLUE}UNDERWATER{COLOR DARK_GRAY}$"

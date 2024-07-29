@@ -43,6 +43,8 @@ extern const u8 EventScript_BidoofFollowerTypicalMsg[];
 
 extern const u8 BerryTreeScript[];
 
+extern const u8 Script_HackFifthLeader[];
+
 extern const u8 gTVBravoTrainerText00[];
 extern const u8 gTVBravoTrainerText01[];
 extern const u8 gTVBravoTrainerText02[];

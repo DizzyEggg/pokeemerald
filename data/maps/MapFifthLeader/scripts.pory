@@ -1,0 +1,12 @@
+mapscripts MapFifthLeader_MapScripts {}
+
+script Script_HackFifthLeader {
+	lockall
+	setvar(VAR_0x8004, PC_LOCATION_OTHER)
+	special(DoPCTurnOnEffect)
+	playse(SE_PC_ON)
+	msgbox(Text_BootUpPC, MSGBOX_DEFAULT)
+	msgbox("...\pHey! Don't turn me on like that!")
+	releaseall
+	end
+}

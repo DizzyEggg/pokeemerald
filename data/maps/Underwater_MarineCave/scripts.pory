@@ -14,9 +14,12 @@ script Underwater_MarineCave_TriggerScript {
 				msgbox("{PLAYER} is about to emerge!")
 				fadeoutbgm(5)
 				delay(30)
-				msgbox("But it failed!\pT{PAUSE 30}-H{PAUSE 30}-E{PAUSE 30}-R{PAUSE 30}-E I{PAUSE 30}-S N{PAUSE 30}-O E{PAUSE 30}-S{PAUSE 30}-C{PAUSE 30}-A{PAUSE 30}-P-{PAUSE 30}I-N{PAUSE 30}-G\n{COLOR BLUE}UNDERWATER{COLOR DARK_GRAY}")
+				msgbox(MessageWithLaugh)
 				setvar(VAR_HACK_GAME_STATE, 16)
+				waitmoncry
 				release
+				warpspinenter(MAP_MAP_FIFTH_LEADER, 8, 13)
+				waitstate
 				end
 			}
 		}
@@ -41,5 +44,10 @@ Underwater_MarineCave_OnTransition:
 Underwater_MarineCave_OnResume:
 	setdivewarp MAP_MARINE_CAVE_ENTRANCE, 10, 17
 	end
+	
+MessageWithLaugh:
+.string "But it failed!\pT{PAUSE 30}H{PAUSE 30}E{PAUSE 30}R{PAUSE 30}E I{PAUSE 30}S N{PAUSE 30}O E{PAUSE 30}S{PAUSE 30}{PLAY_CRY}"
+.2byte ADDED_SOUND_EVIL_LAUGH_1
+.string "C{PAUSE 30}A{PAUSE 30}P{PAUSE 30}IN{PAUSE 30}G\n{COLOR BLUE}UNDERWATER{COLOR DARK_GRAY}$"
 
 `

@@ -389,6 +389,10 @@ DirectSoundWaveData_unknown_17::
 	.align 2
 Cry_Female_Laugh_1::
 	.incbin "sound/direct_sound_samples/female_laugh_1.bin"
+	
+	.align 2
+Cry_Evil_Laugh_1::
+	.incbin "sound/direct_sound_samples/evil_laughter.bin"
 
 .if P_CRIES_ENABLED == TRUE
 .if P_FAMILY_BULBASAUR == TRUE

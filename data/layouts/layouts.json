@@ -4490,6 +4490,16 @@
       "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/DarknessTransitionMap/border.bin",
       "blockdata_filepath": "data/layouts/DarknessTransitionMap/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAP_FIFTH_LEADER",
+      "name": "MapFifthLeader_Layout",
+      "width": 15,
+      "height": 15,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/MapFifthLeader/border.bin",
+      "blockdata_filepath": "data/layouts/MapFifthLeader/map.bin"
     }
   ]
 }
