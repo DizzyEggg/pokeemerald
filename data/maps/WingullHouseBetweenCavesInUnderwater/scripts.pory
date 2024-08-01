@@ -24,7 +24,7 @@ script WingullHouseBetweenCavesInUnderwater_WeMadeit {
 	applymovement(OBJ_EVENT_ID_PLAYER, Movement_Up)
 	waitmovement(0)
 	msgbox_portrait(format("Whew, we did it!\pNice thinking with the rock-switch, {PLAYER}!"), FIELD_PIC_BIDOOF_NORMAL)
-	msgbox_portrait(format("Though...We were underwater and now we're inside...a house? Talk about ambient change. This whole area is so messed up, {PLAYER}. It could be some sort of illusion, or even a spell. I'm not exactly sure."), FIELD_PIC_BIDOOF_ASTONISHED)
+	msgbox_portrait(format("Though…We were underwater and now we're inside…a house? Talk about ambient change. This whole area is so messed up, {PLAYER}. It could be some sort of illusion, or even a spell. I'm not exactly sure."), FIELD_PIC_BIDOOF_ASTONISHED)
 	msgbox_portrait(format("In any case, let's explore and continue forward."), FIELD_PIC_BIDOOF_NORMAL)
 	setvar(VAR_HACK_GAME_STATE, 4)
 	setflag(FLAG_RECEIVED_RUNNING_SHOES)
@@ -58,7 +58,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			playse(SE_BIKE_BELL)
 			waitse
 			delay(30)
-			msgbox_portrait("Hmm...Let's try again.", FIELD_PIC_BIDOOF_NORMAL)
+			msgbox_portrait("Hmm…Let's try again.", FIELD_PIC_BIDOOF_NORMAL)
 			closemessage
 			playse(SE_M_HEAL_BELL)
 			waitse
@@ -84,7 +84,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			msgbox("WHO?!")
 			delay(30)
 			waitmessage
-			msgbox("Who is it...")
+			msgbox("Who is it…")
 			playse(SE_THUNDER)
 			delay(20)
 			msgbox("SPEAK!")
@@ -93,7 +93,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			closemessage
 			msgbox("W{PAUSE 30}A{PAUSE 30}I{PAUSE 30}T!")
 			waitmessage
-			msgbox(format("I can't let you {PAUSE 20}go that easily..."))
+			msgbox(format("I can't let you {PAUSE 20}go that easily…"))
 			waitmessage
 			msgbox_portrait("Golly!", FIELD_PIC_BIDOOF_ASTONISHED)
 			closemessage
@@ -108,7 +108,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			callnative(FadeOutAllExceptBg0AndMugshots)
 			delay(5)
 			msgbox_portrait("Hey y'all! I'm Wingull!\nWingull, the gull!", FIELD_PIC_WINGULL)
-			msgbox_portrait("...\pReally?\lTalk about anticlamatic...", FIELD_PIC_BIDOOF_ASTONISHED)
+			msgbox_portrait("…\pReally?\lTalk about anticlamatic…", FIELD_PIC_BIDOOF_ASTONISHED)
 			msgbox_portrait("Hmm? You were sayin'?", FIELD_PIC_WINGULL)
 			msgbox_portrait("Golly, no! Nothing!", FIELD_PIC_BIDOOF_ASTONISHED)
 			msgbox_portrait(format("Welcome in my humble domain!\nThe rules are simple: if you wish to pass, you'll need to defeat me in a duel!"), FIELD_PIC_WINGULL)
@@ -118,14 +118,14 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			setwildbattle(SPECIES_WINGULL, 19)
 			dowildbattle
 			setvar(VAR_HACK_GAME_STATE, 5)
-			msgbox_portrait("Hey!\nLet me finish first!\pWe'll have a...\la...\la...\la...\la...\la...\la...\la...", FIELD_PIC_WINGULL)
+			msgbox_portrait("Hey!\nLet me finish first!\pWe'll have a…\la…\la…\la…\la…\la…\la…\la…", FIELD_PIC_WINGULL)
 			msgbox_portrait("Oh come on!\nSpit it out already!", FIELD_PIC_BIDOOF_ASTONISHED)
 			load_field_pic(FIELD_PIC_WINGULL, MSG_PORTRAIT_X, MSG_PORTRAIT_Y, VAR_0x8008)
-			msgbox_portrait("As I was saying!\pWe'll have a...\lBerry Blending duel!", FIELD_PIC_WINGULL)
+			msgbox_portrait("As I was saying!\pWe'll have a…\lBerry Blending duel!", FIELD_PIC_WINGULL)
 			playse(SE_APPLAUSE)
 			waitse
 			destroy_field_pic(FIELD_PIC_WINGULL, VAR_0x8008)
-			msgbox_portrait(format("Right, exactly what I had in mind..."), FIELD_PIC_BIDOOF_ASTONISHED)
+			msgbox_portrait(format("Right, exactly what I had in mind…"), FIELD_PIC_BIDOOF_ASTONISHED)
 			msgbox_portrait("Follow me!", FIELD_PIC_WINGULL)
 			closemessage
 			applymovement(1, MovementToBlenderWingull)
@@ -140,8 +140,8 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			msgbox_portrait("What about the rules?", FIELD_PIC_BIDOOF_NORMAL)
 			msgbox_portrait("Rules? You want me to explain\nthe rules?", FIELD_PIC_WINGULL, MSGBOX_YESNO)
 			if (var(VAR_RESULT) == 1) {
-				msgbox_portrait(format("Well, ugh...\nYou throw a Berry and then the thing spins...I'm sure you'll quickly get the hang of it!"), FIELD_PIC_WINGULL)
-				msgbox_portrait("For sure...", FIELD_PIC_BIDOOF_ASTONISHED)
+				msgbox_portrait(format("Well, ugh…\nYou throw a Berry and then the thing spins…I'm sure you'll quickly get the hang of it!"), FIELD_PIC_WINGULL)
+				msgbox_portrait("For sure…", FIELD_PIC_BIDOOF_ASTONISHED)
 			} else {
 				msgbox_portrait("Yeah, I'm sure you already know them!", FIELD_PIC_WINGULL)
 			}
@@ -160,7 +160,7 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			case 3: msgbox_portrait(format("It took you 4 tries, but you've got it. Grats!"), FIELD_PIC_WINGULL)
 			case 4: msgbox_portrait(format("You got me, not bad!"), FIELD_PIC_WINGULL)
 			case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12: case 13: msgbox_portrait(format("You did it champ! It took you long enough, but you beat me fair and square."), FIELD_PIC_WINGULL)
-			default: msgbox_portrait(format("Well...Every streak has to end, mine too! As for you, I fell like you'll have enough Berry Blending for quite some time, haha!"), FIELD_PIC_WINGULL)
+			default: msgbox_portrait(format("Well…Every streak has to end, mine too! As for you, I fell like you'll have enough Berry Blending for quite some time, haha!"), FIELD_PIC_WINGULL)
 			}
 			message("{PLAYER} received the Blender Badge\nfrom Wingull.")
 			waitmessage
@@ -168,11 +168,11 @@ script WingullHouseBetweenCavesInUnderwater_CallWingull {
 			setflag(FLAG_BADGE01_GET)
 			setflag(FLAG_WINGULL_BLENDER_BEATEN)
 			msgbox_portrait(format("You earned it, champ!"), FIELD_PIC_WINGULL)
-			msgbox_portrait(format("Oh, I see {PLAYER}!\nIf things were normal, you would've received a Badge only after beating a Gym leader! I believe there are 8 Gym Leaders you need to beat, before facing the ultimate challenge. Or something similar, I'm not 100% sure.\l...\lGiven the actual state of affairs here, you'll probably obtain the badges in other, weirder ways, just like here with Wingull."), FIELD_PIC_BIDOOF_NORMAL)
+			msgbox_portrait(format("Oh, I see {PLAYER}!\nIf things were normal, you would've received a Badge only after beating a Gym leader! I believe there are 8 Gym Leaders you need to beat, before facing the ultimate challenge. Or something similar, I'm not 100% sure.\l…\lGiven the actual state of affairs here, you'll probably obtain the badges in other, weirder ways, just like here with Wingull."), FIELD_PIC_BIDOOF_NORMAL)
 			msgbox_portrait(format("Golly! I struggle to think what the next 'Gym Leader' will be like!"), FIELD_PIC_BIDOOF_ASTONISHED)
-			msgbox_portrait(format("That's how things work here in the Underwater.\lThough, Bidoof. Out of everyone, you should've known that already.\lAfter all..."), FIELD_PIC_WINGULL)
+			msgbox_portrait(format("That's how things work here in the Underwater.\lThough, Bidoof. Out of everyone, you should've known that already.\lAfter all…"), FIELD_PIC_WINGULL)
 			msgbox_portrait(format("What are you even talking about!? Whatever, {PLAYER} won, which means we can leave."), FIELD_PIC_BIDOOF_ASTONISHED)
-			msgbox_portrait(format("I was hoping you'd stay here for a bit longer! But it's fine! Let me move this thing..."), FIELD_PIC_WINGULL)
+			msgbox_portrait(format("I was hoping you'd stay here for a bit longer! But it's fine! Let me move this thing…"), FIELD_PIC_WINGULL)
 			closemessage
 			applymovement(1, MovementOneDown)
 			setmetatile(2, 2, 0x221, FALSE) // Wall shadow

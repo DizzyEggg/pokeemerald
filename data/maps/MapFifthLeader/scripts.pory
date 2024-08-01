@@ -5,8 +5,31 @@ script Script_HackFifthLeader {
 	setvar(VAR_0x8004, PC_LOCATION_OTHER)
 	special(DoPCTurnOnEffect)
 	playse(SE_PC_ON)
-	msgbox(Text_BootUpPC, MSGBOX_DEFAULT)
-	msgbox("...\pHey! Don't turn me on like that!")
+	if (flag(FLAG_FIFTH_LEADER_BEATEN) != TRUE) {
+		if (flag(FLAG_FIFTH_EXPLAINED) == TRUE) {
+		Script_HackFifthLeader_StartChallengeAsk:
+			msgbox("Are you ready?", MSGBOX_YESNO)
+			if (var(VAR_RESULT) == YES) {
+				callnative(ChooseMonsForPCChallenge)
+				waitstate
+				setflag(B_FLAG_AI_VS_AI_BATTLE)
+				trainerbattle_no_intro(TRAINER_ROTOM_PC_CHALLENGE, "Wow, you did it!")
+				clearflag(B_FLAG_AI_VS_AI_BATTLE)
+			}
+		}
+		else {
+			msgbox(Text_BootUpPC, MSGBOX_DEFAULT)
+			msgbox(format("…\pHey! Don't turn me on like that!\pAnyway, welcome challenger! I am the first…no, not first. Fifth…I think! I am the fifth gym leader! In order to proceed, you will need to defeat me. However! We won't have a regular battle like usual. We'll have a…hmm special kind of battle I guess. Let me explain…\pSo…\pUgh, I'm not good with explaining. You know what? Screw the script. Basically, he wanted to me to be some sort of a 'cheater' challenge, but with a twist. The twist being that it'll be ME controlling your Pokemon! Cool stuff, huh? I'm sure you were NOT expecting this! And that's not all! You will be able to choose almost ANY Pokemon in this challenge!\pWhere's the catch? Well, your team will be against 3 legendaries, {COLOR BLUE}Kyogre{COLOR DARK_GRAY}, {COLOR RED}Groudon{COLOR DARK_GRAY} and {COLOR GREEN}Rayquaza{COLOR DARK_GRAY}. Oh, and you cannot choose neither legendary nor mythical Pokemon.\pHmm? You're saying it's not fair? Well, who told you it was even supposed to be fair! Uff, that's some wall of text you've just had to read, huh?"))
+			msgbox(format("Don't worry, I'm finished. You can choose your Pokemon and we can start the challenge!"))
+			setflag(FLAG_FIFTH_EXPLAINED)
+			goto(Script_HackFifthLeader_StartChallengeAsk)
+		}
+	}
+	else {
+		
+	}
+	playse(SE_PC_OFF)
+	special(DoPCTurnOffEffect)
 	releaseall
 	end
 }

@@ -1583,6 +1583,22 @@ u8 LoadSpritePalette(const struct SpritePalette *palette)
     }
 }
 
+u32 ForceLoadSpritePalette(const struct SpritePalette *palette)
+{
+    u32 index = IndexOfSpritePaletteTag(TAG_NONE);
+
+    if (index == 0xFF)
+    {
+        return 0xFF;
+    }
+    else
+    {
+        sSpritePaletteTags[index] = palette->tag;
+        DoLoadSpritePalette(palette->data, PLTT_ID(index));
+        return index;
+    }
+}
+
 void LoadSpritePalettes(const struct SpritePalette *palettes)
 {
     u32 i;

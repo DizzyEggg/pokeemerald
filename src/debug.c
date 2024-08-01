@@ -675,7 +675,7 @@ const u8 *const gText_DigitIndicator[] =
     sDebugText_Digit_10000000
 };
 
-static const s32 sPowersOfTen[] =
+const s32 gPowersOfTen[] =
 {
              1,
             10,
@@ -1934,13 +1934,13 @@ static void DebugAction_Util_Warp_SelectMapGroup(u8 taskId)
         PlaySE(SE_SELECT);
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > LAST_MAP_GROUP)
                 gTasks[taskId].tInput = LAST_MAP_GROUP;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
@@ -1995,13 +1995,13 @@ static void DebugAction_Util_Warp_SelectMap(u8 taskId)
         PlaySE(SE_SELECT);
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > max_value - 1)
                 gTasks[taskId].tInput = max_value - 1;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
@@ -2051,13 +2051,13 @@ static void DebugAction_Util_Warp_SelectWarp(u8 taskId)
         PlaySE(SE_SELECT);
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > 10)
                 gTasks[taskId].tInput = 10;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
@@ -2241,13 +2241,13 @@ static void DebugAction_Util_Weather_SelectId(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > WEATHER_ROUTE123_CYCLE)
                 gTasks[taskId].tInput = WEATHER_ROUTE123_CYCLE;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < WEATHER_NONE)
                 gTasks[taskId].tInput = WEATHER_NONE;
         }
@@ -2453,14 +2453,14 @@ static void DebugAction_FlagsVars_FlagsSelect(u8 taskId)
     if (JOY_NEW(DPAD_UP))
     {
         PlaySE(SE_SELECT);
-        gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+        gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
         if (gTasks[taskId].tInput >= FLAGS_COUNT)
             gTasks[taskId].tInput = FLAGS_COUNT - 1;
     }
     if (JOY_NEW(DPAD_DOWN))
     {
         PlaySE(SE_SELECT);
-        gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+        gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
         if (gTasks[taskId].tInput < 1)
             gTasks[taskId].tInput = 1;
     }
@@ -2531,13 +2531,13 @@ static void DebugAction_FlagsVars_Select(u8 taskId)
 {
     if (JOY_NEW(DPAD_UP))
     {
-        gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+        gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
         if (gTasks[taskId].tInput > VARS_END)
             gTasks[taskId].tInput = VARS_END;
     }
     if (JOY_NEW(DPAD_DOWN))
     {
-        gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+        gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
         if (gTasks[taskId].tInput < VARS_START)
             gTasks[taskId].tInput = VARS_START;
     }
@@ -2607,8 +2607,8 @@ static void DebugAction_FlagsVars_SetValue(u8 taskId)
 {
     if (JOY_NEW(DPAD_UP))
     {
-        if (gTasks[taskId].data[6] + sPowersOfTen[gTasks[taskId].tDigit] <= 32000)
-            gTasks[taskId].data[6] += sPowersOfTen[gTasks[taskId].tDigit];
+        if (gTasks[taskId].data[6] + gPowersOfTen[gTasks[taskId].tDigit] <= 32000)
+            gTasks[taskId].data[6] += gPowersOfTen[gTasks[taskId].tDigit];
         else
             gTasks[taskId].data[6] = 32000 - 1;
 
@@ -2617,7 +2617,7 @@ static void DebugAction_FlagsVars_SetValue(u8 taskId)
     }
     if (JOY_NEW(DPAD_DOWN))
     {
-        gTasks[taskId].data[6] -= sPowersOfTen[gTasks[taskId].tDigit];
+        gTasks[taskId].data[6] -= gPowersOfTen[gTasks[taskId].tDigit];
         if (gTasks[taskId].data[6] < 0)
             gTasks[taskId].data[6] = 0;
     }
@@ -2967,13 +2967,13 @@ static void DebugAction_Give_Item_SelectId(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput >= ITEMS_COUNT)
                 gTasks[taskId].tInput = ITEMS_COUNT - 1;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 1)
                 gTasks[taskId].tInput = 1;
         }
@@ -3041,13 +3041,13 @@ static void DebugAction_Give_Item_SelectQuantity(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > MAX_BAG_ITEM_CAPACITY)
                 gTasks[taskId].tInput = MAX_BAG_ITEM_CAPACITY;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 1)
                 gTasks[taskId].tInput = 1;
         }
@@ -3209,13 +3209,13 @@ static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput >= NUM_SPECIES)
                 gTasks[taskId].tInput = NUM_SPECIES - 1;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 1)
                 gTasks[taskId].tInput = 1;
         }
@@ -3276,13 +3276,13 @@ static void DebugAction_Give_Pokemon_SelectLevel(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > MAX_LEVEL)
                 gTasks[taskId].tInput = MAX_LEVEL;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 1)
                 gTasks[taskId].tInput = 1;
         }
@@ -3389,13 +3389,13 @@ static void DebugAction_Give_Pokemon_SelectNature(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > NUM_NATURES-1)
                 gTasks[taskId].tInput = NUM_NATURES-1;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
@@ -3445,13 +3445,13 @@ static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > abilityCount)
                 gTasks[taskId].tInput = abilityCount;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
@@ -3499,13 +3499,13 @@ static void DebugAction_Give_Pokemon_SelectIVs(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > MAX_PER_STAT_IVS)
                 gTasks[taskId].tInput = MAX_PER_STAT_IVS;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
@@ -3649,13 +3649,13 @@ static void DebugAction_Give_Pokemon_SelectEVs(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > MAX_PER_STAT_EVS)
                 gTasks[taskId].tInput = MAX_PER_STAT_EVS;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
@@ -3810,13 +3810,13 @@ static void DebugAction_Give_Pokemon_Move(u8 taskId)
 
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput >= MOVES_COUNT)
                 gTasks[taskId].tInput = MOVES_COUNT - 1;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
@@ -4272,13 +4272,13 @@ static void DebugAction_Sound_SE_SelectId(u8 taskId)
     {
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > END_SE)
                 gTasks[taskId].tInput = END_SE;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 1)
                 gTasks[taskId].tInput = 1;
         }
@@ -4354,13 +4354,13 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     {
         if (JOY_NEW(DPAD_UP))
         {
-            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput += gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > END_MUS)
                 gTasks[taskId].tInput = END_MUS;
         }
         if (JOY_NEW(DPAD_DOWN))
         {
-            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            gTasks[taskId].tInput -= gPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < START_MUS)
                 gTasks[taskId].tInput = START_MUS;
         }

@@ -240,6 +240,16 @@ void LoadMonIconPalette(u16 species)
         LoadSpritePalette(&gMonIconPaletteTable[palIndex]);
 }
 
+u32 ForceLoadMonIconPalette(u32 species, u32 tag)
+{
+    u8 palIndex = gSpeciesInfo[SanitizeSpeciesId(species)].iconPalIndex;
+    struct SpritePalette sprPal;
+    sprPal.data = gMonIconPaletteTable[palIndex].data;
+    sprPal.tag = tag;
+
+    return ForceLoadSpritePalette(&sprPal);
+}
+
 void LoadMonIconPalettePersonality(u16 species, u32 personality)
 {
     u8 palIndex;

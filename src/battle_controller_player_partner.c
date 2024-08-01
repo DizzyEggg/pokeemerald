@@ -305,6 +305,14 @@ static void PlayerPartnerHandleDrawTrainerPic(u32 battler)
     }
     else if (IsAiVsAiBattle())
     {
+        if (gTrainerBattleOpponent_A == TRAINER_ROTOM_PC_CHALLENGE)
+        {
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+            xPos = 80;
+            yPos = (8 - gTrainerBacksprites[trainerPicId].coordinates.size) * 4 + 80;
+            BtlController_HandleDrawTrainerPic(battler, trainerPicId, FALSE, xPos, yPos, -1);
+            return;
+        }
         trainerPicId = GetTrainerPicFromId(gPartnerTrainerId);
         xPos = 60;
         yPos = 80;
@@ -433,6 +441,14 @@ static void PlayerPartnerHandleHealthBarUpdate(u32 battler)
 static void PlayerPartnerHandleIntroTrainerBallThrow(u32 battler)
 {
     const u32 *trainerPal;
+
+    if (gTrainerBattleOpponent_A == TRAINER_ROTOM_PC_CHALLENGE)
+    {
+        extern void PlayerHandleIntroTrainerBallThrow(u32 battler);
+
+        PlayerHandleIntroTrainerBallThrow(battler);
+        return;
+    }
 
     if (gPartnerTrainerId > TRAINER_PARTNER(PARTNER_NONE))
         trainerPal = gTrainerBacksprites[gBattlePartners[gPartnerTrainerId - TRAINER_PARTNER(PARTNER_NONE)].trainerPic].palette.data;

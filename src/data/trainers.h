@@ -29784,6 +29784,48 @@ F_TRAINER_FEMALE |
             .heldItem = ITEM_ORAN_BERRY,
             },
         },
+    },
+    [TRAINER_ROTOM_PC_CHALLENGE] =
+    {
+        .trainerName = _("???"),
+        .trainerClass = TRAINER_CLASS_PC,
+        .trainerPic = TRAINER_PIC_PC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES | AI_FLAG_OMNISCIENT,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+            .species = SPECIES_KYOGRE,
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            .ev = TRAINER_PARTY_EVS(100, 100, 100, 100, 100, 100),
+            .lvl = 50,
+            .nature = NATURE_DOCILE,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {MOVE_WATER_SPOUT, MOVE_ICE_BEAM, MOVE_EARTHQUAKE, MOVE_THUNDER},
+            .heldItem = ITEM_WISE_GLASSES,
+            },
+            {
+            .species = SPECIES_GROUDON,
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            .ev = TRAINER_PARTY_EVS(100, 100, 100, 100, 100, 100),
+            .lvl = 50,
+            .nature = NATURE_DOCILE,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {MOVE_SOLAR_BEAM, MOVE_ERUPTION, MOVE_EARTHQUAKE, MOVE_THUNDERPUNCH},
+            .heldItem = ITEM_MUSCLE_BAND,
+            },
+            {
+            .species = SPECIES_RAYQUAZA,
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            .ev = TRAINER_PARTY_EVS(100, 100, 100, 100, 100, 100),
+            .lvl = 50,
+            .nature = NATURE_DOCILE,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {MOVE_DRAGON_DANCE, MOVE_OUTRAGE, MOVE_EXTREMESPEED, MOVE_DRACO_METEOR},
+            .heldItem = ITEM_PERSIM_BERRY,
+            },
+        },
     }
-
 };

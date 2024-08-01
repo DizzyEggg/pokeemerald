@@ -44,7 +44,7 @@ script SecondChallengeRoom_HikerBattle {
 	getbyte(gBattleOutcome, VAR_RESULT)
 	if (var(VAR_RESULT) == B_OUTCOME_LOST) {
 		msgbox_portrait(format("You lost, punk.\pYou need stronger Pokemon, if you want to defeat me."), FIELD_PIC_HIKER)
-		msgbox_portrait(format("Ow...Don't worry, {PLAYER}! I'm sure you'll beat this guy. Look around the place, try to find new Pokemon and come with a better plan next time!\pFor now, let's get your Party members healed."), FIELD_PIC_BIDOOF_NORMAL)
+		msgbox_portrait(format("Ow…Don't worry, {PLAYER}! I'm sure you'll beat this guy. Look around the place, try to find new Pokemon and come with a better plan next time!\pFor now, let's get your Party members healed."), FIELD_PIC_BIDOOF_NORMAL)
 		waitmessage
 		closemessage
 		special(HealPlayerParty)

@@ -631,8 +631,8 @@ WingullHouseBetweenCavesInUnderwater_WeMadeit_Text_0:
 
 WingullHouseBetweenCavesInUnderwater_WeMadeit_Text_1:
 # 27 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "Though...We were underwater and now\n"
-	.string "we're inside...a house? Talk about\l"
+	.string "Though…We were underwater and now\n"
+	.string "we're inside…a house? Talk about\l"
 	.string "ambient change. This whole area is so\l"
 	.string "messed up, {PLAYER}. It could be some\l"
 	.string "sort of illusion, or even a spell. I'm not\l"
@@ -661,7 +661,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_0:
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_1:
 # 61 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "Hmm...Let's try again.$"
+	.string "Hmm…Let's try again.$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_2:
 # 67 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -683,7 +683,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_5:
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_6:
 # 87 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "Who is it...$"
+	.string "Who is it…$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_7:
 # 90 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -700,7 +700,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_9:
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_10:
 # 96 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "I can't let you {PAUSE 20}go that easily...$"
+	.string "I can't let you {PAUSE 20}go that easily…$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_11:
 # 98 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -716,7 +716,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_13:
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_14:
 # 111 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "...\pReally?\lTalk about anticlamatic...$"
+	.string "…\pReally?\lTalk about anticlamatic…$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_15:
 # 112 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -742,7 +742,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_19:
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_20:
 # 121 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "Hey!\nLet me finish first!\pWe'll have a...\la...\la...\la...\la...\la...\la...\la...$"
+	.string "Hey!\nLet me finish first!\pWe'll have a…\la…\la…\la…\la…\la…\la…\la…$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_21:
 # 122 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -750,11 +750,11 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_21:
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_22:
 # 124 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "As I was saying!\pWe'll have a...\lBerry Blending duel!$"
+	.string "As I was saying!\pWe'll have a…\lBerry Blending duel!$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_23:
 # 128 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "Right, exactly what I had in mind...$"
+	.string "Right, exactly what I had in mind…$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_24:
 # 129 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -785,14 +785,14 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_28:
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_29:
 # 143 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "Well, ugh...\n"
+	.string "Well, ugh…\n"
 	.string "You throw a Berry and then the thing\l"
-	.string "spins...I'm sure you'll quickly get the\l"
+	.string "spins…I'm sure you'll quickly get the\l"
 	.string "hang of it!$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_30:
 # 144 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "For sure...$"
+	.string "For sure…$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_31:
 # 146 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -833,7 +833,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_38:
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_39:
 # 163 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	.string "Well...Every streak has to end, mine too!\n"
+	.string "Well…Every streak has to end, mine too!\n"
 	.string "As for you, I fell like you'll have\l"
 	.string "enough Berry Blending for quite some\l"
 	.string "time, haha!$"
@@ -855,7 +855,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_42:
 	.string "Leaders you need to beat, before\l"
 	.string "facing the ultimate challenge. Or\l"
 	.string "something similar, I'm not 100% sure.\l"
-	.string "...\l"
+	.string "…\l"
 	.string "Given the actual state of affairs here,\l"
 	.string "you'll probably obtain the badges in\l"
 	.string "other, weirder ways, just like here with\l"
@@ -872,7 +872,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_44:
 	.string "Underwater.\l"
 	.string "Though, Bidoof. Out of everyone, you\l"
 	.string "should've known that already.\l"
-	.string "After all...$"
+	.string "After all…$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_45:
 # 174 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
@@ -884,7 +884,7 @@ WingullHouseBetweenCavesInUnderwater_CallWingull_Text_46:
 # 175 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	.string "I was hoping you'd stay here for a bit\n"
 	.string "longer! But it's fine! Let me move this\l"
-	.string "thing...$"
+	.string "thing…$"
 
 WingullHouseBetweenCavesInUnderwater_CallWingull_Text_47:
 # 185 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"

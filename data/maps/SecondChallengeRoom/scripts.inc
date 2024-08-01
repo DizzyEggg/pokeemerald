@@ -557,7 +557,7 @@ SecondChallengeRoom_HikerBattle_Text_0:
 
 SecondChallengeRoom_HikerBattle_Text_1:
 # 47 "data/maps/SecondChallengeRoom/scripts.pory"
-	.string "Ow...Don't worry, {PLAYER}! I'm sure\n"
+	.string "Ow…Don't worry, {PLAYER}! I'm sure\n"
 	.string "you'll beat this guy. Look around the\l"
 	.string "place, try to find new Pokemon and come\l"
 	.string "with a better plan next time!\p"

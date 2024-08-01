@@ -377,6 +377,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     TRAINER_CLASS(PIKE_QUEEN, "PIKE QUEEN"),
     TRAINER_CLASS(PYRAMID_KING, "PYRAMID KING"),
     TRAINER_CLASS(RS_PROTAG, "{PKMN} TRAINER"),
+    TRAINER_CLASS(PC, "PC"),
 };
 
 static void (* const sTurnActionsFuncsTable[])(void) =
@@ -5396,7 +5397,11 @@ static void HandleEndTurn_BattleLost(void)
     }
     else
     {
-        if (gTrainerBattleOpponent_A != TRAINER_HIKER_CHALLENGE && !IsSuicuneBattle() && !IsHackUnderwaterLocation())
+        // Note: I should've done a flag instead lol
+        if (gTrainerBattleOpponent_A != TRAINER_HIKER_CHALLENGE
+            && gTrainerBattleOpponent_A != TRAINER_ROTOM_PC_CHALLENGE
+            && !IsSuicuneBattle()
+            && !IsHackUnderwaterLocation())
             gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
     }
 
