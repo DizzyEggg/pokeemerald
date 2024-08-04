@@ -5630,17 +5630,28 @@ static u32 AddEggMovesToArray(u32 species, u16 *moves, u16 *learnedMoves, u32 nu
     return numMoves;
 }
 
-u32 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
+static u32 AddTmMovesToArray(u32 species, u16 *moves, u16 *learnedMoves, u32 numMoves)
 {
-    u16 learnedMoves[4];
+    int i;
+    const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
+
+    for (i = 0; teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
+        numMoves = TryAddMoveToArray(moves, learnedMoves, numMoves, teachableLearnset[i]);
+
+    return numMoves;
+}
+
+u32 SpeciesGetMoveRelearnerMoves(struct Pokemon *mon, u32 species, u32 level, u16 *moves, bool32 addTmsTutors)
+{
+    u16 learnedMoves[4] = {0};
     u32 numMoves = 0;
-    u32 species = GetMonData(mon, MON_DATA_SPECIES, 0);
-    u32 level = GetMonData(mon, MON_DATA_LEVEL, 0);
     const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
     int i;
 
-    for (i = 0; i < MAX_MON_MOVES; i++)
-        learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+    if (mon != NULL) {
+        for (i = 0; i < MAX_MON_MOVES; i++)
+            learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+    }
 
     if (gSaveBlock1Ptr->hackGameBeaten)
     {
@@ -5651,12 +5662,30 @@ u32 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     {
         u32 eggSpecies = GetEggSpecies(species);
         numMoves = GetMovesBeforeLvl(moves, learnedMoves, learnset, level, numMoves);
-        numMoves = GetMovesBeforeLvl(moves, learnedMoves, GetSpeciesLevelUpLearnset(eggSpecies), level, numMoves);
         numMoves = AddEggMovesToArray(species, moves, learnedMoves, numMoves);
-        numMoves = AddEggMovesToArray(eggSpecies, moves, learnedMoves, numMoves);
+        if (eggSpecies != species)
+        {
+            numMoves = GetMovesBeforeLvl(moves, learnedMoves, GetSpeciesLevelUpLearnset(eggSpecies), level, numMoves);
+            numMoves = AddEggMovesToArray(eggSpecies, moves, learnedMoves, numMoves);
+        }
+        if (addTmsTutors)
+            numMoves = AddTmMovesToArray(species, moves, learnedMoves, numMoves);
     }
 
     return numMoves;
+}
+
+u32 GetAllSpeciesMoves(u32 species, u32 level, u16 *moves)
+{
+    u32 numMoves = SpeciesGetMoveRelearnerMoves(NULL, species, level, moves, TRUE);
+    return numMoves;
+}
+
+u32 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
+{
+    u32 species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    u32 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+    return SpeciesGetMoveRelearnerMoves(mon, species, level, moves, FALSE);
 }
 
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
@@ -5788,6 +5817,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_MAGMA_ADMIN:
             return MUS_VS_AQUA_MAGMA;
         case TRAINER_CLASS_LEADER:
+        case TRAINER_CLASS_PC:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_CHAMPION:
             return MUS_VS_CHAMPION;

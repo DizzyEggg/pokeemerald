@@ -18,6 +18,7 @@ enum {
     CURSOR_INVISIBLE,
     CURSOR_RED_OUTLINE,
     CURSOR_RED_ARROW,
+    CURSOR_BLACK_ARROW_FORCE_FONT,
 };
 
 enum {
@@ -54,8 +55,8 @@ struct ListMenuTemplate
     u8 lettersSpacing:3;
     u8 itemVerticalPadding:3;
     u8 scrollMultiple:2; // x40, x80 = xC0
-    u8 fontId:6; // x1, x2, x4, x8, x10, x20 = x3F
-    u8 cursorKind:2; // x40, x80
+    u8 fontId:5; // x1, x2, x4, x8, x10, x20 = x3F
+    u8 cursorKind:3; // x40, x80
 };
 
 struct ListMenu
@@ -107,6 +108,11 @@ struct CursorStruct
 extern struct ScrollArrowsTemplate gTempScrollArrowTemplate;
 extern struct ListMenuTemplate gMultiuseListMenuTemplate;
 
+void ListMenuPrint(struct ListMenuTemplate *list, const u8 *str, s32 x, s32 y);
+void ListMenuPrintEntries(struct ListMenuTemplate *list, s32 startIndex, s32 yOffset, s32 count);
+s32 ListMenuGetYMultiplier(struct ListMenuTemplate *list);
+s32 ListMenuGetRowY(struct ListMenuTemplate *list, s32 yOffset, s32 yMultiplier, s32 row);
+s32 ListMenuGetRowX(struct ListMenuTemplate *list, s32 startIndex);
 s32 DoMysteryGiftListMenu(const struct WindowTemplate *windowTemplate, const struct ListMenuTemplate *listMenuTemplate, u8 drawMode, u16 tileNum, u16 palNum);
 u8 ListMenuInit(struct ListMenuTemplate *listMenuTemplate, u16 scrollOffset, u16 selectedRow);
 u8 ListMenuInitInRect(struct ListMenuTemplate *listMenuTemplate, struct ListMenuWindowRect *rect, u16 scrollOffset, u16 selectedRow);

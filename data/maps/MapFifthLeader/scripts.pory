@@ -10,11 +10,13 @@ script Script_HackFifthLeader {
 		Script_HackFifthLeader_StartChallengeAsk:
 			msgbox("Are you ready?", MSGBOX_YESNO)
 			if (var(VAR_RESULT) == YES) {
+				special(SavePlayerParty)
 				callnative(ChooseMonsForPCChallenge)
 				waitstate
 				setflag(B_FLAG_AI_VS_AI_BATTLE)
 				trainerbattle_no_intro(TRAINER_ROTOM_PC_CHALLENGE, "Wow, you did it!")
 				clearflag(B_FLAG_AI_VS_AI_BATTLE)
+				special(LoadPlayerParty)
 			}
 		}
 		else {
