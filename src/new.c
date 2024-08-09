@@ -9,6 +9,7 @@
 #include "list_menu.h"
 #include "item_icon.h"
 #include "string_util.h"
+#include "field_message_box.h"
 #include "menu_specialized.h"
 #include "bg.h"
 #include "sound.h"
@@ -322,6 +323,8 @@ void ChooseMonsForPCChallenge(void)
     s32 windowId;
     sChooseMonsPtr = AllocZeroed(sizeof(*sChooseMonsPtr));
     TryLoadPreviousTeam();
+
+    ShowFieldMessage(COMPOUND_STRING("Choose 3 Pokemon."));
 
     LoadMessageBoxAndBorderGfx();
     sChooseMonsPtr->windowId = windowId = AddWindow(&sChooseMonsWindow);
@@ -698,6 +701,16 @@ static void ValidSpeciesCheck(s32 *val, s32 incrementBy)
     }
 }
 
+static void ValidItemCheck(s32 *val, s32 incrementBy)
+{
+    while (gItemsInfo[*val].holdEffect == 0)
+    {
+        (*val) += incrementBy;
+        if (*val == 0 || *val >= sChooseMonsPtr->modifyMaxValue)
+            break;
+    }
+}
+
 static void HighlightMoveOnMenu(u32 color, const u8 *moveName)
 {
     struct ListMenuTemplate *listTemplate = GetListMenuTemplate(sChooseMonsPtr->moveListMenuTask);
@@ -922,8 +935,12 @@ void Task_InputChooseMons(u8 taskId)
                 if (sChooseMonsPtr->modifyCurrValue > sChooseMonsPtr->modifyMaxValue)
                     sChooseMonsPtr->modifyCurrValue = sChooseMonsPtr->modifyMaxValue;
 
-                if (sChooseMonsPtr->optionsCursor == MODIFY_SPECIES) {
-                    ValidSpeciesCheck(&sChooseMonsPtr->modifyCurrValue, 1);
+                if (sChooseMonsPtr->optionsCursor == MODIFY_SPECIES || sChooseMonsPtr->optionsCursor == MODIFY_ITEM) {
+                    if (sChooseMonsPtr->optionsCursor == MODIFY_SPECIES)
+                        ValidSpeciesCheck(&sChooseMonsPtr->modifyCurrValue, 1);
+                    else
+                        ValidItemCheck(&sChooseMonsPtr->modifyCurrValue, 1);
+
                     if (sChooseMonsPtr->modifyCurrValue > sChooseMonsPtr->modifyMaxValue)
                         sChooseMonsPtr->modifyCurrValue = sChooseMonsPtr->modifyMaxValue;
                 }
@@ -940,6 +957,10 @@ void Task_InputChooseMons(u8 taskId)
                 }
                 if (sChooseMonsPtr->optionsCursor == MODIFY_SPECIES) {
                     ValidSpeciesCheck(&sChooseMonsPtr->modifyCurrValue, -1);
+                }
+                else if (sChooseMonsPtr->optionsCursor == MODIFY_ITEM) {
+                    if (sChooseMonsPtr->modifyCurrValue > 0)
+                        ValidItemCheck(&sChooseMonsPtr->modifyCurrValue, -1);
                 }
                 changed = TRUE;
             }

@@ -17,6 +17,14 @@ script Script_HackFifthLeader {
 				trainerbattle_no_intro(TRAINER_ROTOM_PC_CHALLENGE, "Wow, you did it!")
 				clearflag(B_FLAG_AI_VS_AI_BATTLE)
 				special(LoadPlayerParty)
+				getbyte(gBattleOutcome, VAR_RESULT)
+				if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+					msgbox(format("Won't be that easy, hm? Try to think of a better team next time!"))
+				}
+				else {
+					msgbox(format("Awesome work!"))
+					setflag(FLAG_FIFTH_LEADER_BEATEN)
+				}
 			}
 		}
 		else {

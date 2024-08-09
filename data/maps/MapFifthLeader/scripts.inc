@@ -14,26 +14,26 @@ Script_HackFifthLeader::
 # 8 "data/maps/MapFifthLeader/scripts.pory"
 	goto_if_unset FLAG_FIFTH_LEADER_BEATEN, Script_HackFifthLeader_2
 Script_HackFifthLeader_1:
-# 31 "data/maps/MapFifthLeader/scripts.pory"
+# 41 "data/maps/MapFifthLeader/scripts.pory"
 	playse SE_PC_OFF
-# 32 "data/maps/MapFifthLeader/scripts.pory"
+# 42 "data/maps/MapFifthLeader/scripts.pory"
 	special DoPCTurnOffEffect
-# 33 "data/maps/MapFifthLeader/scripts.pory"
+# 43 "data/maps/MapFifthLeader/scripts.pory"
 	releaseall
 	end
 
 Script_HackFifthLeader_2:
 # 9 "data/maps/MapFifthLeader/scripts.pory"
 	goto_if_set FLAG_FIFTH_EXPLAINED, Script_HackFifthLeader_5
-# 21 "data/maps/MapFifthLeader/scripts.pory"
+# 31 "data/maps/MapFifthLeader/scripts.pory"
 	msgbox Text_BootUpPC, MSGBOX_DEFAULT
-# 22 "data/maps/MapFifthLeader/scripts.pory"
-	msgbox Script_HackFifthLeader_Text_2
-# 23 "data/maps/MapFifthLeader/scripts.pory"
-	msgbox Script_HackFifthLeader_Text_3
-# 24 "data/maps/MapFifthLeader/scripts.pory"
+# 32 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox Script_HackFifthLeader_Text_4
+# 33 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox Script_HackFifthLeader_Text_5
+# 34 "data/maps/MapFifthLeader/scripts.pory"
 	setflag FLAG_FIFTH_EXPLAINED
-# 25 "data/maps/MapFifthLeader/scripts.pory"
+# 35 "data/maps/MapFifthLeader/scripts.pory"
 	goto Script_HackFifthLeader_StartChallengeAsk
 	goto Script_HackFifthLeader_1
 
@@ -49,15 +49,33 @@ Script_HackFifthLeader_StartChallengeAsk:
 
 Script_HackFifthLeader_8:
 # 13 "data/maps/MapFifthLeader/scripts.pory"
-	callnative ChooseMonsForPCChallenge
+	special SavePlayerParty
 # 14 "data/maps/MapFifthLeader/scripts.pory"
-	waitstate
+	callnative ChooseMonsForPCChallenge
 # 15 "data/maps/MapFifthLeader/scripts.pory"
-	setflag B_FLAG_AI_VS_AI_BATTLE
+	waitstate
 # 16 "data/maps/MapFifthLeader/scripts.pory"
-	trainerbattle_no_intro TRAINER_ROTOM_PC_CHALLENGE, Script_HackFifthLeader_Text_1
+	setflag B_FLAG_AI_VS_AI_BATTLE
 # 17 "data/maps/MapFifthLeader/scripts.pory"
+	trainerbattle_no_intro TRAINER_ROTOM_PC_CHALLENGE, Script_HackFifthLeader_Text_1
+# 18 "data/maps/MapFifthLeader/scripts.pory"
 	clearflag B_FLAG_AI_VS_AI_BATTLE
+# 19 "data/maps/MapFifthLeader/scripts.pory"
+	special LoadPlayerParty
+# 20 "data/maps/MapFifthLeader/scripts.pory"
+	getbyte gBattleOutcome, VAR_RESULT
+# 21 "data/maps/MapFifthLeader/scripts.pory"
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq Script_HackFifthLeader_10
+# 25 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox Script_HackFifthLeader_Text_3
+# 26 "data/maps/MapFifthLeader/scripts.pory"
+	setflag FLAG_FIFTH_LEADER_BEATEN
+	goto Script_HackFifthLeader_1
+
+Script_HackFifthLeader_10:
+# 22 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox Script_HackFifthLeader_Text_2
 	goto Script_HackFifthLeader_1
 
 
@@ -66,11 +84,20 @@ Script_HackFifthLeader_Text_0:
 	.string "Are you ready?$"
 
 Script_HackFifthLeader_Text_1:
-# 16 "data/maps/MapFifthLeader/scripts.pory"
+# 17 "data/maps/MapFifthLeader/scripts.pory"
 	.string "Wow, you did it!$"
 
 Script_HackFifthLeader_Text_2:
 # 22 "data/maps/MapFifthLeader/scripts.pory"
+	.string "Won't be that easy, hm? Take your time\n"
+	.string "and think of a better team next time!$"
+
+Script_HackFifthLeader_Text_3:
+# 25 "data/maps/MapFifthLeader/scripts.pory"
+	.string "Awesome work!$"
+
+Script_HackFifthLeader_Text_4:
+# 32 "data/maps/MapFifthLeader/scripts.pory"
 	.string "…\p"
 	.string "Hey! Don't turn me on like that!\p"
 	.string "Anyway, welcome challenger! I am the\n"
@@ -101,8 +128,8 @@ Script_HackFifthLeader_Text_2:
 	.string "fair! Uff, that's some wall of text\l"
 	.string "you've just had to read, huh?$"
 
-Script_HackFifthLeader_Text_3:
-# 23 "data/maps/MapFifthLeader/scripts.pory"
+Script_HackFifthLeader_Text_5:
+# 33 "data/maps/MapFifthLeader/scripts.pory"
 	.string "Don't worry, I'm finished. You can\n"
 	.string "choose your Pokemon and we can start\l"
 	.string "the challenge!$"
