@@ -16,6 +16,7 @@ void FieldCB_ReturnToFieldWirelessLink(void);
 void FieldCB_DefaultWarpExit(void);
 void FieldCB_WarpExitFadeFromBlack(void);
 void FieldCB_WarpExitFadeFromWhite(void);
+void FieldCB_RushInjuredPokemonToCenter(void);
 bool8 FieldCB_ReturnToFieldOpenStartMenu(void);
 void ReturnToFieldOpenStartMenu(void);
 void FieldCB_ReturnToFieldNoScript(void);

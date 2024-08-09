@@ -7,11 +7,13 @@
 #include "field_effect.h"
 #include "event_object_lock.h"
 #include "event_object_movement.h"
+#include "event_scripts.h"
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "field_special_scene.h"
 #include "field_weather.h"
 #include "gpu_regs.h"
+#include "heal_location.h"
 #include "io_reg.h"
 #include "link.h"
 #include "link_rfu.h"
@@ -26,10 +28,13 @@
 #include "script.h"
 #include "sound.h"
 #include "start_menu.h"
+#include "strings.h"
+#include "string_util.h"
 #include "task.h"
 #include "text.h"
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
+#include "constants/heal_locations.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
 #include "trainer_hill.h"
@@ -1273,4 +1278,113 @@ static void Task_EnableScriptAfterMusicFade(u8 taskId)
         DestroyTask(taskId);
         ScriptContext_Enable();
     }
+}
+
+static const struct WindowTemplate sWindowTemplate_WhiteoutText =
+{
+    .bg = 0,
+    .tilemapLeft = 0,
+    .tilemapTop = 5,
+    .width = 30,
+    .height = 11,
+    .paletteNum = 15,
+    .baseBlock = 1,
+};
+
+static const u8 sWhiteoutTextColors[] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY };
+
+#define tState         data[0]
+#define tWindowId      data[1]
+#define tPrintState    data[2]
+#define tIsPlayerHouse data[3]
+
+static bool32 PrintWhiteOutRecoveryMessage(u8 taskId, const u8 *text, u32 x, u32 y)
+{
+    u32 windowId = gTasks[taskId].tWindowId;
+
+    switch (gTasks[taskId].tPrintState)
+    {
+    case 0:
+        FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
+        StringExpandPlaceholders(gStringVar4, text);
+        AddTextPrinterParameterized4(windowId, FONT_NORMAL, x, y, 1, 0, sWhiteoutTextColors, 1, gStringVar4);
+        gTextFlags.canABSpeedUpPrint = FALSE;
+        gTasks[taskId].tPrintState = 1;
+        break;
+    case 1:
+        RunTextPrinters();
+        if (!IsTextPrinterActive(windowId))
+        {
+            gTasks[taskId].tPrintState = 0;
+            return TRUE;
+        }
+        break;
+    }
+    return FALSE;
+}
+
+enum {
+    FRLG_WHITEOUT_ENTER_MSG_SCREEN,
+    FRLG_WHITEOUT_PRINT_MSG,
+    FRLG_WHITEOUT_LEAVE_MSG_SCREEN,
+    FRLG_WHITEOUT_HEAL_SCRIPT,
+};
+
+static void Task_RushInjuredPokemonToCenter(u8 taskId)
+{
+    u32 windowId;
+
+    switch (gTasks[taskId].tState)
+    {
+    case FRLG_WHITEOUT_ENTER_MSG_SCREEN:
+        windowId = AddWindow(&sWindowTemplate_WhiteoutText);
+        gTasks[taskId].tWindowId = windowId;
+        Menu_LoadStdPalAt(BG_PLTT_ID(15));
+        FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
+        PutWindowTilemap(windowId);
+        CopyWindowToVram(windowId, COPYWIN_FULL);
+
+        gTasks[taskId].tIsPlayerHouse = IsLastHealLocationPlayerHouse();
+        gTasks[taskId].tState = FRLG_WHITEOUT_PRINT_MSG;
+        break;
+    case FRLG_WHITEOUT_PRINT_MSG:
+    {
+        const u8 *recoveryMessage = gTasks[taskId].tIsPlayerHouse == TRUE ? gText_PlayerScurriedBackHome : gText_PlayerScurriedToCenter;
+        if (PrintWhiteOutRecoveryMessage(taskId, recoveryMessage, 2, 8))
+        {
+            ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
+            gTasks[taskId].tState = FRLG_WHITEOUT_LEAVE_MSG_SCREEN;
+        }
+        break;
+    }
+    case FRLG_WHITEOUT_LEAVE_MSG_SCREEN:
+        windowId = gTasks[taskId].tWindowId;
+        ClearWindowTilemap(windowId);
+        CopyWindowToVram(windowId, COPYWIN_MAP);
+        RemoveWindow(windowId);
+        FillPalBufferBlack();
+        FadeInFromBlack();
+        gTasks[taskId].tState = FRLG_WHITEOUT_HEAL_SCRIPT;
+        break;
+    case FRLG_WHITEOUT_HEAL_SCRIPT:
+        if (WaitForWeatherFadeIn() == TRUE)
+        {
+            DestroyTask(taskId);
+            if (gTasks[taskId].tIsPlayerHouse)
+                ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);
+            else
+                ScriptContext_SetupScript(EventScript_AfterWhiteOutHeal);
+        }
+        break;
+    }
+}
+
+void FieldCB_RushInjuredPokemonToCenter(void)
+{
+    u8 taskId;
+
+    LockPlayerFieldControls();
+    FillPalBufferBlack();
+    taskId = CreateTask(Task_RushInjuredPokemonToCenter, 10);
+    gTasks[taskId].tState = FRLG_WHITEOUT_ENTER_MSG_SCREEN;
 }

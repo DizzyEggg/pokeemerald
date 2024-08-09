@@ -89,8 +89,8 @@ Script_HackFifthLeader_Text_1:
 
 Script_HackFifthLeader_Text_2:
 # 22 "data/maps/MapFifthLeader/scripts.pory"
-	.string "Won't be that easy, hm? Take your time\n"
-	.string "and think of a better team next time!$"
+	.string "Won't be that easy, hm? Try to think of\n"
+	.string "a better team next time!$"
 
 Script_HackFifthLeader_Text_3:
 # 25 "data/maps/MapFifthLeader/scripts.pory"

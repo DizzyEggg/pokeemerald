@@ -626,6 +626,8 @@ extern const u8 EventScript_SelectWithoutRegisteredItem[];
 
 // overworld
 extern const u8 EventScript_WhiteOut[];
+extern const u8 EventScript_AfterWhiteOutMomHeal[];
+extern const u8 EventScript_AfterWhiteOutHeal[];
 extern const u8 EventScript_ResetMrBriney[];
 extern const u8 EventScript_DoLinkRoomExit[];
 extern const u8 CableClub_EventScript_TooBusyToNotice[];
