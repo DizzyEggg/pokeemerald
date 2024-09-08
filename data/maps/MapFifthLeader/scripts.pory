@@ -17,6 +17,7 @@ script Script_HackFifthLeader {
 				trainerbattle_no_intro(TRAINER_ROTOM_PC_CHALLENGE, "Wow, you did it!")
 				clearflag(B_FLAG_AI_VS_AI_BATTLE)
 				special(LoadPlayerParty)
+				callnative(UpdateFollowingPokemon)
 				getbyte(gBattleOutcome, VAR_RESULT)
 				if (var(VAR_RESULT) == B_OUTCOME_LOST) {
 					msgbox(format("Won't be that easy, hm? Try to think of a better team next time!"))
@@ -32,6 +33,7 @@ script Script_HackFifthLeader {
 					dowildbattle
 					if (var(VAR_RESULT) != B_OUTCOME_CAUGHT) {
 						msgbox_portrait(format("Well, now I'm really done. It was nice seeing you!"), FIELD_PIC_ROTOM)
+						closemessage
 						fadescreen(FADE_TO_BLACK)
 						delay(3)
 						fadescreen(FADE_FROM_BLACK)
@@ -42,7 +44,7 @@ script Script_HackFifthLeader {
 					}
 					setvar(VAR_HACK_GAME_STATE, 17)
 					msgbox(format("Thank you for playing Pokemon Emerald Underwater! The first part of the Story ends here. What happened with Bidoof? And what with the remaining Badges? Find out in the next update!"))
-					special(SaveGame)
+					callnative(ScrCmd_SaveGame)
 					special(DoSoftReset)
 				}
 			}
