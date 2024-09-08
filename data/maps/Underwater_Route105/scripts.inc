@@ -69,7 +69,7 @@ Script_UnderwaterRoute105_SaveGame::
 Underwater_Route105_Sign1::
 # 42 "data/maps/Underwater_Route105/scripts.pory"
 	compare VAR_HACK_GAME_STATE, 15
-	goto_if_ge Underwater_Route105_Sign1_1
+	goto_if_lt Underwater_Route105_Sign1_1
 # 53 "data/maps/Underwater_Route105/scripts.pory"
 	random 5
 # 54 "data/maps/Underwater_Route105/scripts.pory"

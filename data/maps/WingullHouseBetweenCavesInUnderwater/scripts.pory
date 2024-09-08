@@ -27,7 +27,7 @@ script WingullHouseBetweenCavesInUnderwater_WeMadeit {
 	msgbox_portrait(format("Though…We were underwater and now we're inside…a house? Talk about ambient change. This whole area is so messed up, {PLAYER}. It could be some sort of illusion, or even a spell. I'm not exactly sure."), FIELD_PIC_BIDOOF_ASTONISHED)
 	msgbox_portrait(format("In any case, let's explore and continue forward."), FIELD_PIC_BIDOOF_NORMAL)
 	setvar(VAR_HACK_GAME_STATE, 4)
-	setflag(FLAG_RECEIVED_RUNNING_SHOES)
+	setflag(FLAG_SYS_B_DASH)
 	waitmessage
 	closemessage
 	end

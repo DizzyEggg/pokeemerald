@@ -71,7 +71,7 @@
 #define FLAG_UNUSED_0x03A    0x3A // Unused Flag
 #define FLAG_UNUSED_0x03B    0x3B // Unused Flag
 #define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
+#define FLAG_ROTOM_CAUGHT    0x3D
 #define FLAG_FIFTH_LEADER_BEATEN    0x3E
 #define FLAG_AI_VS_AI_FLAG    0x3F
 #define FLAG_FIFTH_EXPLAINED    0x40

@@ -3003,6 +3003,8 @@ static void ClearSetBScriptingStruct(void)
 
     gBattleScripting.windowsType = temp;
     gBattleScripting.battleStyle = gSaveBlock2Ptr->optionsBattleStyle;
+    if (!gSaveBlock1Ptr->hackGameBeaten)
+        gBattleScripting.battleStyle = OPTIONS_BATTLE_STYLE_SET;
     gBattleScripting.expOnCatch = (B_EXP_CATCH >= GEN_6);
     gBattleScripting.specialTrainerBattleType = specialBattleType;
 }

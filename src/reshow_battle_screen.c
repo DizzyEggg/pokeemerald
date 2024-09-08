@@ -277,7 +277,11 @@ static void CreateHealthboxSprite(u32 battler)
         u8 healthboxSpriteId;
 
         if (gBattleTypeFlags & BATTLE_TYPE_SAFARI && battler == B_POSITION_PLAYER_LEFT)
+        {
+            if (IsFirstHackEncounter())
+                return;
             healthboxSpriteId = CreateSafariPlayerHealthboxSprites();
+        }
         else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL && battler == B_POSITION_PLAYER_LEFT)
             return;
         else

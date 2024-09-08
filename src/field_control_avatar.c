@@ -152,6 +152,11 @@ static bool32 IsInDarknessMap(void)
     return (IS_CURRENT_MAP(DARKNESS_TRANSITION_MAP));
 }
 
+static bool32 CanOpenOverworldDebug(void)
+{
+    return FALSE;
+}
+
 int ProcessPlayerFieldInput(struct FieldInput *input)
 {
     struct MapPosition position;
@@ -226,7 +231,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
 
 
 #if DEBUG_OVERWORLD_MENU == TRUE && DEBUG_OVERWORLD_IN_MENU == FALSE
-    if (input->input_field_1_2)
+    if (CanOpenOverworldDebug() && input->input_field_1_2)
     {
         PlaySE(SE_WIN_OPEN);
         FreezeObjectEvents();

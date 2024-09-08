@@ -39,7 +39,7 @@ script Script_UnderwaterRoute105_SaveGame {
 }
 
 script Underwater_Route105_Sign1 {
-	if (var(VAR_HACK_GAME_STATE) >= 15) {
+	if (var(VAR_HACK_GAME_STATE) < 15) {
 		random(5)
 		switch (var(VAR_RESULT)) {
 			case 0: msgbox("C'est un panneau.", MSGBOX_SIGN)

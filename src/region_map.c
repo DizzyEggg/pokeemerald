@@ -1574,6 +1574,13 @@ u8 *GetMapName(u8 *dest, u16 regionMapId, u16 padLength)
     {
         str = GetSecretBaseMapName(dest);
     }
+    else if (regionMapId == MAPSEC_WINGULLS_DEN)
+    {
+        if (FlagGet(FLAG_WINGULL_BLENDER_BEATEN))
+            str = StringCopy(dest, COMPOUND_STRING("Wingull's Den"));
+        else
+            str = StringCopy(dest, COMPOUND_STRING(""));
+    }
     else if (regionMapId < MAPSEC_NONE)
     {
         str = StringCopy(dest, gRegionMapEntries[regionMapId].name);
@@ -1586,6 +1593,7 @@ u8 *GetMapName(u8 *dest, u16 regionMapId, u16 padLength)
         }
         return StringFill(dest, CHAR_SPACE, padLength);
     }
+
     if (padLength != 0)
     {
         for (i = str - dest; i < padLength; i++)

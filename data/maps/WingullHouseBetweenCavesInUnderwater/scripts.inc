@@ -53,7 +53,7 @@ WingullHouseBetweenCavesInUnderwater_WeMadeit::
 # 29 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	setvar VAR_HACK_GAME_STATE, 4
 # 30 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
-	setflag FLAG_RECEIVED_RUNNING_SHOES
+	setflag FLAG_SYS_B_DASH
 # 31 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"
 	waitmessage
 # 32 "data/maps/WingullHouseBetweenCavesInUnderwater/scripts.pory"

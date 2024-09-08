@@ -118,6 +118,7 @@ static const u8 sRegionMapSectionId_To_PopUpThemeIdMapping[] =
     [MAPSEC_ROUTE_118] = MAPPOPUP_THEME_WOOD,
     [MAPSEC_ROUTE_119] = MAPPOPUP_THEME_WOOD,
     [MAPSEC_ROUTE_120] = MAPPOPUP_THEME_WOOD,
+    [MAPSEC_WINGULLS_DEN] = MAPPOPUP_THEME_WOOD,
     [MAPSEC_ROUTE_121] = MAPPOPUP_THEME_WOOD,
     [MAPSEC_ROUTE_122] = MAPPOPUP_THEME_UNDERWATER,
     [MAPSEC_ROUTE_123] = MAPPOPUP_THEME_WOOD,
@@ -550,7 +551,7 @@ static void ShowMapNamePopUpWindow(void)
     if (OW_POPUP_GENERATION == GEN_5)
     {
         AddTextPrinterParameterized(mapNamePopUpWindowId, FONT_SHORT, mapDisplayHeader, 8, 2, TEXT_SKIP_DRAW, NULL);
-        
+
         if (OW_POPUP_BW_TIME_MODE != OW_POPUP_BW_TIME_NONE)
         {
             RtcCalcLocalTime();
@@ -622,7 +623,7 @@ static void LoadMapNamePopUpWindowBg(void)
     if (OW_POPUP_GENERATION == GEN_5)
     {
         popUpThemeId = sRegionMapSectionId_To_PopUpThemeIdMapping_BW[regionMapSectionId];
-        switch (popUpThemeId) 
+        switch (popUpThemeId)
         {
             // add additional gen 5-style pop-up themes as cases here
             case MAPPOPUP_THEME_BW_DEFAULT:

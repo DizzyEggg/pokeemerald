@@ -248,6 +248,11 @@ static u32 GetNextBall(u32 ballId)
         return ballNext;
 }
 
+static bool32 CanOpenBattleDebug(void)
+{
+    return FALSE;
+}
+
 static void HandleInputChooseAction(u32 battler)
 {
     u16 itemId = gBattleResources->bufferA[battler][2] | (gBattleResources->bufferA[battler][3] << 8);
@@ -411,7 +416,7 @@ static void HandleInputChooseAction(u32 battler)
     {
         SwapHpBarsWithHpText();
     }
-    else if (DEBUG_BATTLE_MENU == TRUE && JOY_NEW(SELECT_BUTTON))
+    else if (DEBUG_BATTLE_MENU == TRUE && JOY_NEW(SELECT_BUTTON) && CanOpenBattleDebug())
     {
         BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_DEBUG, 0);
         PlayerBufferExecCompleted(battler);
@@ -1757,7 +1762,7 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     }
     else
     {
-        end = StringCopy(txtPtr, gTypesInfo[type].name);       
+        end = StringCopy(txtPtr, gTypesInfo[type].name);
     }
 
     PrependFontIdToFit(txtPtr, end, FONT_NORMAL, WindowWidthPx(B_WIN_MOVE_TYPE) - 25);

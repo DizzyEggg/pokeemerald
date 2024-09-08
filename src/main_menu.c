@@ -627,6 +627,7 @@ enum
     HAS_MYSTERY_EVENTS, //CONTINUE, NEW GAME, MYSTERY GIFT, MYSTERY EVENTS, OPTION
     HAS_ONLY_NEW_GAME_QM,  //NEW GAME?
     HAS_ONLY_CONTINUE_QM,  //CONTINUE?
+    HAS_ONLY_TO_BE_CONTINUED_QM,  //To be continued...
 };
 
 enum
@@ -854,7 +855,10 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
         }
         else if (!gSaveBlock1Ptr->hackGameBeaten)
         {
-            tMenuType = HAS_ONLY_CONTINUE_QM;
+            if (VarGet(VAR_HACK_GAME_STATE) == 17)
+                tMenuType = HAS_ONLY_TO_BE_CONTINUED_QM;
+            else
+                tMenuType = HAS_ONLY_CONTINUE_QM;
             tItemCount = 1;
         }
     }
@@ -908,6 +912,7 @@ static void Task_WaitForBatteryDryErrorWindow(u8 taskId)
 
 static const u8 sText_NewGameQM[] = _("New Game?");
 static const u8 sText_Continue_QM[] = _("Continue?");
+static const u8 sText_TBC_QM[] = _("To be Continued...");
 
 static void Task_DisplayMainMenu(u8 taskId)
 {
@@ -974,6 +979,13 @@ static void Task_DisplayMainMenu(u8 taskId)
             case HAS_ONLY_CONTINUE_QM:
                 FillWindowPixelBuffer(0, PIXEL_FILL(0xA));
                 AddTextPrinterParameterized3(0, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, sText_Continue_QM);
+                PutWindowTilemap(0);
+                CopyWindowToVram(0, COPYWIN_GFX);
+                DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[0], MAIN_MENU_BORDER_TILE);
+                break;
+            case HAS_ONLY_TO_BE_CONTINUED_QM:
+                FillWindowPixelBuffer(0, PIXEL_FILL(0xA));
+                AddTextPrinterParameterized3(0, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, sText_TBC_QM);
                 PutWindowTilemap(0);
                 CopyWindowToVram(0, COPYWIN_GFX);
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[0], MAIN_MENU_BORDER_TILE);
@@ -1139,6 +1151,8 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
         wirelessAdapterConnected = IsWirelessAdapterConnected();
         switch (gTasks[taskId].tMenuType)
         {
+            case HAS_ONLY_TO_BE_CONTINUED_QM:
+                while (1);
             case HAS_ONLY_NEW_GAME_QM:
                 action = ACTION_NEW_GAME;
                 break;

@@ -24,6 +24,26 @@ script Script_HackFifthLeader {
 				else {
 					msgbox(format("Awesome work!"))
 					setflag(FLAG_FIFTH_LEADER_BEATEN)
+					message("{PLAYER} received the Fifth Badge!")
+					waitmessage
+					call(Common_EventScript_PlayGymBadgeFanfare)
+					msgbox(format("Now that you've completed my challenge, I won't keep you here any longer. You're free to go.\pMy work here is done.\pOr is it?"))
+					setwildbattle(SPECIES_ROTOM, 50)
+					dowildbattle
+					if (var(VAR_RESULT) != B_OUTCOME_CAUGHT) {
+						msgbox_portrait(format("Well, now I'm really done. It was nice seeing you!"), FIELD_PIC_ROTOM)
+						fadescreen(FADE_TO_BLACK)
+						delay(3)
+						fadescreen(FADE_FROM_BLACK)
+						delay(3)
+					}
+					else {
+						setflag(FLAG_ROTOM_CAUGHT)
+					}
+					setvar(VAR_HACK_GAME_STATE, 17)
+					msgbox(format("Thank you for playing Pokemon Emerald Underwater! The first part of the Story ends here. What happened with Bidoof? And what with the remaining Badges? Find out in the next update!"))
+					special(SaveGame)
+					special(DoSoftReset)
 				}
 			}
 		}
@@ -36,7 +56,7 @@ script Script_HackFifthLeader {
 		}
 	}
 	else {
-		
+		msgbox("This PC is not functioning anymore…")
 	}
 	playse(SE_PC_OFF)
 	special(DoPCTurnOffEffect)

@@ -599,7 +599,10 @@ void HandleAction_SafariZoneBallThrow(void)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
     gNumSafariBalls--;
-    gLastUsedItem = ITEM_SAFARI_BALL;
+    if (IsFirstHackEncounter())
+        gLastUsedItem = ITEM_POKE_BALL;
+    else
+        gLastUsedItem = ITEM_SAFARI_BALL;
     gBattlescriptCurrInstr = BattleScript_SafariBallThrow;
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }

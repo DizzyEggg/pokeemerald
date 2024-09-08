@@ -837,6 +837,11 @@ static void MoveChosenTeamToParty(void)
             s32 abilityNum = 0;
             while (GetAbilityBySpecies(sChosenTeam.mon[i].species, abilityNum) != sChosenTeam.mon[i].ability) {
                 abilityNum++;
+                // Not valid ability
+                if (abilityNum >= 3) {
+                    abilityNum = 0;
+                    break;
+                }
             }
             SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNum);
         }

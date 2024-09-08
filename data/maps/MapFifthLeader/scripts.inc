@@ -13,27 +13,29 @@ Script_HackFifthLeader::
 	playse SE_PC_ON
 # 8 "data/maps/MapFifthLeader/scripts.pory"
 	goto_if_unset FLAG_FIFTH_LEADER_BEATEN, Script_HackFifthLeader_2
+# 59 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox Script_HackFifthLeader_Text_10
 Script_HackFifthLeader_1:
-# 41 "data/maps/MapFifthLeader/scripts.pory"
+# 61 "data/maps/MapFifthLeader/scripts.pory"
 	playse SE_PC_OFF
-# 42 "data/maps/MapFifthLeader/scripts.pory"
+# 62 "data/maps/MapFifthLeader/scripts.pory"
 	special DoPCTurnOffEffect
-# 43 "data/maps/MapFifthLeader/scripts.pory"
+# 63 "data/maps/MapFifthLeader/scripts.pory"
 	releaseall
 	end
 
 Script_HackFifthLeader_2:
 # 9 "data/maps/MapFifthLeader/scripts.pory"
 	goto_if_set FLAG_FIFTH_EXPLAINED, Script_HackFifthLeader_5
-# 31 "data/maps/MapFifthLeader/scripts.pory"
+# 51 "data/maps/MapFifthLeader/scripts.pory"
 	msgbox Text_BootUpPC, MSGBOX_DEFAULT
-# 32 "data/maps/MapFifthLeader/scripts.pory"
-	msgbox Script_HackFifthLeader_Text_4
-# 33 "data/maps/MapFifthLeader/scripts.pory"
-	msgbox Script_HackFifthLeader_Text_5
-# 34 "data/maps/MapFifthLeader/scripts.pory"
+# 52 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox Script_HackFifthLeader_Text_8
+# 53 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox Script_HackFifthLeader_Text_9
+# 54 "data/maps/MapFifthLeader/scripts.pory"
 	setflag FLAG_FIFTH_EXPLAINED
-# 35 "data/maps/MapFifthLeader/scripts.pory"
+# 55 "data/maps/MapFifthLeader/scripts.pory"
 	goto Script_HackFifthLeader_StartChallengeAsk
 	goto Script_HackFifthLeader_1
 
@@ -71,12 +73,51 @@ Script_HackFifthLeader_8:
 	msgbox Script_HackFifthLeader_Text_3
 # 26 "data/maps/MapFifthLeader/scripts.pory"
 	setflag FLAG_FIFTH_LEADER_BEATEN
+# 27 "data/maps/MapFifthLeader/scripts.pory"
+	message Script_HackFifthLeader_Text_4
+# 28 "data/maps/MapFifthLeader/scripts.pory"
+	waitmessage
+# 29 "data/maps/MapFifthLeader/scripts.pory"
+	call Common_EventScript_PlayGymBadgeFanfare
+# 30 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox Script_HackFifthLeader_Text_5
+# 31 "data/maps/MapFifthLeader/scripts.pory"
+	setwildbattle SPECIES_ROTOM, 50
+# 32 "data/maps/MapFifthLeader/scripts.pory"
+	dowildbattle
+# 33 "data/maps/MapFifthLeader/scripts.pory"
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_ne Script_HackFifthLeader_14
+# 41 "data/maps/MapFifthLeader/scripts.pory"
+	setflag FLAG_ROTOM_CAUGHT
+Script_HackFifthLeader_13:
+# 43 "data/maps/MapFifthLeader/scripts.pory"
+	setvar VAR_HACK_GAME_STATE, 17
+# 44 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox Script_HackFifthLeader_Text_7
+# 45 "data/maps/MapFifthLeader/scripts.pory"
+	special SaveGame
+# 46 "data/maps/MapFifthLeader/scripts.pory"
+	special DoSoftReset
 	goto Script_HackFifthLeader_1
 
 Script_HackFifthLeader_10:
 # 22 "data/maps/MapFifthLeader/scripts.pory"
 	msgbox Script_HackFifthLeader_Text_2
 	goto Script_HackFifthLeader_1
+
+Script_HackFifthLeader_14:
+# 34 "data/maps/MapFifthLeader/scripts.pory"
+	msgbox_portrait Script_HackFifthLeader_Text_6, FIELD_PIC_ROTOM
+# 35 "data/maps/MapFifthLeader/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 36 "data/maps/MapFifthLeader/scripts.pory"
+	delay 3
+# 37 "data/maps/MapFifthLeader/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 38 "data/maps/MapFifthLeader/scripts.pory"
+	delay 3
+	goto Script_HackFifthLeader_13
 
 
 Script_HackFifthLeader_Text_0:
@@ -97,7 +138,32 @@ Script_HackFifthLeader_Text_3:
 	.string "Awesome work!$"
 
 Script_HackFifthLeader_Text_4:
-# 32 "data/maps/MapFifthLeader/scripts.pory"
+# 27 "data/maps/MapFifthLeader/scripts.pory"
+	.string "{PLAYER} received the Fifth Badge!$"
+
+Script_HackFifthLeader_Text_5:
+# 30 "data/maps/MapFifthLeader/scripts.pory"
+	.string "Now that you've completed my challenge,\n"
+	.string "I won't keep you here any longer. You're\l"
+	.string "free to go.\p"
+	.string "My work here is done.\p"
+	.string "Or is it?$"
+
+Script_HackFifthLeader_Text_6:
+# 34 "data/maps/MapFifthLeader/scripts.pory"
+	.string "Well, now I'm really done. It was nice\n"
+	.string "seeing you!$"
+
+Script_HackFifthLeader_Text_7:
+# 44 "data/maps/MapFifthLeader/scripts.pory"
+	.string "Thank you for playing Pokemon Emerald\n"
+	.string "Underwater! The first part of the Story\l"
+	.string "ends here. What happened with Bidoof?\l"
+	.string "And what with the remaining Badges?\l"
+	.string "Find out in the next update!$"
+
+Script_HackFifthLeader_Text_8:
+# 52 "data/maps/MapFifthLeader/scripts.pory"
 	.string "…\p"
 	.string "Hey! Don't turn me on like that!\p"
 	.string "Anyway, welcome challenger! I am the\n"
@@ -128,8 +194,12 @@ Script_HackFifthLeader_Text_4:
 	.string "fair! Uff, that's some wall of text\l"
 	.string "you've just had to read, huh?$"
 
-Script_HackFifthLeader_Text_5:
-# 33 "data/maps/MapFifthLeader/scripts.pory"
+Script_HackFifthLeader_Text_9:
+# 53 "data/maps/MapFifthLeader/scripts.pory"
 	.string "Don't worry, I'm finished. You can\n"
 	.string "choose your Pokemon and we can start\l"
 	.string "the challenge!$"
+
+Script_HackFifthLeader_Text_10:
+# 59 "data/maps/MapFifthLeader/scripts.pory"
+	.string "This PC is not functioning anymore…$"

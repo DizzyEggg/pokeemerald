@@ -2032,10 +2032,14 @@ void UpdateHealthboxAttribute(u8 healthboxSpriteId, struct Pokemon *mon, u8 elem
             UpdateNickInHealthbox(healthboxSpriteId, mon);
         if (elementId == HEALTHBOX_STATUS_ICON || elementId == HEALTHBOX_ALL)
             UpdateStatusIconInHealthbox(healthboxSpriteId);
-        if (elementId == HEALTHBOX_SAFARI_ALL_TEXT)
-            UpdateSafariBallsTextOnHealthbox(healthboxSpriteId);
-        if (elementId == HEALTHBOX_SAFARI_ALL_TEXT || elementId == HEALTHBOX_SAFARI_BALLS_TEXT)
-            UpdateLeftNoOfBallsTextOnHealthbox(healthboxSpriteId);
+
+        if (!IsFirstHackEncounter())
+        {
+            if (elementId == HEALTHBOX_SAFARI_ALL_TEXT)
+                UpdateSafariBallsTextOnHealthbox(healthboxSpriteId);
+            if (elementId == HEALTHBOX_SAFARI_ALL_TEXT || elementId == HEALTHBOX_SAFARI_BALLS_TEXT)
+                UpdateLeftNoOfBallsTextOnHealthbox(healthboxSpriteId);
+        }
     }
     else
     {

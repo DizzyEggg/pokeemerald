@@ -360,7 +360,6 @@ script ThirdInGameLocation_Bidoof3 {
 		else {
 			msgbox_portrait(format("No worries! I'm sure we'll find some way out of here!"), FIELD_PIC_BIDOOF_HAPPY)
 		}
-		destroy_field_pic(FIELD_PIC_BIDOOF_NORMAL, VAR_0x8008)
 		applymovement(5, MovementBidoof3)
 		waitmovement(0)
 	}

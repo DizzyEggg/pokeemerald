@@ -71,7 +71,13 @@ script SecondChallengeRoom_HikerBattle {
 		msgbox_portrait(format("You can proceed further now. I won't block the way."), FIELD_PIC_HIKER)
 		waitmessage
 		closemessage
-		applymovement(1, Movement_HikerNotBlocking)
+		getplayerxy(VAR_0x8004, VAR_0x8005)
+		if (var(VAR_0x8004) == 6 && var(VAR_0x8005) == 5) {
+			applymovement(1, Movement_HikerNotBlocking2)
+		}
+		else {
+			applymovement(1, Movement_HikerNotBlocking)
+		}
 		waitmovement(0)
 		setobjectxyperm(1, 4, 5)
 		msgbox_portrait(format("Wow! You're amazing, {PLAYER}!"), FIELD_PIC_BIDOOF_HAPPY)
@@ -84,6 +90,14 @@ script SecondChallengeRoom_HikerBattle {
 movement Movement_HikerNotBlocking {
 	walk_down
 	walk_left * 2
+	face_right
+	step_end
+}
+
+movement Movement_HikerNotBlocking2 {
+	walk_left
+	walk_down
+	walk_left
 	face_right
 	step_end
 }
@@ -136,6 +150,7 @@ script SecondChallengeRoom_NurseJoy {
 	special(HealPlayerParty)
 	applymovement(2, Movement_PkmnCenterNurse_Bow)
 	waitmovement(0)
+	faceplayer
 	waitmessage
 	waitfanfare
 	release

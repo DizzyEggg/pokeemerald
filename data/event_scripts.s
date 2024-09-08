@@ -1168,3 +1168,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DarknessTransitionMap/scripts.inc"
 
 	.include "data/maps/MapFifthLeader/scripts.inc"
+
+	.include "data/maps/MapSixthLeader/scripts.inc"

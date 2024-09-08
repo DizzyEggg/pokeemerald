@@ -4500,6 +4500,16 @@
       "secondary_tileset": "gTileset_RustboroGym",
       "border_filepath": "data/layouts/MapFifthLeader/border.bin",
       "blockdata_filepath": "data/layouts/MapFifthLeader/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAP_SIXTH_LEADER",
+      "name": "MapSixthLeader_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/MapSixthLeader/border.bin",
+      "blockdata_filepath": "data/layouts/MapSixthLeader/map.bin"
     }
   ]
 }
