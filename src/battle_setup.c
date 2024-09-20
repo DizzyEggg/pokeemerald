@@ -714,8 +714,21 @@ static void DowngradeBadPoison(void)
 
 bool32 IsHackUnderwaterLocation(void)
 {
-    return (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(THIRD_IN_GAME_LOCATION_UNDERWATER)
-            && gSaveBlock1Ptr->location.mapNum == MAP_NUM(THIRD_IN_GAME_LOCATION_UNDERWATER));
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(THIRD_IN_GAME_LOCATION_UNDERWATER)
+            && gSaveBlock1Ptr->location.mapNum == MAP_NUM(THIRD_IN_GAME_LOCATION_UNDERWATER))
+        return TRUE;
+
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(WILD_POKEMON_CAVE_ROOM))
+    {
+        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(WILD_POKEMON_CAVE_ROOM)) return TRUE;
+        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(WILD_POKEMON_CAVE_ROOM2)) return TRUE;
+        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(WILD_POKEMON_CAVE_ROOM3)) return TRUE;
+    }
+
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNDERWATER_ROUTE105) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(UNDERWATER_ROUTE105))
+        return TRUE;
+
+    return FALSE;
 }
 
 static void CB2_EndWildBattle(void)
@@ -731,7 +744,24 @@ static void CB2_EndWildBattle(void)
     else
     {
         if (!gSaveBlock1Ptr->hackGameBeaten && IsPlayerDefeated(gBattleOutcome))
-            VarSet(VAR_TEMP_0, VAR_VALUE_GOT_KOED);
+        {
+            if (IsBidoofFollower())
+            {
+                 VarSet(VAR_TEMP_0, VAR_VALUE_GOT_KOED);
+            }
+            else if (!FlagGet(FLAG_BADGE05_GET))
+            {
+                s32 hp = 1;
+                // If before fifth leader, keep low hp
+                SetMonData(&gPlayerParty[0], MON_DATA_HP, &hp);
+            }
+            // TODO
+            else
+            {
+
+            }
+        }
+
         SetMainCallback2(CB2_ReturnToField);
         DowngradeBadPoison();
         gFieldCallback = FieldCB_ReturnToFieldNoScriptCheckMusic;
@@ -1954,7 +1984,7 @@ void IncrementRematchStepCounter(void)
 #if FREE_MATCH_CALL == FALSE
     if (!HasAtLeastFiveBadges())
         return;
-    
+
     if (IsVsSeekerEnabled())
         return;
 

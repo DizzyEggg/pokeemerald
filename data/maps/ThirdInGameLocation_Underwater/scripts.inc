@@ -34,19 +34,19 @@ ThirdInGameLocation_Underwater_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 
 ThirdInGameLocation_Underwater_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 # 18 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	map_script_2 VAR_TEMP_0, VAR_VALUE_GOT_KOED, ThirdInGameLocation_Underwater_GotKOedByWild
+	map_script_2 VAR_TEMP_0, VAR_VALUE_GOT_KOED, Script_BidoofHeal_Underwater_GotKOedByWild
 	.2byte 0
 
 
-ThirdInGameLocation_Underwater_GotKOedByWild::
+Script_BidoofHeal_Underwater_GotKOedByWild::
 # 23 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	lock
 # 24 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	special HealPlayerParty
 # 25 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	msgbox_portrait ThirdInGameLocation_Underwater_GotKOedByWild_Text_0, FIELD_PIC_BIDOOF_ASTONISHED
+	msgbox_portrait Script_BidoofHeal_Underwater_GotKOedByWild_Text_0, FIELD_PIC_BIDOOF_ASTONISHED
 # 26 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
-	msgbox_portrait ThirdInGameLocation_Underwater_GotKOedByWild_Text_1, FIELD_PIC_BIDOOF_NORMAL
+	msgbox_portrait Script_BidoofHeal_Underwater_GotKOedByWild_Text_1, FIELD_PIC_BIDOOF_NORMAL
 # 27 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	setvar VAR_TEMP_0, 0
 # 28 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
@@ -960,12 +960,12 @@ MovementHexManiac2:
 # 533 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	step_end
 
-ThirdInGameLocation_Underwater_GotKOedByWild_Text_0:
+Script_BidoofHeal_Underwater_GotKOedByWild_Text_0:
 # 25 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "Golly, {PLAYER}! Your Pokemon\n"
 	.string "fainted!$"
 
-ThirdInGameLocation_Underwater_GotKOedByWild_Text_1:
+Script_BidoofHeal_Underwater_GotKOedByWild_Text_1:
 # 26 "data/maps/ThirdInGameLocation_Underwater/scripts.pory"
 	.string "I'll heal your Party, but you need to be\n"
 	.string "more careful the next time!$"

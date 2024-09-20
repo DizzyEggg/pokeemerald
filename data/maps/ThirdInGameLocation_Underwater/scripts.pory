@@ -15,11 +15,11 @@ mapscripts ThirdInGameLocation_Underwater_MapScripts {
 		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_TEMP_0, VAR_VALUE_GOT_KOED: ThirdInGameLocation_Underwater_GotKOedByWild
+        VAR_TEMP_0, VAR_VALUE_GOT_KOED: Script_BidoofHeal_Underwater_GotKOedByWild
     ]
 }
 
-script ThirdInGameLocation_Underwater_GotKOedByWild {
+script Script_BidoofHeal_Underwater_GotKOedByWild {
 	lock
 	special(HealPlayerParty)
 	msgbox_portrait(format("Golly, {PLAYER}! Your Pokemon fainted!"), FIELD_PIC_BIDOOF_ASTONISHED)

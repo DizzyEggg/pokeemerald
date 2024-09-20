@@ -1,5 +1,7 @@
 mapscripts WildPokemonCaveRoom_MapScripts {
-	
+	MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, VAR_VALUE_GOT_KOED: Script_BidoofHeal_Underwater_GotKOedByWild
+    ]
 }
 
 script WildPokemonCaveRoom_Sign {

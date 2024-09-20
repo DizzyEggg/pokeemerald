@@ -3693,7 +3693,9 @@ static bool8 PrintBlendingResults(void)
         // Don't give pokeblocks if player lost against Wingull
         if (WingullDuelLost())
         {
-            RemoveBagItem(gSpecialVar_ItemId, 1);
+            // if only one berry, do not remove it
+            if (CheckBagHasItem(gSpecialVar_ItemId, 2))
+                RemoveBagItem(gSpecialVar_ItemId, 1);
             return TRUE;
         }
         else

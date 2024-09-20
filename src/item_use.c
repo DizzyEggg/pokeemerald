@@ -1087,6 +1087,8 @@ static u32 GetBallThrowableState(void)
         return BALL_THROW_UNABLE_SEMI_INVULNERABLE;
     else if (FlagGet(B_FLAG_NO_CATCHING))
         return BALL_THROW_UNABLE_DISABLED_FLAG;
+    else if (IsSuicuneBattle())
+        return BALL_THROW_UNABLE_SUICUNE_FIGHT;
 
     return BALL_THROW_ABLE;
 }
@@ -1099,10 +1101,14 @@ bool32 CanThrowBall(void)
 static const u8 sText_CantThrowPokeBall_TwoMons[] = _("Cannot throw a ball!\nThere are two Pokémon out there!\p");
 static const u8 sText_CantThrowPokeBall_SemiInvulnerable[] = _("Cannot throw a ball!\nThere's no Pokémon in sight!\p");
 static const u8 sText_CantThrowPokeBall_Disabled[] = _("POKé BALLS cannot be used\nright now!\p");
+static const u8 sText_CantThrowPokeBall_Suicune[] = _("Suicune: Do not try it on me!\p");
 void ItemUseInBattle_PokeBall(u8 taskId)
 {
     switch (GetBallThrowableState())
     {
+    case BALL_THROW_UNABLE_SUICUNE_FIGHT:
+        DisplayItemMessage(taskId, FONT_NORMAL, sText_CantThrowPokeBall_Suicune, CloseItemMessage);
+        break;
     case BALL_THROW_ABLE:
     default:
         RemoveBagItem(gSpecialVar_ItemId, 1);
@@ -1216,6 +1222,10 @@ bool32 CannotUseItemsInBattle(u16 itemId, struct Pokemon *mon)
             break;
         case BALL_THROW_UNABLE_DISABLED_FLAG:
             failStr = sText_CantThrowPokeBall_Disabled;
+            cannotUse = TRUE;
+            break;
+        case BALL_THROW_UNABLE_SUICUNE_FIGHT:
+            failStr = sText_CantThrowPokeBall_Suicune;
             cannotUse = TRUE;
             break;
         }
