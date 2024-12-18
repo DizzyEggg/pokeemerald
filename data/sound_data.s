@@ -9,5 +9,9 @@
 	.include "sound/music_player_table.inc"
 	.include "sound/song_table.inc"
 	.include "sound/direct_sound_data.inc"
+	
+	.include "sound/pmd_voice_groups.inc"
+	.include "sound/pmd_gb_waves.inc"
+	.include "sound/pmd_waves.inc"
 
 	.align 2
