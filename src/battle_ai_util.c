@@ -1347,8 +1347,8 @@ s32 AI_DecideKnownAbilityForTurn(u32 battlerId)
     u32 abilityAiRatings[NUM_ABILITY_SLOTS] = {0};
 
     // We've had ability overwritten by e.g. Worry Seed. It is not part of AI_PARTY in case of switching
-    if (gBattleStruct->overwrittenAbilities[battlerId])
-        return gBattleStruct->overwrittenAbilities[battlerId];
+    if (gDisableStructs[battlerId].overwrittenAbility)
+        return gDisableStructs[battlerId].overwrittenAbility;
 
     // The AI knows its own ability.
     if (IsAiBattlerAware(battlerId))

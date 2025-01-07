@@ -1015,40 +1015,31 @@ const u16 gMoveWeatherChangeStringIds[] =
 
 const u16 gWeatherEndsStringIds[B_MSG_WEATHER_END_COUNT] =
 {
-    [B_MSG_WEATHER_END_RAIN] = STRINGID_RAINSTOPPED,
-    [B_MSG_WEATHER_END_SANDSTORM] = STRINGID_SANDSTORMSUBSIDED,
-    [B_MSG_WEATHER_END_SUN] = STRINGID_SUNLIGHTFADED,
-    [B_MSG_WEATHER_END_HAIL] = STRINGID_HAILSTOPPED,
+    [B_MSG_WEATHER_END_RAIN]         = STRINGID_RAINSTOPPED,
+    [B_MSG_WEATHER_END_SUN]          = STRINGID_SUNLIGHTFADED,
+    [B_MSG_WEATHER_END_SANDSTORM]    = STRINGID_SANDSTORMSUBSIDED,
+    [B_MSG_WEATHER_END_HAIL]         = STRINGID_HAILSTOPPED,
+    [B_MSG_WEATHER_END_SNOW]         = STRINGID_SNOWSTOPPED,
+    [B_MSG_WEATHER_END_FOG]          = STRINGID_FOGLIFTED,
     [B_MSG_WEATHER_END_STRONG_WINDS] = STRINGID_STRONGWINDSDISSIPATED,
-    [B_MSG_WEATHER_END_SNOW] = STRINGID_SNOWSTOPPED,
-    [B_MSG_WEATHER_END_FOG] = STRINGID_FOGLIFTED,
 };
 
-const u16 gSandStormHailSnowContinuesStringIds[] =
+const u16 gWeatherTurnStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_SANDSTORMRAGES,
-    [B_MSG_HAIL]      = STRINGID_HAILCONTINUES,
-    [B_MSG_SNOW]      = STRINGID_SNOWCONTINUES,
+    [B_MSG_WEATHER_TURN_RAIN]         = STRINGID_RAINCONTINUES,
+    [B_MSG_WEATHER_TURN_DOWNPOUR]     = STRINGID_DOWNPOURCONTINUES,
+    [B_MSG_WEATHER_TURN_SUN]          = STRINGID_SUNLIGHTSTRONG,
+    [B_MSG_WEATHER_TURN_SANDSTORM]    = STRINGID_SANDSTORMRAGES,
+    [B_MSG_WEATHER_TURN_HAIL]         = STRINGID_HAILCONTINUES,
+    [B_MSG_WEATHER_TURN_SNOW]         = STRINGID_SNOWCONTINUES,
+    [B_MSG_WEATHER_TURN_FOG]          = STRINGID_FOGISDEEP,
+    [B_MSG_WEATHER_TURN_STRONG_WINDS] = STRINGID_MYSTERIOUSAIRCURRENTBLOWSON,
 };
 
 const u16 gSandStormHailDmgStringIds[] =
 {
     [B_MSG_SANDSTORM] = STRINGID_PKMNBUFFETEDBYSANDSTORM,
     [B_MSG_HAIL]      = STRINGID_PKMNPELTEDBYHAIL
-};
-
-const u16 gSandStormHailSnowEndStringIds[] =
-{
-    [B_MSG_SANDSTORM] = STRINGID_SANDSTORMSUBSIDED,
-    [B_MSG_HAIL]      = STRINGID_HAILSTOPPED,
-    [B_MSG_SNOW]      = STRINGID_SNOWSTOPPED,
-};
-
-const u16 gRainContinuesStringIds[] =
-{
-    [B_MSG_RAIN_CONTINUES]     = STRINGID_RAINCONTINUES,
-    [B_MSG_DOWNPOUR_CONTINUES] = STRINGID_DOWNPOURCONTINUES,
-    [B_MSG_RAIN_STOPPED]       = STRINGID_RAINSTOPPED
 };
 
 const u16 gProtectLikeUsedStringIds[] =
@@ -3569,8 +3560,10 @@ struct TrainerSlide
     const u8 *msgDynamax;
 };
 
-static const struct TrainerSlide sTrainerSlides[] =
+static const struct TrainerSlide sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_COUNT] =
 {
+    [DIFFICULTY_NORMAL] =
+    {
     /* Put any trainer slide-in messages inside this array.
     Example:
     {
@@ -3589,7 +3582,14 @@ static const struct TrainerSlide sTrainerSlides[] =
         .msgBeforeFirstTurn = sText_GravityIntensified,
         .msgDynamax = sText_TargetWokeUp,
     },
+    },
+    [DIFFICULTY_EASY] =
+    {
+    },
+    [DIFFICULTY_HARD] =
+    {
     */
+    },
 };
 
 static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)
@@ -3666,118 +3666,120 @@ u32 ShouldDoTrainerSlide(u32 battler, u32 which)
         trainerId = gTrainerBattleOpponent_A;
     }
 
+    enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(trainerId);
+
     for (i = 0; i < ARRAY_COUNT(sTrainerSlides); i++)
     {
-        if (trainerId == sTrainerSlides[i].trainerId
-            && (((gBattleTypeFlags & BATTLE_TYPE_FRONTIER) && sTrainerSlides[i].isFrontierTrainer)
-                || (!(gBattleTypeFlags & BATTLE_TYPE_FRONTIER) && !sTrainerSlides[i].isFrontierTrainer)))
+        if (trainerId == sTrainerSlides[difficulty]->trainerId
+            && (((gBattleTypeFlags & BATTLE_TYPE_FRONTIER) && sTrainerSlides[difficulty]->isFrontierTrainer)
+                || (!(gBattleTypeFlags & BATTLE_TYPE_FRONTIER) && !sTrainerSlides[difficulty]->isFrontierTrainer)))
         {
             gBattleScripting.battler = battler;
             switch (which)
             {
             case TRAINER_SLIDE_LAST_SWITCHIN:
-                if (sTrainerSlides[i].msgLastSwitchIn != NULL && !CanBattlerSwitch(battler))
+                if (sTrainerSlides[difficulty]->msgLastSwitchIn != NULL && !CanBattlerSwitch(battler))
                 {
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgLastSwitchIn;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgLastSwitchIn;
                     return retValue;
                 }
                 break;
             case TRAINER_SLIDE_LAST_LOW_HP:
-                if (sTrainerSlides[i].msgLastLowHp != NULL
+                if (sTrainerSlides[difficulty]->msgLastLowHp != NULL
                     && GetEnemyMonCount(firstId, lastId, TRUE) == 1
                     && BattlerHPPercentage(battler, LESS_THAN_OR_EQUAL, 4)
                     && !gBattleStruct->trainerSlideLowHpMsgDone)
                 {
                     gBattleStruct->trainerSlideLowHpMsgDone = TRUE;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgLastLowHp;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgLastLowHp;
                     return retValue;
                 }
                 break;
             case TRAINER_SLIDE_FIRST_DOWN:
-                if (sTrainerSlides[i].msgFirstDown != NULL && GetEnemyMonCount(firstId, lastId, TRUE) == GetEnemyMonCount(firstId, lastId, FALSE) - 1)
+                if (sTrainerSlides[difficulty]->msgFirstDown != NULL && GetEnemyMonCount(firstId, lastId, TRUE) == GetEnemyMonCount(firstId, lastId, FALSE) - 1)
                 {
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgFirstDown;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgFirstDown;
                     return retValue;
                 }
                 break;
             case TRAINER_SLIDE_LAST_HALF_HP:
-                if (sTrainerSlides[i].msgLastHalfHp != NULL
+                if (sTrainerSlides[difficulty]->msgLastHalfHp != NULL
                  && GetEnemyMonCount(firstId, lastId, TRUE) == GetEnemyMonCount(firstId, lastId, FALSE) - 1
                  && BattlerHPPercentage(battler, LESS_THAN_OR_EQUAL, 2) && BattlerHPPercentage(battler, GREATER_THAN, 4)
                  && !gBattleStruct->trainerSlideHalfHpMsgDone)
                 {
                     gBattleStruct->trainerSlideHalfHpMsgDone = TRUE;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgLastHalfHp;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgLastHalfHp;
                     return TRUE;
                 }
                 break;
             case TRAINER_SLIDE_FIRST_CRITICAL_HIT:
-                if (sTrainerSlides[i].msgFirstCriticalHit != NULL && gBattleStruct->trainerSlideFirstCriticalHitMsgState == 1)
+                if (sTrainerSlides[difficulty]->msgFirstCriticalHit != NULL && gBattleStruct->trainerSlideFirstCriticalHitMsgState == 1)
                 {
                     gBattleStruct->trainerSlideFirstCriticalHitMsgState = 2;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgFirstCriticalHit;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgFirstCriticalHit;
                     return TRUE;
                 }
                 break;
             case TRAINER_SLIDE_FIRST_SUPER_EFFECTIVE_HIT:
-                if (sTrainerSlides[i].msgFirstSuperEffectiveHit != NULL
+                if (sTrainerSlides[difficulty]->msgFirstSuperEffectiveHit != NULL
                     && gBattleStruct->trainerSlideFirstSuperEffectiveHitMsgState == 1
                     && gBattleMons[battler].hp)
                 {
                     gBattleStruct->trainerSlideFirstSuperEffectiveHitMsgState = 2;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgFirstSuperEffectiveHit;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgFirstSuperEffectiveHit;
                     return TRUE;
                 }
                 break;
             case TRAINER_SLIDE_FIRST_STAB_MOVE:
-                if (sTrainerSlides[i].msgFirstSTABMove != NULL
+                if (sTrainerSlides[difficulty]->msgFirstSTABMove != NULL
                  && gBattleStruct->trainerSlideFirstSTABMoveMsgState == 1
                  && GetEnemyMonCount(firstId, lastId, TRUE) == GetEnemyMonCount(firstId, lastId, FALSE))
                 {
                     gBattleStruct->trainerSlideFirstSTABMoveMsgState = 2;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgFirstSTABMove;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgFirstSTABMove;
                     return TRUE;
                 }
                 break;
             case TRAINER_SLIDE_PLAYER_MON_UNAFFECTED:
-                if (sTrainerSlides[i].msgPlayerMonUnaffected != NULL
+                if (sTrainerSlides[difficulty]->msgPlayerMonUnaffected != NULL
                  && gBattleStruct->trainerSlidePlayerMonUnaffectedMsgState == 1
                  && GetEnemyMonCount(firstId, lastId, TRUE) == GetEnemyMonCount(firstId, lastId, FALSE))
                 {
                     gBattleStruct->trainerSlidePlayerMonUnaffectedMsgState = 2;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgPlayerMonUnaffected;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgPlayerMonUnaffected;
                     return TRUE;
                 }
                 break;
             case TRAINER_SLIDE_MEGA_EVOLUTION:
-                if (sTrainerSlides[i].msgMegaEvolution != NULL && !gBattleStruct->trainerSlideMegaEvolutionMsgDone)
+                if (sTrainerSlides[difficulty]->msgMegaEvolution != NULL && !gBattleStruct->trainerSlideMegaEvolutionMsgDone)
                 {
                     gBattleStruct->trainerSlideMegaEvolutionMsgDone = TRUE;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgMegaEvolution;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgMegaEvolution;
                     return TRUE;
                 }
                 break;
             case TRAINER_SLIDE_Z_MOVE:
-                if (sTrainerSlides[i].msgZMove != NULL && !gBattleStruct->trainerSlideZMoveMsgDone)
+                if (sTrainerSlides[difficulty]->msgZMove != NULL && !gBattleStruct->trainerSlideZMoveMsgDone)
                 {
                     gBattleStruct->trainerSlideZMoveMsgDone = TRUE;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgZMove;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgZMove;
                     return TRUE;
                 }
                 break;
             case TRAINER_SLIDE_BEFORE_FIRST_TURN:
-                if (sTrainerSlides[i].msgBeforeFirstTurn != NULL && !gBattleStruct->trainerSlideBeforeFirstTurnMsgDone)
+                if (sTrainerSlides[difficulty]->msgBeforeFirstTurn != NULL && !gBattleStruct->trainerSlideBeforeFirstTurnMsgDone)
                 {
                     gBattleStruct->trainerSlideBeforeFirstTurnMsgDone = TRUE;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgBeforeFirstTurn;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgBeforeFirstTurn;
                     return TRUE;
                 }
                 break;
             case TRAINER_SLIDE_DYNAMAX:
-                if (sTrainerSlides[i].msgDynamax != NULL && !gBattleStruct->trainerSlideDynamaxMsgDone)
+                if (sTrainerSlides[difficulty]->msgDynamax != NULL && !gBattleStruct->trainerSlideDynamaxMsgDone)
                 {
                     gBattleStruct->trainerSlideDynamaxMsgDone = TRUE;
-                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgDynamax;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[difficulty]->msgDynamax;
                     return TRUE;
                 }
                 break;

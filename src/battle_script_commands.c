@@ -2583,13 +2583,12 @@ static void Cmd_datahpupdate(void)
                 if (gSpecialStatuses[battler].shellBellDmg == 0)
                     gSpecialStatuses[battler].shellBellDmg = gBattleStruct->moveDamage[battler];
                 gDisableStructs[battler].substituteHP -= gBattleStruct->moveDamage[battler];
-                gHpDealt = gBattleStruct->moveDamage[battler];
             }
             else
             {
                 if (gSpecialStatuses[battler].shellBellDmg == 0)
                     gSpecialStatuses[battler].shellBellDmg = gDisableStructs[battler].substituteHP;
-                gHpDealt = gDisableStructs[battler].substituteHP;
+                gBattleStruct->moveDamage[battler] = gDisableStructs[battler].substituteHP;
                 gDisableStructs[battler].substituteHP = 0;
             }
             // check substitute fading
@@ -2647,17 +2646,16 @@ static void Cmd_datahpupdate(void)
                 if (gBattleMons[battler].hp > gBattleStruct->moveDamage[battler])
                 {
                     gBattleMons[battler].hp -= gBattleStruct->moveDamage[battler];
-                    gHpDealt = gBattleStruct->moveDamage[battler];
                 }
                 else
                 {
-                    gHpDealt = gBattleMons[battler].hp;
+                    gBattleStruct->moveDamage[battler] = gBattleMons[battler].hp;
                     gBattleMons[battler].hp = 0;
                 }
 
                 // Record damage for Shell Bell
                 if (gSpecialStatuses[battler].shellBellDmg == 0 && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE))
-                    gSpecialStatuses[battler].shellBellDmg = gHpDealt;
+                    gSpecialStatuses[battler].shellBellDmg = gBattleStruct->moveDamage[battler];
 
                 u32 effect = GetMoveEffect(gCurrentMove);
 
@@ -2666,8 +2664,8 @@ static void Cmd_datahpupdate(void)
                 //       to help determine if a fire move should defrost the target.
                 if (IsBattleMovePhysical(gCurrentMove) && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE) && effect != EFFECT_PAIN_SPLIT)
                 {
-                    gProtectStructs[battler].physicalDmg = gHpDealt;
-                    gSpecialStatuses[battler].physicalDmg = gHpDealt;
+                    gProtectStructs[battler].physicalDmg = gBattleStruct->moveDamage[battler];
+                    gSpecialStatuses[battler].physicalDmg = gBattleStruct->moveDamage[battler];
                     if (cmd->battler == BS_TARGET)
                     {
                         gProtectStructs[battler].physicalBattlerId = gBattlerAttacker;
@@ -2682,8 +2680,8 @@ static void Cmd_datahpupdate(void)
                 else if (!IsBattleMovePhysical(gCurrentMove) && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE) && effect != EFFECT_PAIN_SPLIT)
                 {
                     // Record special damage/attacker for Mirror Coat
-                    gProtectStructs[battler].specialDmg = gHpDealt;
-                    gSpecialStatuses[battler].specialDmg = gHpDealt;
+                    gProtectStructs[battler].specialDmg = gBattleStruct->moveDamage[battler];
+                    gSpecialStatuses[battler].specialDmg = gBattleStruct->moveDamage[battler];
                     if (cmd->battler == BS_TARGET)
                     {
                         gProtectStructs[battler].specialBattlerId = gBattlerAttacker;
@@ -5951,7 +5949,7 @@ static void Cmd_moveend(void)
         switch (gBattleScripting.moveendState)
         {
         case MOVEEND_SUM_DAMAGE: // Sum and store damage dealt for multi strike recoil
-            gBattleScripting.savedDmg += gHpDealt;
+            gBattleScripting.savedDmg += gBattleStruct->moveDamage[gBattlerTarget];
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_PROTECT_LIKE_EFFECT:
@@ -6277,7 +6275,7 @@ static void Cmd_moveend(void)
                 if ((gBattleMons[gBattlerTarget].status1 & argStatus)
                  && IsBattlerAlive(gBattlerTarget)
                  && !DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove)
-                 && (gBattleStruct->numSpreadTargets > 1 || !IsMoveEffectBlockedByTarget(GetBattlerAbility(gBattlerTarget))))
+                 && (NumAffectedSpreadMoveTargets() > 1 || !IsMoveEffectBlockedByTarget(GetBattlerAbility(gBattlerTarget))))
                 {
                     gBattleMons[gBattlerTarget].status1 &= ~(argStatus);
 
@@ -7179,7 +7177,7 @@ static void Cmd_switchindataupdate(void)
         u32 side = GetBattlerSide(battler);
         u32 partyIndex = gBattlerPartyIndexes[battler];
         if (TestRunner_Battle_GetForcedAbility(side, partyIndex))
-            gBattleMons[battler].ability = gBattleStruct->overwrittenAbilities[battler] = TestRunner_Battle_GetForcedAbility(side, partyIndex);
+            gBattleMons[battler].ability = gDisableStructs[battler].overwrittenAbility = TestRunner_Battle_GetForcedAbility(side, partyIndex);
     }
     #endif
 
@@ -9406,8 +9404,10 @@ static bool32 IsTeatimeAffected(u32 battler)
     sideTimerOpp->structField = BATTLE_OPPOSITE(temp);        \
 }                                               \
 
-static void CourtChangeSwapSideStatuses(void)
+void BS_CourtChangeSwapSideStatuses(void)
 {
+    NATIVE_ARGS();
+
     struct SideTimer *sideTimerPlayer = &gSideTimers[B_SIDE_PLAYER];
     struct SideTimer *sideTimerOpp = &gSideTimers[B_SIDE_OPPONENT];
     u32 temp;
@@ -9448,6 +9448,8 @@ static void CourtChangeSwapSideStatuses(void)
 
     // Swap what type set the Gigantamax damage over time effect
     SWAP(sideTimerPlayer->damageNonTypesType, sideTimerOpp->damageNonTypesType, temp);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 static void HandleScriptMegaPrimalBurst(u32 caseId, u32 battler, u32 type)
@@ -9726,7 +9728,7 @@ static void Cmd_various(void)
     case VARIOUS_TRACE_ABILITY:
     {
         VARIOUS_ARGS();
-        gBattleMons[battler].ability = gBattleStruct->overwrittenAbilities[battler] = gBattleStruct->tracedAbility[battler];
+        gBattleMons[battler].ability = gDisableStructs[battler].overwrittenAbility = gBattleStruct->tracedAbility[battler];
         break;
     }
     case VARIOUS_TRY_ILLUSION_OFF:
@@ -10326,7 +10328,7 @@ static void Cmd_various(void)
                 gSpecialStatuses[gBattlerTarget].neutralizingGasRemoved = TRUE;
 
             gBattleScripting.abilityPopupOverwrite = gBattleMons[gBattlerTarget].ability;
-            gBattleMons[gBattlerTarget].ability = gBattleStruct->overwrittenAbilities[gBattlerTarget] = ABILITY_SIMPLE;
+            gBattleMons[gBattlerTarget].ability = gDisableStructs[gBattlerTarget].overwrittenAbility = ABILITY_SIMPLE;
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
         return;
@@ -10354,7 +10356,7 @@ static void Cmd_various(void)
             }
             else
             {
-                gBattleMons[gBattlerTarget].ability = gBattleStruct->overwrittenAbilities[gBattlerTarget] = gBattleMons[gBattlerAttacker].ability;
+                gBattleMons[gBattlerTarget].ability = gDisableStructs[gBattlerTarget].overwrittenAbility = gBattleMons[gBattlerAttacker].ability;
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
         }
@@ -11319,44 +11321,6 @@ static void Cmd_various(void)
         gBattleMons[battler].item = gLastUsedItem;
         break;
     }
-    case VARIOUS_SWAP_SIDE_STATUSES:
-    {
-        VARIOUS_ARGS();
-        CourtChangeSwapSideStatuses();
-        break;
-    }
-    case VARIOUS_SWAP_STATS:
-        {
-            VARIOUS_ARGS(u8 stat);
-
-            u8 stat = cmd->stat;
-            u16 temp;
-
-            switch (stat)
-            {
-            case STAT_HP:
-                SWAP(gBattleMons[gBattlerAttacker].hp, gBattleMons[gBattlerTarget].hp, temp);
-                break;
-            case STAT_ATK:
-                SWAP(gBattleMons[gBattlerAttacker].attack, gBattleMons[gBattlerTarget].attack, temp);
-                break;
-            case STAT_DEF:
-                SWAP(gBattleMons[gBattlerAttacker].defense, gBattleMons[gBattlerTarget].defense, temp);
-                break;
-            case STAT_SPEED:
-                SWAP(gBattleMons[gBattlerAttacker].speed, gBattleMons[gBattlerTarget].speed, temp);
-                break;
-            case STAT_SPATK:
-                SWAP(gBattleMons[gBattlerAttacker].spAttack, gBattleMons[gBattlerTarget].spAttack, temp);
-                break;
-            case STAT_SPDEF:
-                SWAP(gBattleMons[gBattlerAttacker].spDefense, gBattleMons[gBattlerTarget].spDefense, temp);
-                break;
-            }
-            PREPARE_STAT_BUFFER(gBattleTextBuff1, stat);
-            gBattlescriptCurrInstr = cmd->nextInstr;
-            return;
-        }
     } // End of switch (cmd->id)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
@@ -11607,9 +11571,9 @@ static void Cmd_setfieldweather(void)
 {
     CMD_ARGS(u8 weather);
 
-    u8 weather = cmd->weather;
+    u8 battleWeatherId = cmd->weather;
 
-    if (!TryChangeBattleWeather(gBattlerAttacker, weather, FALSE))
+    if (!TryChangeBattleWeather(gBattlerAttacker, battleWeatherId, FALSE))
     {
         gBattleStruct->moveResultFlags[gBattlerTarget] |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_FAILED;
@@ -11617,21 +11581,21 @@ static void Cmd_setfieldweather(void)
         return;
     }
 
-    switch (weather)
+    switch (battleWeatherId)
     {
-    case ENUM_WEATHER_RAIN:
+    case BATTLE_WEATHER_RAIN:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_RAIN;
         break;
-    case ENUM_WEATHER_SUN:
+    case BATTLE_WEATHER_SUN:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_SUNLIGHT;
         break;
-    case ENUM_WEATHER_SANDSTORM:
+    case BATTLE_WEATHER_SANDSTORM:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_SANDSTORM;
         break;
-    case ENUM_WEATHER_HAIL:
+    case BATTLE_WEATHER_HAIL:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_HAIL;
         break;
-    case ENUM_WEATHER_SNOW:
+    case BATTLE_WEATHER_SNOW:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STARTED_SNOW;
         break;
     }
@@ -11944,7 +11908,7 @@ static void Cmd_setdrainedhp(void)
 {
     CMD_ARGS();
 
-    gBattleStruct->moveDamage[gBattlerAttacker] = (gHpDealt * GetMoveAbsorbPercentage(gCurrentMove) / 100);
+    gBattleStruct->moveDamage[gBattlerAttacker] = (gBattleStruct->moveDamage[gBattlerTarget] * GetMoveAbsorbPercentage(gCurrentMove) / 100);
 
     if (gBattleStruct->moveDamage[gBattlerAttacker] == 0)
         gBattleStruct->moveDamage[gBattlerAttacker] = 1;
@@ -12984,7 +12948,7 @@ static void Cmd_transformdataexecution(void)
         for (i = 0; i < offsetof(struct BattlePokemon, pp); i++)
             battleMonAttacker[i] = battleMonTarget[i];
 
-        gBattleStruct->overwrittenAbilities[gBattlerAttacker] = GetBattlerAbility(gBattlerTarget);
+        gDisableStructs[gBattlerAttacker].overwrittenAbility = GetBattlerAbility(gBattlerTarget);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
             u32 pp = GetMovePP(gBattleMons[gBattlerAttacker].moves[i]);
@@ -14746,7 +14710,7 @@ static void Cmd_trycopyability(void)
     else
     {
         gBattleScripting.abilityPopupOverwrite = gBattleMons[battler].ability;
-        gBattleMons[battler].ability = gBattleStruct->overwrittenAbilities[battler] = defAbility;
+        gBattleMons[battler].ability = gDisableStructs[battler].overwrittenAbility = defAbility;
         gLastUsedAbility = defAbility;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
@@ -14937,8 +14901,8 @@ static void Cmd_tryswapabilities(void)
             if (GetBattlerSide(gBattlerAttacker) != GetBattlerSide(gBattlerTarget))
                 gBattleScripting.abilityPopupOverwrite = gBattleMons[gBattlerAttacker].ability;
             gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
-            gBattleMons[gBattlerTarget].ability = gBattleStruct->overwrittenAbilities[gBattlerTarget] = gBattleMons[gBattlerAttacker].ability;
-            gBattleMons[gBattlerAttacker].ability = gBattleStruct->overwrittenAbilities[gBattlerAttacker] = gLastUsedAbility;
+            gBattleMons[gBattlerTarget].ability = gDisableStructs[gBattlerTarget].overwrittenAbility = gBattleMons[gBattlerAttacker].ability;
+            gBattleMons[gBattlerAttacker].ability = gDisableStructs[gBattlerAttacker].overwrittenAbility = gLastUsedAbility;
 
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
@@ -16247,7 +16211,7 @@ static void Cmd_tryworryseed(void)
     else
     {
         gBattleScripting.abilityPopupOverwrite = gBattleMons[gBattlerTarget].ability;
-        gBattleMons[gBattlerTarget].ability = gBattleStruct->overwrittenAbilities[gBattlerTarget] = ABILITY_INSOMNIA;
+        gBattleMons[gBattlerTarget].ability = gDisableStructs[gBattlerTarget].overwrittenAbility = ABILITY_INSOMNIA;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
@@ -18026,4 +17990,36 @@ void BS_JumpIfCriticalHit(void)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SwapStats(void)
+{
+    NATIVE_ARGS(u8 stat);
+
+    u32 stat = cmd->stat;
+    u32 temp;
+
+    switch (stat)
+    {
+    case STAT_HP:
+        SWAP(gBattleMons[gBattlerAttacker].hp, gBattleMons[gBattlerTarget].hp, temp);
+        break;
+    case STAT_ATK:
+        SWAP(gBattleMons[gBattlerAttacker].attack, gBattleMons[gBattlerTarget].attack, temp);
+        break;
+    case STAT_DEF:
+        SWAP(gBattleMons[gBattlerAttacker].defense, gBattleMons[gBattlerTarget].defense, temp);
+        break;
+    case STAT_SPEED:
+        SWAP(gBattleMons[gBattlerAttacker].speed, gBattleMons[gBattlerTarget].speed, temp);
+        break;
+    case STAT_SPATK:
+        SWAP(gBattleMons[gBattlerAttacker].spAttack, gBattleMons[gBattlerTarget].spAttack, temp);
+        break;
+    case STAT_SPDEF:
+        SWAP(gBattleMons[gBattlerAttacker].spDefense, gBattleMons[gBattlerTarget].spDefense, temp);
+        break;
+    }
+    PREPARE_STAT_BUFFER(gBattleTextBuff1, stat);
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }

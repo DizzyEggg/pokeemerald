@@ -20,6 +20,7 @@
 #include "data.h"
 #include "debug.h"
 #include "decompress.h"
+#include "dexnav.h"
 #include "dma3.h"
 #include "event_data.h"
 #include "evolution_scene.h"
@@ -163,7 +164,6 @@ EWRAM_DATA u8 gChosenMovePos = 0;
 EWRAM_DATA u16 gCurrentMove = 0;
 EWRAM_DATA u16 gChosenMove = 0;
 EWRAM_DATA u16 gCalledMove = 0;
-EWRAM_DATA s32 gHpDealt = 0;
 EWRAM_DATA s32 gBideDmg[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gLastUsedItem = 0;
 EWRAM_DATA u16 gLastUsedAbility = 0;
@@ -3058,7 +3058,6 @@ static void BattleStartClearSetData(void)
         gBattleStruct->lastTakenMoveFrom[i][3] = MOVE_NONE;
         gBattleStruct->AI_monToSwitchIntoId[i] = PARTY_SIZE;
         gBattleStruct->skyDropTargets[i] = 0xFF;
-        gBattleStruct->overwrittenAbilities[i] = ABILITY_NONE;
     }
 
     gLastUsedMove = 0;
@@ -3286,8 +3285,6 @@ void SwitchInClearSetData(u32 battler)
     // Reset G-Max Chi Strike boosts.
     gBattleStruct->bonusCritStages[battler] = 0;
 
-    gBattleStruct->overwrittenAbilities[battler] = ABILITY_NONE;
-
     // Clear selected party ID so Revival Blessing doesn't get confused.
     gSelectedMonPartyId = PARTY_SIZE;
 
@@ -3298,7 +3295,7 @@ void SwitchInClearSetData(u32 battler)
         u32 side = GetBattlerSide(battler);
         u32 partyIndex = gBattlerPartyIndexes[battler];
         if (TestRunner_Battle_GetForcedAbility(side, partyIndex))
-            gBattleMons[i].ability = gBattleStruct->overwrittenAbilities[i] = TestRunner_Battle_GetForcedAbility(side, partyIndex);
+            gBattleMons[i].ability = gDisableStructs[i].overwrittenAbility = TestRunner_Battle_GetForcedAbility(side, partyIndex);
     }
     #endif // TESTING
 
@@ -3384,7 +3381,7 @@ const u8* FaintClearSetData(u32 battler)
     gBattleStruct->lastTakenMoveFrom[battler][1] = 0;
     gBattleStruct->lastTakenMoveFrom[battler][2] = 0;
     gBattleStruct->lastTakenMoveFrom[battler][3] = 0;
-    
+
     if (gBattleStruct->pursuitTarget & (1u << battler))
     {
         gBattleStruct->pursuitTarget = 0;
@@ -3428,8 +3425,6 @@ const u8* FaintClearSetData(u32 battler)
 
     Ai_UpdateFaintData(battler);
     TryBattleFormChange(battler, FORM_CHANGE_FAINT);
-
-    gBattleStruct->overwrittenAbilities[battler] = ABILITY_NONE;
 
     // If the fainted mon was involved in a Sky Drop
     if (gBattleStruct->skyDropTargets[battler] != 0xFF)
@@ -3537,7 +3532,7 @@ static void DoBattleIntro(void)
                     u32 side = GetBattlerSide(battler);
                     u32 partyIndex = gBattlerPartyIndexes[battler];
                     if (TestRunner_Battle_GetForcedAbility(side, partyIndex))
-                        gBattleMons[battler].ability = gBattleStruct->overwrittenAbilities[battler] = TestRunner_Battle_GetForcedAbility(side, partyIndex);
+                        gBattleMons[battler].ability = gDisableStructs[battler].overwrittenAbility = TestRunner_Battle_GetForcedAbility(side, partyIndex);
                 }
                 #endif
             }
@@ -3853,7 +3848,7 @@ static void TryDoEventsBeforeFirstTurn(void)
                 u32 side = GetBattlerSide(i);
                 u32 partyIndex = gBattlerPartyIndexes[i];
                 if (TestRunner_Battle_GetForcedAbility(side, partyIndex))
-                    gBattleMons[i].ability = gBattleStruct->overwrittenAbilities[i] = TestRunner_Battle_GetForcedAbility(side, partyIndex);
+                    gBattleMons[i].ability = gDisableStructs[i].overwrittenAbility = TestRunner_Battle_GetForcedAbility(side, partyIndex);
             }
         }
         #endif // TESTING
@@ -5689,6 +5684,12 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void)
     {
         gIsFishingEncounter = FALSE;
         gIsSurfingEncounter = FALSE;
+        if (gDexNavBattle && (gBattleOutcome == B_OUTCOME_WON || gBattleOutcome == B_OUTCOME_CAUGHT))
+            IncrementDexNavChain();
+        else
+            gSaveBlock3Ptr->dexNavChain = 0;
+        
+        gDexNavBattle = FALSE;
         ResetSpriteData();
         if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
                                   | BATTLE_TYPE_RECORDED_LINK
@@ -5965,12 +5966,15 @@ u32 GetDynamicMoveType(struct Pokemon *mon, u32 move, u32 battler, u8 *ateBoost)
                         | ((GetMonData(mon, MON_DATA_SPDEF_IV) & 1) << 5);
             }
 
-            // Subtract 6 instead of 1 below because 5 types are excluded (TYPE_NONE, TYPE_NORMAL, TYPE_MYSTERY, TYPE_FAIRY and TYPE_STELLAR)
-            // The final + 2 skips past TYPE_NONE and Normal.
-            moveType = ((NUMBER_OF_MON_TYPES - 6) * typeBits) / 63 + 2;
-            if (moveType >= TYPE_MYSTERY)
-                moveType++;
-            return ((moveType | F_DYNAMIC_TYPE_IGNORE_PHYSICALITY) & 0x3F);
+            u32 hpTypes[NUMBER_OF_MON_TYPES] = {0};
+            u32 i, hpTypeCount = 0;
+            for (i = 0; i < NUMBER_OF_MON_TYPES; i++)
+            {
+                if (gTypesInfo[i].isHiddenPowerType)
+                    hpTypes[hpTypeCount++] = i;
+            }
+            moveType = ((hpTypeCount - 1) * typeBits) / 63;
+            return ((hpTypes[moveType] | F_DYNAMIC_TYPE_IGNORE_PHYSICALITY) & 0x3F);
         }
         break;
     case EFFECT_CHANGE_TYPE_ON_ITEM:
