@@ -597,7 +597,7 @@ static void rfu_LMAN_settingPCSWITCH(u32 rand)
 
 static void rfu_LMAN_REQ_callback(u16 reqCommandId, u16 reqResult)
 {
-    u8 status;
+    u8 status = 0;
     u8 *stwiRecvBuffer;
     u8 i;
 

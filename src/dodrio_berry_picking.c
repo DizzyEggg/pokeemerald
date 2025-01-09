@@ -3098,6 +3098,7 @@ struct ReadyToStartPacket
 {
     u8 id;
     bool8 ALIGNED(4) ready;
+    u32 padding; // For memcpy warning in Rfu_SendPacket;
 };
 
 static void SendPacket_ReadyToStart(bool32 ready)
@@ -3302,6 +3303,7 @@ struct PickStatePacket
 {
     u8 id;
     u8 ALIGNED(4) pickState;
+    u32 padding; // For memcpy warning in Rfu_SendPacket;
 };
 
 static void SendPacket_PickState(u8 pickState)
@@ -3333,6 +3335,7 @@ struct ReadyToEndPacket
 {
     u8 id;
     bool32 ready;
+    u32 padding; // For memcpy warning in Rfu_SendPacket;
 };
 
 static void SendPacket_ReadyToEnd(bool32 ready)
