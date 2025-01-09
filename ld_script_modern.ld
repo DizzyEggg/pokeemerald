@@ -46,8 +46,6 @@ SECTIONS {
         *libc.a:*.o(.bss*);
         *libnosys.a:*.o(.bss*);
 
-        src/m4a.o(.bss.code);
-
         src/*.o(common_data);
         src/*.o(COMMON);
         *libc.a:*.o(COMMON);
@@ -63,7 +61,6 @@ SECTIONS {
         src/rom_header_gf.o(.text.*);
         src/rom_header_rhh.o(.text.*);
         src/crt0.o(.text);
-        src/main.o(.text);
         src/*.o(.text*);
         asm/*.o(.text*);
     } > ROM =0
@@ -78,16 +75,11 @@ SECTIONS {
     ALIGN(4)
     {
         src/libgcnmultiboot.o(.text);
-        src/m4a_1.o(.text);
-        src/m4a.o(.text);
         src/agb_flash.o(.text);
         src/agb_flash_1m.o(.text);
         src/agb_flash_mx.o(.text);
         src/siirtc.o(.text);
-        src/librfu_stwi.o(.text);
         src/librfu_intr.o(.text);
-        src/librfu_rfu.o(.text);
-        src/librfu_sio32id.o(.text);
         *libagbsyscall.a:*.o(.text*);
         *libgcc.a:*.o(.text*);
         *libc.a:*.o(.text*);
@@ -111,14 +103,11 @@ SECTIONS {
     lib_rodata :
     SUBALIGN(4)
     {
-        src/m4a.o(.rodata);
         src/agb_flash.o(.rodata);
         src/agb_flash_1m.o(.rodata);
         src/agb_flash_mx.o(.rodata);
         src/agb_flash_le.o(.rodata);
         src/siirtc.o(.rodata);
-        src/librfu_rfu.o(.rodata);
-        src/librfu_sio32id.o(.rodata);
         *libgcc.a:*.o(.rodata*);
         *libc.a:*.o(.rodata*);
         *libc.a:*.o(.data*);
