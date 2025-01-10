@@ -559,7 +559,7 @@ struct ConditionGraph *GetConditionGraphPtr(void)
     return &menu->graph;
 }
 
-u8 GetConditionGraphMenuCurrentLoadIndex(void)
+s8 GetConditionGraphMenuCurrentLoadIndex(void)
 {
     struct Pokenav_ConditionMenu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_CONDITION_GRAPH_MENU);
     return menu->loadId;

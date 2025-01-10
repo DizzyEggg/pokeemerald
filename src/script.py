@@ -3,10 +3,10 @@ import re
 import threading
 
 # For debugging. Normally always set to True
-delete_processed_file = True
+delete_processed_file = False
 
 # Only one file which will be processed - useful for debugging. Needs to be set to "" by default
-forced_file = ""
+forced_file = "pokenav_match_call_data.c"
 
 # Files that should not be processed at all
 skip_files = ["agb_flash.c", "agb_flash_1m.c", "agb_flash_mx.c", "agb_flash_le.c", "siirtc.c", "librfu_intr.c", "berry_crush.c", "graphics.c", "pokedex_plus_hgss.c"]
@@ -58,6 +58,9 @@ macro_pattern = re.compile(
 )
 # Some macros are used only for a tiny specific thing or use ##, so they'll be hardcoded to get ignored.
 macro_exceptions = ["move", "x", "power", "X", "MENU_TOP_WIN0", "MENU_TOP_WIN1", "MENU_TOP_WIN2", "MENU_TOP_WIN3", "MENU_TOP_WIN4", "MENU_TOP_WIN5", "MENU_TOP_WIN6", "MENU_HEIGHT_WIN0", "MENU_HEIGHT_WIN1", "MENU_HEIGHT_WIN2", "MENU_HEIGHT_WIN3", "MENU_HEIGHT_WIN4", "MENU_HEIGHT_WIN5", "MENU_HEIGHT_WIN6"]
+
+# Exceptions for variables, because they're handled in macros
+vars_startswith_exceptions = ["gText_MatchCall"]
 
 aligned_variable_pattern = re.compile(
     r'^\s*(static\s+(?:const\s+)?(?:\w+\s+)+)ALIGNED\(\d+\)\s+(\w+)\s*(\[\s*\]\s*=\s*.+;)',
@@ -215,7 +218,7 @@ def process_file(filepath, output_file):
             if has_fourth_group:
                 rest += match.group(4)
             #print("Declaration : " + declaration + " var name:" + var_name + " rest : " + rest + "\n")
-            if var_name not in renames and len(var_name) > 2:
+            if var_name not in renames and len(var_name) > 2 and not any(var_name.startswith(prefix) for prefix in vars_startswith_exceptions):
                 if not var_name.endswith(suffix):
                     new_var_name = var_name + suffix
                     renames[var_name] = new_var_name
