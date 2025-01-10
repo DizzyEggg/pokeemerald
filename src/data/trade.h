@@ -1,4 +1,4 @@
-#define GFXTAG_MENU_TEXT       200 // Used as a base tag in CB2_CreateTradeMenu and CB2_ReturnToTradeMenu
+#define GFXTAG_MENU_TEXT       200 // Used as a base tag in CB2_CreateTradeMenu_trade and CB2_ReturnToTradeMenu_trade
 #define GFXTAG_CURSOR          300
 #define GFXTAG_LINK_MON_GLOW   5550
 #define GFXTAG_LINK_MON_SHADOW 5552
@@ -362,31 +362,31 @@ static const u8 sUnusedCoords[][2] =
 
 static const u8 *const sActionTexts[] =
 {
-    [TEXT_CANCEL]       = sText_Cancel,
-    [TEXT_CHOOSE_MON]   = sText_ChooseAPkmn,
-    [TEXT_SUMMARY]      = sText_Summary,
-    [TEXT_TRADE]        = sText_Trade,
-    [TEXT_CANCEL_TRADE] = sText_CancelTrade,
-    [TEXT_JP_QUIT]      = sJPText_PressBButtonToQuit
+    [TEXT_CANCEL_trade]       = sText_Cancel,
+    [TEXT_CHOOSE_MON_trade]   = sText_ChooseAPkmn,
+    [TEXT_SUMMARY_trade]      = sText_Summary,
+    [TEXT_TRADE_trade]        = sText_Trade,
+    [TEXT_CANCEL_TRADE_trade] = sText_CancelTrade,
+    [TEXT_JP_QUIT_trade]      = sJPText_PressBButtonToQuit
 };
 
 static const struct MenuAction sSelectTradeMonActions[] =
 {
-    {sText_Summary2, {Task_DrawSelectionSummary}},
-    {sText_Trade2,   {Task_DrawSelectionTrade}}
+    {sText_Summary2, {Task_DrawSelectionSummary_trade}},
+    {sText_Trade2,   {Task_DrawSelectionTrade_trade}}
 };
 
 static const u8 *const sMessages[] =
 {
-    [MSG_STANDBY]                    = sText_CommunicationStandby,
-    [MSG_CANCELED]                   = sText_TheTradeHasBeenCanceled,
-    [MSG_ONLY_MON1]                  = sText_OnlyPkmnForBattle,
-    [MSG_ONLY_MON2]                  = gText_OnlyPkmnForBattle, //identical text to above
-    [MSG_WAITING_FOR_FRIEND]         = sText_WaitingForYourFriend,
-    [MSG_FRIEND_WANTS_TO_TRADE]      = sText_YourFriendWantsToTrade,
-    [MSG_MON_CANT_BE_TRADED]         = gText_PkmnCantBeTradedNow,
-    [MSG_EGG_CANT_BE_TRADED]         = gText_EggCantBeTradedNow,
-    [MSG_FRIENDS_MON_CANT_BE_TRADED] = gText_OtherTrainersPkmnCantBeTraded
+    [MSG_STANDBY_trade]                    = sText_CommunicationStandby,
+    [MSG_CANCELED_trade]                   = sText_TheTradeHasBeenCanceled,
+    [MSG_ONLY_MON1_trade]                  = sText_OnlyPkmnForBattle,
+    [MSG_ONLY_MON2_trade]                  = gText_OnlyPkmnForBattle, //identical text to above
+    [MSG_WAITING_FOR_FRIEND_trade]         = sText_WaitingForYourFriend,
+    [MSG_FRIEND_WANTS_TO_TRADE_trade]      = sText_YourFriendWantsToTrade,
+    [MSG_MON_CANT_BE_TRADED_trade]         = gText_PkmnCantBeTradedNow,
+    [MSG_EGG_CANT_BE_TRADED_trade]         = gText_EggCantBeTradedNow,
+    [MSG_FRIENDS_MON_CANT_BE_TRADED_trade] = gText_OtherTrainersPkmnCantBeTraded
 };
 
 static const u8 sTradeTextColors[] =
@@ -748,7 +748,7 @@ static const struct SpriteTemplate sSpriteTemplate_Pokeball =
     .anims = sAnims_Pokeball,
     .images = NULL,
     .affineAnims = sAffineAnims_Pokeball,
-    .callback = SpriteCB_BouncingPokeball
+    .callback = SpriteCB_BouncingPokeball_trade
 };
 
 static const struct OamData sOamData_LinkMonGlow =
@@ -810,7 +810,7 @@ static const struct SpriteTemplate sSpriteTemplate_LinkMonGlow =
     .anims = sAnims_LinkMonGlow,
     .images = NULL,
     .affineAnims = sAffineAnims_LinkMonGlow,
-    .callback = SpriteCB_LinkMonGlow
+    .callback = SpriteCB_LinkMonGlow_trade
 };
 
 static const struct OamData sOamData_LinkMonShadow =
@@ -858,7 +858,7 @@ static const struct SpriteTemplate sSpriteTemplate_LinkMonShadow =
     .anims = sAnims_LinkMonShadow,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_LinkMonShadow
+    .callback = SpriteCB_LinkMonShadow_trade
 };
 
 static const struct OamData sOamData_CableEnd =
@@ -894,7 +894,7 @@ static const struct SpriteTemplate sSpriteTemplate_CableEnd =
     .anims = sAnims_CableEnd,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_CableEndSending
+    .callback = SpriteCB_CableEndSending_trade
 };
 
 static const struct OamData sOamData_GbaScreen =
@@ -955,7 +955,7 @@ static const struct SpriteTemplate sSpriteTemplate_GbaScreenFlash_Long =
     .anims = sAnims_GbaScreen_Long,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_GbaScreen
+    .callback = SpriteCB_GbaScreen_trade
 };
 
 static const struct SpriteTemplate sSpriteTemplate_GbaScreenFlash_Short =
@@ -966,7 +966,7 @@ static const struct SpriteTemplate sSpriteTemplate_GbaScreenFlash_Short =
     .anims = sAnims_GbaScreen_Short,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_GbaScreen
+    .callback = SpriteCB_GbaScreen_trade
 };
 
 static const u16 sLinkMonShadow_Pal[] = INCBIN_U16("graphics/trade/link_mon_shadow.gbapal");

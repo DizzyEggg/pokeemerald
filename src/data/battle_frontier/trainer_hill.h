@@ -5,7 +5,7 @@
 #define TRAINER_RANGE(a, b) ((a<<4)|(b))
 
 // WARNING: While not referenced directly, the floor data in this file is referenced by virtue
-//          of coming after its corresponding challenge (see SetUpDataStruct in trainer_hill.c).
+//          of coming after its corresponding challenge (see SetUpDataStruct_trainer_hill in trainer_hill.c).
 //          Do not insert data between a pair of 'sChallenge_Mode' and 'sFloors_Mode'.
 
 // Unused

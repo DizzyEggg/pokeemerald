@@ -95,7 +95,7 @@
 // - MOVE_THUNDER_PUNCH                                //
 // - MOVE_THUNDER_WAVE                                 //
 // *************************************************** //
-// Near-universal moves found in sUniversalMoves:      //
+// Near-universal moves found in sUniversalMoves_pokemon:      //
 // - MOVE_BIDE                                         //
 // - MOVE_FRUSTRATION                                  //
 // - MOVE_HIDDEN_POWER                                 //

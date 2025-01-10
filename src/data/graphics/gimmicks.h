@@ -58,7 +58,7 @@ static const union AnimCmd *const sSpriteAnimTable_GimmickTrigger[] =
     sSpriteAnim_GimmickTriggerOn,
 };
 
-static void SpriteCb_GimmickTrigger(struct Sprite *sprite);
+static void SpriteCb_GimmickTrigger_battle_gimmick(struct Sprite *sprite);
 static const struct SpriteTemplate sSpriteTemplate_GimmickTrigger =
 {
     .tileTag = TAG_GIMMICK_TRIGGER_TILE,
@@ -67,7 +67,7 @@ static const struct SpriteTemplate sSpriteTemplate_GimmickTrigger =
     .anims = sSpriteAnimTable_GimmickTrigger,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCb_GimmickTrigger,
+    .callback = SpriteCb_GimmickTrigger_battle_gimmick,
 };
 
 // indicator data
@@ -140,7 +140,7 @@ static const struct OamData sOamData_GimmickIndicator =
     .priority = 1,
 };
 
-static void SpriteCb_GimmickIndicator(struct Sprite *sprite);
+static void SpriteCb_GimmickIndicator_battle_gimmick(struct Sprite *sprite);
 static const struct SpriteTemplate sSpriteTemplate_GimmickIndicator =
 {
     .tileTag = TAG_NORMAL_INDICATOR_TILE,   // updated dynamically
@@ -149,5 +149,5 @@ static const struct SpriteTemplate sSpriteTemplate_GimmickIndicator =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCb_GimmickIndicator,
+    .callback = SpriteCb_GimmickIndicator_battle_gimmick,
 };

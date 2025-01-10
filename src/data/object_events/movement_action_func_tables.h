@@ -633,7 +633,7 @@ static u8 (*const sDirectionAnimFuncsBySpeed[])(u8) = {
     [MOVE_SPEED_FAST_1] = GetMoveDirectionFastAnimNum,
     [MOVE_SPEED_FAST_2] = GetMoveDirectionFastAnimNum,
     [MOVE_SPEED_FASTER] = GetMoveDirectionFasterAnimNum,
-    [MOVE_SPEED_FASTEST] = GetMoveDirectionFastestAnimNum,
+    [MOVE_SPEED_FASTEST_event_object_movement] = GetMoveDirectionFastestAnimNum,
 };
 
 u8 (*const gMovementActionFuncs_WalkSlowDiagonalUpLeft[])(struct ObjectEvent *, struct Sprite *) = {
@@ -733,14 +733,14 @@ u8 (*const gMovementActionFuncs_WalkNormalRight[])(struct ObjectEvent *, struct 
 };
 
 static const s16 sJumpInitDisplacements[] = {
-    [JUMP_DISTANCE_IN_PLACE] = 0,
-    [JUMP_DISTANCE_NORMAL] = 1,
-    [JUMP_DISTANCE_FAR] = 1,
+    [JUMP_DISTANCE_IN_PLACE_event_object_movement] = 0,
+    [JUMP_DISTANCE_NORMAL_event_object_movement] = 1,
+    [JUMP_DISTANCE_FAR_event_object_movement] = 1,
 };
 static const s16 sJumpDisplacements[] = {
-    [JUMP_DISTANCE_IN_PLACE] = 0,
-    [JUMP_DISTANCE_NORMAL] = 0,
-    [JUMP_DISTANCE_FAR] = 1,
+    [JUMP_DISTANCE_IN_PLACE_event_object_movement] = 0,
+    [JUMP_DISTANCE_NORMAL_event_object_movement] = 0,
+    [JUMP_DISTANCE_FAR_event_object_movement] = 1,
 };
 
 u8 (*const gMovementActionFuncs_Jump2Down[])(struct ObjectEvent *, struct Sprite *) = {

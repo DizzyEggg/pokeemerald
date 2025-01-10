@@ -342,9 +342,9 @@ def main():
         threads = []
         processed_files_count = 0
         for filename in os.listdir(input_dir):
-            if processed_files_count >= 62:
-                break
-            if filename.endswith(".c") and filename != "output.c" and filename not in skip_files and filename[0].lower() >= 'r':
+            #if processed_files_count >= 999:
+                #break
+            if filename.endswith(".c") and filename != "output.c" and filename not in skip_files: #and filename[0].lower() >= 'r'
                 filepath = os.path.join(input_dir, filename)
                 if do_threads == True:
                     thread = threading.Thread(target=process_file, args=(filepath, output_file))

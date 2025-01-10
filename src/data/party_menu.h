@@ -31,9 +31,9 @@ static const struct BgTemplate sPartyMenuBgTemplates[] =
 
 static const struct PartyMenuBoxInfoRects sPartyBoxInfoRects[] =
 {
-    [PARTY_BOX_LEFT_COLUMN] =
+    [PARTY_BOX_LEFT_COLUMN_party_menu] =
     {
-        BlitBitmapToPartyWindow_LeftColumn,
+        BlitBitmapToPartyWindow_LeftColumn_party_menu,
         {
             //The below are the x, y, width, and height for each of the following info
             24, 11, 40, 13, // Nickname
@@ -45,9 +45,9 @@ static const struct PartyMenuBoxInfoRects sPartyBoxInfoRects[] =
         },
         12, 34, 64, 16      // Description text (e.g. NO USE)
     },
-    [PARTY_BOX_RIGHT_COLUMN] =
+    [PARTY_BOX_RIGHT_COLUMN_party_menu] =
     {
-        BlitBitmapToPartyWindow_RightColumn,
+        BlitBitmapToPartyWindow_RightColumn_party_menu,
         {
              // See above comment
              22,  3, 40, 13, // Nickname
@@ -176,7 +176,7 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate[] =
         .paletteNum = 8,
         .baseBlock = 0x181,
     },
-    [WIN_MSG] = {
+    [WIN_MSG_party_menu] = {
         .bg = 2,
         .tilemapLeft = 1,
         .tilemapTop = 15,
@@ -244,7 +244,7 @@ static const struct WindowTemplate sDoublePartyMenuWindowTemplate[] =
         .paletteNum = 8,
         .baseBlock = 0x191,
     },
-    [WIN_MSG] = {
+    [WIN_MSG_party_menu] = {
         .bg = 2,
         .tilemapLeft = 1,
         .tilemapTop = 15,
@@ -312,7 +312,7 @@ static const struct WindowTemplate sMultiPartyMenuWindowTemplate[] =
         .paletteNum = 8,
         .baseBlock = 0x191,
     },
-    [WIN_MSG] = {
+    [WIN_MSG_party_menu] = {
         .bg = 2,
         .tilemapLeft = 1,
         .tilemapTop = 15,
@@ -692,96 +692,96 @@ struct
 {
     const u8 *text;
     TaskFunc func;
-} static const sCursorOptions[MENU_FIELD_MOVES] =
+} static const sCursorOptions[MENU_FIELD_MOVES_party_menu] =
 {
-    [MENU_SUMMARY] = {COMPOUND_STRING("SUMMARY"), CursorCb_Summary},
-    [MENU_SWITCH] = {COMPOUND_STRING("SWITCH"), CursorCb_Switch},
-    [MENU_CANCEL1] = {gText_Cancel2, CursorCb_Cancel1},
-    [MENU_ITEM] = {COMPOUND_STRING("ITEM"), CursorCb_Item},
-    [MENU_GIVE] = {gMenuText_Give, CursorCb_Give},
-    [MENU_TAKE_ITEM] = {COMPOUND_STRING("TAKE"), CursorCb_TakeItem},
-    [MENU_MAIL] = {COMPOUND_STRING("MAIL"), CursorCb_Mail},
-    [MENU_TAKE_MAIL] = {COMPOUND_STRING("TAKE"), CursorCb_TakeMail},
-    [MENU_READ] = {COMPOUND_STRING("READ"), CursorCb_Read},
-    [MENU_CANCEL2] = {gText_Cancel2, CursorCb_Cancel2},
-    [MENU_SHIFT] = {COMPOUND_STRING("SHIFT"), CursorCb_SendMon},
-    [MENU_SEND_OUT] = {COMPOUND_STRING("SEND OUT"), CursorCb_SendMon},
-    [MENU_ENTER] = {COMPOUND_STRING("ENTER"), CursorCb_Enter},
-    [MENU_NO_ENTRY] = {COMPOUND_STRING("NO ENTRY"), CursorCb_NoEntry},
-    [MENU_STORE] = {COMPOUND_STRING("STORE"), CursorCb_Store},
-    [MENU_REGISTER] = {gText_Register, CursorCb_Register},
-    [MENU_TRADE1] = {sText_Trade4, CursorCb_Trade1},
-    [MENU_TRADE2] = {sText_Trade4, CursorCb_Trade2},
-    [MENU_TOSS] = {gMenuText_Toss, CursorCb_Toss},
-    [MENU_CATALOG_BULB] = {COMPOUND_STRING("Light bulb"), CursorCb_CatalogBulb},
-    [MENU_CATALOG_OVEN] = {COMPOUND_STRING("Microwave oven"), CursorCb_CatalogOven},
-    [MENU_CATALOG_WASHING] = {COMPOUND_STRING("Washing machine"), CursorCb_CatalogWashing},
-    [MENU_CATALOG_FRIDGE] = {COMPOUND_STRING("Refrigerator"), CursorCb_CatalogFridge},
-    [MENU_CATALOG_FAN] = {COMPOUND_STRING("Electric fan"), CursorCb_CatalogFan},
-    [MENU_CATALOG_MOWER] = {COMPOUND_STRING("Lawn mower"), CursorCb_CatalogMower},
-    [MENU_CHANGE_FORM] = {COMPOUND_STRING("Change form"), CursorCb_ChangeForm},
-    [MENU_CHANGE_ABILITY] = {COMPOUND_STRING("Change Ability"), CursorCb_ChangeAbility},
+    [MENU_SUMMARY_party_menu] = {COMPOUND_STRING("SUMMARY"), CursorCb_Summary_party_menu},
+    [MENU_SWITCH_party_menu] = {COMPOUND_STRING("SWITCH"), CursorCb_Switch_party_menu},
+    [MENU_CANCEL1_party_menu] = {gText_Cancel2, CursorCb_Cancel1_party_menu},
+    [MENU_ITEM_party_menu] = {COMPOUND_STRING("ITEM"), CursorCb_Item_party_menu},
+    [MENU_GIVE_party_menu] = {gMenuText_Give, CursorCb_Give_party_menu},
+    [MENU_TAKE_ITEM_party_menu] = {COMPOUND_STRING("TAKE"), CursorCb_TakeItem_party_menu},
+    [MENU_MAIL_party_menu] = {COMPOUND_STRING("MAIL"), CursorCb_Mail_party_menu},
+    [MENU_TAKE_MAIL_party_menu] = {COMPOUND_STRING("TAKE"), CursorCb_TakeMail_party_menu},
+    [MENU_READ_party_menu] = {COMPOUND_STRING("READ"), CursorCb_Read_party_menu},
+    [MENU_CANCEL2_party_menu] = {gText_Cancel2, CursorCb_Cancel2_party_menu},
+    [MENU_SHIFT_party_menu] = {COMPOUND_STRING("SHIFT"), CursorCb_SendMon_party_menu},
+    [MENU_SEND_OUT_party_menu] = {COMPOUND_STRING("SEND OUT"), CursorCb_SendMon_party_menu},
+    [MENU_ENTER_party_menu] = {COMPOUND_STRING("ENTER"), CursorCb_Enter_party_menu},
+    [MENU_NO_ENTRY_party_menu] = {COMPOUND_STRING("NO ENTRY"), CursorCb_NoEntry_party_menu},
+    [MENU_STORE_party_menu] = {COMPOUND_STRING("STORE"), CursorCb_Store_party_menu},
+    [MENU_REGISTER_party_menu] = {gText_Register, CursorCb_Register_party_menu},
+    [MENU_TRADE1_party_menu] = {sText_Trade4, CursorCb_Trade1_party_menu},
+    [MENU_TRADE2_party_menu] = {sText_Trade4, CursorCb_Trade2_party_menu},
+    [MENU_TOSS_party_menu] = {gMenuText_Toss, CursorCb_Toss_party_menu},
+    [MENU_CATALOG_BULB_party_menu] = {COMPOUND_STRING("Light bulb"), CursorCb_CatalogBulb_party_menu},
+    [MENU_CATALOG_OVEN_party_menu] = {COMPOUND_STRING("Microwave oven"), CursorCb_CatalogOven_party_menu},
+    [MENU_CATALOG_WASHING_party_menu] = {COMPOUND_STRING("Washing machine"), CursorCb_CatalogWashing_party_menu},
+    [MENU_CATALOG_FRIDGE_party_menu] = {COMPOUND_STRING("Refrigerator"), CursorCb_CatalogFridge_party_menu},
+    [MENU_CATALOG_FAN_party_menu] = {COMPOUND_STRING("Electric fan"), CursorCb_CatalogFan_party_menu},
+    [MENU_CATALOG_MOWER_party_menu] = {COMPOUND_STRING("Lawn mower"), CursorCb_CatalogMower_party_menu},
+    [MENU_CHANGE_FORM_party_menu] = {COMPOUND_STRING("Change form"), CursorCb_ChangeForm_party_menu},
+    [MENU_CHANGE_ABILITY_party_menu] = {COMPOUND_STRING("Change Ability"), CursorCb_ChangeAbility_party_menu},
 };
 
-static const u8 sPartyMenuAction_SummarySwitchCancel[] = {MENU_SUMMARY, MENU_SWITCH, MENU_CANCEL1};
-static const u8 sPartyMenuAction_ShiftSummaryCancel[] = {MENU_SHIFT, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_SendOutSummaryCancel[] = {MENU_SEND_OUT, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_SummaryCancel[] = {MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_EnterSummaryCancel[] = {MENU_ENTER, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_NoEntrySummaryCancel[] = {MENU_NO_ENTRY, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_StoreSummaryCancel[] = {MENU_STORE, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_GiveTakeItemCancel[] = {MENU_GIVE, MENU_TAKE_ITEM, MENU_CANCEL2};
-static const u8 sPartyMenuAction_ReadTakeMailCancel[] = {MENU_READ, MENU_TAKE_MAIL, MENU_CANCEL2};
-static const u8 sPartyMenuAction_RegisterSummaryCancel[] = {MENU_REGISTER, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_TradeSummaryCancel1[] = {MENU_TRADE1, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_TradeSummaryCancel2[] = {MENU_TRADE2, MENU_SUMMARY, MENU_CANCEL1};
-static const u8 sPartyMenuAction_TakeItemTossCancel[] = {MENU_TAKE_ITEM, MENU_TOSS, MENU_CANCEL1};
-static const u8 sPartyMenuAction_RotomCatalog[] = {MENU_CATALOG_BULB, MENU_CATALOG_OVEN, MENU_CATALOG_WASHING, MENU_CATALOG_FRIDGE, MENU_CATALOG_FAN, MENU_CATALOG_MOWER, MENU_CANCEL1};
-static const u8 sPartyMenuAction_ZygardeCube[] = {MENU_CHANGE_FORM, MENU_CHANGE_ABILITY, MENU_CANCEL1};
+static const u8 sPartyMenuAction_SummarySwitchCancel[] = {MENU_SUMMARY_party_menu, MENU_SWITCH_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_ShiftSummaryCancel[] = {MENU_SHIFT_party_menu, MENU_SUMMARY_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_SendOutSummaryCancel[] = {MENU_SEND_OUT_party_menu, MENU_SUMMARY_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_SummaryCancel[] = {MENU_SUMMARY_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_EnterSummaryCancel[] = {MENU_ENTER_party_menu, MENU_SUMMARY_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_NoEntrySummaryCancel[] = {MENU_NO_ENTRY_party_menu, MENU_SUMMARY_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_StoreSummaryCancel[] = {MENU_STORE_party_menu, MENU_SUMMARY_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_GiveTakeItemCancel[] = {MENU_GIVE_party_menu, MENU_TAKE_ITEM_party_menu, MENU_CANCEL2_party_menu};
+static const u8 sPartyMenuAction_ReadTakeMailCancel[] = {MENU_READ_party_menu, MENU_TAKE_MAIL_party_menu, MENU_CANCEL2_party_menu};
+static const u8 sPartyMenuAction_RegisterSummaryCancel[] = {MENU_REGISTER_party_menu, MENU_SUMMARY_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_TradeSummaryCancel1[] = {MENU_TRADE1_party_menu, MENU_SUMMARY_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_TradeSummaryCancel2[] = {MENU_TRADE2_party_menu, MENU_SUMMARY_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_TakeItemTossCancel[] = {MENU_TAKE_ITEM_party_menu, MENU_TOSS_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_RotomCatalog[] = {MENU_CATALOG_BULB_party_menu, MENU_CATALOG_OVEN_party_menu, MENU_CATALOG_WASHING_party_menu, MENU_CATALOG_FRIDGE_party_menu, MENU_CATALOG_FAN_party_menu, MENU_CATALOG_MOWER_party_menu, MENU_CANCEL1_party_menu};
+static const u8 sPartyMenuAction_ZygardeCube[] = {MENU_CHANGE_FORM_party_menu, MENU_CHANGE_ABILITY_party_menu, MENU_CANCEL1_party_menu};
 
 
 
 static const u8 *const sPartyMenuActions[] =
 {
-    [ACTIONS_NONE]          = NULL,
-    [ACTIONS_SWITCH]        = sPartyMenuAction_SummarySwitchCancel,
-    [ACTIONS_SHIFT]         = sPartyMenuAction_ShiftSummaryCancel,
-    [ACTIONS_SEND_OUT]      = sPartyMenuAction_SendOutSummaryCancel,
-    [ACTIONS_ENTER]         = sPartyMenuAction_EnterSummaryCancel,
-    [ACTIONS_NO_ENTRY]      = sPartyMenuAction_NoEntrySummaryCancel,
-    [ACTIONS_STORE]         = sPartyMenuAction_StoreSummaryCancel,
-    [ACTIONS_SUMMARY_ONLY]  = sPartyMenuAction_SummaryCancel,
-    [ACTIONS_ITEM]          = sPartyMenuAction_GiveTakeItemCancel,
-    [ACTIONS_MAIL]          = sPartyMenuAction_ReadTakeMailCancel,
-    [ACTIONS_REGISTER]      = sPartyMenuAction_RegisterSummaryCancel,
-    [ACTIONS_TRADE]         = sPartyMenuAction_TradeSummaryCancel1,
-    [ACTIONS_SPIN_TRADE]    = sPartyMenuAction_TradeSummaryCancel2,
-    [ACTIONS_TAKEITEM_TOSS] = sPartyMenuAction_TakeItemTossCancel,
-    [ACTIONS_ROTOM_CATALOG] = sPartyMenuAction_RotomCatalog,
-    [ACTIONS_ZYGARDE_CUBE]  = sPartyMenuAction_ZygardeCube,
+    [ACTIONS_NONE_party_menu]          = NULL,
+    [ACTIONS_SWITCH_party_menu]        = sPartyMenuAction_SummarySwitchCancel,
+    [ACTIONS_SHIFT_party_menu]         = sPartyMenuAction_ShiftSummaryCancel,
+    [ACTIONS_SEND_OUT_party_menu]      = sPartyMenuAction_SendOutSummaryCancel,
+    [ACTIONS_ENTER_party_menu]         = sPartyMenuAction_EnterSummaryCancel,
+    [ACTIONS_NO_ENTRY_party_menu]      = sPartyMenuAction_NoEntrySummaryCancel,
+    [ACTIONS_STORE_party_menu]         = sPartyMenuAction_StoreSummaryCancel,
+    [ACTIONS_SUMMARY_ONLY_party_menu]  = sPartyMenuAction_SummaryCancel,
+    [ACTIONS_ITEM_party_menu]          = sPartyMenuAction_GiveTakeItemCancel,
+    [ACTIONS_MAIL_party_menu]          = sPartyMenuAction_ReadTakeMailCancel,
+    [ACTIONS_REGISTER_party_menu]      = sPartyMenuAction_RegisterSummaryCancel,
+    [ACTIONS_TRADE_party_menu]         = sPartyMenuAction_TradeSummaryCancel1,
+    [ACTIONS_SPIN_TRADE_party_menu]    = sPartyMenuAction_TradeSummaryCancel2,
+    [ACTIONS_TAKEITEM_TOSS_party_menu] = sPartyMenuAction_TakeItemTossCancel,
+    [ACTIONS_ROTOM_CATALOG_party_menu] = sPartyMenuAction_RotomCatalog,
+    [ACTIONS_ZYGARDE_CUBE_party_menu]  = sPartyMenuAction_ZygardeCube,
 };
 
 static const u8 sPartyMenuActionCounts[] =
 {
-    [ACTIONS_NONE]          = 0,
-    [ACTIONS_SWITCH]        = ARRAY_COUNT(sPartyMenuAction_SummarySwitchCancel),
-    [ACTIONS_SHIFT]         = ARRAY_COUNT(sPartyMenuAction_ShiftSummaryCancel),
-    [ACTIONS_SEND_OUT]      = ARRAY_COUNT(sPartyMenuAction_SendOutSummaryCancel),
-    [ACTIONS_ENTER]         = ARRAY_COUNT(sPartyMenuAction_EnterSummaryCancel),
-    [ACTIONS_NO_ENTRY]      = ARRAY_COUNT(sPartyMenuAction_NoEntrySummaryCancel),
-    [ACTIONS_STORE]         = ARRAY_COUNT(sPartyMenuAction_StoreSummaryCancel),
-    [ACTIONS_SUMMARY_ONLY]  = ARRAY_COUNT(sPartyMenuAction_SummaryCancel),
-    [ACTIONS_ITEM]          = ARRAY_COUNT(sPartyMenuAction_GiveTakeItemCancel),
-    [ACTIONS_MAIL]          = ARRAY_COUNT(sPartyMenuAction_ReadTakeMailCancel),
-    [ACTIONS_REGISTER]      = ARRAY_COUNT(sPartyMenuAction_RegisterSummaryCancel),
-    [ACTIONS_TRADE]         = ARRAY_COUNT(sPartyMenuAction_TradeSummaryCancel1),
-    [ACTIONS_SPIN_TRADE]    = ARRAY_COUNT(sPartyMenuAction_TradeSummaryCancel2),
-    [ACTIONS_TAKEITEM_TOSS] = ARRAY_COUNT(sPartyMenuAction_TakeItemTossCancel),
-    [ACTIONS_ROTOM_CATALOG] = ARRAY_COUNT(sPartyMenuAction_RotomCatalog),
-    [ACTIONS_ZYGARDE_CUBE]  = ARRAY_COUNT(sPartyMenuAction_ZygardeCube),
+    [ACTIONS_NONE_party_menu]          = 0,
+    [ACTIONS_SWITCH_party_menu]        = ARRAY_COUNT(sPartyMenuAction_SummarySwitchCancel),
+    [ACTIONS_SHIFT_party_menu]         = ARRAY_COUNT(sPartyMenuAction_ShiftSummaryCancel),
+    [ACTIONS_SEND_OUT_party_menu]      = ARRAY_COUNT(sPartyMenuAction_SendOutSummaryCancel),
+    [ACTIONS_ENTER_party_menu]         = ARRAY_COUNT(sPartyMenuAction_EnterSummaryCancel),
+    [ACTIONS_NO_ENTRY_party_menu]      = ARRAY_COUNT(sPartyMenuAction_NoEntrySummaryCancel),
+    [ACTIONS_STORE_party_menu]         = ARRAY_COUNT(sPartyMenuAction_StoreSummaryCancel),
+    [ACTIONS_SUMMARY_ONLY_party_menu]  = ARRAY_COUNT(sPartyMenuAction_SummaryCancel),
+    [ACTIONS_ITEM_party_menu]          = ARRAY_COUNT(sPartyMenuAction_GiveTakeItemCancel),
+    [ACTIONS_MAIL_party_menu]          = ARRAY_COUNT(sPartyMenuAction_ReadTakeMailCancel),
+    [ACTIONS_REGISTER_party_menu]      = ARRAY_COUNT(sPartyMenuAction_RegisterSummaryCancel),
+    [ACTIONS_TRADE_party_menu]         = ARRAY_COUNT(sPartyMenuAction_TradeSummaryCancel1),
+    [ACTIONS_SPIN_TRADE_party_menu]    = ARRAY_COUNT(sPartyMenuAction_TradeSummaryCancel2),
+    [ACTIONS_TAKEITEM_TOSS_party_menu] = ARRAY_COUNT(sPartyMenuAction_TakeItemTossCancel),
+    [ACTIONS_ROTOM_CATALOG_party_menu] = ARRAY_COUNT(sPartyMenuAction_RotomCatalog),
+    [ACTIONS_ZYGARDE_CUBE_party_menu]  = ARRAY_COUNT(sPartyMenuAction_ZygardeCube),
 };
 
-static const u16 sFieldMoves[FIELD_MOVES_COUNT + 1] =
+static const u16 sFieldMoves[FIELD_MOVES_COUNT_party_menu + 1] =
 {
     [FIELD_MOVE_CUT]          = MOVE_CUT,
     [FIELD_MOVE_FLASH]        = MOVE_FLASH,
@@ -791,37 +791,37 @@ static const u16 sFieldMoves[FIELD_MOVES_COUNT + 1] =
     [FIELD_MOVE_FLY]          = MOVE_FLY,
     [FIELD_MOVE_DIVE]         = MOVE_DIVE,
     [FIELD_MOVE_WATERFALL]    = MOVE_WATERFALL,
-    [FIELD_MOVE_TELEPORT]     = MOVE_TELEPORT,
-    [FIELD_MOVE_DIG]          = MOVE_DIG,
-    [FIELD_MOVE_SECRET_POWER] = MOVE_SECRET_POWER,
-    [FIELD_MOVE_MILK_DRINK]   = MOVE_MILK_DRINK,
-    [FIELD_MOVE_SOFT_BOILED]  = MOVE_SOFT_BOILED,
-    [FIELD_MOVE_SWEET_SCENT]  = MOVE_SWEET_SCENT,
+    [FIELD_MOVE_TELEPORT_party_menu]     = MOVE_TELEPORT,
+    [FIELD_MOVE_DIG_party_menu]          = MOVE_DIG,
+    [FIELD_MOVE_SECRET_POWER_party_menu] = MOVE_SECRET_POWER,
+    [FIELD_MOVE_MILK_DRINK_party_menu]   = MOVE_MILK_DRINK,
+    [FIELD_MOVE_SOFT_BOILED_party_menu]  = MOVE_SOFT_BOILED,
+    [FIELD_MOVE_SWEET_SCENT_party_menu]  = MOVE_SWEET_SCENT,
     // NOTE: This value is used as the terminal value for the table. There's no reason to do this, as the size of the table is known.
     //       Whichever move shares this value (MOVE_SWORDS_DANCE by default) if present will be treated as the end of the array rather than a field move.
-    [FIELD_MOVES_COUNT]       = FIELD_MOVES_COUNT
+    [FIELD_MOVES_COUNT_party_menu]       = FIELD_MOVES_COUNT_party_menu
 };
 
 struct
 {
     bool8 (*fieldMoveFunc)(void);
     u8 msgId;
-} static const sFieldMoveCursorCallbacks[FIELD_MOVES_COUNT] =
+} static const sFieldMoveCursorCallbacks[FIELD_MOVES_COUNT_party_menu] =
 {
     [FIELD_MOVE_CUT]          = {SetUpFieldMove_Cut,         PARTY_MSG_NOTHING_TO_CUT},
     [FIELD_MOVE_FLASH]        = {SetUpFieldMove_Flash,       PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_ROCK_SMASH]   = {SetUpFieldMove_RockSmash,   PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_STRENGTH]     = {SetUpFieldMove_Strength,    PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_SURF]         = {SetUpFieldMove_Surf,        PARTY_MSG_CANT_SURF_HERE},
-    [FIELD_MOVE_FLY]          = {SetUpFieldMove_Fly,         PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_DIVE]         = {SetUpFieldMove_Dive,        PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_WATERFALL]    = {SetUpFieldMove_Waterfall,   PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_TELEPORT]     = {SetUpFieldMove_Teleport,    PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_DIG]          = {SetUpFieldMove_Dig,         PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_SECRET_POWER] = {SetUpFieldMove_SecretPower, PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_MILK_DRINK]   = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
-    [FIELD_MOVE_SOFT_BOILED]  = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
-    [FIELD_MOVE_SWEET_SCENT]  = {SetUpFieldMove_SweetScent,  PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_SURF]         = {SetUpFieldMove_Surf_party_menu,        PARTY_MSG_CANT_SURF_HERE},
+    [FIELD_MOVE_FLY]          = {SetUpFieldMove_Fly_party_menu,         PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_DIVE]         = {SetUpFieldMove_Dive_party_menu,        PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_WATERFALL]    = {SetUpFieldMove_Waterfall_party_menu,   PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_TELEPORT_party_menu]     = {SetUpFieldMove_Teleport,    PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_DIG_party_menu]          = {SetUpFieldMove_Dig,         PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_SECRET_POWER_party_menu] = {SetUpFieldMove_SecretPower, PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_MILK_DRINK_party_menu]   = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
+    [FIELD_MOVE_SOFT_BOILED_party_menu]  = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
+    [FIELD_MOVE_SWEET_SCENT_party_menu]  = {SetUpFieldMove_SweetScent,  PARTY_MSG_CANT_USE_HERE},
 };
 
 static const u8 *const sUnionRoomTradeMessages[] =
@@ -877,18 +877,18 @@ static const union AnimCmd *const sSpriteAnimTable_HeldItem[] =
 
 const struct SpriteSheet gSpriteSheet_HeldItem =
 {
-    .data = sHeldItemGfx, .size = sizeof(sHeldItemGfx), .tag = TAG_HELD_ITEM
+    .data = sHeldItemGfx, .size = sizeof(sHeldItemGfx), .tag = TAG_HELD_ITEM_party_menu
 };
 
 static const struct SpritePalette sSpritePalette_HeldItem =
 {
-    .data = gHeldItemPalette, .tag = TAG_HELD_ITEM
+    .data = gHeldItemPalette, .tag = TAG_HELD_ITEM_party_menu
 };
 
 static const struct SpriteTemplate sSpriteTemplate_HeldItem =
 {
-    .tileTag = TAG_HELD_ITEM,
-    .paletteTag = TAG_HELD_ITEM,
+    .tileTag = TAG_HELD_ITEM_party_menu,
+    .paletteTag = TAG_HELD_ITEM_party_menu,
     .oam = &sOamData_HeldItem,
     .anims = sSpriteAnimTable_HeldItem,
     .images = NULL,
@@ -933,19 +933,19 @@ static const union AnimCmd *const sSpriteAnimTable_MenuPokeball[] =
 
 static const struct CompressedSpriteSheet sSpriteSheet_MenuPokeball =
 {
-    gPartyMenuPokeball_Gfx, 0x400, TAG_POKEBALL
+    gPartyMenuPokeball_Gfx, 0x400, TAG_POKEBALL_party_menu
 };
 
 static const struct CompressedSpritePalette sSpritePalette_MenuPokeball =
 {
-    gPartyMenuPokeball_Pal, TAG_POKEBALL
+    gPartyMenuPokeball_Pal, TAG_POKEBALL_party_menu
 };
 
 // Used for the Poké Ball sprite on each party slot / Cancel button
 static const struct SpriteTemplate sSpriteTemplate_MenuPokeball =
 {
-    .tileTag = TAG_POKEBALL,
-    .paletteTag = TAG_POKEBALL,
+    .tileTag = TAG_POKEBALL_party_menu,
+    .paletteTag = TAG_POKEBALL_party_menu,
     .oam = &sOamData_MenuPokeball,
     .anims = sSpriteAnimTable_MenuPokeball,
     .images = NULL,
@@ -1006,7 +1006,7 @@ static const union AnimCmd sSmallPokeballAnim_Blank4[] =
     ANIMCMD_END
 };
 
-// The blanks below are never used. See SpriteCB_BounceConfirmCancelButton, where they were intended to be used
+// The blanks below are never used. See SpriteCB_BounceConfirmCancelButton_party_menu, where they were intended to be used
 static const union AnimCmd *const sSpriteAnimTable_MenuPokeballSmall[] =
 {
     sSmallPokeballAnim_Closed,
@@ -1019,14 +1019,14 @@ static const union AnimCmd *const sSpriteAnimTable_MenuPokeballSmall[] =
 
 static const struct CompressedSpriteSheet sSpriteSheet_MenuPokeballSmall =
 {
-    gPartyMenuPokeballSmall_Gfx, 0x0300, TAG_POKEBALL_SMALL
+    gPartyMenuPokeballSmall_Gfx, 0x0300, TAG_POKEBALL_SMALL_party_menu
 };
 
 // Used for the pokeball sprite next to Cancel and Confirm when both are present, otherwise sSpriteTemplate_MenuPokeball is used
 static const struct SpriteTemplate sSpriteTemplate_MenuPokeballSmall =
 {
-    .tileTag = TAG_POKEBALL_SMALL,
-    .paletteTag = TAG_POKEBALL,
+    .tileTag = TAG_POKEBALL_SMALL_party_menu,
+    .paletteTag = TAG_POKEBALL_party_menu,
     .oam = &sOamData_MenuPokeballSmall,
     .anims = sSpriteAnimTable_MenuPokeballSmall,
     .images = NULL,
@@ -1113,18 +1113,18 @@ static const union AnimCmd *const sSpriteTemplate_StatusCondition[] =
 
 static const struct CompressedSpriteSheet sSpriteSheet_StatusIcons =
 {
-    gStatusGfx_Icons, 0x400, TAG_STATUS_ICONS
+    gStatusGfx_Icons, 0x400, TAG_STATUS_ICONS_party_menu
 };
 
 static const struct CompressedSpritePalette sSpritePalette_StatusIcons =
 {
-    gStatusPal_Icons, TAG_STATUS_ICONS
+    gStatusPal_Icons, TAG_STATUS_ICONS_party_menu
 };
 
 const struct SpriteTemplate gSpriteTemplate_StatusIcons =
 {
-    .tileTag = TAG_STATUS_ICONS,
-    .paletteTag = TAG_STATUS_ICONS,
+    .tileTag = TAG_STATUS_ICONS_party_menu,
+    .paletteTag = TAG_STATUS_ICONS_party_menu,
     .oam = &sOamData_StatusCondition,
     .anims = sSpriteTemplate_StatusCondition,
     .images = NULL,

@@ -26,7 +26,7 @@ static const struct SpriteFrameImage sPicTable_ChestoBerryTree[] = {
 
 const u8 gBerryTreePaletteSlotTable_Chesto[] = {3, 4, 2, 2, 2, 2, 2};
 
-static const struct SpriteFrameImage sPicTable_PechaBerryTree[] = {
+static const struct SpriteFrameImage sPicTable_PechaBerryTree_event_object_movement[] = {
     overworld_frame(gObjectEventPic_BerryTreeDirtPile, 2, 2, 0),
     overworld_frame(gObjectEventPic_BerryTreeSprout, 2, 2, 0),
     overworld_frame(gObjectEventPic_BerryTreeSprout, 2, 2, 1),
@@ -635,7 +635,7 @@ const u8 gBerryTreeObjectEventGraphicsIdTable[] = {OBJ_EVENT_GFX_BERRY_TREE_EARL
 const struct SpriteFrameImage *const gBerryTreePicTablePointers[] = {
     [ITEM_CHERI_BERRY - FIRST_BERRY_INDEX]            = sPicTable_CheriBerryTree,
     [ITEM_CHESTO_BERRY - FIRST_BERRY_INDEX]           = sPicTable_ChestoBerryTree,
-    [ITEM_PECHA_BERRY - FIRST_BERRY_INDEX]            = sPicTable_PechaBerryTree,
+    [ITEM_PECHA_BERRY - FIRST_BERRY_INDEX]            = sPicTable_PechaBerryTree_event_object_movement,
     [ITEM_RAWST_BERRY - FIRST_BERRY_INDEX]            = sPicTable_RawstBerryTree,
     [ITEM_ASPEAR_BERRY - FIRST_BERRY_INDEX]           = sPicTable_AspearBerryTree,
     [ITEM_LEPPA_BERRY - FIRST_BERRY_INDEX]            = sPicTable_LeppaBerryTree,
@@ -698,7 +698,7 @@ const struct SpriteFrameImage *const gBerryTreePicTablePointers[] = {
     [ITEM_CUSTAP_BERRY - FIRST_BERRY_INDEX]           = sPicTable_CustapBerryTree,
     [ITEM_JABOCA_BERRY - FIRST_BERRY_INDEX]           = sPicTable_JabocaBerryTree,
     [ITEM_ROWAP_BERRY - FIRST_BERRY_INDEX]            = sPicTable_RowapBerryTree,
-    [ITEM_KEE_BERRY - FIRST_BERRY_INDEX]              = sPicTable_PechaBerryTree,
+    [ITEM_KEE_BERRY - FIRST_BERRY_INDEX]              = sPicTable_PechaBerryTree_event_object_movement,
     [ITEM_MARANGA_BERRY - FIRST_BERRY_INDEX]          = sPicTable_OccaBerryTree,
     [ITEM_ENIGMA_BERRY_E_READER - FIRST_BERRY_INDEX]  = sPicTable_DurinBerryTree,
 };
