@@ -23,6 +23,10 @@ complex_static_var_pattern = re.compile(
     r"^\s*(static\s+(?:const\s+)?(?:\w+\s+)+\*+\s+)(\w+)(\s*(?:\[.*\]|=.*|;))",
     re.IGNORECASE,
 )
+static_const_union_pattern = re.compile(
+    r"^\s*(static\s+const\s+union\s+\w+\s*\*\s*const)\s+(\w+)(\s*\[\]\s*=)(.*)?$",
+    re.IGNORECASE
+)
 ewram_data_pattern = re.compile(
     r"^\s*(static\s+EWRAM_DATA|EWRAM_DATA\s+static)\s+((?:\w+\s+|\*)+)(\w+)(\s*(?:\[.*\]|=.*|;).*)$",
     re.IGNORECASE
@@ -210,6 +214,10 @@ def process_file(filepath, output_file):
             match = inline_macro_pattern.match(line)
         if not match:
             match = pointer_with_const_pattern.match(line)
+        if not match:
+            match = static_const_union_pattern.match(line)
+            if match:
+                has_fourth_group = True
 
         if match:
             declaration = match.group(1)
@@ -222,7 +230,7 @@ def process_file(filepath, output_file):
                 if not var_name.endswith(suffix):
                     new_var_name = var_name + suffix
                     renames[var_name] = new_var_name
-                    line = declaration + new_var_name + rest + "\n"
+                    line = declaration + " " + new_var_name + rest + "\n"
             # Append processed line
             processed_lines.append(line)
             continue
@@ -334,7 +342,7 @@ def main():
         threads = []
         processed_files_count = 0
         for filename in os.listdir(input_dir):
-            if processed_files_count >= 42:
+            if processed_files_count >= 62:
                 break
             if filename.endswith(".c") and filename != "output.c" and filename not in skip_files and filename[0].lower() >= 'r':
                 filepath = os.path.join(input_dir, filename)
