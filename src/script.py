@@ -331,7 +331,7 @@ def main():
         threads = []
         processed_files_count = 0
         for filename in os.listdir(input_dir):
-            if processed_files_count >= 242:
+            if processed_files_count >= 262:
                 break
             if filename.endswith(".c") and filename != "output.c" and filename not in skip_files:
                 filepath = os.path.join(input_dir, filename)
