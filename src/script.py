@@ -3,10 +3,10 @@ import re
 import threading
 
 # For debugging. Normally always set to True
-delete_processed_file = False
+delete_processed_file = True
 
 # Only one file which will be processed - useful for debugging. Needs to be set to "" by default
-forced_file = "pokenav_match_call_data.c"
+forced_file = ""
 
 # Files that should not be processed at all
 skip_files = ["agb_flash.c", "agb_flash_1m.c", "agb_flash_mx.c", "agb_flash_le.c", "siirtc.c", "librfu_intr.c", "berry_crush.c", "graphics.c", "pokedex_plus_hgss.c"]
@@ -334,9 +334,9 @@ def main():
         threads = []
         processed_files_count = 0
         for filename in os.listdir(input_dir):
-            if processed_files_count >= 262:
+            if processed_files_count >= 42:
                 break
-            if filename.endswith(".c") and filename != "output.c" and filename not in skip_files:
+            if filename.endswith(".c") and filename != "output.c" and filename not in skip_files and filename[0].lower() >= 'r':
                 filepath = os.path.join(input_dir, filename)
                 if do_threads == True:
                     thread = threading.Thread(target=process_file, args=(filepath, output_file))
