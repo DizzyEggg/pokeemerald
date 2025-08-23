@@ -151,6 +151,12 @@ void ResetMenuAndMonGlobals(void)
     ResetPokeblockScrollPositions();
 }
 
+static void SetDummyPlayerSprite(void)
+{
+    gSaveBlock2Ptr->playerSpriteIsShiny = FALSE;
+    gSaveBlock2Ptr->playerSpriteMonId = SPECIES_SNEASEL;
+}
+
 void NewGameInitData(void)
 {
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
@@ -213,6 +219,7 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+    SetDummyPlayerSprite();
 }
 
 static void ResetMiniGamesRecords(void)

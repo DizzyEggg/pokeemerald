@@ -2454,6 +2454,20 @@
 	.2byte \species
 	.2byte FLAG_SET_CAUGHT
 	.endm
+    
+    @ Tarc2 - sets the player's sprite to a different species
+    .macro setplayersprite species:req, shiny:req
+    callnative ScriptCmd_SetPlayerMonSprite, requests_effects=1
+    .2byte \species
+    .byte \shiny
+    .endm
+    
+    @ Sets and immediately changes the player's sprite to a new species
+    .macro changeplayersprite species:req, shiny:req
+    callnative ScriptCmd_ChangePlayerSprite, requests_effects=1
+    .2byte \species
+    .byte \shiny
+    .endm
 
 	@ Check if the Player has speciesId in their party. OPEN_PARTY_SCREEN will have the player select a mon from their party. NO_PARTY_SCREEN will automatically check every mon in the player's party.
 	.macro checkspecies speciesId:req, mode=NO_PARTY_SCREEN

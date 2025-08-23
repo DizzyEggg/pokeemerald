@@ -1290,7 +1290,7 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     // When applying script movements to follower, it may have frozen animation that must be cleared
-    if ((localId == OBJ_EVENT_ID_FOLLOWER && (objEvent = GetFollowerObject()) && objEvent->frozen) 
+    if ((localId == OBJ_EVENT_ID_FOLLOWER && (objEvent = GetFollowerObject()) && objEvent->frozen)
             || ((objEvent = &gObjectEvents[GetObjectEventIdByLocalId(localId)]) && IS_OW_MON_OBJ(objEvent)))
     {
         ClearObjectEventMovement(objEvent, &gSprites[objEvent->spriteId]);
@@ -1504,8 +1504,8 @@ bool8 ScrCmd_resetobjectsubpriority(struct ScriptContext *ctx)
 bool8 ScrCmd_faceplayer(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
-    if (PlayerHasFollowerNPC() 
-     && gObjectEvents[GetFollowerNPCObjectId()].invisible == FALSE 
+    if (PlayerHasFollowerNPC()
+     && gObjectEvents[GetFollowerNPCObjectId()].invisible == FALSE
      && gSelectedObjectEvent == GetFollowerNPCObjectId())
     {
         struct ObjectEvent *npcFollower = &gObjectEvents[GetFollowerNPCObjectId()];
@@ -3250,4 +3250,26 @@ void Script_EndTrainerCanSeeIf(struct ScriptContext *ctx)
     u8 condition = ScriptReadByte(ctx);
     if (ctx->breakOnTrainerBattle && sScriptConditionTable[condition][ctx->comparisonResult] == 1)
         StopScript(ctx);
+}
+
+void SetPlayerMonSprite(u32 speciesId, bool32 isShiny)
+{
+    gSaveBlock2Ptr->playerSpriteIsShiny = isShiny != FALSE;
+    gSaveBlock2Ptr->playerSpriteMonId = speciesId;
+}
+
+extern u32 LoadDynamicFollowerPalette(u32 species, bool32 shiny, bool32 female);
+
+void ScriptCmd_SetPlayerMonSprite(struct ScriptContext *ctx)
+{
+    u32 speciesId = ScriptReadHalfword(ctx);
+    u32 isShiny = ScriptReadByte(ctx);
+    SetPlayerMonSprite(speciesId, isShiny);
+}
+
+void ScriptCmd_ChangePlayerSprite(struct ScriptContext *ctx)
+{
+    ScriptCmd_SetPlayerMonSprite(ctx);
+    gSprites[gPlayerAvatar.spriteId].oam.paletteNum = LoadDynamicFollowerPalette(gSaveBlock2Ptr->playerSpriteMonId, gSaveBlock2Ptr->playerSpriteIsShiny, FALSE);
+    SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
 }

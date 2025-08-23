@@ -1,5 +1,5 @@
 static const struct SpriteFrameImage sPicTable_BrendanNormal[] = {
-    overworld_ascending_frames(gObjectEventPic_BrendanNormalRunning, 2, 4),
+    overworld_ascending_frames(gObjectEventPic_BrendanNormalRunning, 4, 4),
 };
 
 static const struct SpriteFrameImage sPicTable_BrendanMachBike[] = {
