@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_PETALBURG_CITY",
-      "offset": -10,
+      "offset": 7,
       "direction": "left"
     },
     {
