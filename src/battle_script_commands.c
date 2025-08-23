@@ -4910,6 +4910,11 @@ static u32 GetMonHoldEffect(struct Pokemon *mon)
     return holdEffect;
 }
 
+static bool32 LvlUpAfterBattle(void)
+{
+    return TRUE;
+}
+
 static void Cmd_getexp(void)
 {
     CMD_ARGS(u8 battler);
@@ -5066,16 +5071,33 @@ static void Cmd_getexp(void)
 
                     ApplyExperienceMultipliers(&gBattleStruct->battlerExpReward, *expMonId, gBattlerFainted);
 
-                    if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleStruct->battlerExpReward != 0)
+                    if (LvlUpAfterBattle() || (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleStruct->battlerExpReward != 0))
                     {
                         enum GrowthRate growthRate = gSpeciesInfo[GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPECIES)].growthRate;
                         u32 currentExp = GetMonData(&gPlayerParty[*expMonId], MON_DATA_EXP);
-                        u32 levelCap = GetCurrentLevelCap();
 
-                        if (GetMonData(&gPlayerParty[*expMonId], MON_DATA_LEVEL) >= levelCap)
-                            gBattleStruct->battlerExpReward = 0;
-                        else if (gExperienceTables[growthRate][levelCap] < currentExp + gBattleStruct->battlerExpReward)
-                            gBattleStruct->battlerExpReward = gExperienceTables[growthRate][levelCap] - currentExp;
+                        if (LvlUpAfterBattle())
+                        {
+                            u32 levelsUp = VarGet(VAR_BATTLE_LVL_UP);
+                            u32 currLvl = GetMonData(&gPlayerParty[*expMonId], MON_DATA_LEVEL);
+                            if (levelsUp == 0)
+                                levelsUp = 1;
+                            if (levelsUp >= MAX_LEVEL)
+                                levelsUp = MAX_LEVEL;
+                            if (levelsUp + currLvl >= MAX_LEVEL)
+                                levelsUp = MAX_LEVEL - currLvl;
+
+                            gBattleStruct->battlerExpReward = gExperienceTables[growthRate][levelsUp + currLvl] - currentExp;
+                        }
+                        else
+                        {
+                            u32 levelCap = GetCurrentLevelCap();
+
+                            if (GetMonData(&gPlayerParty[*expMonId], MON_DATA_LEVEL) >= levelCap)
+                                gBattleStruct->battlerExpReward = 0;
+                            else if (gExperienceTables[growthRate][levelCap] < currentExp + gBattleStruct->battlerExpReward)
+                                gBattleStruct->battlerExpReward = gExperienceTables[growthRate][levelCap] - currentExp;
+                        }
                     }
 
                     if (IsTradedMon(&gPlayerParty[*expMonId]))
@@ -5113,12 +5135,14 @@ static void Cmd_getexp(void)
 
                     if (wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE)
                     {
-                        PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                        if (!LvlUpAfterBattle())
+                            PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
                     }
                     else if (IsGen6ExpShareEnabled() && !gBattleStruct->teamGotExpMsgPrinted) // Print 'the rest of your team got exp' message once, when all of the sent-in mons were given experience
                     {
                         gLastUsedItem = ITEM_EXP_SHARE;
-                        PrepareStringBattle(STRINGID_TEAMGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                        if (!LvlUpAfterBattle())
+                            PrepareStringBattle(STRINGID_TEAMGAINEDEXP, gBattleStruct->expGetterBattlerId);
                         gBattleStruct->teamGotExpMsgPrinted = TRUE;
                     }
 
