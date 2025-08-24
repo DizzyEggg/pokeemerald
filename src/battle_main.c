@@ -2780,6 +2780,7 @@ static void SpriteCB_BattleSpriteSlideLeft(struct Sprite *sprite)
         if (sprite->x2 == 0)
         {
             sprite->callback = SpriteCB_Idle;
+            BattleAnimateBackSprite(sprite, sprite->sSpeciesId);
             sprite->data[1] = 0;
         }
     }
@@ -3424,6 +3425,11 @@ const u8* FaintClearSetData(u32 battler)
     return result;
 }
 
+static bool32 SkipTrainerIntro(void)
+{
+    return TRUE;
+}
+
 static void DoBattleIntro(void)
 {
     s32 i;
@@ -3494,8 +3500,16 @@ static void DoBattleIntro(void)
             switch (GetBattlerPosition(battler))
             {
             case B_POSITION_PLAYER_LEFT: // player sprite
-                BtlController_EmitDrawTrainerPic(battler, B_COMM_TO_CONTROLLER);
-                MarkBattlerForControllerExec(battler);
+                if (SkipTrainerIntro())
+                {
+                    BtlController_EmitLoadMonSprite(battler, B_COMM_TO_CONTROLLER);
+                    MarkBattlerForControllerExec(battler);
+                }
+                else
+                {
+                    BtlController_EmitDrawTrainerPic(battler, B_COMM_TO_CONTROLLER);
+                    MarkBattlerForControllerExec(battler);
+                }
                 break;
             case B_POSITION_OPPONENT_LEFT:
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER) // opponent 1 sprite
@@ -3514,6 +3528,11 @@ static void DoBattleIntro(void)
                 if (gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER)) // partner sprite
                 {
                     BtlController_EmitDrawTrainerPic(battler, B_COMM_TO_CONTROLLER);
+                    MarkBattlerForControllerExec(battler);
+                }
+                else if (SkipTrainerIntro())
+                {
+                    BtlController_EmitLoadMonSprite(battler, B_COMM_TO_CONTROLLER);
                     MarkBattlerForControllerExec(battler);
                 }
                 break;
@@ -3649,7 +3668,7 @@ static void DoBattleIntro(void)
             BtlController_EmitIntroTrainerBallThrow(battler, B_COMM_TO_CONTROLLER);
             MarkBattlerForControllerExec(battler);
         }
-        if (B_FAST_INTRO_PKMN_TEXT == TRUE
+        if ((B_FAST_INTRO_PKMN_TEXT == TRUE)
           && !(gBattleTypeFlags & (BATTLE_TYPE_RECORDED | BATTLE_TYPE_RECORDED_LINK | BATTLE_TYPE_RECORDED_IS_MASTER | BATTLE_TYPE_LINK)))
             gBattleStruct->introState = BATTLE_INTRO_STATE_WAIT_FOR_WILD_BATTLE_TEXT; // Print at the same time as trainer sends out second mon.
         else
@@ -3664,7 +3683,7 @@ static void DoBattleIntro(void)
             gBattleStruct->introState++;
         break;
     case BATTLE_INTRO_STATE_PRINT_PLAYER_SEND_OUT_TEXT:
-        if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
+        if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI) && !SkipTrainerIntro())
         {
             if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK && !(gBattleTypeFlags & BATTLE_TYPE_RECORDED_IS_MASTER))
                 battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
@@ -3697,13 +3716,16 @@ static void DoBattleIntro(void)
         }
         break;
     case BATTLE_INTRO_STATE_PRINT_PLAYER_1_SEND_OUT_TEXT:
-        if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK && !(gBattleTypeFlags & BATTLE_TYPE_RECORDED_IS_MASTER))
-            battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-        else
-            battler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+        if (!SkipTrainerIntro())
+        {
+            if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK && !(gBattleTypeFlags & BATTLE_TYPE_RECORDED_IS_MASTER))
+                battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            else
+                battler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
 
-        BtlController_EmitIntroTrainerBallThrow(battler, B_COMM_TO_CONTROLLER);
-        MarkBattlerForControllerExec(battler);
+            BtlController_EmitIntroTrainerBallThrow(battler, B_COMM_TO_CONTROLLER);
+            MarkBattlerForControllerExec(battler);
+        }
         gBattleStruct->introState++;
         break;
     case BATTLE_INTRO_STATE_PRINT_PLAYER_2_SEND_OUT_TEXT:

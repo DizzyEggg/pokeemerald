@@ -189,10 +189,18 @@ static void PlayerBufferRunCommand(u32 battler)
     }
 }
 
+static void Intro_TryShinyAnimShowHealthbox(u32 battler);
+extern void Task_HandleMonAnimation(u8 taskId);
+
 static void CompleteOnBattlerSpritePosX_0(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].x2 == 0)
-        BtlController_Complete(battler);
+    {
+        if (battler == 0)
+            gBattlerControllerFuncs[battler] = Intro_TryShinyAnimShowHealthbox;
+        else
+            BtlController_Complete(battler);
+    }
 }
 
 static u16 GetPrevBall(u16 ballId)
@@ -1332,8 +1340,8 @@ static void Intro_TryShinyAnimShowHealthbox(u32 battler)
     if (bgmRestored && battlerAnimsDone)
     {
         if (TwoPlayerIntroMons(battler) && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
-            DestroySprite(&gSprites[gBattleControllerData[BATTLE_PARTNER(battler)]]);
-        DestroySprite(&gSprites[gBattleControllerData[battler]]);
+            ;//DestroySprite(&gSprites[gBattleControllerData[BATTLE_PARTNER(battler)]]);
+        //DestroySprite(&gSprites[gBattleControllerData[battler]]);
 
         gBattleSpritesDataPtr->animationData->introAnimActive = FALSE;
         gBattleSpritesDataPtr->healthBoxesData[battler].bgmRestored = FALSE;
@@ -1822,8 +1830,7 @@ static void PrintLinkStandbyMsg(void)
 
 static void PlayerHandleLoadMonSprite(u32 battler)
 {
-    BattleLoadMonSpriteGfx(GetBattlerMon(battler), battler);
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
+    BtlController_HandleLoadMonSprite(battler);
     gBattlerControllerFuncs[battler] = CompleteOnBattlerSpritePosX_0;
 }
 

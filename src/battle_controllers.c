@@ -2223,7 +2223,8 @@ void BtlController_HandleSetRawMonData(u32 battler)
 void BtlController_HandleLoadMonSprite(u32 battler)
 {
     struct Pokemon *mon = GetBattlerMon(battler);
-    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u32 species = GetMonData(mon, MON_DATA_SPECIES);
+    bool32 isPlayer = GetBattlerSide(battler) == B_SIDE_PLAYER;
 
     BattleLoadMonSpriteGfx(mon, battler);
     SetMultiuseSpriteTemplateToPokemon(species, GetBattlerPosition(battler));
@@ -2233,20 +2234,26 @@ void BtlController_HandleLoadMonSprite(u32 battler)
                                                GetBattlerSpriteDefault_Y(battler),
                                                GetBattlerSpriteSubpriority(battler));
 
-    gSprites[gBattlerSpriteIds[battler]].x2 = -DISPLAY_WIDTH;
+    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
     gSprites[gBattlerSpriteIds[battler]].data[0] = battler;
     gSprites[gBattlerSpriteIds[battler]].data[2] = species;
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-    StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], 0);
+    if (!isPlayer)
+    {
+        gSprites[gBattlerSpriteIds[battler]].x2 = -DISPLAY_WIDTH;
+        StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], 0);
+        SetBattlerShadowSpriteCallback(battler, species);
 
-    SetBattlerShadowSpriteCallback(battler, species);
-
-    if (IsControllerOpponent(battler)
-     && IsControllerLinkOpponent(battler)
-     && IsControllerRecordedOpponent(battler))
-        gBattlerControllerFuncs[battler] = TryShinyAnimAfterMonAnim;
+        if (IsControllerOpponent(battler)
+         && IsControllerLinkOpponent(battler)
+         && IsControllerRecordedOpponent(battler))
+            gBattlerControllerFuncs[battler] = TryShinyAnimAfterMonAnim;
+        else
+            gBattlerControllerFuncs[battler] = WaitForMonAnimAfterLoad;
+    }
     else
-        gBattlerControllerFuncs[battler] = WaitForMonAnimAfterLoad;
+    {
+        gSprites[gBattlerSpriteIds[battler]].x2 = DISPLAY_WIDTH;
+    }
 }
 
 void BtlController_HandleSwitchInAnim(u32 battler)

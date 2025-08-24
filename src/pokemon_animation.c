@@ -494,7 +494,7 @@ enum BackAnim GetSpeciesBackAnimSet(u16 species)
 #define ANIM_SPRITE(taskId)   ((struct Sprite *)((gTasks[taskId].tPtrHi << 16) | (gTasks[taskId].tPtrLo)))
 #endif //MODERN || BUGFIX
 
-static void Task_HandleMonAnimation(u8 taskId)
+void Task_HandleMonAnimation(u8 taskId)
 {
     u32 i;
     struct Sprite *sprite = ANIM_SPRITE(taskId);
