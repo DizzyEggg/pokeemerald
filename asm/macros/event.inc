@@ -2038,9 +2038,29 @@
 
 	YES = 1
 	NO  = 0
+    
+    .macro setbyte destination:req, value:req
+	callnative Script_SetByte
+	.4byte \destination
+	.byte \value
+	.endm
+	
+	.macro getbyte src:req, varId:req
+	callnative Script_ByteToVar
+	.4byte \src
+	.2byte \varId
+	.endm
 
 	@ Buffers the given text and calls the relevant standard message script (see gStdScripts).
 	.macro msgbox text:req, type=MSGBOX_DEFAULT
+	loadword 0, \text
+	callstd \type
+	.endm
+    
+    .macro msgbox_portrait text:req, picId:req, type=MSGBOX_DEFAULT
+	setbyte gMsgType, \type
+	setbyte gPortraitId, \picId + 1
+    setbyte gScriptABPressed, 0
 	loadword 0, \text
 	callstd \type
 	.endm
@@ -2666,4 +2686,50 @@
 	.macro changefollowerbattler battlePartner:req
 	callnative ScriptChangeFollowerNPCBattlePartner
 	.2byte \battlePartner
+	.endm
+    
+    @ Field pic macros
+	
+	@ Loads the desired pic on screen. Sprite id returned in VAR_RESULT and copied to the desired variable if given.
+	.macro load_field_pic id:req, x:req, y:req, dst=0
+	setvar VAR_0x8004, \id
+	setvar VAR_0x8005, \x
+	setvar VAR_0x8006, \y
+	callnative LoadFieldPic
+		.if \dst != 0
+			copyvar \dst, VAR_RESULT
+		.endif
+	.endm
+	
+	@ Passing 0xFF in all of these below as sprite id will use the last pic.
+	@ Hides a pic that was loaded. 
+	.macro hide_field_pic sprite_id=0xff
+	setvar VAR_0x8004, \sprite_id
+	callnative HideFieldPic
+	.endm
+	
+	@ Shows a pic that was loaded and hidden afterwards.
+	.macro show_field_pic sprite_id:req
+	setvar VAR_0x8004, \sprite_id
+	callnative ShowFieldPic
+	.endm
+	
+	@ Changes pic's frame to the desired one.
+	.macro change_field_pic frame:req, sprite_id=0xff
+	setvar VAR_0x8004, \frame
+	setvar VAR_0x8005, \sprite_id
+	callnative ChangeFieldPicFrame
+	.endm
+	
+	@Destroys the pic completely along with gfx.
+	.macro destroy_field_pic id:req, sprite_id=0xff
+	setvar VAR_0x8004, \id
+	setvar VAR_0x8005, \sprite_id
+	callnative DestroyFieldPic
+	.endm
+	
+	.macro msgbox_pic text:req, picId:req, type=MSGBOX_DEFAULT
+	show_field_pic \picId
+	msgbox \text, \type
+	hide_field_pic \picId
 	.endm

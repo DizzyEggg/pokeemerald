@@ -146,7 +146,43 @@ Debug_EventScript_Script_2::
 	release
 	end
 
+DebugText_PicExample1:
+	.string "I am a normal Bidoof.$"
+
+DebugText_PicExample2:
+	.string "I am uneasy now.$"
+
+DebugText_PicExample3:
+	.string "Happy$"
+    
+DebugText_PicExample4:
+	.string "Whoa!$"
+    
+DebugText_PicExample5:
+	.string "Let's go!$"
+    
+DebugText_PicExample6:
+	.string "I turned myself into a Wingull.$"
+    
+DebugText_PicExample7:
+	.string "Ugly pic now.$"
+    
+DebugText_PicExample8:
+	.string "Legendary.$"
+    
+DebugText_PicExample9:
+	.string "Rotom.$"
+    
 Debug_EventScript_Script_3::
+    msgbox_portrait DebugText_PicExample1, FIELD_PIC_BIDOOF_NORMAL
+    msgbox_portrait DebugText_PicExample2, FIELD_PIC_BIDOOF_UNEASY
+    msgbox_portrait DebugText_PicExample3, FIELD_PIC_BIDOOF_HAPPY
+    msgbox_portrait DebugText_PicExample4, FIELD_PIC_BIDOOF_ASTONISHED
+    msgbox_portrait DebugText_PicExample5, FIELD_PIC_BIDOOF_SMIRKY
+    msgbox_portrait DebugText_PicExample6, FIELD_PIC_WINGULL
+    msgbox_portrait DebugText_PicExample7, FIELD_PIC_HIKER
+    msgbox_portrait DebugText_PicExample8, FIELD_PIC_SUICUNE
+    msgbox_portrait DebugText_PicExample9, FIELD_PIC_ROTOM
 	release
 	end
 

@@ -414,6 +414,22 @@ bool8 ScrCmd_loadbyte(struct ScriptContext *ctx)
     return FALSE;
 }
 
+void Script_SetByte(struct ScriptContext *ctx)
+{
+    u8 *ptr = (u8 *)ScriptReadWord(ctx);
+    u8 value = ScriptReadByte(ctx);
+
+    *ptr = value;
+}
+
+void Script_ByteToVar(struct ScriptContext *ctx)
+{
+    u8 *bytePtr = (u8 *)ScriptReadWord(ctx);
+    u16 *varPtr = GetVarPointer(ScriptReadHalfword(ctx));
+
+    *varPtr = *bytePtr;
+}
+
 bool8 ScrCmd_setptrbyte(struct ScriptContext *ctx)
 {
     u8 index = ScriptReadByte(ctx);
@@ -1742,13 +1758,13 @@ bool8 ScrCmd_closemessage(struct ScriptContext *ctx)
     return FALSE;
 }
 
+// Necessary for an edge-case where the pic may disappear before the textbox updates.
+EWRAM_DATA bool8 gScriptABPressed = FALSE;
+
 static bool8 WaitForAorBPress(void)
 {
-    if (JOY_NEW(A_BUTTON))
-        return TRUE;
-    if (JOY_NEW(B_BUTTON))
-        return TRUE;
-    return FALSE;
+    gScriptABPressed = (JOY_NEW(A_BUTTON | B_BUTTON)) != 0;
+    return gScriptABPressed;
 }
 
 bool8 ScrCmd_waitbuttonpress(struct ScriptContext *ctx)
