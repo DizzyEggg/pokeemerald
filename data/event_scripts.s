@@ -1158,3 +1158,37 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
 	.include "data/scripts/dexnav.inc"
+
+	.include "data/maps/MansionFloor1Entrance/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room1/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room2/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room3/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room4/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room5/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room6/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room7/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room8/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room9/scripts.inc"
+
+	.include "data/maps/MansionFloor1Room10/scripts.inc"
+
+	.include "data/maps/MansionFloor1RoomBoss/scripts.inc"
+
+	.include "data/maps/MansionFloor1RoomLanding/scripts.inc"
+
+	.include "data/maps/MansionFloor2Entrance/scripts.inc"
+
+	.include "data/maps/MansionFloor2RoomBoss/scripts.inc"
+
+	.include "data/maps/MansionFloor2RoomLanding/scripts.inc"
+
+	.include "data/maps/MansionFloor3Entrance/scripts.inc"

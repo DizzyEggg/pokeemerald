@@ -4410,6 +4410,176 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ENTRANCE",
+      "name": "MansionFloor1Entrance_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM1",
+      "name": "MansionFloor1Room1_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room1/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room1/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM2",
+      "name": "MansionFloor1Room2_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room2/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room2/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM3",
+      "name": "MansionFloor1Room3_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room3/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room3/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM4",
+      "name": "MansionFloor1Room4_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room4/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room4/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM5",
+      "name": "MansionFloor1Room5_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room5/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room5/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM6",
+      "name": "MansionFloor1Room6_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room6/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room6/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM7",
+      "name": "MansionFloor1Room7_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room7/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room7/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM8",
+      "name": "MansionFloor1Room8_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room8/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room8/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM9",
+      "name": "MansionFloor1Room9_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room9/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room9/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM10",
+      "name": "MansionFloor1Room10_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Room10/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Room10/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM_BOSS",
+      "name": "MansionFloor1RoomBoss_Layout",
+      "width": 20,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1RoomBoss/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1RoomBoss/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1ROOM_LANDING",
+      "name": "MansionFloor1RoomLanding_Layout",
+      "width": 20,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1RoomLanding/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1RoomLanding/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR2ENTRANCE",
+      "name": "MansionFloor2Entrance_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor2Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor2Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR2ROOM_BOSS",
+      "name": "MansionFloor2RoomBoss_Layout",
+      "width": 20,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor2RoomBoss/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor2RoomBoss/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR2ROOM_LANDING",
+      "name": "MansionFloor2RoomLanding_Layout",
+      "width": 20,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor2RoomLanding/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor2RoomLanding/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR3ENTRANCE",
+      "name": "MansionFloor3Entrance_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor3Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor3Entrance/map.bin"
     }
   ]
 }
