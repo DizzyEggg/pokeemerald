@@ -5047,22 +5047,22 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_OCTAZOOKA] =
     {
-        .name = COMPOUND_STRING("Octazooka"),
+        .name = COMPOUND_STRING("Inky Spray"),
         .description = COMPOUND_STRING(
-            "Fires a lump of ink to\n"
-            "damage and cut accuracy."),
+            "Spray the inky water from\n"
+            "the well to reduce level."),
         .effect = EFFECT_HIT,
-        .power = 65,
+        .power = 50,
         .type = TYPE_WATER,
-        .accuracy = 85,
-        .pp = 10,
+        .accuracy = 95,
+        .pp = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .ballisticMove = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_ACC_MINUS_1,
-            .chance = 50,
+            .chance = 0,
         }),
         .contestEffect = CONTEST_EFFECT_STARTLE_MON_WITH_JUDGES_ATTENTION,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
@@ -12998,16 +12998,16 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_HEAL_PULSE] =
     {
-        .name = COMPOUND_STRING("Heal Pulse"),
+        .name = COMPOUND_STRING("Heal Pulse +"),
         .description = COMPOUND_STRING(
-            "Recovers up to half the\n"
-            "target's maximum HP."),
+            "Recovers HP; can now\n"
+            "target allies or self."),
         .effect = EFFECT_HEAL_PULSE,
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 0,
         .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER | MOVE_TARGET_ALLY,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
         .zMove = { .effect = Z_EFFECT_RESET_STATS },
@@ -19300,22 +19300,27 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_WAVE_CRASH] =
     {
-        .name = COMPOUND_STRING("Wave Crash"),
+        .name = COMPOUND_STRING("Inky Pulse"),
         .description = COMPOUND_STRING(
             "A slam shrouded in water.\n"
             "It also hurts the user."),
-        .effect = EFFECT_RECOIL,
-        .power = B_UPDATED_MOVE_DATA >= GEN_9 ? 120 : 75,
+        .effect = EFFECT_HIT,
+        .power = 75,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_SP_ATK_PLUS_1,
+            .self = TRUE,
+            .chance = 0,
+        }),
         .argument = { .recoilPercentage = 33 },
         .makesContact = TRUE,
         .skyBattleBanned = B_EXTRAPOLATED_MOVE_FLAGS,
-        .battleAnimScript = gBattleAnimMove_WaveCrash,
+        .battleAnimScript = gBattleAnimMove_Octazooka,
     },
 
     [MOVE_CHLOROBLAST] =

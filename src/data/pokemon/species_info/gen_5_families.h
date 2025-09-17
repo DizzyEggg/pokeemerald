@@ -3860,7 +3860,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_SCOLIPEDE] =
     {
         .baseHP        = 60,
-        .baseAttack    = P_UPDATED_STATS >= GEN_6 ? 100 : 90,
+        .baseAttack    = 100,
         .baseDefense   = 89,
         .baseSpeed     = 112,
         .baseSpAttack  = 55,
