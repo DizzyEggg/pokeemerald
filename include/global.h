@@ -136,6 +136,22 @@
 
 #define FEATURE_FLAG_ASSERT(flag, id) STATIC_ASSERT(flag > TEMP_FLAGS_END || flag == 0, id)
 
+#define REP0(X)
+#define REP1(X) X
+#define REP2(X) REP1(X) X
+#define REP3(X) REP2(X) X
+#define REP4(X) REP3(X) X
+#define REP5(X) REP4(X) X
+#define REP6(X) REP5(X) X
+#define REP7(X) REP6(X) X
+#define REP8(X) REP7(X) X
+#define REP9(X) REP8(X) X
+#define REP10(X) REP9(X) X
+
+#define REP(TENS,ONES,X) \
+  REP##TENS(REP10(X)) \
+  REP##ONES(X)
+
 // NOTE: This uses hardware timers 2 and 3; this will not work during active link connections or with the eReader
 static inline void CycleCountStart()
 {
@@ -1054,6 +1070,28 @@ struct Bag
     struct ItemSlot berries[BAG_BERRIES_COUNT];
 };
 
+struct UniqueItems
+{
+    // All as bits, so max 8 per item type
+    u8 tms;
+    u8 emptyVials;
+    u8 photoPieces;
+};
+
+#define OTHER_ITEMS_COUNT 100
+
+struct OtherItems
+{
+    u16 arr[OTHER_ITEMS_COUNT];
+    u8 counter; // index of the item to take, also counter how many items player has already taken.
+};
+
+struct AvailableItems
+{
+    struct UniqueItems unique;
+    struct OtherItems other;
+};
+
 struct SaveBlock1
 {
     /*0x00*/ struct Coords16 pos;
@@ -1096,6 +1134,8 @@ struct SaveBlock1
     /*0x159C*/ u32 gameStats[NUM_GAME_STATS];
     /*0x169C*/ struct BerryTree berryTrees[BERRY_TREES_COUNT];
     /*0x1A9C*/ struct SecretBase secretBases[SECRET_BASES_COUNT];
+    // SECRET_BASES_COUNT was changed to 10 to accomodate for items
+    struct AvailableItems availableItems;
     /*0x271C*/ u8 playerRoomDecorations[DECOR_MAX_PLAYERS_HOUSE];
     /*0x2728*/ u8 playerRoomDecorationPositions[DECOR_MAX_PLAYERS_HOUSE];
     /*0x2734*/ u8 decorationDesks[10];

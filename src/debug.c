@@ -3418,7 +3418,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     }
 }
 
-static const u32 gDebugFollowerNPCGraphics[] = 
+static const u32 gDebugFollowerNPCGraphics[] =
 {
     OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
     OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
@@ -4139,3 +4139,77 @@ void CheckEWRAMCounters(struct ScriptContext *ctx)
     ConvertIntToDecimalStringN(gStringVar1, gFollowerSteps, STR_CONV_MODE_LEFT_ALIGN, 5);
     ConvertIntToDecimalStringN(gStringVar2, gChainFishingDexNavStreak, STR_CONV_MODE_LEFT_ALIGN, 5);
 }
+
+#define tWindowId data[0]
+#define tPage data[1]
+
+static void PutTextOnRunItemsWindow(u32 windowId, s32 page);
+
+static void Task_WaitForInput(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    if (JOY_NEW(A_BUTTON | DPAD_LEFT | DPAD_RIGHT)) {
+        task->tPage ^= 1;
+        FillWindowPixelBuffer(task->tWindowId, 0x11);
+        PutTextOnRunItemsWindow(task->tWindowId, task->tPage);
+    }
+}
+
+static const struct WindowTemplate sChooseMonsWindow =
+{
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 20,
+    .height = 11,
+    .paletteNum = 15,
+    .baseBlock = 1,
+};
+
+#define MENU_Y_DELTA 15
+
+static void PutTextOnRunItemsWindow(u32 windowId, s32 page)
+{
+    u8 text[100];
+    u8 num[10];
+    s32 i, from, to, middle;
+
+    if (page == 0) { from = 0, middle = 6, to = 12 ; }
+    else { from = 12, middle = 18, to = 24 ; }
+
+    for (i = from; i < to; i++)
+    {
+        s32 x, y;
+
+        const u8 *itemName = GetItemName(gSaveBlock1Ptr->availableItems.other.arr[i]);
+        ConvertIntToDecimalStringN(num, i + 1, STR_CONV_MODE_LEFT_ALIGN, 2);
+        StringCopy(text, num);
+        StringAppend(text, COMPOUND_STRING(". "));
+        StringAppend(text, itemName);
+        if (i < middle) {
+            x = 0, y = (i - from) * MENU_Y_DELTA;
+        }
+        else {
+            x = 78, y = (i - middle) * MENU_Y_DELTA;
+        }
+        AddTextPrinterParameterized(windowId, FONT_SHORT_NARROW, text, x, y, 0, NULL);
+    }
+}
+
+void DisplayCurrentRunItems(void)
+{
+    s32 windowId;
+    u8 taskId;
+    u8 startPage = 0;
+
+    LoadMessageBoxAndBorderGfx();
+    windowId = AddWindow(&sChooseMonsWindow);
+    DrawStdWindowFrame(windowId, FALSE);
+    PutTextOnRunItemsWindow(windowId, startPage);
+    taskId = CreateTask(Task_WaitForInput, 5);
+    gTasks[taskId].tWindowId = windowId;
+    gTasks[taskId].tPage = startPage;
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+}
+
+#undef tWindowId

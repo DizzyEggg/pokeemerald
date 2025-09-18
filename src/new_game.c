@@ -157,8 +157,100 @@ static void SetDummyPlayerSprite(void)
     gSaveBlock2Ptr->playerSpriteMonId = SPECIES_SNEASEL;
 }
 
+static const u16 sOtherItemsSet[] = {
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_SITRUS_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_LUM_BERRY,
+    ITEM_ENIGMA_BERRY,
+    ITEM_ENIGMA_BERRY,
+    ITEM_ENIGMA_BERRY,
+    ITEM_ENIGMA_BERRY,
+    ITEM_ENIGMA_BERRY,
+    ITEM_STARF_BERRY,
+    ITEM_STARF_BERRY,
+    ITEM_STARF_BERRY,
+    ITEM_STARF_BERRY,
+    ITEM_STARF_BERRY,
+    ITEM_RARE_CANDY,
+    ITEM_RARE_CANDY,
+    ITEM_RARE_CANDY,
+    ITEM_RARE_CANDY,
+    ITEM_RARE_CANDY,
+    ITEM_LIFE_ORB,
+    ITEM_LIFE_ORB,
+    ITEM_CHOICE_SCARF,
+    ITEM_CHOICE_SCARF,
+    ITEM_CHOICE_BAND,
+    ITEM_CHOICE_BAND,
+    ITEM_CHOICE_SPECS,
+    ITEM_CHOICE_SPECS,
+    ITEM_BRIGHTPOWDER,
+    ITEM_BRIGHTPOWDER,
+    ITEM_QUICK_CLAW,
+    ITEM_QUICK_CLAW,
+    ITEM_KINGS_ROCK,
+    ITEM_KINGS_ROCK,
+    ITEM_ROCKY_HELMET,
+    ITEM_ROCKY_HELMET,
+    ITEM_ASSAULT_VEST,
+    ITEM_ASSAULT_VEST,
+    ITEM_EXPERT_BELT,
+    ITEM_EXPERT_BELT,
+};
+
+static void SetAvailableItems(struct UniqueItems *unique)
+{
+    s32 i, forcedUniqueId1, forcedUniqueId2;
+    u16 shuffledItems[OTHER_ITEMS_COUNT];
+
+    memcpy(shuffledItems, sOtherItemsSet, sizeof(sOtherItemsSet));
+    Shuffle16(shuffledItems, ARRAY_COUNT(sOtherItemsSet));
+
+    gSaveBlock1Ptr->availableItems = (struct AvailableItems) {0};
+    gSaveBlock1Ptr->availableItems.unique = *unique;
+    for (i = 0; i < ARRAY_COUNT(sOtherItemsSet); i++) {
+        gSaveBlock1Ptr->availableItems.other.arr[i] = shuffledItems[i];
+    }
+    // Choose two slots from 0 ... 17 to force unique items
+    forcedUniqueId1 = RandomUniform(0, 0, 17);
+    do {
+        forcedUniqueId2 = RandomUniform(0, 0, 17);
+    } while (forcedUniqueId1 == forcedUniqueId2);
+
+    gSaveBlock1Ptr->availableItems.other.arr[forcedUniqueId1] = 0;
+    gSaveBlock1Ptr->availableItems.other.arr[forcedUniqueId2] = 0;
+
+    for (; i < OTHER_ITEMS_COUNT; i++) {
+        gSaveBlock1Ptr->availableItems.other.arr[i] = 0;
+    }
+}
+
 void NewGameInitData(void)
 {
+    struct UniqueItems uniqueItems = gSaveBlock1Ptr->availableItems.unique; // Preserve unique items
+
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
 
@@ -220,6 +312,7 @@ void NewGameInitData(void)
     ResetDexNav();
     ClearFollowerNPCData();
     SetDummyPlayerSprite();
+    SetAvailableItems(&uniqueItems);
 }
 
 static void ResetMiniGamesRecords(void)

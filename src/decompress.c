@@ -310,22 +310,6 @@ void DecompressDataWithHeaderWram(const u32 *src, void *dest)
     }
 }
 
-#define REP0(X)
-#define REP1(X) X
-#define REP2(X) REP1(X) X
-#define REP3(X) REP2(X) X
-#define REP4(X) REP3(X) X
-#define REP5(X) REP4(X) X
-#define REP6(X) REP5(X) X
-#define REP7(X) REP6(X) X
-#define REP8(X) REP7(X) X
-#define REP9(X) REP8(X) X
-#define REP10(X) REP9(X) X
-
-#define REP(TENS,ONES,X) \
-  REP##TENS(REP10(X)) \
-  REP##ONES(X)
-
 //  Unpack packed tANS encoded data symbol frequences into their individual parts
 static __attribute__((always_inline)) inline void UnpackFrequenciesLoop(const u32 *packedFreqs, u16 *freqs, u32 i)
 {
