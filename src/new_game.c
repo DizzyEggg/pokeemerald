@@ -48,6 +48,7 @@
 #include "constants/items.h"
 #include "difficulty.h"
 #include "follower_npc.h"
+#include "string_util.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 
@@ -247,6 +248,13 @@ static void SetAvailableItems(struct UniqueItems *unique)
     }
 }
 
+static void SetDummyPlayerName(void)
+{
+    const u8 *name = COMPOUND_STRING("Folded");
+
+    StringCopy(gSaveBlock2Ptr->playerName, name);
+}
+
 void NewGameInitData(void)
 {
     struct UniqueItems uniqueItems = gSaveBlock1Ptr->availableItems.unique; // Preserve unique items
@@ -311,6 +319,7 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+    SetDummyPlayerName();
     SetDummyPlayerSprite();
     SetAvailableItems(&uniqueItems);
 }

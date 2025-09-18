@@ -30,3 +30,18 @@ void GetItemBallIdAndAmountFromTemplate(void)
     gSpecialVar_Result = GetItemBallIdFromTemplate(itemBallId);
     gSpecialVar_0x8009 = GetItemBallAmountFromTemplate(itemBallId);
 }
+
+static u32 GetItemBallIdFromSet(u32 itemBallId)
+{
+    u8 *counter = &gSaveBlock1Ptr->availableItems.other.counter;
+    u32 itemId = gSaveBlock1Ptr->availableItems.other.arr[(*counter)++];
+
+    return (itemId >= ITEMS_COUNT) ? (ITEM_NONE + 1) : itemId;
+}
+
+void GetItemBallIdAndAmountFromSet(void)
+{
+    u32 itemBallId = (gSpecialVar_LastTalked - 1);
+    gSpecialVar_Result = GetItemBallIdFromSet(itemBallId);
+    gSpecialVar_0x8009 = GetItemBallAmountFromTemplate(itemBallId);
+}

@@ -308,7 +308,7 @@ void DeactivateAllTextPrinters(void)
         sTextPrinters[printer].active = FALSE;
 }
 
-u16 AddTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16))
+static inline struct TextPrinterTemplate SetTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16), u8 colorFg)
 {
     struct TextPrinterTemplate printerTemplate;
 
@@ -322,9 +322,22 @@ u16 AddTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 
     printerTemplate.letterSpacing = gFonts[fontId].letterSpacing;
     printerTemplate.lineSpacing = gFonts[fontId].lineSpacing;
     printerTemplate.unk = gFonts[fontId].unk;
-    printerTemplate.fgColor = gFonts[fontId].fgColor;
+    printerTemplate.fgColor = colorFg;
     printerTemplate.bgColor = gFonts[fontId].bgColor;
     printerTemplate.shadowColor = gFonts[fontId].shadowColor;
+
+    return printerTemplate;
+}
+
+u16 AddTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16))
+{
+    struct TextPrinterTemplate printerTemplate = SetTextPrinterParameterized(windowId, fontId, str, x, y, speed, callback, gFonts[fontId].fgColor);
+    return AddTextPrinter(&printerTemplate, speed, callback);
+}
+
+u16 AddTextPrinterParameterizedColor(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16), u8 colorFg)
+{
+    struct TextPrinterTemplate printerTemplate = SetTextPrinterParameterized(windowId, fontId, str, x, y, speed, callback, colorFg);
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 

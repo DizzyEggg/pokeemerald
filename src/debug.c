@@ -4145,6 +4145,13 @@ void CheckEWRAMCounters(struct ScriptContext *ctx)
 
 static void PutTextOnRunItemsWindow(u32 windowId, s32 page);
 
+static void ClearRemoveWindow(u32 windowId)
+{
+    ClearStdWindowAndFrameToTransparent(windowId, TRUE);
+    ClearWindowTilemap(windowId);
+    RemoveWindow(windowId);
+}
+
 static void Task_WaitForInput(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
@@ -4152,6 +4159,11 @@ static void Task_WaitForInput(u8 taskId)
         task->tPage ^= 1;
         FillWindowPixelBuffer(task->tWindowId, 0x11);
         PutTextOnRunItemsWindow(task->tWindowId, task->tPage);
+    }
+    else if (JOY_NEW(B_BUTTON | SELECT_BUTTON | START_BUTTON)) {
+        ClearRemoveWindow(task->tWindowId);
+        ScriptContext_Enable();
+        DestroyTask(taskId);
     }
 }
 
@@ -4173,6 +4185,7 @@ static void PutTextOnRunItemsWindow(u32 windowId, s32 page)
     u8 text[100];
     u8 num[10];
     s32 i, from, to, middle;
+    s32 counter = gSaveBlock1Ptr->availableItems.other.counter;
 
     if (page == 0) { from = 0, middle = 6, to = 12 ; }
     else { from = 12, middle = 18, to = 24 ; }
@@ -4192,7 +4205,7 @@ static void PutTextOnRunItemsWindow(u32 windowId, s32 page)
         else {
             x = 78, y = (i - middle) * MENU_Y_DELTA;
         }
-        AddTextPrinterParameterized(windowId, FONT_SHORT_NARROW, text, x, y, 0, NULL);
+        AddTextPrinterParameterizedColor(windowId, FONT_SHORT_NARROW, text, x, y, 0, NULL, counter > i ? 6 : 4);
     }
 }
 
