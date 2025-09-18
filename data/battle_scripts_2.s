@@ -26,7 +26,19 @@ gBattlescriptsForUsingItem::
 	.4byte BattleScript_ItemRestorePP                @ EFFECT_ITEM_RESTORE_PP
 	.4byte BattleScript_ItemIncreaseAllStats         @ EFFECT_ITEM_INCREASE_ALL_STATS
 	.4byte BattleScript_UsePokeFlute                 @ EFFECT_ITEM_USE_POKE_FLUTE
+	.4byte BattleScript_LevelDown                 @ EFFECT_ITEM_MAX_REVIVE_LEVEL_DOWN
 
+BattleScript_LevelDown::
+	call BattleScript_UseItemMessage
+	itemrestorehp BattleScript_LevelDown_End, BattleScript_LevelDown_RestoreHp
+	call BattleScript_ItemRestoreHP_Party
+	goto BattleScript_LevelDown_End
+
+BattleScript_LevelDown_RestoreHp::
+	call BattleScript_ItemRestoreHPRet
+BattleScript_LevelDown_End:
+	end
+    
 	.align 2
 gBattlescriptsForSafariActions::
 	.4byte BattleScript_ActionWatchesCarefully

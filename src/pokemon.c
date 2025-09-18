@@ -3809,38 +3809,49 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         // Handle ITEM3 effects (Guard Spec, Rare Candy, cure status)
         case 3:
             // Rare Candy / EXP Candy
-            if ((itemEffect[i] & ITEM3_LEVEL_UP)
-             && GetMonData(mon, MON_DATA_LEVEL, NULL) != MAX_LEVEL)
+            if (itemEffect[i] & ITEM3_LEVEL_UP)
             {
-                u8 param = GetItemHoldEffectParam(item);
-                dataUnsigned = 0;
-
-                if (param == 0) // Rare Candy
+                s32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+                s32 currLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
+                // Level down
+                if (itemEffect[6] == ITEM6_LEVEL_DOWN_HP_FULL)
                 {
-                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetMonData(mon, MON_DATA_LEVEL, NULL) + 1];
+
                 }
-                else if (param - 1 < ARRAY_COUNT(sExpCandyExperienceTable)) // EXP Candies
+                else
                 {
-                    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-                    dataUnsigned = sExpCandyExperienceTable[param - 1] + GetMonData(mon, MON_DATA_EXP, NULL);
-
-                    if (B_RARE_CANDY_CAP && B_EXP_CAP_TYPE == EXP_CAP_HARD)
+                    if (currLevel != MAX_LEVEL)
                     {
-                        u32 currentLevelCap = GetCurrentLevelCap();
-                        if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][currentLevelCap])
-                            dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][currentLevelCap];
-                    }
-                    else if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL])
-                    {
-                        dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
-                    }
-                }
+                        u8 param = GetItemHoldEffectParam(item);
+                        dataUnsigned = 0;
 
-                if (dataUnsigned != 0) // Failsafe
-                {
-                    SetMonData(mon, MON_DATA_EXP, &dataUnsigned);
-                    CalculateMonStats(mon);
-                    retVal = FALSE;
+                        if (param == 0) // Rare Candy
+                        {
+                            dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][currLevel + 1];
+                        }
+                        else if (param - 1 < ARRAY_COUNT(sExpCandyExperienceTable)) // EXP Candies
+                        {
+                            dataUnsigned = sExpCandyExperienceTable[param - 1] + GetMonData(mon, MON_DATA_EXP, NULL);
+
+                            if (B_RARE_CANDY_CAP && B_EXP_CAP_TYPE == EXP_CAP_HARD)
+                            {
+                                u32 currentLevelCap = GetCurrentLevelCap();
+                                if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][currentLevelCap])
+                                    dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][currentLevelCap];
+                            }
+                            else if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL])
+                            {
+                                dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
+                            }
+                        }
+
+                        if (dataUnsigned != 0) // Failsafe
+                        {
+                            SetMonData(mon, MON_DATA_EXP, &dataUnsigned);
+                            CalculateMonStats(mon);
+                            retVal = FALSE;
+                        }
+                    }
                 }
             }
 
@@ -3962,8 +3973,13 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         if ((effectFlags & (ITEM4_REVIVE >> 2) && currentHP != 0)
                               || (!(effectFlags & (ITEM4_REVIVE >> 2)) && currentHP == 0))
                         {
-                            itemEffectParam++;
-                            break;
+                            if (itemEffect[6] == ITEM6_LEVEL_DOWN_HP_FULL) { // Works no matter what the hp is
+                                ;
+                            }
+                            else {
+                                itemEffectParam++;
+                                break;
+                            }
                         }
 
                         // Get amount of HP to restore
@@ -3971,6 +3987,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         switch (dataUnsigned)
                         {
                         case ITEM6_HEAL_HP_FULL:
+                        case ITEM6_LEVEL_DOWN_HP_FULL:
                             dataUnsigned = maxHP - currentHP;
                             break;
                         case ITEM6_HEAL_HP_HALF:
@@ -4005,19 +4022,24 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         if (!(effectFlags & (ITEM4_HEAL_PP_ONE >> 3)))
                         {
                             // Heal PP for all moves
-                            for (temp2 = 0; (signed)(temp2) < (signed)(MAX_MON_MOVES); temp2++)
-                            {
-                                u32 move, ppBonus;
-                                dataUnsigned = GetMonData(mon, MON_DATA_PP1 + temp2, NULL);
-                                move = GetMonData(mon, MON_DATA_MOVE1 + temp2, NULL);
-                                ppBonus = CalculatePPWithBonus(move, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), temp2);
-                                if (dataUnsigned != ppBonus)
+                            if (itemEffect[6] != ITEM6_LEVEL_DOWN_HP_FULL || retVal == FALSE) {
+                                for (temp2 = 0; (signed)(temp2) < (signed)(MAX_MON_MOVES); temp2++)
                                 {
-                                    dataUnsigned += itemEffect[itemEffectParam];
-                                    if (dataUnsigned > ppBonus)
-                                        dataUnsigned = ppBonus;
-                                    SetMonData(mon, MON_DATA_PP1 + temp2, &dataUnsigned);
-                                    retVal = FALSE;
+                                    u32 move, ppBonus;
+                                    dataUnsigned = GetMonData(mon, MON_DATA_PP1 + temp2, NULL);
+                                    move = GetMonData(mon, MON_DATA_MOVE1 + temp2, NULL);
+                                    ppBonus = CalculatePPWithBonus(move, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), temp2);
+                                    if (dataUnsigned != ppBonus)
+                                    {
+                                        dataUnsigned += itemEffect[itemEffectParam];
+                                        if (dataUnsigned > ppBonus || itemEffect[6] == ITEM6_LEVEL_DOWN_HP_FULL)
+                                            dataUnsigned = ppBonus;
+                                        SetMonData(mon, MON_DATA_PP1 + temp2, &dataUnsigned);
+                                        if (itemEffect[6] != ITEM6_LEVEL_DOWN_HP_FULL) {
+                                            retVal = FALSE;
+                                        }
+
+                                    }
                                 }
                             }
                             itemEffectParam++;

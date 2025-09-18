@@ -490,6 +490,7 @@ void TryItemHoldFormChange(struct Pokemon *mon, s8 slotId);
 static void ShowMoveSelectWindow(u8 slot);
 static void Task_HandleWhichMoveInput(u8 taskId);
 static void Task_HideFollowerNPCForTeleport(u8);
+static void Task_DoLevelDown(u8 taskId);
 
 // static const data
 #include "data/party_menu.h"
@@ -1938,6 +1939,8 @@ static void Task_WaitForLinkAndReturnToChooseMon(u8 taskId)
     }
 }
 
+static EWRAM_DATA bool8 sDoLvlDown = FALSE;
+
 static void Task_ReturnToChooseMonAfterText(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
@@ -1955,6 +1958,10 @@ static void Task_ReturnToChooseMonAfterText(u8 taskId)
             else
                 DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON);
             gTasks[taskId].func = Task_HandleChooseMonInput;
+            if (sDoLvlDown) {
+                sDoLvlDown = FALSE;
+                gTasks[taskId].func = Task_DoLevelDown;
+            }
         }
     }
 }
@@ -4704,7 +4711,7 @@ void ItemUseCB_BattleChooseMove(u8 taskId, TaskFunc task)
     gTasks[taskId].func = Task_HandleWhichMoveInput;
 }
 
-void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
+static bool32 DoItemUseCbMedicine(u8 taskId, TaskFunc task)
 {
     u16 hp = 0;
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
@@ -4738,7 +4745,6 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         else
             gTasks[taskId].func = task;
-        return;
     }
     else
     {
@@ -4761,7 +4767,6 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
                 AnimatePartySlot(gPartyMenu.slotId, 1);
             PartyMenuModifyHP(taskId, gPartyMenu.slotId, 1, GetMonData(mon, MON_DATA_HP) - hp, Task_DisplayHPRestoredMessage);
             ResetHPTaskData(taskId, 0, hp);
-            return;
         }
         else
         {
@@ -4774,6 +4779,61 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
             else
                 gTasks[taskId].func = task;
         }
+    }
+    return cannotUse;
+}
+
+void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
+{
+    DoItemUseCbMedicine(taskId, task);
+}
+
+void ItemUseCb_LevelDownMedicine(u8 taskId, TaskFunc task)
+{
+    bool32 cannotUse;
+    struct PartyMenuInternal *ptr = sPartyMenuInternal;
+    s16 *arrayPtr = ptr->data;
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    sInitialLevel = GetMonData(mon, MON_DATA_LEVEL);
+    if (sInitialLevel > MIN_LEVEL)
+    {
+        BufferMonStatsToTaskData(mon, arrayPtr);
+    }
+    cannotUse = DoItemUseCbMedicine(taskId, task);
+
+    if (!cannotUse && sInitialLevel > MIN_LEVEL)
+    {
+        sDoLvlDown = TRUE;
+    }
+}
+
+static void Task_DoLevelDown(u8 taskId)
+{
+    struct PartyMenuInternal *ptr = sPartyMenuInternal;
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u32 species = GetMonData(mon, MON_DATA_SPECIES);
+    u32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][sInitialLevel - 1];
+
+    SetMonData(mon, MON_DATA_EXP, &exp);
+    CalculateMonStats(mon);
+
+    BufferMonStatsToTaskData(mon, &ptr->data[NUM_STATS]);
+    if (sInitialLevel > MIN_LEVEL)
+    {
+        PlaySE(SE_SELECT);
+        sFinalLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
+        gPartyMenuUseExitCallback = TRUE;
+        UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
+        GetMonNickname(mon, gStringVar1);
+
+        PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
+
+        ConvertIntToDecimalStringN(gStringVar2, sFinalLevel, STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnDemotedToLvVar2);
+
+        DisplayPartyMenuMessage(gStringVar4, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
     }
 }
 
@@ -5788,6 +5848,15 @@ static void Task_TryLearnNewMoves(u8 taskId)
     if (WaitFanfare(FALSE) && ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))))
     {
         RemoveLevelUpStatsWindow();
+        // We're going level down
+        if (sInitialLevel >= sFinalLevel)
+        {
+            if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+                gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+            else
+                gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            return;
+        }
         for (; sInitialLevel <= sFinalLevel; sInitialLevel++)
         {
             SetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_LEVEL, &sInitialLevel);

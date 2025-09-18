@@ -742,6 +742,24 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_Revive,
     },
 
+    [ITEM_MAX_REVIVE_LEVEL_DOWN] =
+    {
+        .name = _("ReviveLDown"),
+        .price = 4000,
+        .description = COMPOUND_STRING(
+            "To\n"
+            "be\n"
+            "done."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_LevelDownMedicine,
+        .battleUsage = EFFECT_ITEM_MAX_REVIVE_LEVEL_DOWN,
+        .effect = gItemEffect_MaxReviveLevelDown,
+        .flingPower = 30,
+        .iconPic = gItemIcon_MaxRevive,
+        .iconPalette = gItemIconPalette_Revive,
+    },
+
     [ITEM_FRESH_WATER] =
     {
         .name = _("Fresh Water"),

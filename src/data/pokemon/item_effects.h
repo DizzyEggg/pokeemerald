@@ -58,6 +58,12 @@ const u8 gItemEffect_MaxRevive[7] = {
     [6] = ITEM6_HEAL_HP_FULL,
 };
 
+const u8 gItemEffect_MaxReviveLevelDown[7] = {
+    [3] = ITEM3_LEVEL_UP,
+    [4] = ITEM4_REVIVE | ITEM4_HEAL_HP | ITEM4_HEAL_PP,
+    [6] = ITEM6_LEVEL_DOWN_HP_FULL,
+};
+
 const u8 gItemEffect_FreshWater[7] = {
     [4] = ITEM4_HEAL_HP,
     [6] = I_HEALTH_RECOVERY >= GEN_7 ? 30 : 50, // Amount of HP to recover
