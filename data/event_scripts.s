@@ -1193,3 +1193,23 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/MansionFloor2RoomLanding/scripts.inc"
 
 	.include "data/maps/MansionFloor3Entrance/scripts.inc"
+
+	.include "data/maps/MansionFloor1Treasure2/scripts.inc"
+
+	.include "data/maps/MansionFloor1Hallway1/scripts.inc"
+
+	.include "data/maps/MansionFloor1Treasure4/scripts.inc"
+
+	.include "data/maps/MansionFloor1Treasure3/scripts.inc"
+
+	.include "data/maps/MansionFloor1Treasure1/scripts.inc"
+
+	.include "data/maps/MansionFloor1Hallway2/scripts.inc"
+
+	.include "data/maps/MansionFloor1TreasureUp/scripts.inc"
+
+	.include "data/maps/MansionFloor1TreasureLeft/scripts.inc"
+
+	.include "data/maps/MansionFloor1TreasureRight/scripts.inc"
+
+	.include "data/maps/MansionFloor1TreasureDown/scripts.inc"

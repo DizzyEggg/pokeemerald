@@ -4580,6 +4580,106 @@
       "secondary_tileset": "gTileset_DojoInterior",
       "border_filepath": "data/layouts/MansionFloor3Entrance/border.bin",
       "blockdata_filepath": "data/layouts/MansionFloor3Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1TREASURE2",
+      "name": "MansionFloor1Treasure2_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Treasure2/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Treasure2/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1HALLWAY2",
+      "name": "MansionFloor1Hallway2_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Hallway2/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Hallway2/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1TREASURE4",
+      "name": "MansionFloor1Treasure4_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Treasure4/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Treasure4/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1HALLWAY1",
+      "name": "MansionFloor1Hallway1_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Hallway1/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Hallway1/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1TREASURE1",
+      "name": "MansionFloor1Treasure1_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Treasure1/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Treasure1/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1TREASURE3",
+      "name": "MansionFloor1Treasure3_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1Treasure3/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1Treasure3/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1TREASURE_DOWN",
+      "name": "MansionFloor1TreasureDown_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1TreasureDown/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1TreasureDown/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1TREASURE_RIGHT",
+      "name": "MansionFloor1TreasureRight_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1TreasureRight/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1TreasureRight/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1TREASURE_LEFT",
+      "name": "MansionFloor1TreasureLeft_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1TreasureLeft/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1TreasureLeft/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR1TREASURE_UP",
+      "name": "MansionFloor1TreasureUp_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor1TreasureUp/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor1TreasureUp/map.bin"
     }
   ]
 }
