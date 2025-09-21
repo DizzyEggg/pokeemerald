@@ -7,6 +7,11 @@
 // Used for warps that need to change destinations, e.g. when stepping off an elevator.
 #define MAP_DYNAMIC (0x7F | (0x7F << 8))
 
+#define MAP_RND_MANSION_UP (0xFB | (0xFB << 8))
+#define MAP_RND_MANSION_DOWN (0xFC | (0xFC << 8))
+#define MAP_RND_MANSION_LEFT (0xFD | (0xFD << 8))
+#define MAP_RND_MANSION_RIGHT (0xFE | (0xFE << 8))
+
 #define MAP_UNDEFINED (0xFF | (0xFF << 8))
 
 #define MAP_GROUP(map) (map >> 8)

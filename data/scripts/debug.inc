@@ -192,7 +192,10 @@ Debug_EventScript_Script_4::
 	release
 	end
 
+@ Prints current randomized floor1 layout
 Debug_EventScript_Script_5::
+    callnative PrintMansionFloor1Layout
+    waitstate
 	release
 	end
 

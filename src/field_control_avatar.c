@@ -34,6 +34,7 @@
 #include "trainer_hill.h"
 #include "vs_seeker.h"
 #include "wild_encounter.h"
+#include "mansion_floor_generation.h"
 #include "constants/event_bg.h"
 #include "constants/event_objects.h"
 #include "constants/field_poison.h"
@@ -954,6 +955,23 @@ static s8 GetWarpEventAtMapPosition(struct MapHeader *mapHeader, struct MapPosit
     return GetWarpEventAtPosition(mapHeader, position->x - MAP_OFFSET, position->y - MAP_OFFSET, position->elevation);
 }
 
+static s32 FindRndWarpInMap(s32 mapGroup, s32 mapNum, s32 wantedDst)
+{
+    s32 i;
+    const struct MapHeader *header = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum);
+    s32 warpCount = header->events->warpCount;
+    const struct WarpEvent *warps = header->events->warps;
+
+    for (i = 0; i < warpCount; i++) {
+        if (warps[i].mapGroup == MAP_GROUP(wantedDst)) {
+            return i;
+        }
+    }
+
+    // This should never happen!
+    return 0;
+}
+
 static void SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPosition *position)
 {
     const struct WarpEvent *warpEvent;
@@ -986,6 +1004,20 @@ static void SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPositi
     if (warpEvent->mapNum == MAP_NUM(MAP_DYNAMIC))
     {
         SetWarpDestinationToDynamicWarp(warpEvent->warpId);
+    }
+    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP))
+    {
+        /*
+        s32 dstMapGroup, dstMapNum;
+        s32 currGridLocation = MapToRoomEnum;
+
+        // First, get the map id from the randomized grid
+
+
+        // Second, find the warp with an opposite direction
+        SetWarpDestinationToMapWarp(dstMapGroup,
+                                    dstMapNum,
+                                    FindRndWarpInMap(dstMapGroup, dstMapNum, MAP_RND_MANSION_DOWN)); */
     }
     else
     {

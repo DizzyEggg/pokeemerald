@@ -72,35 +72,28 @@
       "x": 10,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ENTRANCE",
+      "dest_map": "MAP_RND_MANSION_DOWN",
       "dest_warp_id": "18"
-    },
-    {
-      "x": 9,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ENTRANCE",
-      "dest_warp_id": "0"
     },
     {
       "x": 10,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ROOM_BOSS",
+      "dest_map": "MAP_RND_MANSION_UP",
       "dest_warp_id": "0"
     },
     {
       "x": 7,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ROOM7",
+      "dest_map": "MAP_RND_MANSION_LEFT",
       "dest_warp_id": "0"
     },
     {
       "x": 13,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ROOM6",
+      "dest_map": "MAP_RND_MANSION_RIGHT",
       "dest_warp_id": "0"
     }
   ],

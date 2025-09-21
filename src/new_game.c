@@ -49,6 +49,7 @@
 #include "difficulty.h"
 #include "follower_npc.h"
 #include "string_util.h"
+#include "mansion_floor_generation.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 
@@ -322,6 +323,7 @@ void NewGameInitData(void)
     SetDummyPlayerName();
     SetDummyPlayerSprite();
     SetAvailableItems(&uniqueItems);
+    GenerateMansionFloorLayout(gSaveBlock1Ptr->mansionFloor1Grid);
 }
 
 static void ResetMiniGamesRecords(void)
