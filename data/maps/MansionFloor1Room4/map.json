@@ -13,27 +13,73 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(JOLTIK)",
+      "x": 9,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_4R4_ENEMYA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(JOLTIK)",
+      "x": 12,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_4R4_ENEMYB"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SPINARAK)",
+      "x": 11,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_4R4_ENEMYC"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SPINARAK)",
+      "x": 11,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_4R4_ENEMYD"
+    }
+  ],
   "warp_events": [
     {
-      "x": 3,
-      "y": 12,
+      "x": 10,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_MANSION_FLOOR1ROOM_BOSS",
       "dest_warp_id": "2"
     },
     {
       "x": 10,
-      "y": 6,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_MANSION_FLOOR1ENTRANCE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 17,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ROOM9",
       "dest_warp_id": "0"
     }
   ],

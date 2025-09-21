@@ -155,7 +155,7 @@ void ResetMenuAndMonGlobals(void)
 static void SetDummyPlayerSprite(void)
 {
     gSaveBlock2Ptr->playerSpriteIsShiny = FALSE;
-    gSaveBlock2Ptr->playerSpriteMonId = SPECIES_SNEASEL;
+    gSaveBlock2Ptr->playerSpriteMonId = SPECIES_PHANPY;
 }
 
 static const u16 sOtherItemsSet[] = {
