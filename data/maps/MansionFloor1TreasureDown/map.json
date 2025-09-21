@@ -85,14 +85,7 @@
       "x": 10,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ROOM1",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 10,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ENTRANCE",
+      "dest_map": "MAP_RND_MANSION_DOWN",
       "dest_warp_id": "0"
     }
   ],

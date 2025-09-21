@@ -210,6 +210,13 @@ Debug_EventScript_Script_7::
 Debug_EventScript_Script_8::
 	release
 	end
+    
+Debug_EventScript_HideLastTalked::
+    lock
+    faceplayer
+    removeobject VAR_LAST_TALKED
+    release
+    end
 
 Debug_CheckSaveBlock::
 	callnative CheckSaveBlock1Size

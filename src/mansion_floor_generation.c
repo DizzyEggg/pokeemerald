@@ -42,6 +42,7 @@ static enum ROOM_ENUM GetRandom4Way(u32 *doneBits)
     return rnd4Way;
 }
 
+// Left/Right and Down/Up directions have to be reversed, my head hurts thinking about it, but yeah has to be this way lol
 // Note: floorNum is not an id, so floor 1 is 1, floor 2 is 2, etc.
 enum ROOM_ENUM MapToRoomEnum(s32 mapGroup, s32 mapNum, s32 floorNum)
 {
@@ -60,6 +61,24 @@ enum ROOM_ENUM MapToRoomEnum(s32 mapGroup, s32 mapNum, s32 floorNum)
 
         else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR1ROOM4) && mapNum == MAP_NUM(MAP_MANSION_FLOOR1ROOM4))
             return ROOM_4WAY_4;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR1TREASURE_DOWN) && mapNum == MAP_NUM(MAP_MANSION_FLOOR1TREASURE_DOWN))
+            return ROOM_TREASURE_UP;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR1TREASURE_UP) && mapNum == MAP_NUM(MAP_MANSION_FLOOR1TREASURE_UP))
+            return ROOM_TREASURE_DOWN;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR1TREASURE_LEFT) && mapNum == MAP_NUM(MAP_MANSION_FLOOR1TREASURE_LEFT))
+            return ROOM_TREASURE_RIGHT;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR1TREASURE_RIGHT) && mapNum == MAP_NUM(MAP_MANSION_FLOOR1TREASURE_RIGHT))
+            return ROOM_TREASURE_LEFT;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR1HALLWAY1) && mapNum == MAP_NUM(MAP_MANSION_FLOOR1HALLWAY1))
+            return ROOM_HALLWAY_1;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR1HALLWAY2) && mapNum == MAP_NUM(MAP_MANSION_FLOOR1HALLWAY2))
+            return ROOM_HALLWAY_2;
 
         // TODO: Handle last 4way
     }
@@ -101,19 +120,41 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR1ROOM4);
             }
             break;
-        case ROOM_4WAY_LAST:
-            break;
         case ROOM_HALLWAY_1:
+            if (floorNum == 1) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR1HALLWAY1);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR1HALLWAY1);
+            }
             break;
         case ROOM_HALLWAY_2:
+            if (floorNum == 1) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR1HALLWAY2);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR1HALLWAY2);
+            }
             break;
         case ROOM_TREASURE_DOWN:
+            if (floorNum == 1) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR1TREASURE_UP);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR1TREASURE_UP);
+            }
             break;
         case ROOM_TREASURE_UP:
+            if (floorNum == 1) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR1TREASURE_DOWN);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR1TREASURE_DOWN);
+            }
             break;
         case ROOM_TREASURE_LEFT:
+            if (floorNum == 1) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR1TREASURE_RIGHT);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR1TREASURE_RIGHT);
+            }
             break;
         case ROOM_TREASURE_RIGHT:
+            if (floorNum == 1) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR1TREASURE_LEFT);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR1TREASURE_LEFT);
+            }
             break;
         case ROOM_BOSS:
             break;
@@ -124,6 +165,7 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
 
 void GenerateMansionFloorLayout(u8 roomsGrid[GRID_X_LEN][GRID_Y_LEN])
 {
+    enum ROOM_ENUM last4WayId;
     s32 i;
     u32 randH1, randH2, last4Way, bits4Way;
 
@@ -138,6 +180,22 @@ void GenerateMansionFloorLayout(u8 roomsGrid[GRID_X_LEN][GRID_Y_LEN])
     roomsGrid[ENTRANCE_X][ENTRANCE_Y+1] = GetRandom4Way(&bits4Way);
     roomsGrid[ENTRANCE_X][ENTRANCE_Y-1] = GetRandom4Way(&bits4Way);
     roomsGrid[ENTRANCE_X-1][ENTRANCE_Y] = GetRandom4Way(&bits4Way);
+    if (!(bits4Way & (1u << ROOM_4WAY_1))) {
+        last4WayId = ROOM_4WAY_1;
+    }
+    else if (!(bits4Way & (1u << ROOM_4WAY_2))) {
+        last4WayId = ROOM_4WAY_2;
+    }
+    else if (!(bits4Way & (1u << ROOM_4WAY_3))) {
+        last4WayId = ROOM_4WAY_3;
+    }
+    else if (!(bits4Way & (1u << ROOM_4WAY_4))) {
+        last4WayId = ROOM_4WAY_4;
+    }
+    else {
+        // Should never be reached
+        last4WayId = ROOM_4WAY_1;
+    }
 
     // Step 2a: Generate 2 hallways. There are 4 possible options
     randH1 = Random() % 4;
@@ -165,19 +223,19 @@ void GenerateMansionFloorLayout(u8 roomsGrid[GRID_X_LEN][GRID_Y_LEN])
     last4Way = ((Random() & 1) != 0) ? randH1 : randH2;
     switch (last4Way) {
         case 0: // L4-H-4-E
-            roomsGrid[ENTRANCE_X][ENTRANCE_Y-3] = ROOM_4WAY_LAST;
+            roomsGrid[ENTRANCE_X][ENTRANCE_Y-3] = last4WayId;
             roomsGrid[ENTRANCE_X+1][ENTRANCE_Y-3] = ROOM_TREASURE_DOWN;
             break;
         case 1: // 4-E-H-L4
-            roomsGrid[ENTRANCE_X][ENTRANCE_Y+3] = ROOM_4WAY_LAST;
+            roomsGrid[ENTRANCE_X][ENTRANCE_Y+3] = last4WayId;
             roomsGrid[ENTRANCE_X+1][ENTRANCE_Y+3] = ROOM_TREASURE_DOWN;
             break;
         case 2: // L4-H-4
-            roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-2] = ROOM_4WAY_LAST;
+            roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-2] = last4WayId;
             roomsGrid[ENTRANCE_X][ENTRANCE_Y-2] = ROOM_TREASURE_DOWN;
             break;
         case 3: // 4-H-L4
-            roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+2] = ROOM_4WAY_LAST;
+            roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+2] = last4WayId;
             roomsGrid[ENTRANCE_X][ENTRANCE_Y+2] = ROOM_TREASURE_DOWN;
             break;
     }
@@ -268,9 +326,6 @@ void RoomEnumToChar(enum ROOM_ENUM roomEnum, u8 *c1, u8 *c2)
             break;
         case ROOM_4WAY_4:
             *c1 = CHAR_4, *c2 = CHAR_d;
-            break;
-        case ROOM_4WAY_LAST:
-            *c1 = CHAR_4, *c2 = CHAR_l;
             break;
         case ROOM_HALLWAY_1:
             *c1 = CHAR_H, *c2 = CHAR_a;
