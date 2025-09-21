@@ -5,11 +5,325 @@ PetalburgCity_MapScripts::
 
 PetalburgCity_OnTransition:
 	setflag FLAG_VISITED_PETALBURG_CITY
+	setflag FLAG_SYS_B_DASH
 	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
 	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
 	end
+
+PetalburgCity_OnFrame:
+	map_script_2 VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_WallyTutorial
+	map_script_2 VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_WalkToWallyHouse
+	.2byte 0
+
+
+
+Fountain_EventScript_Abra_Mansion_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_MANSION
+	removeobject LOCALID_ABRA_BIRDHOUSE
+	removeobject LOCALID_ABRA_STACKS
+	removeobject LOCALID_ABRA_BACKDOOR
+	removeobject LOCALID_ABRA_GARDEN
+	setvar VAR_TEMP_0, 1
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Grave_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_GRAVE
+	removeobject LOCALID_ABRA_GARDEN
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 1
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Garden_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_GARDEN
+	removeobject LOCALID_ABRA_BIRDHOUSE
+	removeobject LOCALID_ABRA_MANSION
+	removeobject LOCALID_ABRA_GRAVE
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 1
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Birdhouse_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_BIRDHOUSE
+	removeobject LOCALID_ABRA_MANSION
+	removeobject LOCALID_ABRA_GARDEN
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 1
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Backdoor_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_BACKDOOR
+	removeobject LOCALID_ABRA_MANSION
+	removeobject LOCALID_ABRA_SHED
+	removeobject LOCALID_ABRA_STACKS
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 1
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Shed_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_SHED
+	removeobject LOCALID_ABRA_BACKDOOR
+	removeobject LOCALID_ABRA_STACKS
+	removeobject LOCALID_ABRA_STUMPS
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 1
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Stacks_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_STACKS
+	removeobject LOCALID_ABRA_BACKDOOR
+	removeobject LOCALID_ABRA_SHED
+	removeobject LOCALID_ABRA_STUMPS
+	removeobject LOCALID_ABRA_MANSION
+	removeobject LOCALID_ABRA_WELL
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 1
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Stumps_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_STUMPS
+	removeobject LOCALID_ABRA_BACKDOOR
+	removeobject LOCALID_ABRA_SHED
+	removeobject LOCALID_ABRA_STACKS
+	removeobject LOCALID_ABRA_WELL
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 1
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Well_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_WELL
+	removeobject LOCALID_ABRA_STACKS
+	removeobject LOCALID_ABRA_STUMPS
+	removeobject LOCALID_ABRA_GATE
+	removeobject LOCALID_ABRA_CAMPFIRE
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 1
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Campfire_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_CAMPFIRE
+	removeobject LOCALID_ABRA_WELL
+	removeobject LOCALID_ABRA_GATE
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 1
+	setvar VAR_TEMP_A, 0
+	end
+
+Fountain_EventScript_Abra_Gate_Trigger::
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_GATE
+	removeobject LOCALID_ABRA_CAMPFIRE
+	removeobject LOCALID_ABRA_STUMPS
+	removeobject LOCALID_ABRA_WELL
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 1
+	end
+
+
+Fountain_EventScript_Abra_Mansion::
+	end
+
+Fountain_EventScript_Abra_Garden::
+	end
+
+Fountain_EventScript_Abra_Grave::
+	end
+
+Fountain_EventScript_Abra_Birdhouse::
+	end
+
+Fountain_EventScript_Abra_Backdoor::
+	end
+
+Fountain_EventScript_Abra_Shed::
+	end
+
+Fountain_EventScript_Abra_Stacks::
+	end
+
+Fountain_EventScript_Abra_Stumps::
+	end
+
+Fountain_EventScript_Abra_Well::
+	end
+
+Fountain_EventScript_Abra_Campfire::
+	end
+
+Fountain_EventScript_Abra_Gate::
+	end
+
+
+Fountain_Text_AbraMansion1:
+	.string "Here it is.\p"
+	.string "Inside this house is where Cradily hides.\p"
+	.string "It is automatically sent to a STORAGE\n"
+	.string "BOX over a PC connection.$"
+
+
+
+
+
+Fountain_EventScript_Grave::
+	msgbox Fountain_Text_Grave, MSGBOX_NPC
+	end
+
+Fountain_Text_Grave:
+	.string "A smooth pale stone.\n"
+	.string "It's covered in strange markings.$"
+
+Fountain_EventScript_PhotoStump::
+	goto_if_set FLAG_OBTAINED_PHOTO1, Fountain_EventScript_PhotoCheck
+	goto_if_set FLAG_OBTAINED_PHOTO2, Fountain_EventScript_PhotoCheck
+	goto_if_set FLAG_OBTAINED_PHOTO3, Fountain_EventScript_PhotoCheck
+	goto_if_set FLAG_OBTAINED_PHOTO4, Fountain_EventScript_PhotoCheck
+	goto_if_set FLAG_OBTAINED_PHOTO5, Fountain_EventScript_PhotoCheck
+	end
+
+Fountain_EventScript_PhotoCheck::
+	goto_if_unset FLAG_OBTAINED_PHOTO1, Fountain_EventScript_IncompletePhoto
+
+
+Fountain_EventScript_IncompletePhoto::
+	msgbox Fountain_Text_IncompletePhoto, MSGBOX_NPC
+	end
+
+Fountain_Text_IncompletePhoto:
+	.string "The pieces of that odd picture you\n"
+	.string "found are assembled here.\p"
+	.string "It doesn't look complete yet.\n"
+	.string "found are assembled here.$"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::
 	setobjectxyperm LOCALID_GYM_BOY, 5, 11
@@ -23,11 +337,6 @@ PetalburgCity_EventScript_DisableMapNameAndMusic::
 PetalburgCity_EventScript_SetGymDoorsUnlocked::
 	setvar VAR_PETALBURG_GYM_STATE, 7
 	return
-
-PetalburgCity_OnFrame:
-	map_script_2 VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_WallyTutorial
-	map_script_2 VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_WalkToWallyHouse
-	.2byte 0
 
 PetalburgCity_EventScript_WallyTutorial::
 	lockall

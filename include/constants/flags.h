@@ -1264,11 +1264,11 @@
 #define FLAG_T4_ENEMYB                                              0x4B8 // Unused Flag
 #define FLAG_T4_ENEMYC                                              0x4B9 // Unused Flag
 #define FLAG_T4_ENEMYD                                              0x4BA // Unused Flag
-#define FLAG_UNUSED_0x4BB                                           0x4BB // Unused Flag
-#define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag
-#define FLAG_UNUSED_0x4BD                                           0x4BD // Unused Flag
-#define FLAG_UNUSED_0x4BE                                           0x4BE // Unused Flag
-#define FLAG_UNUSED_0x4BF                                           0x4BF // Unused Flag
+#define FLAG_OBTAINED_PHOTO1                                        0x4BB // Unused Flag
+#define FLAG_OBTAINED_PHOTO2                                        0x4BC // Unused Flag
+#define FLAG_OBTAINED_PHOTO3                                        0x4BD // Unused Flag
+#define FLAG_OBTAINED_PHOTO4                                        0x4BE // Unused Flag
+#define FLAG_OBTAINED_PHOTO5                                        0x4BF // Unused Flag
 #define FLAG_UNUSED_0x4C0                                           0x4C0 // Unused Flag
 #define FLAG_UNUSED_0x4C1                                           0x4C1 // Unused Flag
 #define FLAG_UNUSED_0x4C2                                           0x4C2 // Unused Flag
