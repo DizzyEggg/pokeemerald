@@ -424,6 +424,7 @@ static s32 FindRndWarpInMap(s32 mapGroup, s32 mapNum, s32 wantedDst)
 
 static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, s32 dir)
 {
+    enum ROOM_ENUM next;
     s32 i, j;
     u8 (*roomsGrid)[GRID_X_LEN][GRID_Y_LEN];
 
@@ -439,17 +440,41 @@ static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, 
         for (j = 0; j < GRID_Y_LEN; j++) {
             if ((*roomsGrid)[i][j] == currLoc) {
                 if (dir == DIR_NORTH) {
-                    return (*roomsGrid)[i-1][j];
+                    next = (*roomsGrid)[i-1][j];
                 }
                 else if (dir == DIR_SOUTH) {
-                    return (*roomsGrid)[i+1][j];
+                    next = (*roomsGrid)[i+1][j];
                 }
                 else if (dir == DIR_EAST) {
-                    return (*roomsGrid)[i][j+1];
+                    next = (*roomsGrid)[i][j+1];
                 }
                 else if (dir == DIR_WEST) {
-                    return (*roomsGrid)[i][j-1];
+                    next = (*roomsGrid)[i][j-1];
                 }
+
+                // Treasure rooms can only be accessed from 1 direction only!
+                switch (next) {
+                    case ROOM_TREASURE_DOWN:
+                        if (dir != DIR_SOUTH)
+                            continue;
+                        break;
+                    case ROOM_TREASURE_UP:
+                        if (dir != DIR_NORTH)
+                            continue;
+                        break;
+                    case ROOM_TREASURE_LEFT:
+                        if (dir != DIR_WEST)
+                            continue;
+                        break;
+                    case ROOM_TREASURE_RIGHT:
+                        if (dir != DIR_EAST)
+                            continue;
+                        break;
+                    default:
+                        break;
+                }
+
+                return next;
             }
         }
     }
