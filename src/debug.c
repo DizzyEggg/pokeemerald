@@ -4145,7 +4145,7 @@ void CheckEWRAMCounters(struct ScriptContext *ctx)
 
 static void PutTextOnRunItemsWindow(u32 windowId, s32 page);
 
-static void ClearRemoveWindow(u32 windowId)
+void ClearRemoveWindow(u32 windowId)
 {
     ClearStdWindowAndFrameToTransparent(windowId, TRUE);
     ClearWindowTilemap(windowId);

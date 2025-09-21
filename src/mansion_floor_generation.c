@@ -4,6 +4,10 @@
 #include "text.h"
 #include "window.h"
 #include "menu.h"
+#include "overworld.h"
+#include "script.h"
+#include "main.h"
+#include "debug.h"
 
 #define ENTRANCE_X 4
 #define ENTRANCE_Y 4
@@ -303,8 +307,21 @@ static const struct WindowTemplate sGridWinTemplate =
     .baseBlock = 1,
 };
 
+#define tWindowId data[0]
+
+static void Task_WaitForInput(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    if (JOY_NEW(A_BUTTON | B_BUTTON | SELECT_BUTTON | START_BUTTON)) {
+        ClearRemoveWindow(task->tWindowId);
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
+}
+
 static void PrintMansionFloorLayout(u8 roomsGrid[GRID_X_LEN][GRID_Y_LEN])
 {
+    u8 taskId;
     u8 text[100];
     s32 i, j;
     s32 windowId;
@@ -322,9 +339,105 @@ static void PrintMansionFloorLayout(u8 roomsGrid[GRID_X_LEN][GRID_Y_LEN])
         AddTextPrinterParameterized(windowId, FONT_NORMAL, text, 0, 15 * i, 0, NULL);
     }
     CopyWindowToVram(windowId, COPYWIN_FULL);
+    taskId = CreateTask(Task_WaitForInput, 5);
+    gTasks[taskId].tWindowId = windowId;
 }
+
+#undef tWindowId
 
 void PrintMansionFloor1Layout(void)
 {
     PrintMansionFloorLayout(gSaveBlock1Ptr->mansionFloor1Grid);
+}
+
+static s32 FindRndWarpInMap(s32 mapGroup, s32 mapNum, s32 wantedDst)
+{
+    s32 i;
+    const struct MapHeader *header = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum);
+    s32 warpCount = header->events->warpCount;
+    const struct WarpEvent *warps = header->events->warps;
+
+    for (i = 0; i < warpCount; i++) {
+        if (warps[i].mapGroup == MAP_GROUP(wantedDst)) {
+            return i;
+        }
+    }
+
+    // This should never happen!
+    return 0;
+}
+
+static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, s32 dir)
+{
+    s32 i, j;
+    u8 (*roomsGrid)[GRID_X_LEN][GRID_Y_LEN];
+
+    if (floorNum == 1) {
+        roomsGrid = &gSaveBlock1Ptr->mansionFloor1Grid;
+    }
+    else {
+        // Should never happen
+        return ROOM_NOTHING;
+    }
+
+    for (i = 1; i < GRID_X_LEN; i++) {
+        for (j = 0; j < GRID_Y_LEN; j++) {
+            if ((*roomsGrid)[i][j] == currLoc) {
+                if (dir == DIR_NORTH) {
+                    return (*roomsGrid)[i-1][j];
+                }
+                else if (dir == DIR_SOUTH) {
+                    return (*roomsGrid)[i+1][j];
+                }
+                else if (dir == DIR_EAST) {
+                    return (*roomsGrid)[i][j+1];
+                }
+                else if (dir == DIR_WEST) {
+                    return (*roomsGrid)[i][j-1];
+                }
+            }
+        }
+    }
+
+    // Should never happen
+    return ROOM_NOTHING;
+}
+
+void SetMansionWarpDestination(const struct WarpEvent *warpEvent)
+{
+    s32 retWarpDir;
+    s32 floorNum = 1;
+    s32 dstMapGroup = 0, dstMapNum = 0;
+    enum ROOM_ENUM dstGridLocation;
+    // Get current location in grid
+    enum ROOM_ENUM currGridLocation = MapToRoomEnum(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, floorNum);
+
+    // Get next location in desired direction in grid
+    if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP)) {
+        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_NORTH);
+        retWarpDir = MAP_RND_MANSION_DOWN;
+    }
+    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_DOWN)) {
+        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_SOUTH);
+        retWarpDir = MAP_RND_MANSION_UP;
+    }
+    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT)) {
+        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_WEST);
+        retWarpDir = MAP_RND_MANSION_RIGHT;
+    }
+    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT)) {
+        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_EAST);
+        retWarpDir = MAP_RND_MANSION_LEFT;
+    }
+    else { // Should not happen
+        return;
+    }
+
+    // Get the map id from the randomized grid
+    RoomEnumToMap(dstGridLocation, &dstMapGroup, &dstMapNum, floorNum);
+
+    // Find the warp with an opposite direction
+    SetWarpDestinationToMapWarp(dstMapGroup,
+                                dstMapNum,
+                                FindRndWarpInMap(dstMapGroup, dstMapNum, retWarpDir));
 }
