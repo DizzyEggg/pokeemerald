@@ -2,7 +2,7 @@
   "id": "MAP_PETALBURG_CITY",
   "name": "PetalburgCity",
   "layout": "LAYOUT_PETALBURG_CITY",
-  "music": "MUS_PETALBURG",
+  "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_PETALBURG_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -352,6 +352,48 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_SWABLU_INTRO",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SWABLU)",
+      "x": 26,
+      "y": 46,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_VISITED_PETALBURG_CITY"
+    },
+    {
+      "local_id": "LOCAL_ID_ALTARIA_INTRO",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ALTARIA)",
+      "x": 27,
+      "y": 24,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Fountain_EventScript_Abra_Mansion",
+      "flag": "FLAG_VISITED_PETALBURG_CITY"
+    },
+    {
+      "local_id": "LOCALID_EGG_INTRO",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TOGEPI)",
+      "x": 26,
+      "y": 46,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_VISITED_PETALBURG_CITY"
     }
   ],
   "warp_events": [
@@ -1121,6 +1163,254 @@
       "elevation": 3,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_PETALBURG_CITY_RARE_CANDY"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Grave"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_PhotoStump"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_GardenTrees"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_GardenTrees"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_GardenTrees"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_GardenTrees"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_GardenTrees"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_GardenTrees"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_GardenTrees"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_GardenTrees"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Birdhouse"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Birdhouse"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 46,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Campfire"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 46,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Campfire"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 45,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Campfire"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 45,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Campfire"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 54,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Gate"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 54,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Gate"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 54,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Gate"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 41,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Inkwell"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Stacks"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Stacks"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Stacks"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 35,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Stacks"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 35,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Stacks"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 35,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Stacks"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 33,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Stacks"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 33,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Stacks"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 33,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_Stacks"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 33,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_ShedDoor"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Fountain_EventScript_BackDoor"
     }
   ]
 }

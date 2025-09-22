@@ -5,21 +5,396 @@ PetalburgCity_MapScripts::
 
 PetalburgCity_OnTransition:
 	setflag FLAG_VISITED_PETALBURG_CITY
-	setflag FLAG_SYS_B_DASH
-	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
-	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
-	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
-	call_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
+	goto_if_set FLAG_SYS_B_DASH, Fountain_Eventscript_NotFirstLoad
+	setvar VAR_PETALBURG_CITY_STATE, 1
+	@call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
 	end
 
 PetalburgCity_OnFrame:
-	map_script_2 VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_WallyTutorial
-	map_script_2 VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_WalkToWallyHouse
+	map_script_2 VAR_PETALBURG_CITY_STATE, 1, Fountain_EventScript_IntroScene
+	@map_script_2 VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_WalkToWallyHouse
 	.2byte 0
 
+Fountain_EventScript_End::
+	end
 
+
+Fountain_Eventscript_NotFirstLoad::
+	setvar VAR_PETALBURG_CITY_STATE, 0
+	addobject LOCALID_ABRA_WELL
+	end
+
+@@@@@ Intro cutscene
+
+Fountain_EventScript_IntroScene::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookLeft
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookRight
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookDown
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	waitmovement 0
+	msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_BIDOOF_NORMAL
+	delay 50
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_WELL
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
+	waitmovement 0
+	msgbox_portrait Fountain_Text_Intro02, FIELD_PIC_BIDOOF_NORMAL
+	msgbox_portrait Fountain_Text_Intro03, FIELD_PIC_ROTOM
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 20
+	msgbox_portrait Fountain_Text_Intro04, FIELD_PIC_BIDOOF_NORMAL
+	msgbox_portrait Fountain_Text_Intro05, FIELD_PIC_ROTOM
+	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
+	waitmovement 0
+	delay 20
+
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Fountain_CameraMove1
+	waitmovement 0
+	delay 30
+	addobject LOCAL_ID_ALTARIA_INTRO
+	applymovement LOCAL_ID_ALTARIA_INTRO, Fountain_FallIntoWater
+	delay 10
+	applymovement OBJ_EVENT_ID_CAMERA, Fountain_FallIntoWater
+	waitmovement 0
+	removeobject LOCAL_ID_ALTARIA_INTRO
+	playse SE_M_DIVE
+	waitse
+	delay 30
+	addobject LOCALID_ABRA_WELL
+	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
+	applymovement OBJ_EVENT_ID_CAMERA, Fountain_CameraMove3
+	waitmovement 0
+	delay 20
+
+	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
+	delay 10
+	msgbox_portrait Fountain_Text_Intro06, FIELD_PIC_ROTOM
+	delay 10
+	playse SE_WARP_OUT
+	removeobject LOCALID_ABRA_WELL
+	delay 80
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_WELL
+	addobject LOCALID_EGG_INTRO
+	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
+	delay 10
+	msgbox_portrait Fountain_Text_Intro07, FIELD_PIC_ROTOM
+	fadescreenspeed FADE_TO_BLACK, 2
+	delay 20
+	removeobject LOCALID_EGG_INTRO
+	addobject LOCALID_SWABLU_INTRO
+	applymovement LOCALID_SWABLU_INTRO, Fountain_LookUp
+	waitmovement 0
+	delay 10
+	fadescreenspeed FADE_FROM_BLACK, 2
+
+	delay 30
+	msgbox_portrait Fountain_Text_Intro08, FIELD_PIC_ROTOM
+	applymovement LOCALID_SWABLU_INTRO, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox_portrait Fountain_Text_Intro09, FIELD_PIC_WINGULL
+	msgbox_portrait Fountain_Text_Intro10, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro11, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro12, FIELD_PIC_ROTOM
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookRight
+	applymovement LOCALID_SWABLU_INTRO, Fountain_LookLeft
+	waitmovement 0
+	delay 40
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
+	applymovement LOCALID_SWABLU_INTRO, Fountain_LookUp
+	waitmovement 0
+	delay 20
+	msgbox_portrait Fountain_Text_Intro13, FIELD_PIC_WINGULL
+	msgbox_portrait Fountain_Text_Intro14, FIELD_PIC_BIDOOF_NORMAL
+	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
+	waitmovement 0
+	delay 20
+	applymovement OBJ_EVENT_ID_CAMERA, Fountain_CameraMove4
+	waitmovement 0
+	delay 20
+	msgbox_portrait Fountain_Text_Intro15, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro16, FIELD_PIC_BIDOOF_NORMAL
+	msgbox_portrait Fountain_Text_Intro17, FIELD_PIC_ROTOM
+	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
+	waitmovement 0
+	delay 30
+	msgbox_portrait Fountain_Text_Intro18, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro19, FIELD_PIC_ROTOM
+	@TODO
+	@applymovement OBJ_EVENT_ID_PLAYER, Fountain_Shudder
+	@applymovement LOCALID_SWABLU_INTRO, Fountain_Shudder
+	waitmovement 0
+	delay 30
+	msgbox_portrait Fountain_Text_Intro20, FIELD_PIC_BIDOOF_NORMAL
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookLeft
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
+	delay 20
+	msgbox_portrait Fountain_Text_Intro21, FIELD_PIC_BIDOOF_NORMAL
+	msgbox_portrait Fountain_Text_Intro22, FIELD_PIC_WINGULL
+	msgbox_portrait Fountain_Text_Intro23, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro24, FIELD_PIC_WINGULL
+	msgbox_portrait Fountain_Text_Intro25, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro26, FIELD_PIC_BIDOOF_NORMAL
+	msgbox_portrait Fountain_Text_Intro27, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro28, FIELD_PIC_WINGULL
+	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
+	waitmovement 0
+	delay 20
+	msgbox_portrait Fountain_Text_Intro29, FIELD_PIC_ROTOM
+	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
+	waitmovement 0
+	delay 30
+	msgbox_portrait Fountain_Text_Intro30, FIELD_PIC_ROTOM
+	
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_SYS_POKEMON_GET
+	setrespawn HEAL_LOCATION_PETALBURG_CITY
+	setvar VAR_PETALBURG_CITY_STATE 1
+	warpsilent MAP_PETALBURG_CITY,24,46
+	release
+	releaseall
+	end
+
+
+
+
+
+
+Fountain_LookUp:
+	face_up
+	step_end
+
+Fountain_LookDown:
+	face_down
+	step_end
+
+Fountain_LookLeft:
+	face_left
+	step_end
+
+Fountain_LookRight:
+	face_right
+	step_end
+
+Fountain_CameraMove1:
+	walk_diag_northeast
+	walk_diag_northeast
+	walk_diag_northeast
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Fountain_FallIntoWater:
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down	
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+
+Fountain_CameraMove3:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_diag_southwest
+	walk_diag_southwest
+	walk_diag_southwest
+	step_end
+
+Fountain_CameraMove4:
+	walk_up
+	walk_up
+	step_end
+
+Fountain_Shudder:
+	walk_in_place_faster_up
+	end
+
+
+Fountain_Text_Intro01:
+	.string "Tuskan: Huh? Where… wasn’t there a…$"
+
+Fountain_Text_Intro02:
+	.string "Tuskan: Hey… a-are you my…?$"
+
+Fountain_Text_Intro03:
+	.string "???: Welcome back, Tuskan.$"
+
+Fountain_Text_Intro04:
+	.string "Tuskan: Welcome back? What?$"
+
+Fountain_Text_Intro05:
+	.string "???: Hold on, it'll be easier to explain\n"
+	.string "it to both of you together.$"
+
+Fountain_Text_Intro06:
+	.string "???: Wait here a moment - I have to\n"
+	.string "Teleport her out of the well.$"
+
+Fountain_Text_Intro07:
+	.string "???: Just wait a minute for her to \n"
+	.string "hatch, and then I'll explain everything.$"
+
+Fountain_Text_Intro08:
+	.string "???: Ahem.\p"
+	.string "Welcome back, Tuskan and Fluffball.\n"
+	.string "My name is Dali.$"
+
+Fountain_Text_Intro09:
+	.string "Fluffball: Wait, Fluffball? My name\n"
+	.string "is Fluffball?$"
+
+Fountain_Text_Intro10:
+	.string "Dali: You ask me that every time you\n"
+	.string "hatch! Yep, that's your name!$"
+
+Fountain_Text_Intro11:
+	.string "Dali: And yes, you've been here before.\p"
+	.string "Even though you're newly hatched,\n"
+	.string "we've had this conversation before.$"
+
+Fountain_Text_Intro12:
+	.string "Dali: Tuskan, you saw it, didn't you?\p"
+	.string "You saw Fluffball falling into the well,\n"
+	.string "and coming out as an egg.\p"
+	.string "Do you remember anything from before\n"
+	.string "you fell in?$"
+
+Fountain_Text_Intro13:
+	.string "Fluffball: I… remember fighting. Anger.\n"
+	.string "Betrayal.$"
+
+Fountain_Text_Intro14:
+	.string "Tuskan: I remember fighting too. Why\n"
+	.string "can't we remember?$"
+
+Fountain_Text_Intro15:
+	.string "Dali: It's because of this dark well.\n"
+	.string "I call it the Inkwell.\p"
+	.string "The inky water heals all, but it makes\n"
+	.string "you… younger. It takes away your\l"
+	.string "experience and memories.\p"
+	.string "Taking a small sip is safe, but falling\n"
+	.string "in quickly turns you back into an egg.$"
+
+Fountain_Text_Intro16:
+	.string "Tuskan: But why were we in that place?\n"
+	.string "And who threw us into the Inkwell?$"
+
+Fountain_Text_Intro17:
+	.string "Dali: …$"
+
+Fountain_Text_Intro18:
+	.string "Dali: I'm going to say a name.\n"
+	.string "Tell me what you remember about it.$"
+
+Fountain_Text_Intro19:
+	.string "Dali: Craftily.$"
+
+Fountain_Text_Intro20:
+	.string "Tuskan: I…$"
+
+Fountain_Text_Intro21:
+	.string "Tuskan: I don't like that name. He did\n"
+	.string "something to us.$"
+
+Fountain_Text_Intro22:
+	.string "Fluffball: Craftily… he… he betrayed us.$"
+
+Fountain_Text_Intro23:
+	.string "Dali: I think Craftily did this to us.\p"
+	.string "I don't remember what happened either…\n"
+	.string "Don’t even remember what he looks like.\p"
+	.string "But we’re all weak, and he’s so strong.\p"
+	.string "I can only guess that there was a \n"
+	.string "terrible battle, and Craftily won and\l"
+	.string "forced us into the Inkwell.$"
+
+Fountain_Text_Intro24:
+	.string "Fluffball: Why would he do that?$"
+
+Fountain_Text_Intro25:
+	.string "Dali: I don't know.\p"
+	.string "What I do know is that there's a deep,\n"
+	.string "half-forgotten anger I feel when I\l"
+	.string "hear that name, and you feel it too.$"
+
+Fountain_Text_Intro26:
+	.string "Tuskan: But… what can we do?$"
+
+Fountain_Text_Intro27:
+	.string "Dali: You two have to get to Craftily in\n"
+	.string "the mansion to find out what happened.\p"
+	.string "With some strategy and a little luck,\n"
+	.string "maybe you can beat him, and get him to\l"
+	.string "confess to whatever he did to us.\p"
+	.string "He might be the only one left who knows.\p"
+	.string "But the Pokemon in the mansion believe\n"
+	.string "Craftily's a hero. They will fight and\l"
+	.string "throw you in the Inkwell if they can.$"
+
+Fountain_Text_Intro28:
+	.string "Fluffball: He is not a hero. I feel it\n"
+	.string "in my soul. He betrayed us.$"
+
+Fountain_Text_Intro29:
+	.string "Dali: …only the three of us know that.\p"
+	.string "And I… I can't fight. The only thing I\n"
+	.string "can do is Teleport to help you a little,\l"
+	.string "and keep the memories alive for us.\p"
+	.string "And every time you come back, I have to\n"
+	.string "ask you to go back in there and fight.$"
+
+Fountain_Text_Intro30:
+	.string "Dali: So explore around here all you \n"
+	.string "like; I'll tell you everything I know.\p"
+	.string "But… please go find Craftily. Figuring\n"
+	.string "out what happened is our only way out.$"
+
+
+
+
+
+
+@@@@@@ Abra Triggers
 
 Fountain_EventScript_Abra_Mansion_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_MANSION
 	removeobject LOCALID_ABRA_BIRDHOUSE
@@ -40,6 +415,7 @@ Fountain_EventScript_Abra_Mansion_Trigger::
 	end
 
 Fountain_EventScript_Abra_Grave_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_GRAVE
 	removeobject LOCALID_ABRA_GARDEN
@@ -57,6 +433,7 @@ Fountain_EventScript_Abra_Grave_Trigger::
 	end
 
 Fountain_EventScript_Abra_Garden_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_GARDEN
 	removeobject LOCALID_ABRA_BIRDHOUSE
@@ -76,6 +453,7 @@ Fountain_EventScript_Abra_Garden_Trigger::
 	end
 
 Fountain_EventScript_Abra_Birdhouse_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_BIRDHOUSE
 	removeobject LOCALID_ABRA_MANSION
@@ -94,6 +472,7 @@ Fountain_EventScript_Abra_Birdhouse_Trigger::
 	end
 
 Fountain_EventScript_Abra_Backdoor_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_BACKDOOR
 	removeobject LOCALID_ABRA_MANSION
@@ -113,6 +492,7 @@ Fountain_EventScript_Abra_Backdoor_Trigger::
 	end
 
 Fountain_EventScript_Abra_Shed_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_SHED
 	removeobject LOCALID_ABRA_BACKDOOR
@@ -132,6 +512,7 @@ Fountain_EventScript_Abra_Shed_Trigger::
 	end
 
 Fountain_EventScript_Abra_Stacks_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_STACKS
 	removeobject LOCALID_ABRA_BACKDOOR
@@ -153,6 +534,7 @@ Fountain_EventScript_Abra_Stacks_Trigger::
 	end
 
 Fountain_EventScript_Abra_Stumps_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_STUMPS
 	removeobject LOCALID_ABRA_BACKDOOR
@@ -173,6 +555,7 @@ Fountain_EventScript_Abra_Stumps_Trigger::
 	end
 
 Fountain_EventScript_Abra_Well_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_WELL
 	removeobject LOCALID_ABRA_STACKS
@@ -193,6 +576,7 @@ Fountain_EventScript_Abra_Well_Trigger::
 	end
 
 Fountain_EventScript_Abra_Campfire_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_CAMPFIRE
 	removeobject LOCALID_ABRA_WELL
@@ -211,6 +595,7 @@ Fountain_EventScript_Abra_Campfire_Trigger::
 	end
 
 Fountain_EventScript_Abra_Gate_Trigger::
+	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_GATE
 	removeobject LOCALID_ABRA_CAMPFIRE
@@ -228,6 +613,17 @@ Fountain_EventScript_Abra_Gate_Trigger::
 	setvar VAR_TEMP_9, 0
 	setvar VAR_TEMP_A, 1
 	end
+
+
+
+
+@@@@@@ INTRO
+
+
+
+
+@@@@@@@
+@ Abra events - TODO
 
 
 Fountain_EventScript_Abra_Mansion::
@@ -266,7 +662,7 @@ Fountain_EventScript_Abra_Gate::
 
 Fountain_Text_AbraMansion1:
 	.string "Here it is.\p"
-	.string "Inside this house is where Cradily hides.\p"
+	.string "Inside this house is where Craftily hides.\p"
 	.string "It is automatically sent to a STORAGE\n"
 	.string "BOX over a PC connection.$"
 
@@ -274,13 +670,29 @@ Fountain_Text_AbraMansion1:
 
 
 
+
+@@@@@ Static Events - TODO
+
 Fountain_EventScript_Grave::
+	goto_if_set FLAG_SECRET_ENDING_COMPLETE, Fountain_EventScript_GraveEnd
 	msgbox Fountain_Text_Grave, MSGBOX_NPC
 	end
 
+Fountain_EventScript_GraveEnd::
+	msgbox Fountain_Text_GraveEnd, MSGBOX_NPC
+	end
+
 Fountain_Text_Grave:
-	.string "A smooth pale stone.\n"
-	.string "It's covered in strange markings.$"
+	.string "A smooth pale stone covered in strange,\n"
+	.string "worn markings.\p"
+	.string "It makes you feel... sad?$"
+
+Fountain_Text_GraveEnd:
+	.string "This must be Ada's grave.\p"
+	.string "TODO"
+	.string "$"
+
+
 
 Fountain_EventScript_PhotoStump::
 	goto_if_set FLAG_OBTAINED_PHOTO1, Fountain_EventScript_PhotoCheck
@@ -292,6 +704,16 @@ Fountain_EventScript_PhotoStump::
 
 Fountain_EventScript_PhotoCheck::
 	goto_if_unset FLAG_OBTAINED_PHOTO1, Fountain_EventScript_IncompletePhoto
+	goto_if_unset FLAG_OBTAINED_PHOTO2, Fountain_EventScript_IncompletePhoto
+	goto_if_unset FLAG_OBTAINED_PHOTO3, Fountain_EventScript_IncompletePhoto
+	goto_if_unset FLAG_OBTAINED_PHOTO4, Fountain_EventScript_IncompletePhoto
+	goto_if_unset FLAG_OBTAINED_PHOTO5, Fountain_EventScript_IncompletePhoto
+	msgbox Fountain_Text_CompletePhoto, MSGBOX_NPC
+
+Fountain_Text_CompletePhoto:
+	.string "You've found all of the pieces of the\n"
+	.string "old picture.$"
+@TODO - add picture, add Abra reaction and agreeing to join you
 
 
 Fountain_EventScript_IncompletePhoto::
@@ -303,6 +725,104 @@ Fountain_Text_IncompletePhoto:
 	.string "found are assembled here.\p"
 	.string "It doesn't look complete yet.\n"
 	.string "found are assembled here.$"
+
+
+
+
+Fountain_EventScript_GardenTrees::
+	msgbox Fountain_Text_GardenTrees, MSGBOX_NPC
+	end
+
+Fountain_Text_GardenTrees:
+	.string "Withered, decrepit trees. The plot\n"
+	.string "looks like it was once a nice garden.$"
+
+
+Fountain_EventScript_Birdhouse::
+	msgbox Fountain_Text_Birdhouse, MSGBOX_NPC
+	end
+
+Fountain_Text_Birdhouse:
+	.string "A quiet birdhouse. There are still a few\n"
+	.string "seeds inside.$"
+
+
+Fountain_EventScript_Campfire::
+	msgbox Fountain_Text_Campfire, MSGBOX_NPC
+	end
+
+Fountain_Text_Campfire:
+	.string "A ring of stones around a smoky black\n"
+	.string "pit. The logs around here make this\l"
+	.string "a nice place to rest.$"
+
+
+Fountain_EventScript_Gate::
+	msgbox Fountain_Text_Gate, MSGBOX_NPC
+	end
+
+Fountain_Text_Gate:
+	.string "Thorny vines interlace with the\n"
+	.string "ornate metal gate. There's no way\l"
+	.string "you can open this.$"
+
+
+
+
+
+Fountain_EventScript_Inkwell::
+	msgbox Fountain_Text_Inkwell, MSGBOX_NPC
+	end
+
+Fountain_Text_Inkwell:
+	.string "The Inkwell is full of dark, inky water.\p"
+	.string "You can feel a sinister energy coming\n"
+	.string "from the depths.$"
+
+
+
+Fountain_EventScript_Stacks::
+	msgbox Fountain_Text_Stacks, MSGBOX_NPC
+	end
+
+Fountain_Text_Stacks:
+	.string "These appear to be tiles, like the\n"
+	.string "ancient stone around the Inkwell.\p"
+	.string "Why are they stacked up here?$"
+
+
+
+Fountain_EventScript_ShedDoor::
+	msgbox Fountain_Text_ShedDoor, MSGBOX_NPC
+	end
+
+Fountain_Text_ShedDoor:
+	.string "It's covered in thick, thorny vines.\n"
+	.string "They're too tough to cut.$"
+
+
+
+
+Fountain_EventScript_BackDoor::
+	msgbox Fountain_Text_BackDoor, MSGBOX_NPC
+	end
+
+Fountain_Text_BackDoor:
+	.string "It's covered in thick, thorny vines.\n"
+	.string "They're too tough to cut.$"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

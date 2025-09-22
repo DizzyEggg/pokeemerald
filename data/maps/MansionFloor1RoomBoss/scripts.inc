@@ -12,3 +12,4 @@ MansionFloor1RoomBoss_Text_Fidough1:
 	.string "Someone here! Trying to go upstairs!\p"
 	.string "It's traditional to seek his wisdom\n"
 	.string "at your first Initiation!$"
+	

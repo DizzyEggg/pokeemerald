@@ -525,7 +525,7 @@ Route104_Movement_SailToDewfordAfterDadCalls:
 	walk_faster_down
 	walk_faster_down
 	walk_faster_down
-	walk_faster_down
+	
 	walk_faster_down
 	walk_faster_down
 	walk_faster_down
