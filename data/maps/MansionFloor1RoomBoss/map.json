@@ -19,22 +19,22 @@
       "x": 10,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ROOM2",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_RND_MANSION_DOWN",
+      "dest_warp_id": "0"
     },
     {
-      "x": 8,
-      "y": 3,
+      "x": 9,
+      "y": 18,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ENTRANCE",
+      "dest_map": "MAP_RND_MANSION_LEFT",
       "dest_warp_id": "0"
     },
     {
       "x": 11,
       "y": 18,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ROOM4",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_RND_MANSION_RIGHT",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

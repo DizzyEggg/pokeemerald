@@ -80,7 +80,8 @@ enum ROOM_ENUM MapToRoomEnum(s32 mapGroup, s32 mapNum, s32 floorNum)
         else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR1HALLWAY2) && mapNum == MAP_NUM(MAP_MANSION_FLOOR1HALLWAY2))
             return ROOM_HALLWAY_2;
 
-        // TODO: Handle last 4way
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR1ROOM_BOSS) && mapNum == MAP_NUM(MAP_MANSION_FLOOR1ROOM_BOSS))
+            return ROOM_BOSS;
     }
 
 
@@ -157,6 +158,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
             }
             break;
         case ROOM_BOSS:
+            if (floorNum == 1) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR1ROOM_BOSS);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR1ROOM_BOSS);
+            }
             break;
         case ROOM_NOTHING:
             break;
@@ -413,13 +418,13 @@ static s32 FindRndWarpInMap(s32 mapGroup, s32 mapNum, s32 wantedDst)
     const struct WarpEvent *warps = header->events->warps;
 
     for (i = 0; i < warpCount; i++) {
-        if (warps[i].mapGroup == MAP_GROUP(wantedDst)) {
+        if (warps[i].mapGroup == MAP_GROUP(wantedDst) && warps[i].mapNum == MAP_NUM(wantedDst)) {
             return i;
         }
     }
 
     // This should never happen!
-    return 0;
+    return -1;
 }
 
 static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, s32 dir)
@@ -483,8 +488,9 @@ static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, 
     return ROOM_NOTHING;
 }
 
-void SetMansionWarpDestination(const struct WarpEvent *warpEvent)
+bool32 SetMansionWarpDestination(const struct WarpEvent *warpEvent)
 {
+    s32 warpId;
     s32 retWarpDir;
     s32 floorNum = 1;
     s32 dstMapGroup = 0, dstMapNum = 0;
@@ -510,14 +516,18 @@ void SetMansionWarpDestination(const struct WarpEvent *warpEvent)
         retWarpDir = MAP_RND_MANSION_LEFT;
     }
     else { // Should not happen
-        return;
+        return FALSE;
     }
 
     // Get the map id from the randomized grid
     RoomEnumToMap(dstGridLocation, &dstMapGroup, &dstMapNum, floorNum);
 
     // Find the warp with an opposite direction
-    SetWarpDestinationToMapWarp(dstMapGroup,
-                                dstMapNum,
-                                FindRndWarpInMap(dstMapGroup, dstMapNum, retWarpDir));
+    warpId = FindRndWarpInMap(dstMapGroup, dstMapNum, retWarpDir);
+    if (warpId == -1) {
+        return FALSE;
+    }
+
+    SetWarpDestinationToMapWarp(dstMapGroup, dstMapNum, warpId);
+    return TRUE;
 }

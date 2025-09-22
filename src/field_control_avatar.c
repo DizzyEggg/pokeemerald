@@ -64,7 +64,7 @@ static bool8 TryArrowWarp(struct MapPosition *, u16, u8);
 static bool8 IsWarpMetatileBehavior(u16);
 static bool8 IsArrowWarpMetatileBehavior(u16, u8);
 static s8 GetWarpEventAtMapPosition(struct MapHeader *, struct MapPosition *);
-static void SetupWarp(struct MapHeader *, s8, struct MapPosition *);
+static bool32 SetupWarp(struct MapHeader *, s8, struct MapPosition *);
 static bool8 TryDoorWarp(struct MapPosition *, u16, u8);
 static s8 GetWarpEventAtPosition(struct MapHeader *, u16, u16, u8);
 static const u8 *GetCoordEventScriptAtPosition(struct MapHeader *, u16, u16, u8);
@@ -833,10 +833,10 @@ static bool8 CheckStandardWildEncounter(u16 metatileBehavior)
     return FALSE;
 }
 
-static void StorePlayerStateAndSetupWarp(struct MapPosition *position, s32 warpEventId)
+static bool32 StorePlayerStateAndSetupWarp(struct MapPosition *position, s32 warpEventId)
 {
     StoreInitialPlayerAvatarState();
-    SetupWarp(&gMapHeader, warpEventId, position);
+    return SetupWarp(&gMapHeader, warpEventId, position);
 }
 
 static bool8 TryArrowWarp(struct MapPosition *position, u16 metatileBehavior, u8 direction)
@@ -849,7 +849,8 @@ static bool8 TryArrowWarp(struct MapPosition *position, u16 metatileBehavior, u8
 
     if (IsArrowWarpMetatileBehavior(metatileBehavior, direction) == TRUE)
     {
-        StorePlayerStateAndSetupWarp(position, warpEventId);
+        if (StorePlayerStateAndSetupWarp(position, warpEventId) == FALSE)
+            return FALSE;
         DoWarp();
         return TRUE;
     }
@@ -862,7 +863,8 @@ static bool8 TryArrowWarp(struct MapPosition *position, u16 metatileBehavior, u8
             delay = 12;
         }
 
-        StorePlayerStateAndSetupWarp(position, warpEventId);
+        if (StorePlayerStateAndSetupWarp(position, warpEventId) == FALSE)
+            return FALSE;
         DoStairWarp(metatileBehavior, delay);
         return TRUE;
     }
@@ -876,7 +878,10 @@ static bool8 TryStartWarpEventScript(struct MapPosition *position, u16 metatileB
     if (warpEventId != WARP_ID_NONE && IsWarpMetatileBehavior(metatileBehavior) == TRUE)
     {
         StoreInitialPlayerAvatarState();
-        SetupWarp(&gMapHeader, warpEventId, position);
+        if (SetupWarp(&gMapHeader, warpEventId, position) == FALSE) {
+            return FALSE;
+        }
+
         if (MetatileBehavior_IsEscalator(metatileBehavior) == TRUE)
         {
             DoEscalatorWarp(metatileBehavior);
@@ -955,7 +960,7 @@ static s8 GetWarpEventAtMapPosition(struct MapHeader *mapHeader, struct MapPosit
     return GetWarpEventAtPosition(mapHeader, position->x - MAP_OFFSET, position->y - MAP_OFFSET, position->elevation);
 }
 
-static void SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPosition *position)
+static bool32 SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPosition *position)
 {
     const struct WarpEvent *warpEvent;
 
@@ -993,7 +998,7 @@ static void SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPositi
              || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT)
              || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT))
     {
-        SetMansionWarpDestination(warpEvent);
+        return SetMansionWarpDestination(warpEvent);
     }
     else
     {
@@ -1005,6 +1010,8 @@ static void SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPositi
         if (mapHeader->events->warps[warpEvent->warpId].mapNum == MAP_NUM(MAP_DYNAMIC))
             SetDynamicWarp(mapHeader->events->warps[warpEventId].warpId, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, warpEventId);
     }
+
+    return TRUE;
 }
 
 static bool8 TryDoorWarp(struct MapPosition *position, u16 metatileBehavior, u8 direction)
@@ -1025,7 +1032,9 @@ static bool8 TryDoorWarp(struct MapPosition *position, u16 metatileBehavior, u8 
             if (warpEventId != WARP_ID_NONE && IsWarpMetatileBehavior(metatileBehavior) == TRUE)
             {
                 StoreInitialPlayerAvatarState();
-                SetupWarp(&gMapHeader, warpEventId, position);
+                if (SetupWarp(&gMapHeader, warpEventId, position) == FALSE) {
+                    return FALSE;
+                }
                 DoDoorWarp();
                 return TRUE;
             }
