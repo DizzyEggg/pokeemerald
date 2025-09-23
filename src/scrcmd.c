@@ -2533,6 +2533,17 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
     return FALSE;
 }
 
+void ScriptCmd_SetMansionWildBattle(struct ScriptContext *ctx)
+{
+
+        struct ObjectEvent *objEvent = &gObjectEvents[gSelectedObjectEvent];
+        u16 species = OW_SPECIES(objEvent);
+        u8 level = 1;
+
+
+        CreateScriptedWildMon(species, level, ITEM_NONE);
+}
+
 bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);

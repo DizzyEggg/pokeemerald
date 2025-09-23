@@ -135,3 +135,11 @@ Std_MsgboxAutoclose::
 	waitbuttonpress
 	release
 	return
+    
+EventScript_DoMansionBattle::
+    callnative ScriptCmd_SetMansionWildBattle
+    dowildbattle
+    removeobject VAR_LAST_TALKED
+    release
+    return
+
