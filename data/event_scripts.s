@@ -1213,3 +1213,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/MansionFloor1TreasureRight/scripts.inc"
 
 	.include "data/maps/MansionFloor1TreasureDown/scripts.inc"
+
+	.include "data/maps/MansionFloor3RoomBoss/scripts.inc"

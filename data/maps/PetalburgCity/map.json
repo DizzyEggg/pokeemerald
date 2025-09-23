@@ -55,7 +55,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_MANSION",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 28,
       "y": 29,
       "elevation": 3,
@@ -150,7 +150,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_GARDEN",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 38,
       "y": 22,
       "elevation": 3,
@@ -164,7 +164,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_GRAVE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 35,
       "y": 13,
       "elevation": 3,
@@ -178,7 +178,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_BIRDHOUSE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 39,
       "y": 33,
       "elevation": 3,
@@ -192,7 +192,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_BACKDOOR",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 14,
       "y": 27,
       "elevation": 3,
@@ -206,7 +206,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_SHED",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 8,
       "y": 35,
       "elevation": 3,
@@ -220,7 +220,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_STACKS",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 20,
       "y": 35,
       "elevation": 3,
@@ -234,7 +234,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_STUMPS",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 14,
       "y": 41,
       "elevation": 3,
@@ -248,7 +248,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_WELL",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 25,
       "y": 45,
       "elevation": 3,
@@ -262,7 +262,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_CAMPFIRE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 41,
       "y": 48,
       "elevation": 3,
@@ -276,7 +276,7 @@
     },
     {
       "local_id": "LOCALID_ABRA_GATE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABRA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ABRA)",
       "x": 28,
       "y": 52,
       "elevation": 3,
@@ -289,7 +289,7 @@
       "flag": "FLAG_VISITED_PETALBURG_CITY"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SQUIRTLE)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(SQUIRTLE)",
       "x": 40,
       "y": 43,
       "elevation": 0,
@@ -302,7 +302,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TINKATINK)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(TINKATINK)",
       "x": 43,
       "y": 45,
       "elevation": 0,
@@ -315,7 +315,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PHANPY)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(PHANPY)",
       "x": 42,
       "y": 43,
       "elevation": 0,
@@ -328,7 +328,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SWABLU)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(SWABLU)",
       "x": 39,
       "y": 44,
       "elevation": 0,
@@ -341,7 +341,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(VENIPEDE)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(VENIPEDE)",
       "x": 38,
       "y": 45,
       "elevation": 0,
@@ -355,7 +355,7 @@
     },
     {
       "local_id": "LOCALID_SWABLU_INTRO",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SWABLU)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(SWABLU)",
       "x": 26,
       "y": 46,
       "elevation": 3,
@@ -369,7 +369,7 @@
     },
     {
       "local_id": "LOCAL_ID_ALTARIA_INTRO",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ALTARIA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(ALTARIA)",
       "x": 27,
       "y": 24,
       "elevation": 3,
