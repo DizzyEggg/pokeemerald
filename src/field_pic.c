@@ -75,6 +75,58 @@ static const u16 sSuicunePal[] = INCBIN_U16("graphics/field_pic/suicune.gbapal")
 static const u32 sRotomGfx[] = INCBIN_U32("graphics/field_pic/rotom.4bpp.lz");
 static const u16 sRotomPal[] = INCBIN_U16("graphics/field_pic/rotom.gbapal");
 
+
+static const u32 sAbraAngryGfx[] = INCBIN_U32("graphics/field_pic/abra_angry.4bpp.lz");
+static const u16 sAbraAngryPal[] = INCBIN_U16("graphics/field_pic/abra_angry.gbapal");
+
+static const u32 sAbraConcernedGfx[] = INCBIN_U32("graphics/field_pic/abra_concerned.4bpp.lz");
+static const u16 sAbraConcernedPal[] = INCBIN_U16("graphics/field_pic/abra_concerned.gbapal");
+
+static const u32 sAbraCryGfx[] = INCBIN_U32("graphics/field_pic/abra_cry.4bpp.lz");
+static const u16 sAbraCryPal[] = INCBIN_U16("graphics/field_pic/abra_cry.gbapal");
+
+static const u32 sAbraDeterminedGfx[] = INCBIN_U32("graphics/field_pic/abra_determined.4bpp.lz");
+static const u16 sAbraDeterminedPal[] = INCBIN_U16("graphics/field_pic/abra_determined.gbapal");
+
+static const u32 sAbraHappyGfx[] = INCBIN_U32("graphics/field_pic/abra_happy.4bpp.lz");
+static const u16 sAbraHappyPal[] = INCBIN_U16("graphics/field_pic/abra_happy.gbapal");
+
+static const u32 sAbraJoyGfx[] = INCBIN_U32("graphics/field_pic/abra_joy.4bpp.lz");
+static const u16 sAbraJoyPal[] = INCBIN_U16("graphics/field_pic/abra_joy.gbapal");
+
+static const u32 sAbraSeriousGfx[] = INCBIN_U32("graphics/field_pic/abra_serious.4bpp.lz");
+static const u16 sAbraSeriousPal[] = INCBIN_U16("graphics/field_pic/abra_serious.gbapal");
+
+static const u32 sAbraSurprisedGfx[] = INCBIN_U32("graphics/field_pic/abra_surprised.4bpp.lz");
+static const u16 sAbraSurprisedPal[] = INCBIN_U16("graphics/field_pic/abra_surprised.gbapal");
+
+static const u32 sAbraSweatGfx[] = INCBIN_U32("graphics/field_pic/abra_sweat.4bpp.lz");
+static const u16 sAbraSweatPal[] = INCBIN_U16("graphics/field_pic/abra_sweat.gbapal");
+
+static const u32 sAbraThinkingGfx[] = INCBIN_U32("graphics/field_pic/abra_thinking.4bpp.lz");
+static const u16 sAbraThinkingPal[] = INCBIN_U16("graphics/field_pic/abra_thinking.gbapal");
+
+
+static const u32 sPhanpyConfusedGfx[] = INCBIN_U32("graphics/field_pic/phanpy_confused.4bpp.lz");
+static const u16 sPhanpyConfusedPal[] = INCBIN_U16("graphics/field_pic/phanpy_confused.gbapal");
+
+static const u32 sPhanpyDeterminedGfx[] = INCBIN_U32("graphics/field_pic/phanpy_determined.4bpp.lz");
+static const u16 sPhanpyDeterminedPal[] = INCBIN_U16("graphics/field_pic/phanpy_determined.gbapal");
+
+static const u32 sPhanpySadGfx[] = INCBIN_U32("graphics/field_pic/phanpy_sad.4bpp.lz");
+static const u16 sPhanpySadPal[] = INCBIN_U16("graphics/field_pic/phanpy_sad.gbapal");
+
+static const u32 sPhanpySweatGfx[] = INCBIN_U32("graphics/field_pic/phanpy_sweat.4bpp.lz");
+static const u16 sPhanpySweatPal[] = INCBIN_U16("graphics/field_pic/phanpy_sweat.gbapal");
+
+
+static const u32 sSwabluAngryGfx[] = INCBIN_U32("graphics/field_pic/swablu_angry.4bpp.lz");
+static const u16 sSwabluAngryPal[] = INCBIN_U16("graphics/field_pic/swablu_angry.gbapal");
+
+static const u32 sSwabluYellGfx[] = INCBIN_U32("graphics/field_pic/swablu_yell.4bpp.lz");
+static const u16 sSwabluYellPal[] = INCBIN_U16("graphics/field_pic/swablu_yell.gbapal");
+
+
 /* And this is an example script.
 FieldPicExample_2pics:
 	load_field_pic 0, 190, 98, VAR_0x8008
@@ -102,6 +154,25 @@ static const struct Pic sPics[] =
     [FIELD_PIC_HIKER] = {sHikerGfx, sHikerPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_SUICUNE] = {sSuicuneGfx, sSuicunePal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_ROTOM] = {sRotomGfx, sRotomPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_ABRA_ANGRY] = {sAbraAngryGfx, sAbraAngryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_ABRA_CONCERNED] = {sAbraConcernedGfx, sAbraConcernedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_ABRA_CRY] = {sAbraCryGfx, sAbraCryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_ABRA_DETERMINED] = {sAbraDeterminedGfx, sAbraDeterminedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_ABRA_HAPPY] = {sAbraHappyGfx, sAbraHappyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_ABRA_JOY] = {sAbraJoyGfx, sAbraJoyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_ABRA_SERIOUS] = {sAbraSeriousGfx, sAbraSeriousPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_ABRA_SURPRISED] = {sAbraSurprisedGfx, sAbraSurprisedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_ABRA_SWEAT] = {sAbraSweatGfx, sAbraSweatPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_ABRA_THINKING] = {sAbraThinkingGfx, sAbraThinkingPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_PHANPY_CONFUSED] = {sPhanpyConfusedGfx, sPhanpyConfusedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_PHANPY_DETERMINED] = {sPhanpyDeterminedGfx, sPhanpyDeterminedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_PHANPY_SAD] = {sPhanpySadGfx, sPhanpySadPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_PHANPY_SWEAT] = {sPhanpySweatGfx, sPhanpySweatPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_SWABLU_ANGRY] = {sSwabluAngryGfx, sSwabluAngryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SWABLU_YELL] = {sSwabluYellGfx, sSwabluYellPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
 };
 
 static EWRAM_DATA u8 sLastPicId = 0;
