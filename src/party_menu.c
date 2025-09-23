@@ -1215,9 +1215,7 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
 {
     struct Pokemon *temp = Alloc(sizeof(struct Pokemon));
 
-    *temp = *mon1;
-    *mon1 = *mon2;
-    *mon2 = *temp;
+    SWAP(*mon1, *mon2, temp);
 
     Free(temp);
 }
