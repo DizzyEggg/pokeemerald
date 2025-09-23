@@ -50,6 +50,8 @@
 #include "follower_npc.h"
 #include "string_util.h"
 #include "mansion_floor_generation.h"
+#include "script_pokemon_util.h"
+#include "script.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 
@@ -256,6 +258,23 @@ static void SetDummyPlayerName(void)
     StringCopy(gSaveBlock2Ptr->playerName, name);
 }
 
+static const u8 *sPhanpyNickname = COMPOUND_STRING("Tuskan");
+static const u8 *sSwabluNickname = COMPOUND_STRING("Fluffball");
+
+static void SetStartingPokemon(void)
+{
+    u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
+    u8 evs[NUM_STATS]        = {0, 0, 0, 0, 0, 0};
+    u8 ivs[NUM_STATS]        = {MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK};
+    ScriptGiveMonParameterized(0, 0, SPECIES_PHANPY, 1, 0, BALL_POKE, NATURE_BASHFUL, 0, MON_MALE, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, 0);
+    ScriptGiveMonParameterized(0, 1, SPECIES_SWABLU, 1, 0, BALL_POKE, NATURE_BASHFUL, 0, MON_FEMALE, evs, ivs, moves, TRUE, FALSE, NUMBER_OF_MON_TYPES, 0);
+
+    SetMonData(&gPlayerParty[0], MON_DATA_NICKNAME, sPhanpyNickname);
+    SetMonData(&gPlayerParty[1], MON_DATA_NICKNAME, sSwabluNickname);
+
+    FlagSet(FLAG_SYS_POKEMON_GET);
+}
+
 void NewGameInitData(void)
 {
     struct UniqueItems uniqueItems = gSaveBlock1Ptr->availableItems.unique; // Preserve unique items
@@ -324,6 +343,7 @@ void NewGameInitData(void)
     SetDummyPlayerSprite();
     SetAvailableItems(&uniqueItems);
     GenerateMansionFloorLayout(gSaveBlock1Ptr->mansionFloor1Grid);
+    SetStartingPokemon();
 }
 
 static void ResetMiniGamesRecords(void)

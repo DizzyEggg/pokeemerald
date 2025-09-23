@@ -3283,9 +3283,17 @@ void ScriptCmd_SetPlayerMonSprite(struct ScriptContext *ctx)
     SetPlayerMonSprite(speciesId, isShiny);
 }
 
+void ChangePlayerMonSpriteVisuals(bool32 setFlags)
+{
+    if (!gMain.inBattle) {
+        gSprites[gPlayerAvatar.spriteId].oam.paletteNum = LoadDynamicFollowerPalette(gSaveBlock2Ptr->playerSpriteMonId, gSaveBlock2Ptr->playerSpriteIsShiny, FALSE);
+        if (setFlags)
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+    }
+}
+
 void ScriptCmd_ChangePlayerSprite(struct ScriptContext *ctx)
 {
     ScriptCmd_SetPlayerMonSprite(ctx);
-    gSprites[gPlayerAvatar.spriteId].oam.paletteNum = LoadDynamicFollowerPalette(gSaveBlock2Ptr->playerSpriteMonId, gSaveBlock2Ptr->playerSpriteIsShiny, FALSE);
-    SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+    ChangePlayerMonSpriteVisuals(TRUE);
 }

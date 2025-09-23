@@ -1950,11 +1950,10 @@ u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevati
     return spriteId;
 }
 
-// Return address of first conscious party mon or NULL
-struct Pokemon *GetFirstLiveMon(void)
+struct Pokemon *GetFirstLiveMonFrom(s32 firstSlot)
 {
     u32 i;
-    for (i = 0; i < PARTY_SIZE; i++)
+    for (i = firstSlot; i < PARTY_SIZE; i++)
     {
         struct Pokemon *mon = &gPlayerParty[i];
         if ((OW_FOLLOWERS_ALLOWED_SPECIES && GetMonData(mon, MON_DATA_SPECIES_OR_EGG) != VarGet(OW_FOLLOWERS_ALLOWED_SPECIES))
@@ -1966,6 +1965,17 @@ struct Pokemon *GetFirstLiveMon(void)
             return &gPlayerParty[i];
     }
     return NULL;
+}
+
+// Return address of first conscious party mon or NULL
+struct Pokemon *GetFirstLiveMon(void)
+{
+    return GetFirstLiveMonFrom(0);
+}
+
+struct Pokemon *GetSecondLiveMon(void)
+{
+    return GetFirstLiveMonFrom(1);
 }
 
 // Return follower ObjectEvent or NULL
@@ -2195,7 +2205,7 @@ static bool8 GetMonInfo(struct Pokemon *mon, u32 *species, bool32 *shiny, bool32
 // Retrieve graphic information about the following pokemon, if any
 bool8 GetFollowerInfo(u32 *species, bool32 *shiny, bool32 *female)
 {
-    return GetMonInfo(GetFirstLiveMon(), species, shiny, female);
+    return GetMonInfo(GetSecondLiveMon(), species, shiny, female);
 }
 
 // Update following pokemon if any
@@ -2421,7 +2431,7 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     u32 condCount = 0;
     u32 emotion;
     struct ObjectEvent *objEvent = GetFollowerObject();
-    struct Pokemon *mon = GetFirstLiveMon();
+    struct Pokemon *mon = GetSecondLiveMon();
     u8 emotion_weight[FOLLOWER_EMOTION_LENGTH] =
     {
         [FOLLOWER_EMOTION_HAPPY] = 10,
@@ -5513,7 +5523,7 @@ static bool32 TryStartFollowerTransformEffect(struct ObjectEvent *objectEvent, s
     }
 
     if (OW_FOLLOWERS_COPY_WILD_PKMN
-        && (MonKnowsMove(mon = GetFirstLiveMon(), MOVE_TRANSFORM)
+        && (MonKnowsMove(mon = GetSecondLiveMon(), MOVE_TRANSFORM)
          || (ability = GetMonAbility(mon)) == ABILITY_IMPOSTER || ability == ABILITY_ILLUSION)
         && (Random() & 0xFFFF) < 18 && GetLocalWildMon(FALSE))
     {
@@ -6200,7 +6210,7 @@ void IsFollowerFieldMoveUser(struct ScriptContext *ctx)
 
     u16 *var = GetVarPointer(varId);
     u16 userIndex = gFieldEffectArguments[0]; // field move user index
-    struct Pokemon *follower = GetFirstLiveMon();
+    struct Pokemon *follower = GetSecondLiveMon();
     struct ObjectEvent *obj = GetFollowerObject();
     if (var == NULL)
         return;
@@ -7568,7 +7578,7 @@ static void ObjectEventSetPokeballGfx(struct ObjectEvent *objEvent)
     enum PokeBall ball = BALL_STRANGE;
     if (objEvent->localId == OBJ_EVENT_ID_FOLLOWER)
     {
-        struct Pokemon *mon = GetFirstLiveMon();
+        struct Pokemon *mon = GetSecondLiveMon();
         if (mon)
             ball = GetMonData(mon, MON_DATA_POKEBALL);
     }
@@ -7593,7 +7603,7 @@ bool8 MovementAction_ExitPokeball_Step0(struct ObjectEvent *objectEvent, struct 
 {
     u32 direction = gObjectEvents[gPlayerAvatar.objectEventId].facingDirection;
     u16 graphicsId = objectEvent->graphicsId;
-    objectEvent->invisible = FALSE;
+    objectEvent->invisible = TRUE;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
     {
         // If player is dashing, the pokemon must come out faster
@@ -7666,6 +7676,7 @@ bool8 MovementAction_ExitPokeball_Step1(struct ObjectEvent *objectEvent, struct 
     u32 animStepFrame = (sprite->sSpeedFlip & 1) ? 7 : 3; // 0 -> 3, 1 -> 7
     if (--sprite->sDuration == 0)
     {
+        objectEvent->invisible = FALSE;
         sprite->sActionFuncId = 2;
         sprite->animCmdIndex = 0;
         sprite->animPaused = TRUE;
@@ -7738,6 +7749,7 @@ bool8 MovementAction_EnterPokeball_Step1(struct ObjectEvent *objectEvent, struct
         sprite->affineAnimEnded = TRUE;
         FreeSpriteOamMatrix(sprite);
         sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
+        objectEvent->invisible = TRUE;
         ObjectEventSetPokeballGfx(objectEvent);
         objectEvent->graphicsId = graphicsId;
         objectEvent->inanimate = FALSE;

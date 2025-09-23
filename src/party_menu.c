@@ -1360,6 +1360,10 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
 
 static void Task_ClosePartyMenu(u8 taskId)
 {
+    // Update player's sprite if necessary
+    SetPlayerMonSprite(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES), IsMonShiny(&gPlayerParty[0]));
+    ChangePlayerMonSpriteVisuals(TRUE);
+
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
     gTasks[taskId].func = Task_ClosePartyMenuAndSetCB2;
 }
