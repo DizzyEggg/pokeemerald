@@ -794,8 +794,8 @@
     {
       "id": "LAYOUT_HOUSE_WITH_BED",
       "name": "HouseWithBed_Layout",
-      "width": 10,
-      "height": 8,
+      "width": 18,
+      "height": 14,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/HouseWithBed/border.bin",
@@ -4680,6 +4680,16 @@
       "secondary_tileset": "gTileset_DojoInterior",
       "border_filepath": "data/layouts/MansionFloor1TreasureUp/border.bin",
       "blockdata_filepath": "data/layouts/MansionFloor1TreasureUp/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANSION_FLOOR3ROOM_BOSS",
+      "name": "MansionFloor3RoomBoss_Layout",
+      "width": 20,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DojoInterior",
+      "border_filepath": "data/layouts/MansionFloor3RoomBoss/border.bin",
+      "blockdata_filepath": "data/layouts/MansionFloor3RoomBoss/map.bin"
     }
   ]
 }

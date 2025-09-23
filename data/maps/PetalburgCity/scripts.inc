@@ -38,7 +38,7 @@ Fountain_EventScript_IntroScene::
 	delay 20
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	waitmovement 0
-	msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_BIDOOF_NORMAL
+	msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_PHANPY_SAD
 	delay 50
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_WELL
@@ -46,13 +46,13 @@ Fountain_EventScript_IntroScene::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
 	waitmovement 0
-	msgbox_portrait Fountain_Text_Intro02, FIELD_PIC_BIDOOF_NORMAL
-	msgbox_portrait Fountain_Text_Intro03, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro02, FIELD_PIC_PHANPY_SWEAT
+	msgbox_portrait Fountain_Text_Intro03, FIELD_PIC_ABRA_SERIOUS
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 20
-	msgbox_portrait Fountain_Text_Intro04, FIELD_PIC_BIDOOF_NORMAL
-	msgbox_portrait Fountain_Text_Intro05, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro04, FIELD_PIC_PHANPY_CONFUSED
+	msgbox_portrait Fountain_Text_Intro05, FIELD_PIC_ABRA_CONCERNED
 	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
 	waitmovement 0
 	delay 20
@@ -78,7 +78,7 @@ Fountain_EventScript_IntroScene::
 
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
 	delay 10
-	msgbox_portrait Fountain_Text_Intro06, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro06, FIELD_PIC_ABRA_DETERMINED
 	delay 10
 	playse SE_WARP_OUT
 	removeobject LOCALID_ABRA_WELL
@@ -88,7 +88,7 @@ Fountain_EventScript_IntroScene::
 	addobject LOCALID_EGG_INTRO
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
 	delay 10
-	msgbox_portrait Fountain_Text_Intro07, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro07, FIELD_PIC_ABRA_SWEAT
 	fadescreenspeed FADE_TO_BLACK, 2
 	delay 20
 	removeobject LOCALID_EGG_INTRO
@@ -99,13 +99,13 @@ Fountain_EventScript_IntroScene::
 	fadescreenspeed FADE_FROM_BLACK, 2
 
 	delay 30
-	msgbox_portrait Fountain_Text_Intro08, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro08, FIELD_PIC_ABRA_HAPPY
 	applymovement LOCALID_SWABLU_INTRO, Common_Movement_ExclamationMark
 	waitmovement 0
-	msgbox_portrait Fountain_Text_Intro09, FIELD_PIC_WINGULL
-	msgbox_portrait Fountain_Text_Intro10, FIELD_PIC_ROTOM
-	msgbox_portrait Fountain_Text_Intro11, FIELD_PIC_ROTOM
-	msgbox_portrait Fountain_Text_Intro12, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro09, FIELD_PIC_SWABLU_YELL
+	msgbox_portrait Fountain_Text_Intro10, FIELD_PIC_ABRA_JOY
+	msgbox_portrait Fountain_Text_Intro11, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_Intro12, FIELD_PIC_ABRA_CONCERNED
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookRight
 	applymovement LOCALID_SWABLU_INTRO, Fountain_LookLeft
 	waitmovement 0
@@ -114,48 +114,48 @@ Fountain_EventScript_IntroScene::
 	applymovement LOCALID_SWABLU_INTRO, Fountain_LookUp
 	waitmovement 0
 	delay 20
-	msgbox_portrait Fountain_Text_Intro13, FIELD_PIC_WINGULL
-	msgbox_portrait Fountain_Text_Intro14, FIELD_PIC_BIDOOF_NORMAL
+	msgbox_portrait Fountain_Text_Intro13, FIELD_PIC_SWABLU_ANGRY
+	msgbox_portrait Fountain_Text_Intro14, FIELD_PIC_PHANPY_SAD
 	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
 	waitmovement 0
 	delay 20
 	applymovement OBJ_EVENT_ID_CAMERA, Fountain_CameraMove4
 	waitmovement 0
 	delay 20
-	msgbox_portrait Fountain_Text_Intro15, FIELD_PIC_ROTOM
-	msgbox_portrait Fountain_Text_Intro16, FIELD_PIC_BIDOOF_NORMAL
-	msgbox_portrait Fountain_Text_Intro17, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro15, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_Intro16, FIELD_PIC_PHANPY_DETERMINED
+	msgbox_portrait Fountain_Text_Intro17, FIELD_PIC_ABRA_CONCERNED
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
 	waitmovement 0
 	delay 30
-	msgbox_portrait Fountain_Text_Intro18, FIELD_PIC_ROTOM
-	msgbox_portrait Fountain_Text_Intro19, FIELD_PIC_ROTOM
-	@TODO
+	msgbox_portrait Fountain_Text_Intro18, FIELD_PIC_ABRA_DETERMINED
+	msgbox_portrait Fountain_Text_Intro19, FIELD_PIC_ABRA_ANGRY
+	@TOFOLD
 	@applymovement OBJ_EVENT_ID_PLAYER, Fountain_Shudder
 	@applymovement LOCALID_SWABLU_INTRO, Fountain_Shudder
 	waitmovement 0
 	delay 30
-	msgbox_portrait Fountain_Text_Intro20, FIELD_PIC_BIDOOF_NORMAL
+	msgbox_portrait Fountain_Text_Intro20, FIELD_PIC_PHANPY_SAD
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookLeft
 	delay 20
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	delay 20
-	msgbox_portrait Fountain_Text_Intro21, FIELD_PIC_BIDOOF_NORMAL
-	msgbox_portrait Fountain_Text_Intro22, FIELD_PIC_WINGULL
-	msgbox_portrait Fountain_Text_Intro23, FIELD_PIC_ROTOM
-	msgbox_portrait Fountain_Text_Intro24, FIELD_PIC_WINGULL
-	msgbox_portrait Fountain_Text_Intro25, FIELD_PIC_ROTOM
-	msgbox_portrait Fountain_Text_Intro26, FIELD_PIC_BIDOOF_NORMAL
-	msgbox_portrait Fountain_Text_Intro27, FIELD_PIC_ROTOM
-	msgbox_portrait Fountain_Text_Intro28, FIELD_PIC_WINGULL
+	msgbox_portrait Fountain_Text_Intro21, FIELD_PIC_PHANPY_DETERMINED
+	msgbox_portrait Fountain_Text_Intro22, FIELD_PIC_SWABLU_ANGRY
+	msgbox_portrait Fountain_Text_Intro23, FIELD_PIC_ABRA_THINKING
+	msgbox_portrait Fountain_Text_Intro24, FIELD_PIC_SWABLU_ANGRY
+	msgbox_portrait Fountain_Text_Intro25, FIELD_PIC_ABRA_ANGRY
+	msgbox_portrait Fountain_Text_Intro26, FIELD_PIC_PHANPY_SAD
+	msgbox_portrait Fountain_Text_Intro27, FIELD_PIC_ABRA_DETERMINED
+	msgbox_portrait Fountain_Text_Intro28, FIELD_PIC_SWABLU_ANGRY
 	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
 	waitmovement 0
 	delay 20
-	msgbox_portrait Fountain_Text_Intro29, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro29, FIELD_PIC_ABRA_CRY
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
 	waitmovement 0
 	delay 30
-	msgbox_portrait Fountain_Text_Intro30, FIELD_PIC_ROTOM
+	msgbox_portrait Fountain_Text_Intro30, FIELD_PIC_ABRA_CONCERNED
 	
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
@@ -623,7 +623,7 @@ Fountain_EventScript_Abra_Gate_Trigger::
 
 
 @@@@@@@
-@ Abra events - TODO
+@ Abra events - TOFOLD
 
 
 Fountain_EventScript_Abra_Mansion::
@@ -661,17 +661,74 @@ Fountain_EventScript_Abra_Gate::
 
 
 Fountain_Text_AbraMansion1:
-	.string "Here it is.\p"
-	.string "Inside this house is where Craftily hides.\p"
+	.string "I don't know much about this building.\p"
+	.string "I don't have words for it… but it looks\p"
 	.string "It is automatically sent to a STORAGE\n"
 	.string "BOX over a PC connection.$"
 
+Fountain_Text_AbraGarden1:
+	.string "This area is different from the rest of\p"
+	.string "the ground. \p"
+	.string "It is automatically sent to a STORAGE\n"
+	.string "BOX over a PC connection.$"
+
+Fountain_Text_AbraGrave1:
+	.string "Dali: I don't like coming here.\n"
+	.string "That stone makes me uncomfortable.\p"
+	.string "I think I knew how to read those\n"
+	.string "markings once, but not anymore.$"
+
+Fountain_Text_AbraGrave2:
+	.string "Dali: I've put that strange picture\n"
+	.string "piece you found here.\p"
+	.string "Maybe if you find them all, the picture\n"
+	.string "will help us understand.$"
+
+Fountain_Text_AbraGraveComplete1:
+	.string "Dali: The picture's complete!\n"
+	.string "Now, let's see here…$"
+
+Fountain_Text_AbraGraveComplete2:
+	.string "Dali: This… this looks like us.$"
+
+Fountain_Text_AbraGraveComplete3:
+	.string "Dali: That's Fluffball, on the right.\n"
+	.string "That's what she looks like evolved.\p"
+	.string "Next to her… is that really me?\n"
+	.string "I look… so confident…$"
+	.string "And on her other side… that's him.\n"
+	.string "That's Craftily.$"
+
+Fountain_Text_AbraGraveComplete4:
+	.string "Dali: We were all friends once.\n"
+	.string "I remember. We were… a team.\p"
+	.string "I recognize the others, too.\n"
+	.string "Bella, Amy, Ripley…$"
+
+Fountain_Text_AbraGraveComplete5:
+	.string "Dali: And that one in the middle.\n"
+	.string "Not a Pokemon. A… a trainer.\p"
+	.string "What… what happened to her?$"
+
+Fountain_Text_AbraGraveComplete6:
+	.string "Dali: I need some time to think.\p"
+	.string "Come back later and I'll tell you\n"
+	.string "what I've figured out.$"
+
+Fountain_Text_AbraGraveRecruit1:
+	.string "Dali: Okay. I have some thoughts.\p"
+	.string "First, we used to be a team, like a\n"
+	.string "family. Maybe we lived here.\p"
+	.string "Second, Craftily betrayed us. \n"
+	.string "family. Maybe we lived here.\p"
+	.string "First, we used to be a team, like a\n"
+	.string "family. Maybe we lived here.$"
+@TOFOLD
 
 
 
 
-
-@@@@@ Static Events - TODO
+@@@@@ Static Events - TOFOLD
 
 Fountain_EventScript_Grave::
 	goto_if_set FLAG_SECRET_ENDING_COMPLETE, Fountain_EventScript_GraveEnd

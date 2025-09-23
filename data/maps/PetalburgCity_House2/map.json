@@ -17,7 +17,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
       "x": 2,
-      "y": 5,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -30,7 +30,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
       "x": 7,
-      "y": 5,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -43,18 +43,130 @@
   ],
   "warp_events": [
     {
-      "x": 3,
+      "x": 11,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_PETALBURG_CITY",
       "dest_warp_id": "4"
     },
     {
-      "x": 4,
-      "y": 7,
+      "x": 0,
+      "y": 0,
       "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY",
+      "dest_map": "MAP_MANSION_FLOOR1ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR2ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3ENTRANCE",
       "dest_warp_id": "4"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1ROOM1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1ROOM2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1ROOM3",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1ROOM4",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1HALLWAY1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1HALLWAY2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1TREASURE_DOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1TREASURE_LEFT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1TREASURE_RIGHT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1TREASURE_UP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1ROOM_BOSS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR1ROOM_LANDING",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR2ROOM_BOSS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR2ROOM_LANDING",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
