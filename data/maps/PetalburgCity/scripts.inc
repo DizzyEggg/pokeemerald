@@ -92,7 +92,9 @@ Fountain_EventScript_IntroScene::
 	fadescreenspeed FADE_TO_BLACK, 2
 	delay 20
 	removeobject LOCALID_EGG_INTRO
-	addobject LOCALID_SWABLU_INTRO
+    addobject LOCALID_SWABLU_INTRO
+    playegghatchanim SPECIES_SWABLU, TRUE
+    waitstate
 	applymovement LOCALID_SWABLU_INTRO, Fountain_LookUp
 	waitmovement 0
 	delay 10

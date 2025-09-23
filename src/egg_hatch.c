@@ -83,6 +83,10 @@ static void CreateEggShardSprite(u8, u8, s16, s16, s16, u8);
 
 static struct EggHatchData *sEggHatchData;
 
+static EWRAM_DATA u16 sEggHatchSpecies;
+static EWRAM_DATA bool8 sIsJustEggHatchAnim;
+static EWRAM_DATA bool8 sEggHatchShiny;
+
 static const u16 sEggPalette[]  = INCBIN_U16("graphics/pokemon/egg/normal.gbapal");
 static const u8 sEggHatchTiles[] = INCBIN_U8("graphics/pokemon/egg/hatch.4bpp");
 static const u8 sEggShardTiles[] = INCBIN_U8("graphics/pokemon/egg/shard.4bpp");
@@ -368,6 +372,9 @@ static void AddHatchedMonToParty(u8 id)
     u8 metLocation;
     struct Pokemon *mon = &gPlayerParty[id];
 
+    if (sIsJustEggHatchAnim)
+        return;
+
     CreateHatchedMon(mon, &gEnemyParty[0]);
     SetMonData(mon, MON_DATA_IS_EGG, &isEgg);
 
@@ -438,7 +445,11 @@ static u8 EggHatchCreateMonSprite(u8 useAlt, u8 state, u8 partyId, u16 *speciesL
         mon = &gPlayerParty[partyId];
         position = B_POSITION_OPPONENT_RIGHT;
     }
-    species = GetMonData(mon, MON_DATA_SPECIES);
+
+    if (sIsJustEggHatchAnim)
+        species = sEggHatchSpecies;
+    else
+        species = GetMonData(mon, MON_DATA_SPECIES);
     switch (state)
     {
     case 0:
@@ -448,7 +459,10 @@ static u8 EggHatchCreateMonSprite(u8 useAlt, u8 state, u8 partyId, u16 *speciesL
             HandleLoadSpecialPokePic(TRUE,
                                      gMonSpritesGfxPtr->spritesGfx[(useAlt * 2) + B_POSITION_OPPONENT_LEFT],
                                      species, pid);
-            LoadSpritePaletteWithTag(GetMonFrontSpritePal(mon), species);
+            if (sIsJustEggHatchAnim)
+                LoadSpritePaletteWithTag(GetMonSpritePalFromSpecies(species, sEggHatchShiny, 0), species);
+            else
+                LoadSpritePaletteWithTag(GetMonFrontSpritePal(mon), species);
             *speciesLoc = species;
         }
         break;
@@ -475,6 +489,14 @@ void EggHatch(void)
     LockPlayerFieldControls();
     CreateTask(Task_EggHatch, 10);
     FadeScreen(FADE_TO_BLACK, 0);
+}
+
+void EggHatchAnim(u32 speciesId, bool8 isShiny)
+{
+    sIsJustEggHatchAnim = TRUE;
+    sEggHatchSpecies = speciesId;
+    sEggHatchShiny = isShiny;
+    EggHatch();
 }
 
 static void Task_EggHatch(u8 taskId)
@@ -604,6 +626,16 @@ static void Task_EggHatchPlayBGM(u8 taskId)
     gTasks[taskId].tTimer++;
 }
 
+static u32 GetEggHatchSpecies(void)
+{
+    if (sIsJustEggHatchAnim) {
+        return sEggHatchSpecies;
+    }
+    else {
+        return GetMonData(&gPlayerParty[sEggHatchData->eggPartyId], MON_DATA_SPECIES);
+    }
+}
+
 static void CB2_EggHatch(void)
 {
     u16 species;
@@ -640,7 +672,7 @@ static void CB2_EggHatch(void)
         // Wait for hatching animation to finish
         if (gSprites[sEggHatchData->eggSpriteId].callback == SpriteCallbackDummy)
         {
-            species = GetMonData(&gPlayerParty[sEggHatchData->eggPartyId], MON_DATA_SPECIES);
+            species = GetEggHatchSpecies();
             DoMonFrontSpriteAnimation(&gSprites[sEggHatchData->monSpriteId], species, FALSE, 1);
             sEggHatchData->state++;
         }
@@ -652,7 +684,13 @@ static void CB2_EggHatch(void)
         break;
     case 5:
         // "{mon} hatched from egg" message/fanfare
-        GetMonNickname(&gPlayerParty[sEggHatchData->eggPartyId], gStringVar1);
+        if (sIsJustEggHatchAnim) {
+            StringCopy(gStringVar1, GetSpeciesName(sEggHatchSpecies));
+        }
+        else {
+            GetMonNickname(&gPlayerParty[sEggHatchData->eggPartyId], gStringVar1);
+        }
+
         StringExpandPlaceholders(gStringVar4, gText_HatchedFromEgg);
         EggHatchPrintMessage(sEggHatchData->windowId, gStringVar4, 0, 3, TEXT_SKIP_DRAW);
         PlayFanfare(MUS_EVOLVED);
@@ -665,8 +703,11 @@ static void CB2_EggHatch(void)
             sEggHatchData->state++;
         break;
     case 7: // Twice?
-        if (IsFanfareTaskInactive())
+        if (IsFanfareTaskInactive()) {
             sEggHatchData->state++;
+            if (sIsJustEggHatchAnim)
+                sEggHatchData->state = 11;
+        }
         break;
     case 8:
         // Ready the nickname prompt
@@ -690,7 +731,7 @@ static void CB2_EggHatch(void)
         {
         case 0: // Yes
             GetMonNickname(&gPlayerParty[sEggHatchData->eggPartyId], gStringVar3);
-            species = GetMonData(&gPlayerParty[sEggHatchData->eggPartyId], MON_DATA_SPECIES);
+            species = GetEggHatchSpecies();
             gender = GetMonGender(&gPlayerParty[sEggHatchData->eggPartyId]);
             personality = GetMonData(&gPlayerParty[sEggHatchData->eggPartyId], MON_DATA_PERSONALITY, 0);
             DoNamingScreen(NAMING_SCREEN_NICKNAME, gStringVar3, species, gender, personality, EggHatchSetMonNickname);
@@ -785,7 +826,7 @@ static void SpriteCB_Egg_Shake3(struct Sprite *sprite)
             u16 UNUSED species;
             sprite->callback = SpriteCB_Egg_WaitHatch;
             sprite->sTimer = 0;
-            species = GetMonData(&gPlayerParty[sEggHatchData->eggPartyId], MON_DATA_SPECIES);
+            species = GetEggHatchSpecies();
             gSprites[sEggHatchData->monSpriteId].x2 = 0;
             gSprites[sEggHatchData->monSpriteId].y2 = 0;
         }

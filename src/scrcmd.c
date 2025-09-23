@@ -58,6 +58,7 @@
 #include "window.h"
 #include "list_menu.h"
 #include "malloc.h"
+#include "egg_hatch.h"
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
 
@@ -3307,4 +3308,11 @@ void ScriptCmd_ChangePlayerSprite(struct ScriptContext *ctx)
 {
     ScriptCmd_SetPlayerMonSprite(ctx);
     ChangePlayerMonSpriteVisuals(TRUE);
+}
+
+void PlayEggHatchAnimation(struct ScriptContext *ctx)
+{
+    u32 speciesId = ScriptReadHalfword(ctx);
+    bool8 isShiny = ScriptReadWord(ctx);
+    EggHatchAnim(speciesId, isShiny);
 }

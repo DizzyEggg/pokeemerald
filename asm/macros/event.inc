@@ -2733,3 +2733,9 @@
 	msgbox \text, \type
 	hide_field_pic \picId
 	.endm
+    
+    .macro playegghatchanim species:req, isShiny:req
+    callnative PlayEggHatchAnimation
+    .2byte \species
+    .byte \isShiny
+    .endm
