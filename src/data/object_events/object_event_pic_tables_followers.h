@@ -2,6 +2,10 @@ static const struct SpriteFrameImage sPicTable_Substitute[] = {
     overworld_ascending_frames(gObjectEventPic_Substitute, 4, 4),
 };
 
+static const struct SpriteFrameImage sPicTable_Egg[] = {
+    overworld_ascending_frames(gObjectEventPic_Egg, 4, 4),
+};
+
 #if OW_POKEMON_OBJECT_EVENTS
 #if P_FAMILY_BULBASAUR
 static const struct SpriteFrameImage sPicTable_Bulbasaur[] = {

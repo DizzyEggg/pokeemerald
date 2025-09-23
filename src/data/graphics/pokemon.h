@@ -17,6 +17,8 @@ const u8 gMonIcon_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mark/ico
 #endif //P_GBA_STYLE_SPECIES_FOOTPRINTS
 #endif //P_FOOTPRINTS
 const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_mark/overworld.4bpp");
+const u32 gObjectEventPic_Egg[] = INCBIN_COMP("graphics/pokemon/egg/overworld.4bpp");
+const u16 gOverworldPalette_Egg[] = INCBIN_U16("graphics/pokemon/egg/overworld.gbapal");
 
 #if P_FAMILY_BULBASAUR
 #if !P_GBA_STYLE_SPECIES_GFX

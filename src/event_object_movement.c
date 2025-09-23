@@ -2015,7 +2015,7 @@ const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(u32 species, bool32 
     }
 
     // Try to avoid OOB or undefined access
-    if ((graphicsInfo->tileTag == 0 && species < NUM_SPECIES) || (graphicsInfo->tileTag != TAG_NONE && species >= NUM_SPECIES))
+    if ((graphicsInfo->tileTag == 0 && species < NUM_SPECIES) || (graphicsInfo->tileTag != TAG_NONE && species > NUM_SPECIES))
     {
         if (OW_SUBSTITUTE_PLACEHOLDER)
             return &gSpeciesInfo[SPECIES_NONE].overworldData;

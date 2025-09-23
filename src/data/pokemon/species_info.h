@@ -173,6 +173,17 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .shinyPalette = gMonPalette_Egg,
         .iconSprite = gMonIcon_Egg,
         .iconPalIndex = 1,
+        SHADOW(1, -1, SHADOW_SIZE_S)
+        FOOTPRINT(Bulbasaur)
+        OVERWORLD(
+            sPicTable_Egg,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Egg,
+            gMonPalette_Egg
+        )
     },
 
     /* You may add any custom species below this point based on the following structure: */

@@ -383,7 +383,7 @@
     },
     {
       "local_id": "LOCALID_EGG_INTRO",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TOGEPI)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(EGG)",
       "x": 26,
       "y": 46,
       "elevation": 3,
