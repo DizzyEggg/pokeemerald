@@ -5845,20 +5845,20 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_Banettite,
         .iconPalette = gItemIconPalette_Banettite,
     },
-
+//TOFOLD
     [ITEM_ABSOLITE] =
     {
         .name = _("Absolite"),
         .price = 0,
-        .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = COMPOUND_STRING(
-            "This stone enables\n"
-            "Absol to Mega\n"
-            "Evolve in battle."),
+            "A crystal bottle\n"
+            "full of the healing\n"
+            "Inkwell essence."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 80,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_HEAL_AND_CURE_STATUS,
+        .effect = gItemEffect_FullRestore,
         .iconPic = gItemIcon_Absolite,
         .iconPalette = gItemIconPalette_Absolite,
     },
@@ -5867,17 +5867,15 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Glalitite"),
         .price = 0,
-        .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = COMPOUND_STRING(
-            "This stone enables\n"
-            "Glalie to Mega\n"
-            "Evolve in battle."),
+            "A tiny crystal\n"
+            "bottle. Could\n"
+            "hold something."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 80,
         .iconPic = gItemIcon_Glalitite,
-        .iconPalette = gItemIconPalette_Glalitite,
+        .iconPalette = gItemIconPalette_Absolite,
     },
 
     [ITEM_SALAMENCITE] =
@@ -10458,76 +10456,76 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_EnigmaBerry,
     },
 
-// TMs/HMs. They don't have a set flingPower, as that's handled by GetFlingPowerFromItemId.
+// TMs/HMs. They don't have a set flingPower, as that's handled by GetFlingPowerFromItemId. TOFOLD
 
     [ITEM_TM_FOCUS_PUNCH] =
     {
-        .name = _("TM01"),
-        .price = 3000,
+        .name = _("Green Disc"),
+        .price = 0,
         .description = COMPOUND_STRING(
-            "Powerful, but makes\n"
-            "the user flinch if\n"
-            "hit by the foe."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+            "A shiny green disc.\n"
+            "Doesn't taste very\n"
+            "good."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_DRAGON_CLAW] =
     {
-        .name = _("TM02"),
-        .price = 3000,
+        .name = _("Red Disc"),
+        .price = 0,
         .description = COMPOUND_STRING(
-            "Hooks and slashes\n"
-            "the foe with long,\n"
-            "sharp claws."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+            "A red disc that's\n"
+            "all scratched up.\n"
+            "Ouch, it's sharp!"),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_WATER_PULSE] =
     {
-        .name = _("TM03"),
-        .price = 3000,
+        .name = _("Black Disc"),
+        .price = 0,
         .description = COMPOUND_STRING(
-            "Generates an\n"
-            "ultrasonic wave\n"
-            "that may confuse."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+            "A thin black disc.\n"
+            "Need another one to\n"
+            "make sunglasses."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_CALM_MIND] =
     {
-        .name = _("TM04"),
-        .price = 3000,
+        .name = _("Gray Disc"),
+        .price = 0,
         .description = COMPOUND_STRING(
-            "Raises Sp. Atk and\n"
-            "Sp. Def by focusing\n"
-            "the mind."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+            "A dull grey disc.\n"
+            "Makes for a good\n"
+            "mirror."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_ROAR] =
     {
-        .name = _("TM05"),
-        .price = 1000,
+        .name = _("Purple Disc"),
+        .price = 0,
         .description = COMPOUND_STRING(
-            "A savage roar that\n"
-            "makes the foe flee \n"
-            "to end the battle."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+            "A stained purple disc.\n"
+            "Probably no games on\n"
+            "it anyway."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_TOXIC] =
@@ -10581,16 +10579,16 @@ const struct Item gItemsInfo[] =
 
     [ITEM_TM_BULLET_SEED] =
     {
-        .name = _("TM09"),
-        .price = 3000,
+        .name = _("Green Disc"),
+        .price = 0,
         .description = COMPOUND_STRING(
-            "Shoots 2 to 5 seeds\n"
-            "in a row to strike\n"
-            "the foe."),
+            "A shiny green disc.\n"
+            "Doesn't taste very\n"
+            "good."),
         .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_HIDDEN_POWER] =
@@ -10609,30 +10607,30 @@ const struct Item gItemsInfo[] =
 
     [ITEM_TM_SUNNY_DAY] =
     {
-        .name = _("TM11"),
+        .name = _("Red Disc"),
         .price = 2000,
         .description = COMPOUND_STRING(
-            "Raises the power of\n"
-            "Fire-type moves\n"
-            "for 5 turns."),
+            "A red disc that's\n"
+            "all scratched up.\n"
+            "Ouch, it's sharp!"),
         .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_TAUNT] =
     {
-        .name = _("TM12"),
-        .price = 3000,
+        .name = _("Black Disc"),
+        .price = 0,
         .description = COMPOUND_STRING(
-            "Enrages the foe so\n"
-            "it can only use\n"
-            "attack moves."),
+            "A thin black disc.\n"
+            "Need another one to\n"
+            "make sunglasses."),
         .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_ICE_BEAM] =
@@ -10675,30 +10673,30 @@ const struct Item gItemsInfo[] =
 
     [ITEM_TM_HYPER_BEAM] =
     {
-        .name = _("TM15"),
-        .price = 7500,
+        .name = _("Gray Disc"),
+        .price = 0,
         .description = COMPOUND_STRING(
-            "Powerful, but needs\n"
-            "recharging the\n"
-            "next turn."),
+            "A dull grey disc.\n"
+            "Makes for a good\n"
+            "mirror."),
         .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_LIGHT_SCREEN] =
     {
-        .name = _("TM16"),
-        .price = 3000,
+        .name = _("Purple Disc"),
+        .price = 0,
         .description = COMPOUND_STRING(
-            "Creates a wall of\n"
-            "light that lowers\n"
-            "Sp. Atk damage."),
+            "A stained purple disc.\n"
+            "Probably no games on\n"
+            "it anyway."),
         .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_PROTECT] =
@@ -12452,81 +12450,80 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_TeachyTV,
     },
 
-// Story Key Items
+// Story Key Items TOFOLD
 
     [ITEM_SS_TICKET] =
     {
-        .name = _("S.S. Ticket"),
+        .name = _("Torn Piece 1"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "The ticket required\n"
-            "for sailing on a\n"
-            "ferry."),
+            "A faded piece of\n"
+            "an old, familiar\n"
+            "picture."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .iconPic = gItemIcon_SSTicket,
-        .iconPalette = gItemIconPalette_SSTicket,
+        .iconPic = gItemIcon_OldSeaMap,
+        .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
     [ITEM_EON_TICKET] =
     {
-        .name = _("Eon Ticket"),
+        .name = _("Torn Piece 2"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "The ticket for a\n"
-            "ferry to a distant\n"
-            "southern island."),
+            "A faded piece of\n"
+            "an old, familiar\n"
+            "picture."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = 1,
-        .iconPic = gItemIcon_EonTicket,
-        .iconPalette = gItemIconPalette_EonTicket,
+        .iconPic = gItemIcon_OldSeaMap,
+        .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
     [ITEM_MYSTIC_TICKET] =
     {
-        .name = _("Mystic Ticket"),
+        .name = _("Torn Piece 3"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A ticket required\n"
-            "to board the ship\n"
-            "to Navel Rock."),
+            "A faded piece of\n"
+            "an old, familiar\n"
+            "picture."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .iconPic = gItemIcon_MysticTicket,
-        .iconPalette = gItemIconPalette_MysticTicket,
+        .iconPic = gItemIcon_OldSeaMap,
+        .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
     [ITEM_AURORA_TICKET] =
     {
-        .name = _("Aurora Ticket"),
+        .name = _("Torn Piece 4"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A ticket required\n"
-            "to board the ship\n"
-            "to Birth Island."),
+            "A faded piece of\n"
+            "an old, familiar\n"
+            "picture."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .iconPic = gItemIcon_AuroraTicket,
-        .iconPalette = gItemIconPalette_AuroraTicket,
+        .iconPic = gItemIcon_OldSeaMap,
+        .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
     [ITEM_OLD_SEA_MAP] =
     {
-        .name = _("Old Sea Map"),
+        .name = _("Torn Piece 5"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A faded sea chart\n"
-            "that shows the way\n"
-            "to a certain island."),
+            "A faded piece of\n"
+            "an old, familiar\n"
+            "picture."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
