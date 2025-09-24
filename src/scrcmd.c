@@ -3294,12 +3294,18 @@ void ScriptCmd_SetPlayerMonSprite(struct ScriptContext *ctx)
     SetPlayerMonSprite(speciesId, isShiny);
 }
 
+// This is hacky as fuck, but whatever, it works. There is a little 'turn' the sprite does, but meh, there's no time.
 void ChangePlayerMonSpriteVisuals(bool32 setFlags)
 {
     if (!gMain.inBattle) {
+        u8 spriteId = CreateInvisibleSprite(SpriteCallbackDummy);
+
+        gPlayerAvatar.spriteId = spriteId;
         gSprites[gPlayerAvatar.spriteId].oam.paletteNum = LoadDynamicFollowerPalette(gSaveBlock2Ptr->playerSpriteMonId, gSaveBlock2Ptr->playerSpriteIsShiny, FALSE);
-        if (setFlags)
-            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+        gObjectEvents[gPlayerAvatar.objectEventId].spriteId = spriteId;
+        ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
+        ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], gObjectEvents[gPlayerAvatar.objectEventId].movementDirection);
+        DestroySprite(&gSprites[spriteId]);
     }
 }
 
