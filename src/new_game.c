@@ -155,9 +155,9 @@ void ResetMenuAndMonGlobals(void)
     ResetPokeblockScrollPositions();
 }
 
-static void SetDummyPlayerSprite(void)
+static void SetFirstPlayerSprite(void)
 {
-    gSaveBlock2Ptr->playerSpriteIsShiny = FALSE;
+    gSaveBlock2Ptr->playerSpriteIsShiny = TRUE;
     gSaveBlock2Ptr->playerSpriteMonId = SPECIES_PHANPY;
 }
 
@@ -266,8 +266,8 @@ static void SetStartingPokemon(void)
     u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
     u8 evs[NUM_STATS]        = {0, 0, 0, 0, 0, 0};
     u8 ivs[NUM_STATS]        = {MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK};
-    ScriptGiveMonParameterized(0, 0, SPECIES_PHANPY, 1, 0, BALL_POKE, NATURE_BASHFUL, 0, MON_MALE, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, 0);
-    ScriptGiveMonParameterized(0, 1, SPECIES_SWABLU, 1, 0, BALL_POKE, NATURE_BASHFUL, 0, MON_FEMALE, evs, ivs, moves, TRUE, FALSE, NUMBER_OF_MON_TYPES, 0);
+    ScriptGiveMonParameterized(0, 0, SPECIES_PHANPY, 1, 0, BALL_POKE, NATURE_ADAMANT, 0, MON_MALE, evs, ivs, moves, TRUE, FALSE, NUMBER_OF_MON_TYPES, 0);
+    ScriptGiveMonParameterized(0, 1, SPECIES_SWABLU, 1, 0, BALL_POKE, NATURE_BOLD, 2, MON_FEMALE, evs, ivs, moves, TRUE, FALSE, NUMBER_OF_MON_TYPES, 0);
 
     SetMonData(&gPlayerParty[0], MON_DATA_NICKNAME, sPhanpyNickname);
     SetMonData(&gPlayerParty[1], MON_DATA_NICKNAME, sSwabluNickname);
@@ -340,7 +340,7 @@ void NewGameInitData(void)
     ResetDexNav();
     ClearFollowerNPCData();
     SetDummyPlayerName();
-    SetDummyPlayerSprite();
+    SetFirstPlayerSprite();
     SetAvailableItems(&uniqueItems);
     GenerateMansionFloorLayout(gSaveBlock1Ptr->mansionFloor1Grid);
     SetStartingPokemon();
