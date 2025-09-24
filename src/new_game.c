@@ -302,6 +302,7 @@ static const u8 *sSwabluNickname = COMPOUND_STRING("Fluffball");
 
 static void SetStartingPokemon(void)
 {
+    u32 otGender = FEMALE;
     u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
     u8 evs[NUM_STATS]        = {0, 0, 0, 0, 0, 0};
     u8 ivs[NUM_STATS]        = {MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK};
@@ -310,6 +311,9 @@ static void SetStartingPokemon(void)
 
     SetMonData(&gPlayerParty[0], MON_DATA_NICKNAME, sPhanpyNickname);
     SetMonData(&gPlayerParty[1], MON_DATA_NICKNAME, sSwabluNickname);
+
+    SetMonData(&gPlayerParty[0], MON_DATA_OT_GENDER, &otGender);
+    SetMonData(&gPlayerParty[1], MON_DATA_OT_GENDER, &otGender);
 
     FlagSet(FLAG_SYS_POKEMON_GET);
 }

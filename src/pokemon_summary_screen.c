@@ -3438,25 +3438,46 @@ static void Task_PrintInfoPage(u8 taskId)
     data[0]++;
 }
 
+static const u8 *const sOtNames[] = {
+    COMPOUND_STRING("?????"),
+    COMPOUND_STRING("???"),
+    COMPOUND_STRING("???"),
+    COMPOUND_STRING("A??"),
+    COMPOUND_STRING("A?a"),
+    COMPOUND_STRING("Ada"),
+};
+
 static void PrintMonOTName(void)
 {
     int x, windowId;
     if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
     {
+
+
+        s32 photosCount;
+
         windowId = AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER);
         PrintTextOnWindow(windowId, gText_OTSlash, 0, 1, 0, 1);
         x = GetStringWidth(FONT_NORMAL, gText_OTSlash, 0);
+        photosCount = CheckBagHasItem(UNIQUE_ITEM_PHOTO_1, 1)
+                    + CheckBagHasItem(UNIQUE_ITEM_PHOTO_2, 1)
+                    + CheckBagHasItem(UNIQUE_ITEM_PHOTO_3, 1)
+                    + CheckBagHasItem(UNIQUE_ITEM_PHOTO_4, 1)
+                    + CheckBagHasItem(UNIQUE_ITEM_PHOTO_5, 1);
+
         if (sMonSummaryScreen->summary.OTGender == 0)
-            PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 5);
+            PrintTextOnWindow(windowId, sOtNames[photosCount], x, 1, 0, 5);
         else
-            PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 6);
+            PrintTextOnWindow(windowId, sOtNames[photosCount], x, 1, 0, 6);
+
     }
 }
 
+// Don't print OTID
 static void PrintMonOTID(void)
 {
     int xPos;
-    if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
+    if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE && 0)
     {
         ConvertIntToDecimalStringN(StringCopy(gStringVar1, gText_IDNumber2), (u16)sMonSummaryScreen->summary.OTID, STR_CONV_MODE_LEADING_ZEROS, 5);
         xPos = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 56);
