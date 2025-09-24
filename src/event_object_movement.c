@@ -1975,6 +1975,12 @@ struct Pokemon *GetFirstLiveMon(void)
 
 struct Pokemon *GetSecondLiveMon(void)
 {
+    // No followers if the player has only 2 pokemon and one of them is fainted
+    if ((GetMonData(&gPlayerParty[0], MON_DATA_HP) == 0 || GetMonData(&gPlayerParty[1], MON_DATA_HP) == 0)
+        && GetMonData(&gPlayerParty[2], MON_DATA_SPECIES) == SPECIES_NONE)
+    {
+        return NULL;
+    }
     return GetFirstLiveMonFrom(1);
 }
 

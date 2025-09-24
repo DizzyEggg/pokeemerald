@@ -1358,11 +1358,24 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
     Free(temp);
 }
 
+static void TryUpdatePlayerSprite(struct Pokemon *mon)
+{
+    u32 species = GetMonData(mon, MON_DATA_SPECIES);
+    if (GetMonData(mon, MON_DATA_HP) != 0 && gSaveBlock2Ptr->playerSpriteMonId != species) {
+        SetPlayerMonSprite(GetMonData(mon, MON_DATA_SPECIES), IsMonShiny(mon));
+        ChangePlayerMonSpriteVisuals(TRUE);
+    }
+}
+
 static void Task_ClosePartyMenu(u8 taskId)
 {
     // Update player's sprite if necessary
-    SetPlayerMonSprite(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES), IsMonShiny(&gPlayerParty[0]));
-    ChangePlayerMonSpriteVisuals(TRUE);
+    if (GetMonData(&gPlayerParty[0], MON_DATA_HP) != 0) {
+        TryUpdatePlayerSprite(&gPlayerParty[0]);
+    }
+    else if (GetMonData(&gPlayerParty[1], MON_DATA_HP) != 0) {
+        TryUpdatePlayerSprite(&gPlayerParty[1]);
+    }
 
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
     gTasks[taskId].func = Task_ClosePartyMenuAndSetCB2;
