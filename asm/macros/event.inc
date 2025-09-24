@@ -2058,7 +2058,7 @@
 	.endm
     
     .macro msgbox_portrait text:req, picId:req, type=MSGBOX_DEFAULT
-	setbyte gMsgType, \type
+    setbyte gMsgType, \type
 	setbyte gPortraitId, \picId + 1
     setbyte gScriptABPressed, 0
 	loadword 0, \text

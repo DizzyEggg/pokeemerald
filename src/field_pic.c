@@ -12,7 +12,7 @@
 #include "field_message_box.h"
 #include "constants/field_pic.h"
 
-#define TAG_PIC 0x3333
+#define TAG_PIC 0x33333
 
 struct Pic
 {
@@ -180,6 +180,36 @@ static EWRAM_DATA u8 sLastPicId = 0;
 #define sTag data[0]
 #define sDestroy data[1]
 
+#define MAX_CREATED_PICS 5
+
+static u8 EWRAM_INIT sCreatedPicsSpriteIds[MAX_CREATED_PICS] = {
+    [0 ... MAX_CREATED_PICS - 1] = MAX_SPRITES,
+};
+
+static void AddToCreatedPics(u32 id)
+{
+    s32 i;
+
+    for (i = 0; i < MAX_CREATED_PICS; i++) {
+        if (sCreatedPicsSpriteIds[i] >= MAX_SPRITES) {
+            sCreatedPicsSpriteIds[i] = id;
+            break;
+        }
+    }
+}
+
+void RemoveAllCreatedPics(void)
+{
+    s32 i;
+
+    for (i = 0; i < MAX_CREATED_PICS; i++) {
+        if (sCreatedPicsSpriteIds[i] < MAX_SPRITES) {
+            FieldPicSpriteDestroy(&gSprites[sCreatedPicsSpriteIds[i]]);
+            sCreatedPicsSpriteIds[i] = MAX_SPRITES;
+        }
+    }
+}
+
 u32 LoadFieldPicVars(u32 id, s16 x, s16 y)
 {
     struct CompressedSpriteSheet sheet;
@@ -221,8 +251,9 @@ u32 LoadFieldPicVars(u32 id, s16 x, s16 y)
     if (sPics[id].anims)
         spriteTempl.anims = sPics[id].anims;
 
-    sLastPicId = CreateSprite(&spriteTempl, x, y, 0);
-    if (sLastPicId == MAX_SPRITES)
+    sLastPicId = CreateSpriteAtEnd(&spriteTempl, x, y, 0);
+    AddToCreatedPics(sLastPicId);
+    if (sLastPicId >= MAX_SPRITES)
         return 0xFF;
 
     gSprites[sLastPicId].sTag = TAG_PIC + id;
@@ -299,6 +330,14 @@ void SpiteCb_AlwaysVisible(struct Sprite *sprite)
 
 extern bool8 gScriptABPressed;
 
+void FieldPicSpriteDestroy(struct Sprite *sprite)
+{
+    u16 tag = sprite->sTag;
+    DestroySprite(sprite);
+    FreeSpritePaletteByTag(tag);
+    FreeSpriteTilesByTag(tag);
+}
+
 void SpriteCb_DestroyOnButonPress(struct Sprite *sprite)
 {
     if (sprite->sDestroy == 0)
@@ -311,9 +350,7 @@ void SpriteCb_DestroyOnButonPress(struct Sprite *sprite)
     {
         if (sprite->sDestroy++ >= 3)
         {
-            FreeSpritePaletteByTag(sprite->sTag);
-            FreeSpriteTilesByTag(sprite->sTag);
-            DestroySprite(sprite);
+            FieldPicSpriteDestroy(sprite);
         }
     }
 }

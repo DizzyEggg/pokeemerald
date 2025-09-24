@@ -62,6 +62,7 @@ static void Task_DrawFieldMessage(u8 taskId)
     switch (task->tState)
     {
         case 0:
+            RemoveAllCreatedPics();
             if (gMsgIsSignPost)
                 LoadSignPostWindowFrameGfx();
             else
@@ -83,7 +84,7 @@ static void Task_DrawFieldMessage(u8 taskId)
                 sFieldMessageBoxMode = FIELD_MESSAGE_BOX_HIDDEN;
                 if (gPortraitId != 0)
                 {
-                    gSprites[task->tPortraitSpriteId].callback = SpriteCb_DestroyOnButonPress;
+                    //gSprites[task->tPortraitSpriteId].callback = SpriteCb_DestroyOnButonPress;
                     gPortraitId = 0;
                     if (gMsgType == 5) // Yes/no todo:move to C
                     {
