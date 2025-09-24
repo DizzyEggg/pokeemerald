@@ -132,7 +132,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PetalburgCity_EventScript_GymBoy",
-      "flag": "0"
+      "flag": "FLAG_WHITEOUT_FALLING_PARTNER_NPC"
     },
     {
       "local_id": "LOCALID_PETALBURG_SCOTT",

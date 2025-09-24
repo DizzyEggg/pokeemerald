@@ -1786,6 +1786,28 @@ static bool8 RunFieldCallback(void)
 
 static const u8 *sStringYou = COMPOUND_STRING("You");
 
+void ChooseRandomFloorMons(void)
+{
+    s32 i;
+
+    // Set all, so it hides all by default
+    for (i = FLAG_4R1_ENEMYA; i < FLAG_T4_ENEMYD; i++) {
+        FlagSet(i);
+    }
+
+    // Keep 1 enemy in each room
+    FlagClear(FLAG_4R1_ENEMYA + (Random() % 4));
+    FlagClear(FLAG_4R2_ENEMYA + (Random() % 4));
+    FlagClear(FLAG_4R3_ENEMYA + (Random() % 4));
+    FlagClear(FLAG_4R4_ENEMYA + (Random() % 4));
+    FlagClear(FLAG_H1_ENEMYA + (Random() % 4));
+    FlagClear(FLAG_H2_ENEMYA + (Random() % 4));
+    FlagClear(FLAG_T1_ENEMYA + (Random() % 4));
+    FlagClear(FLAG_T2_ENEMYA + (Random() % 4));
+    FlagClear(FLAG_T3_ENEMYA + (Random() % 4));
+    FlagClear(FLAG_T4_ENEMYA + (Random() % 4));
+}
+
 void CB2_NewGame(void)
 {
     FieldClearVBlankHBlankCallbacks();
@@ -1802,21 +1824,31 @@ void CB2_NewGame(void)
     SetFieldVBlankCallback();
     SetMainCallback1(CB1_Overworld);
     SetMainCallback2(CB2_Overworld);
+    ChooseRandomFloorMons();
     EggHatchAnim(SPECIES_PHANPY, TRUE, sStringYou, FALSE);
 }
 
 extern const u8 Fountain_EventScript_Whiteout[];
 
+static void HandleFlagsAfterRunOver(void)
+{
+    // Handle player partner's falling sprite
+    u16 species1 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+    u16 species2 = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES);
+    u16 partnerSpecies = (gSaveBlock2Ptr->playerSpriteMonId == species1) ? species2 : species1;
+    VarSet(VAR_OBJ_GFX_ID_0, partnerSpecies + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY);
+    FlagClear(FLAG_WHITEOUT_FALLING_PARTNER_NPC);
+
+    ChooseRandomFloorMons();
+}
+
 void CB2_WhiteOut(void)
 {
     u8 state;
 
-    if (++gMain.state >= 12)
+    if (++gMain.state >= 24)
     {
-        u16 species1 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
-        u16 species2 = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES);
-        u16 partnerSpecies = (gSaveBlock2Ptr->playerSpriteMonId == species1) ? species2 : species1;
-        VarSet(VAR_OBJ_GFX_ID_0, partnerSpecies + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY);
+        HandleFlagsAfterRunOver();
         FieldClearVBlankHBlankCallbacks();
         StopMapMusic();
         ResetSafariZoneFlag_();

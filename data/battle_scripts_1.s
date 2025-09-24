@@ -5265,6 +5265,7 @@ BattleScript_LocalBattleLost::
 	jumpifhalfword CMP_EQUAL, gTrainerBattleParameter + 2, TRAINER_SECRET_BASE, BattleScript_LocalBattleLostEnd
 	jumpifnowhiteout BattleScript_LocalBattleLostEnd_
 BattleScript_LocalBattleLostPrintWhiteOut::
+    end2
 	getmoneyreward
 	printstring STRINGID_PLAYERWHITEOUT
 	waitmessage B_WAIT_TIME_LONG

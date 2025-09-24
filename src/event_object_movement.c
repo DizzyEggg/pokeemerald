@@ -3778,6 +3778,13 @@ bool8 MovementType_Wander_Step3(struct ObjectEvent *objectEvent, struct Sprite *
     return FALSE;
 }
 
+static bool32 IsObjGhostMon(struct ObjectEvent *objectEvent)
+{
+    u32 species = objectEvent->graphicsId & OBJ_EVENT_MON_SPECIES_MASK;
+
+    return FALSE;
+}
+
 bool8 MovementType_WanderAround_Step4(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     u8 directions[4];
@@ -3787,7 +3794,7 @@ bool8 MovementType_WanderAround_Step4(struct ObjectEvent *objectEvent, struct Sp
     chosenDirection = directions[Random() & 3];
     SetObjectEventDirection(objectEvent, chosenDirection);
     sprite->sTypeFuncId = 5;
-    if (GetCollisionInDirection(objectEvent, chosenDirection))
+    if (GetCollisionInDirection(objectEvent, chosenDirection) && !IsObjGhostMon(objectEvent))
         sprite->sTypeFuncId = 1;
 
     return TRUE;

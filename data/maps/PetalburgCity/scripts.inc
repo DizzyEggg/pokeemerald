@@ -49,6 +49,7 @@ Fountain_EventScript_Whiteout::
     setobjectxy OBJ_EVENT_ID_PLAYER, 24, 46
     setplayerxy 24, 46
     removeobject LOCALID_FALLING_PARTNER
+    changeplayersprite SPECIES_NONE, TRUE
     fasttwomonsegghatchanim
     waitstate
     releaseall

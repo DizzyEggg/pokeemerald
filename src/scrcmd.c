@@ -3301,6 +3301,11 @@ void ScriptCmd_SetPlayerMonSprite(struct ScriptContext *ctx)
 {
     u32 speciesId = ScriptReadHalfword(ctx);
     u32 isShiny = ScriptReadByte(ctx);
+
+    if (speciesId == SPECIES_NONE) {
+        speciesId = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+    }
+
     SetPlayerMonSprite(speciesId, isShiny);
 }
 
