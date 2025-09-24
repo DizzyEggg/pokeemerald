@@ -28,8 +28,6 @@ Fountain_Eventscript_NotFirstLoad::
 
 Fountain_EventScript_IntroScene::
 	lockall
-	@playegghatchanim SPECIES_PHANPY, TRUE
-	@waitstate
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookLeft
@@ -96,7 +94,7 @@ Fountain_EventScript_IntroScene::
 	delay 20
 	removeobject LOCALID_EGG_INTRO
     addobject LOCALID_SWABLU_INTRO
-    playegghatchanim SPECIES_SWABLU, TRUE
+    playegghatchanim SPECIES_SWABLU, TRUE, NULL
     waitstate
 	applymovement LOCALID_SWABLU_INTRO, Fountain_LookUp
 	waitmovement 0

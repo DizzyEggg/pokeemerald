@@ -224,13 +224,44 @@ static const u16 sOtherItemsSet[] = {
     ITEM_EXPERT_BELT,
 };
 
+static const u16 sUniqueItemsSet[UNIQUE_ITEMS_COUNT] = {
+    UNIQUE_ITEM_BLACK_DISC,
+    UNIQUE_ITEM_GREEN_DISC,
+    UNIQUE_ITEM_GRAY_DISC,
+    UNIQUE_ITEM_PURPLE_DISC,
+    UNIQUE_ITEM_RED_DISC,
+    UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_1,
+    UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_2,
+    UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3,
+    UNIQUE_ITEM_PHOTO_1,
+    UNIQUE_ITEM_PHOTO_2,
+    UNIQUE_ITEM_PHOTO_3,
+    UNIQUE_ITEM_PHOTO_4,
+    UNIQUE_ITEM_PHOTO_5,
+};
+
+static bool32 PlayerObtainedUniqueItem(u32 itemId)
+{
+    s32 i;
+    for (i = 0; i < UNIQUE_ITEMS_COUNT; i++) {
+        if (gSaveBlock1Ptr->availableItems.unique.obtainedArr[i] == itemId)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 static void SetAvailableItems(struct UniqueItems *unique)
 {
-    s32 i, forcedUniqueId1, forcedUniqueId2;
+    s32 i, forcedUniqueId[2], uniqueId;
+    s32 uniqueGiven;
     u16 shuffledItems[OTHER_ITEMS_COUNT];
+    u16 uniqueItems[UNIQUE_ITEMS_COUNT];
 
     memcpy(shuffledItems, sOtherItemsSet, sizeof(sOtherItemsSet));
+    memcpy(uniqueItems, sUniqueItemsSet, sizeof(sUniqueItemsSet));
+
     Shuffle16(shuffledItems, ARRAY_COUNT(sOtherItemsSet));
+    Shuffle16(uniqueItems, ARRAY_COUNT(sUniqueItemsSet));
 
     gSaveBlock1Ptr->availableItems = (struct AvailableItems) {0};
     gSaveBlock1Ptr->availableItems.unique = *unique;
@@ -238,13 +269,21 @@ static void SetAvailableItems(struct UniqueItems *unique)
         gSaveBlock1Ptr->availableItems.other.arr[i] = shuffledItems[i];
     }
     // Choose two slots from 0 ... 17 to force unique items
-    forcedUniqueId1 = RandomUniform(0, 0, 17);
+    forcedUniqueId[0] = RandomUniform(0, 0, 17);
     do {
-        forcedUniqueId2 = RandomUniform(0, 0, 17);
-    } while (forcedUniqueId1 == forcedUniqueId2);
+        forcedUniqueId[1] = RandomUniform(0, 0, 17);
+    } while (forcedUniqueId[0] == forcedUniqueId[1]);
 
-    gSaveBlock1Ptr->availableItems.other.arr[forcedUniqueId1] = 0;
-    gSaveBlock1Ptr->availableItems.other.arr[forcedUniqueId2] = 0;
+    // Choose 2 random unique items the player did not obtain yet
+    uniqueGiven = 0;
+    for (uniqueId = 0; uniqueId < UNIQUE_ITEMS_COUNT; uniqueId++) {
+        u16 randUnique = uniqueItems[uniqueId];
+        if (!PlayerObtainedUniqueItem(randUnique)) {
+            gSaveBlock1Ptr->availableItems.other.arr[forcedUniqueId[uniqueGiven++]] = randUnique;
+            if (uniqueGiven >= 2)
+                break;
+        }
+    }
 
     for (; i < OTHER_ITEMS_COUNT; i++) {
         gSaveBlock1Ptr->availableItems.other.arr[i] = 0;

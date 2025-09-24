@@ -166,7 +166,7 @@ const void *GetItemIconPic(u16 itemId)
         return gItemIcon_ReturnToFieldArrow; // Use last icon, the "return to field" arrow
     if (itemId >= ITEMS_COUNT)
         return gItemsInfo[0].iconPic;
-    if (gItemsInfo[itemId].pocket == POCKET_TM_HM)
+    if (gItemsInfo[itemId].pocket == POCKET_TM_HM || gItemsInfo[itemId].iconPic == NULL)
     {
         if (GetItemTMHMIndex(itemId) > NUM_TECHNICAL_MACHINES)
             return gItemIcon_HM;
@@ -182,7 +182,7 @@ const u16 *GetItemIconPalette(u16 itemId)
         return gItemIconPalette_ReturnToFieldArrow;
     if (itemId >= ITEMS_COUNT)
         return gItemsInfo[0].iconPalette;
-    if (gItemsInfo[itemId].pocket == POCKET_TM_HM)
+    if (gItemsInfo[itemId].pocket == POCKET_TM_HM || gItemsInfo[itemId].iconPalette == NULL)
         return gTypesInfo[GetMoveType(GetItemTMHMMoveId(itemId))].paletteTMHM;
 
     return gItemsInfo[itemId].iconPalette;

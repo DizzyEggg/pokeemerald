@@ -24,6 +24,7 @@
 #include "field_weather.h"
 #include "fieldmap.h"
 #include "fldeff.h"
+#include "egg_hatch.h"
 #include "follower_npc.h"
 #include "gpu_regs.h"
 #include "heal_location.h"
@@ -1779,6 +1780,8 @@ static bool8 RunFieldCallback(void)
     return TRUE;
 }
 
+static const u8 *sStringYou = COMPOUND_STRING("You");
+
 void CB2_NewGame(void)
 {
     FieldClearVBlankHBlankCallbacks();
@@ -1795,6 +1798,7 @@ void CB2_NewGame(void)
     SetFieldVBlankCallback();
     SetMainCallback1(CB1_Overworld);
     SetMainCallback2(CB2_Overworld);
+    EggHatchAnim(SPECIES_PHANPY, TRUE, sStringYou);
 }
 
 void CB2_WhiteOut(void)

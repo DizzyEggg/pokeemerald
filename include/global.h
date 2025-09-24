@@ -1070,12 +1070,11 @@ struct Bag
     struct ItemSlot berries[BAG_BERRIES_COUNT];
 };
 
+#define UNIQUE_ITEMS_COUNT 13
+
 struct UniqueItems
 {
-    // All as bits, so max 8 per item type
-    u8 tms;
-    u8 emptyVials;
-    u8 photoPieces;
+    u16 obtainedArr[UNIQUE_ITEMS_COUNT];
 };
 
 #define OTHER_ITEMS_COUNT 100

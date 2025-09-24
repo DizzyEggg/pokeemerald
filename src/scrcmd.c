@@ -3312,6 +3312,7 @@ void ScriptCmd_ChangePlayerSprite(struct ScriptContext *ctx)
 void PlayEggHatchAnimation(struct ScriptContext *ctx)
 {
     u32 speciesId = ScriptReadHalfword(ctx);
-    bool8 isShiny = ScriptReadWord(ctx);
-    EggHatchAnim(speciesId, isShiny);
+    bool8 isShiny = ScriptReadByte(ctx);
+    const u8 *name = (const u8 *) ScriptReadWord(ctx);
+    EggHatchAnim(speciesId, isShiny, name);
 }

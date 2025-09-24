@@ -86,6 +86,7 @@ static struct EggHatchData *sEggHatchData;
 static EWRAM_DATA u16 sEggHatchSpecies;
 static EWRAM_DATA bool8 sIsJustEggHatchAnim;
 static EWRAM_DATA bool8 sEggHatchShiny;
+static EWRAM_DATA const u8 *sEggHatchName;
 
 static const u16 sEggPalette[]  = INCBIN_U16("graphics/pokemon/egg/normal.gbapal");
 static const u8 sEggHatchTiles[] = INCBIN_U8("graphics/pokemon/egg/hatch.4bpp");
@@ -491,11 +492,12 @@ void EggHatch(void)
     FadeScreen(FADE_TO_BLACK, 0);
 }
 
-void EggHatchAnim(u32 speciesId, bool8 isShiny)
+void EggHatchAnim(u32 speciesId, bool8 isShiny, const u8 *name)
 {
     sIsJustEggHatchAnim = TRUE;
     sEggHatchSpecies = speciesId;
     sEggHatchShiny = isShiny;
+    sEggHatchName = name;
     EggHatch();
 }
 
@@ -685,7 +687,12 @@ static void CB2_EggHatch(void)
     case 5:
         // "{mon} hatched from egg" message/fanfare
         if (sIsJustEggHatchAnim) {
-            StringCopy(gStringVar1, GetSpeciesName(sEggHatchSpecies));
+            if (sEggHatchName != NULL) {
+                StringCopy(gStringVar1, sEggHatchName);
+            }
+            else {
+                StringCopy(gStringVar1, GetSpeciesName(sEggHatchSpecies));
+            }
         }
         else {
             GetMonNickname(&gPlayerParty[sEggHatchData->eggPartyId], gStringVar1);
@@ -755,6 +762,7 @@ static void CB2_EggHatch(void)
             UnsetBgTilemapBuffer(1);
             Free(sEggHatchData);
             SetMainCallback2(CB2_ReturnToField);
+            FadeOutBGM(1);
         }
         break;
     }

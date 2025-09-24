@@ -5846,9 +5846,9 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_Banettite,
     },
 //TOFOLD
-    [ITEM_ABSOLITE] =
+    [UNIQUE_ITEM_INKWELL_FULL_BOTTLE_1] =
     {
-        .name = _("Absolite"),
+        .name = _("Filled vial"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A crystal bottle\n"
@@ -5858,14 +5858,74 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_HEAL_AND_CURE_STATUS,
-        .effect = gItemEffect_FullRestore,
+        .effect = gItemEffect_MaxReviveLevelDown,
+        .iconPic = gItemIcon_Absolite,
+        .iconPalette = gItemIconPalette_Absolite,
+    },
+    [UNIQUE_ITEM_INKWELL_FULL_BOTTLE_2] =
+    {
+        .name = _("Filled vial"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A crystal bottle\n"
+            "full of the healing\n"
+            "Inkwell essence."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_HEAL_AND_CURE_STATUS,
+        .effect = gItemEffect_MaxReviveLevelDown,
+        .iconPic = gItemIcon_Absolite,
+        .iconPalette = gItemIconPalette_Absolite,
+    },
+    [UNIQUE_ITEM_INKWELL_FULL_BOTTLE_3] =
+    {
+        .name = _("Filled vial"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A crystal bottle\n"
+            "full of the healing\n"
+            "Inkwell essence."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_HEAL_AND_CURE_STATUS,
+        .effect = gItemEffect_MaxReviveLevelDown,
         .iconPic = gItemIcon_Absolite,
         .iconPalette = gItemIconPalette_Absolite,
     },
 
-    [ITEM_GLALITITE] =
+    [UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_1] =
     {
-        .name = _("Glalitite"),
+        .name = _("Empty vial"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A tiny crystal\n"
+            "bottle. Could\n"
+            "hold something."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Glalitite,
+        .iconPalette = gItemIconPalette_Absolite,
+    },
+    [UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_2] =
+    {
+        .name = _("Empty vial"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A tiny crystal\n"
+            "bottle. Could\n"
+            "hold something."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Glalitite,
+        .iconPalette = gItemIconPalette_Absolite,
+    },
+    [UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3] =
+    {
+        .name = _("Empty vial"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A tiny crystal\n"
@@ -10577,7 +10637,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM_BULLET_SEED] =
+    [UNIQUE_ITEM_GREEN_DISC] =
     {
         .name = _("Green Disc"),
         .price = 0,
@@ -10589,6 +10649,7 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPalette = gItemIconPalette_GrassTMHM,
     },
 
     [ITEM_TM_HIDDEN_POWER] =
@@ -10605,7 +10666,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM_SUNNY_DAY] =
+    [UNIQUE_ITEM_RED_DISC] =
     {
         .name = _("Red Disc"),
         .price = 2000,
@@ -10617,9 +10678,10 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPalette = gItemIconPalette_FireTMHM,
     },
 
-    [ITEM_TM_TAUNT] =
+    [UNIQUE_ITEM_BLACK_DISC] =
     {
         .name = _("Black Disc"),
         .price = 0,
@@ -10631,6 +10693,7 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPalette = gItemIconPalette_DarkTMHM,
     },
 
     [ITEM_TM_ICE_BEAM] =
@@ -10671,7 +10734,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM_HYPER_BEAM] =
+    [UNIQUE_ITEM_GRAY_DISC] =
     {
         .name = _("Gray Disc"),
         .price = 0,
@@ -10683,9 +10746,10 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_LIGHT_SCREEN] =
+    [UNIQUE_ITEM_PURPLE_DISC] =
     {
         .name = _("Purple Disc"),
         .price = 0,
@@ -10697,6 +10761,7 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPalette = gItemIconPalette_PsychicTMHM,
     },
 
     [ITEM_TM_PROTECT] =
@@ -12452,7 +12517,7 @@ const struct Item gItemsInfo[] =
 
 // Story Key Items TOFOLD
 
-    [ITEM_SS_TICKET] =
+    [UNIQUE_ITEM_PHOTO_1] =
     {
         .name = _("Torn Piece 1"),
         .price = 0,
@@ -12468,7 +12533,7 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
-    [ITEM_EON_TICKET] =
+    [UNIQUE_ITEM_PHOTO_2] =
     {
         .name = _("Torn Piece 2"),
         .price = 0,
@@ -12484,7 +12549,7 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
-    [ITEM_MYSTIC_TICKET] =
+    [UNIQUE_ITEM_PHOTO_3] =
     {
         .name = _("Torn Piece 3"),
         .price = 0,
@@ -12500,7 +12565,7 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
-    [ITEM_AURORA_TICKET] =
+    [UNIQUE_ITEM_PHOTO_4] =
     {
         .name = _("Torn Piece 4"),
         .price = 0,
@@ -12516,7 +12581,7 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
-    [ITEM_OLD_SEA_MAP] =
+    [UNIQUE_ITEM_PHOTO_5] =
     {
         .name = _("Torn Piece 5"),
         .price = 0,

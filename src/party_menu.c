@@ -4770,6 +4770,15 @@ static bool32 DoItemUseCbMedicine(u8 taskId, TaskFunc task)
         {
             PlaySE(SE_USE_ITEM);
             RemoveBagItem(item, 1);
+            if (item == UNIQUE_ITEM_INKWELL_FULL_BOTTLE_1) {
+                AddBagItem(UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_1, 1);
+            }
+            else if (item == UNIQUE_ITEM_INKWELL_FULL_BOTTLE_2) {
+                AddBagItem(UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_2, 1);
+            }
+            else if (item == UNIQUE_ITEM_INKWELL_FULL_BOTTLE_3) {
+                AddBagItem(UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3, 1);
+            }
         }
         else
         {
