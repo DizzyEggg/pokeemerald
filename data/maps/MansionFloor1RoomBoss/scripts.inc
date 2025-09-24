@@ -36,8 +36,9 @@ MansionFloor1RoomBoss_EventScript_SugarSquadScene1::
 	waitmovement 0
 	delay 50
 	msgbox_portrait MansionFloor1RoomBoss_Text_Applin1, FIELD_PIC_ABRA_SERIOUS
-	msgbox_portrait MansionFloor1RoomBoss_Text_Applin1, FIELD_PIC_ABRA_SERIOUS
-	msgbox_portrait MansionFloor1RoomBoss_Text_Applin1, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait MansionFloor1RoomBoss_Text_Sinistea1, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite1, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite2, FIELD_PIC_ABRA_SERIOUS
 	delay 20
 	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_CameraMove2
 	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_CameraMove2
@@ -61,14 +62,17 @@ MansionFloor1RoomBoss_Text_Applin1:
 
 MansionFloor1RoomBoss_Text_Sinistea1:
 	.string "Yesss…\p"
-	.string "We're just going to throw you back in!\n"
+	.string "We're just going to throw you back in\n"
 	.string "the Fountain where you belong.\p"
 	.string "Stop struggling, hm?$"
 
 MansionFloor1RoomBoss_Text_Vanillite1:
 	.string "I see the way you lick your lips when\n"
-	.string "you look at us!\p"
-	.string "Perhaps you'd like a taste… of my fist!\p"
+	.string "you look at us…\p"
+	.string "Perhaps you'd like a taste…$"
+
+MansionFloor1RoomBoss_Text_Vanillite2:
+	.string "OF MY FIST!\p"
 	.string "Sugar Squad, attack!$"
 
 
