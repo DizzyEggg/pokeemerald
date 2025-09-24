@@ -28,24 +28,27 @@ Fountain_Eventscript_NotFirstLoad::
 
 Fountain_EventScript_IntroScene::
 	lockall
+	@playegghatchanim SPECIES_PHANPY, TRUE
+	@waitstate
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
-	delay 20
+	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookLeft
-	delay 20
+	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookRight
-	delay 20
+	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookDown
-	delay 20
+	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	waitmovement 0
 	msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_PHANPY_SAD
-	delay 50
+	delay 80
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_WELL
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
 	waitmovement 0
+	delay 40
 	msgbox_portrait Fountain_Text_Intro02, FIELD_PIC_PHANPY_SWEAT
 	msgbox_portrait Fountain_Text_Intro03, FIELD_PIC_ABRA_SERIOUS
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
@@ -171,8 +174,6 @@ Fountain_EventScript_IntroScene::
 
 
 
-
-
 Fountain_LookUp:
 	face_up
 	step_end
@@ -252,7 +253,8 @@ Fountain_Text_Intro01:
 	.string "Tuskan: Huh? Where… wasn’t there a…$"
 
 Fountain_Text_Intro02:
-	.string "Tuskan: Hey… a-are you my…?$"
+	.string "Tuskan: Um, excuse me, where am I?\n"
+	.string "A-are you my…?$"
 
 Fountain_Text_Intro03:
 	.string "???: Welcome back, Tuskan.$"
@@ -619,13 +621,8 @@ Fountain_EventScript_Abra_Gate_Trigger::
 
 
 
-@@@@@@ INTRO
 
-
-
-
-@@@@@@@
-@ Abra events - TOFOLD
+@@@@@@@ Abra events - TOFOLD
 
 
 Fountain_EventScript_Abra_Mansion::
@@ -742,13 +739,13 @@ Fountain_EventScript_GraveEnd::
 	end
 
 Fountain_Text_Grave:
-	.string "A smooth pale stone covered in strange,\n"
-	.string "worn markings.\p"
-	.string "It makes you feel... sad?$"
+	.string "A smooth, pale stone. Strange, angular\n"
+	.string "marks are carved into it.\p"
+	.string "It makes you feel… sad?$"
 
 Fountain_Text_GraveEnd:
 	.string "This must be Ada's grave.\p"
-	.string "TODO"
+	.string "TOFOLD"
 	.string "$"
 
 
