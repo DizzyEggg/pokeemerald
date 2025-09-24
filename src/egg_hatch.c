@@ -681,7 +681,7 @@ static void CB2_EggHatch(void)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
         if (sEggHatchTwo) {
             sEggHatchData->eggSpriteId = CreateSprite(&sSpriteTemplate_Egg, EGG_X - 20, EGG_Y, 5);
-            sEggHatchData->eggSpriteId2 = CreateSprite(&sSpriteTemplate_Egg, EGG_X + 20, EGG_Y, 5);
+            sEggHatchData->eggSpriteId2 = CreateSprite(&sSpriteTemplate_Egg, EGG_X + 20, EGG_Y + 5, 5);
         }
         else {
             sEggHatchData->eggSpriteId = CreateSprite(&sSpriteTemplate_Egg, EGG_X, EGG_Y, 5);
@@ -702,7 +702,7 @@ static void CB2_EggHatch(void)
         }
         break;
     case 2:
-        if (++sEggHatchData->delayTimer > 30)
+        if (++sEggHatchData->delayTimer > ((sEggHatchFast == TRUE) ? 10 : 30))
         {
             // Start hatching animation
             sEggHatchData->state++;
@@ -717,6 +717,8 @@ static void CB2_EggHatch(void)
         if (gSprites[sEggHatchData->eggSpriteId].callback == SpriteCallbackDummy
             && (sEggHatchData->eggSpriteId2 == MAX_SPRITES || gSprites[sEggHatchData->eggSpriteId2].callback == SpriteCallbackDummy))
         {
+            if (sEggHatchFast)
+                PlayFanfare(MUS_EVOLVED);
             if (sEggHatchTwo) {
                 DoMonFrontSpriteAnimation(&gSprites[sEggHatchData->monSpriteId], GetMonData(&gPlayerParty[0], MON_DATA_SPECIES), FALSE, 1);
                 DoMonFrontSpriteAnimation(&gSprites[sEggHatchData->monSpriteId2], GetMonData(&gPlayerParty[1], MON_DATA_SPECIES), FALSE, 1);
@@ -763,7 +765,8 @@ static void CB2_EggHatch(void)
 
         StringExpandPlaceholders(gStringVar4, sEggHatchTwo ? gText_HatchedFromEggs : gText_HatchedFromEgg);
         EggHatchPrintMessage(sEggHatchData->windowId, gStringVar4, 0, 3, TEXT_SKIP_DRAW);
-        PlayFanfare(MUS_EVOLVED);
+        if (!sEggHatchFast)
+            PlayFanfare(MUS_EVOLVED);
         sEggHatchData->state++;
         PutWindowTilemap(sEggHatchData->windowId);
         CopyWindowToVram(sEggHatchData->windowId, COPYWIN_FULL);
@@ -843,7 +846,7 @@ static void CB2_EggHatch(void)
 
 static void SpriteCB_Egg_Shake1(struct Sprite *sprite)
 {
-    if (++sprite->sTimer > 20)
+    if (++sprite->sTimer > (sEggHatchFast ? 5 : 20))
     {
         sprite->callback = SpriteCB_Egg_Shake2;
         sprite->sTimer = 0;
@@ -853,7 +856,7 @@ static void SpriteCB_Egg_Shake1(struct Sprite *sprite)
         // Shake egg
         sprite->sSinIdx = (sprite->sSinIdx + 20) & 0xFF;
         sprite->x2 = Sin(sprite->sSinIdx, 1);
-        if (sprite->sTimer == 15)
+        if (sprite->sTimer == (sEggHatchFast ? 4 : 15))
         {
             // First egg crack
             PlaySE(SE_BALL);
@@ -865,9 +868,9 @@ static void SpriteCB_Egg_Shake1(struct Sprite *sprite)
 
 static void SpriteCB_Egg_Shake2(struct Sprite *sprite)
 {
-    if (++sprite->sDelayTimer > 30)
+    if (++sprite->sDelayTimer > (sEggHatchFast ? 8 : 30))
     {
-        if (++sprite->sTimer > 20)
+        if (++sprite->sTimer > (sEggHatchFast ? 6 : 20))
         {
             sprite->callback = SpriteCB_Egg_Shake3;
             sprite->sTimer = 0;
@@ -878,7 +881,7 @@ static void SpriteCB_Egg_Shake2(struct Sprite *sprite)
             // Shake egg
             sprite->sSinIdx = (sprite->sSinIdx + 20) & 0xFF;
             sprite->x2 = Sin(sprite->sSinIdx, 2);
-            if (sprite->sTimer == 15)
+            if (sprite->sTimer == (sEggHatchFast ? 5 : 15))
             {
                 // Second egg crack
                 PlaySE(SE_BALL);
@@ -890,9 +893,9 @@ static void SpriteCB_Egg_Shake2(struct Sprite *sprite)
 
 static void SpriteCB_Egg_Shake3(struct Sprite *sprite)
 {
-    if (++sprite->sDelayTimer > 30)
+    if (++sprite->sDelayTimer > (sEggHatchFast ? 8 : 30))
     {
-        if (++sprite->sTimer > 38)
+        if (++sprite->sTimer > (sEggHatchFast ? 12 : 38))
         {
             u16 UNUSED species;
             sprite->callback = SpriteCB_Egg_WaitHatch;
@@ -906,7 +909,7 @@ static void SpriteCB_Egg_Shake3(struct Sprite *sprite)
             // Shake egg
             sprite->sSinIdx = (sprite->sSinIdx + 20) & 0xFF;
             sprite->x2 = Sin(sprite->sSinIdx, 2);
-            if (sprite->sTimer == 15)
+            if (sprite->sTimer == (sEggHatchFast ? 6 : 15))
             {
                 // Third egg crack
                 // This ineffectually sets the animation to the frame it's already using.
@@ -920,7 +923,7 @@ static void SpriteCB_Egg_Shake3(struct Sprite *sprite)
                 CreateRandomEggShardSprite();
                 CreateRandomEggShardSprite();
             }
-            if (sprite->sTimer == 30)
+            if (sprite->sTimer == (sEggHatchFast ? 11 : 30))
                 PlaySE(SE_BALL);
         }
     }
@@ -928,7 +931,7 @@ static void SpriteCB_Egg_Shake3(struct Sprite *sprite)
 
 static void SpriteCB_Egg_WaitHatch(struct Sprite *sprite)
 {
-    if (++sprite->sTimer > 50)
+    if (++sprite->sTimer > (sEggHatchFast ? 11 : 50))
     {
         sprite->callback = SpriteCB_Egg_Hatch;
         sprite->sTimer = 0;
@@ -944,7 +947,7 @@ static void SpriteCB_Egg_Hatch(struct Sprite *sprite)
         BeginNormalPaletteFade(PALETTES_ALL, -1, 0, 16, RGB_WHITEALPHA);
 
     // Create a shower of 16 egg shards in 4 groups of 4
-    if ((u32)sprite->sTimer < 4)
+    if ((u32)sprite->sTimer < (sEggHatchFast ? 2 : 4))
     {
         for (i = 0; i < 4; i++)
             CreateRandomEggShardSprite();
@@ -983,7 +986,7 @@ static void SpriteCB_Egg_Reveal(struct Sprite *sprite)
             gSprites[sEggHatchData->monSpriteId2].y--;
     }
 
-    if (sprite->sTimer > 40)
+    if (sprite->sTimer > (sEggHatchFast ? 13 : 40))
         sprite->callback = SpriteCallbackDummy; // Finished
 
     sprite->sTimer++;
@@ -1020,7 +1023,7 @@ static void CreateRandomEggShardSprite(void)
     // Randomly choose one of the 4 shard images
     spriteAnimIndex = Random() % ARRAY_COUNT(sSpriteAnimTable_EggShard);
 
-    CreateEggShardSprite(EGG_X, EGG_Y - 15, velocityX, velocityY, 100, spriteAnimIndex);
+    CreateEggShardSprite(EGG_X, EGG_Y - 15, velocityX, velocityY, sEggHatchFast ? 150 : 100, spriteAnimIndex);
 }
 
 static void CreateEggShardSprite(u8 x, u8 y, s16 velocityX, s16 velocityY, s16 acceleration, u8 spriteAnimIndex)
