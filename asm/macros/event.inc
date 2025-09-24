@@ -527,6 +527,12 @@
 	.2byte \x
 	.2byte \y
 	.endm
+    
+    .macro setplayerxy x:req, y:req
+	callnative ScrCmd_setplayerxy
+	.2byte \x
+	.2byte \y
+	.endm
 
 	@ Retrieves the number of Pokemon in the player's party, and stores that number in VAR_RESULT.
 	.macro getpartysize
@@ -2739,4 +2745,8 @@
     .2byte \species
     .byte \isShiny
     .4byte \name
+    .endm
+    
+    .macro fasttwomonsegghatchanim
+    callnative PlayFastEggHatchAnimation
     .endm

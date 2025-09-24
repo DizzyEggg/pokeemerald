@@ -23,6 +23,36 @@ Fountain_Eventscript_NotFirstLoad::
 	setvar VAR_PETALBURG_CITY_STATE, 0
 	addobject LOCALID_ABRA_WELL
 	end
+    
+Fountain_FallIntoWaterWhiteOut:
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down	
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+    
+@@@@@ After White-out cutscene
+Fountain_EventScript_Whiteout::
+    lockall
+    applymovement OBJ_EVENT_ID_PLAYER, Fountain_FallIntoWaterWhiteOut
+    applymovement LOCALID_FALLING_PARTNER, Fountain_FallIntoWaterWhiteOut
+    waitmovement 0
+    setobjectxy OBJ_EVENT_ID_PLAYER, 24, 46
+    setplayerxy 24, 46
+    removeobject LOCALID_FALLING_PARTNER
+    fasttwomonsegghatchanim
+    waitstate
+    releaseall
+    end
 
 @@@@@ Intro cutscene
 
@@ -900,7 +930,7 @@ Fountain_Text_BackDoor:
 
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::
-	setobjectxyperm LOCALID_GYM_BOY, 5, 11
+	setobjectxyperm LOCALID_FALLING_PARTNER, 5, 11
 	return
 
 PetalburgCity_EventScript_DisableMapNameAndMusic::
@@ -1142,13 +1172,13 @@ PetalburgCity_EventScript_ShowGymToPlayer3::
 	end
 
 PetalburgCity_EventScript_ShowGymToPlayer::
-	applymovement LOCALID_GYM_BOY, Common_Movement_FacePlayer
+	applymovement LOCALID_FALLING_PARTNER, Common_Movement_FacePlayer
 	waitmovement 0
 	playbgm MUS_FOLLOW_ME, FALSE
 	playse SE_PIN
-	applymovement LOCALID_GYM_BOY, Common_Movement_ExclamationMark
+	applymovement LOCALID_FALLING_PARTNER, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCALID_GYM_BOY, Common_Movement_Delay48
+	applymovement LOCALID_FALLING_PARTNER, Common_Movement_Delay48
 	waitmovement 0
 	call_if_eq VAR_0x8008, 0, PetalburgCity_EventScript_BoyApproachPlayer0
 	call_if_eq VAR_0x8008, 1, PetalburgCity_EventScript_BoyApproachPlayer1
@@ -1161,63 +1191,63 @@ PetalburgCity_EventScript_ShowGymToPlayer::
 	call_if_eq VAR_0x8008, 2, PetalburgCity_EventScript_LeadPlayerToGym2
 	call_if_eq VAR_0x8008, 3, PetalburgCity_EventScript_LeadPlayerToGym3
 	msgbox PetalburgCity_Text_ThisIsPetalburgGym, MSGBOX_DEFAULT
-	applymovement LOCALID_GYM_BOY, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_FALLING_PARTNER, Common_Movement_WalkInPlaceFasterRight
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	msgbox PetalburgCity_Text_ThisIsGymSign, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyWalkAway
+	applymovement LOCALID_FALLING_PARTNER, PetalburgCity_Movement_BoyWalkAway
 	waitmovement 0
 	fadedefaultbgm
 	releaseall
 	end
 
 PetalburgCity_EventScript_BoyApproachPlayer0::
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyApproachPlayer0
+	applymovement LOCALID_FALLING_PARTNER, PetalburgCity_Movement_BoyApproachPlayer0
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_BoyApproachPlayer1::
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyApproachPlayer1
+	applymovement LOCALID_FALLING_PARTNER, PetalburgCity_Movement_BoyApproachPlayer1
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_BoyApproachPlayer2::
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyApproachPlayer2
+	applymovement LOCALID_FALLING_PARTNER, PetalburgCity_Movement_BoyApproachPlayer2
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_BoyApproachPlayer3::
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyApproachPlayer3
+	applymovement LOCALID_FALLING_PARTNER, PetalburgCity_Movement_BoyApproachPlayer3
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_LeadPlayerToGym0::
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyWalkToGym0
+	applymovement LOCALID_FALLING_PARTNER, PetalburgCity_Movement_BoyWalkToGym0
 	applymovement LOCALID_PLAYER, PetalburgCity_Movement_PlayerWalkToGym0
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_LeadPlayerToGym1::
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyWalkToGym1
+	applymovement LOCALID_FALLING_PARTNER, PetalburgCity_Movement_BoyWalkToGym1
 	applymovement LOCALID_PLAYER, PetalburgCity_Movement_PlayerWalkToGym1
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_LeadPlayerToGym2::
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyWalkToGym2
+	applymovement LOCALID_FALLING_PARTNER, PetalburgCity_Movement_BoyWalkToGym2
 	applymovement LOCALID_PLAYER, PetalburgCity_Movement_PlayerWalkToGym2
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_LeadPlayerToGym3::
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyWalkToGym3
+	applymovement LOCALID_FALLING_PARTNER, PetalburgCity_Movement_BoyWalkToGym3
 	applymovement LOCALID_PLAYER, PetalburgCity_Movement_PlayerWalkToGym3
 	waitmovement 0
 	return

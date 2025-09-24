@@ -1162,6 +1162,16 @@ bool8 ScrCmd_getplayerxy(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_setplayerxy(struct ScriptContext *ctx)
+{
+    s32 x = ScriptReadHalfword(ctx);
+    s32 y = ScriptReadHalfword(ctx);
+
+    gSaveBlock1Ptr->pos.x = x;
+    gSaveBlock1Ptr->pos.y = y;
+    return FALSE;
+}
+
 bool8 ScrCmd_getpartysize(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1);
@@ -3320,5 +3330,10 @@ void PlayEggHatchAnimation(struct ScriptContext *ctx)
     u32 speciesId = ScriptReadHalfword(ctx);
     bool8 isShiny = ScriptReadByte(ctx);
     const u8 *name = (const u8 *) ScriptReadWord(ctx);
-    EggHatchAnim(speciesId, isShiny, name);
+    EggHatchAnim(speciesId, isShiny, name, FALSE);
+}
+
+void PlayFastEggHatchAnimation(struct ScriptContext *ctx)
+{
+    EggHatchAnim(0, 0, NULL, TRUE);
 }

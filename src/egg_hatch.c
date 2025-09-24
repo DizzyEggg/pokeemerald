@@ -50,16 +50,14 @@
 struct EggHatchData
 {
     u8 eggSpriteId;
+    u8 eggSpriteId2;
     u8 monSpriteId;
+    u8 monSpriteId2;
     u8 state;
     u8 delayTimer;
     u8 eggPartyId;
-    u8 unused_5;
-    u8 unused_6;
     u8 eggShardVelocityId;
     u8 windowId;
-    u8 unused_9;
-    u8 unused_A;
     u16 species;
     u8 textColor[3];
 };
@@ -86,6 +84,8 @@ static struct EggHatchData *sEggHatchData;
 static EWRAM_DATA u16 sEggHatchSpecies;
 static EWRAM_DATA bool8 sIsJustEggHatchAnim;
 static EWRAM_DATA bool8 sEggHatchShiny;
+static EWRAM_DATA bool8 sEggHatchFast;
+static EWRAM_DATA bool8 sEggHatchTwo;
 static EWRAM_DATA const u8 *sEggHatchName;
 
 static const u16 sEggPalette[]  = INCBIN_U16("graphics/pokemon/egg/normal.gbapal");
@@ -428,26 +428,25 @@ bool8 CheckDaycareMonReceivedMail(void)
     return _CheckDaycareMonReceivedMail(&gSaveBlock1Ptr->daycare, gSpecialVar_0x8004);
 }
 
+static EWRAM_DATA struct SpriteTemplate sMonSprTemplates[2] = {0};
+
 static u8 EggHatchCreateMonSprite(u8 useAlt, u8 state, u8 partyId, u16 *speciesLoc)
 {
     u8 position = 0;
     u8 spriteId = 0;
-    struct Pokemon *mon = NULL;
+    struct Pokemon *mon = &gPlayerParty[partyId];
     u16 species = SPECIES_NONE;
 
     if (useAlt == FALSE)
     {
-        mon = &gPlayerParty[partyId];
         position = B_POSITION_OPPONENT_LEFT;
     }
     if (useAlt == TRUE)
     {
-        // Alternate sprite allocation position. Never reached.
-        mon = &gPlayerParty[partyId];
         position = B_POSITION_OPPONENT_RIGHT;
     }
 
-    if (sIsJustEggHatchAnim)
+    if (sIsJustEggHatchAnim && sEggHatchSpecies != SPECIES_NONE)
         species = sEggHatchSpecies;
     else
         species = GetMonData(mon, MON_DATA_SPECIES);
@@ -458,19 +457,33 @@ static u8 EggHatchCreateMonSprite(u8 useAlt, u8 state, u8 partyId, u16 *speciesL
         {
             u32 pid = GetMonData(mon, MON_DATA_PERSONALITY);
             HandleLoadSpecialPokePic(TRUE,
-                                     gMonSpritesGfxPtr->spritesGfx[(useAlt * 2) + B_POSITION_OPPONENT_LEFT],
+                                     gMonSpritesGfxPtr->spritesGfx[position],
                                      species, pid);
             if (sIsJustEggHatchAnim)
-                LoadSpritePaletteWithTag(GetMonSpritePalFromSpecies(species, sEggHatchShiny, 0), species);
+                LoadSpritePaletteWithTag(GetMonSpritePalFromSpecies(species, sEggHatchTwo ? TRUE : sEggHatchShiny, 0), species);
             else
                 LoadSpritePaletteWithTag(GetMonFrontSpritePal(mon), species);
-            *speciesLoc = species;
+
+            if (speciesLoc != NULL) {
+                *speciesLoc = species;
+            }
         }
         break;
     case 1:
         // Create mon sprite
-        SetMultiuseSpriteTemplateToPokemon(species, position);
-        spriteId = CreateSprite(&gMultiuseSpriteTemplate, EGG_X, EGG_Y, 6);
+        SetSpriteTemplateToPokemon(&sMonSprTemplates[partyId], species, position);
+        if (sEggHatchTwo) {
+            if (partyId == 0) {
+                spriteId = CreateSprite(&sMonSprTemplates[partyId], EGG_X - 20, EGG_Y + 10, 6);
+            }
+            else {
+                spriteId = CreateSprite(&sMonSprTemplates[partyId], EGG_X + 20, EGG_Y + 10, 6);
+            }
+        }
+        else {
+            spriteId = CreateSprite(&sMonSprTemplates[partyId], EGG_X, EGG_Y, 6);
+        }
+
         gSprites[spriteId].invisible = TRUE;
         gSprites[spriteId].callback = SpriteCallbackDummy;
         break;
@@ -492,12 +505,14 @@ void EggHatch(void)
     FadeScreen(FADE_TO_BLACK, 0);
 }
 
-void EggHatchAnim(u32 speciesId, bool8 isShiny, const u8 *name)
+void EggHatchAnim(u32 speciesId, bool8 isShiny, const u8 *name, bool8 fastDoubleAnim)
 {
     sIsJustEggHatchAnim = TRUE;
     sEggHatchSpecies = speciesId;
     sEggHatchShiny = isShiny;
     sEggHatchName = name;
+    sEggHatchFast = fastDoubleAnim;
+    sEggHatchTwo = fastDoubleAnim;
     EggHatch();
 }
 
@@ -572,11 +587,25 @@ static void CB2_LoadEggHatch(void)
         gMain.state++;
         break;
     case 5:
-        EggHatchCreateMonSprite(FALSE, 0, sEggHatchData->eggPartyId, &sEggHatchData->species);
+        if (sEggHatchTwo) {
+            EggHatchCreateMonSprite(FALSE, 0, 0, NULL);
+            EggHatchCreateMonSprite(TRUE, 0, 1, NULL);
+        }
+        else {
+            EggHatchCreateMonSprite(FALSE, 0, sEggHatchData->eggPartyId, &sEggHatchData->species);
+        }
+
         gMain.state++;
         break;
     case 6:
-        sEggHatchData->monSpriteId = EggHatchCreateMonSprite(FALSE, 1, sEggHatchData->eggPartyId, &sEggHatchData->species);
+        if (sEggHatchTwo) {
+            sEggHatchData->monSpriteId = EggHatchCreateMonSprite(FALSE, 1, 0, NULL);
+            sEggHatchData->monSpriteId2 = EggHatchCreateMonSprite(TRUE, 1, 1, NULL);
+        }
+        else {
+            sEggHatchData->monSpriteId = EggHatchCreateMonSprite(FALSE, 1, sEggHatchData->eggPartyId, &sEggHatchData->species);
+            sEggHatchData->monSpriteId2 = MAX_SPRITES;
+        }
         gMain.state++;
         break;
     case 7:
@@ -638,6 +667,8 @@ static u32 GetEggHatchSpecies(void)
     }
 }
 
+const u8 gText_HatchedFromEggs[] = _("{STR_VAR_1} hatched!");
+
 static void CB2_EggHatch(void)
 {
     u16 species;
@@ -648,7 +679,15 @@ static void CB2_EggHatch(void)
     {
     case 0:
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
-        sEggHatchData->eggSpriteId = CreateSprite(&sSpriteTemplate_Egg, EGG_X, EGG_Y, 5);
+        if (sEggHatchTwo) {
+            sEggHatchData->eggSpriteId = CreateSprite(&sSpriteTemplate_Egg, EGG_X - 20, EGG_Y, 5);
+            sEggHatchData->eggSpriteId2 = CreateSprite(&sSpriteTemplate_Egg, EGG_X + 20, EGG_Y, 5);
+        }
+        else {
+            sEggHatchData->eggSpriteId = CreateSprite(&sSpriteTemplate_Egg, EGG_X, EGG_Y, 5);
+            sEggHatchData->eggSpriteId2 = MAX_SPRITES;
+        }
+
         ShowBg(0);
         ShowBg(1);
         sEggHatchData->state++;
@@ -668,37 +707,61 @@ static void CB2_EggHatch(void)
             // Start hatching animation
             sEggHatchData->state++;
             gSprites[sEggHatchData->eggSpriteId].callback = SpriteCB_Egg_Shake1;
+            if (sEggHatchTwo) {
+                gSprites[sEggHatchData->eggSpriteId2].callback = SpriteCB_Egg_Shake1;
+            }
         }
         break;
     case 3:
         // Wait for hatching animation to finish
-        if (gSprites[sEggHatchData->eggSpriteId].callback == SpriteCallbackDummy)
+        if (gSprites[sEggHatchData->eggSpriteId].callback == SpriteCallbackDummy
+            && (sEggHatchData->eggSpriteId2 == MAX_SPRITES || gSprites[sEggHatchData->eggSpriteId2].callback == SpriteCallbackDummy))
         {
-            species = GetEggHatchSpecies();
-            DoMonFrontSpriteAnimation(&gSprites[sEggHatchData->monSpriteId], species, FALSE, 1);
+            if (sEggHatchTwo) {
+                DoMonFrontSpriteAnimation(&gSprites[sEggHatchData->monSpriteId], GetMonData(&gPlayerParty[0], MON_DATA_SPECIES), FALSE, 1);
+                DoMonFrontSpriteAnimation(&gSprites[sEggHatchData->monSpriteId2], GetMonData(&gPlayerParty[1], MON_DATA_SPECIES), FALSE, 1);
+            }
+            else {
+                species = GetEggHatchSpecies();
+                DoMonFrontSpriteAnimation(&gSprites[sEggHatchData->monSpriteId], species, FALSE, 1);
+            }
+
             sEggHatchData->state++;
         }
         break;
     case 4:
         // Wait for Pokémon's front sprite animation
-        if (gSprites[sEggHatchData->monSpriteId].callback == SpriteCallbackDummy)
+        if (gSprites[sEggHatchData->monSpriteId].callback == SpriteCallbackDummy
+            && (sEggHatchData->monSpriteId2 == sEggHatchData->monSpriteId || gSprites[sEggHatchData->monSpriteId2].callback == SpriteCallbackDummy))
             sEggHatchData->state++;
         break;
     case 5:
         // "{mon} hatched from egg" message/fanfare
         if (sIsJustEggHatchAnim) {
-            if (sEggHatchName != NULL) {
-                StringCopy(gStringVar1, sEggHatchName);
+            if (sEggHatchTwo) {
+                u8 name1[20];
+                u8 name2[20];
+                static const u8 andText[] = _(" and ");
+                GetMonNickname(&gPlayerParty[0], name1);
+                GetMonNickname(&gPlayerParty[1], name2);
+                StringCopy(gStringVar1, name1);
+                StringAppend(gStringVar1, andText);
+                StringAppend(gStringVar1, name2);
             }
             else {
-                StringCopy(gStringVar1, GetSpeciesName(sEggHatchSpecies));
+               if (sEggHatchName != NULL) {
+                    StringCopy(gStringVar1, sEggHatchName);
+                }
+                else {
+                    StringCopy(gStringVar1, GetSpeciesName(sEggHatchSpecies));
+                }
             }
         }
         else {
             GetMonNickname(&gPlayerParty[sEggHatchData->eggPartyId], gStringVar1);
         }
 
-        StringExpandPlaceholders(gStringVar4, gText_HatchedFromEgg);
+        StringExpandPlaceholders(gStringVar4, sEggHatchTwo ? gText_HatchedFromEggs : gText_HatchedFromEgg);
         EggHatchPrintMessage(sEggHatchData->windowId, gStringVar4, 0, 3, TEXT_SKIP_DRAW);
         PlayFanfare(MUS_EVOLVED);
         sEggHatchData->state++;
@@ -905,6 +968,8 @@ static void SpriteCB_Egg_Reveal(struct Sprite *sprite)
     {
         // Reveal hatched Pokémon
         gSprites[sEggHatchData->monSpriteId].invisible = FALSE;
+        if (sEggHatchData->monSpriteId2 < MAX_SPRITES)
+            gSprites[sEggHatchData->monSpriteId2].invisible = FALSE;
         StartSpriteAffineAnim(&gSprites[sEggHatchData->monSpriteId], BATTLER_AFFINE_EMERGE);
     }
 
@@ -912,8 +977,11 @@ static void SpriteCB_Egg_Reveal(struct Sprite *sprite)
     if (sprite->sTimer == 8)
         BeginNormalPaletteFade(PALETTES_ALL, -1, 16, 0, RGB_WHITEALPHA);
 
-    if (sprite->sTimer <= 9)
+    if (sprite->sTimer <= 9) {
         gSprites[sEggHatchData->monSpriteId].y--;
+        if (sEggHatchData->monSpriteId2 < MAX_SPRITES)
+            gSprites[sEggHatchData->monSpriteId2].y--;
+    }
 
     if (sprite->sTimer > 40)
         sprite->callback = SpriteCallbackDummy; // Finished

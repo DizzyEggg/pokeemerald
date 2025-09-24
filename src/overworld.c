@@ -721,6 +721,10 @@ void SetWarpDestinationToLastHealLocation(void)
         SetWhiteoutRespawnWarpAndHealerNPC(&sWarpDestination);
     else
         sWarpDestination = gSaveBlock1Ptr->lastHealLocation;
+
+    // Start from the mansion's window
+    sWarpDestination.x = 27;
+    sWarpDestination.y = 24;
 }
 
 void SetLastHealLocationWarp(u8 healLocationId)
@@ -1798,15 +1802,21 @@ void CB2_NewGame(void)
     SetFieldVBlankCallback();
     SetMainCallback1(CB1_Overworld);
     SetMainCallback2(CB2_Overworld);
-    EggHatchAnim(SPECIES_PHANPY, TRUE, sStringYou);
+    EggHatchAnim(SPECIES_PHANPY, TRUE, sStringYou, FALSE);
 }
+
+extern const u8 Fountain_EventScript_Whiteout[];
 
 void CB2_WhiteOut(void)
 {
     u8 state;
 
-    if (++gMain.state >= 120)
+    if (++gMain.state >= 12)
     {
+        u16 species1 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+        u16 species2 = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES);
+        u16 partnerSpecies = (gSaveBlock2Ptr->playerSpriteMonId == species1) ? species2 : species1;
+        VarSet(VAR_OBJ_GFX_ID_0, partnerSpecies + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY);
         FieldClearVBlankHBlankCallbacks();
         StopMapMusic();
         ResetSafariZoneFlag_();
@@ -1814,12 +1824,9 @@ void CB2_WhiteOut(void)
         ResetInitialPlayerAvatarState();
         ScriptContext_Init();
         UnlockPlayerFieldControls();
-        if (IsFRLGWhiteout())
-            gFieldCallback = FieldCB_RushInjuredPokemonToCenter;
-        else
-            gFieldCallback = FieldCB_WarpExitFadeFromBlack;
+        ScriptContext_SetupScript(Fountain_EventScript_Whiteout);
         state = 0;
-        SetFollowerNPCData(FNPC_DATA_SURF_BLOB, FNPC_SURF_BLOB_NONE);
+        //SetFollowerNPCData(FNPC_DATA_SURF_BLOB, FNPC_SURF_BLOB_NONE);
         DoMapLoadLoop(&state);
         SetFieldVBlankCallback();
         SetMainCallback1(CB1_Overworld);

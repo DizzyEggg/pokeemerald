@@ -2135,20 +2135,20 @@ u32 GetUnownSpeciesId(u32 personality)
     return unownLetter + SPECIES_UNOWN_B - 1;
 }
 
-void SetMultiuseSpriteTemplateToPokemon(u16 speciesTag, u8 battlerPosition)
+void SetSpriteTemplateToPokemon(struct SpriteTemplate *sprTemplate, u16 speciesTag, u8 battlerPosition)
 {
     if (gMonSpritesGfxPtr != NULL)
-        gMultiuseSpriteTemplate = gMonSpritesGfxPtr->templates[battlerPosition];
+        *sprTemplate = gMonSpritesGfxPtr->templates[battlerPosition];
     else if (sMonSpritesGfxManagers[MON_SPR_GFX_MANAGER_A])
-        gMultiuseSpriteTemplate = sMonSpritesGfxManagers[MON_SPR_GFX_MANAGER_A]->templates[battlerPosition];
+        *sprTemplate = sMonSpritesGfxManagers[MON_SPR_GFX_MANAGER_A]->templates[battlerPosition];
     else if (sMonSpritesGfxManagers[MON_SPR_GFX_MANAGER_B])
-        gMultiuseSpriteTemplate = sMonSpritesGfxManagers[MON_SPR_GFX_MANAGER_B]->templates[battlerPosition];
+        *sprTemplate = sMonSpritesGfxManagers[MON_SPR_GFX_MANAGER_B]->templates[battlerPosition];
     else
-        gMultiuseSpriteTemplate = gBattlerSpriteTemplates[battlerPosition];
+        *sprTemplate = gBattlerSpriteTemplates[battlerPosition];
 
-    gMultiuseSpriteTemplate.paletteTag = speciesTag;
+    sprTemplate->paletteTag = speciesTag;
     if (battlerPosition == B_POSITION_PLAYER_LEFT || battlerPosition == B_POSITION_PLAYER_RIGHT)
-        gMultiuseSpriteTemplate.anims = gAnims_MonPic;
+        sprTemplate->anims = gAnims_MonPic;
     else
     {
         if (speciesTag > SPECIES_SHINY_TAG)
@@ -2156,10 +2156,15 @@ void SetMultiuseSpriteTemplateToPokemon(u16 speciesTag, u8 battlerPosition)
 
         speciesTag = SanitizeSpeciesId(speciesTag);
         if (gSpeciesInfo[speciesTag].frontAnimFrames != NULL)
-            gMultiuseSpriteTemplate.anims = gSpeciesInfo[speciesTag].frontAnimFrames;
+            sprTemplate->anims = gSpeciesInfo[speciesTag].frontAnimFrames;
         else
-            gMultiuseSpriteTemplate.anims = gSpeciesInfo[SPECIES_NONE].frontAnimFrames;
+            sprTemplate->anims = gSpeciesInfo[SPECIES_NONE].frontAnimFrames;
     }
+}
+
+void SetMultiuseSpriteTemplateToPokemon(u16 speciesTag, u8 battlerPosition)
+{
+    SetSpriteTemplateToPokemon(&gMultiuseSpriteTemplate, speciesTag, battlerPosition);
 }
 
 void SetMultiuseSpriteTemplateToTrainerBack(u16 trainerPicId, u8 battlerPosition)

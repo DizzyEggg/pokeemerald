@@ -176,6 +176,8 @@ static u64 GetWildAiFlags(void)
     if (B_VAR_WILD_AI_FLAGS != 0 && VarGet(B_VAR_WILD_AI_FLAGS) != 0)
         flags |= VarGet(B_VAR_WILD_AI_FLAGS);
 
+    flags = AI_FLAG_BASIC_TRAINER;
+
     return flags;
 }
 
