@@ -488,6 +488,8 @@ static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, 
     return ROOM_NOTHING;
 }
 
+extern const u8 EventScript_MansionDoorLocked[];
+
 bool32 SetMansionWarpDestination(const struct WarpEvent *warpEvent)
 {
     s32 warpId;
@@ -525,6 +527,8 @@ bool32 SetMansionWarpDestination(const struct WarpEvent *warpEvent)
     // Find the warp with an opposite direction
     warpId = FindRndWarpInMap(dstMapGroup, dstMapNum, retWarpDir);
     if (warpId == -1) {
+        // Print Door is jammed msg
+        ScriptContext_SetupScript(EventScript_MansionDoorLocked);
         return FALSE;
     }
 

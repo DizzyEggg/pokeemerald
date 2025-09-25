@@ -147,4 +147,15 @@ EventScript_DoMansionBattleAfterSetup:
 EventScript_DoMansionDoubleBattle::
     mansionwildbattle TRUE
     goto EventScript_DoMansionBattleAfterSetup
+    
+Text_DoorLocked:
+	.string "This door is jammed.$"
+    
+EventScript_MansionDoorLocked::
+    lock
+    msgbox Text_DoorLocked, MSGBOX_SIGN
+    waitmessage
+    closemessage
+    release
+    end
 
