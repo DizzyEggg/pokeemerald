@@ -45,17 +45,24 @@
   ],
   "warp_events": [
     {
-      "x": 10,
-      "y": 21,
+      "x": 9,
+      "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY",
+      "dest_map": "MAP_RND_MANSION_LEFT",
       "dest_warp_id": "0"
     },
     {
-      "x": 7,
+      "x": 10,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ENTRANCE",
+      "dest_map": "MAP_RND_MANSION_UP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_RND_MANSION_RIGHT",
       "dest_warp_id": "0"
     }
   ],

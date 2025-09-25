@@ -385,7 +385,7 @@ void NewGameInitData(void)
     SetDummyPlayerName();
     SetFirstPlayerSprite();
     SetAvailableItems(&uniqueItems);
-    GenerateMansionFloorLayout(gSaveBlock1Ptr->mansionFloor1Grid);
+    GenerateAllMansionFloorLayouts();
     SetStartingPokemon();
 }
 

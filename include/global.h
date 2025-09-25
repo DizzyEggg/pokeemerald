@@ -1104,6 +1104,8 @@ struct SaveBlock1
     /*0x1C*/ struct WarpData lastHealLocation; // used by white-out and teleport
     /*0x24*/ struct WarpData escapeWarp; // used by Dig and Escape Rope
     u8 mansionFloor1Grid[GRID_X_LEN][GRID_Y_LEN]; // Randomized layout for floor 1
+    u8 mansionFloor2Grid[GRID_X_LEN][GRID_Y_LEN]; // Randomized layout for floor 2
+    u8 mansionFloor3Grid[GRID_X_LEN][GRID_Y_LEN]; // Randomized layout for floor 3
     /*0x2C*/ u16 savedMusic;
     /*0x2E*/ u8 weather;
     /*0x2F*/ u8 weatherCycleStage;

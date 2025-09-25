@@ -65,6 +65,7 @@
 #include "trainer_hill.h"
 #include "trainer_pokemon_sprites.h"
 #include "tv.h"
+#include "mansion_floor_generation.h"
 #include "scanline_effect.h"
 #include "wild_encounter.h"
 #include "vs_seeker.h"
@@ -1837,7 +1838,7 @@ static void IncrementMansionDeathsVar(void)
     *varPtr += 1;
 }
 
-static void HandleFlagsAfterRunOver(void)
+static void HandleFlagsAndEventsAfterRunOver(void)
 {
     // Handle player partner's falling sprite
     u16 species1 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
@@ -1848,6 +1849,7 @@ static void HandleFlagsAfterRunOver(void)
 
     IncrementMansionDeathsVar();
     ChooseRandomFloorMons();
+    GenerateAllMansionFloorLayouts();
 }
 
 void CB2_WhiteOut(void)
@@ -1856,7 +1858,7 @@ void CB2_WhiteOut(void)
 
     if (++gMain.state >= 24)
     {
-        HandleFlagsAfterRunOver();
+        HandleFlagsAndEventsAfterRunOver();
         FieldClearVBlankHBlankCallbacks();
         StopMapMusic();
         ResetSafariZoneFlag_();

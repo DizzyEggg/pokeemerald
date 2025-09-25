@@ -5,7 +5,8 @@
 
 enum ROOM_ENUM MapToRoomEnum(s32 mapGroup, s32 mapNum, s32 floorNum);
 void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floorNum);
-void GenerateMansionFloorLayout(u8 roomsGrid[GRID_X_LEN][GRID_Y_LEN]);
+void GenerateMansionFloorLayout(u8 roomsGrid[GRID_X_LEN][GRID_Y_LEN], s32 floorNum);
 bool32 SetMansionWarpDestination(const struct WarpEvent *warpEvent);
+void GenerateAllMansionFloorLayouts(void);
 
 #endif

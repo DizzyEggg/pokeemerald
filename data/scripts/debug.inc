@@ -199,11 +199,17 @@ Debug_EventScript_Script_5::
 	release
 	end
 
+@ Prints current randomized floor2 layout
 Debug_EventScript_Script_6::
+	callnative PrintMansionFloor2Layout
+    waitstate
 	release
 	end
 
+@ Prints current randomized floor3 layout
 Debug_EventScript_Script_7::
+	callnative PrintMansionFloor3Layout
+    waitstate
 	release
 	end
 
