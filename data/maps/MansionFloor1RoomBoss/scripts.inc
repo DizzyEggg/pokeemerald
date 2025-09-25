@@ -13,8 +13,9 @@ MansionFloor1RoomBoss_OnFrame:
 
 
 MansionFloor1RoomBoss_EventScript_Boss1::
-	goto_if_set FLAG_DEFEATED_SAVORY_SQUAD, MansionFloor1RoomBoss_EventScript_RandomizeBoss
-	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, MansionFloor1RoomBoss_EventScript_SavorySquadScene1
+	@ TOFOLD commented out until savory implemented
+	@goto_if_set FLAG_DEFEATED_SAVORY_SQUAD, MansionFloor1RoomBoss_EventScript_RandomizeBoss
+	@goto_if_set FLAG_DEFEATED_SWEET_SQUAD, MansionFloor1RoomBoss_EventScript_SavorySquadScene1
 	goto_if_set FLAG_FOUGHT_SWEET_SQUAD, MansionFloor1RoomBoss_EventScript_SavorySquadScene1
 	goto MansionFloor1RoomBoss_EventScript_SweetSquadScene1
 	end
@@ -51,14 +52,25 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene1::
 	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite1, FIELD_PIC_VANILLITE_SIGH
 	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite2, FIELD_PIC_VANILLITE_ANGRY
 	delay 20
+	setwildbattle SPECIES_FIDOUGH, 9, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
 	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_CameraMove2
 	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_CameraMove2
 	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_CameraMove2
 	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_CameraMove2
 	waitmovement 0
-	@TOFOLD - add the fight command
-	@setflag FLAG_DEFEATED_SWEET_SQUAD
 	special RemoveCameraObject
+	dowildbattle
+	waitstate
+	setwildbattle SPECIES_SINISTEA, 11, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
+	dowildbattle
+	waitstate
+	@TOFOLD - add the fight command
+	setflag FLAG_DEFEATED_SWEET_SQUAD
+	setflag FLAG_HIDE_SWEET_SQUAD
+	removeobject LOCALID_APPLIN
+	removeobject LOCALID_VANILLITE
+	removeobject LOCALID_FIDOUGH
+	removeobject LOCALID_SINISTEA
 	releaseall
 	end
 
