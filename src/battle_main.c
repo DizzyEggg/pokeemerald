@@ -3852,6 +3852,15 @@ static void TryDoEventsBeforeFirstTurn(void)
         gBattleStruct->eventsBeforeFirstTurnState++;
         break;
     case FIRST_TURN_EVENTS_TOTEM_BOOST:
+        // // Putting it here, because why not. Puts Leech Seed for two player mons.
+        if (FlagGet(FLAG_BATTLE_START_LEECH_SEED))
+        {
+            FlagClear(FLAG_BATTLE_START_LEECH_SEED);
+            u8 oppBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            gStatuses3[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)] |= STATUS3_LEECHSEED | oppBattler;
+            gStatuses3[GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)] |= STATUS3_LEECHSEED | oppBattler;
+        }
+
         for (i = 0; i < gBattlersCount; i++)
         {
             if (gQueuedStatBoosts[i].stats != 0 && !gProtectStructs[i].eatMirrorHerb && gProtectStructs[i].activateOpportunist == 0)
