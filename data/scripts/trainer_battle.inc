@@ -137,9 +137,14 @@ Std_MsgboxAutoclose::
 	return
     
 EventScript_DoMansionBattle::
-    callnative ScriptCmd_SetMansionWildBattle
+    mansionwildbattle FALSE
+EventScript_DoMansionBattleAfterSetup:
     dowildbattle
     removeobject VAR_LAST_TALKED
     release
     return
+    
+EventScript_DoMansionDoubleBattle::
+    mansionwildbattle TRUE
+    goto EventScript_DoMansionBattleAfterSetup
 

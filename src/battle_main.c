@@ -3530,7 +3530,7 @@ static void DoBattleIntro(void)
                     BtlController_EmitDrawTrainerPic(battler, B_COMM_TO_CONTROLLER);
                     MarkBattlerForControllerExec(battler);
                 }
-                else if (SkipTrainerIntro())
+                else if (SkipTrainerIntro() && TwoPlayerIntroMons(battler))
                 {
                     BtlController_EmitLoadMonSprite(battler, B_COMM_TO_CONTROLLER);
                     MarkBattlerForControllerExec(battler);

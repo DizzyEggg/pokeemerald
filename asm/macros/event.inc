@@ -2740,6 +2740,11 @@
 	hide_field_pic \picId
 	.endm
     
+    .macro mansionwildbattle isDouble:req
+    callnative ScriptCmd_SetMansionWildBattle
+    .byte \isDouble
+    .endm
+    
     .macro playegghatchanim species:req, isShiny:req, name:req
     callnative PlayEggHatchAnimation
     .2byte \species

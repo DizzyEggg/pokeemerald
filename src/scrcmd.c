@@ -2546,12 +2546,21 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
 
 void ScriptCmd_SetMansionWildBattle(struct ScriptContext *ctx)
 {
+    bool8 isDouble = ScriptReadByte(ctx);
     struct ObjectEvent *objEvent = &gObjectEvents[gSelectedObjectEvent];
     u16 species = OW_SPECIES(objEvent);
     u8 level = 1;
 
-    CreateScriptedWildMon(species, level, ITEM_NONE);
-    sIsScriptedWildDouble = (GetMonsStateToDoubles_2() == PLAYER_HAS_TWO_USABLE_MONS);
+    gPlayerPartyCount = CalculatePartyCount(gPlayerParty);
+    ZeroEnemyPartyMons();
+    if (isDouble) {
+        sIsScriptedWildDouble = TRUE;
+        CreateScriptedDoubleWildMon(species, level, ITEM_NONE, species, level, ITEM_NONE);
+    }
+    else {
+        sIsScriptedWildDouble = (GetMonsStateToDoubles_2() == PLAYER_HAS_TWO_USABLE_MONS);
+        CreateScriptedWildMon(species, level, ITEM_NONE);
+    }
 }
 
 bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
