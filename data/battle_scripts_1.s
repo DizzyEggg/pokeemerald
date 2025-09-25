@@ -9646,6 +9646,12 @@ BattleScript_EffectSteelsurge::
 	printfromtable gDmgHazardsStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+    
+BattleScript_EffectLevelDown::
+    waitstate
+    printstring STRINGID_LEVELDOWN
+    waitmessage B_WAIT_TIME_LONG
+    goto BattleScript_MoveEnd
 
 @@@ END MAX MOVES @@@
 

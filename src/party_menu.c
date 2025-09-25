@@ -5168,6 +5168,11 @@ static void Task_ClosePartyMenuAfterText(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
+        if (sDoLvlDown) {
+            sDoLvlDown = FALSE;
+            gTasks[taskId].func = Task_DoLevelDown;
+            return;
+        }
         if (gPartyMenuUseExitCallback == FALSE)
             sPartyMenuInternal->exitCallback = NULL;
         Task_ClosePartyMenu(taskId);

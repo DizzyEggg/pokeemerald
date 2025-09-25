@@ -4280,6 +4280,47 @@ void SetMoveEffect(u32 battler, u32 effectBattler, bool32 primary, bool32 certai
         }
         break;
     }
+    case MOVE_EFFECT_LEVEL_DOWN:
+    {
+        s32 currLevel = gBattleMons[gBattlerTarget].level;
+        if (currLevel > MIN_LEVEL)
+        {
+            s32 levelDifference;
+            struct Pokemon *mon = GetBattlerMon(gBattlerTarget);
+            s32 species = GetMonData(mon, MON_DATA_SPECIES);
+            s32 exp;
+            s32 newLevel = currLevel - gMovesInfo[gCurrentMove].argument.level;
+            if (newLevel <= MIN_LEVEL) {
+                newLevel = MIN_LEVEL;
+            }
+            levelDifference = abs(currLevel - newLevel);
+            exp = gExperienceTables[gSpeciesInfo[species].growthRate][newLevel];
+
+            // Show lvl down for player
+            if (GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER)
+            {
+                gBattleResources->beforeLvlUp->stats[STAT_HP]    = GetMonData(mon, MON_DATA_MAX_HP);
+                gBattleResources->beforeLvlUp->stats[STAT_ATK]   = GetMonData(mon, MON_DATA_ATK);
+                gBattleResources->beforeLvlUp->stats[STAT_DEF]   = GetMonData(mon, MON_DATA_DEF);
+                gBattleResources->beforeLvlUp->stats[STAT_SPEED] = GetMonData(mon, MON_DATA_SPEED);
+                gBattleResources->beforeLvlUp->stats[STAT_SPATK] = GetMonData(mon, MON_DATA_SPATK);
+                gBattleResources->beforeLvlUp->stats[STAT_SPDEF] = GetMonData(mon, MON_DATA_SPDEF);
+                gBattleResources->beforeLvlUp->level             = currLevel;
+                gBattleResources->beforeLvlUp->learnMultipleMoves = FALSE;
+            }
+
+            SetMonData(mon, MON_DATA_EXP, &exp);
+            SetMonData(mon, MON_DATA_LEVEL, &newLevel);
+            CalculateMonStats(mon);
+            CopyMonLevelAndBaseStatsToBattleMon(gBattlerTarget, mon);
+            UpdateHealthboxAttribute(gHealthboxSpriteIds[gBattlerTarget], mon, HEALTHBOX_ALL);
+            PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff1, 2, levelDifference);
+            PREPARE_STRING_BUFFER(gBattleTextBuff2, (levelDifference == 1) ? STRINGID_WORD_LEVEL : STRINGID_WORD_LEVELS);
+            BattleScriptPush(gBattlescriptCurrInstr + 1);
+            gBattlescriptCurrInstr = BattleScript_EffectLevelDown;
+        }
+        break;
+    }
     case MOVE_EFFECT_STEELSURGE:
         if (!(gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_STEELSURGE))
         {

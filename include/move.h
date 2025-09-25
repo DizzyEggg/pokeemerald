@@ -152,6 +152,7 @@ struct MoveInfo
         u32 absorbPercentage;
         u32 recoilPercentage;
         u32 nonVolatileStatus;
+        u32 level;
     } argument;
 
     // primary/secondary effects

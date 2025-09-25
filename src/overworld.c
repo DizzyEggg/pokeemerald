@@ -1831,6 +1831,12 @@ void CB2_NewGame(void)
 
 extern const u8 Fountain_EventScript_Whiteout[];
 
+static void IncrementMansionDeathsVar(void)
+{
+    u16 *varPtr = GetVarPointer(VAR_MANSION_DEATHS);
+    *varPtr += 1;
+}
+
 static void HandleFlagsAfterRunOver(void)
 {
     // Handle player partner's falling sprite
@@ -1840,6 +1846,7 @@ static void HandleFlagsAfterRunOver(void)
     VarSet(VAR_OBJ_GFX_ID_0, partnerSpecies + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY);
     FlagClear(FLAG_WHITEOUT_FALLING_PARTNER_NPC);
 
+    IncrementMansionDeathsVar();
     ChooseRandomFloorMons();
 }
 
