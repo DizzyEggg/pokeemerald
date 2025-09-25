@@ -7914,7 +7914,7 @@ static inline u32 IsFieldMudSportAffected(u32 moveType)
                 return TRUE;
         }
     }
-    
+
     return FALSE;
 }
 

@@ -4285,6 +4285,9 @@ void SetMoveEffect(u32 battler, u32 effectBattler, bool32 primary, bool32 certai
         s32 currLevel = gBattleMons[gBattlerTarget].level;
         if (currLevel > MIN_LEVEL)
         {
+            s32 newCurrHp;
+            s32 hpBefore = gBattleMons[gBattlerTarget].hp;
+            s32 maxHpBefore = gBattleMons[gBattlerTarget].maxHP;
             s32 levelDifference;
             struct Pokemon *mon = GetBattlerMon(gBattlerTarget);
             s32 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -4311,9 +4314,18 @@ void SetMoveEffect(u32 battler, u32 effectBattler, bool32 primary, bool32 certai
 
             SetMonData(mon, MON_DATA_EXP, &exp);
             SetMonData(mon, MON_DATA_LEVEL, &newLevel);
-            CalculateMonStats(mon);
-            CopyMonLevelAndBaseStatsToBattleMon(gBattlerTarget, mon);
+            RecalcBattlerStats(gBattlerTarget, mon, FALSE);
+
+            // Calculate the current hp based on previous percentage
+            newCurrHp = (hpBefore * gBattleMons[gBattlerTarget].maxHP) / maxHpBefore;
+            if (newCurrHp <= 1) {
+                newCurrHp = 1;
+            }
+            gBattleMons[gBattlerTarget].hp = newCurrHp;
+            SetMonData(mon, MON_DATA_HP, &newCurrHp);
+
             UpdateHealthboxAttribute(gHealthboxSpriteIds[gBattlerTarget], mon, HEALTHBOX_ALL);
+
             PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff1, 2, levelDifference);
             PREPARE_STRING_BUFFER(gBattleTextBuff2, (levelDifference == 1) ? STRINGID_WORD_LEVEL : STRINGID_WORD_LEVELS);
             BattleScriptPush(gBattlescriptCurrInstr + 1);

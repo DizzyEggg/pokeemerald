@@ -9650,7 +9650,11 @@ BattleScript_EffectSteelsurge::
 BattleScript_EffectLevelDown::
     waitstate
     printstring STRINGID_LEVELDOWN
-    waitmessage B_WAIT_TIME_LONG
+    waitmessage B_WAIT_TIME_SHORT
+    jumpifside BS_TARGET, B_SIDE_OPPONENT, BattleScript_EffectLevelDownEnd
+    setbyte sLVLBOX_STATE, 0
+	drawlvlupbox
+BattleScript_EffectLevelDownEnd:
     goto BattleScript_MoveEnd
 
 @@@ END MAX MOVES @@@
