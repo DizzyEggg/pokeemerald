@@ -8,6 +8,66 @@ u8 (*const gMovementTypeFuncs_WanderAround[])(struct ObjectEvent *, struct Sprit
     MovementType_WanderAround_Step6,
 };
 
+u8 (*const gMovementTypeFuncs_InPlayerDirection[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_InPlayerDirection_Step0,
+    MovementType_InPlayerDirection_Step1,
+    MovementType_InPlayerDirection_Step2,
+    MovementType_InPlayerDirection_Step3,
+    MovementType_InPlayerDirection_Step4,
+    MovementType_InPlayerDirection_Step5,
+    MovementType_InPlayerDirection_Step6,
+};
+
+u8 (*const gMovementTypeFuncs_InPlayerDirectionFaster1[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_InPlayerDirection_Step0,
+    MovementType_InPlayerDirection_Step1,
+    MovementType_InPlayerDirectionFaster1_Step2,
+    MovementType_InPlayerDirection_Step3,
+    MovementType_InPlayerDirection_Step4,
+    MovementType_InPlayerDirection_Step5,
+    MovementType_InPlayerDirection_Step6,
+};
+
+u8 (*const gMovementTypeFuncs_InPlayerDirectionFaster2[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_InPlayerDirection_Step0,
+    MovementType_InPlayerDirection_Step1,
+    MovementType_InPlayerDirectionFaster2_Step2,
+    MovementType_InPlayerDirection_Step3,
+    MovementType_InPlayerDirection_Step4,
+    MovementType_InPlayerDirection_Step5,
+    MovementType_InPlayerDirection_Step6,
+};
+
+u8 (*const gMovementTypeFuncs_InPlayerDirectionFaster3[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_InPlayerDirection_Step0,
+    MovementType_InPlayerDirection_Step1,
+    MovementType_InPlayerDirectionFaster3_Step2,
+    MovementType_InPlayerDirection_Step3,
+    MovementType_InPlayerDirection_Step4,
+    MovementType_InPlayerDirection_Step5,
+    MovementType_InPlayerDirection_Step6,
+};
+
+u8 (*const gMovementTypeFuncs_InPlayerDirectionFaster4[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_InPlayerDirection_Step0,
+    MovementType_InPlayerDirection_Step1,
+    MovementType_InPlayerDirectionFaster4_Step2,
+    MovementType_InPlayerDirection_Step3,
+    MovementType_InPlayerDirection_Step4,
+    MovementType_InPlayerDirection_Step5,
+    MovementType_InPlayerDirection_Step6,
+};
+
+u8 (*const gMovementTypeFuncs_InPlayerDirectionFaster5[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_InPlayerDirection_Step0,
+    MovementType_InPlayerDirection_Step1,
+    MovementType_InPlayerDirectionFaster5_Step2,
+    MovementType_InPlayerDirection_Step3,
+    MovementType_InPlayerDirection_Step4,
+    MovementType_InPlayerDirection_Step5,
+    MovementType_InPlayerDirection_Step6,
+};
+
 const u8 gStandardDirections[] = {DIR_SOUTH, DIR_NORTH, DIR_WEST, DIR_EAST};
 
 u8 (*const gGetVectorDirectionFuncs[])(s16, s16, s16, s16) = {

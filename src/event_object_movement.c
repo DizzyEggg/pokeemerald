@@ -269,6 +269,12 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_NONE] = MovementType_None,
     [MOVEMENT_TYPE_LOOK_AROUND] = MovementType_LookAround,
     [MOVEMENT_TYPE_WANDER_AROUND] = MovementType_WanderAround,
+    [MOVEMENT_TYPE_IN_PLAYERS_DIRECTION] = MovementType_InPlayerDirection,
+    [MOVEMENT_TYPE_IN_PLAYERS_DIRECTION_FASTER1] = MovementType_InPlayerDirectionFaster1,
+    [MOVEMENT_TYPE_IN_PLAYERS_DIRECTION_FASTER2] = MovementType_InPlayerDirectionFaster2,
+    [MOVEMENT_TYPE_IN_PLAYERS_DIRECTION_FASTER3] = MovementType_InPlayerDirectionFaster3,
+    [MOVEMENT_TYPE_IN_PLAYERS_DIRECTION_FASTER4] = MovementType_InPlayerDirectionFaster4,
+    [MOVEMENT_TYPE_IN_PLAYERS_DIRECTION_FASTER5] = MovementType_InPlayerDirectionFaster5,
     [MOVEMENT_TYPE_WANDER_UP_AND_DOWN] = MovementType_WanderUpAndDown,
     [MOVEMENT_TYPE_WANDER_DOWN_AND_UP] = MovementType_WanderUpAndDown,
     [MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT] = MovementType_WanderLeftAndRight,
@@ -756,6 +762,10 @@ static const u16 *const sObjectPaletteTagSets[] = {
 static const s16 sMovementDelaysMedium[] = {32, 64,  96, 128};
 static const s16 sMovementDelaysLong[] =   {32, 64, 128, 192}; // Unused
 static const s16 sMovementDelaysShort[] =  {32, 48,  64,  80};
+static const s16 sMovementDelaysShorter1[] =  {20, 24,  34,  50};
+static const s16 sMovementDelaysShorter2[] =  {15, 20,  24,  40};
+static const s16 sMovementDelaysShorter3[] =  {10, 15,  17,  20};
+static const s16 sMovementDelaysShorter4[] =  {6, 7, 8, 9};
 
 #include "data/object_events/movement_type_func_tables.h"
 
@@ -3778,11 +3788,11 @@ bool8 MovementType_Wander_Step3(struct ObjectEvent *objectEvent, struct Sprite *
     return FALSE;
 }
 
-static bool32 IsObjGhostMon(struct ObjectEvent *objectEvent)
+UNUSED static bool32 IsObjGhostMon(struct ObjectEvent *objectEvent)
 {
     u32 species = objectEvent->graphicsId & OBJ_EVENT_MON_SPECIES_MASK;
 
-    return FALSE;
+    return (GetSpeciesType(species, 0) == TYPE_GHOST || GetSpeciesType(species, 1) == TYPE_GHOST);
 }
 
 bool8 MovementType_WanderAround_Step4(struct ObjectEvent *objectEvent, struct Sprite *sprite)
@@ -3794,7 +3804,7 @@ bool8 MovementType_WanderAround_Step4(struct ObjectEvent *objectEvent, struct Sp
     chosenDirection = directions[Random() & 3];
     SetObjectEventDirection(objectEvent, chosenDirection);
     sprite->sTypeFuncId = 5;
-    if (GetCollisionInDirection(objectEvent, chosenDirection) && !IsObjGhostMon(objectEvent))
+    if (GetCollisionInDirection(objectEvent, chosenDirection))
         sprite->sTypeFuncId = 1;
 
     return TRUE;
@@ -3809,6 +3819,160 @@ bool8 MovementType_WanderAround_Step5(struct ObjectEvent *objectEvent, struct Sp
 }
 
 bool8 MovementType_WanderAround_Step6(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
+    {
+        objectEvent->singleMovementActive = FALSE;
+        sprite->sTypeFuncId = 1;
+    }
+    return FALSE;
+}
+
+movement_type_def(MovementType_InPlayerDirection, gMovementTypeFuncs_InPlayerDirection)
+movement_type_def(MovementType_InPlayerDirectionFaster1, gMovementTypeFuncs_InPlayerDirectionFaster1)
+movement_type_def(MovementType_InPlayerDirectionFaster2, gMovementTypeFuncs_InPlayerDirectionFaster2)
+movement_type_def(MovementType_InPlayerDirectionFaster3, gMovementTypeFuncs_InPlayerDirectionFaster3)
+movement_type_def(MovementType_InPlayerDirectionFaster4, gMovementTypeFuncs_InPlayerDirectionFaster4)
+movement_type_def(MovementType_InPlayerDirectionFaster5, gMovementTypeFuncs_InPlayerDirectionFaster5)
+
+bool8 MovementType_InPlayerDirection_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    ClearObjectEventMovement(objectEvent, sprite);
+    sprite->sTypeFuncId = 1;
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirection_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    ObjectEventSetSingleMovement(objectEvent, sprite, GetFaceDirectionMovementAction(objectEvent->facingDirection));
+    sprite->sTypeFuncId = 2;
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirection_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (!ObjectEventExecSingleMovementAction(objectEvent, sprite))
+        return FALSE;
+    SetMovementDelay(sprite, sMovementDelaysMedium[Random() % ARRAY_COUNT(sMovementDelaysMedium)]);
+    sprite->sTypeFuncId = 3;
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirectionFaster1_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (!ObjectEventExecSingleMovementAction(objectEvent, sprite))
+        return FALSE;
+    SetMovementDelay(sprite, sMovementDelaysShort[Random() % ARRAY_COUNT(sMovementDelaysShort)]);
+    sprite->sTypeFuncId = 3;
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirectionFaster2_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (!ObjectEventExecSingleMovementAction(objectEvent, sprite))
+        return FALSE;
+    SetMovementDelay(sprite, sMovementDelaysShorter1[Random() % ARRAY_COUNT(sMovementDelaysShorter1)]);
+    sprite->sTypeFuncId = 3;
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirectionFaster3_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (!ObjectEventExecSingleMovementAction(objectEvent, sprite))
+        return FALSE;
+    SetMovementDelay(sprite, sMovementDelaysShorter2[Random() % ARRAY_COUNT(sMovementDelaysShorter2)]);
+    sprite->sTypeFuncId = 3;
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirectionFaster4_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (!ObjectEventExecSingleMovementAction(objectEvent, sprite))
+        return FALSE;
+    SetMovementDelay(sprite, sMovementDelaysShorter3[Random() % ARRAY_COUNT(sMovementDelaysShorter3)]);
+    sprite->sTypeFuncId = 3;
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirectionFaster5_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (!ObjectEventExecSingleMovementAction(objectEvent, sprite))
+        return FALSE;
+    SetMovementDelay(sprite, sMovementDelaysShorter4[Random() % ARRAY_COUNT(sMovementDelaysShorter4)]);
+    sprite->sTypeFuncId = 3;
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirection_Step3(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (WaitForMovementDelay(sprite))
+    {
+        // resets a mid-movement sprite
+        ClearObjectEventMovement(objectEvent, sprite);
+        sprite->sTypeFuncId = 4;
+        return TRUE;
+    }
+    else if (OW_MON_WANDER_WALK == TRUE && IS_OW_MON_OBJ(objectEvent))
+    {
+        UpdateMonMoveInPlace(objectEvent, sprite);
+    }
+    return FALSE;
+}
+
+bool8 MovementType_InPlayerDirection_Step4(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    s32 i;
+    s16 playerX, playerY;
+    u8 chosenDirection;
+    s16 objX = objectEvent->currentCoords.x;
+    s16 objY = objectEvent->currentCoords.y;
+    s32 distanceX, distanceY;
+    u8 directions[4];
+
+    memcpy(directions, gStandardDirections, sizeof(gStandardDirections));
+    Shuffle8(directions, ARRAY_COUNT(directions));
+
+    PlayerGetDestCoords(&playerX, &playerY);
+    distanceX = abs(playerX - objX);
+    distanceY = abs(playerY - objY);
+
+    for (i = 0; i < 4; i++) {
+        chosenDirection = directions[i];
+        if (GetCollisionInDirection(objectEvent, chosenDirection) == COLLISION_NONE) {
+            // Check if it's in player's direction
+            s16 newObjX = objX, newObjY = objY;
+            s32 newDistanceX, newDistanceY;
+
+            MoveCoords(chosenDirection, &newObjX, &newObjY);
+            newDistanceX = abs(playerX - newObjX);
+            newDistanceY = abs(playerY - newObjY);
+
+            if (newDistanceX < distanceX || newDistanceY < distanceY) {
+                SetObjectEventDirection(objectEvent, chosenDirection);
+                sprite->sTypeFuncId = 5;
+                return TRUE;;
+            }
+        }
+    }
+
+    chosenDirection = directions[Random() & 3];
+    SetObjectEventDirection(objectEvent, chosenDirection);
+    sprite->sTypeFuncId = 5;
+    if (GetCollisionInDirection(objectEvent, chosenDirection))
+        sprite->sTypeFuncId = 1;
+
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirection_Step5(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkNormalMovementAction(objectEvent->movementDirection));
+    objectEvent->singleMovementActive = TRUE;
+    sprite->sTypeFuncId = 6;
+    return TRUE;
+}
+
+bool8 MovementType_InPlayerDirection_Step6(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
     {
