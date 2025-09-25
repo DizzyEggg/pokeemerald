@@ -406,7 +406,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Fountain_EventScript_PhotoStump",
-      "flag": "0"
+      "flag": "FLAG_OBTAINED_ANY_PHOTO"
     }
   ],
   "warp_events": [
@@ -1106,6 +1106,15 @@
       "type": "trigger",
       "x": 20,
       "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "0",
+      "script": "Fountain_EventScript_Abra_Stacks_Trigger"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 36,
       "elevation": 0,
       "var": "VAR_TEMP_6",
       "var_value": "0",

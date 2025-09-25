@@ -204,9 +204,12 @@ Fountain_EventScript_IntroScene::
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_HIDE_SAVORY_SQUAD
+	setflag FLAG_HIDE_BOSS3_SOLO
+	setflag FLAG_HIDE_BOSS3_DUO 
 	setrespawn HEAL_LOCATION_PETALBURG_CITY
 	setvar VAR_PETALBURG_CITY_STATE 1
 	warpsilent MAP_PETALBURG_CITY,24,46
+	addobject LOCALID_ABRA_WELL
 	release
 	releaseall
 	end
