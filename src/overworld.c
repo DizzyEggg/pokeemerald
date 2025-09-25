@@ -1840,6 +1840,7 @@ static void IncrementMansionDeathsVar(void)
 
 static void HandleFlagsAndEventsAfterRunOver(void)
 {
+    struct UniqueItems uniqueItems = gSaveBlock1Ptr->availableItems.unique;
     // Handle player partner's falling sprite
     u16 species1 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
     u16 species2 = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES);
@@ -1847,9 +1848,14 @@ static void HandleFlagsAndEventsAfterRunOver(void)
     VarSet(VAR_OBJ_GFX_ID_0, partnerSpecies + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY);
     FlagClear(FLAG_WHITEOUT_FALLING_PARTNER_NPC);
 
-    IncrementMansionDeathsVar();
+    // Randomize these vars, so that the next time player enters these floors, the opponents will be randomized. Floor1 opponents done here.
+    VarSet(VAR_FLOOR2_ENTRANCE_STATE, 0);
+    VarSet(VAR_FLOOR3_ENTRANCE_STATE, 0);
     ChooseRandomFloorMons();
+
+    IncrementMansionDeathsVar();
     GenerateAllMansionFloorLayouts();
+    SetAvailableItems(&uniqueItems);
 }
 
 void CB2_WhiteOut(void)
