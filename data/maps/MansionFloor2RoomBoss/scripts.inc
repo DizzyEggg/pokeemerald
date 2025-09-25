@@ -18,16 +18,16 @@ MansionFloor2RoomBoss_EventScript_HaunterScene1::
 	applymovement LOCALID_HAUNTER, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 20
-	msgbox_portrait MansionFloor2RoomBoss_Text_Haunter1, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait MansionFloor2RoomBoss_Text_Haunter1, FIELD_PIC_HAUNTER_INSPIRED
 	delay 80
 	applymovement LOCALID_HAUNTER, MansionFloor2RoomBoss_LookLeft
 	waitmovement 0
 	delay 100
-	msgbox_portrait MansionFloor2RoomBoss_Text_Haunter2, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait MansionFloor2RoomBoss_Text_Haunter2, FIELD_PIC_HAUNTER_SIGH
 	delay 20
 	applymovement LOCALID_HAUNTER, MansionFloor2RoomBoss_LookRight
 	waitmovement 0
-	msgbox_portrait MansionFloor2RoomBoss_Text_Haunter3, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait MansionFloor2RoomBoss_Text_Haunter3, FIELD_PIC_HAUNTER_YELL
 	@TOFOLD add the battle, L20 Haunter + L40 sleeping Snorlax
 	releaseall
 	end

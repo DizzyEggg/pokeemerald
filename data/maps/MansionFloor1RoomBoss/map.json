@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SWEET_SQUAD"
     },
     {
       "local_id": "LOCALID_APPLIN",
@@ -40,7 +40,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SWEET_SQUAD"
     },
     {
       "local_id": "LOCALID_VANILLITE",
@@ -54,7 +54,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SWEET_SQUAD"
     },
     {
       "local_id": "LOCALID_SINISTEA",
@@ -68,7 +68,63 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SWEET_SQUAD"
+    },
+    {
+      "local_id": "LOCALID_SMOLIV",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SMOLIV)",
+      "x": 15,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_SAVORY_SQUAD"
+    },
+    {
+      "local_id": "LOCALID_NACLI",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(NACLI)",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_SAVORY_SQUAD"
+    },
+    {
+      "local_id": "LOCALID_FARFETCHD",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(FARFETCHD)",
+      "x": 13,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_SAVORY_SQUAD"
+    },
+    {
+      "local_id": "LOCALID_TATSUGIRI",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TATSUGIRI)",
+      "x": 12,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_SAVORY_SQUAD"
     }
   ],
   "warp_events": [
@@ -102,7 +158,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "MansionFloor1RoomBoss_EventScript_SugarSquadScene1"
+      "script": "MansionFloor1RoomBoss_EventScript_Boss1"
     }
   ],
   "bg_events": []

@@ -190,7 +190,17 @@
     "MansionFloor1TreasureLeft",
     "MansionFloor1TreasureRight",
     "MansionFloor1TreasureUp",
-    "MansionFloor3RoomBoss"
+    "MansionFloor3RoomBoss",
+    "MansionFloor2Room1",
+    "MansionFloor2Room2",
+    "MansionFloor2Room3",
+    "MansionFloor2Room4",
+    "MansionFloor2Hallway2",
+    "MansionFloor2TreasureDown",
+    "MansionFloor2TreasureLeft",
+    "MansionFloor2TreasureRight",
+    "MansionFloor2TreasureUp",
+    "MansionFloor2Hallway1"
   ],
   "gMapGroup_IndoorSlateport": [
     "SlateportCity_SternsShipyard_1F",
