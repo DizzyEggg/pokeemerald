@@ -1282,10 +1282,10 @@
 #define FLAG_DEFEATED_SAVORY_SQUAD                                  0x4CA // Unused Flag
 #define FLAG_HIDE_SAVORY_SQUAD                                      0x4CB // Unused Flag
 #define FLAG_HIDE_SWEET_SQUAD                                       0x4CC // Unused Flag
-#define FLAG_UNUSED_0x4CD                                           0x4CD // Unused Flag
-#define FLAG_UNUSED_0x4CE                                           0x4CE // Unused Flag
-#define FLAG_UNUSED_0x4CF                                           0x4CF // Unused Flag
-#define FLAG_UNUSED_0x4D0                                           0x4D0 // Unused Flag
+#define FLAG_HIDE_BOSS3_TRIO                                        0x4CD // Unused Flag
+#define FLAG_HIDE_BOSS3_DUO                                         0x4CE // Unused Flag
+#define FLAG_HIDE_BOSS3_SOLO                                        0x4CF // Unused Flag
+#define FLAG_OBTAINED_ANY_PHOTO                                     0x4D0 // Unused Flag
 #define FLAG_UNUSED_0x4D1                                           0x4D1 // Unused Flag
 #define FLAG_UNUSED_0x4D2                                           0x4D2 // Unused Flag
 #define FLAG_UNUSED_0x4D3                                           0x4D3 // Unused Flag
