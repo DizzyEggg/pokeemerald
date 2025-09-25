@@ -28,8 +28,8 @@
     {
       "local_id": "LOCALID_PETALBURG_BOY",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
-      "x": 22,
-      "y": 16,
+      "x": 8,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -42,8 +42,8 @@
     {
       "local_id": "LOCALID_PETALBURG_WALLY",
       "graphics_id": "OBJ_EVENT_GFX_WALLY",
-      "x": 22,
-      "y": 17,
+      "x": 8,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -69,8 +69,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 23,
-      "y": 17,
+      "x": 9,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -83,8 +83,8 @@
     {
       "local_id": "LOCALID_PETALBURG_WALLYS_DAD",
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
-      "x": 24,
-      "y": 17,
+      "x": 10,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -96,8 +96,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 26,
-      "y": 16,
+      "x": 11,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -137,8 +137,8 @@
     {
       "local_id": "LOCALID_PETALBURG_SCOTT",
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
-      "x": 23,
-      "y": 16,
+      "x": 9,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -394,6 +394,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_VISITED_PETALBURG_CITY"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ARTIST",
+      "x": 35,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Fountain_EventScript_PhotoStump",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -419,10 +432,10 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 17,
+      "x": 11,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY_POKEMON_CENTER_1F",
+      "dest_map": "MAP_SLATEPORT_CITY",
       "dest_warp_id": "0"
     },
     {
@@ -1174,8 +1187,8 @@
     },
     {
       "type": "sign",
-      "x": 35,
-      "y": 12,
+      "x": 30,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Fountain_EventScript_PhotoStump"

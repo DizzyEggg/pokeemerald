@@ -68,12 +68,16 @@ Fountain_EventScript_IntroScene::
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookDown
 	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	delay 50
 	waitmovement 0
 	msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_PHANPY_SAD
+	waitmessage
+	closemessage
 	delay 80
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_WELL
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
+	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
 	waitmovement 0
@@ -85,6 +89,7 @@ Fountain_EventScript_IntroScene::
 	delay 20
 	msgbox_portrait Fountain_Text_Intro04, FIELD_PIC_PHANPY_CONFUSED
 	msgbox_portrait Fountain_Text_Intro05, FIELD_PIC_ABRA_CONCERNED
+	closemessage
 	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
 	waitmovement 0
 	delay 20
@@ -93,6 +98,7 @@ Fountain_EventScript_IntroScene::
 	applymovement OBJ_EVENT_ID_CAMERA, Fountain_CameraMove1
 	waitmovement 0
 	delay 30
+	msgbox Fountain_Text_Intro05_2, MSGBOX_NPC
 	addobject LOCAL_ID_ALTARIA_INTRO
 	applymovement LOCAL_ID_ALTARIA_INTRO, Fountain_FallIntoWater
 	delay 10
@@ -119,6 +125,7 @@ Fountain_EventScript_IntroScene::
 	addobject LOCALID_ABRA_WELL
 	addobject LOCALID_EGG_INTRO
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
+	special RemoveCameraObject
 	delay 10
 	msgbox_portrait Fountain_Text_Intro07, FIELD_PIC_ABRA_SWEAT
 	fadescreenspeed FADE_TO_BLACK, 2
@@ -128,9 +135,10 @@ Fountain_EventScript_IntroScene::
     playegghatchanim SPECIES_SWABLU, TRUE, NULL
     waitstate
 	applymovement LOCALID_SWABLU_INTRO, Fountain_LookUp
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	waitmovement 0
 	delay 10
-	fadescreenspeed FADE_FROM_BLACK, 2
+	@fadescreenspeed FADE_FROM_BLACK, 2
 
 	delay 30
 	msgbox_portrait Fountain_Text_Intro08, FIELD_PIC_ABRA_HAPPY
@@ -143,7 +151,7 @@ Fountain_EventScript_IntroScene::
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookRight
 	applymovement LOCALID_SWABLU_INTRO, Fountain_LookLeft
 	waitmovement 0
-	delay 40
+	delay 50
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	applymovement LOCALID_SWABLU_INTRO, Fountain_LookUp
 	waitmovement 0
@@ -152,28 +160,30 @@ Fountain_EventScript_IntroScene::
 	msgbox_portrait Fountain_Text_Intro14, FIELD_PIC_PHANPY_SAD
 	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
 	waitmovement 0
-	delay 20
+	delay 50
+	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, Fountain_CameraMove4
 	waitmovement 0
-	delay 20
+	delay 40
 	msgbox_portrait Fountain_Text_Intro15, FIELD_PIC_ABRA_SERIOUS
 	msgbox_portrait Fountain_Text_Intro16, FIELD_PIC_PHANPY_DETERMINED
 	msgbox_portrait Fountain_Text_Intro17, FIELD_PIC_ABRA_CONCERNED
+	applymovement OBJ_EVENT_ID_CAMERA, Fountain_CameraMove5
+	waitmovement 0
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
 	waitmovement 0
 	delay 30
 	msgbox_portrait Fountain_Text_Intro18, FIELD_PIC_ABRA_DETERMINED
 	msgbox_portrait Fountain_Text_Intro19, FIELD_PIC_ABRA_ANGRY
-	@TOFOLD
-	@applymovement OBJ_EVENT_ID_PLAYER, Fountain_Shudder
-	@applymovement LOCALID_SWABLU_INTRO, Fountain_Shudder
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_Shudder
+	applymovement LOCALID_SWABLU_INTRO, Fountain_Shudder
 	waitmovement 0
 	delay 30
-	msgbox_portrait Fountain_Text_Intro20, FIELD_PIC_PHANPY_SAD
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookLeft
-	delay 20
+	delay 40
+	msgbox_portrait Fountain_Text_Intro20, FIELD_PIC_PHANPY_SAD
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
-	delay 20
+	delay 40
 	msgbox_portrait Fountain_Text_Intro21, FIELD_PIC_PHANPY_DETERMINED
 	msgbox_portrait Fountain_Text_Intro22, FIELD_PIC_SWABLU_ANGRY
 	msgbox_portrait Fountain_Text_Intro23, FIELD_PIC_ABRA_THINKING
@@ -193,6 +203,7 @@ Fountain_EventScript_IntroScene::
 	
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_HIDE_SAVORY_SQUAD
 	setrespawn HEAL_LOCATION_PETALBURG_CITY
 	setvar VAR_PETALBURG_CITY_STATE 1
 	warpsilent MAP_PETALBURG_CITY,24,46
@@ -223,23 +234,23 @@ Fountain_CameraMove1:
 	walk_diag_northeast
 	walk_diag_northeast
 	walk_diag_northeast
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
 	step_end
 
 Fountain_FallIntoWater:
@@ -253,11 +264,11 @@ Fountain_FallIntoWater:
 	walk_faster_down
 	walk_faster_down
 	walk_faster_down
+	walk_faster_down
+	walk_faster_down
 	step_end
 
 Fountain_CameraMove3:
-	walk_down
-	walk_down
 	walk_down
 	walk_down
 	walk_down
@@ -269,13 +280,33 @@ Fountain_CameraMove3:
 	step_end
 
 Fountain_CameraMove4:
+	walk_diag_northeast
+	walk_diag_northeast
+	walk_diag_northeast
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	walk_up
 	walk_up
 	step_end
 
+Fountain_CameraMove5:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_diag_southwest
+	walk_diag_southwest
+	walk_diag_southwest
+	step_end
+
 Fountain_Shudder:
 	walk_in_place_faster_up
-	end
+	walk_in_place_faster_up
+	step_end
 
 
 Fountain_Text_Intro01:
@@ -295,13 +326,17 @@ Fountain_Text_Intro05:
 	.string "???: Hold on, it'll be easier to explain\n"
 	.string "it to both of you together.$"
 
+Fountain_Text_Intro05_2:
+	.string "???: Aaaaaaah!$"
+
 Fountain_Text_Intro06:
 	.string "???: Wait here a moment - I have to\n"
 	.string "Teleport her out of the well.$"
 
 Fountain_Text_Intro07:
-	.string "???: Just wait a minute for her to \n"
-	.string "hatch, and then I'll explain everything.$"
+	.string "???: Phew.\p"
+	.string "Just wait a minute for her to hatch,\n"
+	.string "and then I'll explain everything.$"
 
 Fountain_Text_Intro08:
 	.string "???: Ahem.\p"
@@ -373,8 +408,9 @@ Fountain_Text_Intro23:
 	.string "Dali: I think Craftily did this to us.\p"
 	.string "I don't remember what happened either…\n"
 	.string "Don’t even remember what he looks like.\p"
-	.string "But we’re all weak, and he’s so strong.\p"
-	.string "I can only guess that there was a \n"
+	.string "I only remember his strange name.\p"
+	.string "We’re all so weak, and he’s so strong.\p"
+	.string "I can only guess that there was a\n"
 	.string "terrible battle, and Craftily won and\l"
 	.string "forced us into the Inkwell.$"
 
@@ -408,8 +444,10 @@ Fountain_Text_Intro28:
 Fountain_Text_Intro29:
 	.string "Dali: …only the three of us know that.\p"
 	.string "And I… I can't fight. The only thing I\n"
-	.string "can do is Teleport to help you a little,\l"
-	.string "and keep the memories alive for us.\p"
+	.string "can do is Teleport.\p"
+	.string "I can only support this mission from\n"
+	.string "the sidelines, and try to keep our\l"
+	.string "memories alive.\p"
 	.string "And every time you come back, I have to\n"
 	.string "ask you to go back in there and fight.$"
 

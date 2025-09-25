@@ -127,6 +127,32 @@ static const u32 sSwabluYellGfx[] = INCBIN_U32("graphics/field_pic/swablu_yell.4
 static const u16 sSwabluYellPal[] = INCBIN_U16("graphics/field_pic/swablu_yell.gbapal");
 
 
+static const u32 sFidoughSurprisedGfx[] = INCBIN_U32("graphics/field_pic/fidough_surprised.4bpp.lz");
+static const u16 sFidoughSurprisedPal[] = INCBIN_U16("graphics/field_pic/fidough_surprised.gbapal");
+
+static const u32 sApplinDeterminedGfx[] = INCBIN_U32("graphics/field_pic/applin_determined.4bpp.lz");
+static const u16 sApplinDeterminedPal[] = INCBIN_U16("graphics/field_pic/applin_determined.gbapal");
+
+static const u32 sSinisteaHappyGfx[] = INCBIN_U32("graphics/field_pic/sinistea_happy.4bpp.lz");
+static const u16 sSinisteaHappyPal[] = INCBIN_U16("graphics/field_pic/sinistea_happy.gbapal");
+
+static const u32 sVanilliteSighGfx[] = INCBIN_U32("graphics/field_pic/vanillite_sigh.4bpp.lz");
+static const u16 sVanilliteSighPal[] = INCBIN_U16("graphics/field_pic/vanillite_sigh.gbapal");
+
+static const u32 sVanilliteAngryGfx[] = INCBIN_U32("graphics/field_pic/vanillite_angry.4bpp.lz");
+static const u16 sVanilliteAngryPal[] = INCBIN_U16("graphics/field_pic/vanillite_angry.gbapal");
+
+
+static const u32 sHaunterInspiredGfx[] = INCBIN_U32("graphics/field_pic/haunter_inspired.4bpp.lz");
+static const u16 sHaunterInspiredPal[] = INCBIN_U16("graphics/field_pic/haunter_inspired.gbapal");
+
+static const u32 sHaunterSighGfx[] = INCBIN_U32("graphics/field_pic/haunter_sigh.4bpp.lz");
+static const u16 sHaunterSighPal[] = INCBIN_U16("graphics/field_pic/haunter_sigh.gbapal");
+
+static const u32 sHaunterYellGfx[] = INCBIN_U32("graphics/field_pic/haunter_yell.4bpp.lz");
+static const u16 sHaunterYellPal[] = INCBIN_U16("graphics/field_pic/haunter_yell.gbapal");
+
+
 /* And this is an example script.
 FieldPicExample_2pics:
 	load_field_pic 0, 190, 98, VAR_0x8008
@@ -173,6 +199,16 @@ static const struct Pic sPics[] =
 
     [FIELD_PIC_SWABLU_ANGRY] = {sSwabluAngryGfx, sSwabluAngryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_SWABLU_YELL] = {sSwabluYellGfx, sSwabluYellPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_FIDOUGH_SURPRISED] = {sFidoughSurprisedGfx, sFidoughSurprisedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_APPLIN_DETERMINED] = {sApplinDeterminedGfx, sApplinDeterminedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SINISTEA_HAPPY] = {sSinisteaHappyGfx, sSinisteaHappyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_VANILLITE_SIGH] = {sVanilliteSighGfx, sVanilliteSighPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_VANILLITE_ANGRY] = {sVanilliteAngryGfx, sVanilliteAngryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_HAUNTER_INSPIRED] = {sHaunterInspiredGfx, sHaunterInspiredPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_HAUNTER_SIGH] = {sHaunterSighGfx, sHaunterSighPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_HAUNTER_YELL] = {sHaunterYellGfx, sHaunterYellPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
 };
 
 static EWRAM_DATA u8 sLastPicId = 0;
