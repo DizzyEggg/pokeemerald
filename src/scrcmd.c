@@ -19,6 +19,7 @@
 #include "event_object_movement.h"
 #include "event_scripts.h"
 #include "fake_rtc.h"
+#include "field_pic.h"
 #include "field_message_box.h"
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
@@ -1766,6 +1767,7 @@ bool8 ScrCmd_closemessage(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     HideFieldMessageBox();
+    RemoveAllCreatedPics();
     return FALSE;
 }
 

@@ -1826,6 +1826,7 @@ void CB2_NewGame(void)
     SetMainCallback2(CB2_Overworld);
     ChooseRandomFloorMons();
     EggHatchAnim(SPECIES_PHANPY, TRUE, sStringYou, FALSE);
+    FlagSet(FLAG_WHITEOUT_FALLING_PARTNER_NPC);
 }
 
 extern const u8 Fountain_EventScript_Whiteout[];
