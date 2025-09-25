@@ -39,19 +39,64 @@ Fountain_FallIntoWaterWhiteOut:
 	walk_faster_down
 	walk_faster_down
 	step_end
-    
+       
 @@@@@ After White-out cutscene
 Fountain_EventScript_Whiteout::
     lockall
     applymovement OBJ_EVENT_ID_PLAYER, Fountain_FallIntoWaterWhiteOut
     applymovement LOCALID_FALLING_PARTNER, Fountain_FallIntoWaterWhiteOut
     waitmovement 0
+    setobjectxy LOCALID_FALLING_PARTNER, 26, 46
     setobjectxy OBJ_EVENT_ID_PLAYER, 24, 46
     setplayerxy 24, 46
-    removeobject LOCALID_FALLING_PARTNER
-    changeplayersprite SPECIES_NONE, TRUE
     fasttwomonsegghatchanim
+    changeplayersprite SPECIES_NONE, TRUE
     waitstate
+    @ Copied from IntroScene
+    lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
+	applymovement LOCALID_FALLING_PARTNER, Fountain_LookUp
+	delay 40
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookLeft
+	applymovement LOCALID_FALLING_PARTNER, Fountain_LookLeft
+	delay 40
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookRight
+	applymovement LOCALID_FALLING_PARTNER, Fountain_LookRight
+	delay 40
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookDown
+	applymovement LOCALID_FALLING_PARTNER, Fountain_LookDown
+	delay 40
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement LOCALID_FALLING_PARTNER, Common_Movement_QuestionMark
+	delay 50
+	waitmovement 0
+    callnative ScriptCmd_GetPlayerSpecies
+    goto_if_eq VAR_RESULT, SPECIES_SWABLU, ScriptAfterWhiteOutSwablu
+    goto_if_eq VAR_RESULT, SPECIES_PHANPY, ScriptAfterWhiteOutPhanpy
+    @ TODO: other mons
+ScriptAfterWhiteOutSwablu:
+ScriptAfterWhiteOutPhanpy:
+	msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_PHANPY_SAD
+	waitmessage
+	closemessage
+    delay 40
+    playse SE_WARP_IN
+	addobject LOCALID_ABRA_WELL
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
+	applymovement LOCALID_FALLING_PARTNER, Fountain_LookUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_FALLING_PARTNER, Common_Movement_ExclamationMark
+	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
+	waitmovement 0
+	delay 40
+	msgbox_portrait Fountain_Text_Tuskan1stDeathIntro1, FIELD_PIC_PHANPY_SWEAT
+    bufferpartymonnick 0, 0
+    bufferpartymonnick 1, 1
+	msgbox_portrait Fountain_Text_Abra1stDeathIntro1, FIELD_PIC_ABRA_SERIOUS
+    waitmessage
+    removeobject LOCALID_FALLING_PARTNER
+    closemessage
     releaseall
     end
 
@@ -315,9 +360,18 @@ Fountain_Text_Intro01:
 Fountain_Text_Intro02:
 	.string "Tuskan: Um, excuse me, where am I?\n"
 	.string "A-are you my…?$"
+    
+Fountain_Text_Tuskan1stDeathIntro1:
+	.string "Tuskan: Um, excuse me, where are we?\n"
+	.string "D-dali…?$"
 
 Fountain_Text_Intro03:
 	.string "???: Welcome back, Tuskan.$"
+    
+Fountain_Text_Abra1stDeathIntro1:
+	.string "Dali: Welcome back,\n{STR_VAR_1} and {STR_VAR_2}.\p"
+	.string "You do remember me this time around.\n"
+	.string "This makes me happy.$"
 
 Fountain_Text_Intro04:
 	.string "Tuskan: Welcome back? What?$"

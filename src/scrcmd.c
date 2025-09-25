@@ -3341,6 +3341,11 @@ void ScriptCmd_ChangePlayerSprite(struct ScriptContext *ctx)
     ChangePlayerMonSpriteVisuals(TRUE);
 }
 
+void ScriptCmd_GetPlayerSpecies(struct ScriptContext *ctx)
+{
+    gSpecialVar_Result = gSaveBlock2Ptr->playerSpriteMonId;
+}
+
 void PlayEggHatchAnimation(struct ScriptContext *ctx)
 {
     u32 speciesId = ScriptReadHalfword(ctx);
