@@ -33,8 +33,17 @@ void GetItemBallIdAndAmountFromTemplate(void)
 
 static u32 GetItemBallIdFromSet(u32 itemBallId)
 {
+    s32 i;
     u8 *counter = &gSaveBlock1Ptr->availableItems.other.counter;
     u32 itemId = gSaveBlock1Ptr->availableItems.other.arr[(*counter)++];
+
+    // Mark unique item as taken
+    for (i = 0; i < UNIQUE_ITEMS_COUNT; i++) {
+        if (gSaveBlock1Ptr->availableItems.unique.obtainedArr[i] == ITEM_NONE) {
+            gSaveBlock1Ptr->availableItems.unique.obtainedArr[i] = itemId;
+            break;
+        }
+    }
 
     return (itemId >= ITEMS_COUNT) ? (ITEM_NONE + 1) : itemId;
 }

@@ -250,7 +250,7 @@ static bool32 PlayerObtainedUniqueItem(u32 itemId)
     return FALSE;
 }
 
-static void SetAvailableItems(struct UniqueItems *unique)
+void SetAvailableItems(struct UniqueItems *unique)
 {
     s32 i, forcedUniqueId[2], uniqueId;
     s32 uniqueGiven;
@@ -273,6 +273,11 @@ static void SetAvailableItems(struct UniqueItems *unique)
     do {
         forcedUniqueId[1] = RandomUniform(0, 0, 17);
     } while (forcedUniqueId[0] == forcedUniqueId[1]);
+
+    // Just for testing
+    if (forcedUniqueId[1] != 0) {
+        forcedUniqueId[0] = 0;
+    }
 
     // Choose 2 random unique items the player did not obtain yet
     uniqueGiven = 0;
