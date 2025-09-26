@@ -19,7 +19,7 @@
       "x": 9,
       "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -28,7 +28,7 @@
       "flag": "FLAG_4R4_ENEMYA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SPIDOPS)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARIADOS)",
       "x": 12,
       "y": 13,
       "elevation": 0,
@@ -54,7 +54,7 @@
       "flag": "FLAG_4R4_ENEMYC"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARIADOS)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SPIDOPS)",
       "x": 11,
       "y": 11,
       "elevation": 0,

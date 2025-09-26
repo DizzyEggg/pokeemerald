@@ -8523,9 +8523,9 @@ const struct Item gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_LEFTOVERS,
         .holdEffectParam = 10,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "gradually restores\n"
-            "HP in battle."),
+            "A big tasty snack!\n"
+            "It takes a while\n"
+            "to eat."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -8560,9 +8560,9 @@ const struct Item gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_WIDE_LENS,
         .holdEffectParam = 10,
         .description = COMPOUND_STRING(
-            "A magnifying lens\n"
-            "that boosts the\n"
-            "accuracy of moves."),
+            "A little window\n"
+            "to a world of\n"
+            "giants!"),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -9386,10 +9386,10 @@ const struct Item gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_RESTORE_HP,
         .holdEffectParam = 10,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "restores 10 HP in\n"
-            "battle."),
-        .pocket = POCKET_BERRIES,
+            "A tiny berry that\n"
+            "is only good\n"
+            "for babies."),
+        .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -9429,7 +9429,7 @@ const struct Item gItemsInfo[] =
             "A sweet berry\n"
             "that makes you\n"
             "feel better."),
-        .pocket = POCKET_BERRIES,
+        .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_CURE_STATUS,
@@ -9459,7 +9459,7 @@ const struct Item gItemsInfo[] =
                 "restores 30 HP in\n"
                 "battle."),
         #endif
-        .pocket = POCKET_BERRIES,
+        .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -10362,7 +10362,7 @@ const struct Item gItemsInfo[] =
             "A spicy berry\n"
             "that makes you\n"
             "feel stronger!"),
-        .pocket = POCKET_BERRIES,
+        .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
