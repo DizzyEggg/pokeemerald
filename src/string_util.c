@@ -448,9 +448,22 @@ static const u8 *ExpandPlaceholder_UnknownStringVar(void)
     return sUnknownStringVar;
 }
 
+EWRAM_DATA u8 sMonNameBuffer[POKEMON_NAME_BUFFER_SIZE + 1] = {0};
+
 static const u8 *ExpandPlaceholder_PlayerName(void)
 {
-    return gSaveBlock2Ptr->playerName;
+    s32 playerCurrSpecies = gSaveBlock2Ptr->playerSpriteMonId;
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES) == playerCurrSpecies) {
+        GetMonData(&gPlayerParty[0], MON_DATA_NICKNAME, sMonNameBuffer);
+        return sMonNameBuffer;
+    }
+    else if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES) == playerCurrSpecies) {
+        GetMonData(&gPlayerParty[1], MON_DATA_NICKNAME, sMonNameBuffer);
+        return sMonNameBuffer;
+    }
+    else {
+        return gSaveBlock2Ptr->playerName;
+    }
 }
 
 static const u8 *ExpandPlaceholder_StringVar1(void)

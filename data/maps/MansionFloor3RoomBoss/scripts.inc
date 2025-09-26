@@ -18,7 +18,8 @@ MansionFloor3RoomBoss_EventScript_BossFight::
 	goto_if_unset FLAG_HIDE_BOSS3_SOLO, MansionFloor3RoomBoss_EventScript_BossRipley
 	end
 
-
+sText_TinkatonNickname:
+	.string "Unfolded.$"
 
 MansionFloor3RoomBoss_EventScript_BossAmy::
 	lockall
@@ -42,10 +43,9 @@ MansionFloor3RoomBoss_EventScript_BossAmy::
 	delay 80
 	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Amy5, FIELD_PIC_TINKATON_ANGRY
 
-	@EGGHELP1 - customizing this battle. looks like createmon can get me shiny, female, stats, moveset, etc, but not nickname. Any ideas?
-	
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 1
 	setwildbattle SPECIES_TINKATON, 55, ITEM_WEAKNESS_POLICY
+    setenemymonnick 0, sText_TinkatonNickname
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -159,9 +159,8 @@ MansionFloor3RoomBoss_EventScript_BossBella::
 	msgbox_portrait MansionFloor3RoomBoss_Text_Boss2Bella1, FIELD_PIC_SCOLIPEDE_ANGRY
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 0, 0, 1
 	
-	@EGGHELP1 - same problem with createmon. Moveset of only Fury Cutter and Rollout sounds great here, btw
-
 	setwildbattle SPECIES_SCOLIPEDE, 60, ITEM_METRONOME
+    setenemymonmoves 0, MOVE_FURY_CUTTER, MOVE_ROLLOUT, 0, 0
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -309,8 +308,8 @@ MansionFloor3RoomBoss_Text_Window:
 	.string "resetting your memory?$"
 
 
-@EGGHELP2 - this needs to be a voluntary game over. Couldn't find a command to just kill the player
 MansionFloor3RoomBoss_EventScript_GameOver::
+    dowhiteout
 	end
 
 MansionFloor3RoomBoss_EventScript_DontLeave::

@@ -2546,18 +2546,122 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
     return FALSE;
 }
 
+void ScrCmd_setenemymonstatus(struct ScriptContext *ctx)
+{
+    u8 partyId = ScriptReadByte(ctx);
+    u32 status = ScriptReadByte(ctx);
+
+    SetMonData(&gEnemyParty[partyId], MON_DATA_STATUS, &status);
+}
+
+void ScrCmd_setenemymonnick(struct ScriptContext *ctx)
+{
+    u8 partyId = ScriptReadByte(ctx);
+    const u8 *nick = (const u8 *) ScriptReadWord(ctx);
+
+    SetMonData(&gEnemyParty[partyId], MON_DATA_NICKNAME, &nick);
+}
+
+static void TrySetMonMove(u32 moveId, struct Pokemon *mon)
+{
+    if (moveId != MOVE_NONE) {
+        GiveMoveToMon(mon, moveId);
+    }
+}
+
+void ScrCmd_setenemymonmoves(struct ScriptContext *ctx)
+{
+    s32 i;
+    u8 partyId = ScriptReadByte(ctx);
+    u16 move1 = ScriptReadHalfword(ctx);
+    u16 move2 = ScriptReadHalfword(ctx);
+    u16 move3 = ScriptReadHalfword(ctx);
+    u16 move4 = ScriptReadHalfword(ctx);
+    struct Pokemon *mon = &gEnemyParty[partyId];
+
+    for (i = 0; i < MAX_MON_MOVES; i++) {
+        u32 moveNone = MOVE_NONE;
+        SetMonData(mon, MON_DATA_MOVE1 + i, &moveNone);
+    }
+
+    TrySetMonMove(move1, mon);
+    TrySetMonMove(move2, mon);
+    TrySetMonMove(move3, mon);
+    TrySetMonMove(move4, mon);
+}
+
+enum ScaleLevel
+{
+    SCALE_UP,
+    SCALE_DOWN,
+    SCALE_RANDOM,
+};
+
+static s32 ChooseLevelForWildMon(enum ScaleLevel scale, s32 range)
+{
+    s32 wildLevel;
+    s32 rngRange;
+    s32 playerLevel;
+
+    // Only 1 mon alive
+    if (GetMonData(&gPlayerParty[0], MON_DATA_HP) == 0) {
+        playerLevel = GetMonData(&gPlayerParty[1], MON_DATA_LEVEL);
+    }
+    else if (GetMonData(&gPlayerParty[1], MON_DATA_HP) == 0) {
+        playerLevel = GetMonData(&gPlayerParty[0], MON_DATA_LEVEL);
+    }
+    // Two mons alive
+    else {
+        playerLevel = (GetMonData(&gPlayerParty[0], MON_DATA_LEVEL) + GetMonData(&gPlayerParty[1], MON_DATA_LEVEL)) / 2;
+    }
+
+    if (range < 1) {
+        range = 1;
+    }
+    rngRange = Random() % range;
+
+    switch (scale) {
+        case SCALE_UP:
+            wildLevel = playerLevel + rngRange;
+            break;
+        case SCALE_DOWN:
+            wildLevel = playerLevel - rngRange;
+            break;
+        case SCALE_RANDOM:
+            if (Random() & 1) {
+                wildLevel = playerLevel + rngRange;
+            }
+            else {
+                wildLevel = playerLevel - rngRange;
+            }
+            break;
+    }
+
+    if (wildLevel < MIN_LEVEL) {
+        wildLevel = MIN_LEVEL;
+    }
+    if (wildLevel > MAX_LEVEL) {
+        wildLevel = MAX_LEVEL;
+    }
+
+    return wildLevel;
+}
+
 void ScriptCmd_SetMansionWildBattle(struct ScriptContext *ctx)
 {
     bool8 isDouble = ScriptReadByte(ctx);
     struct ObjectEvent *objEvent = &gObjectEvents[gSelectedObjectEvent];
     u16 species = OW_SPECIES(objEvent);
-    u8 level = 1;
+    s32 lvlScale = SCALE_DOWN;
+    s32 lvlRange = 2;
+    s32 level = ChooseLevelForWildMon(lvlScale, lvlRange);
 
     gPlayerPartyCount = CalculatePartyCount(gPlayerParty);
     ZeroEnemyPartyMons();
     if (isDouble) {
+        s32 level2 = ChooseLevelForWildMon(lvlScale, lvlRange);
         sIsScriptedWildDouble = TRUE;
-        CreateScriptedDoubleWildMon(species, level, ITEM_NONE, species, level, ITEM_NONE);
+        CreateScriptedDoubleWildMon(species, level, ITEM_NONE, species, level2, ITEM_NONE);
     }
     else {
         sIsScriptedWildDouble = (GetMonsStateToDoubles_2() == PLAYER_HAS_TWO_USABLE_MONS);

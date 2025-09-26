@@ -3438,6 +3438,7 @@ static void DoBattleIntro(void)
     switch ((enum BattleIntroStates)gBattleStruct->introState)
     {
     case BATTLE_INTRO_STATE_GET_MON_DATA:
+        gBattleStruct->battleStartedWithTwoPlayerMons = (GetMonsStateToDoubles_2() == PLAYER_HAS_TWO_USABLE_MONS);
         battler = gBattleCommunication[1];
         BtlController_EmitGetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_ALL_BATTLE, 0);
         MarkBattlerForControllerExec(battler);

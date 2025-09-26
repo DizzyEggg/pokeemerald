@@ -2755,3 +2755,28 @@
     .macro fasttwomonsegghatchanim
     callnative PlayFastEggHatchAnimation
     .endm
+    
+    .macro setenemymonstatus partyId:req, status:req
+    callnative ScrCmd_setenemymonstatus
+    .byte \partyId
+    .byte \status
+    .endm
+    
+    .macro setenemymonnick partyId:req, nick:req
+    callnative ScrCmd_setenemymonnick
+    .byte \partyId
+    .word \nick
+    .endm
+    
+    .macro setenemymonmoves partyId:req, move1:req, move2:req, move3:req, move4:req
+    callnative ScrCmd_setenemymonmoves
+    .byte \partyId
+    .2byte \move1
+    .2byte \move2
+    .2byte \move3
+    .2byte \move4
+    .endm
+    
+    .macro dowhiteout
+    callnative SetCB2WhiteOut
+    .endm

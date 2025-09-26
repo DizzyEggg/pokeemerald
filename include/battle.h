@@ -747,6 +747,7 @@ struct BattleStruct
     u8 itemPartyIndex[MAX_BATTLERS_COUNT];
     u8 itemMoveIndex[MAX_BATTLERS_COUNT];
     u8 isSkyBattle:1;
+    u8 battleStartedWithTwoPlayerMons:1; // Healthbox issues...
     s32 aiDelayTimer; // Counts number of frames AI takes to choose an action.
     s32 aiDelayFrames; // Number of frames it took to choose an action.
     s32 aiDelayCycles; // Number of cycles it took to choose an action.

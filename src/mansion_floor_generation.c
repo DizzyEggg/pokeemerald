@@ -120,6 +120,43 @@ enum ROOM_ENUM MapToRoomEnum(s32 mapGroup, s32 mapNum, s32 floorNum)
         else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR2ROOM_BOSS) && mapNum == MAP_NUM(MAP_MANSION_FLOOR2ROOM_BOSS))
             return ROOM_BOSS;
     }
+    else if (floorNum == 3) {
+        if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3ENTRANCE) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3ENTRANCE))
+            return ROOM_ENTRANCE;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3ROOM1) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3ROOM1))
+            return ROOM_4WAY_1;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3ROOM2) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3ROOM2))
+            return ROOM_4WAY_2;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3ROOM3) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3ROOM3))
+            return ROOM_4WAY_3;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3ROOM4) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3ROOM4))
+            return ROOM_4WAY_4;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3TREASURE_DOWN) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3TREASURE_DOWN))
+            return ROOM_TREASURE_UP;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3TREASURE_UP) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3TREASURE_UP))
+            return ROOM_TREASURE_DOWN;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3TREASURE_LEFT) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3TREASURE_LEFT))
+            return ROOM_TREASURE_RIGHT;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3TREASURE_RIGHT) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3TREASURE_RIGHT))
+            return ROOM_TREASURE_LEFT;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3HALLWAY1) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3HALLWAY1))
+            return ROOM_HALLWAY_1;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3HALLWAY2) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3HALLWAY2))
+            return ROOM_HALLWAY_2;
+
+        else if (mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3ROOM_BOSS) && mapNum == MAP_NUM(MAP_MANSION_FLOOR3ROOM_BOSS))
+            return ROOM_BOSS;
+    }
 
     return ROOM_NOTHING;
 }
@@ -136,6 +173,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2ENTRANCE);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2ENTRANCE);
             }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3ENTRANCE);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3ENTRANCE);
+            }
             break;
         case ROOM_4WAY_1:
             if (floorNum == 1) {
@@ -145,6 +186,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
             else if (floorNum == 2) {
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2ROOM1);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2ROOM1);
+            }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3ROOM1);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3ROOM1);
             }
             break;
         case ROOM_4WAY_2:
@@ -156,6 +201,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2ROOM2);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2ROOM2);
             }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3ROOM2);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3ROOM2);
+            }
             break;
         case ROOM_4WAY_3:
             if (floorNum == 1) {
@@ -165,6 +214,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
             else if (floorNum == 2) {
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2ROOM3);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2ROOM3);
+            }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3ROOM3);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3ROOM3);
             }
             break;
         case ROOM_4WAY_4:
@@ -176,6 +229,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2ROOM4);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2ROOM4);
             }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3ROOM4);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3ROOM4);
+            }
             break;
         case ROOM_HALLWAY_1:
             if (floorNum == 1) {
@@ -185,6 +242,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
             else if (floorNum == 2) {
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2HALLWAY1);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2HALLWAY1);
+            }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3HALLWAY1);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3HALLWAY1);
             }
             break;
         case ROOM_HALLWAY_2:
@@ -196,6 +257,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2HALLWAY2);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2HALLWAY2);
             }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3HALLWAY2);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3HALLWAY2);
+            }
             break;
         case ROOM_TREASURE_DOWN:
             if (floorNum == 1) {
@@ -205,6 +270,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
             else if (floorNum == 2) {
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2TREASURE_UP);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2TREASURE_UP);
+            }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3TREASURE_UP);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3TREASURE_UP);
             }
             break;
         case ROOM_TREASURE_UP:
@@ -216,6 +285,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2TREASURE_DOWN);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2TREASURE_DOWN);
             }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3TREASURE_DOWN);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3TREASURE_DOWN);
+            }
             break;
         case ROOM_TREASURE_LEFT:
             if (floorNum == 1) {
@@ -225,6 +298,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
             else if (floorNum == 2) {
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2TREASURE_RIGHT);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2TREASURE_RIGHT);
+            }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3TREASURE_RIGHT);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3TREASURE_RIGHT);
             }
             break;
         case ROOM_TREASURE_RIGHT:
@@ -236,6 +313,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2TREASURE_LEFT);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2TREASURE_LEFT);
             }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3TREASURE_LEFT);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3TREASURE_LEFT);
+            }
             break;
         case ROOM_BOSS:
             if (floorNum == 1) {
@@ -245,6 +326,10 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
             else if (floorNum == 2) {
                 *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR2ROOM_BOSS);
                 *mapNum = MAP_NUM(MAP_MANSION_FLOOR2ROOM_BOSS);
+            }
+            else if (floorNum == 3) {
+                *mapGroup = MAP_GROUP(MAP_MANSION_FLOOR3ROOM_BOSS);
+                *mapNum = MAP_NUM(MAP_MANSION_FLOOR3ROOM_BOSS);
             }
             break;
         case ROOM_NOTHING:
@@ -621,6 +706,19 @@ static s32 MapToFloorNum(s32 mapGroup, s32 mapNum)
         case MAP_MANSION_FLOOR2HALLWAY2:
         case MAP_MANSION_FLOOR2ROOM_BOSS:
             return 2;
+        case MAP_MANSION_FLOOR3ENTRANCE:
+        case MAP_MANSION_FLOOR3ROOM1:
+        case MAP_MANSION_FLOOR3ROOM2:
+        case MAP_MANSION_FLOOR3ROOM3:
+        case MAP_MANSION_FLOOR3ROOM4:
+        case MAP_MANSION_FLOOR3TREASURE_DOWN:
+        case MAP_MANSION_FLOOR3TREASURE_UP:
+        case MAP_MANSION_FLOOR3TREASURE_LEFT:
+        case MAP_MANSION_FLOOR3TREASURE_RIGHT:
+        case MAP_MANSION_FLOOR3HALLWAY1:
+        case MAP_MANSION_FLOOR3HALLWAY2:
+        case MAP_MANSION_FLOOR3ROOM_BOSS:
+            return 3;
         // Should never be reached
         default:
             return 1;

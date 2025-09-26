@@ -711,6 +711,7 @@ extern const u8 gText_IDNumber2[];
 extern const u8 gText_XNature[];
 extern const u8 gText_XNatureHatchedAtYZ[];
 extern const u8 gText_XNatureHatchedSomewhereAt[];
+extern const u8 gText_XNatureMetUnknown[];
 extern const u8 gText_XNatureMetAtYZ[];
 extern const u8 gText_XNatureMetSomewhereAt[];
 extern const u8 gText_XNatureFatefulEncounter[];

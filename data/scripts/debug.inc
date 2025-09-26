@@ -216,7 +216,7 @@ Debug_EventScript_Script_7::
 @ Force whiteout
 Debug_EventScript_Script_8::
     clearflag FLAG_ITEM_PETALBURG_CITY_ETHER
-    callnative SetCB2WhiteOut
+    dowhiteout
 	release
 	end
     

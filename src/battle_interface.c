@@ -637,6 +637,12 @@ static const struct WindowTemplate sHealthboxWindowTemplate = {
 enum BattleCoordTypes GetBattlerCoordsIndex(u32 battler)
 {
     u32 position = GetBattlerPosition(battler);
+
+    if (position == B_POSITION_PLAYER_LEFT || position == B_POSITION_PLAYER_RIGHT) {
+        if (gBattleStruct->battleStartedWithTwoPlayerMons)
+            return BATTLE_COORDS_DOUBLES;
+    }
+
     if ((position == B_POSITION_PLAYER_LEFT)
         && (gPlayerPartyCount == 1
             || !(TwoPlayerIntroMons(battler))
