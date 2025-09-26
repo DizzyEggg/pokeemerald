@@ -21,6 +21,7 @@
 #include "field_special_scene.h"
 #include "field_specials.h"
 #include "field_tasks.h"
+#include "item_ball.h"
 #include "field_weather.h"
 #include "fieldmap.h"
 #include "fldeff.h"
@@ -1838,6 +1839,36 @@ static void IncrementMansionDeathsVar(void)
     *varPtr += 1;
 }
 
+static void RemoveMonHeldItem(struct Pokemon *mon)
+{
+    u32 itemId = GetMonData(mon, MON_DATA_HELD_ITEM);
+    if (!IsUniqueItem(itemId)) {
+        itemId = ITEM_NONE;
+        SetMonData(mon, MON_DATA_HELD_ITEM, &itemId);
+    }
+}
+
+static void RemoveAllButUniqueItems(void)
+{
+    s32 pocketId, i;
+
+    for (pocketId = 0; pocketId < POCKETS_COUNT; pocketId++) {
+        for (i = 0; i < gBagPockets[pocketId].capacity
+        && gBagPockets[pocketId].itemSlots[i].itemId != 0
+        && gBagPockets[pocketId].itemSlots[i].quantity != 0; i++)
+        {
+            if (!IsUniqueItem(gBagPockets[pocketId].itemSlots[i].itemId)) {
+                gBagPockets[pocketId].itemSlots[i] = (struct ItemSlot) {0};
+            }
+        }
+
+        CompactItemsInBagPocket(pocketId);
+    }
+
+    RemoveMonHeldItem(&gPlayerParty[0]);
+    RemoveMonHeldItem(&gPlayerParty[1]);
+}
+
 static void HandleFlagsAndEventsAfterRunOver(void)
 {
     struct UniqueItems uniqueItems = gSaveBlock1Ptr->availableItems.unique;
@@ -1856,6 +1887,7 @@ static void HandleFlagsAndEventsAfterRunOver(void)
     IncrementMansionDeathsVar();
     GenerateAllMansionFloorLayouts();
     SetAvailableItems(&uniqueItems);
+    RemoveAllButUniqueItems();
 }
 
 void CB2_WhiteOut(void)

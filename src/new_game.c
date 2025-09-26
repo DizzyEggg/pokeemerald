@@ -250,6 +250,11 @@ static bool32 PlayerObtainedUniqueItem(u32 itemId)
     return FALSE;
 }
 
+static bool32 AllUniqueItemsTaken(void)
+{
+    return gSaveBlock1Ptr->availableItems.unique.obtainedArr[UNIQUE_ITEMS_COUNT - 1] != ITEM_NONE;
+}
+
 void SetAvailableItems(struct UniqueItems *unique)
 {
     s32 i, forcedUniqueId[2], uniqueId;
@@ -268,27 +273,26 @@ void SetAvailableItems(struct UniqueItems *unique)
     for (i = 0; i < ARRAY_COUNT(sOtherItemsSet); i++) {
         gSaveBlock1Ptr->availableItems.other.arr[i] = shuffledItems[i];
     }
+
     // Choose two slots from 0 ... 17 to force unique items
-    forcedUniqueId[0] = RandomUniform(0, 0, 17);
-    do {
-        forcedUniqueId[1] = RandomUniform(0, 0, 17);
-    } while (forcedUniqueId[0] == forcedUniqueId[1]);
+    if (!AllUniqueItemsTaken()) {
+        forcedUniqueId[0] = RandomUniform(0, 0, 17);
+        do {
+            forcedUniqueId[1] = RandomUniform(0, 0, 17);
+        } while (forcedUniqueId[0] == forcedUniqueId[1]);
 
-    // Just for testing
-    if (forcedUniqueId[1] != 0) {
-        forcedUniqueId[0] = 0;
-    }
-
-    // Choose 2 random unique items the player did not obtain yet
-    uniqueGiven = 0;
-    for (uniqueId = 0; uniqueId < UNIQUE_ITEMS_COUNT; uniqueId++) {
-        u16 randUnique = uniqueItems[uniqueId];
-        if (!PlayerObtainedUniqueItem(randUnique)) {
-            gSaveBlock1Ptr->availableItems.other.arr[forcedUniqueId[uniqueGiven++]] = randUnique;
-            if (uniqueGiven >= 2)
-                break;
+        // Choose 2 random unique items the player did not obtain yet
+        uniqueGiven = 0;
+        for (uniqueId = 0; uniqueId < UNIQUE_ITEMS_COUNT; uniqueId++) {
+            u16 randUnique = uniqueItems[uniqueId];
+            if (!PlayerObtainedUniqueItem(randUnique)) {
+                gSaveBlock1Ptr->availableItems.other.arr[forcedUniqueId[uniqueGiven++]] = randUnique;
+                if (uniqueGiven >= 2)
+                    break;
+            }
         }
     }
+
 
     for (; i < OTHER_ITEMS_COUNT; i++) {
         gSaveBlock1Ptr->availableItems.other.arr[i] = 0;
@@ -325,7 +329,7 @@ static void SetStartingPokemon(void)
 
 void NewGameInitData(void)
 {
-    struct UniqueItems uniqueItems = gSaveBlock1Ptr->availableItems.unique; // Preserve unique items
+    struct UniqueItems uniqueItems = {0};
 
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
