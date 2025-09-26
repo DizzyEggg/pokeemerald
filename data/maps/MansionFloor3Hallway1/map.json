@@ -1,0 +1,88 @@
+{
+  "id": "MAP_MANSION_FLOOR3HALLWAY1",
+  "name": "MansionFloor3Hallway1",
+  "layout": "LAYOUT_MANSION_FLOOR3HALLWAY1",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ROTOM)",
+      "x": 9,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_DoMansionBattle",
+      "flag": "FLAG_H1_ENEMYA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAPION)",
+      "x": 11,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_DoMansionBattle",
+      "flag": "FLAG_H1_ENEMYB"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CHANDELURE)",
+      "x": 9,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_DoMansionBattle",
+      "flag": "FLAG_H1_ENEMYC"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CHIMECHO)",
+      "x": 11,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_DoMansionBattle",
+      "flag": "FLAG_H1_ENEMYD"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 17,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_RND_MANSION_RIGHT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_RND_MANSION_LEFT",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

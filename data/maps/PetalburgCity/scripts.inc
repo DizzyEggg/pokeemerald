@@ -110,6 +110,7 @@ Fountain_EventScript_IntroScene::
 	delay 30
 	addobject LOCALID_ABRA_WELL
 	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	applymovement OBJ_EVENT_ID_CAMERA, Fountain_CameraMove3
 	waitmovement 0
 	delay 20
@@ -408,11 +409,15 @@ Fountain_Text_Intro22:
 	.string "Fluffball: Craftily… he… he betrayed us.$"
 
 Fountain_Text_Intro23:
-	.string "Dali: I think Craftily did this to us.\p"
-	.string "I don't remember what happened either…\n"
+	.string "Dali:…\p"
+	.string "I don't remember what happened either.\n"
 	.string "Don’t even remember what he looks like.\p"
 	.string "I only remember his strange name.\p"
+	.string "But the other Pokemon around here say\n"
+	.string "that a great Pokemon named Craftily\l"
+	.string "lives at the top of that strange house.\p"
 	.string "We’re all so weak, and he’s so strong.\p"
+	.string "I think Craftily did this to us.\p"
 	.string "I can only guess that there was a\n"
 	.string "terrible battle, and Craftily won and\l"
 	.string "forced us into the Inkwell.$"

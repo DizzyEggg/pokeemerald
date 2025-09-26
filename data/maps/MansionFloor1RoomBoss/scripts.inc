@@ -4,6 +4,7 @@ MansionFloor1RoomBoss_MapScripts::
 	.byte 0
 
 MansionFloor1RoomBoss_OnTransition:
+	goto_if_set FLAG_BOSS1_CLEAR, MansionFloor1RoomBoss_EventScript_End
 	setvar VAR_TEMP_0, 0
 	end
 
@@ -11,12 +12,16 @@ MansionFloor1RoomBoss_OnFrame:
 	.2byte 0
 
 
+MansionFloor1RoomBoss_EventScript_End::
+	releaseall
+	end
+
 
 MansionFloor1RoomBoss_EventScript_Boss1::
 	@ TOFOLD commented out until savory implemented
 	@goto_if_set FLAG_DEFEATED_SAVORY_SQUAD, MansionFloor1RoomBoss_EventScript_RandomizeBoss
 	@goto_if_set FLAG_DEFEATED_SWEET_SQUAD, MansionFloor1RoomBoss_EventScript_SavorySquadScene1
-	goto_if_set FLAG_FOUGHT_SWEET_SQUAD, MansionFloor1RoomBoss_EventScript_SavorySquadScene1
+	goto_if_set FLAG_FOUGHT_SWEET_SQUAD, MansionFloor1RoomBoss_EventScript_SweetSquadScene2
 	goto MansionFloor1RoomBoss_EventScript_SweetSquadScene1
 	end
 
@@ -25,7 +30,7 @@ MansionFloor1RoomBoss_EventScript_Boss1::
 
 MansionFloor1RoomBoss_EventScript_SweetSquadScene1::
 	lockall
-	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_0, 1
 	setflag FLAG_FOUGHT_SWEET_SQUAD
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	special SpawnCameraObject
@@ -60,19 +65,23 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene1::
 	waitmovement 0
 	special RemoveCameraObject
 	dowildbattle
-	waitstate
 	setwildbattle SPECIES_SINISTEA, 11, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
-	waitstate
-	@TOFOLD - add the fight command
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
 	setflag FLAG_DEFEATED_SWEET_SQUAD
 	setflag FLAG_HIDE_SWEET_SQUAD
+	setflag FLAG_BOSS1_CLEAR
 	removeobject LOCALID_APPLIN
 	removeobject LOCALID_VANILLITE
 	removeobject LOCALID_FIDOUGH
 	removeobject LOCALID_SINISTEA
 	releaseall
 	end
+
+
 
 MansionFloor1RoomBoss_Text_Fidough1:
 	.string "Whoa!\p"
@@ -169,7 +178,7 @@ MansionFloor1RoomBoss_LookRight:
 
 MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	lockall
-	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_0, 1
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	special SpawnCameraObject
 	delay 50
@@ -199,8 +208,16 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_CameraMove2
 	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_CameraMove2
 	waitmovement 0
-	@TOFOLD - add the fight command
 	special RemoveCameraObject
+	setwildbattle SPECIES_FIDOUGH, 9, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	setwildbattle SPECIES_SINISTEA, 11, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
+	dowildbattle
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
+	setflag FLAG_BOSS1_CLEAR
 	releaseall
 	end
 
@@ -231,7 +248,7 @@ MansionFloor1RoomBoss_Text_VanilliteRematch:
 
 MansionFloor1RoomBoss_EventScript_SavorySquadScene1::
 	lockall
-	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_0, 1
 	setflag FLAG_FOUGHT_SAVORY_SQUAD
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	special SpawnCameraObject
@@ -242,25 +259,34 @@ MansionFloor1RoomBoss_EventScript_SavorySquadScene1::
 	applymovement LOCALID_TATSUGIRI, MansionFloor1RoomBoss_TatsugiriHello
 	waitmovement 0
 	delay 20
-	msgbox_portrait MansionFloor1RoomBoss_Text_Tatsugiri1, FIELD_PIC_FIDOUGH_SURPRISED
+	msgbox_portrait MansionFloor1RoomBoss_Text_Tatsugiri1, FIELD_PIC_TATSUGIRI_SPECIAL
 	delay 20
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_TatsugiriAssemble
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_SmolivAssemble
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_FarfetchdAssemble
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_NacliAssemble
+	applymovement LOCALID_TATSUGIRI, MansionFloor1RoomBoss_TatsugiriAssemble
+	applymovement LOCALID_SMOLIV, MansionFloor1RoomBoss_SmolivAssemble
+	applymovement LOCALID_FARFETCHD, MansionFloor1RoomBoss_FarfetchdAssemble
+	applymovement LOCALID_NACLI, MansionFloor1RoomBoss_NacliAssemble
 	waitmovement 0
 	delay 50
-	msgbox_portrait MansionFloor1RoomBoss_Text_Smoliv1, FIELD_PIC_APPLIN_DETERMINED
-	msgbox_portrait MansionFloor1RoomBoss_Text_Farfetchd1, FIELD_PIC_SINISTEA_HAPPY
-	msgbox_portrait MansionFloor1RoomBoss_Text_Nacli1, FIELD_PIC_VANILLITE_ANGRY
+	msgbox_portrait MansionFloor1RoomBoss_Text_Smoliv1, FIELD_PIC_SMOLIV_CRY
+	msgbox_portrait MansionFloor1RoomBoss_Text_Farfetchd1, FIELD_PIC_FARFETCHD_DETERMINED
+	msgbox_portrait MansionFloor1RoomBoss_Text_Nacli1, FIELD_PIC_NACLI_NORMAL
 	delay 20
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_CameraMove2
+	applymovement LOCALID_TATSUGIRI, MansionFloor1RoomBoss_CameraMove2
+	applymovement LOCALID_SMOLIV, MansionFloor1RoomBoss_CameraMove2
+	applymovement LOCALID_FARFETCHD, MansionFloor1RoomBoss_CameraMove2
+	applymovement LOCALID_NACLI, MansionFloor1RoomBoss_CameraMove2
 	waitmovement 0
-	@TOFOLD - add the fight command
+	setwildbattle SPECIES_SMOLIV, 7, ITEM_ORAN_BERRY, SPECIES_FARFETCHD, 11, ITEM_ORAN_BERRY
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	setwildbattle SPECIES_NACLI, 10, ITEM_ORAN_BERRY, SPECIES_TATSUGIRI, 14, ITEM_ORAN_BERRY
+	dowildbattle
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
+	@TOFOLD
 	@setflag FLAG_DEFEATED_SAVORY_SQUAD
+	setflag FLAG_BOSS1_CLEAR
 	special RemoveCameraObject
 	releaseall
 	end
@@ -273,9 +299,9 @@ MansionFloor1RoomBoss_Text_Tatsugiri1:
 	.string "They're cute, but they're not much use\n"
 	.string "in a real fight, you get me?\p"
 	.string "Sweets are an afterthought. A luxury.\p"
-	.string "They can't compete with the awesome\n"
-	.string "powers of the Savory Squad!\p"
-	.string "Ain't that right, squad?\p"
+	.string "They can't compete with the supremely\n"
+	.string "satisfying flavor of the Savory Squad!\p"
+	.string "Ain't that right, squad?$"
 
 MansionFloor1RoomBoss_Text_Smoliv1:
 	.string "Aaaaaaaa they're so big!\n"
@@ -346,3 +372,113 @@ MansionFloor1RoomBoss_NacliAssemble:
 @@ TOFOLD
 MansionFloor1RoomBoss_EventScript_RandomizeBoss::
 	end
+
+
+
+
+
+@@@ Static events
+
+
+MansionFloor1RoomBoss_EventScript_HeadChair::
+	msgbox MansionFloor1RoomBoss_Text_HeadChair, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_HeadChair:
+	.string "The head of the table. Looks like a\n"
+	.string "well-used chair.$"
+
+
+MansionFloor1RoomBoss_EventScript_VineStool::
+	msgbox MansionFloor1RoomBoss_Text_VineStool, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_VineStool:
+	.string "A stool covered in old, dead vines.$"
+
+
+MansionFloor1RoomBoss_EventScript_HammerStool::
+	msgbox MansionFloor1RoomBoss_Text_HammerStool, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_HammerStool:
+	.string "A nice chair with two worn\n"
+	.string "footprints on it.$"
+
+
+MansionFloor1RoomBoss_EventScript_HammerHole::
+	msgbox MansionFloor1RoomBoss_Text_HammerHole, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_HammerHole:
+	.string "A huge, circular hole in the floor!\n"
+	.string "Very shallow, but so round!$"
+
+
+
+MansionFloor1RoomBoss_EventScript_PillowStool::
+	msgbox MansionFloor1RoomBoss_Text_PillowStool, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_PillowStool:
+	.string "A stool with bits of fluff stuck in\n"
+	.string "every corner.$"
+
+
+
+MansionFloor1RoomBoss_EventScript_Feathers::
+	msgbox MansionFloor1RoomBoss_Text_Feathers, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_Feathers:
+	.string "The ground is covered with little bits\n"
+	.string "of either cotton fluff or feathers.$"
+
+
+
+MansionFloor1RoomBoss_EventScript_UnusedChair::
+	msgbox MansionFloor1RoomBoss_Text_UnusedChair, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_UnusedChair:
+	.string "This chair is pristine.\n"
+	.string "It looks like no one has ever sat here.$"
+
+
+
+MansionFloor1RoomBoss_EventScript_Pillow::
+	msgbox MansionFloor1RoomBoss_Text_Pillow, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_Pillow:
+	.string "A huge, fluffy pillow!\n"
+	.string "It's covered in claw marks.$"
+
+
+
+MansionFloor1RoomBoss_EventScript_MossStool::
+	msgbox MansionFloor1RoomBoss_Text_MossStool, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_MossStool:
+	.string "This stool is oddly damp to the touch.\n"
+	.string "Mold has wormed into the cracks.$"
+
+
+
+MansionFloor1RoomBoss_EventScript_Sink::
+	msgbox MansionFloor1RoomBoss_Text_Sink, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_Sink:
+	.string "The sink is full of spiderwebs.$"
+
+
+MansionFloor1RoomBoss_EventScript_Shelves::
+	msgbox MansionFloor1RoomBoss_Text_Shelves, MSGBOX_NPC
+	end
+
+MansionFloor1RoomBoss_Text_Shelves:
+	.string "Dusty jars line the shelves.\n"
+	.string "Nothing looks useful.$"
+

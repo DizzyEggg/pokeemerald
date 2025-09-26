@@ -1286,9 +1286,9 @@
 #define FLAG_HIDE_BOSS3_DUO                                         0x4CE // Unused Flag
 #define FLAG_HIDE_BOSS3_SOLO                                        0x4CF // Unused Flag
 #define FLAG_OBTAINED_ANY_PHOTO                                     0x4D0 // Unused Flag
-#define FLAG_UNUSED_0x4D1                                           0x4D1 // Unused Flag
-#define FLAG_UNUSED_0x4D2                                           0x4D2 // Unused Flag
-#define FLAG_UNUSED_0x4D3                                           0x4D3 // Unused Flag
+#define FLAG_BOSS1_CLEAR                                            0x4D1 // Unused Flag
+#define FLAG_BOSS2_CLEAR                                            0x4D2 // Unused Flag
+#define FLAG_BOSS3_CLEAR                                            0x4D3 // Unused Flag
 #define FLAG_UNUSED_0x4D4                                           0x4D4 // Unused Flag
 #define FLAG_UNUSED_0x4D5                                           0x4D5 // Unused Flag
 #define FLAG_UNUSED_0x4D6                                           0x4D6 // Unused Flag

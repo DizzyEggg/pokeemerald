@@ -4,6 +4,7 @@ MansionFloor2RoomBoss_MapScripts::
 	.byte 0
 
 MansionFloor2RoomBoss_OnTransition:
+	goto_if_set FLAG_BOSS2_CLEAR, MansionFloor1RoomBoss_EventScript_End
 	setvar VAR_TEMP_0, 0
 	end
 
@@ -28,7 +29,17 @@ MansionFloor2RoomBoss_EventScript_HaunterScene1::
 	applymovement LOCALID_HAUNTER, MansionFloor2RoomBoss_LookRight
 	waitmovement 0
 	msgbox_portrait MansionFloor2RoomBoss_Text_Haunter3, FIELD_PIC_HAUNTER_YELL
-	@TOFOLD add the battle, L20 Haunter + L40 sleeping Snorlax
+	@EGGHELP1 Make him sleepy!
+	setwildbattle SPECIES_HAUNTER, 25, ITEM_WIDE_LENS, SPECIES_SNORLAX, 42, ITEM_LEFTOVERS
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
+
+	setflag FLAG_BOSS2_CLEAR
+	removeobject LOCALID_HAUNTER
+	removeobject LOCALID_SNORLAX
 	releaseall
 	end
 

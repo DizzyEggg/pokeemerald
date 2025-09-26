@@ -4,6 +4,7 @@ MansionFloor3RoomBoss_MapScripts::
 	.byte 0
 
 MansionFloor3RoomBoss_OnTransition:
+	goto_if_set FLAG_BOSS3_CLEAR, MansionFloor1RoomBoss_EventScript_End
 	setvar VAR_TEMP_0, 0
 	end
 
@@ -21,168 +22,78 @@ MansionFloor3RoomBoss_EventScript_BossFight::
 
 MansionFloor3RoomBoss_EventScript_BossAmy::
 	lockall
-	setvar VAR_TEMP_0, 0
-	setflag FLAG_FOUGHT_SWEET_SQUAD
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-	special SpawnCameraObject
-	delay 50
-	applymovement OBJ_EVENT_ID_CAMERA, MansionFloor1RoomBoss_CameraMove1
-	waitmovement 0
-	delay 20
-	applymovement LOCALID_FIDOUGH, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_LookDown
-	waitmovement 0
-	delay 20
-	msgbox_portrait MansionFloor1RoomBoss_Text_Fidough1, FIELD_PIC_FIDOUGH_SURPRISED
-	delay 20
-	applymovement OBJ_EVENT_ID_CAMERA, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_FidoughAssemble
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_ApplinAssemble
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_SinisteaAssemble
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_VanilliteAssemble
-	waitmovement 0
-	delay 50
-	msgbox_portrait MansionFloor1RoomBoss_Text_Applin1, FIELD_PIC_APPLIN_DETERMINED
-	msgbox_portrait MansionFloor1RoomBoss_Text_Sinistea1, FIELD_PIC_SINISTEA_HAPPY
-	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite1, FIELD_PIC_VANILLITE_SIGH
-	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite2, FIELD_PIC_VANILLITE_ANGRY
-	delay 20
-	setwildbattle SPECIES_FIDOUGH, 9, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_CameraMove2
-	waitmovement 0
-	special RemoveCameraObject
-	dowildbattle
-	waitstate
-	setwildbattle SPECIES_SINISTEA, 11, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
-	dowildbattle
-	waitstate
-	@TOFOLD - add the fight command
-	setflag FLAG_HIDE_BOSS3_TRIO
-	clearflag FLAG_HIDE_BOSS3_DUO
-	removeobject LOCALID_APPLIN
-	removeobject LOCALID_VANILLITE
-	removeobject LOCALID_FIDOUGH
-	removeobject LOCALID_SINISTEA
-	releaseall
-	end
-
-MansionFloor3RoomBoss_EventScript_BossBella::
-	lockall
-	setvar VAR_TEMP_0, 0
-	setflag FLAG_FOUGHT_SWEET_SQUAD
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-	special SpawnCameraObject
-	delay 50
-	applymovement OBJ_EVENT_ID_CAMERA, MansionFloor1RoomBoss_CameraMove1
-	waitmovement 0
-	delay 20
-	applymovement LOCALID_FIDOUGH, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_LookDown
-	waitmovement 0
-	delay 20
-	msgbox_portrait MansionFloor1RoomBoss_Text_Fidough1, FIELD_PIC_FIDOUGH_SURPRISED
-	delay 20
-	applymovement OBJ_EVENT_ID_CAMERA, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_FidoughAssemble
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_ApplinAssemble
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_SinisteaAssemble
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_VanilliteAssemble
-	waitmovement 0
-	delay 50
-	msgbox_portrait MansionFloor1RoomBoss_Text_Applin1, FIELD_PIC_APPLIN_DETERMINED
-	msgbox_portrait MansionFloor1RoomBoss_Text_Sinistea1, FIELD_PIC_SINISTEA_HAPPY
-	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite1, FIELD_PIC_VANILLITE_SIGH
-	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite2, FIELD_PIC_VANILLITE_ANGRY
-	delay 20
-	setwildbattle SPECIES_FIDOUGH, 9, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_CameraMove2
-	waitmovement 0
-	special RemoveCameraObject
-	dowildbattle
-	waitstate
-	setwildbattle SPECIES_SINISTEA, 11, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
-	dowildbattle
-	waitstate
-	@TOFOLD - add the fight command
-	setflag FLAG_HIDE_BOSS3_DUO
-	clearflag FLAG_HIDE_BOSS3_SOLO
-	removeobject LOCALID_APPLIN
-	removeobject LOCALID_VANILLITE
-	removeobject LOCALID_FIDOUGH
-	removeobject LOCALID_SINISTEA
-	releaseall
-	end
-
-
-MansionFloor3RoomBoss_EventScript_BossRipley::
-	lockall
-	setvar VAR_TEMP_0, 0
-	setflag FLAG_FOUGHT_SWEET_SQUAD
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-	special SpawnCameraObject
-	delay 50
-	applymovement OBJ_EVENT_ID_CAMERA, MansionFloor1RoomBoss_CameraMove1
-	waitmovement 0
-	delay 20
-	applymovement LOCALID_FIDOUGH, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_LookDown
-	waitmovement 0
-	delay 20
-	msgbox_portrait MansionFloor1RoomBoss_Text_Fidough1, FIELD_PIC_FIDOUGH_SURPRISED
-	delay 20
-	applymovement OBJ_EVENT_ID_CAMERA, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_FidoughAssemble
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_ApplinAssemble
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_SinisteaAssemble
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_VanilliteAssemble
-	waitmovement 0
-	delay 50
-	msgbox_portrait MansionFloor1RoomBoss_Text_Applin1, FIELD_PIC_APPLIN_DETERMINED
-	msgbox_portrait MansionFloor1RoomBoss_Text_Sinistea1, FIELD_PIC_SINISTEA_HAPPY
-	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite1, FIELD_PIC_VANILLITE_SIGH
-	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite2, FIELD_PIC_VANILLITE_ANGRY
-	delay 20
-	setwildbattle SPECIES_FIDOUGH, 9, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_CameraMove2
-	waitmovement 0
-	special RemoveCameraObject
-	dowildbattle
-	waitstate
-	setwildbattle SPECIES_SINISTEA, 11, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
-	dowildbattle
-	waitstate
-	@TOFOLD - add the fight command
-	setflag FLAG_HIDE_BOSS3_SOLO
-	removeobject LOCALID_APPLIN
-	removeobject LOCALID_VANILLITE
-	removeobject LOCALID_FIDOUGH
-	removeobject LOCALID_SINISTEA
-	releaseall
-	end
-
-
-
-
-
-
-
-MansionFloor3RoomBoss_EventScript_Tinkaton1::
-	lockall
 	setvar VAR_TEMP_0, 1
-	@TOFOLD
+	applymovement LOCALID_AMY1, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 20
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Amy1, FIELD_PIC_TINKATON_DETERMINED
+	delay 30
+	applymovement LOCALID_BELLA1, MansionFloor3RoomBoss_Talk
+	waitmovement 0
+	delay 20
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Bella1, FIELD_PIC_SCOLIPEDE_ANGRY
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Amy2, FIELD_PIC_TINKATON_INSPIRED
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Amy3, FIELD_PIC_TINKATON_SAD
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Amy4, FIELD_PIC_TINKATON_HAPPY
+	applymovement LOCALID_RIPLEY1, MansionFloor3RoomBoss_Talk
+	waitmovement 0
+	delay 20
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Ripley1, FIELD_PIC_BLASTOISE_ANGRY
+	delay 80
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Amy5, FIELD_PIC_TINKATON_ANGRY
+
+	@EGGHELP1 - customizing this battle. looks like createmon can get me shiny, female, stats, moveset, etc, but not nickname. Any ideas?
+	
+	settotemboost B_POSITION_OPPONENT_LEFT, 1, 1
+	setwildbattle SPECIES_TINKATON, 55, ITEM_WEAKNESS_POLICY
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
+	setflag FLAG_BOSS3_CLEAR
+	
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Amy6, FIELD_PIC_TINKATON_DETERMINED
+	applymovement LOCALID_AMY1, MansionFloor3RoomBoss_Charge1
+	waitmovement 0
+	@hit sound?
+	@playse
+	applymovement LOCALID_AMY1, MansionFloor3RoomBoss_Charge2
+	applymovement OBJ_EVENT_ID_PLAYER, MansionFloor3RoomBoss_Charge3
+	waitmovement 0
+	removeobject LOCALID_AMY1
+	removeobject OBJ_EVENT_ID_PLAYER
+	applymovement LOCALID_BELLA1, Common_Movement_ExclamationMark
+	applymovement LOCALID_RIPLEY1, Common_Movement_ExclamationMark
+	@EGGHELP
+	@This is where both PCs and Amy get thrown into the fountain, so need game over with a falling Tinkaton as well
+	releaseall
 	end
+
+
+MansionFloor3RoomBoss_Talk:
+	walk_in_place_fast_down
+	walk_in_place_fast_down
+	step_end
+
+MansionFloor3RoomBoss_Charge1:
+	walk_faster_down
+	step_end
+
+MansionFloor3RoomBoss_Charge2:
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+
+MansionFloor3RoomBoss_Charge3:
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+
+
 
 
 MansionFloor3RoomBoss_Text_Boss1Amy1:
@@ -231,20 +142,65 @@ MansionFloor3RoomBoss_Text_Boss1Amy6:
 	.string "Amy: No!\p"
 	.string "You can't be allowed to bother him!\p"
 	.string "…\p"
-	.string "Ripley's last resort technique…\p"
-	.string "It's my only chance!$"
+	.string "Ripley's last resort technique…\n"
+	.string "It's my only chance!\p"
+	.string "Hiyaaaa!$"
+
+
+
+
+
+MansionFloor3RoomBoss_EventScript_BossBella::
+	lockall
+	setvar VAR_TEMP_0, 1
+	applymovement LOCALID_BELLA2, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 20
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss2Bella1, FIELD_PIC_SCOLIPEDE_ANGRY
+	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 0, 0, 1
+	
+	@EGGHELP1 - same problem with createmon. Moveset of only Fury Cutter and Rollout sounds great here, btw
+
+	setwildbattle SPECIES_SCOLIPEDE, 60, ITEM_METRONOME
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
+	setflag FLAG_BOSS3_CLEAR
+	
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss2Bella2, FIELD_PIC_SCOLIPEDE_ANGRY
+	delay 50
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss2Bella3, FIELD_PIC_SCOLIPEDE_WORRIED
+	applymovement LOCALID_BELLA2, MansionFloor3RoomBoss_Charge1
+	waitmovement 0
+	@hit sound?
+	@playse
+	applymovement LOCALID_BELLA2, MansionFloor3RoomBoss_Charge2
+	applymovement OBJ_EVENT_ID_PLAYER, MansionFloor3RoomBoss_Charge3
+	waitmovement 0
+	removeobject LOCALID_BELLA2
+	removeobject OBJ_EVENT_ID_PLAYER
+
+	@EGGHELP2 - game over script. This is where both PCs and Bella get thrown into the fountain, so need a game over with a falling Scolipede
+	
+	releaseall
+	end
+
+
+
 
 
 
 MansionFloor3RoomBoss_Text_Boss2Bella1:
 	.string "Bella: Hmph.\p"
-	.string "Father doesn't like it when I fight\n"
-	.string "his other children.\p"
+	.string "Father doesn't like it when I hurt\n"
+	.string "his children.\p"
 	.string "Oh sure, we have the Fountain, but\n"
 	.string "fear doesn't heal.\p"
 	.string "But.\p"
 	.string "Father also doesn't like being\n"
-	.string "disturbed, reminded of the past.\p"
+	.string "disturbed or reminded of the past.\p"
 	.string "Which means… I get to hurt you.\p"
 	.string "Guilt-free.\p"
 	.string "Prepare.$"
@@ -255,10 +211,51 @@ MansionFloor3RoomBoss_Text_Boss2Bella2:
 	.string "Now I've got no choice but to use the\n"
 	.string "dumbest strategy ever invented!\p"
 	.string "Heal myself and delay you… but risk\n"
-	.string "turning into a troublemaker zombie!\p"
+	.string "turning into a troublemaker zombie!$"
+
+MansionFloor3RoomBoss_Text_Boss2Bella3:
+	.string "…\p"
 	.string "You better not convince me to turn on\n"
 	.string "my own father.\p"
-	.string "But at least I buy him some more time.$"
+	.string "At least I can buy him some time.$"
+
+
+
+
+
+
+MansionFloor3RoomBoss_EventScript_BossRipley::
+	lockall
+	setvar VAR_TEMP_0, 1
+	applymovement LOCALID_RIPLEY3, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 20
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss3Ripley1, FIELD_PIC_BLASTOISE_NORMAL
+	
+	@EGGHELP1 - same problem with createmon.
+	
+	settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
+	setwildbattle SPECIES_BLASTOISE, 65, ITEM_LEFTOVERS
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
+	setflag FLAG_BOSS3_CLEAR
+	
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss2Bella2, FIELD_PIC_BLASTOISE_PAIN
+	applymovement LOCALID_RIPLEY3, MansionFloor3RoomBoss_Charge1
+	waitmovement 0
+	@hit sound?
+	@playse
+	applymovement LOCALID_RIPLEY3, MansionFloor3RoomBoss_Charge2
+	applymovement OBJ_EVENT_ID_PLAYER, MansionFloor3RoomBoss_Charge3
+	waitmovement 0
+	removeobject LOCALID_BELLA2
+	removeobject OBJ_EVENT_ID_PLAYER
+	@EGGHELP2 Another game over with a falling Blastoise
+	releaseall
+	end
 
 
 
@@ -312,7 +309,7 @@ MansionFloor3RoomBoss_Text_Window:
 	.string "resetting your memory?$"
 
 
-@TOFOLD
+@EGGHELP2 - this needs to be a voluntary game over. Couldn't find a command to just kill the player
 MansionFloor3RoomBoss_EventScript_GameOver::
 	end
 
