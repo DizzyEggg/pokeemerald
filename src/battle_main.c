@@ -4081,7 +4081,7 @@ u8 IsRunningFromBattleImpossible(u32 battler)
     enum ItemHoldEffect holdEffect;
     u32 i;
 
-    if (FlagGet(B_FLAG_NO_RUNNING))
+    if (FlagGet(B_FLAG_NO_RUNNING) || 1) // Running from battles always impossible. Todo: Change if we ever make some battle runnable.
     {
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CANT_ESCAPE;
         return BATTLE_RUN_FORBIDDEN;

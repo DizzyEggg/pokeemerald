@@ -649,7 +649,7 @@ static void Task_EvolutionScene(u8 taskId)
     struct Pokemon *mon = &gPlayerParty[gTasks[taskId].tPartyId];
 
     // check if B Button was held, so the evolution gets stopped
-    if (gMain.heldKeys == B_BUTTON
+    if ((gMain.heldKeys == B_BUTTON && 0) // Evolution always happens.
         && gTasks[taskId].tState == EVOSTATE_WAIT_CYCLE_MON_SPRITE
         && gTasks[sEvoGraphicsTaskId].isActive
         && gTasks[taskId].tBits & TASK_BIT_CAN_STOP)

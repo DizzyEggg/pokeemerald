@@ -450,7 +450,7 @@ static const u8 *ExpandPlaceholder_UnknownStringVar(void)
 
 EWRAM_DATA u8 sMonNameBuffer[POKEMON_NAME_BUFFER_SIZE + 1] = {0};
 
-static const u8 *ExpandPlaceholder_PlayerName(void)
+const u8 *ExpandPlaceholder_PlayerName(void)
 {
     s32 playerCurrSpecies = gSaveBlock2Ptr->playerSpriteMonId;
     if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES) == playerCurrSpecies) {

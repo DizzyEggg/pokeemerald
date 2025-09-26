@@ -13,6 +13,7 @@
 #include "international_string_util.h"
 #include "link.h"
 #include "main.h"
+#include "item.h"
 #include "main_menu.h"
 #include "menu.h"
 #include "list_menu.h"
@@ -261,9 +262,9 @@ static const u8 gText_SaveFileErased[] = _("The save file has been erased\ndue t
 static const u8 gJPText_No1MSubCircuit[] = _("1Mサブきばんが ささっていません！");
 static const u8 gText_BatteryRunDry[] = _("The internal battery has run dry.\nThe game can be played.\pHowever, clock-based events will\nno longer occur.");
 
-static const u8 gText_MainMenuNewGame[] = _("NEW GAME");
-static const u8 gText_MainMenuContinue[] = _("CONTINUE");
-static const u8 gText_MainMenuOption[] = _("OPTION");
+static const u8 gText_MainMenuNewGame[] = _("New game");
+static const u8 gText_MainMenuContinue[] = _("Continue");
+static const u8 gText_MainMenuOption[] = _("Option");
 static const u8 gText_MainMenuMysteryGift[] = _("MYSTERY GIFT");
 static const u8 gText_MainMenuMysteryGift2[] = _("MYSTERY GIFT");
 static const u8 gText_MainMenuMysteryEvents[] = _("MYSTERY EVENTS");
@@ -271,10 +272,10 @@ static const u8 gText_WirelessNotConnected[] = _("The Wireless Adapter is not\nc
 static const u8 gText_MysteryGiftCantUse[] = _("MYSTERY GIFT can't be used while\nthe Wireless Adapter is attached.");
 static const u8 gText_MysteryEventsCantUse[] = _("MYSTERY EVENTS can't be used while\nthe Wireless Adapter is attached.");
 
-static const u8 gText_ContinueMenuPlayer[] = _("PLAYER");
-static const u8 gText_ContinueMenuTime[] = _("TIME");
+static const u8 gText_ContinueMenuPlayer[] = _("Player");
+static const u8 gText_ContinueMenuTime[] = _("Time");
 static const u8 gText_ContinueMenuPokedex[] = _("POKéDEX");
-static const u8 gText_ContinueMenuBadges[] = _("BADGES");
+static const u8 gText_ContinueMenuBadges[] = _("Photos");
 
 #define MENU_LEFT 2
 #define MENU_TOP_WIN0 1
@@ -2158,9 +2159,10 @@ static void MainMenu_FormatSavegameText(void)
 
 static void MainMenu_FormatSavegamePlayer(void)
 {
+    const u8 *playerName = ExpandPlaceholder_PlayerName();
     StringExpandPlaceholders(gStringVar4, gText_ContinueMenuPlayer);
     AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
-    AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, gSaveBlock2Ptr->playerName, 100), 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gSaveBlock2Ptr->playerName);
+    AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, playerName, 100), 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, playerName);
 }
 
 static void MainMenu_FormatSavegameTime(void)
@@ -2197,18 +2199,18 @@ static void MainMenu_FormatSavegamePokedex(void)
 static void MainMenu_FormatSavegameBadges(void)
 {
     u8 str[0x20];
-    u8 badgeCount = 0;
-    u32 i;
+    u8 *strPtr;
+    u8 badgeCount = CountUniquePhotos();
 
-    for (i = FLAG_BADGE01_GET; i < FLAG_BADGE01_GET + NUM_BADGES; i++)
-    {
-        if (FlagGet(i))
-            badgeCount++;
+    if (badgeCount >= 1) {
+        StringExpandPlaceholders(gStringVar4, gText_ContinueMenuBadges);
+        AddTextPrinterParameterized3(2, FONT_NORMAL, 0x6C, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
+        strPtr = ConvertIntToDecimalStringN(str, badgeCount, STR_CONV_MODE_LEADING_ZEROS, 1);
+        *strPtr++ = CHAR_SLASH;
+        *strPtr++ = CHAR_5;
+        *strPtr++ = EOS;
+        AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 0xD0), 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
     }
-    StringExpandPlaceholders(gStringVar4, gText_ContinueMenuBadges);
-    AddTextPrinterParameterized3(2, FONT_NORMAL, 0x6C, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
-    ConvertIntToDecimalStringN(str, badgeCount, STR_CONV_MODE_LEADING_ZEROS, 1);
-    AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 0xD0), 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
 }
 
 static void LoadMainMenuWindowFrameTiles(u8 bgId, u16 tileOffset)

@@ -181,5 +181,6 @@ u32 GetItemFlingPower(u32 itemId);
 u32 GetItemStatus1Mask(u16 itemId);
 u32 GetItemStatus2Mask(u16 itemId);
 u32 GetItemSellPrice(u32 itemId);
+s32 CountUniquePhotos(void);
 
 #endif // GUARD_ITEM_H

@@ -3452,24 +3452,17 @@ static void PrintMonOTName(void)
     int x, windowId;
     if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
     {
-
-
         s32 photosCount;
 
         windowId = AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER);
         PrintTextOnWindow(windowId, gText_OTSlash, 0, 1, 0, 1);
         x = GetStringWidth(FONT_NORMAL, gText_OTSlash, 0);
-        photosCount = CheckBagHasItem(UNIQUE_ITEM_PHOTO_1, 1)
-                    + CheckBagHasItem(UNIQUE_ITEM_PHOTO_2, 1)
-                    + CheckBagHasItem(UNIQUE_ITEM_PHOTO_3, 1)
-                    + CheckBagHasItem(UNIQUE_ITEM_PHOTO_4, 1)
-                    + CheckBagHasItem(UNIQUE_ITEM_PHOTO_5, 1);
+        photosCount = CountUniquePhotos();
 
         if (sMonSummaryScreen->summary.OTGender == 0)
             PrintTextOnWindow(windowId, sOtNames[photosCount], x, 1, 0, 5);
         else
             PrintTextOnWindow(windowId, sOtNames[photosCount], x, 1, 0, 6);
-
     }
 }
 
