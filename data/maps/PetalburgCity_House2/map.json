@@ -244,6 +244,83 @@
       "elevation": 0,
       "dest_map": "MAP_MANSION_FLOOR3ROOM_BOSS",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3ROOM1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3ROOM2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3ROOM3",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3ROOM4",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3HALLWAY1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3HALLWAY2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3TREASURE_DOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3TREASURE_LEFT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3TREASURE_RIGHT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3TREASURE_UP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MANSION_FLOOR3ROOM_FINAL",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

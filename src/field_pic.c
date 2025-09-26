@@ -153,6 +153,58 @@ static const u32 sHaunterYellGfx[] = INCBIN_U32("graphics/field_pic/haunter_yell
 static const u16 sHaunterYellPal[] = INCBIN_U16("graphics/field_pic/haunter_yell.gbapal");
 
 
+static const u32 sTatsugiriSpecialGfx[] = INCBIN_U32("graphics/field_pic/tatsugiri_special.4bpp.lz");
+static const u16 sTatsugiriSpecialPal[] = INCBIN_U16("graphics/field_pic/tatsugiri_special.gbapal");
+
+static const u32 sSmolivCryGfx[] = INCBIN_U32("graphics/field_pic/smoliv_cry.4bpp.lz");
+static const u16 sSmolivCryPal[] = INCBIN_U16("graphics/field_pic/smoliv_cry.gbapal");
+
+static const u32 sFarfetchdDeterminedGfx[] = INCBIN_U32("graphics/field_pic/farfetchd_determined.4bpp.lz");
+static const u16 sFarfetchdDeterminedPal[] = INCBIN_U16("graphics/field_pic/farfetchd_determined.gbapal");
+
+static const u32 sNacliNormalGfx[] = INCBIN_U32("graphics/field_pic/nacli_normal.4bpp.lz");
+static const u16 sNacliNormalPal[] = INCBIN_U16("graphics/field_pic/nacli_normal.gbapal");
+
+
+static const u32 sTinkatonInspiredGfx[] = INCBIN_U32("graphics/field_pic/tinkaton_inspired.4bpp.lz");
+static const u16 sTinkatonInspiredPal[] = INCBIN_U16("graphics/field_pic/tinkaton_inspired.gbapal");
+
+static const u32 sTinkatonDeterminedGfx[] = INCBIN_U32("graphics/field_pic/tinkaton_determined.4bpp.lz");
+static const u16 sTinkatonDeterminedPal[] = INCBIN_U16("graphics/field_pic/tinkaton_determined.gbapal");
+
+static const u32 sTinkatonAngryGfx[] = INCBIN_U32("graphics/field_pic/tinkaton_angry.4bpp.lz");
+static const u16 sTinkatonAngryPal[] = INCBIN_U16("graphics/field_pic/tinkaton_angry.gbapal");
+
+static const u32 sTinkatonHappyGfx[] = INCBIN_U32("graphics/field_pic/tinkaton_happy.4bpp.lz");
+static const u16 sTinkatonHappyPal[] = INCBIN_U16("graphics/field_pic/tinkaton_happy.gbapal");
+
+static const u32 sTinkatonSadGfx[] = INCBIN_U32("graphics/field_pic/tinkaton_sad.4bpp.lz");
+static const u16 sTinkatonSadPal[] = INCBIN_U16("graphics/field_pic/tinkaton_sad.gbapal");
+
+static const u32 sScolipedeAngryGfx[] = INCBIN_U32("graphics/field_pic/scolipede_angry.4bpp.lz");
+static const u16 sScolipedeAngryPal[] = INCBIN_U16("graphics/field_pic/scolipede_angry.gbapal");
+
+static const u32 sScolipedeWorriedGfx[] = INCBIN_U32("graphics/field_pic/scolipede_worried.4bpp.lz");
+static const u16 sScolipedeWorriedPal[] = INCBIN_U16("graphics/field_pic/scolipede_worried.gbapal");
+
+static const u32 sBlastoiseNormalGfx[] = INCBIN_U32("graphics/field_pic/blastoise_normal.4bpp.lz");
+static const u16 sBlastoiseNormalPal[] = INCBIN_U16("graphics/field_pic/blastoise_normal.gbapal");
+
+static const u32 sBlastoiseAngryGfx[] = INCBIN_U32("graphics/field_pic/blastoise_angry.4bpp.lz");
+static const u16 sBlastoiseAngryPal[] = INCBIN_U16("graphics/field_pic/blastoise_angry.gbapal");
+
+static const u32 sBlastoisePainGfx[] = INCBIN_U32("graphics/field_pic/blastoise_pain.4bpp.lz");
+static const u16 sBlastoisePainPal[] = INCBIN_U16("graphics/field_pic/blastoise_pain.gbapal");
+
+
+static const u32 sCradilyDarkGfx[] = INCBIN_U32("graphics/field_pic/cradily_dark.4bpp.lz");
+static const u16 sCradilyDarkPal[] = INCBIN_U16("graphics/field_pic/cradily_dark.gbapal");
+
+static const u32 sCradilyDeterminedGfx[] = INCBIN_U32("graphics/field_pic/cradily_determined.4bpp.lz");
+static const u16 sCradilyDeterminedPal[] = INCBIN_U16("graphics/field_pic/cradily_determined.gbapal");
+
+
+
 /* And this is an example script.
 FieldPicExample_2pics:
 	load_field_pic 0, 190, 98, VAR_0x8008
@@ -209,6 +261,25 @@ static const struct Pic sPics[] =
     [FIELD_PIC_HAUNTER_INSPIRED] = {sHaunterInspiredGfx, sHaunterInspiredPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_HAUNTER_SIGH] = {sHaunterSighGfx, sHaunterSighPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_HAUNTER_YELL] = {sHaunterYellGfx, sHaunterYellPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_TATSUGIRI_SPECIAL] = {sTatsugiriSpecialGfx, sTatsugiriSpecialPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SMOLIV_CRY] = {sSmolivCryGfx, sSmolivCryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_FARFETCHD_DETERMINED] = {sFarfetchdDeterminedGfx, sFarfetchdDeterminedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_NACLI_NORMAL] = {sNacliNormalGfx, sNacliNormalPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_TINKATON_INSPIRED] = {sTinkatonInspiredGfx, sTinkatonInspiredPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_TINKATON_DETERMINED] = {sTinkatonDeterminedGfx, sTinkatonDeterminedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_TINKATON_ANGRY] = {sTinkatonAngryGfx, sTinkatonAngryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_TINKATON_HAPPY] = {sTinkatonHappyGfx, sTinkatonHappyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_TINKATON_SAD] = {sTinkatonSadGfx, sTinkatonSadPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SCOLIPEDE_ANGRY] = {sScolipedeAngryGfx, sScolipedeAngryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SCOLIPEDE_WORRIED] = {sScolipedeWorriedGfx, sScolipedeWorriedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_BLASTOISE_NORMAL] = {sBlastoiseNormalGfx, sBlastoiseNormalPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_BLASTOISE_ANGRY] = {sBlastoiseAngryGfx, sBlastoiseAngryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_BLASTOISE_PAIN] = {sBlastoisePainGfx, sBlastoisePainPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_CRADILY_DARK] = {sCradilyDarkGfx, sCradilyDarkPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_CRADILY_DETERMINED] = {sCradilyDeterminedGfx, sCradilyDeterminedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
 };
 
 static EWRAM_DATA u8 sLastPicId = 0;
