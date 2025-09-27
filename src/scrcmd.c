@@ -2559,7 +2559,7 @@ void ScrCmd_setenemymonnick(struct ScriptContext *ctx)
     u8 partyId = ScriptReadByte(ctx);
     const u8 *nick = (const u8 *) ScriptReadWord(ctx);
 
-    SetMonData(&gEnemyParty[partyId], MON_DATA_NICKNAME, &nick);
+    SetMonData(&gEnemyParty[partyId], MON_DATA_NICKNAME, nick);
 }
 
 static void TrySetMonMove(u32 moveId, struct Pokemon *mon)
@@ -2647,6 +2647,11 @@ static s32 ChooseLevelForWildMon(enum ScaleLevel scale, s32 range)
     return wildLevel;
 }
 
+void SetAsWildBattleIfPossible(void)
+{
+    sIsScriptedWildDouble = (GetMonsStateToDoubles_2() == PLAYER_HAS_TWO_USABLE_MONS);
+}
+
 void ScriptCmd_SetMansionWildBattle(struct ScriptContext *ctx)
 {
     bool8 isDouble = ScriptReadByte(ctx);
@@ -2664,7 +2669,7 @@ void ScriptCmd_SetMansionWildBattle(struct ScriptContext *ctx)
         CreateScriptedDoubleWildMon(species, level, ITEM_NONE, species, level2, ITEM_NONE);
     }
     else {
-        sIsScriptedWildDouble = (GetMonsStateToDoubles_2() == PLAYER_HAS_TWO_USABLE_MONS);
+        SetAsWildBattleIfPossible();
         CreateScriptedWildMon(species, level, ITEM_NONE);
     }
 }
@@ -3448,6 +3453,17 @@ void ScriptCmd_ChangePlayerSprite(struct ScriptContext *ctx)
 void ScriptCmd_GetPlayerSpecies(struct ScriptContext *ctx)
 {
     gSpecialVar_Result = gSaveBlock2Ptr->playerSpriteMonId;
+}
+
+void ScriptCmd_GetPartnerSpecies(struct ScriptContext *ctx)
+{
+    struct Pokemon *mon = GetSecondLiveMon();
+    gSpecialVar_Result = GetMonData(mon, MON_DATA_SPECIES);
+}
+
+void ScriptCmd_GetFalling3rdMonSpecies(struct ScriptContext *ctx)
+{
+    gSpecialVar_Result = VarGet(VAR_OBJ_GFX_ID_1) - OBJ_EVENT_MON - OBJ_EVENT_MON_SHINY;
 }
 
 void PlayEggHatchAnimation(struct ScriptContext *ctx)

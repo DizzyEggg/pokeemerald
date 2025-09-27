@@ -1829,6 +1829,12 @@ void CB2_NewGame(void)
     ChooseRandomFloorMons();
     EggHatchAnim(SPECIES_PHANPY, TRUE, sStringYou, FALSE);
     FlagSet(FLAG_WHITEOUT_FALLING_PARTNER_NPC);
+    FlagSet(FLAG_WHITEOUT_FALLING_THIRD_NPC);
+    FlagSet(FLAG_FIREPLACE_HIDE_TINKATINK);
+    FlagSet(FLAG_FIREPLACE_HIDE_SWABLU);
+    FlagSet(FLAG_FIREPLACE_HIDE_SQUIRTLE);
+    FlagSet(FLAG_FIREPLACE_HIDE_VENIPEDE);
+    FlagSet(FLAG_FIREPLACE_HIDE_PHANPY);
 }
 
 extern const u8 Fountain_EventScript_Whiteout[];

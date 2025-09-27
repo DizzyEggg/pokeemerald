@@ -53,6 +53,7 @@ MansionFloor3RoomBoss_EventScript_BossAmy::
 	setwildbattle SPECIES_TINKATON, 55, ITEM_WEAKNESS_POLICY
     setenemymonnick 0, sText_TinkatonNickname
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+    callnative SetAsWildBattleIfPossible
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -66,13 +67,16 @@ MansionFloor3RoomBoss_EventScript_BossAmy::
 	@playse
 	applymovement LOCALID_AMY1, MansionFloor3RoomBoss_Charge2
 	applymovement OBJ_EVENT_ID_PLAYER, MansionFloor3RoomBoss_Charge3
+    clearflag FLAG_WHITEOUT_FALLING_THIRD_NPC
+    setvar VAR_OBJ_GFX_ID_1, SPECIES_TINKATON + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY
 	waitmovement 0
-	removeobject LOCALID_AMY1
-	removeobject OBJ_EVENT_ID_PLAYER
+    closemessage
+	setspriteinvisible LOCALID_AMY1, TRUE
+	setspriteinvisible OBJ_EVENT_ID_PLAYER, TRUE
 	applymovement LOCALID_BELLA1, Common_Movement_ExclamationMark
 	applymovement LOCALID_RIPLEY1, Common_Movement_ExclamationMark
-	@EGGHELP
-	@This is where both PCs and Amy get thrown into the fountain, so need game over with a falling Tinkaton as well
+    waitmovement 0
+	dowhiteout
 	releaseall
 	end
 

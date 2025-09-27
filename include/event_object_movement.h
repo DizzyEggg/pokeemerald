@@ -145,6 +145,7 @@ struct Pokemon *GetFirstLiveMon(void);
 u16 GetOverworldWeatherSpecies(u16 species);
 void UpdateFollowingPokemon(void);
 void RemoveFollowingPokemon(void);
+struct Pokemon *GetSecondLiveMon(void);
 struct ObjectEvent *GetFollowerObject(void);
 u8 GetDirectionToFace(s16, s16, s16, s16);
 void UpdateLightSprite(struct Sprite *);
