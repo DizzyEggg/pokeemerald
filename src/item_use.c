@@ -35,6 +35,7 @@
 #include "pokemon.h"
 #include "script.h"
 #include "sound.h"
+#include "field_pic.h"
 #include "strings.h"
 #include "string_util.h"
 #include "task.h"
@@ -768,6 +769,110 @@ static void ItemUseOnFieldCB_Berry(u8 taskId)
     LockPlayerFieldControls();
     ScriptContext_SetupScript(BerryTree_EventScript_ItemUsePlantBerry);
     DestroyTask(taskId);
+}
+
+extern const u8 EventScript_ShowPhotoPic[];
+
+static const struct WindowTemplate sPhotoPicWindow =
+{
+    .bg = 0,
+    .tilemapLeft = 13,
+    .tilemapTop = 5,
+    .width = 8,
+    .height = 8,
+    .paletteNum = 15,
+    .baseBlock = 1,
+};
+
+static const struct WindowTemplate sPhotoPicWholeWindow =
+{
+    .bg = 0,
+    .tilemapLeft = 10,
+    .tilemapTop = 5,
+    .width = 16,
+    .height = 8,
+    .paletteNum = 15,
+    .baseBlock = 1,
+};
+
+#define tWindowId data[0]
+
+static void Task_WaitForInput(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    if (JOY_NEW(A_BUTTON | B_BUTTON)) {
+        ClearRemoveWindow(task->tWindowId);
+        ScriptContext_Enable();
+        RemoveAllCreatedPics();
+        DestroyTask(taskId);
+    }
+}
+
+void ScrCmd_ShowPhotoPic(void)
+{
+    s32 fieldPicId;
+    u32 taskId;
+    u32 windowId = AddWindow(&sPhotoPicWindow);
+    u32 spriteId;
+
+    DrawStdWindowFrame(windowId, FALSE);
+    taskId = CreateTask(Task_WaitForInput, 5);
+    gTasks[taskId].tWindowId = windowId;
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+    switch (gSpecialVar_ItemId) {
+        default:
+        case UNIQUE_ITEM_PHOTO_1:
+            fieldPicId = FIELD_PIC_PHOTO_PIECE_1;
+            break;
+        case UNIQUE_ITEM_PHOTO_2:
+            fieldPicId = FIELD_PIC_PHOTO_PIECE_2;
+            break;
+        case UNIQUE_ITEM_PHOTO_3:
+            fieldPicId = FIELD_PIC_PHOTO_PIECE_3;
+            break;
+        case UNIQUE_ITEM_PHOTO_4:
+            fieldPicId = FIELD_PIC_PHOTO_PIECE_4;
+            break;
+        case UNIQUE_ITEM_PHOTO_5:
+            fieldPicId = FIELD_PIC_PHOTO_PIECE_5;
+            break;
+    }
+    spriteId = LoadFieldPicVars(fieldPicId, 136, 72);
+    gSprites[spriteId].oam.priority = 0;
+}
+
+void ScrCmd_ShowWholePhotoPic(void)
+{
+    u32 taskId;
+    u32 windowId = AddWindow(&sPhotoPicWholeWindow);
+    u32 spriteId1, spriteId2;
+    s32 x;
+
+    DrawStdWindowFrame(windowId, FALSE);
+    taskId = CreateTask(Task_WaitForInput, 5);
+    gTasks[taskId].tWindowId = windowId;
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+    x = 112;
+    spriteId1 = LoadFieldPicVars(FIELD_PIC_PHOTO_WHOLE_A, x, 72);
+    spriteId2 = LoadFieldPicVars(FIELD_PIC_PHOTO_WHOLE_B, x + 64, 72);
+    gSprites[spriteId1].oam.priority = 0;
+    gSprites[spriteId2].oam.priority = 0;
+}
+
+#undef tWindowId
+
+static void ItemUseOnFieldCB_PhotoPic(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(EventScript_ShowPhotoPic);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_PhotoPic(u8 taskId)
+{
+    sItemUseOnFieldCB = ItemUseOnFieldCB_PhotoPic;
+    SetUpItemUseOnFieldCallback(taskId);
 }
 
 void ItemUseOutOfBattle_WailmerPail(u8 taskId)

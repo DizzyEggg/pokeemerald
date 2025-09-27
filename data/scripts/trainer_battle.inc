@@ -158,4 +158,11 @@ EventScript_MansionDoorLocked::
     closemessage
     release
     end
+    
+EventScript_ShowPhotoPic::
+    lockall
+    callnative ScrCmd_ShowPhotoPic
+    waitstate
+    releaseall
+    end
 
