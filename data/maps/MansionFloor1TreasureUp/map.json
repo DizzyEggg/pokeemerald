@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Common_EventScript_FindItemFromSet",
-      "flag": "0"
+      "flag": "FLAG_ITEM_F1_TREASURE_UP"
     }
   ],
   "warp_events": [

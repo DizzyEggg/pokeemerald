@@ -34,7 +34,7 @@
       "x": 10,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ENTRANCE",
+      "dest_map": "MAP_MANSION_FLOOR3ROOM_BOSS",
       "dest_warp_id": "0"
     }
   ],

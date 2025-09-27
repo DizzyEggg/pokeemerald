@@ -19,7 +19,13 @@ MansionFloor3RoomBoss_EventScript_BossFight::
 	end
 
 sText_TinkatonNickname:
-	.string "Unfolded.$"
+	.string "AMY$"
+
+sText_ScolipedeNickname:
+	.string "BELLADONNA$"
+
+sText_BlastoiseNickname:
+	.string "RIPLEY$"
 
 MansionFloor3RoomBoss_EventScript_BossAmy::
 	lockall
@@ -161,6 +167,7 @@ MansionFloor3RoomBoss_EventScript_BossBella::
 	
 	setwildbattle SPECIES_SCOLIPEDE, 60, ITEM_METRONOME
     setenemymonmoves 0, MOVE_FURY_CUTTER, MOVE_ROLLOUT, 0, 0
+	setenemymonnick 0, sText_ScolipedeNickname
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -235,6 +242,8 @@ MansionFloor3RoomBoss_EventScript_BossRipley::
 	
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
 	setwildbattle SPECIES_BLASTOISE, 65, ITEM_LEFTOVERS
+	setenemymonmoves 0, MOVE_WAVE_CRASH, MOVE_PROTECT, MOVE_AQUA_RING, 0
+	setenemymonnick 0, sText_BlastoiseNickname
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE

@@ -13,6 +13,9 @@ MansionFloor3RoomFinal_EventScript_Trigger1::
 	end
 
 
+sText_CradilyNickname:
+	.string "CRAFTILY$"
+
 MansionFloor3RoomFinal_Text_Craftily1:
 	.string "I cannot bear to look at you. Everyone\n"
 	.string "else has forgotten.\p"
@@ -30,9 +33,58 @@ MansionFloor3RoomFinal_EventScript_Trigger2::
 	applymovement LOCALID_CRADILY, MansionFloor1RoomBoss_LookLeft
 	delay 80
 	applymovement LOCALID_CRADILY, MansionFloor1RoomBoss_LookDown
+	delay 100
+	msgbox_portrait MansionFloor3RoomFinal_Text_Craftily4, FIELD_PIC_CRADILY_DETERMINED
 
+	setflag FLAG_BATTLE_START_LEECH_SEED
+	@settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
+	setwildbattle SPECIES_CRADILY, 96, ITEM_LEFTOVERS
+    setenemymonnick 0, sText_CradilyNickname
+	setenemymonmoves 0, MOVE_ROCK_SMASH, MOVE_STOCKPILE, MOVE_PROTECT, MOVE_ROCK_SLIDE
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
+	@setflag FLAG_BOSS3_CLEAR
 
+	@@@CUTSCENE here
+	msgbox MansionFloor3RoomFinal_Text_CraftilyLose01, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MansionFloor3RoomFinal_EventScript_DontRelive
+	goto_if_eq VAR_RESULT, YES, MansionFloor3RoomFinal_EventScript_Relive
+	end
 
+MansionFloor3RoomFinal_EventScript_Relive::
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyRelive, FIELD_PIC_CRADILY_DETERMINED
+	goto MansionFloor3RoomFinal_EventScript_FinalScene
+	end
+
+MansionFloor3RoomFinal_EventScript_DontRelive::
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyDontRelive, FIELD_PIC_CRADILY_DETERMINED
+	goto MansionFloor3RoomFinal_EventScript_FinalScene
+	end
+
+@placeholder, until cutscene done TOFOLD
+MansionFloor3RoomFinal_EventScript_FinalScene::
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose02, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose03, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose04, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose05, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose06, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose07, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose08, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose09, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose10, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose11, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose12, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose13, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose14, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose15, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose16, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose17, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose18, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose19, FIELD_PIC_CRADILY_DETERMINED
+	end
 
 
 MansionFloor3RoomFinal_Text_Craftily2:
@@ -68,9 +120,9 @@ MansionFloor3RoomFinal_Text_Craftily4:
 
 
 MansionFloor3RoomFinal_Text_CraftilyLose01:
-	.string "Well… well fought. This cursed body\n"
-	.string "of mine… is truly broken.\p"
-	.string "…\p"
+	.string "Craftily: Well… well fought. This cursed\n"
+	.string "body of mine… is truly broken.\p"
+	.string "…what?\p"
 	.string "You still want to hear about the past?\p"
 	.string "In my final moments, you want me to \n"
 	.string "relive the worst memories of my life?$"
