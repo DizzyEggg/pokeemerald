@@ -4789,7 +4789,7 @@ static bool32 DoItemUseCbMedicine(u8 taskId, TaskFunc task)
             else if (item == ITEM_GARCHOMPITE) {
                 AddBagItem(ITEM_METAGROSSITE, 1);
             }
-            
+
         }
         else
         {
@@ -5853,12 +5853,15 @@ static void Task_DisplayLevelUpStatsPg1(u8 taskId)
     }
 }
 
+static EWRAM_DATA u8 sTrueInitialLevel = 0;
+
 static void Task_DisplayLevelUpStatsPg2(u8 taskId)
 {
     if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
     {
         PlaySE(SE_SELECT);
         DisplayLevelUpStatsPg2(taskId);
+        sTrueInitialLevel = sInitialLevel;
         sInitialLevel += 1; // so the Pokemon doesn't learn a move meant for its previous level
         gTasks[taskId].func = Task_TryLearnNewMoves;
     }
@@ -5891,7 +5894,7 @@ static void Task_TryLearnNewMoves(u8 taskId)
     {
         RemoveLevelUpStatsWindow();
         // We're going level down
-        if (sInitialLevel >= sFinalLevel)
+        if (sTrueInitialLevel > sFinalLevel)
         {
             if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
                 gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
