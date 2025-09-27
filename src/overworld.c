@@ -1869,6 +1869,22 @@ static void RemoveAllButUniqueItems(void)
     RemoveMonHeldItem(&gPlayerParty[1]);
 }
 
+static void ResetPokemonLevelTo1(void)
+{
+    u8 level = 1;
+    s32 i;
+    for (i = 0; i < 2; i++) {
+        s32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        if (species != SPECIES_NONE) {
+            s32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+
+            SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
+            SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &level);
+            CalculateMonStats(&gPlayerParty[i]);
+        }
+    }
+}
+
 static void HandleFlagsAndEventsAfterRunOver(void)
 {
     struct UniqueItems uniqueItems = gSaveBlock1Ptr->availableItems.unique;
@@ -1913,6 +1929,7 @@ static void HandleFlagsAndEventsAfterRunOver(void)
     GenerateAllMansionFloorLayouts();
     SetAvailableItems(&uniqueItems);
     RemoveAllButUniqueItems();
+    ResetPokemonLevelTo1();
 }
 
 void CB2_WhiteOut(void)
