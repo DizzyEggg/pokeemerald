@@ -127,10 +127,10 @@
   ],
   "warp_events": [
     {
-      "x": 10,
-      "y": 19,
+      "x": 3,
+      "y": 18,
       "elevation": 0,
-      "dest_map": "MAP_MANSION_FLOOR1ENTRANCE",
+      "dest_map": "MAP_RND_MANSION_LEFT_SIDE_RIGHT",
       "dest_warp_id": "0"
     },
     {
@@ -138,6 +138,41 @@
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_MANSION_FLOOR3ROOM_FINAL",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_RND_MANSION_DOWN_SIDE_RIGHT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 5,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_RND_MANSION_RIGHT_SIDE_RIGHT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_RND_MANSION_RIGHT_SIDE_LEFT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_RND_MANSION_DOWN_SIDE_LEFT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_RND_MANSION_LEFT_SIDE_LEFT",
       "dest_warp_id": "0"
     }
   ],

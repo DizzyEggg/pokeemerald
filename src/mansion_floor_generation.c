@@ -589,29 +589,9 @@ void PrintMansionFloor3Layout(void)
     PrintMansionFloorLayout(gSaveBlock1Ptr->mansionFloor3Grid);
 }
 
-static s32 FindRndWarpInMap(s32 mapGroup, s32 mapNum, s32 wantedDst)
+static u8 (*GetRoomsGridForFloor(s32 floorNum))[GRID_X_LEN][GRID_Y_LEN]
 {
-    s32 i;
-    const struct MapHeader *header = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum);
-    s32 warpCount = header->events->warpCount;
-    const struct WarpEvent *warps = header->events->warps;
-
-    for (i = 0; i < warpCount; i++) {
-        if (warps[i].mapGroup == MAP_GROUP(wantedDst) && warps[i].mapNum == MAP_NUM(wantedDst)) {
-            return i;
-        }
-    }
-
-    // This should never happen!
-    return -1;
-}
-
-static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, s32 dir)
-{
-    enum ROOM_ENUM next;
-    s32 i, j;
     u8 (*roomsGrid)[GRID_X_LEN][GRID_Y_LEN];
-
     if (floorNum == 1) {
         roomsGrid = &gSaveBlock1Ptr->mansionFloor1Grid;
     }
@@ -622,6 +602,60 @@ static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, 
         roomsGrid = &gSaveBlock1Ptr->mansionFloor3Grid;
     }
     else {
+        roomsGrid = NULL;
+    }
+
+    return roomsGrid;
+}
+
+static bool32 AreWeRightFromEntrance(s32 currGridX)
+{
+    return (currGridX > ENTRANCE_X);
+}
+
+static s32 FindRndWarpInMap(s32 mapGroup, s32 mapNum, s32 wantedDst, s32 currGridX, s32 currGridY)
+{
+    s32 i;
+    const struct MapHeader *header = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum);
+    s32 warpCount = header->events->warpCount;
+    const struct WarpEvent *warps = header->events->warps;
+
+    // Get whether we're on left side form entrance or right side from entrance
+    bool32 isRightSide = AreWeRightFromEntrance(currGridX);
+    s32 otherPossibleDst;
+
+    if (wantedDst == MAP_RND_MANSION_UP) {
+        otherPossibleDst = (isRightSide == TRUE) ? MAP_RND_MANSION_UP_SIDE_RIGHT : MAP_RND_MANSION_UP_SIDE_LEFT;
+    }
+    else if (wantedDst == MAP_RND_MANSION_DOWN) {
+        otherPossibleDst = (isRightSide == TRUE) ? MAP_RND_MANSION_DOWN_SIDE_RIGHT : MAP_RND_MANSION_DOWN_SIDE_LEFT;
+    }
+    else if (wantedDst == MAP_RND_MANSION_LEFT) {
+        otherPossibleDst = (isRightSide == TRUE) ? MAP_RND_MANSION_LEFT_SIDE_RIGHT : MAP_RND_MANSION_LEFT_SIDE_LEFT;
+    }
+    else if (wantedDst == MAP_RND_MANSION_RIGHT) {
+        otherPossibleDst = (isRightSide == TRUE) ? MAP_RND_MANSION_RIGHT_SIDE_RIGHT : MAP_RND_MANSION_RIGHT_SIDE_LEFT;
+    }
+
+    for (i = 0; i < warpCount; i++) {
+        if (warps[i].mapGroup == MAP_GROUP(wantedDst) && warps[i].mapNum == MAP_NUM(wantedDst)) {
+            return i;
+        }
+        else if (warps[i].mapGroup == MAP_GROUP(otherPossibleDst) && warps[i].mapNum == MAP_NUM(otherPossibleDst)) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, s32 dir, s32 *currGridX, s32 *currGridY, s32 currMapNum)
+{
+    enum ROOM_ENUM next;
+    s32 i, j;
+    u8 (*roomsGrid)[GRID_X_LEN][GRID_Y_LEN] = GetRoomsGridForFloor(floorNum);
+
+    if ((*roomsGrid) == NULL) {
         // Should never happen
         return ROOM_NOTHING;
     }
@@ -664,6 +698,27 @@ static enum ROOM_ENUM GetNextGridLocation(s32 floorNum, enum ROOM_ENUM currLoc, 
                         break;
                 }
 
+                switch (currMapNum) {
+                    case MAP_NUM(MAP_RND_MANSION_UP_SIDE_LEFT):
+                    case MAP_NUM(MAP_RND_MANSION_DOWN_SIDE_LEFT):
+                    case MAP_NUM(MAP_RND_MANSION_LEFT_SIDE_LEFT):
+                    case MAP_NUM(MAP_RND_MANSION_RIGHT_SIDE_LEFT):
+                        if (AreWeRightFromEntrance(i))
+                            continue;
+                        break;
+                    case MAP_NUM(MAP_RND_MANSION_UP_SIDE_RIGHT):
+                    case MAP_NUM(MAP_RND_MANSION_DOWN_SIDE_RIGHT):
+                    case MAP_NUM(MAP_RND_MANSION_LEFT_SIDE_RIGHT):
+                    case MAP_NUM(MAP_RND_MANSION_RIGHT_SIDE_RIGHT):
+                        if (!AreWeRightFromEntrance(i))
+                            continue;
+                        break;
+                    default:
+                        break;
+                }
+
+                *currGridX = i;
+                *currGridY = j;
                 return next;
             }
         }
@@ -727,6 +782,7 @@ static s32 MapToFloorNum(s32 mapGroup, s32 mapNum)
 
 bool32 SetMansionWarpDestination(const struct WarpEvent *warpEvent)
 {
+    s32 currGridX, currGridY;
     s32 warpId;
     s32 retWarpDir;
     s32 floorNum = MapToFloorNum(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
@@ -736,20 +792,20 @@ bool32 SetMansionWarpDestination(const struct WarpEvent *warpEvent)
     enum ROOM_ENUM currGridLocation = MapToRoomEnum(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, floorNum);
 
     // Get next location in desired direction in grid
-    if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP)) {
-        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_NORTH);
+    if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP_SIDE_LEFT) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP_SIDE_RIGHT)) {
+        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_NORTH, &currGridX, &currGridY, warpEvent->mapNum);
         retWarpDir = MAP_RND_MANSION_DOWN;
     }
-    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_DOWN)) {
-        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_SOUTH);
+    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_DOWN) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_DOWN_SIDE_LEFT) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_DOWN_SIDE_RIGHT)) {
+        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_SOUTH, &currGridX, &currGridY, warpEvent->mapNum);
         retWarpDir = MAP_RND_MANSION_UP;
     }
-    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT)) {
-        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_WEST);
+    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT_SIDE_LEFT) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT_SIDE_RIGHT)) {
+        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_WEST, &currGridX, &currGridY, warpEvent->mapNum);
         retWarpDir = MAP_RND_MANSION_RIGHT;
     }
-    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT)) {
-        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_EAST);
+    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT_SIDE_LEFT) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT_SIDE_RIGHT)) {
+        dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_EAST, &currGridX, &currGridY, warpEvent->mapNum);
         retWarpDir = MAP_RND_MANSION_LEFT;
     }
     else { // Should not happen
@@ -760,7 +816,7 @@ bool32 SetMansionWarpDestination(const struct WarpEvent *warpEvent)
     RoomEnumToMap(dstGridLocation, &dstMapGroup, &dstMapNum, floorNum);
 
     // Find the warp with an opposite direction
-    warpId = FindRndWarpInMap(dstMapGroup, dstMapNum, retWarpDir);
+    warpId = FindRndWarpInMap(dstMapGroup, dstMapNum, retWarpDir, currGridX, currGridY);
     if (warpId == -1) {
         // Print Door is jammed msg
         ScriptContext_SetupScript(EventScript_MansionDoorLocked);
@@ -776,4 +832,21 @@ void GenerateAllMansionFloorLayouts(void)
     GenerateMansionFloorLayout(gSaveBlock1Ptr->mansionFloor1Grid, 1);
     GenerateMansionFloorLayout(gSaveBlock1Ptr->mansionFloor2Grid, 2);
     GenerateMansionFloorLayout(gSaveBlock1Ptr->mansionFloor3Grid, 3);
+}
+
+bool32 IsMansionWarp(const struct WarpEvent *warpEvent)
+{
+    return (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP_SIDE_LEFT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP_SIDE_RIGHT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_DOWN)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_DOWN_SIDE_LEFT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_DOWN_SIDE_RIGHT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT_SIDE_LEFT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT_SIDE_RIGHT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT_SIDE_LEFT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT_SIDE_RIGHT)
+            );
 }

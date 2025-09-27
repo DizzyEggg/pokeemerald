@@ -993,10 +993,7 @@ static bool32 SetupWarp(struct MapHeader *unused, s8 warpEventId, struct MapPosi
     {
         SetWarpDestinationToDynamicWarp(warpEvent->warpId);
     }
-    else if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP)
-             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_DOWN)
-             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_LEFT)
-             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT))
+    else if (IsMansionWarp(warpEvent))
     {
         return SetMansionWarpDestination(warpEvent);
     }

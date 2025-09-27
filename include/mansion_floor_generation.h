@@ -8,5 +8,6 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
 void GenerateMansionFloorLayout(u8 roomsGrid[GRID_X_LEN][GRID_Y_LEN], s32 floorNum);
 bool32 SetMansionWarpDestination(const struct WarpEvent *warpEvent);
 void GenerateAllMansionFloorLayouts(void);
+bool32 IsMansionWarp(const struct WarpEvent *warpEvent);
 
 #endif
