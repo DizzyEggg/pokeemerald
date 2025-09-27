@@ -490,7 +490,6 @@
 #define MUS_RG_TRAINER_TOWER        556 // MUS_RG_T_TOWER
 #define MUS_RG_SLOW_PALLET          557 // MUS_RG_SLOWMASARA
 #define MUS_RG_TEACHY_TV_MENU       558 // MUS_RG_TVNOIZE
-#define END_MUS                     MUS_RG_TEACHY_TV_MENU
 
 // These PH_* constants are phoneme sounds used by the "bard" NPC (see src/bard_music.c and src/mauville_old_man.c).
 // Each comes in a triplet of PH_*_BLEND, PH_*_HELD, and PH_*_SOLO, and the name of each triplet incorporates the English phonetic sound it represents.
@@ -545,6 +544,87 @@
 #define PH_NURSE_BLEND              607
 #define PH_NURSE_HELD               608
 #define PH_NURSE_SOLO               609
+
+#define MUS_PMDRED_RESCUE_TEAM_BASE                610 // seq_001
+#define MUS_PMDRED_FRIEND_AREA_SWAMP               611 // seq_002
+#define MUS_PMDRED_FRIEND_AREA_CAVES               612 // seq_003
+#define MUS_PMDRED_DREAM                           613 // seq_004
+#define MUS_PMDRED_BENEVOLENT_SPIRIT               614 // seq_005
+#define MUS_PMDRED_LEGEND_OF_NINETALES             615 // seq_006
+#define MUS_PMDRED_POKEMON_SQUARE                  616 // seq_007
+#define MUS_PMDRED_FILE_SELECT                     617 // seq_008
+#define MUS_PMDRED_RISING_FEAR                     618 // seq_009
+#define MUS_PMDRED_THERES_TROUBLE                  619 // seq_010
+#define MUS_PMDRED_BOSS_BATTLE                     620 // seq_011
+#define MUS_PMDRED_WELCOME_TO_THE_WORLD_OF_POKEMON 621 // seq_012
+#define MUS_PMDRED_A_NEW_ADVENTURE                 622 // seq_013
+#define MUS_PMDRED_THUNDERWAVE_CAVE                623 // seq_014
+#define MUS_PMDRED_SINISTER_WOODS                  624 // seq_015
+#define MUS_PMDRED_FRIEND_AREA_POND                625 // seq_016
+#define MUS_PMDRED_KECLEON_SHOP                    626 // seq_017
+#define MUS_PMDRED_STOP_THIEF                      627 // seq_018
+#define MUS_PMDRED_WORLD_CALAMITY                  628 // seq_019
+#define MUS_PMDRED_GREAT_CANYON                    629 // seq_020
+#define MUS_PMDRED_STORMY_SEA                      630 // seq_021
+#define MUS_PMDRED_SKY_TOWER                       631 // seq_022
+#define MUS_PMDRED_SKY_TOWER_SUMMIT                632 // seq_023
+#define MUS_PMDRED_THE_ESCAPE                      633 // seq_024
+#define MUS_PMDRED_MT_BLAZE                        634 // seq_025
+#define MUS_PMDRED_RAYQUAZAS_DOMAIN                635 // seq_026
+#define MUS_PMDRED_FRIEND_AREA_STRATOS_LOOKOUT     636 // seq_027
+#define MUS_PMDRED_FRIEND_AREA_RAINBOW_PEAK        637 // seq_028
+#define MUS_PMDRED_DREAM_EATER                     638 // seq_029
+#define MUS_PMDRED_FRIEND_AREA_DEEPSEA_CURRENT     639 // seq_030
+#define MUS_PMDRED_FRIEND_AREA_SEAFLOOR_CAVE       640 // seq_031
+#define MUS_PMDRED_BATTLE_WITH_RAYQUAZA            641 // seq_032
+#define MUS_PMDRED_MT_BLAZE_PEAK                   642 // seq_033
+#define MUS_PMDRED_FRIEND_AREA_VOLCANIC_PIT        643 // seq_034
+#define MUS_PMDRED_FRIEND_AREA_CRYPTIC_CAVE        644 // seq_035
+#define MUS_PMDRED_ESCAPE_THROUGH_THE_SNOW         645 // seq_036
+#define MUS_PMDRED_THE_OTHER_SIDE                  646 // seq_037
+#define MUS_PMDRED_THE_MOUNTAIN_OF_FIRE            647 // seq_038
+#define MUS_PMDRED_FROSTY_GROTTO                   648 // seq_039
+#define MUS_PMDRED_INTRO                           649 // seq_040
+#define MUS_PMDRED_AFTERMATH                       650 // seq_041
+#define MUS_PMDRED_FAREWELL                        651 // seq_042
+#define MUS_PMDRED_TITLE_SCREEN                    652 // seq_043
+#define MUS_PMDRED_CREDITS                         653 // seq_044
+#define MUS_PMDRED_TIME_OF_REUNION                 654 // seq_045
+#define MUS_PMDRED_OPENING_TITLE                   655 // seq_046
+#define MUS_PMDRED_DUMMY                           656 // seq_050
+#define MUS_PMDRED_DUNGEON_FAIL                    657 // seq_051
+#define MUS_PMDRED_DUNGEON_COMPLETE                658 // seq_052
+#define MUS_PMDRED_FRIEND_AREA_UNUSED_1            659 // seq_100
+#define MUS_PMDRED_HEARTWARMING                    660 // seq_101
+#define MUS_PMDRED_LAPIS_CAVE                      661 // seq_102
+#define MUS_PMDRED_A_SUCCESSFUL_RESCUE             662 // seq_103
+#define MUS_PMDRED_FROSTY_FOREST                   663 // seq_104
+#define MUS_PMDRED_FRIEND_AREA_STEPPE              664 // seq_105
+#define MUS_PMDRED_FRIEND_AREA_OCEANIC             665 // seq_106
+#define MUS_PMDRED_FRIEND_AREA_FIELD               666 // seq_107
+#define MUS_PMDRED_MAGMA_CAVERN                    667 // seq_108
+#define MUS_PMDRED_FRIEND_AREA_UNUSED_2            668 // seq_109
+#define MUS_PMDRED_MAKUHITA_DOJO                   669 // seq_110
+#define MUS_PMDRED_MT_THUNDER                      670 // seq_111
+#define MUS_PMDRED_FRIEND_AREA_LAB                 671 // seq_112
+#define MUS_PMDRED_SILENT_CHASM                    672 // seq_113
+#define MUS_PMDRED_IN_THE_DEPTHS_OF_THE_PIT        673 // seq_114
+#define MUS_PMDRED_MT_FREEZE                       674 // seq_115
+#define MUS_PMDRED_FRIEND_AREA_WILDS               675 // seq_116
+#define MUS_PMDRED_FRIEND_AREA_LEGENDARY_ISLAND    676 // seq_117
+#define MUS_PMDRED_FRIEND_AREA_SOUTHERN_ISLAND     677 // seq_118
+#define MUS_PMDRED_FRIEND_AREA_ENCLOSED_ISLAND     678 // seq_119
+#define MUS_PMDRED_MT_STEEL                        679 // seq_120
+#define MUS_PMDRED_FRIEND_AREA_FOREST              680 // seq_121
+#define MUS_PMDRED_FRIEND_AREA_FINAL_ISLAND        681 // seq_122
+#define MUS_PMDRED_MT_FREEZE_PEAK                  682 // seq_123
+#define MUS_PMDRED_MAGMA_CAVERN_PIT                683 // seq_124
+#define MUS_PMDRED_TINY_WOODS                      684 // seq_125
+#define MUS_PMDRED_MT_THUNDER_PEAK                 685 // seq_126
+#define MUS_PMDRED_FRIEND_AREA_HEALING_FOREST      686 // seq_127
+#define MUS_PMDRED_MONSTER_HOUSE                   687 // seq_128
+
+#define END_MUS                     MUS_PMDRED_MONSTER_HOUSE
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

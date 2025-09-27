@@ -6451,3 +6451,359 @@ DirectSoundWaveData_sd90_classical_whistle::
 	.align 2
 DirectSoundWaveData_sd90_enhanced_delay_shaku::
 	.incbin "sound/direct_sound_samples/sd90_enhanced_delay_shaku.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E88420::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E88420.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E899A0::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E899A0.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E8B520::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E8B520.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E8C5DC::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E8C5DC.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E8D478::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E8D478.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E8E6D8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E8E6D8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E8FEEC::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E8FEEC.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E90FA0::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E90FA0.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E922E4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E922E4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E926DC::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E926DC.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E94D0C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E94D0C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E97110::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E97110.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E97814::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E97814.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E98378::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E98378.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E99740::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E99740.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E9AF9C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E9AF9C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E9BD98::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E9BD98.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E9E4CC::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E9E4CC.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1E9F53C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1E9F53C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EA02C8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EA02C8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EA24B8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EA24B8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EA345C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EA345C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EA40B0::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EA40B0.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EA421C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EA421C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EA536C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EA536C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EA8B60::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EA8B60.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EAAA1C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EAAA1C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EACEDC::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EACEDC.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EADC80::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EADC80.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EB0490::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EB0490.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EB2318::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EB2318.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EB2D60::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EB2D60.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EB3B34::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EB3B34.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EB5878::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EB5878.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EB691C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EB691C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EB7E90::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EB7E90.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EB94B8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EB94B8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EBA298::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EBA298.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EBA840::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EBA840.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EBB32C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EBB32C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EBBDCC::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EBBDCC.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EBC208::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EBC208.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EBD1D4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EBD1D4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EBE6E0::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EBE6E0.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EBF45C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EBF45C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EC0F20::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EC0F20.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EC1FF4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EC1FF4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EC2EC4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EC2EC4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EC3F98::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EC3F98.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EC4EA0::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EC4EA0.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EC5934::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EC5934.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EC6C50::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EC6C50.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EC7C70::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EC7C70.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EC93A4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EC93A4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ECAAD4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ECAAD4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ECBB2C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ECBB2C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ECC450::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ECC450.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ECCC08::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ECCC08.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ECD2B4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ECD2B4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ECD4E8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ECD4E8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ECF9BC::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ECF9BC.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ED2850::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ED2850.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ED48CC::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ED48CC.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ED5C70::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ED5C70.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ED68F0::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ED68F0.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ED7318::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ED7318.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1ED8AE8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1ED8AE8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EDA304::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EDA304.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EDB81C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EDB81C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EDC4D8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EDC4D8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EDCCB0::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EDCCB0.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EDD60C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EDD60C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EDDF88::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EDDF88.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EDF1A4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EDF1A4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EE0BB8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EE0BB8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EE1ED4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EE1ED4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EE42C0::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EE42C0.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EE5674::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EE5674.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EE6B60::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EE6B60.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EE6CB8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EE6CB8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EE714C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EE714C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EE8C98::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EE8C98.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EEB4C4::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EEB4C4.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EED93C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EED93C.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EEFFCC::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EEFFCC.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EF14D8::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EF14D8.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EF4248::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EF4248.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EF5698::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EF5698.bin"
+
+    .align 2
+DirectSoundWaveData_pmd_pcm_1EFA50C::
+    .incbin "sound/direct_sound_samples/pmd_wave_1EFA50C.bin"
