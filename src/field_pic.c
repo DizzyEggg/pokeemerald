@@ -204,6 +204,28 @@ static const u32 sCradilyDeterminedGfx[] = INCBIN_U32("graphics/field_pic/cradil
 static const u16 sCradilyDeterminedPal[] = INCBIN_U16("graphics/field_pic/cradily_determined.gbapal");
 
 
+static const u32 sPhotoPiece1Gfx[] = INCBIN_U32("graphics/field_pic/photo_piece_1.4bpp.lz");
+static const u16 sPhotoPiece1Pal[] = INCBIN_U16("graphics/field_pic/photo_piece_1.gbapal");
+
+static const u32 sPhotoPiece2Gfx[] = INCBIN_U32("graphics/field_pic/photo_piece_2.4bpp.lz");
+static const u16 sPhotoPiece2Pal[] = INCBIN_U16("graphics/field_pic/photo_piece_2.gbapal");
+
+static const u32 sPhotoPiece3Gfx[] = INCBIN_U32("graphics/field_pic/photo_piece_3.4bpp.lz");
+static const u16 sPhotoPiece3Pal[] = INCBIN_U16("graphics/field_pic/photo_piece_3.gbapal");
+
+static const u32 sPhotoPiece4Gfx[] = INCBIN_U32("graphics/field_pic/photo_piece_4.4bpp.lz");
+static const u16 sPhotoPiece4Pal[] = INCBIN_U16("graphics/field_pic/photo_piece_4.gbapal");
+
+static const u32 sPhotoPiece5Gfx[] = INCBIN_U32("graphics/field_pic/photo_piece_5.4bpp.lz");
+static const u16 sPhotoPiece5Pal[] = INCBIN_U16("graphics/field_pic/photo_piece_5.gbapal");
+
+static const u32 sPhotoWholeAGfx[] = INCBIN_U32("graphics/field_pic/photo_whole_a.4bpp.lz");
+static const u16 sPhotoWholeAPal[] = INCBIN_U16("graphics/field_pic/photo_whole_a.gbapal");
+
+static const u32 sPhotoWholeBGfx[] = INCBIN_U32("graphics/field_pic/photo_whole_b.4bpp.lz");
+static const u16 sPhotoWholeBPal[] = INCBIN_U16("graphics/field_pic/photo_whole_b.gbapal");
+
+
 
 /* And this is an example script.
 FieldPicExample_2pics:
@@ -280,6 +302,14 @@ static const struct Pic sPics[] =
 
     [FIELD_PIC_CRADILY_DARK] = {sCradilyDarkGfx, sCradilyDarkPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_CRADILY_DETERMINED] = {sCradilyDeterminedGfx, sCradilyDeterminedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_PHOTO_PIECE_1] = {sPhotoPiece1Gfx, sPhotoPiece1Pal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_PHOTO_PIECE_2] = {sPhotoPiece2Gfx, sPhotoPiece2Pal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_PHOTO_PIECE_3] = {sPhotoPiece3Gfx, sPhotoPiece3Pal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_PHOTO_PIECE_4] = {sPhotoPiece4Gfx, sPhotoPiece4Pal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_PHOTO_PIECE_5] = {sPhotoPiece5Gfx, sPhotoPiece5Pal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_PHOTO_WHOLE_A] = {sPhotoWholeAGfx, sPhotoWholeAPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_PHOTO_WHOLE_B] = {sPhotoWholeBGfx, sPhotoWholeBPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
 };
 
 static EWRAM_DATA u8 sLastPicId = 0;

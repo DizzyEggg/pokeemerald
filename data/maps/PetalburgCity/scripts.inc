@@ -802,10 +802,29 @@ Fountain_EventScript_Abra_Gate_Trigger::
 
 
 
-@@@@@@@ Abra events - TOFOLD
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Abra events - TOFOLD
 
+@ MANSION
 
 Fountain_EventScript_Abra_Mansion::
+	lockall
+	goto_if_set FLAG_RECRUITED_ABRA, Fountain_EventScript_Abra_Mansion3
+	goto_if_set FLAG_FOUGHT_SWEET_SQUAD , Fountain_EventScript_Abra_Mansion2
+	msgbox_portrait Fountain_Text_Abra_Mansion1, FIELD_PIC_ABRA_CONCERNED
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Mansion2::
+	msgbox_portrait Fountain_Text_Abra_Mansion2, FIELD_PIC_ABRA_DETERMINED
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Mansion3::
+	msgbox_portrait Fountain_Text_Abra_Mansion3, FIELD_PIC_ABRA_CONCERNED
+	closemessage
+	releaseall
 	end
 
 Fountain_Text_Abra_Mansion1:
@@ -829,12 +848,23 @@ Fountain_Text_Abra_Mansion3:
 	.string "house seem to be moving around?\p"
 	.string "Doors don't go to where they used to?\p"
 	.string "Umm, houses don't work like that.\p"
-	.string "The Inkwell's affecting your memory,\n"
-	.string "remember?$"
+	.string "You probably just don't remember where\n"
+	.string "the rooms are, because of the Inkwell.$"
 
 
+@ GARDEN
 
 Fountain_EventScript_Abra_Garden::
+	goto_if_set FLAG_DEFEATED_SWEET_SQUAD , Fountain_EventScript_Abra_Garden2
+	msgbox_portrait Fountain_Text_Abra_Garden1, FIELD_PIC_ABRA_HAPPY
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Garden2::
+	msgbox_portrait Fountain_Text_Abra_Garden2, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
 	end
 
 Fountain_Text_Abra_Garden1:
@@ -851,9 +881,72 @@ Fountain_Text_Abra_Garden2:
 	.string "Or… were we born next to the Inkwell?$"
 
 
+@@ ABRA GRAVE
+
 
 Fountain_EventScript_Abra_Grave::
+	lockall
+	goto_if_set FLAG_RECRUITED_ABRA, Fountain_EventScript_Abra_Grave4
+
+	@if they have any photos, send them to the Grave2/Grave3 choice
+	checkitem UNIQUE_ITEM_PHOTO_1, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_Abra_GravePhotoCheck
+	checkitem UNIQUE_ITEM_PHOTO_2, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_Abra_GravePhotoCheck
+	checkitem UNIQUE_ITEM_PHOTO_3, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_Abra_GravePhotoCheck
+	checkitem UNIQUE_ITEM_PHOTO_4, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_Abra_GravePhotoCheck
+	checkitem UNIQUE_ITEM_PHOTO_5, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_Abra_GravePhotoCheck
+
+	@this means they have no photos, so Grave 1
+	msgbox_portrait Fountain_Text_Abra_Grave1, FIELD_PIC_ABRA_CONCERNED
+	closemessage
+	releaseall
 	end
+
+
+Fountain_EventScript_Abra_GravePhotoCheck::
+	checkitem UNIQUE_ITEM_PHOTO_1, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_Abra_Grave2
+	checkitem UNIQUE_ITEM_PHOTO_2, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_Abra_Grave2
+	checkitem UNIQUE_ITEM_PHOTO_3, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_Abra_Grave2
+	checkitem UNIQUE_ITEM_PHOTO_4, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_Abra_Grave2
+	checkitem UNIQUE_ITEM_PHOTO_5, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_Abra_Grave2
+
+	@all photos
+	msgbox_portrait Fountain_Text_AbraGraveComplete1, FIELD_PIC_ABRA_HAPPY
+	msgbox_portrait Fountain_Text_AbraGraveComplete2, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_AbraGraveComplete3, FIELD_PIC_ABRA_DETERMINED
+	msgbox_portrait Fountain_Text_AbraGraveComplete4, FIELD_PIC_ABRA_THINKING
+	msgbox_portrait Fountain_Text_AbraGraveComplete5, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_AbraGraveComplete6, FIELD_PIC_ABRA_THINKING
+	msgbox_portrait Fountain_Text_AbraGraveComplete7, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_AbraGraveComplete8, FIELD_PIC_ABRA_DETERMINED
+	msgbox_portrait Fountain_Text_AbraGraveComplete9, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_AbraGraveComplete10, FIELD_PIC_ABRA_CRY
+	setflag FLAG_RECRUITED_ABRA
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Grave2::
+	msgbox_portrait Fountain_Text_Abra_Grave2, FIELD_PIC_ABRA_SERIOUS
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Grave4::
+	msgbox_portrait Fountain_Text_Abra_Grave4, FIELD_PIC_ABRA_DETERMINED
+	closemessage
+	releaseall
+	end
+
 
 Fountain_Text_Abra_Grave1:
 	.string "Dali: Here's the pale stone.\p"
@@ -869,24 +962,6 @@ Fountain_Text_Abra_Grave2:
 	.string "There's probably more in that house\n"
 	.string "somewhere, and if you find them all,\l"
 	.string "maybe that'll tell us something?$"
-
-Fountain_Text_Abra_Grave3:
-	.string "Dali: I've put the picture piece you\n"
-	.string "found on this stump here.\p"
-	.string "There's probably more in that house\n"
-	.string "somewhere, and if you find them all,\l"
-	.string "maybe that'll tell us something?$"
-
-Fountain_Text_Abra_Grave4:
-	.string "Dali: I've had a breakthrough!\p"
-	.string "The markings on the pale stone look\n"
-	.string "like the markings on the picture!\l"
-	.string "Look! This whole part is similar!\p"
-	.string "I think we knew what this meant,$"
-	.string "at some point!$"
-
-
-
 
 
 
@@ -924,28 +999,133 @@ Fountain_Text_AbraGraveComplete6:
 
 Fountain_Text_AbraGraveComplete7:
 	.string "Dali: Okay. I have some thoughts.\n"
-	.string "We know three important things now.\p"
-	.string "One, we used to be a team, like a\n"
-	.string "family. Maybe we lived here.\p"
-	.string "Second, Craftily betrayed us. \n"
-	.string "family. Maybe we lived here.\p"
-	.string "First, we used to be a team, like a\n"
-	.string "family. Maybe we lived here.$"
+	.string "We know three important things now.$"
+
+Fountain_Text_AbraGraveComplete8:
+	.string "One, we used to be a team, like a family.\n"
+	.string "All of us, even Craftily, and a human.\p"
+	.string "And then something happened, and we\n"
+	.string "remember it as Craftily betraying us.$"
+
+Fountain_Text_AbraGraveComplete9:
+	.string "Two. Tuskan… wasn't in the picture.\p"
+	.string "I don't know why, but there's\n"
+	.string "something special about Tuskan.$"
+
+Fountain_Text_AbraGraveComplete10:
+	.string "And three, I…\p"
+	.string "I… looked so strong in that picture.\p"
+	.string "I've always thought that I was useless,\n"
+	.string "that I needed to be protected.\p"
+	.string "But… maybe I'm not useless.\n"
+	.string "Maybe I can learn to fight, with training.\p"
+	.string "So, um, if you'll have me… I can join you\n"
+	.string "in the fight.\p"
+	.string "I mean, I won't be able to Teleport back\n"
+	.string "to refill vials if I'm fighting, and no\l"
+	.string "one else can Teleport… so it's probably\l"
+	.string "a bad idea.\p"
+	.string "But... I'll try.$"
 
 
+Fountain_Text_Abra_Grave4:
+	.string "Dali: That photo taught us a lot.\p"
+	.string "But the whole story can only come from\n"
+	.string "Craftily himself.$"
 
 
-
-
+@ BIRDHOUSE
 
 Fountain_EventScript_Abra_Birdhouse::
+	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Birdhouse2
+	msgbox_portrait Fountain_Text_Abra_Birdhouse1, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
 	end
+
+Fountain_EventScript_Abra_Birdhouse2::
+	msgbox_portrait Fountain_Text_Abra_Birdhouse2, FIELD_PIC_ABRA_SERIOUS
+	closemessage
+	releaseall
+	end
+
+Fountain_Text_Abra_Birdhouse1:
+	.string "Dali: As far as I can tell, this little\n"
+	.string "building is too small for anyone.\p"
+	.string "Why is it here?$"
+
+Fountain_Text_Abra_Birdhouse2:
+	.string "Dali: When you fall into the Inkwell,\n"
+	.string "sometimes you have seeds in the bag.\p"
+	.string "They're probably berries that de-age\n"
+	.string "when they touch the dark water.\p"
+	.string "I've been storing them here.\p"
+	.string "I had some plans for them, but there\n"
+	.string "probably won't be enough time.$"
+
+@ BACKDOOR
 
 Fountain_EventScript_Abra_Backdoor::
+	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Backdoor2
+	msgbox_portrait Fountain_Text_Abra_Backdoor1, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
 	end
 
-Fountain_EventScript_Abra_Shed::
+Fountain_EventScript_Abra_Backdoor2::
+	msgbox_portrait Fountain_Text_Abra_Backdoor2, FIELD_PIC_ABRA_HAPPY
+	closemessage
+	releaseall
 	end
+
+Fountain_Text_Abra_Backdoor1:
+	.string "Dali: There's another entrance here,\n"
+	.string "but it's covered with those vines.\p"
+	.string "Those thick vines seem to be growing\n"
+	.string "on everything!$"
+
+Fountain_Text_Abra_Backdoor2:
+	.string "Dali: The house is in really bad shape.\n"
+	.string "It's all broken and falling apart.\p"
+	.string "Too bad it won't fit in the Inkwell.$"
+
+@ SHED
+
+Fountain_EventScript_Abra_Shed::
+	goto_if_set FLAG_RECRUITED_ABRA, Fountain_EventScript_Abra_Shed3
+	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Shed2
+	msgbox_portrait Fountain_Text_Abra_Shed1, FIELD_PIC_ABRA_CONCERNED
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Shed2::
+	msgbox_portrait Fountain_Text_Abra_Shed2, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Shed3::
+	msgbox_portrait Fountain_Text_Abra_Shed3, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
+	end
+
+Fountain_Text_Abra_Shed1:
+	.string "Dali: This tiny house is closed off.\p"
+	.string "It's a shame - it would be nice to\n"
+	.string "spend rainy nights in there.$"
+
+Fountain_Text_Abra_Shed2:
+	.string "Dali: It's made of the same stuff as\n"
+	.string "the big house, but not the Inkwell.\p"
+	.string "So the same Pokemon probably didn't make both?$"
+
+Fountain_Text_Abra_Shed3:
+	.string "Dali: I think… maybe we used this for storage?\n"
+	.string "I can't really remember.$"
+
+@TOFOLD
 
 Fountain_EventScript_Abra_Stacks::
 	end
@@ -956,11 +1136,90 @@ Fountain_EventScript_Abra_Stumps::
 Fountain_EventScript_Abra_Well::
 	end
 
+@ CAMPFIRE
+
 Fountain_EventScript_Abra_Campfire::
+	goto_if_set FLAG_HIDE_BOSS3_TRIO, Fountain_EventScript_Abra_Campfire2
+	@no recruits
+	msgbox_portrait Fountain_Text_Abra_Campfire1, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
 	end
 
-Fountain_EventScript_Abra_Gate::
+Fountain_EventScript_Abra_Campfire2::
+	goto_if_set FLAG_HIDE_BOSS3_DUO, Fountain_EventScript_Abra_Campfire3
+	@tink but not scoli
+	msgbox_portrait Fountain_Text_Abra_Campfire2, FIELD_PIC_ABRA_JOY
+	closemessage
+	releaseall
 	end
+
+
+Fountain_EventScript_Abra_Campfire3::
+	goto_if_set FLAG_HIDE_BOSS3_SOLO, Fountain_EventScript_Abra_Campfire4
+	msgbox_portrait Fountain_Text_Abra_Campfire3, FIELD_PIC_ABRA_JOY
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Campfire4::
+	msgbox_portrait Fountain_Text_Abra_Campfire4, FIELD_PIC_ABRA_JOY
+	closemessage
+	releaseall
+	end
+
+
+Fountain_Text_Abra_Campfire1:
+	.string "Dali: Look at the logs and stumps here.\p"
+	.string "It's very easy to sit and rest, around\n"
+	.string "this black pit.\p"
+	.string "We should relax here when this is over.$"
+
+Fountain_Text_Abra_Campfire2:
+	.string "Dali: Whoa, you got Amy on our side!\n"
+	.string "I'm sure she'd going to be a big help!$"
+
+Fountain_Text_Abra_Campfire3:
+	.string "Dali: Amy and Belladonna?\p"
+	.string "Wow, maybe we can get even more friends\n"
+	.string "to help us get to Craftily!$"
+
+Fountain_Text_Abra_Campfire4:
+	.string "Dali: I'm so happy to see all of our\n"
+	.string "old and new friends!\p"
+	.string "We're going to figure it out, just\n"
+	.string "you wait!$"
+
+
+@ GATE
+
+Fountain_EventScript_Abra_Gate::
+	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Gate2
+	msgbox_portrait Fountain_Text_Abra_Gate1, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Gate2::
+	msgbox_portrait Fountain_Text_Abra_Gate2, FIELD_PIC_ABRA_HAPPY
+	closemessage
+	releaseall
+	end
+
+Fountain_Text_Abra_Gate1:
+	.string "Dali: This is how we can leave, I think.\p"
+	.string "It's still scary to me to think that\n"
+	.string "there are other places out there.\p"
+	.string "Who knows what might be there?\p"
+	.string "But this gate is sealed up with vines.\n"
+	.string "I don't think we can cut through.$"
+
+Fountain_Text_Abra_Gate2:
+	.string "Dali: I can kind of see a little path,\n"
+	.string "but there's nothing at the end.\p"
+	.string "Just more tightly packed trees.\p"
+	.string "Why block this place with a gate\n"
+	.string "if the path doesn't go anywhere?$"
 
 
 
@@ -1015,6 +1274,7 @@ Fountain_EventScript_PhotoCheck::
 Fountain_Text_CompletePhoto:
 	.string "You've found all of the pieces of the\n"
 	.string "old picture.$"
+
 @TODO - add picture, add Abra reaction and agreeing to join you
 
 
