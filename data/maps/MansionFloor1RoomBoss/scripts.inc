@@ -58,10 +58,10 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene1::
 	msgbox_portrait MansionFloor1RoomBoss_Text_Vanillite2, FIELD_PIC_VANILLITE_ANGRY
 	delay 20
 	setwildbattle SPECIES_FIDOUGH, 9, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_CameraMove2
+	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_AttackMove
 	waitmovement 0
 	special RemoveCameraObject
 	dowildbattle
@@ -155,6 +155,10 @@ MansionFloor1RoomBoss_SinisteaAssemble:
 	walk_down
 	step_end
 
+MansionFloor1RoomBoss_AttackMove:
+	walk_fast_down
+	step_end
+
 MansionFloor1RoomBoss_LookUp:
 	face_up
 	step_end
@@ -203,10 +207,10 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	msgbox_portrait MansionFloor1RoomBoss_Text_SinisteaRematch, FIELD_PIC_SINISTEA_HAPPY
 	msgbox_portrait MansionFloor1RoomBoss_Text_VanilliteRematch, FIELD_PIC_VANILLITE_ANGRY
 	delay 20
-	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_CameraMove2
+	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_SINISTEA, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_AttackMove
 	waitmovement 0
 	special RemoveCameraObject
 	setwildbattle SPECIES_FIDOUGH, 9, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
@@ -271,10 +275,10 @@ MansionFloor1RoomBoss_EventScript_SavorySquadScene1::
 	msgbox_portrait MansionFloor1RoomBoss_Text_Farfetchd1, FIELD_PIC_FARFETCHD_DETERMINED
 	msgbox_portrait MansionFloor1RoomBoss_Text_Nacli1, FIELD_PIC_NACLI_NORMAL
 	delay 20
-	applymovement LOCALID_TATSUGIRI, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_SMOLIV, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_FARFETCHD, MansionFloor1RoomBoss_CameraMove2
-	applymovement LOCALID_NACLI, MansionFloor1RoomBoss_CameraMove2
+	applymovement LOCALID_TATSUGIRI, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_SMOLIV, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_FARFETCHD, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_NACLI, MansionFloor1RoomBoss_AttackMove
 	waitmovement 0
 	setwildbattle SPECIES_SMOLIV, 7, ITEM_ORAN_BERRY, SPECIES_FARFETCHD, 11, ITEM_ORAN_BERRY
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -422,7 +426,7 @@ MansionFloor1RoomBoss_EventScript_PillowStool::
 
 MansionFloor1RoomBoss_Text_PillowStool:
 	.string "A stool with bits of fluff stuck in\n"
-	.string "every corner.$"
+	.string "every crevice.$"
 
 
 

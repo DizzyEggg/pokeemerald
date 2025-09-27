@@ -5053,10 +5053,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Inky Spray"),
         .description = COMPOUND_STRING(
-            "Spray the inky water from\n"
-            "the well to reduce level."),
+            "Spray the Inkwell's water\n"
+            "to reduce level."),
         .effect = EFFECT_HIT,
-        .power = 50,
+        .power = 20,
         .type = TYPE_WATER,
         .accuracy = 95,
         .pp = 30,
@@ -5065,9 +5065,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .ballisticMove = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_ACC_MINUS_1,
-            .chance = 0,
+            .moveEffect = MOVE_EFFECT_LEVEL_DOWN,
         }),
+        .argument = { .level = 2 },
         .contestEffect = CONTEST_EFFECT_STARTLE_MON_WITH_JUDGES_ATTENTION,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,
@@ -19306,23 +19306,20 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Inky Pulse"),
         .description = COMPOUND_STRING(
-            "A slam shrouded in water.\n"
-            "It also hurts the user."),
+            "A pulse of the Inkwell's\n"
+            "water, reducing level."),
         .effect = EFFECT_HIT,
-        .power = 75,
+        .power = 40,
         .type = TYPE_WATER,
         .accuracy = 100,
-        .pp = 10,
+        .pp = 25,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_SP_ATK_PLUS_1,
-            .self = TRUE,
-            .chance = 0,
+            .moveEffect = MOVE_EFFECT_LEVEL_DOWN,
         }),
-        .argument = { .recoilPercentage = 33 },
-        .makesContact = TRUE,
+        .argument = { .level = 4 },
         .skyBattleBanned = B_EXTRAPOLATED_MOVE_FLAGS,
         .battleAnimScript = gBattleAnimMove_Octazooka,
     },

@@ -22,8 +22,39 @@ Fountain_EventScript_End::
 Fountain_Eventscript_NotFirstLoad::
 	setvar VAR_PETALBURG_CITY_STATE, 0
 	addobject LOCALID_ABRA_WELL
+	
+	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_TEMP_5, 0
+	setvar VAR_TEMP_6, 0
+	setvar VAR_TEMP_7, 0
+	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_9, 0
+	setvar VAR_TEMP_A, 0
+	
+	@check for photo pieces
+	checkitem UNIQUE_ITEM_PHOTO_1, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotPhoto
+	checkitem UNIQUE_ITEM_PHOTO_2, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotPhoto
+	checkitem UNIQUE_ITEM_PHOTO_3, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotPhoto
+	checkitem UNIQUE_ITEM_PHOTO_4, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotPhoto
+	checkitem UNIQUE_ITEM_PHOTO_5, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotPhoto
 	end
     
+
+Fountain_EventScript_GotPhoto::
+	clearflag FLAG_NO_PHOTOS
+	end
+
+
+
 Fountain_FallIntoWaterWhiteOut:
 	walk_faster_down
 	walk_faster_down
@@ -103,6 +134,9 @@ ScriptAfterWhiteOutPhanpy:
 @@@@@ Intro cutscene
 
 Fountain_EventScript_IntroScene::
+	
+
+	
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	delay 40
@@ -114,6 +148,20 @@ Fountain_EventScript_IntroScene::
 	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	delay 50
+
+	@cutscene skipper
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_HIDE_SAVORY_SQUAD
+	setflag FLAG_HIDE_BOSS3_SOLO
+	setflag FLAG_HIDE_BOSS3_DUO 
+	setflag FLAG_NO_PHOTOS 
+	setrespawn HEAL_LOCATION_PETALBURG_CITY
+	setvar VAR_PETALBURG_CITY_STATE 1
+	warpsilent MAP_PETALBURG_CITY,24,46
+	addobject LOCALID_ABRA_WELL
+	end
+
 	waitmovement 0
 	msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_PHANPY_SAD
 	waitmessage
@@ -252,6 +300,7 @@ Fountain_EventScript_IntroScene::
 	setflag FLAG_HIDE_SAVORY_SQUAD
 	setflag FLAG_HIDE_BOSS3_SOLO
 	setflag FLAG_HIDE_BOSS3_DUO 
+	setflag FLAG_NO_PHOTOS 
 	setrespawn HEAL_LOCATION_PETALBURG_CITY
 	setvar VAR_PETALBURG_CITY_STATE 1
 	warpsilent MAP_PETALBURG_CITY,24,46
@@ -283,23 +332,23 @@ Fountain_CameraMove1:
 	walk_diag_northeast
 	walk_diag_northeast
 	walk_diag_northeast
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
-	walk_slow_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	step_end
 
 Fountain_FallIntoWater:
@@ -432,14 +481,16 @@ Fountain_Text_Intro14:
 Fountain_Text_Intro15:
 	.string "Dali: It's because of this dark well.\n"
 	.string "I call it the Inkwell.\p"
-	.string "The inky water heals all, but it makes\n"
-	.string "you… younger. It takes away your\l"
-	.string "experience and memories.\p"
+	.string "The dark, inky water heals any injury,\n"
+	.string "but it also… makes you younger.\p"
+	.string "It takes away your experience,\n"
+	.string "and your memories.\p"
 	.string "Taking a small sip is safe, but falling\n"
-	.string "in quickly turns you back into an egg.$"
+	.string "in quickly turns you back into an egg.\p"
+	.string "That's what just happened to you.$"
 
 Fountain_Text_Intro16:
-	.string "Tuskan: But why were we in that place?\n"
+	.string "Tuskan: But why were we in that house?\n"
 	.string "And who threw us into the Inkwell?$"
 
 Fountain_Text_Intro17:
@@ -466,7 +517,7 @@ Fountain_Text_Intro23:
 	.string "Dali:…\p"
 	.string "I don't remember what happened either.\n"
 	.string "Don’t even remember what he looks like.\p"
-	.string "I only remember his strange name.\p"
+	.string "I only remember his name.\p"
 	.string "But the other Pokemon around here say\n"
 	.string "that a great Pokemon named Craftily\l"
 	.string "lives at the top of that strange house.\p"
@@ -514,7 +565,7 @@ Fountain_Text_Intro29:
 	.string "ask you to go back in there and fight.$"
 
 Fountain_Text_Intro30:
-	.string "Dali: So explore around here all you \n"
+	.string "Dali: So explore around here all you\n"
 	.string "like; I'll tell you everything I know.\p"
 	.string "But… please go find Craftily. Figuring\n"
 	.string "out what happened is our only way out.$"
@@ -757,11 +808,135 @@ Fountain_EventScript_Abra_Gate_Trigger::
 Fountain_EventScript_Abra_Mansion::
 	end
 
+Fountain_Text_Abra_Mansion1:
+	.string "Dali: This is it. This is where Craftily\n"
+	.string "and a lot of his followers live.\p"
+	.string "I know you're both only level 1, but\n"
+	.string "you're our only chance.\p"
+	.string "Go in whenever you're ready.$"
+
+Fountain_Text_Abra_Mansion2:
+	.string "Dali: I know it's tough, but please don't\n"
+	.string "give up.\p"
+	.string "I bet there's a lot of Craftily's allies\n"
+	.string "making trouble for you, but as long as\l"
+	.string "they keep throwing you in the Inkwell,\l"
+	.string "we can eventually win!$"
+
+Fountain_Text_Abra_Mansion3:
+	.string "Dali: Huh?\p"
+	.string "Are you claiming that the rooms in the\n"
+	.string "house seem to be moving around?\p"
+	.string "Doors don't go to where they used to?\p"
+	.string "Umm, houses don't work like that.\p"
+	.string "The Inkwell's affecting your memory,\n"
+	.string "remember?$"
+
+
+
 Fountain_EventScript_Abra_Garden::
 	end
 
+Fountain_Text_Abra_Garden1:
+	.string "Dali: I call this area the garden.\p"
+	.string "Even though all the trees are dead,\n"
+	.string "it's still peaceful. Something was\l"
+	.string "growing here at some point.$"
+
+Fountain_Text_Abra_Garden2:
+	.string "Dali: Maybe we used the garden to grow\n"
+	.string "our own food.\p"
+	.string "You know, because we must have been doing\n"
+	.string "something before this.\p"
+	.string "Or… were we born next to the Inkwell?$"
+
+
+
 Fountain_EventScript_Abra_Grave::
 	end
+
+Fountain_Text_Abra_Grave1:
+	.string "Dali: Here's the pale stone.\p"
+	.string "There aren't any other stones like\n"
+	.string "this around, and nothing with all\l"
+	.string "these complicated markings.\p"
+	.string "But, I don't like coming here.\n"
+	.string "That stone makes me uncomfortable.$"
+
+Fountain_Text_Abra_Grave2:
+	.string "Dali: I've put the picture piece you\n"
+	.string "found on this stump here.\p"
+	.string "There's probably more in that house\n"
+	.string "somewhere, and if you find them all,\l"
+	.string "maybe that'll tell us something?$"
+
+Fountain_Text_Abra_Grave3:
+	.string "Dali: I've put the picture piece you\n"
+	.string "found on this stump here.\p"
+	.string "There's probably more in that house\n"
+	.string "somewhere, and if you find them all,\l"
+	.string "maybe that'll tell us something?$"
+
+Fountain_Text_Abra_Grave4:
+	.string "Dali: I've had a breakthrough!\p"
+	.string "The markings on the pale stone look\n"
+	.string "like the markings on the picture!\l"
+	.string "Look! This whole part is similar!\p"
+	.string "I think we knew what this meant,$"
+	.string "at some point!$"
+
+
+
+
+
+
+Fountain_Text_AbraGraveComplete1:
+	.string "Dali: The picture's complete!\n"
+	.string "You found all the pieces!\p"
+	.string "Now, let's see here…$"
+
+Fountain_Text_AbraGraveComplete2:
+	.string "This… this looks like us.$"
+
+Fountain_Text_AbraGraveComplete3:
+	.string "That's Fluffball, on the right.\n"
+	.string "That's what she looks like evolved.\p"
+	.string "Next to her… is that really me?\n"
+	.string "I look… so confident…\p"
+	.string "And on her other side… that's him.\n"
+	.string "That's Craftily.$"
+
+Fountain_Text_AbraGraveComplete4:
+	.string "We were all friends once.\n"
+	.string "I remember. We were… a team.\p"
+	.string "I recognize the others, too.\n"
+	.string "Bella, Amy, Ripley…$"
+
+Fountain_Text_AbraGraveComplete5:
+	.string "And that one in the middle.\n"
+	.string "Not a Pokemon. A… a trainer.\p"
+	.string "What… what happened to her?$"
+
+Fountain_Text_AbraGraveComplete6:
+	.string "This is a lot. I… I need some time to\n"
+	.string "think it through.\p"
+	.string "…$"
+
+Fountain_Text_AbraGraveComplete7:
+	.string "Dali: Okay. I have some thoughts.\n"
+	.string "We know three important things now.\p"
+	.string "One, we used to be a team, like a\n"
+	.string "family. Maybe we lived here.\p"
+	.string "Second, Craftily betrayed us. \n"
+	.string "family. Maybe we lived here.\p"
+	.string "First, we used to be a team, like a\n"
+	.string "family. Maybe we lived here.$"
+
+
+
+
+
+
 
 Fountain_EventScript_Abra_Birdhouse::
 	end
@@ -788,69 +963,11 @@ Fountain_EventScript_Abra_Gate::
 	end
 
 
-Fountain_Text_AbraMansion1:
-	.string "I don't know much about this building.\p"
-	.string "I don't have words for it… but it looks\p"
-	.string "It is automatically sent to a STORAGE\n"
-	.string "BOX over a PC connection.$"
 
-Fountain_Text_AbraGarden1:
-	.string "This area is different from the rest of\p"
-	.string "the ground. \p"
-	.string "It is automatically sent to a STORAGE\n"
-	.string "BOX over a PC connection.$"
 
-Fountain_Text_AbraGrave1:
-	.string "Dali: I don't like coming here.\n"
-	.string "That stone makes me uncomfortable.\p"
-	.string "I think I knew how to read those\n"
-	.string "markings once, but not anymore.$"
 
-Fountain_Text_AbraGrave2:
-	.string "Dali: I've put that strange picture\n"
-	.string "piece you found here.\p"
-	.string "Maybe if you find them all, the picture\n"
-	.string "will help us understand.$"
 
-Fountain_Text_AbraGraveComplete1:
-	.string "Dali: The picture's complete!\n"
-	.string "Now, let's see here…$"
 
-Fountain_Text_AbraGraveComplete2:
-	.string "Dali: This… this looks like us.$"
-
-Fountain_Text_AbraGraveComplete3:
-	.string "Dali: That's Fluffball, on the right.\n"
-	.string "That's what she looks like evolved.\p"
-	.string "Next to her… is that really me?\n"
-	.string "I look… so confident…$"
-	.string "And on her other side… that's him.\n"
-	.string "That's Craftily.$"
-
-Fountain_Text_AbraGraveComplete4:
-	.string "Dali: We were all friends once.\n"
-	.string "I remember. We were… a team.\p"
-	.string "I recognize the others, too.\n"
-	.string "Bella, Amy, Ripley…$"
-
-Fountain_Text_AbraGraveComplete5:
-	.string "Dali: And that one in the middle.\n"
-	.string "Not a Pokemon. A… a trainer.\p"
-	.string "What… what happened to her?$"
-
-Fountain_Text_AbraGraveComplete6:
-	.string "Dali: I need some time to think.\p"
-	.string "Come back later and I'll tell you\n"
-	.string "what I've figured out.$"
-
-Fountain_Text_AbraGraveRecruit1:
-	.string "Dali: Okay. I have some thoughts.\p"
-	.string "First, we used to be a team, like a\n"
-	.string "family. Maybe we lived here.\p"
-	.string "Second, Craftily betrayed us. \n"
-	.string "family. Maybe we lived here.\p"
-	.string "First, we used to be a team, like a\n"
-	.string "family. Maybe we lived here.$"
 @TOFOLD
 
 

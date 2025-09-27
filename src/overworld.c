@@ -1884,6 +1884,31 @@ static void HandleFlagsAndEventsAfterRunOver(void)
     VarSet(VAR_FLOOR3_ENTRANCE_STATE, 0);
     ChooseRandomFloorMons();
 
+    //Story and event flags
+    FlagClear(FLAG_BOSS1_CLEAR);
+    FlagClear(FLAG_BOSS2_CLEAR);
+    FlagClear(FLAG_BOSS3_CLEAR);
+    FlagClear(FLAG_ITEM_F1_TREASURE_UP);
+    FlagClear(FLAG_ITEM_F1_TREASURE_LEFT);
+    FlagClear(FLAG_ITEM_F1_TREASURE_RIGHT);
+    FlagClear(FLAG_ITEM_F1_TREASURE_DOWN);
+    FlagClear(FLAG_ITEM_F1_BOSS);
+    FlagClear(FLAG_ITEM_F1_LANDING);
+    FlagClear(FLAG_ITEM_F2_TREASURE_UP);
+    FlagClear(FLAG_ITEM_F2_TREASURE_LEFT);
+    FlagClear(FLAG_ITEM_F2_TREASURE_RIGHT);
+    FlagClear(FLAG_ITEM_F2_TREASURE_DOWN);
+    FlagClear(FLAG_ITEM_F2_BOSS);
+    FlagClear(FLAG_ITEM_F2_LANDING);
+    FlagClear(FLAG_ITEM_F3_TREASURE_UP);
+    FlagClear(FLAG_ITEM_F3_TREASURE_LEFT);
+    FlagClear(FLAG_ITEM_F3_TREASURE_RIGHT);
+    FlagClear(FLAG_ITEM_F3_TREASURE_DOWN);
+    FlagClear(FLAG_ITEM_F3_BOSS);
+    FlagClear(FLAG_ITEM_F3_LANDING);
+    FlagClear(FLAG_ABRATALK_LANDING_1);
+    FlagClear(FLAG_ABRATALK_LANDING_2);
+
     IncrementMansionDeathsVar();
     GenerateAllMansionFloorLayouts();
     SetAvailableItems(&uniqueItems);

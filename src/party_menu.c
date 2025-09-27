@@ -4779,6 +4779,17 @@ static bool32 DoItemUseCbMedicine(u8 taskId, TaskFunc task)
             else if (item == UNIQUE_ITEM_INKWELL_FULL_BOTTLE_3) {
                 AddBagItem(UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3, 1);
             }
+            //EGGCHECK
+            else if (item == ITEM_LATIOSITE) {
+                AddBagItem(ITEM_LATIASITE, 1);
+            }
+            else if (item == ITEM_LOPUNNITE) {
+                AddBagItem(ITEM_SALAMENCITE, 1);
+            }
+            else if (item == ITEM_GARCHOMPITE) {
+                AddBagItem(ITEM_METAGROSSITE, 1);
+            }
+            
         }
         else
         {
