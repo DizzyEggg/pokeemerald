@@ -2780,3 +2780,14 @@
     .macro dowhiteout
     callnative SetCB2WhiteOut
     .endm
+    
+    .macro splashwatereffect localId:req
+    callnative ScrCmd_DoSplashWaterEffect
+    .byte \localId
+    .endm
+    
+    .macro setspriteinvisible localId:req, invisibile:req
+    callnative ScrCmd_SetSpriteInvisibility
+    .byte \localId
+    .byte \invisibile
+    .endm

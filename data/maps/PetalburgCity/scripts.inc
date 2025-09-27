@@ -76,10 +76,21 @@ Fountain_EventScript_Whiteout::
     lockall
     applymovement OBJ_EVENT_ID_PLAYER, Fountain_FallIntoWaterWhiteOut
     applymovement LOCALID_FALLING_PARTNER, Fountain_FallIntoWaterWhiteOut
+    playse SE_FALL
     waitmovement 0
+    setspriteinvisible OBJ_EVENT_ID_PLAYER, TRUE
+    setspriteinvisible LOCALID_FALLING_PARTNER, TRUE
+    splashwatereffect LOCALID_SPLASH_1
+    splashwatereffect LOCALID_SPLASH_2
+    delay 5
+    playse SE_PUDDLE
+    playse SE_PUDDLE
+    waitfieldeffect FLDEFF_JUMP_BIG_SPLASH
     setobjectxy LOCALID_FALLING_PARTNER, 26, 46
     setobjectxy OBJ_EVENT_ID_PLAYER, 24, 46
     setplayerxy 24, 46
+    setspriteinvisible OBJ_EVENT_ID_PLAYER, FALSE
+    setspriteinvisible LOCALID_FALLING_PARTNER, FALSE
     fasttwomonsegghatchanim
     changeplayersprite SPECIES_NONE, TRUE
     waitstate

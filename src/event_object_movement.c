@@ -10363,6 +10363,25 @@ void GroundEffect_JumpOnWater(struct ObjectEvent *objEvent, struct Sprite *sprit
     FieldEffectStart(FLDEFF_JUMP_BIG_SPLASH);
 }
 
+void ScrCmd_DoSplashWaterEffect(struct ScriptContext *ctx)
+{
+    u8 localId = ScriptReadByte(ctx);
+    u8 objEventId = GetObjectEventIdByLocalId(localId);
+    struct ObjectEvent *objEvent = &gObjectEvents[objEventId];
+
+    GroundEffect_JumpOnWater(objEvent, &gSprites[objEvent->spriteId]);
+}
+
+void ScrCmd_SetSpriteInvisibility(struct ScriptContext *ctx)
+{
+    u8 localId = ScriptReadByte(ctx);
+    u8 invisible = ScriptReadByte(ctx);
+    u8 objEventId = GetObjectEventIdByLocalId(localId);
+    struct ObjectEvent *objEvent = &gObjectEvents[objEventId];
+
+    objEvent->invisible = invisible;
+}
+
 void GroundEffect_JumpLandingDust(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     gFieldEffectArguments[0] = objEvent->currentCoords.x;
