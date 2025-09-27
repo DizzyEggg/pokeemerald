@@ -20,11 +20,11 @@
       "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_DoMansionBattle",
+      "script": "EventScript_DoMansionDoubleBattle",
       "flag": "FLAG_T4_ENEMYA"
     },
     {
@@ -33,11 +33,11 @@
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_DoMansionBattle",
+      "script": "EventScript_DoMansionDoubleBattle",
       "flag": "FLAG_T4_ENEMYC"
     },
     {
@@ -46,11 +46,11 @@
       "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_DoMansionBattle",
+      "script": "EventScript_DoMansionDoubleBattle",
       "flag": "FLAG_T4_ENEMYB"
     },
     {
@@ -59,11 +59,11 @@
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_DoMansionBattle",
+      "script": "EventScript_DoMansionDoubleBattle",
       "flag": "FLAG_T4_ENEMYD"
     },
     {

@@ -76,7 +76,7 @@ MansionFloor1RoomLanding_Text_FirstTime5Vial:
 	.string "Can I see it?$"
 
 MansionFloor1RoomLanding_Text_FirstTime6:
-	.string "Dali: This are perfect!\p"
+	.string "Dali: This is perfect!\p"
 	.string "I can go back to the Inkwell and get\n"
 	.string "some of the dark water for you!\p"
 	.string "One vial should be enough to heal you\n"
@@ -132,8 +132,8 @@ MansionFloor1RoomLanding_EventScript_Revisit::
 MansionFloor1RoomLanding_EventScript_RevisitVials::
 	msgbox_portrait MansionFloor1RoomLanding_Text_RevisitVials1, FIELD_PIC_ABRA_HAPPY
 	goto MansionFloor1RoomLanding_EventScript_FillUpVials
-	msgbox_portrait MansionFloor1RoomLanding_Text_RevisitVials2, FIELD_PIC_ABRA_JOY
-	setflag FLAG_ABRATALK_LANDING_1
+	@msgbox_portrait MansionFloor1RoomLanding_Text_RevisitVials2, FIELD_PIC_ABRA_JOY
+	@setflag FLAG_ABRATALK_LANDING_1
 	releaseall
 	end
 
@@ -143,9 +143,9 @@ MansionFloor1RoomLanding_Text_RevisitVials1:
 	.string "Dali: Welcome back! I can refill your\p"
 	.string "vials, one sec!$"
 
-MansionFloor1RoomLanding_Text_RevisitVials2:
-	.string "You're all set!\n"
-	.string "Good luck!$"
+@MansionFloor1RoomLanding_Text_RevisitVials2:
+@	.string "You're all set!\n"
+@	.string "Good luck!$"
 
 
 
@@ -329,6 +329,7 @@ MansionFloor1RoomLanding_EventScript_Fill3::
 
 MansionFloor1RoomLanding_EventScript_VialsFilled::
 	msgbox_portrait MansionFloor1RoomLanding_Text_AllSet, FIELD_PIC_ABRA_JOY
+	closemessage
 	setflag FLAG_VISITED_LANDING_1
 	setflag FLAG_ABRATALK_LANDING_1
 	releaseall
