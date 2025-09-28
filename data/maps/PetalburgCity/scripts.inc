@@ -1496,8 +1496,9 @@ Fountain_EventScript_Abra_Stacks2::
 	end
 
 Fountain_Text_Abra_Stacks1:
-	.string "Dali: Organized piles of the old stone\n"
-	.string "pieces used to make the Inkwell.\p"
+	.string "Dali: Look at these stacks.\p"
+	.string "They're organized piles of the old\n"
+	.string "stone pieces used to make the Inkwell.\p"
 	.string "Did we make the Inkwell?$"
 
 Fountain_Text_Abra_Stacks2:
