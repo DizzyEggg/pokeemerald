@@ -2,7 +2,7 @@
   "id": "MAP_MANSION_FLOOR1ROOM_LANDING",
   "name": "MansionFloor1RoomLanding",
   "layout": "LAYOUT_MANSION_FLOOR1ROOM_LANDING",
-  "music": "MUS_DUMMY",
+  "music": "MUS_PMDRED_IN_THE_DEPTHS_OF_THE_PIT",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

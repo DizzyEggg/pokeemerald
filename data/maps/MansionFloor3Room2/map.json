@@ -2,7 +2,7 @@
   "id": "MAP_MANSION_FLOOR3ROOM2",
   "name": "MansionFloor3Room2",
   "layout": "LAYOUT_MANSION_FLOOR3ROOM2",
-  "music": "MUS_DUMMY",
+  "music": "MUS_PMDRED_SILENT_CHASM",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

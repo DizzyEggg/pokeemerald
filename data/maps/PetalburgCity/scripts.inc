@@ -190,15 +190,266 @@ ScriptAfterWhiteOutPhanpy:
     releaseall
     end
 
+
+
+@@@@@@@@@@@@@@@ EGGHELP: RECRUIT SCENES (when Amy, Bella, and Ripley fall in. conversations written and a barebones script scripted out, but triggers are up to you)
+
+
+Fountain_EventScript_RecruitAmy::
+	msgbox_portrait Fountain_Text_RecruitAmy01, FIELD_PIC_ABRA_HAPPY
+	msgbox_portrait Fountain_Text_RecruitAmy02, FIELD_PIC_PHANPY_CONFUSED
+	msgbox_portrait Fountain_Text_RecruitAmy03, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitAmy04, FIELD_PIC_SWABLU_YELL
+	msgbox_portrait Fountain_Text_RecruitAmy05, FIELD_PIC_PHANPY_DETERMINED
+	msgbox_portrait Fountain_Text_RecruitAmy06, FIELD_PIC_ABRA_SERIOUS
+	playse SE_WARP_OUT
+	removeobject LOCALID_ABRA_WELL
+	delay 80
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_WELL
+	addobject LOCALID_EGG_RECRUIT
+	delay 50
+	playegghatchanim SPECIES_TINKATINK, TRUE, NULL
+    waitstate
+	removeobject LOCALID_EGG_RECRUIT
+	addobject LOCALID_BELLA_RECRUIT
+	msgbox_portrait Fountain_Text_RecruitAmy07, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy08, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy09, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy10, FIELD_PIC_PHANPY_CONFUSED
+	msgbox_portrait Fountain_Text_RecruitAmy11, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitAmy12, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy13, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitAmy14, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy15, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy16, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy17, FIELD_PIC_ABRA_HAPPY
+	end
+
+
+
+Fountain_Text_RecruitAmy01::
+	.string "Dali: Welcome back, Tuskan and Fluff-\p"
+	.string "Wait a minute… another Pokemon fell\n"
+	.string "into the Inkwell?$"
+
+Fountain_Text_RecruitAmy02::
+	.string "Tuskan: Huh? Inkwell?$"
+
+Fountain_Text_RecruitAmy03::
+	.string "Dali: You were just with each other and\n"
+	.string "someone else, right?$"
+
+Fountain_Text_RecruitAmy04::
+	.string "Fluffball: Arggh! She almost beat us!$"
+
+Fountain_Text_RecruitAmy05::
+	.string "Tuskan: That's right! She fought us,\n"
+	.string "but… she seemed nice?\p"
+	.string "Maybe she'd help us get to Craftily?$"
+
+Fountain_Text_RecruitAmy06::
+	.string "Dali: Hmm… I guess trying couldn't hurt.\n"
+	.string "Let me go get her out of the Inkwell.$"
+
+Fountain_Text_RecruitAmy07::
+	.string "Amy: Huh? Who are you?$"
+
+Fountain_Text_RecruitAmy08::
+	.string "Dali: I am Dali, and this is Tuskan and\n"
+	.string "Fluffball. Look, there's a lot to\l"
+	.string "explain, but let me ask you…\p"
+	.string "What do you know… about Craftily?$"
+
+Fountain_Text_RecruitAmy09::
+	.string "Amy: He took care of me, I think.\n"
+	.string "Is he my dad?$"
+
+Fountain_Text_RecruitAmy10::
+	.string "Tuskan: Took care of you?$"
+
+Fountain_Text_RecruitAmy11::
+	.string "Dali: That's odd. No other feelings?$"
+
+Fountain_Text_RecruitAmy12::
+	.string "Amy: I… I want to cry when I think about\n"
+	.string "him. Something very bad happened.$"
+
+Fountain_Text_RecruitAmy13::
+	.string "Dali: What? What happened?$"
+
+Fountain_Text_RecruitAmy14::
+	.string "Amy: Oh, I don't know! He was cursed?\n"
+	.string "And… he did some bad things.$"
+
+Fountain_Text_RecruitAmy15::
+	.string "Dali: We're going to try and find him.\n"
+	.string "Will you come?$"
+
+Fountain_Text_RecruitAmy16::
+	.string "Amy: Yeah. Are we friends? You feel like\n"
+	.string "my friends.$"
+
+Fountain_Text_RecruitAmy17::
+	.string "Dali: We're friends!$"
+
+
+
+
+
+
+Fountain_EventScript_RecruitBella::
+	msgbox_portrait Fountain_Text_RecruitBella1, FIELD_PIC_ABRA_HAPPY
+	playse SE_WARP_OUT
+	removeobject LOCALID_ABRA_WELL
+	delay 80
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_WELL
+	addobject LOCALID_EGG_RECRUIT
+	delay 50
+	playegghatchanim SPECIES_VENIPEDE, TRUE, NULL
+    waitstate
+	removeobject LOCALID_EGG_RECRUIT
+	addobject LOCALID_BELLA_RECRUIT
+	msgbox_portrait Fountain_Text_RecruitBella2, FIELD_PIC_PHANPY_CONFUSED
+	msgbox_portrait Fountain_Text_RecruitBella3, FIELD_PIC_ABRA_HAPPY
+	msgbox_portrait Fountain_Text_RecruitBella4, FIELD_PIC_SWABLU_YELL
+	msgbox_portrait Fountain_Text_RecruitBella5, FIELD_PIC_ABRA_THINKING
+	msgbox_portrait Fountain_Text_RecruitBella6, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitBella7, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitBella8, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitBella9, FIELD_PIC_ABRA_ANGRY
+	msgbox_portrait Fountain_Text_RecruitBella10, FIELD_PIC_PHANPY_CONFUSED
+	end
+
+
+
+Fountain_Text_RecruitBella1::
+	.string "Dali: Another one of Craftily's\n"
+	.string "lieutenants? Let's see.$"
+
+Fountain_Text_RecruitBella2::
+	.string "Bella:…$"
+
+Fountain_Text_RecruitBella3::
+	.string "Dali: Hello, I'm Dali. You're shiny too,\n"
+	.string "how interesting! I…$"
+
+Fountain_Text_RecruitBella4::
+	.string "Bella: Where's Ada? I swear, if you've\n"
+	.string "hurt her…$"
+
+Fountain_Text_RecruitBella5::
+	.string "Dali: Wait. Ada… I know that name.$"
+
+Fountain_Text_RecruitBella6::
+	.string "Bella: Hey, you're Dali! Aren't you\n"
+	.string "supposed to be helping me look for her?$"
+
+Fountain_Text_RecruitBella7::
+	.string "Dali: You're looking for Ada?$"
+
+Fountain_Text_RecruitBella8::
+	.string "Bella: Of course! I don't remember much,\n"
+	.string "but aren't you lot looking for her too?\p"
+	.string "Do you and Craftily have a plan?$"
+
+Fountain_Text_RecruitBella9::
+	.string "Dali: I think Craftily has the plan.\n"
+	.string "We've gotta get to him. Will you help us?$"
+
+Fountain_Text_RecruitBella10::
+	.string "Bella: The question is, can you keep up?$"
+
+
+
+
+Fountain_EventScript_RecruitRipley::
+	msgbox_portrait Fountain_Text_RecruitRipley01, FIELD_PIC_ABRA_HAPPY
+	playse SE_WARP_OUT
+	removeobject LOCALID_ABRA_WELL
+	delay 80
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_WELL
+	addobject LOCALID_EGG_RECRUIT
+	delay 50
+	playegghatchanim SPECIES_SQUIRTLE, TRUE, NULL
+    waitstate
+	removeobject LOCALID_EGG_RECRUIT
+	addobject LOCALID_RIPLEY_RECRUIT
+	msgbox_portrait Fountain_Text_RecruitRipley02, FIELD_PIC_ABRA_THINKING
+	msgbox_portrait Fountain_Text_RecruitRipley03, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitRipley04, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitRipley05, FIELD_PIC_PHANPY_DETERMINED
+	msgbox_portrait Fountain_Text_RecruitRipley06, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitRipley07, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitRipley08, FIELD_PIC_ABRA_THINKING
+	msgbox_portrait Fountain_Text_RecruitRipley09, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitRipley10, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitRipley11, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitRipley12, FIELD_PIC_ABRA_HAPPY
+	end
+
+
+Fountain_Text_RecruitRipley01::
+	.string "Dali: Another new Pokemon? This must be\n"
+	.string "the last of Craftily's lieutenants.\p"
+	.string "Let's see what they have to say.$"
+
+Fountain_Text_RecruitRipley02::
+	.string "Dali: You're… you're Ripley!$"
+
+Fountain_Text_RecruitRipley03::
+	.string "Ripley: I am! Wha- get away from that\n"
+	.string "edge! You'll fall in the water!$"
+
+Fountain_Text_RecruitRipley04::
+	.string "Dali: Huh?$"
+
+Fountain_Text_RecruitRipley05::
+	.string "Ripley: It's not safe over there!\n"
+	.string "Wild Pokemon could be anywhere!$"
+
+Fountain_Text_RecruitRipley06::
+	.string "Dali: Do you know who we are, Ripley?$"
+
+Fountain_Text_RecruitRipley07::
+	.string "Ripley: Um, my head is full of bubbles\n"
+	.string "right now, but I know I have to keep\l"
+	.string "you safe! Levitating won't protect you\l"
+	.string "from a Sharpedo!$"
+
+Fountain_Text_RecruitRipley08::
+	.string "Dali: As soon as you saw me, you felt\n"
+	.string "compelled to protect me?$"
+
+Fountain_Text_RecruitRipley09::
+	.string "Ripley: Well, yeah. Aren't you like… my\n"
+	.string "little brother?$"
+
+Fountain_Text_RecruitRipley10::
+	.string "Dali: I guess I probably am. Ripley, we\n"
+	.string "need help. We need to find Craftily and-$"
+
+Fountain_Text_RecruitRipley11::
+	.string "Ripley: Say no more. What's that scamp\n"
+	.string "done this time?$"
+
+Fountain_Text_RecruitRipley12::
+	.string "Dali: Heh, we have no idea! Come on.$"
+
+
+
+
+
 @@@@@ Intro cutscene
 
 Fountain_EventScript_IntroScene::
 	
-
-	
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	delay 40
+	playbgm MUS_PMDRED_STORMY_SEA, FALSE
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookLeft
 	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookRight
@@ -207,6 +458,7 @@ Fountain_EventScript_IntroScene::
 	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	delay 50
+	@fadenewbgm MUS_PMDRED_STORMY_SEA
 
 	@cutscene skipper
 	setflag FLAG_SYS_B_DASH
@@ -215,6 +467,11 @@ Fountain_EventScript_IntroScene::
 	setflag FLAG_HIDE_BOSS3_SOLO
 	setflag FLAG_HIDE_BOSS3_DUO 
 	setflag FLAG_NO_PHOTOS 
+	setflag FLAG_HIDE_DISC_RED   
+	setflag FLAG_HIDE_DISC_GREEN 
+	setflag FLAG_HIDE_DISC_PURPLE
+	setflag FLAG_HIDE_DISC_BLACK 
+	setflag FLAG_HIDE_DISC_GRAY   
 	setrespawn HEAL_LOCATION_PETALBURG_CITY
 	setvar VAR_PETALBURG_CITY_STATE 1
 	warpsilent MAP_PETALBURG_CITY,24,46
@@ -270,6 +527,7 @@ Fountain_EventScript_IntroScene::
 	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
 	delay 10
 	msgbox_portrait Fountain_Text_Intro06, FIELD_PIC_ABRA_DETERMINED
+	closemessage
 	delay 10
 	playse SE_WARP_OUT
 	removeobject LOCALID_ABRA_WELL
@@ -287,6 +545,7 @@ Fountain_EventScript_IntroScene::
     addobject LOCALID_SWABLU_INTRO
     playegghatchanim SPECIES_SWABLU, TRUE, NULL
     waitstate
+	playbgm MUS_PMDRED_STORMY_SEA, FALSE	
 	applymovement LOCALID_SWABLU_INTRO, Fountain_LookUp
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	waitmovement 0
@@ -311,6 +570,7 @@ Fountain_EventScript_IntroScene::
 	delay 20
 	msgbox_portrait Fountain_Text_Intro13, FIELD_PIC_SWABLU_ANGRY
 	msgbox_portrait Fountain_Text_Intro14, FIELD_PIC_PHANPY_SAD
+	closemessage
 	applymovement LOCALID_ABRA_WELL, Fountain_LookUp
 	waitmovement 0
 	delay 50
@@ -327,6 +587,7 @@ Fountain_EventScript_IntroScene::
 	waitmovement 0
 	delay 30
 	msgbox_portrait Fountain_Text_Intro18, FIELD_PIC_ABRA_DETERMINED
+	fadeoutbgm 1
 	msgbox_portrait Fountain_Text_Intro19, FIELD_PIC_ABRA_ANGRY
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_Shudder
 	applymovement LOCALID_SWABLU_INTRO, Fountain_Shudder
@@ -334,6 +595,7 @@ Fountain_EventScript_IntroScene::
 	delay 30
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookLeft
 	delay 40
+	fadeinbgm 1
 	msgbox_portrait Fountain_Text_Intro20, FIELD_PIC_PHANPY_SAD
 	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
 	delay 40
@@ -359,10 +621,16 @@ Fountain_EventScript_IntroScene::
 	setflag FLAG_HIDE_SAVORY_SQUAD
 	setflag FLAG_HIDE_BOSS3_SOLO
 	setflag FLAG_HIDE_BOSS3_DUO 
-	setflag FLAG_NO_PHOTOS 
+	setflag FLAG_NO_PHOTOS
+	setflag FLAG_HIDE_DISC_RED   
+	setflag FLAG_HIDE_DISC_GREEN 
+	setflag FLAG_HIDE_DISC_PURPLE
+	setflag FLAG_HIDE_DISC_BLACK 
+	setflag FLAG_HIDE_DISC_GRAY   
 	setrespawn HEAL_LOCATION_PETALBURG_CITY
 	setvar VAR_PETALBURG_CITY_STATE 1
 	warpsilent MAP_PETALBURG_CITY,24,46
+	fadedefaultbgm
 	addobject LOCALID_ABRA_WELL
 	release
 	releaseall
@@ -593,7 +861,10 @@ Fountain_Text_Intro25:
 	.string "Dali: I don't know.\p"
 	.string "What I do know is that there's a deep,\n"
 	.string "half-forgotten anger I feel when I\l"
-	.string "hear that name, and you feel it too.$"
+	.string "hear that name, and you feel it too.\p"
+	.string "I feel like there are so many clues\n"
+	.string "around here to what happened, but\l"
+	.string "I just can't put them together.$"
 
 Fountain_Text_Intro26:
 	.string "Tuskan: But… what can we do?$"
@@ -867,6 +1138,7 @@ Fountain_EventScript_Abra_Gate_Trigger::
 
 Fountain_EventScript_Abra_Mansion::
 	lockall
+	faceplayer
 	goto_if_set FLAG_RECRUITED_ABRA, Fountain_EventScript_Abra_Mansion3
 	goto_if_set FLAG_FOUGHT_SWEET_SQUAD , Fountain_EventScript_Abra_Mansion2
 	msgbox_portrait Fountain_Text_Abra_Mansion1, FIELD_PIC_ABRA_CONCERNED
@@ -914,6 +1186,8 @@ Fountain_Text_Abra_Mansion3:
 @ GARDEN
 
 Fountain_EventScript_Abra_Garden::
+	lockall
+	faceplayer
 	goto_if_set FLAG_DEFEATED_SWEET_SQUAD , Fountain_EventScript_Abra_Garden2
 	msgbox_portrait Fountain_Text_Abra_Garden1, FIELD_PIC_ABRA_HAPPY
 	closemessage
@@ -945,6 +1219,7 @@ Fountain_Text_Abra_Garden2:
 
 Fountain_EventScript_Abra_Grave::
 	lockall
+	faceplayer
 	goto_if_set FLAG_RECRUITED_ABRA, Fountain_EventScript_Abra_Grave4
 
 	@if they have any photos, send them to the Grave2/Grave3 choice
@@ -1096,6 +1371,8 @@ Fountain_Text_Abra_Grave4:
 @ BIRDHOUSE
 
 Fountain_EventScript_Abra_Birdhouse::
+	lockall
+	faceplayer
 	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Birdhouse2
 	msgbox_portrait Fountain_Text_Abra_Birdhouse1, FIELD_PIC_ABRA_THINKING
 	closemessage
@@ -1125,6 +1402,8 @@ Fountain_Text_Abra_Birdhouse2:
 @ BACKDOOR
 
 Fountain_EventScript_Abra_Backdoor::
+	lockall
+	faceplayer
 	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Backdoor2
 	msgbox_portrait Fountain_Text_Abra_Backdoor1, FIELD_PIC_ABRA_THINKING
 	closemessage
@@ -1151,6 +1430,8 @@ Fountain_Text_Abra_Backdoor2:
 @ SHED
 
 Fountain_EventScript_Abra_Shed::
+	lockall
+	faceplayer
 	goto_if_set FLAG_RECRUITED_ABRA, Fountain_EventScript_Abra_Shed3
 	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Shed2
 	msgbox_portrait Fountain_Text_Abra_Shed1, FIELD_PIC_ABRA_CONCERNED
@@ -1173,7 +1454,7 @@ Fountain_EventScript_Abra_Shed3::
 Fountain_Text_Abra_Shed1:
 	.string "Dali: This tiny house is closed off.\p"
 	.string "It's a shame - it would be nice to\n"
-	.string "spend rainy nights in there.$"
+	.string "spend nights in there.$"
 
 Fountain_Text_Abra_Shed2:
 	.string "Dali: It's made of the same stuff as\n"
@@ -1184,20 +1465,112 @@ Fountain_Text_Abra_Shed3:
 	.string "Dali: I think… maybe we used this for storage?\n"
 	.string "I can't really remember.$"
 
-@TOFOLD
+@STACKS
 
 Fountain_EventScript_Abra_Stacks::
+	lockall
+	faceplayer
+	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Stacks2
+	msgbox_portrait Fountain_Text_Abra_Stacks1, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
 	end
+
+Fountain_EventScript_Abra_Stacks2::
+	msgbox_portrait Fountain_Text_Abra_Stacks2, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
+	end
+
+Fountain_Text_Abra_Stacks1:
+	.string "Dali: Organized piles of the old stone\n"
+	.string "pieces used to make the Inkwell.\p"
+	.string "Did we make the Inkwell?$"
+
+Fountain_Text_Abra_Stacks2:
+	.string "Dali: I'm thinking about our names.\p"
+	.string "I know my name is Dali, but why?\n"
+	.string "Did I choose it for myself?\p"
+	.string "And Fluffball doesn't even like her\n"
+	.string "name - was she different before?\p"
+	.string "Or did someone else name us?$"
+
+
+@ STUMPS
 
 Fountain_EventScript_Abra_Stumps::
+	lockall
+	faceplayer
+	goto_if_unset FLAG_HIDE_DISC_RED, Fountain_EventScript_Abra_Stumps2
+	goto_if_unset FLAG_HIDE_DISC_GREEN, Fountain_EventScript_Abra_Stumps2
+	goto_if_unset FLAG_HIDE_DISC_PURPLE, Fountain_EventScript_Abra_Stumps2
+	goto_if_unset FLAG_HIDE_DISC_BLACK, Fountain_EventScript_Abra_Stumps2
+	goto_if_unset FLAG_HIDE_DISC_GRAY, Fountain_EventScript_Abra_Stumps2
+	msgbox_portrait Fountain_Text_Abra_Stumps1, FIELD_PIC_ABRA_HAPPY
+	closemessage
+	releaseall
 	end
 
-Fountain_EventScript_Abra_Well::
+Fountain_EventScript_Abra_Stumps2::
+	msgbox_portrait Fountain_Text_Abra_Stumps2, FIELD_PIC_ABRA_HAPPY
+	closemessage
+	releaseall
 	end
+
+Fountain_Text_Abra_Stumps1:
+	.string "Dali: There used to be a lot of trees\n"
+	.string "here. Look, that's what's left of them.\p"
+	.string "But that's not all I've figured out!\p"
+	.string "If you look closely at the house, you'll\n"
+	.string "see it's made of tree pieces!$"
+
+Fountain_Text_Abra_Stumps2:
+	.string "Dali: Discs! This should be a good\n"
+	.string "spot for any discs you find.\p"
+	.string "They don't do anything for me, but\p"
+	.string "maybe they can help you learn moves?$"
+
+
+@ WELL
+
+Fountain_EventScript_Abra_Well::
+	lockall
+	faceplayer
+	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Well2
+	msgbox_portrait Fountain_Text_Abra_Well1, FIELD_PIC_ABRA_THINKING
+	closemessage
+	releaseall
+	end
+
+Fountain_EventScript_Abra_Well2::
+	msgbox_portrait Fountain_Text_Abra_Well2, FIELD_PIC_ABRA_SERIOUS
+	closemessage
+	releaseall
+	end
+
+Fountain_Text_Abra_Well1:
+	.string "Dali: This is the Inkwell.\p"
+	.string "Remember, drinking from it will reduce\n"
+	.string "your level, but it'll heal you fully.\p"
+	.string "There's another kind of water, too.\p"
+	.string "I call it Airwater, because it comes out\n"
+	.string "of the air and is the same color as air.$"
+
+Fountain_Text_Abra_Well2:
+	.string "Dali: Make sure you look around this\n"
+	.string "area before going back in.\p"
+	.string "Most of your items sink when you fall in\n"
+	.string "the Inkwell, but I've saved a few unique\l"
+	.string "things and set up places for them.$"
+
+
+
 
 @ CAMPFIRE
 
 Fountain_EventScript_Abra_Campfire::
+	lockall
+	faceplayer
 	goto_if_set FLAG_HIDE_BOSS3_TRIO, Fountain_EventScript_Abra_Campfire2
 	@no recruits
 	msgbox_portrait Fountain_Text_Abra_Campfire1, FIELD_PIC_ABRA_THINKING
@@ -1253,6 +1626,8 @@ Fountain_Text_Abra_Campfire4:
 @ GATE
 
 Fountain_EventScript_Abra_Gate::
+	lockall
+	faceplayer
 	goto_if_set FLAG_DEFEATED_SWEET_SQUAD, Fountain_EventScript_Abra_Gate2
 	msgbox_portrait Fountain_Text_Abra_Gate1, FIELD_PIC_ABRA_THINKING
 	closemessage
@@ -1315,26 +1690,36 @@ Fountain_Text_GraveEnd:
 
 
 Fountain_EventScript_PhotoStump::
-	goto_if_set FLAG_OBTAINED_PHOTO1, Fountain_EventScript_PhotoCheck
-	goto_if_set FLAG_OBTAINED_PHOTO2, Fountain_EventScript_PhotoCheck
-	goto_if_set FLAG_OBTAINED_PHOTO3, Fountain_EventScript_PhotoCheck
-	goto_if_set FLAG_OBTAINED_PHOTO4, Fountain_EventScript_PhotoCheck
-	goto_if_set FLAG_OBTAINED_PHOTO5, Fountain_EventScript_PhotoCheck
+	checkitem UNIQUE_ITEM_PHOTO_1, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_StumpPhotoCheck
+	checkitem UNIQUE_ITEM_PHOTO_2, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_StumpPhotoCheck
+	checkitem UNIQUE_ITEM_PHOTO_3, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_StumpPhotoCheck
+	checkitem UNIQUE_ITEM_PHOTO_4, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_StumpPhotoCheck
+	checkitem UNIQUE_ITEM_PHOTO_5, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_StumpPhotoCheck
 	end
 
-Fountain_EventScript_PhotoCheck::
-	goto_if_unset FLAG_OBTAINED_PHOTO1, Fountain_EventScript_IncompletePhoto
-	goto_if_unset FLAG_OBTAINED_PHOTO2, Fountain_EventScript_IncompletePhoto
-	goto_if_unset FLAG_OBTAINED_PHOTO3, Fountain_EventScript_IncompletePhoto
-	goto_if_unset FLAG_OBTAINED_PHOTO4, Fountain_EventScript_IncompletePhoto
-	goto_if_unset FLAG_OBTAINED_PHOTO5, Fountain_EventScript_IncompletePhoto
+Fountain_EventScript_StumpPhotoCheck::
+	checkitem UNIQUE_ITEM_PHOTO_1, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_IncompletePhoto
+	checkitem UNIQUE_ITEM_PHOTO_2, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_IncompletePhoto
+	checkitem UNIQUE_ITEM_PHOTO_3, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_IncompletePhoto
+	checkitem UNIQUE_ITEM_PHOTO_4, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_IncompletePhoto
+	checkitem UNIQUE_ITEM_PHOTO_5, 1
+	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_IncompletePhoto
 	msgbox Fountain_Text_CompletePhoto, MSGBOX_NPC
 
 Fountain_Text_CompletePhoto:
 	.string "You've found all of the pieces of the\n"
 	.string "old picture.$"
 
-@TODO - add picture, add Abra reaction and agreeing to join you
+@TODO - add picture
 
 
 Fountain_EventScript_IncompletePhoto::
@@ -1344,8 +1729,7 @@ Fountain_EventScript_IncompletePhoto::
 Fountain_Text_IncompletePhoto:
 	.string "The pieces of that odd picture you\n"
 	.string "found are assembled here.\p"
-	.string "It doesn't look complete yet.\n"
-	.string "found are assembled here.$"
+	.string "It doesn't look complete yet.$"
 
 
 
@@ -1364,7 +1748,7 @@ Fountain_EventScript_Birdhouse::
 	end
 
 Fountain_Text_Birdhouse:
-	.string "A quiet birdhouse. There are still a few\n"
+	.string "A tiny house. There are still a few\n"
 	.string "seeds inside.$"
 
 
@@ -1439,7 +1823,9 @@ Fountain_Text_BackDoor:
 
 
 
+@@@@@ TMs / Discs
 
+@@ check movetutors.inc, they're all there.
 
 
 

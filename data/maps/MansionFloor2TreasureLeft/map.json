@@ -2,7 +2,7 @@
   "id": "MAP_MANSION_FLOOR2TREASURE_LEFT",
   "name": "MansionFloor2TreasureLeft",
   "layout": "LAYOUT_MANSION_FLOOR2TREASURE_LEFT",
-  "music": "MUS_DUMMY",
+  "music": "MUS_PMDRED_SILENT_CHASM",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
