@@ -49,6 +49,7 @@
 #include "play_time.h"
 #include "random.h"
 #include "roamer.h"
+#include "daycare.h"
 #include "rotating_gate.h"
 #include "rtc.h"
 #include "safari_zone.h"
@@ -1793,7 +1794,7 @@ void ChooseRandomFloorMons(void)
     s32 i;
 
     // Set all, so it hides all by default
-    for (i = FLAG_4R1_ENEMYA; i < FLAG_T4_ENEMYD; i++) {
+    for (i = FLAG_4R1_ENEMYA; i <= FLAG_T4_ENEMYD; i++) {
         FlagSet(i);
     }
 
@@ -1878,15 +1879,29 @@ static void RemoveAllButUniqueItems(void)
 static void ResetPokemonLevelTo1(void)
 {
     u8 level = 1;
-    s32 i;
+    s32 i, j;
     for (i = 0; i < 2; i++) {
         s32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
         if (species != SPECIES_NONE) {
+            s32 devolvedSpecies;
             s32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
 
             SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
             SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &level);
             CalculateMonStats(&gPlayerParty[i]);
+            // Devolve
+            devolvedSpecies = GetEggSpecies(species);
+            if (devolvedSpecies != species) {
+                SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &devolvedSpecies);
+            }
+            // Reset moves
+            for (j = 0; j < MAX_MON_MOVES; j++) {
+                u32 zeroed = 0;
+                SetMonData(&gPlayerParty[i], MON_DATA_MOVE1 + j, &zeroed);
+                SetMonData(&gPlayerParty[i], MON_DATA_PP1 + j, &zeroed);
+            }
+
+            GiveMonInitialMoveset(&gPlayerParty[i]);
         }
     }
 }
