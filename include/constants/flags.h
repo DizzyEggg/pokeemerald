@@ -1307,9 +1307,9 @@
 #define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
-#define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag
-#define FLAG_UNUSED_0x4E7                                           0x4E7 // Unused Flag
-#define FLAG_UNUSED_0x4E8                                           0x4E8 // Unused Flag
+#define FLAG_DO_RIPLEY_RECRUIT_SCENE                                           0x4E6 // Unused Flag
+#define FLAG_DO_BELLA_RECRUIT_SCENE                                           0x4E7 // Unused Flag
+#define FLAG_DO_AMY_RECRUIT_SCENE                                           0x4E8 // Unused Flag
 #define FLAG_FIREPLACE_HIDE_TINKATINK                                           0x4E9 // Unused Flag
 #define FLAG_FIREPLACE_HIDE_VENIPEDE                                           0x4EA // Unused Flag
 #define FLAG_FIREPLACE_HIDE_SQUIRTLE                                           0x4EB // Unused Flag

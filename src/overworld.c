@@ -1846,6 +1846,31 @@ static void IncrementMansionDeathsVar(void)
     *varPtr += 1;
 }
 
+static bool32 HandleDiskFlags(u32 itemId)
+{
+    switch (itemId) {
+        default:
+            return FALSE;
+        case UNIQUE_ITEM_BLACK_DISC:
+            FlagClear(FLAG_HIDE_DISC_BLACK);
+            break;
+        case UNIQUE_ITEM_PURPLE_DISC:
+            FlagClear(FLAG_HIDE_DISC_PURPLE);
+            break;
+        case UNIQUE_ITEM_RED_DISC:
+            FlagClear(FLAG_HIDE_DISC_RED);
+            break;
+        case UNIQUE_ITEM_GRAY_DISC:
+            FlagClear(FLAG_HIDE_DISC_GRAY);
+            break;
+        case UNIQUE_ITEM_GREEN_DISC:
+            FlagClear(UNIQUE_ITEM_GREEN_DISC);
+            break;
+    }
+
+    return TRUE;
+}
+
 static void RemoveMonHeldItem(struct Pokemon *mon)
 {
     u32 itemId = GetMonData(mon, MON_DATA_HELD_ITEM);
@@ -1858,18 +1883,28 @@ static void RemoveMonHeldItem(struct Pokemon *mon)
 static void RemoveAllButUniqueItems(void)
 {
     s32 pocketId, i;
+    bool32 hadAnyDisks = FALSE;
 
     for (pocketId = 0; pocketId < POCKETS_COUNT; pocketId++) {
         for (i = 0; i < gBagPockets[pocketId].capacity
         && gBagPockets[pocketId].itemSlots[i].itemId != 0
         && gBagPockets[pocketId].itemSlots[i].quantity != 0; i++)
         {
-            if (!IsUniqueItem(gBagPockets[pocketId].itemSlots[i].itemId)) {
+            u32 itemId = gBagPockets[pocketId].itemSlots[i].itemId;
+            if (!IsUniqueItem(itemId)) {
+                gBagPockets[pocketId].itemSlots[i] = (struct ItemSlot) {0};
+            }
+            else if (HandleDiskFlags(itemId)) {
+                hadAnyDisks = TRUE;
                 gBagPockets[pocketId].itemSlots[i] = (struct ItemSlot) {0};
             }
         }
 
         CompactItemsInBagPocket(pocketId);
+    }
+
+    if (hadAnyDisks) {
+        FlagSet(FLAG_OBTAINED_ANY_DISC);
     }
 
     RemoveMonHeldItem(&gPlayerParty[0]);

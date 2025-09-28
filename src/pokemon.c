@@ -5804,10 +5804,10 @@ bool32 IsSpeciesInHoennDex(u16 species)
         return TRUE;
 }
 
-// EGGHELP - looks like I can set battle music per Pokemon here, but there's a legendary condition. presumably we can just remove that to get the functionality we want? I've added code below that should work if the legendary thing is taken out.
+// Looks like I can set battle music per Pokemon here, but there's a legendary condition. presumably we can just remove that to get the functionality we want? I've added code below that should work if the legendary thing is taken out.
 u16 GetBattleBGM(void)
 {
-    if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
+    if ((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY) || 1)
     {
         switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
         {

@@ -78,7 +78,6 @@ Fountain_ThirdFallWaterSplash:
     goto Fountain_EventScript_WhiteoutContinueSplash
     
 @ Partner localId - 0x8007
-@ 3rd mon localId - 0x8008
 
 Fountain_WhiteOutPartnerSwablu:
     setvar VAR_0x8007, LOCALID_FIREPLACE_SWABLU
@@ -89,16 +88,7 @@ Fountain_WhiteOutPartnerPhanpy:
     setvar VAR_0x8007, LOCALID_FIREPLACE_PHANPY
     clearflag FLAG_FIREPLACE_HIDE_PHANPY
     goto Fountain_EventScript_WhiteoutDoEggHatch
-    
-Fountain_WhiteOutPartnerTinkatink:
-    setvar VAR_0x8008, LOCALID_FIREPLACE_TINKATINK
-    clearflag FLAG_FIREPLACE_HIDE_TINKATINK
-    goto Fountain_EventScript_WhiteoutGetPartner
-    
-Fountain_MoveThirdNpcToSpot:
-    addobject VAR_0x8008
-    setobjectxy VAR_0x8008, 25, 47
-    goto Fountain_EventScript_MoveObjectsToSpot
+   
        
 @@@@@ After White-out cutscene
 Fountain_EventScript_Whiteout::
@@ -126,9 +116,6 @@ Fountain_EventScript_WhiteoutContinueSplash:
     setplayerxy 24, 46
     setspriteinvisible OBJ_EVENT_ID_PLAYER, FALSE
     @ Okay, the hard part is here. Partner and possible 3rd mon get devolved, so we move their sprites from fireplace and clear the flag
-    goto_if_set FLAG_WHITEOUT_FALLING_THIRD_NPC, Fountain_EventScript_WhiteoutGetPartner
-    callnative ScriptCmd_GetFalling3rdMonSpecies
-    goto_if_eq VAR_RESULT, SPECIES_TINKATON, Fountain_WhiteOutPartnerTinkatink
 Fountain_EventScript_WhiteoutGetPartner:
     callnative ScriptCmd_GetPartnerSpecies
     goto_if_eq VAR_RESULT, SPECIES_SWABLU, Fountain_WhiteOutPartnerSwablu
@@ -137,7 +124,6 @@ Fountain_EventScript_WhiteoutDoEggHatch:
     fasttwomonsegghatchanim
     changeplayersprite SPECIES_NONE, TRUE
     delay 20
-    goto_if_unset FLAG_WHITEOUT_FALLING_THIRD_NPC, Fountain_MoveThirdNpcToSpot
 Fountain_EventScript_MoveObjectsToSpot:
     addobject VAR_0x8007
     setobjectxy VAR_0x8007, 26, 46
@@ -183,7 +169,9 @@ ScriptAfterWhiteOutPhanpy:
 	msgbox_portrait Fountain_Text_Tuskan1stDeathIntro1, FIELD_PIC_PHANPY_SWEAT
     bufferpartymonnick 0, 0
     bufferpartymonnick 1, 1
+    goto_if_set FLAG_DO_AMY_RECRUIT_SCENE, Fountain_EventScript_RecruitAmy
 	msgbox_portrait Fountain_Text_Abra1stDeathIntro1, FIELD_PIC_ABRA_SERIOUS
+ScriptAfterWhiteOutEnd:
     waitmessage
     closemessage
     removeobject VAR_0x8007
@@ -196,6 +184,7 @@ ScriptAfterWhiteOutPhanpy:
 
 
 Fountain_EventScript_RecruitAmy::
+    clearflag FLAG_DO_AMY_RECRUIT_SCENE
 	msgbox_portrait Fountain_Text_RecruitAmy01, FIELD_PIC_ABRA_HAPPY
 	msgbox_portrait Fountain_Text_RecruitAmy02, FIELD_PIC_PHANPY_CONFUSED
 	msgbox_portrait Fountain_Text_RecruitAmy03, FIELD_PIC_ABRA_CONCERNED
@@ -212,7 +201,7 @@ Fountain_EventScript_RecruitAmy::
 	playegghatchanim SPECIES_TINKATINK, TRUE, NULL
     waitstate
 	removeobject LOCALID_EGG_RECRUIT
-	addobject LOCALID_BELLA_RECRUIT
+	addobject LOCALID_AMY_RECRUIT
 	msgbox_portrait Fountain_Text_RecruitAmy07, FIELD_PIC_ABRA_SERIOUS
 	msgbox_portrait Fountain_Text_RecruitAmy08, FIELD_PIC_ABRA_SERIOUS
 	msgbox_portrait Fountain_Text_RecruitAmy09, FIELD_PIC_ABRA_SERIOUS
@@ -224,6 +213,10 @@ Fountain_EventScript_RecruitAmy::
 	msgbox_portrait Fountain_Text_RecruitAmy15, FIELD_PIC_ABRA_SERIOUS
 	msgbox_portrait Fountain_Text_RecruitAmy16, FIELD_PIC_ABRA_SERIOUS
 	msgbox_portrait Fountain_Text_RecruitAmy17, FIELD_PIC_ABRA_HAPPY
+    removeobject LOCALID_AMY_RECRUIT
+    clearflag FLAG_FIREPLACE_HIDE_TINKATINK
+    addobject LOCALID_FIREPLACE_TINKATINK
+    goto ScriptAfterWhiteOutEnd
 	end
 
 
@@ -444,6 +437,8 @@ Fountain_Text_RecruitRipley12::
 
 @@@@@ Intro cutscene
 
+.equ SKIP_INTRO_FOR_TESTING, 0
+
 Fountain_EventScript_IntroScene::
 	
 	lockall
@@ -461,6 +456,7 @@ Fountain_EventScript_IntroScene::
 	@fadenewbgm MUS_PMDRED_STORMY_SEA
 
 	@cutscene skipper
+    .if SKIP_INTRO_FOR_TESTING == 1
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_HIDE_SAVORY_SQUAD
@@ -477,6 +473,7 @@ Fountain_EventScript_IntroScene::
 	warpsilent MAP_PETALBURG_CITY,24,46
 	addobject LOCALID_ABRA_WELL
 	end
+    .endif
 
 	waitmovement 0
 	msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_PHANPY_SAD
@@ -510,12 +507,15 @@ Fountain_EventScript_IntroScene::
 	msgbox Fountain_Text_Intro05_2, MSGBOX_NPC
 	addobject LOCAL_ID_ALTARIA_INTRO
 	applymovement LOCAL_ID_ALTARIA_INTRO, Fountain_FallIntoWater
-	delay 10
 	applymovement OBJ_EVENT_ID_CAMERA, Fountain_FallIntoWater
 	waitmovement 0
-	removeobject LOCAL_ID_ALTARIA_INTRO
+	setspriteinvisible LOCAL_ID_ALTARIA_INTRO, TRUE
+    splashwatereffect LOCALID_SPLASH_1
+    delay 5
 	playse SE_M_DIVE
 	waitse
+    waitfieldeffect FLDEFF_JUMP_BIG_SPLASH
+    removeobject LOCAL_ID_ALTARIA_INTRO
 	delay 30
 	addobject LOCALID_ABRA_WELL
 	applymovement LOCALID_ABRA_WELL, Fountain_LookUp

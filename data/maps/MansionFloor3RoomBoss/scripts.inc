@@ -69,6 +69,7 @@ MansionFloor3RoomBoss_EventScript_BossAmy::
 	applymovement LOCALID_AMY1, MansionFloor3RoomBoss_Charge2
 	applymovement OBJ_EVENT_ID_PLAYER, MansionFloor3RoomBoss_Charge3
     clearflag FLAG_WHITEOUT_FALLING_THIRD_NPC
+    setflag FLAG_DO_AMY_RECRUIT_SCENE
     setvar VAR_OBJ_GFX_ID_1, SPECIES_TINKATON + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY
 	waitmovement 0
     closemessage
