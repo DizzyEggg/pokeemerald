@@ -19,6 +19,7 @@
 #include "string_util.h"
 #include "strings.h"
 #include "script.h"
+#include "item.h"
 #include "task.h"
 #include "text_window.h"
 #include "window.h"
@@ -2223,9 +2224,6 @@ void BlitMenuInfoIcon(u8 windowId, u8 iconId, u16 x, u16 y)
 
 void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
 {
-    s32 curFlag;
-    s32 flagCount;
-    u8 *endOfString;
     u8 *string = dest;
 
     *(string++) = EXT_CTRL_CODE_BEGIN;
@@ -2238,7 +2236,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
     switch (textId)
     {
         case SAVE_MENU_NAME:
-            StringCopy(string, gSaveBlock2Ptr->playerName);
+            StringCopy(string, ExpandPlaceholder_PlayerName());
             break;
         case SAVE_MENU_CAUGHT:
             if (IsNationalPokedexEnabled())
@@ -2256,13 +2254,10 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
             GetMapNameGeneric(string, gMapHeader.regionMapSectionId);
             break;
         case SAVE_MENU_BADGES:
-            for (curFlag = FLAG_BADGE01_GET, flagCount = 0, endOfString = string + 1; curFlag < FLAG_BADGE01_GET + NUM_BADGES; curFlag++)
-            {
-                if (FlagGet(curFlag))
-                    flagCount++;
-            }
-            *string = flagCount + CHAR_0;
-            *endOfString = EOS;
+            *(string++) = CountUniquePhotos() + CHAR_0;
+            *(string++) = CHAR_SLASH;
+            *(string++) = CHAR_5;
+            *(string++) = EOS;
             break;
     }
 }

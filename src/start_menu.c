@@ -45,6 +45,7 @@
 #include "window.h"
 #include "union_room.h"
 #include "dexnav.h"
+#include "item.h"
 #include "wild_encounter.h"
 #include "constants/battle_frontier.h"
 #include "constants/rgb.h"
@@ -636,6 +637,10 @@ static bool8 HandleStartMenuInput(void)
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
+        // For now let's ignore the player's page
+        if (sCurrentStartMenuActions[sStartMenuCursorPos] == MENU_ACTION_PLAYER) {
+            return FALSE;
+        }
         if (sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void == StartMenuPokedexCallback)
         {
             if (GetNationalPokedexCount(FLAG_GET_SEEN) == 0)
@@ -1390,9 +1395,13 @@ static void ShowSaveInfoWindow(void)
     u8 color;
     u32 xOffset;
     u32 yOffset;
+    s32 photosCount = CountUniquePhotos();
 
     if (!FlagGet(FLAG_SYS_POKEDEX_GET))
     {
+        saveInfoWindow.height -= 2;
+    }
+    if (photosCount == 0) {
         saveInfoWindow.height -= 2;
     }
 
@@ -1420,11 +1429,16 @@ static void ShowSaveInfoWindow(void)
     PrintPlayerNameOnWindow(sSaveInfoWindowId, gStringVar4, xOffset, yOffset);
 
     // Print badge count
-    yOffset += 16;
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingBadges, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-    BufferSaveMenuText(SAVE_MENU_BADGES, gStringVar4, color);
-    xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
+    if (photosCount != 0) {
+        static const u8 sText_Photos[] = _("PHOTOS");
+
+        yOffset += 16;
+        AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, sText_Photos, 0, yOffset, TEXT_SKIP_DRAW, NULL);
+        BufferSaveMenuText(SAVE_MENU_BADGES, gStringVar4, color);
+        xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
+        AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
+    }
+
 
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
     {
