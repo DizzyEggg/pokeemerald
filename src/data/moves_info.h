@@ -1780,10 +1780,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = COMBO_STARTER_PECK,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_Peck,
-        .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_LEVEL_DOWN,
-        }),
-        .argument = { .level = 6 },
+        //.additionalEffects = ADDITIONAL_EFFECTS({
+        //    .moveEffect = MOVE_EFFECT_LEVEL_DOWN,
+        //}),
+        //.argument = { .level = 6 },
     },
 
     [MOVE_DRILL_PECK] =

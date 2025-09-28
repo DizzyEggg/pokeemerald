@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GALVANTULA)",
-      "x": 9,
-      "y": 10,
+      "x": 11,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
@@ -29,8 +29,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARAQUANID)",
-      "x": 12,
-      "y": 13,
+      "x": 11,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -42,8 +42,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GALVANTULA)",
-      "x": 11,
-      "y": 10,
+      "x": 12,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -55,8 +55,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARAQUANID)",
-      "x": 11,
-      "y": 11,
+      "x": 12,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -70,7 +70,7 @@
   "warp_events": [
     {
       "x": 10,
-      "y": 14,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_RND_MANSION_DOWN",
       "dest_warp_id": "2"
@@ -84,7 +84,7 @@
     },
     {
       "x": 10,
-      "y": 7,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_RND_MANSION_UP",
       "dest_warp_id": "0"
