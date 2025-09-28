@@ -1459,7 +1459,8 @@ Fountain_Text_Abra_Shed1:
 Fountain_Text_Abra_Shed2:
 	.string "Dali: It's made of the same stuff as\n"
 	.string "the big house, but not the Inkwell.\p"
-	.string "So the same Pokemon probably didn't make both?$"
+	.string "So the same Pokemon probably didn't\n"
+	.string "make both?$"
 
 Fountain_Text_Abra_Shed3:
 	.string "Dali: I think… maybe we used this for storage?\n"
@@ -1527,7 +1528,7 @@ Fountain_Text_Abra_Stumps1:
 Fountain_Text_Abra_Stumps2:
 	.string "Dali: Discs! This should be a good\n"
 	.string "spot for any discs you find.\p"
-	.string "They don't do anything for me, but\p"
+	.string "They don't do anything for me, but\n"
 	.string "maybe they can help you learn moves?$"
 
 

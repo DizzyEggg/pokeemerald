@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CHANDELURE)",
-      "x": 10,
-      "y": 13,
+      "x": 12,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
@@ -29,8 +29,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CHANDELURE)",
-      "x": 9,
-      "y": 14,
+      "x": 8,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
@@ -42,8 +42,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KLANG)",
-      "x": 11,
-      "y": 14,
+      "x": 12,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
@@ -55,8 +55,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ROTOM)",
-      "x": 10,
-      "y": 15,
+      "x": 8,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
@@ -70,7 +70,7 @@
   "warp_events": [
     {
       "x": 10,
-      "y": 17,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_RND_MANSION_DOWN",
       "dest_warp_id": "0"
