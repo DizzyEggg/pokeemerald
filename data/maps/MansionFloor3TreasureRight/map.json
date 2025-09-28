@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KLANG)",
-      "x": 8,
-      "y": 13,
+      "x": 7,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -29,8 +29,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GARBODOR)",
-      "x": 9,
-      "y": 12,
+      "x": 7,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -42,8 +42,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(WEAVILE)",
-      "x": 8,
-      "y": 15,
+      "x": 7,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
@@ -55,8 +55,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZOROARK)",
-      "x": 9,
-      "y": 16,
+      "x": 7,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
@@ -69,7 +69,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 10,
-      "y": 14,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -86,13 +86,6 @@
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_RND_MANSION_RIGHT",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 16,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY",
       "dest_warp_id": "0"
     }
   ],
