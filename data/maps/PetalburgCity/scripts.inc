@@ -1893,6 +1893,14 @@ EventScript_FireplaceShowTinkatink:
     clearflag FLAG_FIREPLACE_HIDE_TINKATINK
     addobject LOCALID_FIREPLACE_TINKATINK
     return
+EventScript_FireplaceShowSquirtle:
+    clearflag FLAG_FIREPLACE_HIDE_SQUIRTLE
+    addobject LOCALID_FIREPLACE_SQUIRTLE
+    return
+EventScript_FireplaceShowVenipede:
+    clearflag FLAG_FIREPLACE_HIDE_VENIPEDE
+    addobject LOCALID_FIREPLACE_VENIPEDE
+    return
 
 EventScript_FireplaceRecruit::
     lockall
@@ -1908,17 +1916,19 @@ EventScript_FireplaceRecruitYes:
     msgbox Text_JoinedTeam
     waitmessage
     closemessage
-    fadescreenspeed FADE_TO_BLACK, 2
+    fadescreenswapbuffers FADE_TO_BLACK
     delay 10
     removeobject VAR_LAST_TALKED
     callnative ScriptCmd_GetPlayerSpecies
     call_if_eq VAR_RESULT, SPECIES_PHANPY, EventScript_FireplaceShowPhanpy
     call_if_eq VAR_RESULT, SPECIES_SWABLU, EventScript_FireplaceShowSwablu
     call_if_eq VAR_RESULT, SPECIES_TINKATINK, EventScript_FireplaceShowTinkatink
+    call_if_eq VAR_RESULT, SPECIES_SQUIRTLE, EventScript_FireplaceShowSquirtle
+    call_if_eq VAR_RESULT, SPECIES_VENIPEDE, EventScript_FireplaceShowVenipede
     callnative ScriptCmd_SwapTeamMembers
     changeplayersprite VAR_0x8007, TRUE, TRUE
 EventScript_FireplaceRecruitYesGoBackFromFade:
-    fadescreen FADE_FROM_BLACK
+    fadescreenswapbuffers FADE_FROM_BLACK
     goto EventScript_FireplaceRecruitEnd
 
 
