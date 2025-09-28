@@ -1892,7 +1892,15 @@ static void RemoveAllButUniqueItems(void)
         {
             u32 itemId = gBagPockets[pocketId].itemSlots[i].itemId;
             if (!IsUniqueItem(itemId)) {
-                gBagPockets[pocketId].itemSlots[i] = (struct ItemSlot) {0};
+                // Do not remove vial items either
+                if (IsVialItem(itemId)) {
+                    if (IsVialEmptyItem(itemId)) {
+                        FlagSet(FLAG_OBTAINED_ANY_VIAL);
+                    }
+                }
+                else {
+                    gBagPockets[pocketId].itemSlots[i] = (struct ItemSlot) {0};
+                }
             }
             else if (HandleDiskFlags(itemId)) {
                 hadAnyDisks = TRUE;

@@ -57,6 +57,42 @@ bool32 IsUniqueItem(u32 itemId)
     }
 }
 
+bool32 IsVialItem(u32 itemId)
+{
+    switch (itemId) {
+        case UNIQUE_ITEM_INKWELL_FULL_BOTTLE_1:
+        case UNIQUE_ITEM_INKWELL_FULL_BOTTLE_2:
+        case UNIQUE_ITEM_INKWELL_FULL_BOTTLE_3:
+        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_1:
+        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_2:
+        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3:
+        case ITEM_LATIASITE:
+        case ITEM_LATIOSITE:
+        case ITEM_SALAMENCITE:
+        case ITEM_LOPUNNITE:
+        case ITEM_METAGROSSITE:
+        case ITEM_GARCHOMPITE:
+            return TRUE;
+        default:
+            return FALSE;
+    }
+}
+
+bool32 IsVialEmptyItem(u32 itemId)
+{
+    switch (itemId) {
+        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_1:
+        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_2:
+        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3:
+        case ITEM_LATIASITE:
+        case ITEM_SALAMENCITE:
+        case ITEM_METAGROSSITE:
+            return TRUE;
+        default:
+            return FALSE;
+    }
+}
+
 static u32 GetItemBallIdFromSet(u32 itemBallId)
 {
     s32 i;
