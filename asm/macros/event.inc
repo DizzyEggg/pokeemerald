@@ -2489,10 +2489,11 @@
     .endm
     
     @ Sets and immediately changes the player's sprite to a new species
-    .macro changeplayersprite species:req, shiny:req
+    .macro changeplayersprite species:req, shiny:req, trick:req
     callnative ScriptCmd_ChangePlayerSprite, requests_effects=1
     .2byte \species
     .byte \shiny
+    .byte \trick
     .endm
 
 	@ Check if the Player has speciesId in their party. OPEN_PARTY_SCREEN will have the player select a mon from their party. NO_PARTY_SCREEN will automatically check every mon in the player's party.
@@ -2790,4 +2791,10 @@
     callnative ScrCmd_SetSpriteInvisibility
     .byte \localId
     .byte \invisibile
+    .endm
+    
+    @ Also sets var VAR_0x8007 to species
+    .macro buffernpcnamefromspecies strVar:req
+    callnative ScriptCmd_BufferNPCNameFromGfx
+    .byte \strVar
     .endm

@@ -13,5 +13,6 @@ void NewGameInitData(void);
 void ResetMenuAndMonGlobals(void);
 void Sav2_ClearSetDefault(void);
 void SetAvailableItems(struct UniqueItems *unique);
+const u8 *SpeciesToNickname(u32 species);
 
 #endif // GUARD_NEW_GAME_H

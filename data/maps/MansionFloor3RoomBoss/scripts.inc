@@ -70,6 +70,8 @@ MansionFloor3RoomBoss_EventScript_BossAmy::
 	applymovement OBJ_EVENT_ID_PLAYER, MansionFloor3RoomBoss_Charge3
     clearflag FLAG_WHITEOUT_FALLING_THIRD_NPC
     setflag FLAG_DO_AMY_RECRUIT_SCENE
+    setflag FLAG_TINKATINK_AVAILABLE
+    setflag FLAG_HIDE_BOSS3_TRIO
     setvar VAR_OBJ_GFX_ID_1, SPECIES_TINKATON + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY
 	waitmovement 0
     closemessage
@@ -78,6 +80,7 @@ MansionFloor3RoomBoss_EventScript_BossAmy::
 	applymovement LOCALID_BELLA1, Common_Movement_ExclamationMark
 	applymovement LOCALID_RIPLEY1, Common_Movement_ExclamationMark
     waitmovement 0
+    clearflag FLAG_HIDE_BOSS3_DUO
 	dowhiteout
 	releaseall
 	end
@@ -175,6 +178,7 @@ MansionFloor3RoomBoss_EventScript_BossBella::
     setenemymonmoves 0, MOVE_FURY_CUTTER, MOVE_ROLLOUT, 0, 0
 	setenemymonnick 0, sText_ScolipedeNickname
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+    callnative SetAsWildBattleIfPossible
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -190,19 +194,20 @@ MansionFloor3RoomBoss_EventScript_BossBella::
 	@playse
 	applymovement LOCALID_BELLA2, MansionFloor3RoomBoss_Charge2
 	applymovement OBJ_EVENT_ID_PLAYER, MansionFloor3RoomBoss_Charge3
+	clearflag FLAG_WHITEOUT_FALLING_THIRD_NPC
+    setflag FLAG_DO_BELLA_RECRUIT_SCENE
+    setflag FLAG_VENIPEDE_AVAILABLE
+    setflag FLAG_HIDE_BOSS3_DUO
+    setvar VAR_OBJ_GFX_ID_1, SPECIES_SCOLIPEDE + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY
 	waitmovement 0
-	removeobject LOCALID_BELLA2
-	removeobject OBJ_EVENT_ID_PLAYER
-
-	@EGGHELP2 - game over script. This is where both PCs and Bella get thrown into the fountain, so need a game over with a falling Scolipede
-	
+    closemessage
+	setspriteinvisible LOCALID_BELLA2, TRUE
+	setspriteinvisible OBJ_EVENT_ID_PLAYER, TRUE
+    waitmovement 0
+    clearflag FLAG_HIDE_BOSS3_SOLO
+	dowhiteout
 	releaseall
 	end
-
-
-
-
-
 
 MansionFloor3RoomBoss_Text_Boss2Bella1:
 	.string "Bella: Hmph.\p"
@@ -244,13 +249,12 @@ MansionFloor3RoomBoss_EventScript_BossRipley::
 	delay 20
 	msgbox_portrait MansionFloor3RoomBoss_Text_Boss3Ripley1, FIELD_PIC_BLASTOISE_NORMAL
 	
-	@EGGHELP1 - same problem with createmon.
-	
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
 	setwildbattle SPECIES_BLASTOISE, 65, ITEM_LEFTOVERS
 	setenemymonmoves 0, MOVE_WAVE_CRASH, MOVE_PROTECT, MOVE_AQUA_RING, 0
 	setenemymonnick 0, sText_BlastoiseNickname
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+    callnative SetAsWildBattleIfPossible
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -264,10 +268,16 @@ MansionFloor3RoomBoss_EventScript_BossRipley::
 	@playse
 	applymovement LOCALID_RIPLEY3, MansionFloor3RoomBoss_Charge2
 	applymovement OBJ_EVENT_ID_PLAYER, MansionFloor3RoomBoss_Charge3
+    clearflag FLAG_WHITEOUT_FALLING_THIRD_NPC
+    setflag FLAG_DO_RIPLEY_RECRUIT_SCENE
+    setflag FLAG_SQUIRTLE_AVAILABLE
+    setflag FLAG_HIDE_BOSS3_SOLO
+    setvar VAR_OBJ_GFX_ID_1, SPECIES_BLASTOISE + OBJ_EVENT_MON + OBJ_EVENT_MON_SHINY
 	waitmovement 0
-	removeobject LOCALID_BELLA2
-	removeobject OBJ_EVENT_ID_PLAYER
-	@EGGHELP2 Another game over with a falling Blastoise
+    closemessage
+	setspriteinvisible LOCALID_RIPLEY3, TRUE
+	setspriteinvisible OBJ_EVENT_ID_PLAYER, TRUE
+	dowhiteout
 	releaseall
 	end
 

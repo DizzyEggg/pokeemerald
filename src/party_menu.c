@@ -1363,7 +1363,7 @@ static void TryUpdatePlayerSprite(struct Pokemon *mon)
     u32 species = GetMonData(mon, MON_DATA_SPECIES);
     if (GetMonData(mon, MON_DATA_HP) != 0 && gSaveBlock2Ptr->playerSpriteMonId != species) {
         SetPlayerMonSprite(GetMonData(mon, MON_DATA_SPECIES), IsMonShiny(mon));
-        ChangePlayerMonSpriteVisuals(TRUE);
+        ChangePlayerMonSpriteVisuals(FALSE);
     }
 }
 

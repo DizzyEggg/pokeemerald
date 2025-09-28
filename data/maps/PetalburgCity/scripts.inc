@@ -122,7 +122,7 @@ Fountain_EventScript_WhiteoutGetPartner:
     goto_if_eq VAR_RESULT, SPECIES_PHANPY, Fountain_WhiteOutPartnerPhanpy
 Fountain_EventScript_WhiteoutDoEggHatch:
     fasttwomonsegghatchanim
-    changeplayersprite SPECIES_NONE, TRUE
+    changeplayersprite SPECIES_NONE, TRUE, FALSE
     delay 20
 Fountain_EventScript_MoveObjectsToSpot:
     addobject VAR_0x8007
@@ -170,6 +170,8 @@ ScriptAfterWhiteOutPhanpy:
     bufferpartymonnick 0, 0
     bufferpartymonnick 1, 1
     goto_if_set FLAG_DO_AMY_RECRUIT_SCENE, Fountain_EventScript_RecruitAmy
+    goto_if_set FLAG_DO_BELLA_RECRUIT_SCENE, Fountain_EventScript_RecruitBella
+    goto_if_set FLAG_DO_RIPLEY_RECRUIT_SCENE, Fountain_EventScript_RecruitRipley
 	msgbox_portrait Fountain_Text_Abra1stDeathIntro1, FIELD_PIC_ABRA_SERIOUS
 ScriptAfterWhiteOutEnd:
     waitmessage
@@ -180,7 +182,7 @@ ScriptAfterWhiteOutEnd:
 
 
 
-@@@@@@@@@@@@@@@ EGGHELP: RECRUIT SCENES (when Amy, Bella, and Ripley fall in. conversations written and a barebones script scripted out, but triggers are up to you)
+@@@@@@@@@@@@@@@ RECRUIT SCENES (when Amy, Bella, and Ripley fall in. conversations written and a barebones script scripted out, but triggers are up to you)
 
 
 Fountain_EventScript_RecruitAmy::
@@ -292,6 +294,7 @@ Fountain_Text_RecruitAmy17::
 
 
 Fountain_EventScript_RecruitBella::
+    clearflag FLAG_DO_BELLA_RECRUIT_SCENE
 	msgbox_portrait Fountain_Text_RecruitBella1, FIELD_PIC_ABRA_HAPPY
 	playse SE_WARP_OUT
 	removeobject LOCALID_ABRA_WELL
@@ -313,6 +316,10 @@ Fountain_EventScript_RecruitBella::
 	msgbox_portrait Fountain_Text_RecruitBella8, FIELD_PIC_ABRA_SERIOUS
 	msgbox_portrait Fountain_Text_RecruitBella9, FIELD_PIC_ABRA_ANGRY
 	msgbox_portrait Fountain_Text_RecruitBella10, FIELD_PIC_PHANPY_CONFUSED
+    removeobject LOCALID_BELLA_RECRUIT
+    clearflag FLAG_FIREPLACE_HIDE_VENIPEDE
+    addobject LOCALID_FIREPLACE_VENIPEDE
+    goto ScriptAfterWhiteOutEnd
 	end
 
 
@@ -358,6 +365,7 @@ Fountain_Text_RecruitBella10::
 
 
 Fountain_EventScript_RecruitRipley::
+    clearflag FLAG_DO_RIPLEY_RECRUIT_SCENE
 	msgbox_portrait Fountain_Text_RecruitRipley01, FIELD_PIC_ABRA_HAPPY
 	playse SE_WARP_OUT
 	removeobject LOCALID_ABRA_WELL
@@ -381,6 +389,10 @@ Fountain_EventScript_RecruitRipley::
 	msgbox_portrait Fountain_Text_RecruitRipley10, FIELD_PIC_ABRA_SERIOUS
 	msgbox_portrait Fountain_Text_RecruitRipley11, FIELD_PIC_ABRA_CONCERNED
 	msgbox_portrait Fountain_Text_RecruitRipley12, FIELD_PIC_ABRA_HAPPY
+    removeobject LOCALID_RIPLEY_RECRUIT
+    clearflag FLAG_FIREPLACE_HIDE_SQUIRTLE
+    addobject LOCALID_FIREPLACE_SQUIRTLE
+    goto ScriptAfterWhiteOutEnd
 	end
 
 
@@ -1571,30 +1583,39 @@ Fountain_Text_Abra_Well2:
 Fountain_EventScript_Abra_Campfire::
 	lockall
 	faceplayer
-	goto_if_set FLAG_HIDE_BOSS3_TRIO, Fountain_EventScript_Abra_Campfire2
+	goto_if_set FLAG_TINKATINK_AVAILABLE, Fountain_EventScript_Abra_Campfire2
 	@no recruits
 	msgbox_portrait Fountain_Text_Abra_Campfire1, FIELD_PIC_ABRA_THINKING
 	closemessage
 	releaseall
 	end
+    
+Fountain_EventScript_Abra_Campfire2ToAmy:
+    msgbox_portrait Fountain_Text_Abra_Campfire2ToAmy, FIELD_PIC_ABRA_JOY
+    goto  Fountain_EventScript_Abra_Campfire2EndMsg
 
 Fountain_EventScript_Abra_Campfire2::
-	goto_if_set FLAG_HIDE_BOSS3_DUO, Fountain_EventScript_Abra_Campfire3
+	goto_if_set FLAG_VENIPEDE_AVAILABLE, Fountain_EventScript_Abra_Campfire3
 	@tink but not scoli
+    callnative ScriptCmd_GetPlayerSpecies
+    goto_if_eq VAR_RESULT, SPECIES_TINKATINK, Fountain_EventScript_Abra_Campfire2ToAmy
 	msgbox_portrait Fountain_Text_Abra_Campfire2, FIELD_PIC_ABRA_JOY
+Fountain_EventScript_Abra_Campfire2EndMsg:
 	closemessage
 	releaseall
 	end
 
 
 Fountain_EventScript_Abra_Campfire3::
-	goto_if_set FLAG_HIDE_BOSS3_SOLO, Fountain_EventScript_Abra_Campfire4
+	goto_if_set FLAG_SQUIRTLE_AVAILABLE, Fountain_EventScript_Abra_Campfire4
+    @tink and scoly
 	msgbox_portrait Fountain_Text_Abra_Campfire3, FIELD_PIC_ABRA_JOY
 	closemessage
 	releaseall
 	end
 
 Fountain_EventScript_Abra_Campfire4::
+    @tink, scoly, squirtle
 	msgbox_portrait Fountain_Text_Abra_Campfire4, FIELD_PIC_ABRA_JOY
 	closemessage
 	releaseall
@@ -1610,6 +1631,10 @@ Fountain_Text_Abra_Campfire1:
 Fountain_Text_Abra_Campfire2:
 	.string "Dali: Whoa, you got Amy on our side!\n"
 	.string "I'm sure she'd going to be a big help!$"
+    
+Fountain_Text_Abra_Campfire2ToAmy:
+	.string "Dali: I am pleased to see\n"
+	.string "you together with us, Amy!$"
 
 Fountain_Text_Abra_Campfire3:
 	.string "Dali: Amy and Belladonna?\p"
@@ -1817,9 +1842,51 @@ Fountain_Text_BackDoor:
 	.string "They're too tough to cut.$"
 
 
+Text_WantToJoin:
+    .string "Do you want {STR_VAR_1}\nto join the team?$"
+    
+Text_JoinedTeam:
+    .string "{STR_VAR_1} joined the team!$"
+    
+EventScript_FireplaceShowPhanpy:
+    clearflag FLAG_FIREPLACE_HIDE_PHANPY
+    addobject LOCALID_FIREPLACE_PHANPY
+    return
+EventScript_FireplaceShowSwablu:
+    clearflag FLAG_FIREPLACE_HIDE_SWABLU
+    addobject LOCALID_FIREPLACE_SWABLU
+    return
+EventScript_FireplaceShowTinkatink:
+    clearflag FLAG_FIREPLACE_HIDE_TINKATINK
+    addobject LOCALID_FIREPLACE_TINKATINK
+    return
 
-
-
+EventScript_FireplaceRecruit::
+    lockall
+    faceplayer
+    buffernpcnamefromspecies 0 @ Also sets var VAR_0x8007 to species
+    msgbox Text_WantToJoin, MSGBOX_YESNO
+    goto_if_eq VAR_RESULT, NO, EventScript_FireplaceRecruitEnd
+    goto_if_eq VAR_RESULT, YES, EventScript_FireplaceRecruitYes
+EventScript_FireplaceRecruitEnd:
+    releaseall
+    end
+EventScript_FireplaceRecruitYes:
+    msgbox Text_JoinedTeam
+    waitmessage
+    closemessage
+    fadescreenspeed FADE_TO_BLACK, 2
+    delay 10
+    removeobject VAR_LAST_TALKED
+    callnative ScriptCmd_GetPlayerSpecies
+    call_if_eq VAR_RESULT, SPECIES_PHANPY, EventScript_FireplaceShowPhanpy
+    call_if_eq VAR_RESULT, SPECIES_SWABLU, EventScript_FireplaceShowSwablu
+    call_if_eq VAR_RESULT, SPECIES_TINKATINK, EventScript_FireplaceShowTinkatink
+    callnative ScriptCmd_SwapTeamMembers
+    changeplayersprite VAR_0x8007, TRUE, TRUE
+EventScript_FireplaceRecruitYesGoBackFromFade:
+    fadescreen FADE_FROM_BLACK
+    goto EventScript_FireplaceRecruitEnd
 
 
 

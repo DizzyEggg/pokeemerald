@@ -18,6 +18,7 @@
 #include "event_object_lock.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
+#include "new_game.h"
 #include "fake_rtc.h"
 #include "field_pic.h"
 #include "field_message_box.h"
@@ -3419,7 +3420,7 @@ extern u32 LoadDynamicFollowerPalette(u32 species, bool32 shiny, bool32 female);
 
 void ScriptCmd_SetPlayerMonSprite(struct ScriptContext *ctx)
 {
-    u32 speciesId = ScriptReadHalfword(ctx);
+    u32 speciesId = VarGet(ScriptReadHalfword(ctx));
     u32 isShiny = ScriptReadByte(ctx);
 
     if (speciesId == SPECIES_NONE) {
@@ -3430,9 +3431,13 @@ void ScriptCmd_SetPlayerMonSprite(struct ScriptContext *ctx)
 }
 
 // This is hacky as fuck, but whatever, it works. There is a little 'turn' the sprite does, but meh, there's no time.
-void ChangePlayerMonSpriteVisuals(bool32 setFlags)
+void ChangePlayerMonSpriteVisuals(bool32 inOverworld)
 {
-    if (!gMain.inBattle) {
+    if (inOverworld) {
+        gSprites[gPlayerAvatar.spriteId].oam.paletteNum = LoadDynamicFollowerPalette(gSaveBlock2Ptr->playerSpriteMonId, gSaveBlock2Ptr->playerSpriteIsShiny, FALSE);
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+    }
+    else if (!gMain.inBattle) {
         u8 spriteId = CreateInvisibleSprite(SpriteCallbackDummy);
 
         gPlayerAvatar.spriteId = spriteId;
@@ -3446,8 +3451,11 @@ void ChangePlayerMonSpriteVisuals(bool32 setFlags)
 
 void ScriptCmd_ChangePlayerSprite(struct ScriptContext *ctx)
 {
+    u8 trick;
     ScriptCmd_SetPlayerMonSprite(ctx);
-    ChangePlayerMonSpriteVisuals(TRUE);
+
+    trick = ScriptReadByte(ctx);
+    ChangePlayerMonSpriteVisuals(trick);
 }
 
 void ScriptCmd_GetPlayerSpecies(struct ScriptContext *ctx)
@@ -3459,6 +3467,47 @@ void ScriptCmd_GetPartnerSpecies(struct ScriptContext *ctx)
 {
     struct Pokemon *mon = GetSecondLiveMon();
     gSpecialVar_Result = GetMonData(mon, MON_DATA_SPECIES);
+}
+
+void ScriptCmd_BufferNPCNameFromGfx(struct ScriptContext *ctx)
+{
+    u8 stringVarIndex = ScriptReadByte(ctx);
+    u32 objEventId = GetObjectEventIdByLocalId(gSpecialVar_LastTalked);
+    struct ObjectEvent *objectEvent = &gObjectEvents[objEventId];
+    u32 species = objectEvent->graphicsId & OBJ_EVENT_MON_SPECIES_MASK;
+    const u8 *name = SpeciesToNickname(species);
+
+    gSpecialVar_0x8007 = species;
+
+    StringCopy(sScriptStringVars[stringVarIndex], name);
+}
+
+static struct Pokemon *SpeciesToSavedMon(s32 species)
+{
+    switch (species) {
+        default:
+        case SPECIES_PHANPY:
+            return &gSaveBlock1Ptr->savedPhanpy;
+        case SPECIES_SWABLU:
+            return &gSaveBlock1Ptr->savedSwablu;
+        case SPECIES_TINKATINK:
+            return &gSaveBlock1Ptr->savedTink;
+        case SPECIES_SQUIRTLE:
+            return &gSaveBlock1Ptr->savedSquirtle;
+        case SPECIES_VENIPEDE:
+            return &gSaveBlock1Ptr->savedVenipede;
+    }
+}
+
+// Prerequisities: player's sprite is NOT changed, species to be changed are in gSpecialVar_0x8007
+void ScriptCmd_SwapTeamMembers(struct ScriptContext *ctx)
+{
+    struct Pokemon copyPlayerMon = gPlayerParty[0];
+    struct Pokemon *newPlayerMon = SpeciesToSavedMon(gSpecialVar_0x8007);
+    struct Pokemon *newTeamMemberMon = SpeciesToSavedMon(gSaveBlock2Ptr->playerSpriteMonId);
+
+    gPlayerParty[0] = *newPlayerMon;
+    *newTeamMemberMon = copyPlayerMon;
 }
 
 void ScriptCmd_GetFalling3rdMonSpecies(struct ScriptContext *ctx)

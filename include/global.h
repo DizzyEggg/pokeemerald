@@ -643,10 +643,8 @@ struct SecretBase
     /*0x1AA9*/ u8 language;
     /*0x1AAA*/ u16 numSecretBasesReceived;
     /*0x1AAC*/ u8 numTimesEntered;
-    /*0x1AAD*/ u8 unused;
     /*0x1AAE*/ u8 decorations[DECOR_MAX_SECRET_BASE];
     /*0x1ABE*/ u8 decorationPositions[DECOR_MAX_SECRET_BASE];
-    /*0x1ACE*/ //u8 padding[2];
     /*0x1AD0*/ struct SecretBaseParty party;
 };
 
@@ -1114,6 +1112,12 @@ struct SaveBlock1
     /*0x34*/ u16 mapView[0x100];
     /*0x234*/ u8 playerPartyCount;
     /*0x238*/ struct Pokemon playerParty[PARTY_SIZE];
+    // Team members
+    struct Pokemon savedPhanpy;
+    struct Pokemon savedSwablu;
+    struct Pokemon savedSquirtle;
+    struct Pokemon savedVenipede;
+    struct Pokemon savedTink;
     /*0x490*/ u32 money;
     /*0x494*/ u16 coins;
     /*0x496*/ u16 registeredItem; // registered for use with SELECT button

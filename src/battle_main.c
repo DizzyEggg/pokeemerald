@@ -5760,7 +5760,7 @@ static void ReturnFromBattleToOverworld(void)
     // If player's first party mon fainted - change the sprite to a second mon
     if (GetMonData(&gPlayerParty[0], MON_DATA_HP) == 0 && GetMonData(&gPlayerParty[1], MON_DATA_HP) != 0) {
         SetPlayerMonSprite(GetMonData(&gPlayerParty[1], MON_DATA_SPECIES), IsMonShiny(&gPlayerParty[1]));
-        ChangePlayerMonSpriteVisuals(TRUE);
+        ChangePlayerMonSpriteVisuals(FALSE);
     }
 
     if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)

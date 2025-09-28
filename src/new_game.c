@@ -306,23 +306,72 @@ static void SetDummyPlayerName(void)
     StringCopy(gSaveBlock2Ptr->playerName, name);
 }
 
-static const u8 *sPhanpyNickname = COMPOUND_STRING("Tuskan");
-static const u8 *sSwabluNickname = COMPOUND_STRING("Fluffball");
+static const u8 sName_Tuskan[] = _("Tuskan");
+static const u8 sName_Amy[] = _("Amy");
+static const u8 sName_Bella[] = _("Bella");
+static const u8 sName_Fluffball[] = _("Fluffball");
+static const u8 sName_Dali[] = _("Dali");
+static const u8 sName_Ripley[] = _("Ripley");
+
+const u8 *SpeciesToNickname(u32 species)
+{
+    switch (species) {
+        default:
+        case SPECIES_PHANPY:
+        case SPECIES_DONPHAN:
+            return sName_Tuskan;
+        case SPECIES_SWABLU:
+        case SPECIES_ALTARIA:
+            return sName_Fluffball;
+        case SPECIES_TINKATINK:
+        case SPECIES_TINKATUFF:
+        case SPECIES_TINKATON:
+            return sName_Amy;
+        case SPECIES_VENIPEDE:
+        case SPECIES_WHIRLIPEDE:
+        case SPECIES_SCOLIPEDE:
+            return sName_Bella;
+        case SPECIES_ABRA:
+        case SPECIES_KADABRA:
+        case SPECIES_ALAKAZAM:
+            return sName_Dali;
+        case SPECIES_SQUIRTLE:
+        case SPECIES_WARTORTLE:
+        case SPECIES_BLASTOISE:
+            return sName_Ripley;
+    }
+}
+
+static void SetNicknameOtGender(struct Pokemon *mon, s32 species)
+{
+    u32 otGender = FEMALE;
+    bool32 isShiny = TRUE;
+
+    SetMonData(mon, MON_DATA_NICKNAME, SpeciesToNickname(species));
+    SetMonData(mon, MON_DATA_OT_GENDER, &otGender);
+    SetMonData(mon, MON_DATA_IS_SHINY, &isShiny);
+}
 
 static void SetStartingPokemon(void)
 {
-    u32 otGender = FEMALE;
     u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
     u8 evs[NUM_STATS]        = {0, 0, 0, 0, 0, 0};
     u8 ivs[NUM_STATS]        = {MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK, MAX_IV_MASK};
     ScriptGiveMonParameterized(0, 0, SPECIES_PHANPY, 1, 0, BALL_POKE, NATURE_ADAMANT, 0, MON_MALE, evs, ivs, moves, TRUE, FALSE, NUMBER_OF_MON_TYPES, 0);
     ScriptGiveMonParameterized(0, 1, SPECIES_SWABLU, 1, 0, BALL_POKE, NATURE_BOLD, 2, MON_FEMALE, evs, ivs, moves, TRUE, FALSE, NUMBER_OF_MON_TYPES, 0);
 
-    SetMonData(&gPlayerParty[0], MON_DATA_NICKNAME, sPhanpyNickname);
-    SetMonData(&gPlayerParty[1], MON_DATA_NICKNAME, sSwabluNickname);
+    SetNicknameOtGender(&gPlayerParty[0], SPECIES_PHANPY);
+    SetNicknameOtGender(&gPlayerParty[1], SPECIES_SWABLU);
 
-    SetMonData(&gPlayerParty[0], MON_DATA_OT_GENDER, &otGender);
-    SetMonData(&gPlayerParty[1], MON_DATA_OT_GENDER, &otGender);
+    // Create other team members
+    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedTink, SPECIES_TINKATINK, 1, MAX_IV_MASK, MON_FEMALE, NATURE_NAUGHTY, 0);
+    SetNicknameOtGender(&gSaveBlock1Ptr->savedTink, SPECIES_TINKATINK);
+
+    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedSquirtle, SPECIES_SQUIRTLE, 1, MAX_IV_MASK, MON_MALE, NATURE_NAUGHTY, 0);
+    SetNicknameOtGender(&gSaveBlock1Ptr->savedSquirtle, SPECIES_SQUIRTLE);
+
+    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedVenipede, SPECIES_VENIPEDE, 1, MAX_IV_MASK, MON_FEMALE, NATURE_NAUGHTY, 0);
+    SetNicknameOtGender(&gSaveBlock1Ptr->savedVenipede, SPECIES_VENIPEDE);
 
     FlagSet(FLAG_SYS_POKEMON_GET);
 }

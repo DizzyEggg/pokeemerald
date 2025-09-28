@@ -206,7 +206,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_FireplaceRecruit",
       "flag": "FLAG_FIREPLACE_HIDE_SQUIRTLE"
     },
     {
@@ -220,7 +220,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_FireplaceRecruit",
       "flag": "FLAG_FIREPLACE_HIDE_TINKATINK"
     },
     {
@@ -234,7 +234,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_FireplaceRecruit",
       "flag": "FLAG_FIREPLACE_HIDE_PHANPY"
     },
     {
@@ -248,7 +248,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_FireplaceRecruit",
       "flag": "FLAG_FIREPLACE_HIDE_SWABLU"
     },
     {
@@ -262,7 +262,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_FireplaceRecruit",
       "flag": "FLAG_FIREPLACE_HIDE_VENIPEDE"
     },
     {

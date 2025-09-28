@@ -1270,11 +1270,11 @@
 #define FLAG_OBTAINED_PHOTO4                                        0x4BE // Unused Flag
 #define FLAG_OBTAINED_PHOTO5                                        0x4BF // Unused Flag
 #define FLAG_SECRET_ENDING_COMPLETE                                 0x4C0 // Unused Flag
-#define FLAG_PHANPY_IN_PARTY                                        0x4C1 // Unused Flag
-#define FLAG_SWABLU_IN_PARTY                                        0x4C2 // Unused Flag
-#define FLAG_TINKATINK_IN_PARTY                                     0x4C3 // Unused Flag
-#define FLAG_VENIPEDE_IN_PARTY                                      0x4C4 // Unused Flag
-#define FLAG_SQUIRTLE_IN_PARTY                                      0x4C5 // Unused Flag
+#define FLAG_UNUSED_0x4C1                                        0x4C1 // Unused Flag
+#define FLAG_UNUSED_0x4C2                                        0x4C2 // Unused Flag
+#define FLAG_TINKATINK_AVAILABLE                                     0x4C3 // Unused Flag
+#define FLAG_VENIPEDE_AVAILABLE                                     0x4C4 // Unused Flag
+#define FLAG_SQUIRTLE_AVAILABLE                                      0x4C5 // Unused Flag
 #define FLAG_ABRA_IN_PARTY                                          0x4C6 // Unused Flag
 #define FLAG_FOUGHT_SWEET_SQUAD                                     0x4C7 // Unused Flag
 #define FLAG_DEFEATED_SWEET_SQUAD                                   0x4C8 // Unused Flag

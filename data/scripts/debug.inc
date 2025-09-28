@@ -142,7 +142,7 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
-    changeplayersprite SPECIES_ALAKAZAM, TRUE
+    changeplayersprite SPECIES_ALAKAZAM, TRUE, TRUE
 	release
 	end
 
