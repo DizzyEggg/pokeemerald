@@ -1304,7 +1304,7 @@
 #define FLAG_BOSS2_SLEEPY                                           0x4E0 // Unused Flag
 #define FLAG_BOSS2_KOMALA                                           0x4E1 // Unused Flag
 #define FLAG_OBTAINED_ANY_VIAL                                           0x4E2 // Unused Flag
-#define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
+#define FLAG_FILLED_VIALS                                           0x4E3 // Unused Flag
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
 #define FLAG_DO_RIPLEY_RECRUIT_SCENE                                           0x4E6 // Unused Flag
