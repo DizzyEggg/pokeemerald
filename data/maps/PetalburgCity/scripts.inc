@@ -199,7 +199,8 @@ ScriptAfterWhiteOutPhanpy:
 	call EventScriptAfterWhiteOut_Common1
 	msgbox_portrait Fountain_Text_Tuskan1stDeathIntro1, FIELD_PIC_PHANPY_SWEAT
 ScriptAfterWhiteOutAfterSurpriseText:
-    bufferpartymonnick 0, 0
+    
+	bufferpartymonnick 0, 0
     bufferpartymonnick 1, 1
     goto_if_set FLAG_DO_AMY_RECRUIT_SCENE, Fountain_EventScript_RecruitAmy
     goto_if_set FLAG_DO_BELLA_RECRUIT_SCENE, Fountain_EventScript_RecruitBella
@@ -476,6 +477,34 @@ Fountain_Text_RecruitRipley12::
 	.string "Dali: Heh, we have no idea! Come on.$"
 
 
+@@@@@@ Death scripts - afterlosing
+
+
+Fountain_EventScript_AbraNoticeVials::
+	msgbox_portrait Fountain_Text_AbraNoticeVials1, FIELD_PIC_ABRA_THINKING
+	msgbox_portrait Fountain_Text_AbraNoticeVials2, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_AbraNoticeVials3, FIELD_PIC_ABRA_CONCERNED
+
+Fountain_Text_AbraNoticeVials1:
+	.string "Dali: Hmm…\p"
+	.string "Is that a glass vial? I have an idea.\p"
+	.string "Can I see it?$"
+
+Fountain_Text_AbraNoticeVials2:
+	.string "Dali: This is perfect!\p"
+	.string "We can fill these up with the dark\n"
+	.string "water from the Inkwell!\p"
+	.string "One vial should be enough to heal you\n"
+	.string "completely, even if you're knocked out!\p"
+	.string "And you should only get a little\n"
+	.string "younger! Be right back!$"
+
+Fountain_Text_AbraNoticeVials3:
+	.string "Dali: Done!\p"
+	.string "And you know what the best part is?\n"
+	.string "Vials float and can't get younger!\p"
+	.string "I can get them out of the Inkwell if\n"
+	.string "they throw you in again!$"
 
 
 

@@ -30,7 +30,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARIADOS)",
       "x": 12,
-      "y": 13,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -42,8 +42,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARIADOS)",
-      "x": 11,
-      "y": 10,
+      "x": 10,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -56,7 +56,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SPIDOPS)",
       "x": 11,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

@@ -88,6 +88,7 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene1::
 	setflag FLAG_DEFEATED_SWEET_SQUAD
 	setflag FLAG_HIDE_SWEET_SQUAD
 	setflag FLAG_BOSS1_CLEAR
+	fadedefaultbgm
 	removeobject LOCALID_APPLIN
 	removeobject LOCALID_VANILLITE
 	removeobject LOCALID_FIDOUGH
@@ -206,7 +207,6 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	delay 20
 	applymovement LOCALID_FIDOUGH, Common_Movement_ExclamationMark
 	waitmovement 0
-	fadeoutbgm 0
 	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_LookDown
 	waitmovement 0
 	delay 20

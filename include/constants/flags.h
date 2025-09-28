@@ -1302,7 +1302,7 @@
 #define FLAG_HIDE_DISC_GRAY                                   0x4DE // Unused Flag
 #define FLAG_BOSS2_NORMAL                                           0x4DF // Unused Flag
 #define FLAG_BOSS2_SLEEPY                                           0x4E0 // Unused Flag
-#define FLAG_BOSS2_KOMALA                                           0x4E1 // Unused Flag
+#define FLAG_FILLED_VIALS                                           0x4E1 // Unused Flag
 #define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
 #define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
