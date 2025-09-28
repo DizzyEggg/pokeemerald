@@ -9,6 +9,7 @@
 #include "text_window.h"
 #include "script.h"
 #include "field_pic.h"
+#include "event_object_movement.h"
 
 static EWRAM_DATA u8 sFieldMessageBoxMode = 0;
 EWRAM_DATA u8 gWalkAwayFromSignpostTimer = 0;
@@ -52,6 +53,27 @@ static void Task_RemovePortraitOnPress(u8 taskId)
     {
         RemovePortraitWindow(gTasks[taskId].tPortraitWindowId);
         DestroyTask(taskId);
+    }
+}
+
+void SetPartnerPortraitData(struct ScriptContext *ctx)
+{
+    struct Pokemon *mon = GetSecondLiveMon();
+    gMsgType = 4; // default
+    gPortraitId = 0;
+
+    if (mon != NULL) {
+        switch (GetMonData(mon, MON_DATA_SPECIES)) {
+            case SPECIES_PHANPY:
+                gPortraitId = FIELD_PIC_PHANPY_DETERMINED;
+                break;
+            case SPECIES_SWABLU:
+                gPortraitId = FIELD_PIC_SWABLU_YELL;
+                break;
+            case SPECIES_ABRA:
+                gPortraitId = FIELD_PIC_ABRA_SERIOUS;
+                break;
+        }
     }
 }
 

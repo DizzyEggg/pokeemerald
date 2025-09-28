@@ -19,6 +19,49 @@ EventScript_FollowerEnd::
 	waitfieldeffect FLDEFF_EMOTE
 	release
 	end
+    
+sText_WhateverMsg1:
+    .string "I'm right behind you, {PLAYER}!$"
+    
+sText_WhateverMsg2:
+    .string "Let's go!$"
+    
+sText_WhateverMsg3:
+    .string "We must continue!$"
+    
+sText_WhateverMsg4:
+    .string "I'm here.$"
+    
+EventScript_FollowerWhateverMsg1:
+    msgbox sText_WhateverMsg1, MSGBOX_DEFAULT
+    goto EventScript_FollowerSomeRushedWhateverMsgRet
+    
+EventScript_FollowerWhateverMsg2:
+    msgbox sText_WhateverMsg2, MSGBOX_DEFAULT
+    goto EventScript_FollowerSomeRushedWhateverMsgRet
+    
+EventScript_FollowerWhateverMsg3:
+    msgbox sText_WhateverMsg3, MSGBOX_DEFAULT
+    goto EventScript_FollowerSomeRushedWhateverMsgRet
+    
+EventScript_FollowerWhateverMsg4:
+    msgbox sText_WhateverMsg4, MSGBOX_DEFAULT
+    goto EventScript_FollowerSomeRushedWhateverMsgRet
+    
+EventScript_FollowerSomeRushedWhateverMsg::
+    lock
+    faceplayer
+    callnative SetPartnerPortraitData
+    random 4
+    goto_if_eq VAR_RESULT, 0, EventScript_FollowerWhateverMsg1
+    goto_if_eq VAR_RESULT, 1, EventScript_FollowerWhateverMsg2
+    goto_if_eq VAR_RESULT, 2, EventScript_FollowerWhateverMsg3
+    goto_if_eq VAR_RESULT, 3, EventScript_FollowerWhateverMsg4
+EventScript_FollowerSomeRushedWhateverMsgRet:
+    waitmessage
+    closemessage
+    release
+    return
 
 EventScript_FollowerLovesYou::
 	applymovement OBJ_EVENT_ID_FOLLOWER, ContestHall_Movement_Heart

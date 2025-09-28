@@ -2596,9 +2596,10 @@ enum ScaleLevel
     SCALE_UP,
     SCALE_DOWN,
     SCALE_RANDOM,
+    SCALE_CUSTOM,
 };
 
-static s32 ChooseLevelForWildMon(enum ScaleLevel scale, s32 range)
+static s32 ChooseLevelForWildMon(enum ScaleLevel scale, s32 range, bool32 isDouble)
 {
     s32 wildLevel;
     s32 rngRange;
@@ -2636,6 +2637,14 @@ static s32 ChooseLevelForWildMon(enum ScaleLevel scale, s32 range)
                 wildLevel = playerLevel - rngRange;
             }
             break;
+        case SCALE_CUSTOM:
+            if (isDouble) {
+                wildLevel = (playerLevel - 2) - rngRange;
+            }
+            else {
+                wildLevel = (playerLevel - 1) - rngRange;
+            }
+            break;
     }
 
     if (wildLevel < MIN_LEVEL) {
@@ -2658,20 +2667,22 @@ void ScriptCmd_SetMansionWildBattle(struct ScriptContext *ctx)
     bool8 isDouble = ScriptReadByte(ctx);
     struct ObjectEvent *objEvent = &gObjectEvents[gSelectedObjectEvent];
     u16 species = OW_SPECIES(objEvent);
-    s32 lvlScale = SCALE_DOWN;
-    s32 lvlRange = 2;
-    s32 level = ChooseLevelForWildMon(lvlScale, lvlRange);
+    s32 lvlScale = SCALE_CUSTOM;
+    s32 lvlRange = 4;
+    s32 level1, level2;
 
     gPlayerPartyCount = CalculatePartyCount(gPlayerParty);
     ZeroEnemyPartyMons();
     if (isDouble) {
-        s32 level2 = ChooseLevelForWildMon(lvlScale, lvlRange);
         sIsScriptedWildDouble = TRUE;
-        CreateScriptedDoubleWildMon(species, level, ITEM_NONE, species, level2, ITEM_NONE);
+        level1 = ChooseLevelForWildMon(lvlScale, lvlRange, sIsScriptedWildDouble);
+        level2 = ChooseLevelForWildMon(lvlScale, lvlRange, sIsScriptedWildDouble);
+        CreateScriptedDoubleWildMon(species, level1, ITEM_NONE, species, level2, ITEM_NONE);
     }
     else {
         SetAsWildBattleIfPossible();
-        CreateScriptedWildMon(species, level, ITEM_NONE);
+        level1 = ChooseLevelForWildMon(lvlScale, lvlRange, sIsScriptedWildDouble);
+        CreateScriptedWildMon(species, level1, ITEM_NONE);
     }
 }
 

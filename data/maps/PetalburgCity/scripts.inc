@@ -88,7 +88,38 @@ Fountain_WhiteOutPartnerPhanpy:
     setvar VAR_0x8007, LOCALID_FIREPLACE_PHANPY
     clearflag FLAG_FIREPLACE_HIDE_PHANPY
     goto Fountain_EventScript_WhiteoutDoEggHatch
+    
+Fountain_WhiteOutPartnerSquirtle:
+    setvar VAR_0x8007, LOCALID_FIREPLACE_SQUIRTLE
+    clearflag FLAG_FIREPLACE_HIDE_SQUIRTLE
+    goto Fountain_EventScript_WhiteoutDoEggHatch
+    
+Fountain_WhiteOutPartnerTink:
+    setvar VAR_0x8007, LOCALID_FIREPLACE_TINKATINK
+    clearflag FLAG_FIREPLACE_HIDE_TINKATINK
+    goto Fountain_EventScript_WhiteoutDoEggHatch
+    
+Fountain_WhiteOutPartnerVenipede:
+    setvar VAR_0x8007, LOCALID_FIREPLACE_VENIPEDE
+    clearflag FLAG_FIREPLACE_HIDE_VENIPEDE
+    goto Fountain_EventScript_WhiteoutDoEggHatch
    
+   
+EventScriptAfterWhiteOut_Common1:
+    waitmessage
+	closemessage
+    delay 40
+    playse SE_WARP_IN
+	addobject LOCALID_ABRA_WELL
+	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
+	applymovement VAR_0x8007, Fountain_LookUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement VAR_0x8007, Common_Movement_ExclamationMark
+	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
+	waitmovement 0
+	delay 40
+    return
        
 @@@@@ After White-out cutscene
 Fountain_EventScript_Whiteout::
@@ -120,6 +151,9 @@ Fountain_EventScript_WhiteoutGetPartner:
     callnative ScriptCmd_GetPartnerSpecies
     goto_if_eq VAR_RESULT, SPECIES_SWABLU, Fountain_WhiteOutPartnerSwablu
     goto_if_eq VAR_RESULT, SPECIES_PHANPY, Fountain_WhiteOutPartnerPhanpy
+    goto_if_eq VAR_RESULT, SPECIES_TINKATINK, Fountain_WhiteOutPartnerTink
+    goto_if_eq VAR_RESULT, SPECIES_VENIPEDE, Fountain_WhiteOutPartnerVenipede
+    goto_if_eq VAR_RESULT, SPECIES_SQUIRTLE, Fountain_WhiteOutPartnerSquirtle
 Fountain_EventScript_WhiteoutDoEggHatch:
     fasttwomonsegghatchanim
     changeplayersprite SPECIES_NONE, TRUE, FALSE
@@ -149,24 +183,22 @@ Fountain_EventScript_MoveObjectsToSpot:
     callnative ScriptCmd_GetPlayerSpecies
     goto_if_eq VAR_RESULT, SPECIES_SWABLU, ScriptAfterWhiteOutSwablu
     goto_if_eq VAR_RESULT, SPECIES_PHANPY, ScriptAfterWhiteOutPhanpy
+    @placeholder without portrait
+    msgbox Fountain_Text_Intro01
+	call EventScriptAfterWhiteOut_Common1
+	msgbox Fountain_Text_Tuskan1stDeathIntro1
+    goto ScriptAfterWhiteOutAfterSurpriseText
     @ TODO: other mons
 ScriptAfterWhiteOutSwablu:
+    msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_SWABLU_ANGRY
+	call EventScriptAfterWhiteOut_Common1
+	msgbox_portrait Fountain_Text_Tuskan1stDeathIntro1, FIELD_PIC_SWABLU_ANGRY
+    goto ScriptAfterWhiteOutAfterSurpriseText
 ScriptAfterWhiteOutPhanpy:
 	msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_PHANPY_SAD
-	waitmessage
-	closemessage
-    delay 40
-    playse SE_WARP_IN
-	addobject LOCALID_ABRA_WELL
-	applymovement OBJ_EVENT_ID_PLAYER, Fountain_LookUp
-	applymovement VAR_0x8007, Fountain_LookUp
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-	applymovement VAR_0x8007, Common_Movement_ExclamationMark
-	applymovement LOCALID_ABRA_WELL, Fountain_LookDown
-	waitmovement 0
-	delay 40
+	call EventScriptAfterWhiteOut_Common1
 	msgbox_portrait Fountain_Text_Tuskan1stDeathIntro1, FIELD_PIC_PHANPY_SWEAT
+ScriptAfterWhiteOutAfterSurpriseText:
     bufferpartymonnick 0, 0
     bufferpartymonnick 1, 1
     goto_if_set FLAG_DO_AMY_RECRUIT_SCENE, Fountain_EventScript_RecruitAmy
@@ -747,14 +779,14 @@ Fountain_Shudder:
 
 
 Fountain_Text_Intro01:
-	.string "Tuskan: Huh? Where… wasn’t there a…$"
+	.string "{PLAYER}: Huh? Where… wasn’t there a…$"
 
 Fountain_Text_Intro02:
 	.string "Tuskan: Um, excuse me, where am I?\n"
 	.string "A-are you my…?$"
     
 Fountain_Text_Tuskan1stDeathIntro1:
-	.string "Tuskan: Um, excuse me, where are we?\n"
+	.string "{PLAYER}: Um, excuse me, where are we?\n"
 	.string "D-dali…?$"
 
 Fountain_Text_Intro03:

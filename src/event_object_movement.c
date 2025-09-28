@@ -2438,6 +2438,8 @@ bool32 CheckMsgInfo(const struct FollowerMsgInfoExtended *info, struct Pokemon *
     }
 }
 
+extern const u8 EventScript_FollowerSomeRushedWhateverMsg[];
+
 // Call an applicable follower message script
 void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch for follower messages
 {
@@ -2464,9 +2466,9 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     };
     u32 i, j;
     bool32 pickedCondition = FALSE;
-    if (mon == NULL) // failsafe
+    if (mon == NULL || 1) // failsafe, let's do this for now
     {
-        ScriptCall(ctx, EventScript_FollowerLovesYou);
+        ScriptCall(ctx, EventScript_FollowerSomeRushedWhateverMsg);
         return;
     }
     // Set the script to the very end; we'll be calling another script dynamically

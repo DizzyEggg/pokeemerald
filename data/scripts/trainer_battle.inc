@@ -137,6 +137,8 @@ Std_MsgboxAutoclose::
 	return
     
 EventScript_DoMansionBattle::
+    lock
+    faceplayer
     mansionwildbattle FALSE
 EventScript_DoMansionBattleAfterSetup:
     dowildbattle
@@ -145,6 +147,7 @@ EventScript_DoMansionBattleAfterSetup:
     return
     
 EventScript_DoMansionDoubleBattle::
+    lock
     mansionwildbattle TRUE
     goto EventScript_DoMansionBattleAfterSetup
     
