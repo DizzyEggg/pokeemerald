@@ -340,144 +340,164 @@ void RoomEnumToMap(enum ROOM_ENUM roomEnum, s32 *mapGroup, s32 *mapNum, s32 floo
 void GenerateMansionFloorLayout(u8 roomsGrid[GRID_X_LEN][GRID_Y_LEN], s32 floorNum)
 {
     enum ROOM_ENUM last4WayId;
-    s32 i;
+    s32 i, j;
     u32 randH1, randH2, last4Way, bits4Way;
+    bool32 tlFound, trFound;
 
-    // Clear grid
-    memset(roomsGrid, 0, GRID_LEN);
-
-    // Define entrance point
-    roomsGrid[ENTRANCE_X][ENTRANCE_Y] = ROOM_ENTRANCE;
-
-    // Step 1: Generate 4 rooms
-    bits4Way = 0;
-    roomsGrid[ENTRANCE_X][ENTRANCE_Y+1] = GetRandom4Way(&bits4Way);
-    roomsGrid[ENTRANCE_X][ENTRANCE_Y-1] = GetRandom4Way(&bits4Way);
-    roomsGrid[ENTRANCE_X-1][ENTRANCE_Y] = GetRandom4Way(&bits4Way);
-    if (!(bits4Way & (1u << ROOM_4WAY_1))) {
-        last4WayId = ROOM_4WAY_1;
-    }
-    else if (!(bits4Way & (1u << ROOM_4WAY_2))) {
-        last4WayId = ROOM_4WAY_2;
-    }
-    else if (!(bits4Way & (1u << ROOM_4WAY_3))) {
-        last4WayId = ROOM_4WAY_3;
-    }
-    else if (!(bits4Way & (1u << ROOM_4WAY_4))) {
-        last4WayId = ROOM_4WAY_4;
-    }
-    else {
-        // Should never be reached
-        last4WayId = ROOM_4WAY_1;
-    }
-
-    // Step 2a: Generate 2 hallways. There are 4 possible options
-    randH1 = Random() % 4;
     do {
-        randH2 = Random() % 4;
-        // Hallways have to be on the opposite sides, so case 0 cannot go with case 2 and case 1 cannot go with case 3
-    } while (randH1 == randH2 || ((randH1 & 1) == (randH2 & 1)));
+        // Clear grid
+        memset(roomsGrid, 0, GRID_LEN);
 
-    GenerateStep2Entry(roomsGrid, randH1, ROOM_HALLWAY_1);
-    GenerateStep2Entry(roomsGrid, randH2, ROOM_HALLWAY_2);
+        // Define entrance point
+        roomsGrid[ENTRANCE_X][ENTRANCE_Y] = ROOM_ENTRANCE;
 
-    // Step 2b: Generate 2 Treasure Rooms, or rather assign them to the remaining Left and Right 4ways
-    for (i = 0; i < 4; i++) {
-        if (randH1 == i || randH2 == i)
-            continue;
-        if (i % 2 == 0) {
-            GenerateStep2Entry(roomsGrid, i, ROOM_TREASURE_LEFT);
+        // Step 1: Generate 4 rooms
+        bits4Way = 0;
+        roomsGrid[ENTRANCE_X][ENTRANCE_Y+1] = GetRandom4Way(&bits4Way);
+        roomsGrid[ENTRANCE_X][ENTRANCE_Y-1] = GetRandom4Way(&bits4Way);
+        roomsGrid[ENTRANCE_X-1][ENTRANCE_Y] = GetRandom4Way(&bits4Way);
+        if (!(bits4Way & (1u << ROOM_4WAY_1))) {
+            last4WayId = ROOM_4WAY_1;
+        }
+        else if (!(bits4Way & (1u << ROOM_4WAY_2))) {
+            last4WayId = ROOM_4WAY_2;
+        }
+        else if (!(bits4Way & (1u << ROOM_4WAY_3))) {
+            last4WayId = ROOM_4WAY_3;
+        }
+        else if (!(bits4Way & (1u << ROOM_4WAY_4))) {
+            last4WayId = ROOM_4WAY_4;
         }
         else {
-            GenerateStep2Entry(roomsGrid, i, ROOM_TREASURE_RIGHT);
+            // Should never be reached
+            last4WayId = ROOM_4WAY_1;
         }
-    }
 
-    // Step 3 and 4: Assign the last 4way room to one of the hallways and treasure up to it.
-    last4Way = ((Random() & 1) != 0) ? randH1 : randH2;
-    switch (last4Way) {
-        case 0: // L4-H-4-E
-            roomsGrid[ENTRANCE_X][ENTRANCE_Y-3] = last4WayId;
-            roomsGrid[ENTRANCE_X+1][ENTRANCE_Y-3] = ROOM_TREASURE_DOWN;
-            break;
-        case 1: // 4-E-H-L4
-            roomsGrid[ENTRANCE_X][ENTRANCE_Y+3] = last4WayId;
-            roomsGrid[ENTRANCE_X+1][ENTRANCE_Y+3] = ROOM_TREASURE_DOWN;
-            break;
-        case 2: // L4-H-4
-            roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-2] = last4WayId;
-            roomsGrid[ENTRANCE_X][ENTRANCE_Y-2] = ROOM_TREASURE_DOWN;
-            break;
-        case 3: // 4-H-L4
-            roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+2] = last4WayId;
-            roomsGrid[ENTRANCE_X][ENTRANCE_Y+2] = ROOM_TREASURE_DOWN;
-            break;
-    }
+        // Step 2a: Generate 2 hallways. There are 4 possible options
+        randH1 = Random() % 4;
+        do {
+            randH2 = Random() % 4;
+            // Hallways have to be on the opposite sides, so case 0 cannot go with case 2 and case 1 cannot go with case 3
+        } while (randH1 == randH2 || ((randH1 & 1) == (randH2 & 1)));
 
-    // Step 5: Assign the Treasure Up to either entrance Entrance Up 4 way up or last 4 way up
-    // Also assign the boss room
-    if (Random() % 2 == 0 && floorNum != 2) { // Floor 2 can only be accessed left/right for now
-        u32 rndB = Random() & 1;
-        // Tu is in the entrance up 4way, so boss1 can in be in the last4Way left/right or up
-        roomsGrid[ENTRANCE_X-2][ENTRANCE_Y] = ROOM_TREASURE_UP;
+        GenerateStep2Entry(roomsGrid, randH1, ROOM_HALLWAY_1);
+        GenerateStep2Entry(roomsGrid, randH2, ROOM_HALLWAY_2);
+
+        // Step 2b: Generate 2 Treasure Rooms, or rather assign them to the remaining Left and Right 4ways
+        for (i = 0; i < 4; i++) {
+            if (randH1 == i || randH2 == i)
+                continue;
+            if (i % 2 == 0) {
+                GenerateStep2Entry(roomsGrid, i, ROOM_TREASURE_LEFT);
+            }
+            else {
+                GenerateStep2Entry(roomsGrid, i, ROOM_TREASURE_RIGHT);
+            }
+        }
+
+        // Step 3 and 4: Assign the last 4way room to one of the hallways and treasure up to it.
+        last4Way = ((Random() & 1) != 0) ? randH1 : randH2;
         switch (last4Way) {
-            case 0:
-                if (rndB == 0) {
-                    roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-3] = ROOM_BOSS;
-                }
-                else {
+            case 0: // L4-H-4-E
+                roomsGrid[ENTRANCE_X][ENTRANCE_Y-3] = last4WayId;
+                roomsGrid[ENTRANCE_X+1][ENTRANCE_Y-3] = ROOM_TREASURE_DOWN;
+                break;
+            case 1: // 4-E-H-L4
+                roomsGrid[ENTRANCE_X][ENTRANCE_Y+3] = last4WayId;
+                roomsGrid[ENTRANCE_X+1][ENTRANCE_Y+3] = ROOM_TREASURE_DOWN;
+                break;
+            case 2: // L4-H-4
+                roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-2] = last4WayId;
+                roomsGrid[ENTRANCE_X][ENTRANCE_Y-2] = ROOM_TREASURE_DOWN;
+                break;
+            case 3: // 4-H-L4
+                roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+2] = last4WayId;
+                roomsGrid[ENTRANCE_X][ENTRANCE_Y+2] = ROOM_TREASURE_DOWN;
+                break;
+        }
+
+        // Step 5: Assign the Treasure Up to either entrance Entrance Up 4 way up or last 4 way up
+        // Also assign the boss room
+        if (Random() % 2 == 0 && floorNum != 2) { // Floor 2 can only be accessed left/right for now
+            u32 rndB = Random() & 1;
+            // Tu is in the entrance up 4way, so boss1 can in be in the last4Way left/right or up
+            roomsGrid[ENTRANCE_X-2][ENTRANCE_Y] = ROOM_TREASURE_UP;
+            switch (last4Way) {
+                case 0:
+                    if (rndB == 0) {
+                        roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-3] = ROOM_BOSS;
+                    }
+                    else {
+                        roomsGrid[ENTRANCE_X][ENTRANCE_Y-4] = ROOM_BOSS;
+                    }
+                    break;
+                case 1:
+                    if (rndB == 0) {
+                        roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+3] = ROOM_BOSS;
+                    }
+                    else {
+                        roomsGrid[ENTRANCE_X][ENTRANCE_Y+4] = ROOM_BOSS;
+                    }
+                    break;
+                case 2:
+                    if (rndB == 0) {
+                        roomsGrid[ENTRANCE_X-2][ENTRANCE_Y-2] = ROOM_BOSS;
+                    }
+                    else {
+                        roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-3] = ROOM_BOSS;
+                    }
+                    break;
+                case 3:
+                    if (rndB == 0) {
+                        roomsGrid[ENTRANCE_X-2][ENTRANCE_Y+2] = ROOM_BOSS;
+                    }
+                    else {
+                        roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+3] = ROOM_BOSS;
+                    }
+                    break;
+            }
+        }
+        else {
+            // Tu is in the last 4way, so boss1 has to be left/right
+            switch (last4Way) {
+                case 0:
+                    roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-3] = ROOM_TREASURE_UP;
                     roomsGrid[ENTRANCE_X][ENTRANCE_Y-4] = ROOM_BOSS;
-                }
-                break;
-            case 1:
-                if (rndB == 0) {
-                    roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+3] = ROOM_BOSS;
-                }
-                else {
+                    break;
+                case 1:
+                    roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+3] = ROOM_TREASURE_UP;
                     roomsGrid[ENTRANCE_X][ENTRANCE_Y+4] = ROOM_BOSS;
-                }
-                break;
-            case 2:
-                if (rndB == 0) {
-                    roomsGrid[ENTRANCE_X-2][ENTRANCE_Y-2] = ROOM_BOSS;
-                }
-                else {
+                    break;
+                case 2:
+                    roomsGrid[ENTRANCE_X-2][ENTRANCE_Y-2] = ROOM_TREASURE_UP;
                     roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-3] = ROOM_BOSS;
-                }
-                break;
-            case 3:
-                if (rndB == 0) {
-                    roomsGrid[ENTRANCE_X-2][ENTRANCE_Y+2] = ROOM_BOSS;
-                }
-                else {
+                    break;
+                case 3:
+                    roomsGrid[ENTRANCE_X-2][ENTRANCE_Y+2] = ROOM_TREASURE_UP;
                     roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+3] = ROOM_BOSS;
-                }
-                break;
+                    break;
+            }
         }
-    }
-    else {
-        // Tu is in the last 4way, so boss1 has to be left/right
-        switch (last4Way) {
-            case 0:
-                roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-3] = ROOM_TREASURE_UP;
-                roomsGrid[ENTRANCE_X][ENTRANCE_Y-4] = ROOM_BOSS;
-                break;
-            case 1:
-                roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+3] = ROOM_TREASURE_UP;
-                roomsGrid[ENTRANCE_X][ENTRANCE_Y+4] = ROOM_BOSS;
-                break;
-            case 2:
-                roomsGrid[ENTRANCE_X-2][ENTRANCE_Y-2] = ROOM_TREASURE_UP;
-                roomsGrid[ENTRANCE_X-1][ENTRANCE_Y-3] = ROOM_BOSS;
-                break;
-            case 3:
-                roomsGrid[ENTRANCE_X-2][ENTRANCE_Y+2] = ROOM_TREASURE_UP;
-                roomsGrid[ENTRANCE_X-1][ENTRANCE_Y+3] = ROOM_BOSS;
-                break;
-        }
-    }
 
-    //PrintGrid(roomsGrid);
+        tlFound = FALSE;
+        trFound = FALSE;
+        // Sometimes, one of the TL/TR is not being generated...Temporary fix here.
+        for (i = 1; i < GRID_X_LEN; i++) {
+            for (j = 0; j < GRID_Y_LEN; j++) {
+                if (roomsGrid[i][j] == ROOM_TREASURE_LEFT) {
+                    tlFound = TRUE;
+                    if (trFound)
+                        break;
+                }
+                else if (roomsGrid[i][j] == ROOM_TREASURE_RIGHT) {
+                    trFound = TRUE;
+                    if (tlFound)
+                        break;
+                }
+            }
+        }
+
+    } while (tlFound == FALSE || trFound == FALSE);
 }
 
 void RoomEnumToChar(enum ROOM_ENUM roomEnum, u8 *c1, u8 *c2)
