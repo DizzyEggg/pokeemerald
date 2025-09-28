@@ -48,7 +48,7 @@ MansionFloor1RoomLanding_EventScript_FirstTimeVials::
 MansionFloor1RoomLanding_Text_FirstTime1:
 	.string "Dali: Whoa, you made it through the\n"
 	.string "first floor!\p"
-	.string "I knew you could do it!$"
+	.string "I knew you could do it!\p"
 	.string "Craftily must be higher up…$"
 
 MansionFloor1RoomLanding_Text_FirstTime2:

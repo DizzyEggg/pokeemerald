@@ -16,6 +16,7 @@ MansionFloor2RoomBoss_OnFrame:
 MansionFloor2RoomBoss_EventScript_HaunterScene1::
 	lockall
 	setvar VAR_TEMP_0, 1
+	fadenewbgm MUS_PMDRED_TINY_WOODS
 	applymovement LOCALID_HAUNTER, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 20
@@ -36,7 +37,7 @@ MansionFloor2RoomBoss_EventScript_HaunterScene1::
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
-
+	fadedefaultbgm
 	setflag FLAG_BOSS2_CLEAR
 	removeobject LOCALID_HAUNTER
 	removeobject LOCALID_SNORLAX
@@ -62,7 +63,9 @@ MansionFloor2RoomBoss_Text_Haunter2:
 	.string "I don't get it.\p"
 	.string "Not only are you harassing your own\n"
 	.string "old, sick father, you're interrupting\l"
-	.string "my lunch break.\p"
+	.string "my lunch.\p"
+	.string "And today's lunch was about running\n"
+	.string "out of food! There was a narrative!\p"
 	.string "Okay, fine. Whatever.$"
 
 MansionFloor2RoomBoss_Text_Haunter3:

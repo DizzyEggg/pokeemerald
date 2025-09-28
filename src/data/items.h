@@ -10514,7 +10514,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_TM_FOCUS_PUNCH] =
     {
-        .name = _("Green Disc"),
+        .name = _("TM01"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A shiny green disc.\n"

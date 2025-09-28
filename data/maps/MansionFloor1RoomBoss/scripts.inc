@@ -18,19 +18,33 @@ MansionFloor1RoomBoss_EventScript_End::
 
 
 MansionFloor1RoomBoss_EventScript_Boss1::
-	@ TOFOLD commented out until savory implemented
-	@goto_if_set FLAG_DEFEATED_SAVORY_SQUAD, MansionFloor1RoomBoss_EventScript_RandomizeBoss
-	@goto_if_set FLAG_DEFEATED_SWEET_SQUAD, MansionFloor1RoomBoss_EventScript_SavorySquadScene1
+	goto_if_set FLAG_HIDE_BOSS3_TRIO, MansionFloor1RoomBoss_EventScript_BossCheckA
 	goto_if_set FLAG_FOUGHT_SWEET_SQUAD, MansionFloor1RoomBoss_EventScript_SweetSquadScene2
 	goto MansionFloor1RoomBoss_EventScript_SweetSquadScene1
 	end
 
 
+MansionFloor1RoomBoss_EventScript_BossCheckA::
+	@defeated amy
+	goto_if_set FLAG_HIDE_BOSS3_DUO, MansionFloor1RoomBoss_EventScript_BossCheckB
+	
+	@check if they've been here before
+	goto_if_set FLAG_FOUGHT_SAVORY_SQUAD, MansionFloor1RoomBoss_EventScript_SavorySquadScene2
+	goto MansionFloor1RoomBoss_EventScript_SavorySquadScene1
+	end
+
+MansionFloor1RoomBoss_EventScript_BossCheckB::
+	@defeated Bella
+	goto_if_set FLAG_HIDE_BOSS3_SOLO, MansionFloor1RoomBoss_EventScript_SavorySquadScene2
+	@not beaten Ripley
+	goto MansionFloor1RoomBoss_EventScript_SweetSquadScene2
+	end
 
 
 MansionFloor1RoomBoss_EventScript_SweetSquadScene1::
 	lockall
 	setvar VAR_TEMP_0, 1
+	playbgm MUS_PMDRED_MAKUHITA_DOJO, FALSE
 	setflag FLAG_FOUGHT_SWEET_SQUAD
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	special SpawnCameraObject
@@ -183,6 +197,7 @@ MansionFloor1RoomBoss_LookRight:
 MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	lockall
 	setvar VAR_TEMP_0, 1
+	playbgm MUS_PMDRED_MAKUHITA_DOJO, FALSE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	special SpawnCameraObject
 	delay 50
@@ -191,6 +206,7 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	delay 20
 	applymovement LOCALID_FIDOUGH, Common_Movement_ExclamationMark
 	waitmovement 0
+	fadeoutbgm 0
 	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_LookDown
 	waitmovement 0
 	delay 20
@@ -222,6 +238,11 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
 	setflag FLAG_BOSS1_CLEAR
+	fadedefaultbgm
+	removeobject LOCALID_APPLIN
+	removeobject LOCALID_VANILLITE
+	removeobject LOCALID_FIDOUGH
+	removeobject LOCALID_SINISTEA
 	releaseall
 	end
 
@@ -253,6 +274,7 @@ MansionFloor1RoomBoss_Text_VanilliteRematch:
 MansionFloor1RoomBoss_EventScript_SavorySquadScene1::
 	lockall
 	setvar VAR_TEMP_0, 1
+	playbgm MUS_PMDRED_MAKUHITA_DOJO, FALSE
 	setflag FLAG_FOUGHT_SAVORY_SQUAD
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	special SpawnCameraObject
@@ -320,6 +342,87 @@ MansionFloor1RoomBoss_Text_Farfetchd1:
 MansionFloor1RoomBoss_Text_Nacli1:
 	.string "YOU. ENJOYED. DESSERT.\p"
 	.string "NOW. MAIN COURSE.$"
+
+
+
+MansionFloor1RoomBoss_EventScript_SavorySquadScene2::
+	lockall
+	setvar VAR_TEMP_0, 1
+	playbgm MUS_PMDRED_MAKUHITA_DOJO, FALSE
+	setflag FLAG_FOUGHT_SAVORY_SQUAD
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	special SpawnCameraObject
+	delay 50
+	applymovement OBJ_EVENT_ID_CAMERA, MansionFloor1RoomBoss_CameraMove3
+	waitmovement 0
+	delay 20
+	applymovement LOCALID_TATSUGIRI, MansionFloor1RoomBoss_TatsugiriHello
+	waitmovement 0
+	delay 20
+	msgbox_portrait MansionFloor1RoomBoss_Text_Tatsugiri2, FIELD_PIC_TATSUGIRI_SPECIAL
+	delay 20
+	applymovement LOCALID_TATSUGIRI, MansionFloor1RoomBoss_TatsugiriAssemble
+	applymovement LOCALID_SMOLIV, MansionFloor1RoomBoss_SmolivAssemble
+	applymovement LOCALID_FARFETCHD, MansionFloor1RoomBoss_FarfetchdAssemble
+	applymovement LOCALID_NACLI, MansionFloor1RoomBoss_NacliAssemble
+	waitmovement 0
+	delay 50
+	msgbox_portrait MansionFloor1RoomBoss_Text_Smoliv2, FIELD_PIC_SMOLIV_CRY
+	msgbox_portrait MansionFloor1RoomBoss_Text_Farfetchd2, FIELD_PIC_FARFETCHD_DETERMINED
+	msgbox_portrait MansionFloor1RoomBoss_Text_Nacli2, FIELD_PIC_NACLI_NORMAL
+	delay 20
+	applymovement LOCALID_TATSUGIRI, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_SMOLIV, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_FARFETCHD, MansionFloor1RoomBoss_AttackMove
+	applymovement LOCALID_NACLI, MansionFloor1RoomBoss_AttackMove
+	waitmovement 0
+	setwildbattle SPECIES_SMOLIV, 7, ITEM_ORAN_BERRY, SPECIES_FARFETCHD, 8, ITEM_ORAN_BERRY
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	setwildbattle SPECIES_NACLI, 10, ITEM_ORAN_BERRY, SPECIES_TATSUGIRI, 14, ITEM_ORAN_BERRY
+	dowildbattle
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
+	@TOFOLD
+	setflag FLAG_DEFEATED_SAVORY_SQUAD
+	setflag FLAG_BOSS1_CLEAR
+	special RemoveCameraObject
+	releaseall
+	end
+
+
+
+MansionFloor1RoomBoss_Text_Tatsugiri2:
+	.string "Well, well, well; back for more.\n"
+	.string "This is a clash of the titans, really.\p"
+	.string "The bold, rich, and satisfying Savory\n"
+	.string "Squad of legend…\p"
+	.string "against two of the most unsavory\n"
+	.string "Pokemon I've ever seen.$"
+
+MansionFloor1RoomBoss_Text_Smoliv2:
+	.string "Aaaaaaaa not again!\n"
+	.string "They bent my leaf last time!$"
+
+MansionFloor1RoomBoss_Text_Farfetchd2:
+	.string "You villains!\p"
+	.string "No holding back this time!$"
+
+MansionFloor1RoomBoss_Text_Nacli2:
+	.string "YOU. WILL. BE. SALTY.\p"
+	.string "WHEN. YOU. LOSE.$"
+
+
+
+
+
+
+
+
+
+
+
 
 
 

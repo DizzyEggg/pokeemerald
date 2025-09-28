@@ -1,2 +1,27 @@
 MansionFloor1Entrance_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MansionFloor1Entrance_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, MansionFloor1Entrance_OnFrame
 	.byte 0
+
+MansionFloor1Entrance_OnTransition:
+	goto_if_unset FLAG_HIDE_BOSS3_TRIO, MansionFloor1Entrance_EventScript_BossManagement
+	goto_if_unset FLAG_HIDE_BOSS3_SOLO, MansionFloor1Entrance_EventScript_BossManagement
+	setflag FLAG_HIDE_SWEET_SQUAD
+	clearflag FLAG_HIDE_SAVORY_SQUAD
+	setflag FLAG_BOSS2_SLEEPY
+	clearflag FLAG_BOSS2_NORMAL
+	end
+
+MansionFloor1Entrance_OnFrame:
+	.2byte 0
+
+
+
+MansionFloor1Entrance_EventScript_BossManagement::
+	setflag FLAG_HIDE_SAVORY_SQUAD
+	clearflag FLAG_HIDE_SWEET_SQUAD
+	setflag FLAG_BOSS2_NORMAL
+	clearflag FLAG_BOSS2_SLEEPY
+	end
+
+
