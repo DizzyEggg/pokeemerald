@@ -50,7 +50,8 @@ MansionFloor3RoomBoss_EventScript_BossAmy::
 	msgbox_portrait MansionFloor3RoomBoss_Text_Boss1Amy5, FIELD_PIC_TINKATON_ANGRY
 
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 1
-	setwildbattle SPECIES_TINKATON, 55, ITEM_WEAKNESS_POLICY
+	setwildbattle SPECIES_TINKATON, 50, ITEM_WEAKNESS_POLICY
+	setenemymonmoves 0, MOVE_STRENGTH, MOVE_GIGATON_HAMMER, MOVE_FAKE_OUT, MOVE_BRUTAL_SWING
     setenemymonnick 0, sText_TinkatonNickname
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
     callnative SetAsWildBattleIfPossible
