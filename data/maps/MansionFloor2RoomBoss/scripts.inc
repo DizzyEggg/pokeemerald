@@ -16,7 +16,7 @@ MansionFloor2RoomBoss_OnFrame:
 MansionFloor2RoomBoss_EventScript_HaunterScene1::
 	lockall
 	setvar VAR_TEMP_0, 1
-	fadenewbgm MUS_PMDRED_TINY_WOODS
+	playbgm MUS_PMDRED_TINY_WOODS, FALSE
 	applymovement LOCALID_HAUNTER, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 20
@@ -30,7 +30,7 @@ MansionFloor2RoomBoss_EventScript_HaunterScene1::
 	applymovement LOCALID_HAUNTER, MansionFloor2RoomBoss_LookRight
 	waitmovement 0
 	msgbox_portrait MansionFloor2RoomBoss_Text_Haunter3, FIELD_PIC_HAUNTER_YELL
-	setwildbattle SPECIES_HAUNTER, 25, ITEM_WIDE_LENS, SPECIES_SNORLAX, 42, ITEM_LEFTOVERS
+	setwildbattle SPECIES_HAUNTER, 25, ITEM_WIDE_LENS, SPECIES_SNORLAX, 35, ITEM_LEFTOVERS
 	setenemymonstatus 1, STATUS1_SLEEP - 3 @ STATUS1_SLEEP is 7 sleep turns by default
     @setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle

@@ -44,12 +44,45 @@ Fountain_Eventscript_NotFirstLoad::
 	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotPhoto
 	checkitem UNIQUE_ITEM_PHOTO_5, 1
 	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotPhoto
+
+
+	checkitem UNIQUE_ITEM_INKWELL_FULL_BOTTLE_1, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem UNIQUE_ITEM_INKWELL_FULL_BOTTLE_2, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem UNIQUE_ITEM_INKWELL_FULL_BOTTLE_3, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem ITEM_GARCHOMPITE, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem ITEM_LATIOSITE, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem ITEM_LOPUNNITE, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+
+	checkitem UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_1, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_2, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem ITEM_METAGROSSITE, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem ITEM_LATIASITE, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+	checkitem ITEM_SALAMENCITE, 1
+	goto_if_eq VAR_RESULT, YES, Fountain_EventScript_GotVial
+
+
 	end
     
 
 Fountain_EventScript_GotPhoto::
 	clearflag FLAG_NO_PHOTOS
-	end
+	return
+
+Fountain_EventScript_GotVial::
+	setflag FLAG_OBTAINED_ANY_VIAL
+	return
 
 
 
@@ -199,7 +232,9 @@ ScriptAfterWhiteOutPhanpy:
 	call EventScriptAfterWhiteOut_Common1
 	msgbox_portrait Fountain_Text_Tuskan1stDeathIntro1, FIELD_PIC_PHANPY_SWEAT
 ScriptAfterWhiteOutAfterSurpriseText:
-    
+    call Fountain_EventScript_CheckVialsTutorial
+	call Fountain_EventScript_CheckPhotosTutorial
+	call Fountain_EventScript_CheckDiscsTutorial
 	bufferpartymonnick 0, 0
     bufferpartymonnick 1, 1
     goto_if_set FLAG_DO_AMY_RECRUIT_SCENE, Fountain_EventScript_RecruitAmy
@@ -212,6 +247,122 @@ ScriptAfterWhiteOutEnd:
     removeobject VAR_0x8007
     releaseall
     end
+
+
+
+@@@@@@ Explain scripts - after losing
+
+
+
+Fountain_EventScript_CheckVialsTutorial::
+	goto_if_set FLAG_OBTAINED_ANY_VIAL, Fountain_EventScript_HaveVialsTutorial
+	return
+
+Fountain_EventScript_HaveVialsTutorial::
+	goto_if_unset FLAG_EXPLAINED_VIALS, Fountain_EventScript_ExplainVialsTutorial
+	return
+
+Fountain_EventScript_ExplainVialsTutorial::
+	msgbox_portrait Fountain_Text_AbraNoticeVials1, FIELD_PIC_ABRA_THINKING
+	msgbox_portrait Fountain_Text_AbraNoticeVials2, FIELD_PIC_ABRA_HAPPY
+	playse SE_WARP_OUT
+	removeobject LOCALID_ABRA_WELL
+	delay 80
+	playse SE_WARP_IN
+	addobject LOCALID_ABRA_WELL
+	msgbox_portrait Fountain_Text_AbraNoticeVials3, FIELD_PIC_ABRA_JOY
+	setflag FLAG_EXPLAINED_VIALS
+	return
+
+Fountain_Text_AbraNoticeVials1:
+	.string "Dali: Hmm…\p"
+	.string "You had a glass vial when you fell in.\p"
+	.string "I have an idea.$"
+
+Fountain_Text_AbraNoticeVials2:
+	.string "I think it's going to work!\p"
+	.string "We can fill this up with the dark\n"
+	.string "water from the Inkwell!\p"
+	.string "One vial should be enough to heal you\n"
+	.string "completely, even if you're knocked out!\p"
+	.string "And you should only get a little\n"
+	.string "younger! Be right back!$"
+
+Fountain_Text_AbraNoticeVials3:
+	.string "Dali: Done!\p"
+	.string "And you know what the best part is?\n"
+	.string "Vials float and can't get younger!\p"
+	.string "I can get them out of the Inkwell if\n"
+	.string "they throw you in again!$"
+
+
+
+Fountain_EventScript_CheckPhotosTutorial::
+	goto_if_unset FLAG_NO_PHOTOS, Fountain_EventScript_HavePhotosTutorial
+	return
+
+Fountain_EventScript_HavePhotosTutorial::
+	goto_if_unset FLAG_EXPLAINED_PHOTOS, Fountain_EventScript_ExplainPhotosTutorial
+	return
+
+Fountain_EventScript_ExplainPhotosTutorial::
+	msgbox_portrait Fountain_Text_AbraNoticePhotos1, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_AbraNoticePhotos2, FIELD_PIC_ABRA_THINKING
+	setflag FLAG_EXPLAINED_PHOTOS
+	return
+
+Fountain_Text_AbraNoticePhotos1:
+	.string "Dali: There was something floating on\n"
+	.string "the surface of the Inkwell.\p"
+	.string "It looked like a scrap of something.$"
+
+Fountain_Text_AbraNoticePhotos2:
+	.string "I don't know, it could be important.\n"
+	.string "Maybe there's more pieces?\p"
+	.string "I've put it up near the pale stone,\n"
+	.string "so go take a look if you're curious.$"
+
+
+
+Fountain_EventScript_CheckDiscsTutorial::
+	goto_if_set FLAG_OBTAINED_ANY_DISC, Fountain_EventScript_HaveDiscsTutorial
+	return
+
+Fountain_EventScript_HaveDiscsTutorial::
+	goto_if_unset FLAG_EXPLAINED_DISCS, Fountain_EventScript_ExplainDiscsTutorial
+	return
+
+Fountain_EventScript_ExplainDiscsTutorial::
+	msgbox_portrait Fountain_Text_AbraNoticeDiscs1, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_AbraNoticeDiscs2, FIELD_PIC_ABRA_THINKING
+	setflag FLAG_EXPLAINED_DISCS
+	return
+
+Fountain_Text_AbraNoticeDiscs1:
+	.string "Dali: You found something special!\p"
+	.string "I thought they were blades, but no,\n"
+	.string "those are…$"
+
+
+Fountain_Text_AbraNoticeDiscs2:
+	.string "Ooh, I've forgotten the name!\p"
+	.string "But they're powerful! They can teach\n"
+	.string "you new things!\p"
+	.string "I've put them on the stumps to the\n"
+	.string "west, if you're curious.$"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -237,17 +388,18 @@ Fountain_EventScript_RecruitAmy::
     waitstate
 	removeobject LOCALID_EGG_RECRUIT
 	addobject LOCALID_AMY_RECRUIT
-	msgbox_portrait Fountain_Text_RecruitAmy07, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy07, FIELD_PIC_TINKATINK_STUNNED
 	msgbox_portrait Fountain_Text_RecruitAmy08, FIELD_PIC_ABRA_SERIOUS
-	msgbox_portrait Fountain_Text_RecruitAmy09, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy09, FIELD_PIC_TINKATINK_WORRIED
 	msgbox_portrait Fountain_Text_RecruitAmy10, FIELD_PIC_PHANPY_CONFUSED
 	msgbox_portrait Fountain_Text_RecruitAmy11, FIELD_PIC_ABRA_CONCERNED
-	msgbox_portrait Fountain_Text_RecruitAmy12, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy12, FIELD_PIC_TINKATINK_SAD
 	msgbox_portrait Fountain_Text_RecruitAmy13, FIELD_PIC_ABRA_CONCERNED
-	msgbox_portrait Fountain_Text_RecruitAmy14, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy14, FIELD_PIC_TINKATINK_CRY
 	msgbox_portrait Fountain_Text_RecruitAmy15, FIELD_PIC_ABRA_SERIOUS
-	msgbox_portrait Fountain_Text_RecruitAmy16, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitAmy16, FIELD_PIC_TINKATINK_HAPPY
 	msgbox_portrait Fountain_Text_RecruitAmy17, FIELD_PIC_ABRA_HAPPY
+	msgbox_portrait Fountain_Text_RecruitAmy18, FIELD_PIC_TINKATINK_WORRIED
     removeobject LOCALID_AMY_RECRUIT
     clearflag FLAG_FIREPLACE_HIDE_TINKATINK
     addobject LOCALID_FIREPLACE_TINKATINK
@@ -257,7 +409,7 @@ Fountain_EventScript_RecruitAmy::
 
 
 Fountain_Text_RecruitAmy01::
-	.string "Dali: Welcome back, Tuskan and Fluff-\p"
+	.string "Dali: Oh?\p"
 	.string "Wait a minute… another Pokemon fell\n"
 	.string "into the Inkwell?$"
 
@@ -321,6 +473,9 @@ Fountain_Text_RecruitAmy16::
 Fountain_Text_RecruitAmy17::
 	.string "Dali: We're friends!$"
 
+Fountain_Text_RecruitAmy18::
+	.string "Amy: Maybe I'll… wait over by that pit?\n"
+	.string "Just… come by if you need me?$"
 
 
 
@@ -340,15 +495,15 @@ Fountain_EventScript_RecruitBella::
     waitstate
 	removeobject LOCALID_EGG_RECRUIT
 	addobject LOCALID_BELLA_RECRUIT
-	msgbox_portrait Fountain_Text_RecruitBella2, FIELD_PIC_PHANPY_CONFUSED
+	msgbox_portrait Fountain_Text_RecruitBella2, FIELD_PIC_VENIPEDE_DETERMINED
 	msgbox_portrait Fountain_Text_RecruitBella3, FIELD_PIC_ABRA_HAPPY
-	msgbox_portrait Fountain_Text_RecruitBella4, FIELD_PIC_SWABLU_YELL
+	msgbox_portrait Fountain_Text_RecruitBella4, FIELD_PIC_VENIPEDE_ANGRY
 	msgbox_portrait Fountain_Text_RecruitBella5, FIELD_PIC_ABRA_THINKING
-	msgbox_portrait Fountain_Text_RecruitBella6, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitBella6, FIELD_PIC_VENIPEDE_SURPRISED
 	msgbox_portrait Fountain_Text_RecruitBella7, FIELD_PIC_ABRA_CONCERNED
-	msgbox_portrait Fountain_Text_RecruitBella8, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitBella8, FIELD_PIC_VENIPEDE_WORRIED
 	msgbox_portrait Fountain_Text_RecruitBella9, FIELD_PIC_ABRA_ANGRY
-	msgbox_portrait Fountain_Text_RecruitBella10, FIELD_PIC_PHANPY_CONFUSED
+	msgbox_portrait Fountain_Text_RecruitBella10, FIELD_PIC_VENIPEDE_DETERMINED
     removeobject LOCALID_BELLA_RECRUIT
     clearflag FLAG_FIREPLACE_HIDE_VENIPEDE
     addobject LOCALID_FIREPLACE_VENIPEDE
@@ -412,15 +567,15 @@ Fountain_EventScript_RecruitRipley::
 	removeobject LOCALID_EGG_RECRUIT
 	addobject LOCALID_RIPLEY_RECRUIT
 	msgbox_portrait Fountain_Text_RecruitRipley02, FIELD_PIC_ABRA_THINKING
-	msgbox_portrait Fountain_Text_RecruitRipley03, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitRipley03, FIELD_PIC_SQUIRTLE_STUNNED
 	msgbox_portrait Fountain_Text_RecruitRipley04, FIELD_PIC_ABRA_CONCERNED
-	msgbox_portrait Fountain_Text_RecruitRipley05, FIELD_PIC_PHANPY_DETERMINED
+	msgbox_portrait Fountain_Text_RecruitRipley05, FIELD_PIC_SQUIRTLE_WORRIED
 	msgbox_portrait Fountain_Text_RecruitRipley06, FIELD_PIC_ABRA_CONCERNED
-	msgbox_portrait Fountain_Text_RecruitRipley07, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitRipley07, FIELD_PIC_SQUIRTLE_DIZZY
 	msgbox_portrait Fountain_Text_RecruitRipley08, FIELD_PIC_ABRA_THINKING
-	msgbox_portrait Fountain_Text_RecruitRipley09, FIELD_PIC_ABRA_SERIOUS
+	msgbox_portrait Fountain_Text_RecruitRipley09, FIELD_PIC_SQUIRTLE_NORMAL
 	msgbox_portrait Fountain_Text_RecruitRipley10, FIELD_PIC_ABRA_SERIOUS
-	msgbox_portrait Fountain_Text_RecruitRipley11, FIELD_PIC_ABRA_CONCERNED
+	msgbox_portrait Fountain_Text_RecruitRipley11, FIELD_PIC_SQUIRTLE_PAIN
 	msgbox_portrait Fountain_Text_RecruitRipley12, FIELD_PIC_ABRA_HAPPY
     removeobject LOCALID_RIPLEY_RECRUIT
     clearflag FLAG_FIREPLACE_HIDE_SQUIRTLE
@@ -474,37 +629,10 @@ Fountain_Text_RecruitRipley11::
 	.string "done this time?$"
 
 Fountain_Text_RecruitRipley12::
-	.string "Dali: Heh, we have no idea! Come on.$"
+	.string "Dali: You know what's funny?\p"
+	.string "We don't even know!$"
 
 
-@@@@@@ Death scripts - afterlosing
-
-
-Fountain_EventScript_AbraNoticeVials::
-	msgbox_portrait Fountain_Text_AbraNoticeVials1, FIELD_PIC_ABRA_THINKING
-	msgbox_portrait Fountain_Text_AbraNoticeVials2, FIELD_PIC_ABRA_CONCERNED
-	msgbox_portrait Fountain_Text_AbraNoticeVials3, FIELD_PIC_ABRA_CONCERNED
-
-Fountain_Text_AbraNoticeVials1:
-	.string "Dali: Hmm…\p"
-	.string "Is that a glass vial? I have an idea.\p"
-	.string "Can I see it?$"
-
-Fountain_Text_AbraNoticeVials2:
-	.string "Dali: This is perfect!\p"
-	.string "We can fill these up with the dark\n"
-	.string "water from the Inkwell!\p"
-	.string "One vial should be enough to heal you\n"
-	.string "completely, even if you're knocked out!\p"
-	.string "And you should only get a little\n"
-	.string "younger! Be right back!$"
-
-Fountain_Text_AbraNoticeVials3:
-	.string "Dali: Done!\p"
-	.string "And you know what the best part is?\n"
-	.string "Vials float and can't get younger!\p"
-	.string "I can get them out of the Inkwell if\n"
-	.string "they throw you in again!$"
 
 
 
@@ -820,11 +948,14 @@ Fountain_Text_Tuskan1stDeathIntro1:
 
 Fountain_Text_Intro03:
 	.string "???: Welcome back, Tuskan.$"
-    
+
+
+@removed this: "Dali: Welcome back,\n{STR_VAR_1} and {STR_VAR_2}.\p"
+
 Fountain_Text_Abra1stDeathIntro1:
-	.string "Dali: Welcome back,\n{STR_VAR_1} and {STR_VAR_2}.\p"
-	.string "You do remember me this time around.\n"
-	.string "This makes me happy.$"
+	.string "Dali: Hmm, your expression.\p"
+	.string "You do remember me this time around!\n"
+	.string "Feel free to ask me anything, though!$"
 
 Fountain_Text_Intro04:
 	.string "Tuskan: Welcome back? What?$"
@@ -981,7 +1112,7 @@ Fountain_Text_Intro30:
 @@@@@@ Abra Triggers
 
 Fountain_EventScript_Abra_Mansion_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_MANSION
 	removeobject LOCALID_ABRA_BIRDHOUSE
@@ -1002,7 +1133,7 @@ Fountain_EventScript_Abra_Mansion_Trigger::
 	end
 
 Fountain_EventScript_Abra_Grave_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_GRAVE
 	removeobject LOCALID_ABRA_GARDEN
@@ -1020,7 +1151,7 @@ Fountain_EventScript_Abra_Grave_Trigger::
 	end
 
 Fountain_EventScript_Abra_Garden_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_GARDEN
 	removeobject LOCALID_ABRA_BIRDHOUSE
@@ -1040,7 +1171,7 @@ Fountain_EventScript_Abra_Garden_Trigger::
 	end
 
 Fountain_EventScript_Abra_Birdhouse_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_BIRDHOUSE
 	removeobject LOCALID_ABRA_MANSION
@@ -1059,7 +1190,7 @@ Fountain_EventScript_Abra_Birdhouse_Trigger::
 	end
 
 Fountain_EventScript_Abra_Backdoor_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_BACKDOOR
 	removeobject LOCALID_ABRA_MANSION
@@ -1079,7 +1210,7 @@ Fountain_EventScript_Abra_Backdoor_Trigger::
 	end
 
 Fountain_EventScript_Abra_Shed_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_SHED
 	removeobject LOCALID_ABRA_BACKDOOR
@@ -1099,7 +1230,7 @@ Fountain_EventScript_Abra_Shed_Trigger::
 	end
 
 Fountain_EventScript_Abra_Stacks_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_STACKS
 	removeobject LOCALID_ABRA_BACKDOOR
@@ -1121,7 +1252,7 @@ Fountain_EventScript_Abra_Stacks_Trigger::
 	end
 
 Fountain_EventScript_Abra_Stumps_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_STUMPS
 	removeobject LOCALID_ABRA_BACKDOOR
@@ -1142,7 +1273,7 @@ Fountain_EventScript_Abra_Stumps_Trigger::
 	end
 
 Fountain_EventScript_Abra_Well_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_WELL
 	removeobject LOCALID_ABRA_STACKS
@@ -1163,7 +1294,7 @@ Fountain_EventScript_Abra_Well_Trigger::
 	end
 
 Fountain_EventScript_Abra_Campfire_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_CAMPFIRE
 	removeobject LOCALID_ABRA_WELL
@@ -1182,7 +1313,7 @@ Fountain_EventScript_Abra_Campfire_Trigger::
 	end
 
 Fountain_EventScript_Abra_Gate_Trigger::
-	goto_if_set FLAG_ABRA_IN_PARTY, Fountain_EventScript_End
+	goto_if_set FLAG_ABRA_IN_PARTY_2, Fountain_EventScript_End
 	playse SE_WARP_IN
 	addobject LOCALID_ABRA_GATE
 	removeobject LOCALID_ABRA_CAMPFIRE
@@ -1205,7 +1336,7 @@ Fountain_EventScript_Abra_Gate_Trigger::
 
 
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Abra events - TOFOLD
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Abra events 
 
 @ MANSION
 
@@ -1282,8 +1413,8 @@ Fountain_Text_Abra_Garden1:
 Fountain_Text_Abra_Garden2:
 	.string "Dali: Maybe we used the garden to grow\n"
 	.string "our own food.\p"
-	.string "You know, because we must have been doing\n"
-	.string "something before this.\p"
+	.string "You know, because we must have been\n"
+	.string "doing something before this.\p"
 	.string "Or… were we born next to the Inkwell?$"
 
 
@@ -1640,12 +1771,13 @@ Fountain_Text_Abra_Well2:
 
 
 
-
-@ CAMPFIRE
+ 
+@ CAMPFIRE TOFOLD
 
 Fountain_EventScript_Abra_Campfire::
 	lockall
 	faceplayer
+	goto_if_set FLAG_RECRUITED_ABRA EventScript_FireplaceRecruit
 	goto_if_set FLAG_TINKATINK_AVAILABLE, Fountain_EventScript_Abra_Campfire2
 	@no recruits
 	msgbox_portrait Fountain_Text_Abra_Campfire1, FIELD_PIC_ABRA_THINKING
@@ -1932,6 +2064,16 @@ EventScript_FireplaceShowVenipede:
     addobject LOCALID_FIREPLACE_VENIPEDE
     return
 
+EventScript_FireplaceShowAbra:
+    clearflag FLAG_ABRA_IN_PARTY_2
+    addobject LOCALID_ABRA_CAMPFIRE
+    return
+
+Eventscript_Recruit_Abra::
+	setflag FLAG_ABRA_IN_PARTY_2
+	return
+
+
 EventScript_FireplaceRecruit::
     lockall
     faceplayer
@@ -1946,7 +2088,8 @@ EventScript_FireplaceRecruitYes:
     msgbox Text_JoinedTeam
     waitmessage
     closemessage
-    fadescreenswapbuffers FADE_TO_BLACK
+    call_if_eq VAR_0x8007, SPECIES_ABRA, Eventscript_Recruit_Abra
+	fadescreenswapbuffers FADE_TO_BLACK
     delay 10
     removeobject VAR_LAST_TALKED
     callnative ScriptCmd_GetPlayerSpecies
@@ -1955,6 +2098,7 @@ EventScript_FireplaceRecruitYes:
     call_if_eq VAR_RESULT, SPECIES_TINKATINK, EventScript_FireplaceShowTinkatink
     call_if_eq VAR_RESULT, SPECIES_SQUIRTLE, EventScript_FireplaceShowSquirtle
     call_if_eq VAR_RESULT, SPECIES_VENIPEDE, EventScript_FireplaceShowVenipede
+	call_if_eq VAR_RESULT, SPECIES_ABRA, EventScript_FireplaceShowAbra
     callnative ScriptCmd_SwapTeamMembers
     changeplayersprite VAR_0x8007, TRUE, TRUE
 EventScript_FireplaceRecruitYesGoBackFromFade:

@@ -226,6 +226,48 @@ static const u32 sPhotoWholeBGfx[] = INCBIN_U32("graphics/field_pic/photo_whole_
 static const u16 sPhotoWholeBPal[] = INCBIN_U16("graphics/field_pic/photo_whole_b.gbapal");
 
 
+static const u32 sTinkatinkCryGfx[] = INCBIN_U32("graphics/field_pic/tinkatink_cry.4bpp.lz");
+static const u16 sTinkatinkCryPal[] = INCBIN_U16("graphics/field_pic/tinkatink_cry.gbapal");
+
+static const u32 sTinkatinkHappyGfx[] = INCBIN_U32("graphics/field_pic/tinkatink_happy.4bpp.lz");
+static const u16 sTinkatinkHappyPal[] = INCBIN_U16("graphics/field_pic/tinkatink_happy.gbapal");
+
+static const u32 sTinkatinkSadGfx[] = INCBIN_U32("graphics/field_pic/tinkatink_sad.4bpp.lz");
+static const u16 sTinkatinkSadPal[] = INCBIN_U16("graphics/field_pic/tinkatink_sad.gbapal");
+
+static const u32 sTinkatinkStunnedGfx[] = INCBIN_U32("graphics/field_pic/tinkatink_stunned.4bpp.lz");
+static const u16 sTinkatinkStunnedPal[] = INCBIN_U16("graphics/field_pic/tinkatink_stunned.gbapal");
+
+static const u32 sTinkatinkWorriedGfx[] = INCBIN_U32("graphics/field_pic/tinkatink_worried.4bpp.lz");
+static const u16 sTinkatinkWorriedPal[] = INCBIN_U16("graphics/field_pic/tinkatink_worried.gbapal");
+
+static const u32 sVenipedeAngryGfx[] = INCBIN_U32("graphics/field_pic/venipede_angry.4bpp.lz");
+static const u16 sVenipedeAngryPal[] = INCBIN_U16("graphics/field_pic/venipede_angry.gbapal");
+
+static const u32 sVenipedeDeterminedGfx[] = INCBIN_U32("graphics/field_pic/venipede_determined.4bpp.lz");
+static const u16 sVenipedeDeterminedPal[] = INCBIN_U16("graphics/field_pic/venipede_determined.gbapal");
+
+static const u32 sVenipedeSurprisedGfx[] = INCBIN_U32("graphics/field_pic/venipede_surprised.4bpp.lz");
+static const u16 sVenipedeSurprisedPal[] = INCBIN_U16("graphics/field_pic/venipede_surprised.gbapal");
+
+static const u32 sVenipedeWorriedGfx[] = INCBIN_U32("graphics/field_pic/venipede_worried.4bpp.lz");
+static const u16 sVenipedeWorriedPal[] = INCBIN_U16("graphics/field_pic/venipede_worried.gbapal");
+
+static const u32 sSquirtleDizzyGfx[] = INCBIN_U32("graphics/field_pic/squirtle_dizzy.4bpp.lz");
+static const u16 sSquirtleDizzyPal[] = INCBIN_U16("graphics/field_pic/squirtle_dizzy.gbapal");
+
+static const u32 sSquirtleNormalGfx[] = INCBIN_U32("graphics/field_pic/squirtle_normal.4bpp.lz");
+static const u16 sSquirtleNormalPal[] = INCBIN_U16("graphics/field_pic/squirtle_normal.gbapal");
+
+static const u32 sSquirtlePainGfx[] = INCBIN_U32("graphics/field_pic/squirtle_pain.4bpp.lz");
+static const u16 sSquirtlePainPal[] = INCBIN_U16("graphics/field_pic/squirtle_pain.gbapal");
+
+static const u32 sSquirtleStunnedGfx[] = INCBIN_U32("graphics/field_pic/squirtle_stunned.4bpp.lz");
+static const u16 sSquirtleStunnedPal[] = INCBIN_U16("graphics/field_pic/squirtle_stunned.gbapal");
+
+static const u32 sSquirtleWorriedGfx[] = INCBIN_U32("graphics/field_pic/squirtle_worried.4bpp.lz");
+static const u16 sSquirtleWorriedPal[] = INCBIN_U16("graphics/field_pic/squirtle_worried.gbapal");
+
 
 /* And this is an example script.
 FieldPicExample_2pics:
@@ -310,6 +352,22 @@ static const struct Pic sPics[] =
     [FIELD_PIC_PHOTO_PIECE_5] = {sPhotoPiece5Gfx, sPhotoPiece5Pal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_PHOTO_WHOLE_A] = {sPhotoWholeAGfx, sPhotoWholeAPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
     [FIELD_PIC_PHOTO_WHOLE_B] = {sPhotoWholeBGfx, sPhotoWholeBPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
+    [FIELD_PIC_TINKATINK_CRY] = {sTinkatinkCryGfx, sTinkatinkCryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_TINKATINK_HAPPY] = {sTinkatinkHappyGfx, sTinkatinkHappyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_TINKATINK_SAD] = {sTinkatinkSadGfx, sTinkatinkSadPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_TINKATINK_STUNNED] = {sTinkatinkStunnedGfx, sTinkatinkStunnedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_TINKATINK_WORRIED] = {sTinkatinkWorriedGfx, sTinkatinkWorriedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_VENIPEDE_ANGRY] = {sVenipedeAngryGfx, sVenipedeAngryPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_VENIPEDE_DETERMINED] = {sVenipedeDeterminedGfx, sVenipedeDeterminedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_VENIPEDE_SURPRISED] = {sVenipedeSurprisedGfx, sVenipedeSurprisedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_VENIPEDE_WORRIED] = {sVenipedeWorriedGfx, sVenipedeWorriedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SQUIRTLE_DIZZY] = {sSquirtleDizzyGfx, sSquirtleDizzyPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SQUIRTLE_NORMAL] = {sSquirtleNormalGfx, sSquirtleNormalPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SQUIRTLE_PAIN] = {sSquirtlePainGfx, sSquirtlePainPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SQUIRTLE_STUNNED] = {sSquirtleStunnedGfx, sSquirtleStunnedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+    [FIELD_PIC_SQUIRTLE_WORRIED] = {sSquirtleWorriedGfx, sSquirtleWorriedPal, SPRITE_SHAPE(64x64), SPRITE_SIZE(64x64), sAnimsNothing},
+
 };
 
 static EWRAM_DATA u8 sLastPicId = 0;
