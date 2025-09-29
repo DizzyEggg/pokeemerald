@@ -18762,7 +18762,7 @@ void BS_TryEndBattleCradily(void)
         && gBattleMons[gBattlerTarget].level <= 84)
     {
         gBattleOutcome = B_OUTCOME_MON_TELEPORTED;
-        FlagSet(FLAG_UNUSED_0x020);
+        FlagSet(FLAG_CRADILY_AFTER_BATTLE_LOW_LEVEL);
         gBattlescriptCurrInstr = BattleScript_End;
     }
 }
