@@ -2694,7 +2694,7 @@ void ScriptCmd_SetMansionWildBattle(struct ScriptContext *ctx)
     struct ObjectEvent *objEvent = &gObjectEvents[gSelectedObjectEvent];
     u16 species = OW_SPECIES(objEvent);
     s32 lvlScale = SCALE_CUSTOM;
-    s32 lvlRange = 4;
+    s32 lvlRange = 3;
     s32 level1, level2;
 
     gPlayerPartyCount = CalculatePartyCount(gPlayerParty);
