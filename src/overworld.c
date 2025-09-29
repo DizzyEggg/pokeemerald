@@ -1894,8 +1894,10 @@ static void RemoveAllButUniqueItems(void)
             if (!IsUniqueItem(itemId)) {
                 // Do not remove vial items either
                 if (IsVialItem(itemId)) {
-                    if (IsVialEmptyItem(itemId)) {
+                    u32 fullVialItem = IsVialEmptyItem(itemId);
+                    if (fullVialItem) {
                         FlagSet(FLAG_OBTAINED_ANY_VIAL);
+                        gBagPockets[pocketId].itemSlots[i].itemId = fullVialItem;
                     }
                 }
                 else {

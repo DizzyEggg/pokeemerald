@@ -78,18 +78,17 @@ bool32 IsVialItem(u32 itemId)
     }
 }
 
-bool32 IsVialEmptyItem(u32 itemId)
+u32 IsVialEmptyItem(u32 itemId)
 {
     switch (itemId) {
-        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_1:
-        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_2:
-        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3:
-        case ITEM_LATIASITE:
-        case ITEM_SALAMENCITE:
-        case ITEM_METAGROSSITE:
-            return TRUE;
+        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_1: return UNIQUE_ITEM_INKWELL_FULL_BOTTLE_1;
+        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_2: return UNIQUE_ITEM_INKWELL_FULL_BOTTLE_2;
+        case UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3: return UNIQUE_ITEM_INKWELL_FULL_BOTTLE_3;
+        case ITEM_LATIASITE: return ITEM_LATIOSITE;
+        case ITEM_SALAMENCITE: return ITEM_LOPUNNITE;
+        case ITEM_METAGROSSITE: return ITEM_GARCHOMPITE;
         default:
-            return FALSE;
+            return 0;
     }
 }
 

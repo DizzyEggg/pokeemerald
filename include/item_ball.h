@@ -4,6 +4,6 @@
 void GetItemBallIdAndAmountFromTemplate(void);
 bool32 IsUniqueItem(u32 itemId);
 bool32 IsVialItem(u32 itemId);
-bool32 IsVialEmptyItem(u32 itemId);
+u32 IsVialEmptyItem(u32 itemId); // Returns a full vial item
 
 #endif //GUARD_ITEM_BALL_H
