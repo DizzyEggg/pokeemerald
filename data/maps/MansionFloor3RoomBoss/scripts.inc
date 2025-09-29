@@ -30,6 +30,7 @@ sText_BlastoiseNickname:
 MansionFloor3RoomBoss_EventScript_BossAmy::
 	lockall
 	setvar VAR_TEMP_0, 1
+	playbgm MUS_PMDRED_GREAT_CANYON, FALSE
 	applymovement LOCALID_AMY1, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 20
@@ -168,6 +169,7 @@ MansionFloor3RoomBoss_Text_Boss1Amy6:
 MansionFloor3RoomBoss_EventScript_BossBella::
 	lockall
 	setvar VAR_TEMP_0, 1
+	playbgm MUS_PMDRED_GREAT_CANYON, FALSE
 	applymovement LOCALID_BELLA2, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 20
@@ -244,6 +246,7 @@ MansionFloor3RoomBoss_Text_Boss2Bella3:
 MansionFloor3RoomBoss_EventScript_BossRipley::
 	lockall
 	setvar VAR_TEMP_0, 1
+	playbgm MUS_PMDRED_GREAT_CANYON, FALSE
 	applymovement LOCALID_RIPLEY3, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 20
@@ -335,7 +338,9 @@ MansionFloor3RoomBoss_Text_Window:
 
 MansionFloor3RoomBoss_EventScript_GameOver::
     dowhiteout
+	closemessage
 	end
 
 MansionFloor3RoomBoss_EventScript_DontLeave::
+	closemessage
 	end

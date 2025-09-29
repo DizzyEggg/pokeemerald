@@ -59,6 +59,7 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene1::
 	delay 20
 	msgbox_portrait MansionFloor1RoomBoss_Text_Fidough1, FIELD_PIC_FIDOUGH_SURPRISED
 	delay 20
+	closemessage
 	applymovement OBJ_EVENT_ID_CAMERA, MansionFloor1RoomBoss_CameraMove2
 	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_FidoughAssemble
 	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_ApplinAssemble
@@ -212,6 +213,7 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	delay 20
 	msgbox_portrait MansionFloor1RoomBoss_Text_FidoughRematch, FIELD_PIC_FIDOUGH_SURPRISED
 	delay 20
+	closemessage
 	applymovement OBJ_EVENT_ID_CAMERA, MansionFloor1RoomBoss_CameraMove2
 	applymovement LOCALID_FIDOUGH, MansionFloor1RoomBoss_FidoughAssemble
 	applymovement LOCALID_APPLIN, MansionFloor1RoomBoss_ApplinAssemble
@@ -229,10 +231,10 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_AttackMove
 	waitmovement 0
 	special RemoveCameraObject
-	setwildbattle SPECIES_FIDOUGH, 9, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
+	setwildbattle SPECIES_FIDOUGH, 10, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
-	setwildbattle SPECIES_SINISTEA, 11, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
+	setwildbattle SPECIES_SINISTEA, 12, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -314,6 +316,10 @@ MansionFloor1RoomBoss_EventScript_SavorySquadScene1::
 	@setflag FLAG_DEFEATED_SAVORY_SQUAD
 	setflag FLAG_BOSS1_CLEAR
 	special RemoveCameraObject
+	removeobject LOCALID_FARFETCHD
+	removeobject LOCALID_SMOLIV
+	removeobject LOCALID_TATSUGIRI
+	removeobject LOCALID_NACLI
 	releaseall
 	end
 
@@ -387,6 +393,10 @@ MansionFloor1RoomBoss_EventScript_SavorySquadScene2::
 	@TOFOLD
 	setflag FLAG_DEFEATED_SAVORY_SQUAD
 	setflag FLAG_BOSS1_CLEAR
+	removeobject LOCALID_FARFETCHD
+	removeobject LOCALID_SMOLIV
+	removeobject LOCALID_TATSUGIRI
+	removeobject LOCALID_NACLI
 	special RemoveCameraObject
 	releaseall
 	end
@@ -451,10 +461,6 @@ MansionFloor1RoomBoss_SmolivAssemble:
 	walk_left
 	walk_left
 	walk_left
-	walk_up
-	walk_left
-	walk_left
-	walk_down
 	walk_down
 	step_end
 
@@ -466,6 +472,7 @@ MansionFloor1RoomBoss_FarfetchdAssemble:
 	walk_down
 	walk_down
 	walk_left
+	walk_down
 	face_down
 	step_end
 

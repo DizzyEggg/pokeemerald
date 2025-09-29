@@ -596,8 +596,8 @@ void CB2_InitTitleScreen(void)
         break;
     case 1:
         // bg2
-        DecompressDataWithHeaderVram(gTitleScreenPokemonLogoGfx, (void *)(BG_CHAR_ADDR(0)));
-        DecompressDataWithHeaderVram(gTitleScreenPokemonLogoTilemap, (void *)(BG_SCREEN_ADDR(9)));
+        //DecompressDataWithHeaderVram(gTitleScreenPokemonLogoGfx, (void *)(BG_CHAR_ADDR(0)));
+        //DecompressDataWithHeaderVram(gTitleScreenPokemonLogoTilemap, (void *)(BG_SCREEN_ADDR(9)));
         LoadPalette(gTitleScreenBgPalettes, BG_PLTT_ID(0), 15 * PLTT_SIZE_4BPP);
         // bg3
         DecompressDataWithHeaderVram(sTitleScreenRayquazaGfx, (void *)(BG_CHAR_ADDR(2)));
@@ -610,9 +610,9 @@ void CB2_InitTitleScreen(void)
         ResetSpriteData();
         FreeAllSpritePalettes();
         gReservedSpritePaletteCount = 9;
-        LoadCompressedSpriteSheet(&sSpriteSheet_EmeraldVersion[0]);
-        LoadCompressedSpriteSheet(&sSpriteSheet_PressStart[0]);
-        LoadCompressedSpriteSheet(&sPokemonLogoShineSpriteSheet[0]);
+        //LoadCompressedSpriteSheet(&sSpriteSheet_EmeraldVersion[0]);
+        //LoadCompressedSpriteSheet(&sSpriteSheet_PressStart[0]);
+        //LoadCompressedSpriteSheet(&sPokemonLogoShineSpriteSheet[0]);
         LoadPalette(gTitleScreenEmeraldVersionPal, OBJ_PLTT_ID(0), PLTT_SIZE_4BPP);
         LoadSpritePalette(&sSpritePalette_PressStart[0]);
         gMain.state = 2;

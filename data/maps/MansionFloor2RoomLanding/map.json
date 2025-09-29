@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MansionFloor2RoomLanding_EventScript_Abra",
-      "flag": "FLAG_ABRA_IN_PARTY"
+      "flag": "FLAG_ABRA_IN_PARTY_2"
     }
   ],
   "warp_events": [

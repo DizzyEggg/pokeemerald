@@ -32,6 +32,7 @@ MansionFloor1RoomLanding_EventScript_Abra::
 	msgbox_portrait MansionFloor1RoomLanding_Text_FirstTime5NoVial, FIELD_PIC_ABRA_CONCERNED
 	setflag FLAG_VISITED_LANDING_1
 	setflag FLAG_ABRATALK_LANDING_1
+	clearflag FLAG_ABRA_IN_PARTY_2
 	releaseall
 	end
 
@@ -124,6 +125,7 @@ MansionFloor1RoomLanding_EventScript_Revisit::
 	msgbox_portrait MansionFloor1RoomLanding_Text_StillNoVials2, FIELD_PIC_ABRA_THINKING
 	msgbox_portrait MansionFloor1RoomLanding_Text_StillNoVials3, FIELD_PIC_ABRA_JOY
 	setflag FLAG_ABRATALK_LANDING_1
+	clearflag FLAG_ABRA_IN_PARTY_2
 	releaseall
 	end
 
@@ -134,13 +136,14 @@ MansionFloor1RoomLanding_EventScript_RevisitVials::
 	goto MansionFloor1RoomLanding_EventScript_FillUpVials
 	@msgbox_portrait MansionFloor1RoomLanding_Text_RevisitVials2, FIELD_PIC_ABRA_JOY
 	@setflag FLAG_ABRATALK_LANDING_1
+	clearflag FLAG_ABRA_IN_PARTY_2
 	releaseall
 	end
 
 
 
 MansionFloor1RoomLanding_Text_RevisitVials1:
-	.string "Dali: Welcome back! I can refill your\p"
+	.string "Dali: Welcome back! I can refill your\n"
 	.string "vials, one sec!$"
 
 @MansionFloor1RoomLanding_Text_RevisitVials2:
@@ -152,7 +155,9 @@ MansionFloor1RoomLanding_Text_RevisitVials1:
 MansionFloor1RoomLanding_EventScript_RevisitFullVials::
 	msgbox_portrait MansionFloor1RoomLanding_Text_RevisitFullVials1, FIELD_PIC_ABRA_HAPPY
 	msgbox_portrait MansionFloor1RoomLanding_Text_RevisitFullVials2, FIELD_PIC_ABRA_JOY
+	closemessage
 	setflag FLAG_ABRATALK_LANDING_1
+	clearflag FLAG_ABRA_IN_PARTY_2
 	releaseall
 	end
 
@@ -164,7 +169,7 @@ MansionFloor1RoomLanding_Text_RevisitFullVials1:
 	.string "drinking from the Inkwell?!$"
 
 MansionFloor1RoomLanding_Text_RevisitFullVials2:
-	.string "That's awesome! You'll get Craftily\p"
+	.string "That's awesome! You'll get Craftily\n"
 	.string "in no time!$"
 
 
@@ -221,6 +226,7 @@ MansionFloor1RoomLanding_EventScript_TalkAgain::
 	goto_if_eq VAR_RESULT, YES, MansionFloor1RoomLanding_EventScript_TalkAgainFullVials
 
 	msgbox_portrait MansionFloor1RoomLanding_Text_TalkAgainNoVials, FIELD_PIC_ABRA_CONCERNED
+	clearflag FLAG_ABRA_IN_PARTY_2
 	release
 	end
 
@@ -238,6 +244,8 @@ MansionFloor1RoomLanding_Text_TalkAgainVials:
 
 MansionFloor1RoomLanding_EventScript_TalkAgainFullVials::
 	msgbox_portrait MansionFloor1RoomLanding_Text_TalkAgainFullVials, FIELD_PIC_ABRA_HAPPY
+	clearflag FLAG_ABRA_IN_PARTY_2
+	closemessage
 	releaseall
 	end
 
@@ -277,6 +285,7 @@ MansionFloor1RoomLanding_EventScript_FillUpVials::
 	checkitem UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3, 1
 	goto_if_eq VAR_RESULT, YES, MansionFloor1RoomLanding_EventScript_Fill3
 	
+	setflag FLAG_EXPLAINED_VIALS
 	removeobject LOCALID_ABRA
 	playse SE_WARP_OUT
 	delay 150
@@ -332,6 +341,7 @@ MansionFloor1RoomLanding_EventScript_VialsFilled::
 	closemessage
 	setflag FLAG_VISITED_LANDING_1
 	setflag FLAG_ABRATALK_LANDING_1
+	clearflag FLAG_ABRA_IN_PARTY_2
 	releaseall
 	end
 

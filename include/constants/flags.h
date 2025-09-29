@@ -656,12 +656,12 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
+#define FLAG_NEED_EXPLAIN_VIALS  0x264 // Unused Flag
+#define FLAG_EXPLAINED_VIALS  0x265 // Unused Flag
+#define FLAG_NEED_EXPLAIN_DISCS  0x266 // Unused Flag
+#define FLAG_EXPLAINED_DISCS  0x267 // Unused Flag
+#define FLAG_NEED_EXPLAIN_PHOTOS  0x268 // Unused Flag
+#define FLAG_EXPLAINED_PHOTOS  0x269 // Unused Flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
@@ -1305,7 +1305,7 @@
 #define FLAG_BOSS2_KOMALA                                           0x4E1 // Unused Flag
 #define FLAG_OBTAINED_ANY_VIAL                                           0x4E2 // Unused Flag
 #define FLAG_FILLED_VIALS                                           0x4E3 // Unused Flag
-#define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
+#define FLAG_ABRA_IN_PARTY_2                                           0x4E4 // Unused Flag
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
 #define FLAG_DO_RIPLEY_RECRUIT_SCENE                                           0x4E6 // Unused Flag
 #define FLAG_DO_BELLA_RECRUIT_SCENE                                           0x4E7 // Unused Flag
