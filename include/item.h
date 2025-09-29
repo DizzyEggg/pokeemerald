@@ -182,5 +182,6 @@ u32 GetItemStatus1Mask(u16 itemId);
 u32 GetItemStatus2Mask(u16 itemId);
 u32 GetItemSellPrice(u32 itemId);
 s32 CountUniquePhotos(void);
+void ResetItem(struct BagPocket *pocket, u32 pocketPos);
 
 #endif // GUARD_ITEM_H

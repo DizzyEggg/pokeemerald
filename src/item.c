@@ -72,6 +72,12 @@ static inline void SetBagItemQuantityPocket(struct BagPocket *pocket, u32 pocket
     pocket->itemSlots[pocketPos].quantity = newValue ^ gSaveBlock2Ptr->encryptionKey;
 }
 
+void ResetItem(struct BagPocket *pocket, u32 pocketPos)
+{
+    SetBagItemIdPocket(pocket, pocketPos, 0);
+    SetBagItemQuantityPocket(pocket, pocketPos, 0);
+}
+
 u16 GetBagItemId(enum Pocket pocketId, u32 pocketPos)
 {
     return GetBagItemIdPocket(&gBagPockets[pocketId], pocketPos);

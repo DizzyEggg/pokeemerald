@@ -1887,26 +1887,24 @@ static void RemoveAllButUniqueItems(void)
 
     for (pocketId = 0; pocketId < POCKETS_COUNT; pocketId++) {
         for (i = 0; i < gBagPockets[pocketId].capacity
-        && gBagPockets[pocketId].itemSlots[i].itemId != 0
-        && gBagPockets[pocketId].itemSlots[i].quantity != 0; i++)
+        && gBagPockets[pocketId].itemSlots[i].itemId != 0; i++)
         {
             u32 itemId = gBagPockets[pocketId].itemSlots[i].itemId;
-            if (!IsUniqueItem(itemId)) {
-                // Do not remove vial items either
-                if (IsVialItem(itemId)) {
-                    u32 fullVialItem = IsVialEmptyItem(itemId);
-                    if (fullVialItem) {
-                        FlagSet(FLAG_OBTAINED_ANY_VIAL);
-                        gBagPockets[pocketId].itemSlots[i].itemId = fullVialItem;
-                    }
+            // Do not remove vial items either
+            if (IsVialItem(itemId)) {
+                u32 fullVialItem = IsVialEmptyItem(itemId);
+                if (fullVialItem) {
+                    FlagSet(FLAG_OBTAINED_ANY_VIAL);
+                    gBagPockets[pocketId].itemSlots[i].itemId = fullVialItem;
                 }
-                else {
-                    gBagPockets[pocketId].itemSlots[i] = (struct ItemSlot) {0};
-                }
+            }
+            // Not unique items get lost
+            else if (!IsUniqueItem(itemId)) {
+                ResetItem(&gBagPockets[pocketId], i);
             }
             else if (HandleDiskFlags(itemId)) {
                 hadAnyDisks = TRUE;
-                gBagPockets[pocketId].itemSlots[i] = (struct ItemSlot) {0};
+                ResetItem(&gBagPockets[pocketId], i);
             }
         }
 
