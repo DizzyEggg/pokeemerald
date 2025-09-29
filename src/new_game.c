@@ -364,14 +364,17 @@ static void SetStartingPokemon(void)
     SetNicknameOtGender(&gPlayerParty[1], SPECIES_SWABLU);
 
     // Create other team members
-    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedTink, SPECIES_TINKATINK, 1, MAX_IV_MASK, MON_FEMALE, NATURE_NAUGHTY, 0);
+    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedTink, SPECIES_TINKATINK, 1, MAX_IV_MASK, MON_FEMALE, NATURE_ADAMANT, 0);
     SetNicknameOtGender(&gSaveBlock1Ptr->savedTink, SPECIES_TINKATINK);
 
-    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedSquirtle, SPECIES_SQUIRTLE, 1, MAX_IV_MASK, MON_MALE, NATURE_NAUGHTY, 0);
+    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedSquirtle, SPECIES_SQUIRTLE, 1, MAX_IV_MASK, MON_MALE, NATURE_BOLD, 0);
     SetNicknameOtGender(&gSaveBlock1Ptr->savedSquirtle, SPECIES_SQUIRTLE);
 
-    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedVenipede, SPECIES_VENIPEDE, 1, MAX_IV_MASK, MON_FEMALE, NATURE_NAUGHTY, 0);
+    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedVenipede, SPECIES_VENIPEDE, 1, MAX_IV_MASK, MON_FEMALE, NATURE_JOLLY, 0);
     SetNicknameOtGender(&gSaveBlock1Ptr->savedVenipede, SPECIES_VENIPEDE);
+
+    CreateMonWithGenderNatureLetter(&gSaveBlock1Ptr->savedAbra, SPECIES_ABRA, 1, MAX_IV_MASK, MON_MALE, NATURE_MODEST, 0);
+    SetNicknameOtGender(&gSaveBlock1Ptr->savedAbra, SPECIES_ABRA);
 
     FlagSet(FLAG_SYS_POKEMON_GET);
 }

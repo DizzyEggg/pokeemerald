@@ -1118,6 +1118,7 @@ struct SaveBlock1
     struct Pokemon savedSquirtle;
     struct Pokemon savedVenipede;
     struct Pokemon savedTink;
+    struct Pokemon savedAbra;
     /*0x490*/ u32 money;
     /*0x494*/ u16 coins;
     /*0x496*/ u16 registeredItem; // registered for use with SELECT button

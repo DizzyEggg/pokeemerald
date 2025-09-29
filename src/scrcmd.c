@@ -3498,15 +3498,23 @@ static struct Pokemon *SpeciesToSavedMon(s32 species)
     switch (species) {
         default:
         case SPECIES_PHANPY:
+        case SPECIES_DONPHAN:
             return &gSaveBlock1Ptr->savedPhanpy;
         case SPECIES_SWABLU:
+        case SPECIES_ALTARIA:
             return &gSaveBlock1Ptr->savedSwablu;
         case SPECIES_TINKATINK:
             return &gSaveBlock1Ptr->savedTink;
         case SPECIES_SQUIRTLE:
+        case SPECIES_WARTORTLE:
+        case SPECIES_BLASTOISE:
             return &gSaveBlock1Ptr->savedSquirtle;
         case SPECIES_VENIPEDE:
             return &gSaveBlock1Ptr->savedVenipede;
+        case SPECIES_ABRA:
+        case SPECIES_KADABRA:
+        case SPECIES_ALAKAZAM:
+            return &gSaveBlock1Ptr->savedAbra;
     }
 }
 
