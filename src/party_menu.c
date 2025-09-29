@@ -3983,7 +3983,7 @@ static void CursorCb_FieldMove(u8 taskId)
             DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         }
-        else if (SetUpFieldMove(fieldMove) == TRUE)
+        else if (SetUpFieldMove(fieldMove) == TRUE && fieldMove != FIELD_MOVE_TELEPORT)
         {
             switch (fieldMove)
             {

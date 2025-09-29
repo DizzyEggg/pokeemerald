@@ -136,6 +136,10 @@ Fountain_WhiteOutPartnerVenipede:
     setvar VAR_0x8007, LOCALID_FIREPLACE_VENIPEDE
     clearflag FLAG_FIREPLACE_HIDE_VENIPEDE
     goto Fountain_EventScript_WhiteoutDoEggHatch
+    
+Fountain_WhiteOutPartnerAbra:
+    setvar VAR_0x8007, LOCALID_ABRA_CAMPFIRE
+    goto Fountain_EventScript_WhiteoutDoEggHatch
    
    
 EventScriptAfterWhiteOut_Common1:
@@ -153,7 +157,7 @@ EventScriptAfterWhiteOut_Common1:
 	waitmovement 0
 	delay 40
     return
-       
+          
 @@@@@ After White-out cutscene
 Fountain_EventScript_Whiteout::
     lockall
@@ -186,6 +190,7 @@ Fountain_EventScript_WhiteoutGetPartner:
     goto_if_eq VAR_RESULT, SPECIES_PHANPY, Fountain_WhiteOutPartnerPhanpy
     goto_if_eq VAR_RESULT, SPECIES_TINKATINK, Fountain_WhiteOutPartnerTink
     goto_if_eq VAR_RESULT, SPECIES_VENIPEDE, Fountain_WhiteOutPartnerVenipede
+    goto_if_eq VAR_RESULT, SPECIES_ABRA, Fountain_WhiteOutPartnerAbra
     goto_if_eq VAR_RESULT, SPECIES_SQUIRTLE, Fountain_WhiteOutPartnerSquirtle
 Fountain_EventScript_WhiteoutDoEggHatch:
     fasttwomonsegghatchanim
@@ -213,15 +218,35 @@ Fountain_EventScript_MoveObjectsToSpot:
 	applymovement VAR_0x8007, Common_Movement_QuestionMark
 	delay 50
 	waitmovement 0
+    callnative ScriptCmd_GetPartnerSpecies
+    goto_if_eq VAR_RESULT, SPECIES_ABRA, ScriptAfterWhiteOutAbra
     callnative ScriptCmd_GetPlayerSpecies
     goto_if_eq VAR_RESULT, SPECIES_SWABLU, ScriptAfterWhiteOutSwablu
     goto_if_eq VAR_RESULT, SPECIES_PHANPY, ScriptAfterWhiteOutPhanpy
+    goto_if_eq VAR_RESULT, SPECIES_ABRA, ScriptAfterWhiteOutAbra
     @placeholder without portrait
     msgbox Fountain_Text_Intro01
 	call EventScriptAfterWhiteOut_Common1
 	msgbox Fountain_Text_Tuskan1stDeathIntro1
     goto ScriptAfterWhiteOutAfterSurpriseText
     @ TODO: other mons
+@Placeholder for Abra script
+ScriptAfterWhiteOutAbra:
+    bufferpartymonnick 0, 0
+    bufferpartymonnick 1, 1
+    checkspecies SPECIES_PHANPY
+    goto_if_eq VAR_RESULT, TRUE, ScriptAfterWhiteOutAbraExplainsSwablu 
+    msgbox Fountain_Text_TuskanExplained
+    goto ScriptAfterWhiteOutAbraFadeout
+ScriptAfterWhiteOutAbraExplainsSwablu:
+    msgbox Fountain_Text_FluffExplained
+ScriptAfterWhiteOutAbraFadeout:
+    waitmessage
+    closemessage
+    fadescreenswapbuffers FADE_TO_BLACK
+    delay 20
+    fadescreenswapbuffers FADE_FROM_BLACK
+    goto ScriptAfterWhiteOutEnd
 ScriptAfterWhiteOutSwablu:
     msgbox_portrait Fountain_Text_Intro01, FIELD_PIC_SWABLU_ANGRY
 	call EventScriptAfterWhiteOut_Common1
@@ -248,7 +273,13 @@ ScriptAfterWhiteOutEnd:
     releaseall
     end
 
-
+Fountain_Text_TuskanExplained:
+	.string "Tuskan explained everything to\n"
+	.string "{STR_VAR_1} and {STR_VAR_2}.$"
+    
+Fountain_Text_FluffExplained:
+	.string "Fluffball explained everything to\n"
+	.string "{STR_VAR_1} and {STR_VAR_2}.$"
 
 @@@@@@ Explain scripts - after losing
 
