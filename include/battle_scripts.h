@@ -18,6 +18,7 @@ extern const u8 BattleScript_FailedFromAtkString[];
 extern const u8 BattleScript_FailedFromAtkCanceler[];
 extern const u8 BattleScript_ButItFailed[];
 extern const u8 BattleScript_StatUp[];
+extern const u8 BattleScript_End[];
 extern const u8 BattleScript_StatDown[];
 extern const u8 BattleScript_AlreadyAtFullHp[];
 extern const u8 BattleScript_PresentHealTarget[];

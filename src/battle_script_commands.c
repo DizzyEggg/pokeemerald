@@ -18748,3 +18748,21 @@ void BS_TryActivateAbilityShield(void)
         BattleScriptCall(BattleScript_AbilityShieldProtects);
     }
 }
+
+void BS_TryEndBattleCradily(void)
+{
+    NATIVE_ARGS();
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_MANSION_FLOOR3ROOM_FINAL)
+        && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_MANSION_FLOOR3ROOM_FINAL)
+        && GetBattlerSide(gBattlerTarget) == B_SIDE_OPPONENT
+        && gBattleMons[gBattlerTarget].species == SPECIES_CRADILY
+        && gBattleMons[gBattlerTarget].level <= 84)
+    {
+        gBattleOutcome = B_OUTCOME_MON_TELEPORTED;
+        FlagSet(FLAG_UNUSED_0x020);
+        gBattlescriptCurrInstr = BattleScript_End;
+    }
+}

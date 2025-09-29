@@ -2563,3 +2563,7 @@
 	callnative BS_TryBoosterEnergy
 	.byte \onFieldStatus
 	.endm
+    
+    .macro tryendcradilybattlewhenlevel
+    callnative BS_TryEndBattleCradily
+    .endm

@@ -2711,6 +2711,7 @@ BattleScript_TryFaintMon::
 	tryfaintmon BS_TARGET
 BattleScript_MoveEnd::
 	moveendall
+BattleScript_End::
 	end
 
 BattleScript_EffectHit_Ret::
@@ -9655,6 +9656,7 @@ BattleScript_EffectLevelDown::
     setbyte sLVLBOX_STATE, 0
 	drawlvlupbox
 BattleScript_EffectLevelDownEnd:
+    tryendcradilybattlewhenlevel
     goto BattleScript_MoveEnd
 
 @@@ END MAX MOVES @@@

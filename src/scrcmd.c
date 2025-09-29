@@ -2563,6 +2563,14 @@ void ScrCmd_setenemymonshiny(struct ScriptContext *ctx)
     SetMonData(&gEnemyParty[partyId], MON_DATA_IS_SHINY, &shiny);
 }
 
+void ScrCmd_setenemymonability(struct ScriptContext *ctx)
+{
+    u8 partyId = ScriptReadByte(ctx);
+    u32 abilityNum = ScriptReadByte(ctx);
+
+    SetMonData(&gEnemyParty[partyId], MON_DATA_ABILITY_NUM, &abilityNum);
+}
+
 void ScrCmd_setenemymonhp(struct ScriptContext *ctx)
 {
     u8 partyId = ScriptReadByte(ctx);

@@ -44,6 +44,7 @@ MansionFloor3RoomFinal_EventScript_Trigger2::
     setenemymonnick 0, sText_CradilyNickname
 	setenemymonmoves 0, MOVE_ROCK_SMASH, MOVE_STOCKPILE, MOVE_PROTECT, 0
     setenemymonshiny 0, TRUE
+    setenemymonability 0, 2
     setenemymonhp 0, 75
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
     tryforcedoublebattle

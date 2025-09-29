@@ -2773,6 +2773,12 @@
     .byte \shiny
     .endm
     
+    .macro setenemymonability partyId:req, abilityNum:req
+    callnative ScrCmd_setenemymonability
+    .byte \partyId
+    .byte \abilityNum
+    .endm
+    
     .macro setenemymonhp partyId:req, hpPercentage:req
     callnative ScrCmd_setenemymonhp
     .byte \partyId
