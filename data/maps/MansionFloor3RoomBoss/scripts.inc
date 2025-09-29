@@ -177,7 +177,7 @@ MansionFloor3RoomBoss_EventScript_BossBella::
 	msgbox_portrait MansionFloor3RoomBoss_Text_Boss2Bella1, FIELD_PIC_SCOLIPEDE_ANGRY
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 0, 0, 1
 	
-	setwildbattle SPECIES_SCOLIPEDE, 60, ITEM_METRONOME
+	setwildbattle SPECIES_SCOLIPEDE, 55, ITEM_METRONOME
     setenemymonmoves 0, MOVE_FURY_CUTTER, MOVE_ROLLOUT, 0, 0
 	setenemymonnick 0, sText_ScolipedeNickname
     setenemymonshiny 0, TRUE
@@ -255,7 +255,7 @@ MansionFloor3RoomBoss_EventScript_BossRipley::
 	msgbox_portrait MansionFloor3RoomBoss_Text_Boss3Ripley1, FIELD_PIC_BLASTOISE_NORMAL
 	
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
-	setwildbattle SPECIES_BLASTOISE, 65, ITEM_ROCKY_HELMET
+	setwildbattle SPECIES_BLASTOISE, 60, ITEM_ROCKY_HELMET
 	setenemymonmoves 0, MOVE_WAVE_CRASH, MOVE_PROTECT, MOVE_AQUA_RING, 0
 	setenemymonnick 0, sText_BlastoiseNickname
     setenemymonshiny 0, TRUE

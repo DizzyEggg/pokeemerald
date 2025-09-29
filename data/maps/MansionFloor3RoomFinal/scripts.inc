@@ -40,7 +40,7 @@ MansionFloor3RoomFinal_EventScript_Trigger2::
 
 	setflag FLAG_BATTLE_START_LEECH_SEED
 	@settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
-	setwildbattle SPECIES_CRADILY, 96, ITEM_LEFTOVERS
+	setwildbattle SPECIES_CRADILY, 96, ITEM_SITRUS_BERRY
     setenemymonnick 0, sText_CradilyNickname
 	setenemymonmoves 0, MOVE_ROCK_SMASH, MOVE_STOCKPILE, MOVE_PROTECT, 0
     setenemymonshiny 0, TRUE

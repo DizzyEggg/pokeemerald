@@ -231,10 +231,10 @@ MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	applymovement LOCALID_VANILLITE, MansionFloor1RoomBoss_AttackMove
 	waitmovement 0
 	special RemoveCameraObject
-	setwildbattle SPECIES_FIDOUGH, 10, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
+	setwildbattle SPECIES_FIDOUGH, 9, ITEM_ORAN_BERRY, SPECIES_APPLIN, 10, ITEM_ORAN_BERRY
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
-	setwildbattle SPECIES_SINISTEA, 12, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
+	setwildbattle SPECIES_SINISTEA, 11, ITEM_ORAN_BERRY, SPECIES_VANILLITE, 12, ITEM_ORAN_BERRY
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -304,7 +304,7 @@ MansionFloor1RoomBoss_EventScript_SavorySquadScene1::
 	applymovement LOCALID_FARFETCHD, MansionFloor1RoomBoss_AttackMove
 	applymovement LOCALID_NACLI, MansionFloor1RoomBoss_AttackMove
 	waitmovement 0
-	setwildbattle SPECIES_SMOLIV, 7, ITEM_ORAN_BERRY, SPECIES_FARFETCHD, 11, ITEM_ORAN_BERRY
+	setwildbattle SPECIES_SMOLIV, 8, ITEM_ORAN_BERRY, SPECIES_FARFETCHD, 9, ITEM_ORAN_BERRY
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	setwildbattle SPECIES_NACLI, 10, ITEM_ORAN_BERRY, SPECIES_TATSUGIRI, 14, ITEM_ORAN_BERRY
@@ -382,7 +382,7 @@ MansionFloor1RoomBoss_EventScript_SavorySquadScene2::
 	applymovement LOCALID_FARFETCHD, MansionFloor1RoomBoss_AttackMove
 	applymovement LOCALID_NACLI, MansionFloor1RoomBoss_AttackMove
 	waitmovement 0
-	setwildbattle SPECIES_SMOLIV, 7, ITEM_ORAN_BERRY, SPECIES_FARFETCHD, 8, ITEM_ORAN_BERRY
+	setwildbattle SPECIES_SMOLIV, 8, ITEM_ORAN_BERRY, SPECIES_FARFETCHD, 9, ITEM_ORAN_BERRY
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	setwildbattle SPECIES_NACLI, 10, ITEM_ORAN_BERRY, SPECIES_TATSUGIRI, 14, ITEM_ORAN_BERRY
