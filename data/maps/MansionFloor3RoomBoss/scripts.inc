@@ -54,8 +54,9 @@ MansionFloor3RoomBoss_EventScript_BossAmy::
 	setwildbattle SPECIES_TINKATON, 50, ITEM_WEAKNESS_POLICY
 	setenemymonmoves 0, MOVE_STRENGTH, MOVE_GIGATON_HAMMER, MOVE_FAKE_OUT, MOVE_BRUTAL_SWING
     setenemymonnick 0, sText_TinkatonNickname
+    setenemymonshiny 0, TRUE
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
-    callnative SetAsWildBattleIfPossible
+    tryforcedoublebattle
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -179,8 +180,9 @@ MansionFloor3RoomBoss_EventScript_BossBella::
 	setwildbattle SPECIES_SCOLIPEDE, 60, ITEM_METRONOME
     setenemymonmoves 0, MOVE_FURY_CUTTER, MOVE_ROLLOUT, 0, 0
 	setenemymonnick 0, sText_ScolipedeNickname
+    setenemymonshiny 0, TRUE
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
-    callnative SetAsWildBattleIfPossible
+    tryforcedoublebattle
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -256,8 +258,9 @@ MansionFloor3RoomBoss_EventScript_BossRipley::
 	setwildbattle SPECIES_BLASTOISE, 65, ITEM_ROCKY_HELMET
 	setenemymonmoves 0, MOVE_WAVE_CRASH, MOVE_PROTECT, MOVE_AQUA_RING, 0
 	setenemymonnick 0, sText_BlastoiseNickname
+    setenemymonshiny 0, TRUE
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
-    callnative SetAsWildBattleIfPossible
+    tryforcedoublebattle
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome

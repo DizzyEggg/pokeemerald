@@ -2555,6 +2555,24 @@ void ScrCmd_setenemymonstatus(struct ScriptContext *ctx)
     SetMonData(&gEnemyParty[partyId], MON_DATA_STATUS, &status);
 }
 
+void ScrCmd_setenemymonshiny(struct ScriptContext *ctx)
+{
+    u8 partyId = ScriptReadByte(ctx);
+    u32 shiny = ScriptReadByte(ctx);
+
+    SetMonData(&gEnemyParty[partyId], MON_DATA_IS_SHINY, &shiny);
+}
+
+void ScrCmd_setenemymonhp(struct ScriptContext *ctx)
+{
+    u8 partyId = ScriptReadByte(ctx);
+    u32 percentage = ScriptReadByte(ctx);
+    u32 maxHp = GetMonData(&gEnemyParty[partyId], MON_DATA_MAX_HP);
+    u32 newHp = maxHp * percentage / 100;
+
+    SetMonData(&gEnemyParty[partyId], MON_DATA_HP, &newHp);
+}
+
 void ScrCmd_setenemymonnick(struct ScriptContext *ctx)
 {
     u8 partyId = ScriptReadByte(ctx);
@@ -2878,6 +2896,13 @@ void PlayFirstMonCry(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     PlayCry_Script(GetMonData(GetFirstLiveMon(), MON_DATA_SPECIES), CRY_MODE_NORMAL);
+}
+
+void PlaySecondMonCry(struct ScriptContext *ctx)
+{
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+
+    PlayCry_Script(GetMonData(GetSecondLiveMon(), MON_DATA_SPECIES), CRY_MODE_NORMAL);
 }
 
 bool8 ScrCmd_waitmoncry(struct ScriptContext *ctx)

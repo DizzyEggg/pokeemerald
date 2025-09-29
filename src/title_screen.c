@@ -658,7 +658,7 @@ void CB2_InitTitleScreen(void)
                                     | DISPCNT_OBJ_ON
                                     | DISPCNT_WIN0_ON
                                     | DISPCNT_OBJWIN_ON);
-        m4aSongNumStart(MUS_TITLE);
+        m4aSongNumStart(MUS_PMDRED_THE_MOUNTAIN_OF_FIRE);
         gMain.state = 5;
         break;
     case 5:
@@ -683,6 +683,10 @@ static void MainCB2(void)
 // Shine the Pokémon logo two more times, and fade in the version banner
 static void Task_TitleScreenPhase1(u8 taskId)
 {
+    // Let's skip it all
+    gTasks[taskId].tCounter = 0;
+    gTasks[taskId].func = Task_TitleScreenPhase3;
+
     // Skip to next phase when A, B, Start, or Select is pressed
     if (JOY_NEW(A_B_START_SELECT) || gTasks[taskId].tSkipToNext)
     {

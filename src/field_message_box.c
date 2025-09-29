@@ -65,13 +65,13 @@ void SetPartnerPortraitData(struct ScriptContext *ctx)
     if (mon != NULL) {
         switch (GetMonData(mon, MON_DATA_SPECIES)) {
             case SPECIES_PHANPY:
-                gPortraitId = FIELD_PIC_PHANPY_DETERMINED;
+                gPortraitId = FIELD_PIC_PHANPY_DETERMINED + 1;
                 break;
             case SPECIES_SWABLU:
-                gPortraitId = FIELD_PIC_SWABLU_YELL;
+                gPortraitId = FIELD_PIC_SWABLU_YELL + 1;
                 break;
             case SPECIES_ABRA:
-                gPortraitId = FIELD_PIC_ABRA_SERIOUS;
+                gPortraitId = FIELD_PIC_ABRA_SERIOUS + 1;
                 break;
         }
     }

@@ -2306,6 +2306,10 @@
 	.macro playfirstmoncry
 	callnative PlayFirstMonCry, requests_effects=1
 	.endm
+    
+    .macro playsecondmoncry
+	callnative PlaySecondMonCry, requests_effects=1
+	.endm
 
 	@ Buffers the nickname of the first alive party member.
 	.macro bufferlivemonnickname out:req
@@ -2763,10 +2767,26 @@
     .byte \status
     .endm
     
+    .macro setenemymonshiny partyId:req, shiny:req
+    callnative ScrCmd_setenemymonshiny
+    .byte \partyId
+    .byte \shiny
+    .endm
+    
+    .macro setenemymonhp partyId:req, hpPercentage:req
+    callnative ScrCmd_setenemymonhp
+    .byte \partyId
+    .byte \hpPercentage
+    .endm
+    
     .macro setenemymonnick partyId:req, nick:req
     callnative ScrCmd_setenemymonnick
     .byte \partyId
     .word \nick
+    .endm
+    
+    .macro tryforcedoublebattle
+    callnative SetAsWildBattleIfPossible
     .endm
     
     .macro setenemymonmoves partyId:req, move1:req, move2:req, move3:req, move4:req

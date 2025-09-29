@@ -43,7 +43,10 @@ MansionFloor3RoomFinal_EventScript_Trigger2::
 	setwildbattle SPECIES_CRADILY, 96, ITEM_LEFTOVERS
     setenemymonnick 0, sText_CradilyNickname
 	setenemymonmoves 0, MOVE_ROCK_SMASH, MOVE_STOCKPILE, MOVE_PROTECT, 0
+    setenemymonshiny 0, TRUE
+    setenemymonhp 0, 75
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+    tryforcedoublebattle
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
