@@ -49,6 +49,7 @@ MansionFloor3RoomFinal_EventScript_Trigger2::
     tryforcedoublebattle
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	goto_if_set FLAG_CRADILY_AFTER_BATTLE_LOW_LEVEL, MansionFloor3RoomFinal_EventScript_SecretEnding
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
 	@setflag FLAG_BOSS3_CLEAR
@@ -89,8 +90,17 @@ MansionFloor3RoomFinal_EventScript_FinalScene::
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose17, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose18, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose19, FIELD_PIC_CRADILY_DETERMINED
+	fadescreenspeed FADE_TO_BLACK, 2
+
 	@add a fade to black, warp to end, etc.
 	end
+
+
+
+
+
+
+
 
 
 MansionFloor3RoomFinal_Text_Craftily2:
@@ -123,6 +133,11 @@ MansionFloor3RoomFinal_Text_Craftily4:
 	.string "You deserve your revenge.\p"
 	.string "So.\p"
 	.string "Let’s end this.$"
+
+
+
+
+
 
 
 MansionFloor3RoomFinal_Text_CraftilyLose01:
@@ -340,7 +355,35 @@ MansionFloor3RoomFinal_Text_CraftilyLose19:
 
 
 
+MansionFloor3RoomFinal_EventScript_SecretEnding::
+	msgbox_portrait MansionFloor3RoomFinal_Text_SecretEnding1, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_SecretEnding2, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_SecretEnding3, FIELD_PIC_CRADILY_DETERMINED
+	msgbox_portrait MansionFloor3RoomFinal_Text_SecretEnding4, FIELD_PIC_CRADILY_DETERMINED
+	fadescreenspeed FADE_TO_BLACK, 2
+	end
 
 
+MansionFloor3RoomFinal_Text_SecretEnding1:
+	.string "What is this feeling…\p"
+	.string "My body…\p"
+	.string "It's… changing.$"
 
+MansionFloor3RoomFinal_Text_SecretEnding2:
+	.string "The water of the Fountain…\n"
+	.string "It's not draining away.\p"
+	.string "Ah, the memories are releasing me.\p"
+	.string "My cursed body… have you taken my\n"
+	.string "curse upon yourself?$"
+
+MansionFloor3RoomFinal_Text_SecretEnding3:
+	.string "You've saved me.\p"
+	.string "I've gone so long without hope.\p"
+	.string "I can survive. With your help, I\n"
+	.string "don't have to die.$"
+
+MansionFloor3RoomFinal_Text_SecretEnding4:
+	.string "Let's go see the others.\p"
+	.string "I feel like I can move, a little.\p"
+	.string "We can start again.$"
 
