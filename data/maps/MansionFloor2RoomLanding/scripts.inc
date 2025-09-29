@@ -27,14 +27,45 @@ MansionFloor2RoomLanding_EventScript_Abra::
 	checkitem UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3, 1
 	goto_if_eq VAR_RESULT, YES, MansionFloor2RoomLanding_EventScript_FirstTimeVials
 
+	@fulls?
+	checkitem ITEM_LATIOSITE, 1
+	goto_if_eq VAR_RESULT, YES, MansionFloor2RoomLanding_EventScript_FirstFullVials
+	checkitem ITEM_LOPUNNITE, 1
+	goto_if_eq VAR_RESULT, YES, MansionFloor2RoomLanding_EventScript_FirstFullVials
+	checkitem ITEM_GARCHOMPITE, 1
+	goto_if_eq VAR_RESULT, YES, MansionFloor2RoomLanding_EventScript_FirstFullVials
+	checkitem UNIQUE_ITEM_INKWELL_FULL_BOTTLE_1, 1
+	goto_if_eq VAR_RESULT, YES, MansionFloor2RoomLanding_EventScript_FirstFullVials
+	checkitem UNIQUE_ITEM_INKWELL_FULL_BOTTLE_2, 1
+	goto_if_eq VAR_RESULT, YES, MansionFloor2RoomLanding_EventScript_FirstFullVials
+	checkitem UNIQUE_ITEM_INKWELL_FULL_BOTTLE_3, 1
+	goto_if_eq VAR_RESULT, YES, MansionFloor2RoomLanding_EventScript_FirstFullVials
+
+
+
 	@player didn't pick up any vials, even the free one
 
 	msgbox_portrait MansionFloor2RoomLanding_Text_FirstTime5NoVial, FIELD_PIC_ABRA_CONCERNED
+	closemessage
 	setflag FLAG_VISITED_LANDING_2
 	setflag FLAG_ABRATALK_LANDING_2
 	clearflag FLAG_ABRA_IN_PARTY_2
 	releaseall
 	end
+
+
+MansionFloor2RoomLanding_EventScript_FirstFullVials::
+	msgbox_portrait MansionFloor2RoomLanding_Text_FirstFullVials, FIELD_PIC_ABRA_JOY
+	closemessage
+	setflag FLAG_VISITED_LANDING_2
+	setflag FLAG_ABRATALK_LANDING_2
+	clearflag FLAG_ABRA_IN_PARTY_2
+	releaseall
+	end
+
+MansionFloor2RoomLanding_Text_FirstFullVials:
+	.string "Oh wait, you made it through\n"
+	.string "without using vials! Nice$"
 
 
 MansionFloor2RoomLanding_EventScript_FirstTimeVials::
@@ -326,6 +357,7 @@ MansionFloor2RoomLanding_EventScript_VialsFilled::
 	closemessage
 	setflag FLAG_VISITED_LANDING_2
 	setflag FLAG_ABRATALK_LANDING_2
+	setflag FLAG_EXPLAINED_VIALS
 	clearflag FLAG_ABRA_IN_PARTY_2
 	releaseall
 	end
