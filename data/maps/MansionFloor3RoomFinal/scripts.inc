@@ -8,6 +8,7 @@ MansionFloor3RoomFinal_EventScript_Trigger1::
 	lockall
 	setvar VAR_TEMP_0, 1
 	msgbox_portrait MansionFloor3RoomFinal_Text_Craftily1, FIELD_PIC_CRADILY_DARK
+	closemessage
 	delay 100
 	releaseall
 	end
@@ -28,6 +29,7 @@ MansionFloor3RoomFinal_EventScript_Trigger2::
 	lockall
 	setvar VAR_TEMP_0, 1
 	msgbox_portrait MansionFloor3RoomFinal_Text_Craftily2, FIELD_PIC_CRADILY_DARK
+	closemessage
 	delay 100
 	msgbox_portrait MansionFloor3RoomFinal_Text_Craftily3, FIELD_PIC_CRADILY_DARK
 	applymovement LOCALID_CRADILY, MansionFloor1RoomBoss_LookLeft
@@ -40,7 +42,7 @@ MansionFloor3RoomFinal_EventScript_Trigger2::
 	@settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
 	setwildbattle SPECIES_CRADILY, 96, ITEM_LEFTOVERS
     setenemymonnick 0, sText_CradilyNickname
-	setenemymonmoves 0, MOVE_ROCK_SMASH, MOVE_STOCKPILE, MOVE_PROTECT, MOVE_ROCK_SLIDE
+	setenemymonmoves 0, MOVE_ROCK_SMASH, MOVE_STOCKPILE, MOVE_PROTECT, 0
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -84,6 +86,7 @@ MansionFloor3RoomFinal_EventScript_FinalScene::
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose17, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose18, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose19, FIELD_PIC_CRADILY_DETERMINED
+	@add a fade to black, warp to end, etc.
 	end
 
 
@@ -193,7 +196,7 @@ MansionFloor3RoomFinal_Text_CraftilyLose06:
 	.string "we did find it.\p"
 	.string "The same Fountain you refer to as the\n"
 	.string "Inkwell; that is the one and only\l"
-	.string "Fountain of Youth of legend.\p"
+	.string "Fountain of Youth of legend.$"
 
 @old ada walking to the well
 MansionFloor3RoomFinal_Text_CraftilyLose07:

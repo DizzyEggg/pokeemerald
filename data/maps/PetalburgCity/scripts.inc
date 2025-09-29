@@ -494,6 +494,7 @@ Fountain_EventScript_RecruitBella::
 	playegghatchanim SPECIES_VENIPEDE, TRUE, NULL
     waitstate
 	removeobject LOCALID_EGG_RECRUIT
+	addobject LOCALID_ABRA_WELL
 	addobject LOCALID_BELLA_RECRUIT
 	msgbox_portrait Fountain_Text_RecruitBella2, FIELD_PIC_VENIPEDE_DETERMINED
 	msgbox_portrait Fountain_Text_RecruitBella3, FIELD_PIC_ABRA_HAPPY
@@ -1556,7 +1557,7 @@ Fountain_Text_AbraGraveComplete10:
 	.string "I've always thought that I was useless,\n"
 	.string "that I needed to be protected.\p"
 	.string "But… maybe I'm not useless.\n"
-	.string "Maybe I can learn to fight, with training.\p"
+	.string "Maybe I can learn to fight.\p"
 	.string "So, um, if you'll have me… I can join you\n"
 	.string "in the fight.\p"
 	.string "I mean, I won't be able to Teleport back\n"
@@ -1934,6 +1935,9 @@ Fountain_EventScript_StumpPhotoCheck::
 	checkitem UNIQUE_ITEM_PHOTO_5, 1
 	goto_if_eq VAR_RESULT, NO, Fountain_EventScript_IncompletePhoto
 	msgbox Fountain_Text_CompletePhoto, MSGBOX_NPC
+	callnative ScrCmd_ShowWholePhotoPic
+	waitstate
+	end
 
 Fountain_Text_CompletePhoto:
 	.string "You've found all of the pieces of the\n"

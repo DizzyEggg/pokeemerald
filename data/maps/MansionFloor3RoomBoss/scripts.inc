@@ -253,7 +253,7 @@ MansionFloor3RoomBoss_EventScript_BossRipley::
 	msgbox_portrait MansionFloor3RoomBoss_Text_Boss3Ripley1, FIELD_PIC_BLASTOISE_NORMAL
 	
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
-	setwildbattle SPECIES_BLASTOISE, 65, ITEM_LEFTOVERS
+	setwildbattle SPECIES_BLASTOISE, 65, ITEM_ROCKY_HELMET
 	setenemymonmoves 0, MOVE_WAVE_CRASH, MOVE_PROTECT, MOVE_AQUA_RING, 0
 	setenemymonnick 0, sText_BlastoiseNickname
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -264,7 +264,7 @@ MansionFloor3RoomBoss_EventScript_BossRipley::
 	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
 	setflag FLAG_BOSS3_CLEAR
 	
-	msgbox_portrait MansionFloor3RoomBoss_Text_Boss2Bella2, FIELD_PIC_BLASTOISE_PAIN
+	msgbox_portrait MansionFloor3RoomBoss_Text_Boss3Ripley2, FIELD_PIC_BLASTOISE_PAIN
 	applymovement LOCALID_RIPLEY3, MansionFloor3RoomBoss_Charge1
 	waitmovement 0
 	@hit sound?
