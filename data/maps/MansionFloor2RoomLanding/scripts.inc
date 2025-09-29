@@ -65,7 +65,7 @@ MansionFloor2RoomLanding_EventScript_FirstFullVials::
 
 MansionFloor2RoomLanding_Text_FirstFullVials:
 	.string "Oh wait, you made it through\n"
-	.string "without using vials! Nice$"
+	.string "without using vials! Nice!$"
 
 
 MansionFloor2RoomLanding_EventScript_FirstTimeVials::
