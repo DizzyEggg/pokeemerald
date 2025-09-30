@@ -1864,7 +1864,7 @@ static bool32 HandleDiskFlags(u32 itemId)
             FlagClear(FLAG_HIDE_DISC_GRAY);
             break;
         case UNIQUE_ITEM_GREEN_DISC:
-            FlagClear(UNIQUE_ITEM_GREEN_DISC);
+            FlagClear(FLAG_HIDE_DISC_GREEN);
             break;
     }
 
