@@ -1913,11 +1913,6 @@ Fountain_Text_Abra_Gate2:
 
 
 
-@TOFOLD
-
-
-
-
 @@@@@ Static Events - TOFOLD
 
 Fountain_EventScript_Grave::
