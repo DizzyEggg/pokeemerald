@@ -5762,6 +5762,11 @@ static void ReturnFromBattleToOverworld(void)
         SetPlayerMonSprite(GetMonData(&gPlayerParty[1], MON_DATA_SPECIES), IsMonShiny(&gPlayerParty[1]));
         ChangePlayerMonSpriteVisuals(FALSE);
     }
+    // Evolution check
+    else if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES) != gSaveBlock2Ptr->playerSpriteMonId) {
+        SetPlayerMonSprite(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES), IsMonShiny(&gPlayerParty[0]));
+        ChangePlayerMonSpriteVisuals(FALSE);
+    }
 
     if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
     {
