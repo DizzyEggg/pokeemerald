@@ -99,11 +99,6 @@ MansionFloor3RoomFinal_EventScript_FinalScene::
 
 
 
-
-
-
-
-
 MansionFloor3RoomFinal_Text_Craftily2:
 	.string "You won’t leave, will you?\p"
 	.string "You want answers.\p"
@@ -503,7 +498,7 @@ MansionFloor3RoomFinal_Text_Credits:
 	.string "Porymap, by huderlem\p"
 	.string "Pokémon Emerald Textbox Simulator,\n"
 	.string "by meejle\p"	
-	.string "pokeemerald-expansion, by the\n"
+	.string "pokeemerald-expansion, by RHH and the\n"
 	.string "incomparably brilliant DizzyEgg.\p"
 	.string "Seriously, what a legend.\p"
 	.string "Credits: written by Unfolding :D$"
