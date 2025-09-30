@@ -40,12 +40,12 @@ MansionFloor3RoomFinal_EventScript_Trigger2::
 
 	setflag FLAG_BATTLE_START_LEECH_SEED
 	@settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
-	setwildbattle SPECIES_CRADILY, 96, ITEM_SITRUS_BERRY
+	setwildbattle SPECIES_CRADILY, 96, ITEM_LIFE_ORB
     setenemymonnick 0, sText_CradilyNickname
-	setenemymonmoves 0, MOVE_ROCK_SMASH, MOVE_STOCKPILE, MOVE_PROTECT, 0
+	setenemymonmoves 0, MOVE_ROCK_SMASH, MOVE_STOCKPILE, MOVE_TORMENT, 0
     setenemymonshiny 0, TRUE
     setenemymonability 0, 2
-    setenemymonhp 0, 75
+    setenemymonhp 0, 40
 	@setflag FLAG_SYS_CTRL_OBJ_DELETE
     tryforcedoublebattle
 	dowildbattle
@@ -73,6 +73,7 @@ MansionFloor3RoomFinal_EventScript_DontRelive::
 
 @placeholder, until cutscene done TOFOLD
 MansionFloor3RoomFinal_EventScript_FinalScene::
+	lockall
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose02, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose03, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose04, FIELD_PIC_CRADILY_DETERMINED
@@ -92,8 +93,7 @@ MansionFloor3RoomFinal_EventScript_FinalScene::
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose18, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose19, FIELD_PIC_CRADILY_DETERMINED
 	fadescreenspeed FADE_TO_BLACK, 2
-
-	@add a fade to black, warp to end, etc.
+	goto MansionFloor3RoomFinal_BadEnding
 	end
 
 
@@ -357,11 +357,14 @@ MansionFloor3RoomFinal_Text_CraftilyLose19:
 
 
 MansionFloor3RoomFinal_EventScript_SecretEnding::
+	lockall
 	msgbox_portrait MansionFloor3RoomFinal_Text_SecretEnding1, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_SecretEnding2, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_SecretEnding3, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_SecretEnding4, FIELD_PIC_CRADILY_DETERMINED
+	closemessage
 	fadescreenspeed FADE_TO_BLACK, 2
+	goto MansionFloor3RoomFinal_GoodEnding
 	end
 
 
@@ -388,3 +391,149 @@ MansionFloor3RoomFinal_Text_SecretEnding4:
 	.string "I feel like I can move, a little.\p"
 	.string "We can start again.$"
 
+
+
+
+
+MansionFloor3RoomFinal_BadEnding::
+	lockall
+	playse SE_EXIT
+	waitse
+	msgbox MansionFloor3RoomFinal_Text_BadEnding1, MSGBOX_NPC
+	closemessage
+	delay 80
+	msgbox MansionFloor3RoomFinal_Text_BadEnding2, MSGBOX_NPC
+	closemessage
+	delay 80
+	msgbox MansionFloor3RoomFinal_Text_BadEnding3, MSGBOX_NPC
+	closemessage
+	delay 40
+	playse SE_M_DIVE
+	waitse
+	delay 80
+	goto MansionFloor3RoomFinal_Credits
+	end
+
+
+
+MansionFloor3RoomFinal_GoodEnding::
+	delay 50
+	playse SE_EXIT
+	waitse
+	msgbox MansionFloor3RoomFinal_Text_GoodEnding1, MSGBOX_NPC
+	msgbox MansionFloor3RoomFinal_Text_GoodEnding2, MSGBOX_NPC
+	closemessage
+	delay 80
+	playegghatchanim SPECIES_LILEEP, TRUE, NULL
+    waitstate
+	goto MansionFloor3RoomFinal_Credits
+	end
+
+MansionFloor3RoomFinal_Text_GoodEnding1:
+	.string "Ripley: …\p"
+	.string "Is… Is it working?$"
+
+MansionFloor3RoomFinal_Text_GoodEnding2:
+	.string "Dali: Shh! Look!$"
+
+
+
+MansionFloor3RoomFinal_Text_BadEnding1:
+	.string "Dali: So…\p"
+	.string "He's dead.\p"
+	.string "He did some terrible things to us.\p"
+	.string "But if what he said was true, we\n"
+	.string "abandoned him.\p"
+	.string "As soon as we had our immortality,\n"
+	.string "we forgot our friend.\p"
+	.string "I can't imagine the suffering he\n"
+	.string "endured at our hands.\p"
+	.string "Maybe, if we'd really worked hard,\n"
+	.string "we could have overcome his curse.\p"
+	.string "If only there was a way…$"
+
+MansionFloor3RoomFinal_Text_BadEnding2:
+	.string "Dali: It's okay…\p"
+	.string "No need to cry.\p"
+	.string "You all can forget this.\p"
+	.string "Go into the Fountain, and you'll come\n"
+	.string "out happy and refreshed.\p"
+	.string "I will keep Craftily's and Ada's\n"
+	.string "memories alive.\p"
+	.string "And I will try and think of a way that\n"
+	.string "we could have saved him.\p"
+	.string "Go on.$"
+
+MansionFloor3RoomFinal_Text_BadEnding3:
+	.string "Dali: Go.$"
+
+
+
+
+
+
+
+MansionFloor3RoomFinal_Credits::
+	playbgm MUS_OCEANIC_MUSEUM, FALSE
+	msgbox MansionFloor3RoomFinal_Text_Credits, MSGBOX_NPC
+	msgbox MansionFloor3RoomFinal_Text_Credits2, MSGBOX_NPC
+	fadeoutbgm 0
+	delay 70
+	callnative DoSoftReset
+	end
+
+MansionFloor3RoomFinal_Text_Credits:
+	.string "Inkwell\p"
+	.string "by Unfolding and DizzyEgg\p"
+	.string "Resources Used:\p"
+	.string "PMD Sprite Repository:\p"
+	.string "Mugshots by Emmuffin, shystarryrain,\n"
+	.string "prismatic, baronessfaron, Tacocoa,\l"
+	.string "comsosully, CHUNSOFT, NOLASMOR,\l"
+	.string "Noo, EzerArt, and PhillipsYoung.\p"
+	.string "Tilesets:\p"
+	.string "Dojo Interior, by Rejuvenation dev team\n"
+	.string "and rahtak.\p"
+	.string "Shady Forest, by Yumekua, EKAT, Vurtax,\n"
+	.string "Heartlessdragoon, and rahtak.\p"
+	.string "Music:\p"
+	.string "Pokemon Mystery Dungeon: Red Rescue,\n"
+	.string "and Aichiya's voicegroup and rip.\p"
+	.string "Tools Used:\p"
+	.string "Porymap, by huderlem\p"
+	.string "Pokémon Emerald Textbox Simulator,\n"
+	.string "by meejle\p"	
+	.string "pokeemerald-expansion, by the\n"
+	.string "incomparably brilliant DizzyEgg.\p"
+	.string "Seriously, what a legend.\p"
+	.string "Credits: written by Unfolding :D$"
+
+MansionFloor3RoomFinal_Text_Credits2:
+	.string "Special Thanks:\p"
+	.string "GameFreak and Nintendo, for graphics,\n"
+	.string "music, and everything POKéMON.\p"
+	.string "Team Aqua's Hideout, for hosting and\n"
+	.string "holding up our community.\p"
+	.string "Anthroyd's Community Server, for MAGM,\n"
+	.string "likely the first romhacking contest.\p"
+	.string "Anercomp and Doc Breeb, the\n"
+	.string "superstar eleventh hour playtesters.\p"
+	.string "And Unfolding has a tradition now to\n"
+	.string "list better games you could be playing,\l"
+	.string "so go play Jdaster's Tower of Trials\l"
+	.string "and InfernoPlus's Cursed Halo Again.\p"
+	.string "These are fangames with an incredible\p"
+	.string "degree of passion and polish that are\l"
+	.string "absolutely worth your time!\p"
+	.string "POKéMON Emerald belongs to Nintendo,\n"
+	.string "GameFreak, the POKéMON company,\l"
+	.string "Creatures Inc., etc. Please support\l"
+	.string "their official releases.\p"
+	.string "We claim ownership of nothing, and\n"
+	.string "we do not support the sale or\l"
+	.string "monetization of fangames in any way.\p"
+	.string "Congratulations, and thank you for\n"
+	.string "playing!\p"
+	.string "There's two endings, and as usual,\n"
+	.string "one is pretty hard to get!\p"
+	.string "Good luck!$"

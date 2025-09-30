@@ -312,8 +312,7 @@ MansionFloor1RoomBoss_EventScript_SavorySquadScene1::
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
-	@TOFOLD
-	@setflag FLAG_DEFEATED_SAVORY_SQUAD
+	setflag FLAG_DEFEATED_SAVORY_SQUAD
 	setflag FLAG_BOSS1_CLEAR
 	special RemoveCameraObject
 	removeobject LOCALID_FARFETCHD
@@ -390,7 +389,6 @@ MansionFloor1RoomBoss_EventScript_SavorySquadScene2::
 	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_WON, MansionFloor1RoomBoss_EventScript_End
-	@TOFOLD
 	setflag FLAG_DEFEATED_SAVORY_SQUAD
 	setflag FLAG_BOSS1_CLEAR
 	removeobject LOCALID_FARFETCHD
@@ -483,7 +481,7 @@ MansionFloor1RoomBoss_NacliAssemble:
 	step_end
 
 
-@@ TOFOLD
+@@ TOFOLD - done in entrance 1, scripted alongside final boss
 MansionFloor1RoomBoss_EventScript_RandomizeBoss::
 	end
 
