@@ -92,6 +92,7 @@ MansionFloor3RoomFinal_EventScript_FinalScene::
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose17, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose18, FIELD_PIC_CRADILY_DETERMINED
 	msgbox_portrait MansionFloor3RoomFinal_Text_CraftilyLose19, FIELD_PIC_CRADILY_DETERMINED
+	closemessage
 	fadescreenspeed FADE_TO_BLACK, 2
 	goto MansionFloor3RoomFinal_BadEnding
 	end
@@ -421,6 +422,7 @@ MansionFloor3RoomFinal_GoodEnding::
 	delay 80
 	playegghatchanim SPECIES_LILEEP, TRUE, NULL
     waitstate
+	fadescreenspeed FADE_TO_BLACK, 0
 	goto MansionFloor3RoomFinal_Credits
 	end
 
@@ -517,7 +519,7 @@ MansionFloor3RoomFinal_Text_Credits2:
 	.string "list better games you could be playing,\l"
 	.string "so go play Jdaster's Tower of Trials\l"
 	.string "and InfernoPlus's Cursed Halo Again.\p"
-	.string "These are fangames with an incredible\p"
+	.string "These are fangames with an incredible\n"
 	.string "degree of passion and polish that are\l"
 	.string "absolutely worth your time!\p"
 	.string "POKéMON Emerald belongs to Nintendo,\n"
