@@ -811,6 +811,12 @@ bool32 SetMansionWarpDestination(const struct WarpEvent *warpEvent)
     // Get current location in grid
     enum ROOM_ENUM currGridLocation = MapToRoomEnum(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, floorNum);
 
+    // Check if one-way warp
+    if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_JAMMED)) {
+        ScriptContext_SetupScript(EventScript_MansionDoorLocked);
+        return FALSE;
+    }
+
     // Get next location in desired direction in grid
     if (warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP_SIDE_LEFT) || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_UP_SIDE_RIGHT)) {
         dstGridLocation = GetNextGridLocation(floorNum, currGridLocation, DIR_NORTH, &currGridX, &currGridY, warpEvent->mapNum);
@@ -868,5 +874,6 @@ bool32 IsMansionWarp(const struct WarpEvent *warpEvent)
              || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT)
              || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT_SIDE_LEFT)
              || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_RIGHT_SIDE_RIGHT)
+             || warpEvent->mapNum == MAP_NUM(MAP_RND_MANSION_JAMMED)
             );
 }

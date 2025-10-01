@@ -1958,6 +1958,14 @@ static void Task_WaitForLinkAndReturnToChooseMon(u8 taskId)
 
 static EWRAM_DATA bool8 sDoLvlDown = FALSE;
 
+static void TryPrepVialLevelDown(u8 taskId)
+{
+    if (sDoLvlDown) {
+        sDoLvlDown = FALSE;
+        gTasks[taskId].func = Task_DoLevelDown;
+    }
+}
+
 static void Task_ReturnToChooseMonAfterText(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
@@ -1975,10 +1983,7 @@ static void Task_ReturnToChooseMonAfterText(u8 taskId)
             else
                 DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON);
             gTasks[taskId].func = Task_HandleChooseMonInput;
-            if (sDoLvlDown) {
-                sDoLvlDown = FALSE;
-                gTasks[taskId].func = Task_DoLevelDown;
-            }
+            TryPrepVialLevelDown(taskId);
         }
     }
 }
@@ -5180,8 +5185,7 @@ static void Task_ClosePartyMenuAfterText(u8 taskId)
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
         if (sDoLvlDown) {
-            sDoLvlDown = FALSE;
-            gTasks[taskId].func = Task_DoLevelDown;
+            TryPrepVialLevelDown(taskId);
             return;
         }
         if (gPartyMenuUseExitCallback == FALSE)

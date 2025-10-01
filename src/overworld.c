@@ -1921,30 +1921,32 @@ static void RemoveAllButUniqueItems(void)
 
 static void ResetPokemonLevelTo1(void)
 {
-    u8 level = 1;
+    u32 level = 1;
     s32 i, j;
     for (i = 0; i < 2; i++) {
-        s32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        struct Pokemon *mon = &gPlayerParty[i];
+        s32 species = GetMonData(mon, MON_DATA_SPECIES);
         if (species != SPECIES_NONE) {
-            s32 devolvedSpecies;
-            s32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
-
-            SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
-            SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &level);
-            CalculateMonStats(&gPlayerParty[i]);
-            // Devolve
-            devolvedSpecies = GetEggSpecies(species);
-            if (devolvedSpecies != species) {
-                SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &devolvedSpecies);
+            s32 exp;
+            // Try devolve
+            s32 devolvedSpecies = GetEggSpecies(species);
+            if (devolvedSpecies != species && devolvedSpecies != SPECIES_NONE) {
+                SetMonData(mon, MON_DATA_SPECIES, &devolvedSpecies);
+                species = devolvedSpecies;
             }
+            exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+
+            SetMonData(mon, MON_DATA_EXP, &exp);
+            SetMonData(mon, MON_DATA_LEVEL, &level);
+            CalculateMonStats(mon);
             // Reset moves
             for (j = 0; j < MAX_MON_MOVES; j++) {
                 u32 zeroed = 0;
-                SetMonData(&gPlayerParty[i], MON_DATA_MOVE1 + j, &zeroed);
-                SetMonData(&gPlayerParty[i], MON_DATA_PP1 + j, &zeroed);
+                SetMonData(mon, MON_DATA_MOVE1 + j, &zeroed);
+                SetMonData(mon, MON_DATA_PP1 + j, &zeroed);
             }
 
-            GiveMonInitialMoveset(&gPlayerParty[i]);
+            GiveMonInitialMoveset(mon);
         }
     }
 }

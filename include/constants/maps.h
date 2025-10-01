@@ -22,6 +22,9 @@
 #define MAP_RND_MANSION_LEFT_SIDE_LEFT (0xF4 | (0xF4 << 8))
 #define MAP_RND_MANSION_RIGHT_SIDE_LEFT (0xF3 | (0xF3 << 8))
 
+// Used for floor entrances where you can enter, but cannot leave
+#define MAP_RND_MANSION_JAMMED (0xF2 | (0xF2 << 8))
+
 #define MAP_UNDEFINED (0xFF | (0xFF << 8))
 
 #define MAP_GROUP(map) (map >> 8)

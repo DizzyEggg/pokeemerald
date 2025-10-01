@@ -59,7 +59,7 @@ const u8 gItemEffect_MaxRevive[7] = {
 };
 
 const u8 gItemEffect_MaxReviveLevelDown[7] = {
-    [3] = ITEM3_LEVEL_UP,
+    [3] = ITEM3_LEVEL_UP | ITEM3_STATUS_ALL,
     [4] = ITEM4_REVIVE | ITEM4_HEAL_HP | ITEM4_HEAL_PP,
     [6] = ITEM6_LEVEL_DOWN_HP_FULL,
 };
