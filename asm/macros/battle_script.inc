@@ -1050,7 +1050,7 @@
 	.4byte \failInstr
 	.endm
 
-	.macro trydobeatup endInstr, failInstr
+	.macro trydobeatup endInstr:req, failInstr:req
 	.byte 0xc4
 	.4byte \endInstr
 	.4byte \failInstr
@@ -2524,7 +2524,14 @@
 	callnative BS_TryBoosterEnergy
 	.byte \onFieldStatus
 	.endm
-    
+
     .macro tryendcradilybattlewhenlevel
     callnative BS_TryEndBattleCradily
     .endm
+
+	.macro jumpifgenconfiglowerthan tag:req, gen:req, jumpInstr:req
+	callnative BS_JumpIfGenConfigLowerThan
+	.2byte \tag
+	.byte \gen
+	.4byte \jumpInstr
+	.endm
