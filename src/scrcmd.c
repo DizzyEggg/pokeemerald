@@ -61,6 +61,7 @@
 #include "list_menu.h"
 #include "malloc.h"
 #include "egg_hatch.h"
+#include "inkwell.h"
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
 
@@ -100,7 +101,7 @@ static const u8 sScriptConditionTable[6][3] =
     {1, 0, 1}, // !=
 };
 
-static u8 *const sScriptStringVars[] =
+u8 *const gScriptStringVars[] =
 {
     gStringVar1,
     gStringVar2,
@@ -2129,7 +2130,7 @@ bool8 ScrCmd_bufferspeciesname(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    StringCopy(sScriptStringVars[stringVarIndex], GetSpeciesName(species));
+    StringCopy(gScriptStringVars[stringVarIndex], GetSpeciesName(species));
     return FALSE;
 }
 
@@ -2139,7 +2140,7 @@ bool8 ScrCmd_bufferleadmonspeciesname(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    u8 *dest = sScriptStringVars[stringVarIndex];
+    u8 *dest = gScriptStringVars[stringVarIndex];
     u8 partyIndex = GetLeadMonIndex();
     u32 species = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES, NULL);
     StringCopy(dest, GetSpeciesName(species));
@@ -2152,8 +2153,8 @@ void BufferFirstLiveMonNickname(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    GetMonData(GetFirstLiveMon(), MON_DATA_NICKNAME, sScriptStringVars[stringVarIndex]);
-    StringGet_Nickname(sScriptStringVars[stringVarIndex]);
+    GetMonData(GetFirstLiveMon(), MON_DATA_NICKNAME, gScriptStringVars[stringVarIndex]);
+    StringGet_Nickname(gScriptStringVars[stringVarIndex]);
 }
 
 bool8 ScrCmd_bufferpartymonnick(struct ScriptContext *ctx)
@@ -2163,8 +2164,8 @@ bool8 ScrCmd_bufferpartymonnick(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    GetMonData(&gPlayerParty[partyIndex], MON_DATA_NICKNAME, sScriptStringVars[stringVarIndex]);
-    StringGet_Nickname(sScriptStringVars[stringVarIndex]);
+    GetMonData(&gPlayerParty[partyIndex], MON_DATA_NICKNAME, gScriptStringVars[stringVarIndex]);
+    StringGet_Nickname(gScriptStringVars[stringVarIndex]);
     return FALSE;
 }
 
@@ -2175,7 +2176,7 @@ bool8 ScrCmd_bufferitemname(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    CopyItemName(itemId, sScriptStringVars[stringVarIndex]);
+    CopyItemName(itemId, gScriptStringVars[stringVarIndex]);
     return FALSE;
 }
 
@@ -2187,7 +2188,7 @@ bool8 ScrCmd_bufferitemnameplural(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    CopyItemNameHandlePlural(itemId, sScriptStringVars[stringVarIndex], quantity);
+    CopyItemNameHandlePlural(itemId, gScriptStringVars[stringVarIndex], quantity);
     return FALSE;
 }
 
@@ -2198,7 +2199,7 @@ bool8 ScrCmd_bufferdecorationname(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    StringCopy(sScriptStringVars[stringVarIndex], gDecorations[decorId].name);
+    StringCopy(gScriptStringVars[stringVarIndex], gDecorations[decorId].name);
     return FALSE;
 }
 
@@ -2209,7 +2210,7 @@ bool8 ScrCmd_buffermovename(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    StringCopy(sScriptStringVars[stringVarIndex], GetMoveName(move));
+    StringCopy(gScriptStringVars[stringVarIndex], GetMoveName(move));
     return FALSE;
 }
 
@@ -2221,7 +2222,7 @@ bool8 ScrCmd_buffernumberstring(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    ConvertIntToDecimalStringN(sScriptStringVars[stringVarIndex], num, STR_CONV_MODE_LEFT_ALIGN, numDigits);
+    ConvertIntToDecimalStringN(gScriptStringVars[stringVarIndex], num, STR_CONV_MODE_LEFT_ALIGN, numDigits);
     return FALSE;
 }
 
@@ -2232,7 +2233,7 @@ bool8 ScrCmd_bufferstdstring(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    StringCopy(sScriptStringVars[stringVarIndex], gStdStrings[index]);
+    StringCopy(gScriptStringVars[stringVarIndex], gStdStrings[index]);
     return FALSE;
 }
 
@@ -2243,7 +2244,7 @@ bool8 ScrCmd_buffercontestname(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    BufferContestName(sScriptStringVars[stringVarIndex], category);
+    BufferContestName(gScriptStringVars[stringVarIndex], category);
     return FALSE;
 }
 
@@ -2254,7 +2255,7 @@ bool8 ScrCmd_bufferstring(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    StringCopy(sScriptStringVars[stringVarIndex], text);
+    StringCopy(gScriptStringVars[stringVarIndex], text);
     return FALSE;
 }
 
@@ -2276,7 +2277,7 @@ bool8 ScrCmd_vbufferstring(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1);
 
     const u8 *src = (u8 *)(addr - sAddressOffset);
-    u8 *dest = sScriptStringVars[stringVarIndex];
+    u8 *dest = gScriptStringVars[stringVarIndex];
     StringCopy(dest, src);
     return FALSE;
 }
@@ -2288,7 +2289,7 @@ bool8 ScrCmd_bufferboxname(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    StringCopy(sScriptStringVars[stringVarIndex], GetBoxNamePtr(boxId));
+    StringCopy(gScriptStringVars[stringVarIndex], GetBoxNamePtr(boxId));
     return FALSE;
 }
 
@@ -3209,7 +3210,7 @@ bool8 ScrCmd_buffertrainerclassname(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    StringCopy(sScriptStringVars[stringVarIndex], GetTrainerClassNameFromId(trainerClassId));
+    StringCopy(gScriptStringVars[stringVarIndex], GetTrainerClassNameFromId(trainerClassId));
     return FALSE;
 }
 
@@ -3220,7 +3221,7 @@ bool8 ScrCmd_buffertrainername(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    StringCopy(sScriptStringVars[stringVarIndex], GetTrainerNameFromId(trainerClassId));
+    StringCopy(gScriptStringVars[stringVarIndex], GetTrainerNameFromId(trainerClassId));
     return FALSE;
 }
 
@@ -3452,130 +3453,4 @@ void Script_EndTrainerCanSeeIf(struct ScriptContext *ctx)
     u8 condition = ScriptReadByte(ctx);
     if (ctx->breakOnTrainerBattle && sScriptConditionTable[condition][ctx->comparisonResult] == 1)
         StopScript(ctx);
-}
-
-void SetPlayerMonSprite(u32 speciesId, bool32 isShiny)
-{
-    gSaveBlock2Ptr->playerSpriteIsShiny = isShiny != FALSE;
-    gSaveBlock2Ptr->playerSpriteMonId = speciesId;
-}
-
-extern u32 LoadDynamicFollowerPalette(u32 species, bool32 shiny, bool32 female);
-
-void ScriptCmd_SetPlayerMonSprite(struct ScriptContext *ctx)
-{
-    u32 speciesId = VarGet(ScriptReadHalfword(ctx));
-    u32 isShiny = ScriptReadByte(ctx);
-
-    if (speciesId == SPECIES_NONE) {
-        speciesId = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
-    }
-
-    SetPlayerMonSprite(speciesId, isShiny);
-}
-
-// This is hacky as fuck, but whatever, it works. There is a little 'turn' the sprite does, but meh, there's no time.
-void ChangePlayerMonSpriteVisuals(bool32 inOverworld)
-{
-    if (inOverworld) {
-        gSprites[gPlayerAvatar.spriteId].oam.paletteNum = LoadDynamicFollowerPalette(gSaveBlock2Ptr->playerSpriteMonId, gSaveBlock2Ptr->playerSpriteIsShiny, FALSE);
-        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-    }
-    else if (!gMain.inBattle) {
-        u8 spriteId = CreateInvisibleSprite(SpriteCallbackDummy);
-
-        gPlayerAvatar.spriteId = spriteId;
-        gSprites[gPlayerAvatar.spriteId].oam.paletteNum = LoadDynamicFollowerPalette(gSaveBlock2Ptr->playerSpriteMonId, gSaveBlock2Ptr->playerSpriteIsShiny, FALSE);
-        gObjectEvents[gPlayerAvatar.objectEventId].spriteId = spriteId;
-        ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
-        ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], gObjectEvents[gPlayerAvatar.objectEventId].movementDirection);
-        DestroySprite(&gSprites[spriteId]);
-    }
-}
-
-void ScriptCmd_ChangePlayerSprite(struct ScriptContext *ctx)
-{
-    u8 trick;
-    ScriptCmd_SetPlayerMonSprite(ctx);
-
-    trick = ScriptReadByte(ctx);
-    ChangePlayerMonSpriteVisuals(trick);
-}
-
-void ScriptCmd_GetPlayerSpecies(struct ScriptContext *ctx)
-{
-    gSpecialVar_Result = gSaveBlock2Ptr->playerSpriteMonId;
-}
-
-void ScriptCmd_GetPartnerSpecies(struct ScriptContext *ctx)
-{
-    struct Pokemon *mon = GetSecondLiveMon();
-    gSpecialVar_Result = GetMonData(mon, MON_DATA_SPECIES);
-}
-
-void ScriptCmd_BufferNPCNameFromGfx(struct ScriptContext *ctx)
-{
-    u8 stringVarIndex = ScriptReadByte(ctx);
-    u32 objEventId = GetObjectEventIdByLocalId(gSpecialVar_LastTalked);
-    struct ObjectEvent *objectEvent = &gObjectEvents[objEventId];
-    u32 species = objectEvent->graphicsId & OBJ_EVENT_MON_SPECIES_MASK;
-    const u8 *name = SpeciesToNickname(species);
-
-    gSpecialVar_0x8007 = species;
-
-    StringCopy(sScriptStringVars[stringVarIndex], name);
-}
-
-static struct Pokemon *SpeciesToSavedMon(s32 species)
-{
-    switch (species) {
-        default:
-        case SPECIES_PHANPY:
-        case SPECIES_DONPHAN:
-            return &gSaveBlock1Ptr->savedPhanpy;
-        case SPECIES_SWABLU:
-        case SPECIES_ALTARIA:
-            return &gSaveBlock1Ptr->savedSwablu;
-        case SPECIES_TINKATINK:
-            return &gSaveBlock1Ptr->savedTink;
-        case SPECIES_SQUIRTLE:
-        case SPECIES_WARTORTLE:
-        case SPECIES_BLASTOISE:
-            return &gSaveBlock1Ptr->savedSquirtle;
-        case SPECIES_VENIPEDE:
-            return &gSaveBlock1Ptr->savedVenipede;
-        case SPECIES_ABRA:
-        case SPECIES_KADABRA:
-        case SPECIES_ALAKAZAM:
-            return &gSaveBlock1Ptr->savedAbra;
-    }
-}
-
-// Prerequisities: player's sprite is NOT changed, species to be changed are in gSpecialVar_0x8007
-void ScriptCmd_SwapTeamMembers(struct ScriptContext *ctx)
-{
-    struct Pokemon copyPlayerMon = gPlayerParty[0];
-    struct Pokemon *newPlayerMon = SpeciesToSavedMon(gSpecialVar_0x8007);
-    struct Pokemon *newTeamMemberMon = SpeciesToSavedMon(gSaveBlock2Ptr->playerSpriteMonId);
-
-    gPlayerParty[0] = *newPlayerMon;
-    *newTeamMemberMon = copyPlayerMon;
-}
-
-void ScriptCmd_GetFalling3rdMonSpecies(struct ScriptContext *ctx)
-{
-    gSpecialVar_Result = VarGet(VAR_OBJ_GFX_ID_1) - OBJ_EVENT_MON - OBJ_EVENT_MON_SHINY;
-}
-
-void PlayEggHatchAnimation(struct ScriptContext *ctx)
-{
-    u32 speciesId = ScriptReadHalfword(ctx);
-    bool8 isShiny = ScriptReadByte(ctx);
-    const u8 *name = (const u8 *) ScriptReadWord(ctx);
-    EggHatchAnim(speciesId, isShiny, name, FALSE);
-}
-
-void PlayFastEggHatchAnimation(struct ScriptContext *ctx)
-{
-    EggHatchAnim(0, 0, NULL, TRUE);
 }

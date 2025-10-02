@@ -66,6 +66,7 @@
 #include "text_window.h"
 #include "trade.h"
 #include "union_room.h"
+#include "inkwell.h"
 #include "window.h"
 #include "constants/battle.h"
 #include "constants/battle_frontier.h"
@@ -1356,15 +1357,6 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
     *mon2 = *temp;
 
     Free(temp);
-}
-
-static void TryUpdatePlayerSprite(struct Pokemon *mon)
-{
-    u32 species = GetMonData(mon, MON_DATA_SPECIES);
-    if (GetMonData(mon, MON_DATA_HP) != 0 && gSaveBlock2Ptr->playerSpriteMonId != species) {
-        SetPlayerMonSprite(GetMonData(mon, MON_DATA_SPECIES), IsMonShiny(mon));
-        ChangePlayerMonSpriteVisuals(FALSE);
-    }
 }
 
 static void Task_ClosePartyMenu(u8 taskId)

@@ -60,6 +60,7 @@
 #include "tv.h"
 #include "util.h"
 #include "wild_encounter.h"
+#include "inkwell.h"
 #include "window.h"
 #include "constants/abilities.h"
 #include "constants/battle_ai.h"
@@ -5759,13 +5760,12 @@ static void ReturnFromBattleToOverworld(void)
 
     // If player's first party mon fainted - change the sprite to a second mon
     if (GetMonData(&gPlayerParty[0], MON_DATA_HP) == 0 && GetMonData(&gPlayerParty[1], MON_DATA_HP) != 0) {
-        SetPlayerMonSprite(GetMonData(&gPlayerParty[1], MON_DATA_SPECIES), IsMonShiny(&gPlayerParty[1]));
-        ChangePlayerMonSpriteVisuals(FALSE);
+        TryUpdatePlayerSprite(&gPlayerParty[1]);
+
     }
     // Evolution check
     else if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES) != gSaveBlock2Ptr->playerSpriteMonId) {
-        SetPlayerMonSprite(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES), IsMonShiny(&gPlayerParty[0]));
-        ChangePlayerMonSpriteVisuals(FALSE);
+        TryUpdatePlayerSprite(&gPlayerParty[0]);
     }
 
     if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
