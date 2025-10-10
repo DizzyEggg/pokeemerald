@@ -6165,6 +6165,7 @@ const struct Item gItemsInfo[] =
         .effect = gItemEffect_MaxReviveLevelDown,
         .iconPic = gItemIcon_Absolite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
     [UNIQUE_ITEM_INKWELL_FULL_BOTTLE_2] =
     {
@@ -6181,6 +6182,7 @@ const struct Item gItemsInfo[] =
         .effect = gItemEffect_MaxReviveLevelDown,
         .iconPic = gItemIcon_Absolite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
     [UNIQUE_ITEM_INKWELL_FULL_BOTTLE_3] =
     {
@@ -6197,6 +6199,7 @@ const struct Item gItemsInfo[] =
         .effect = gItemEffect_MaxReviveLevelDown,
         .iconPic = gItemIcon_Absolite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
 
     [UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_1] =
@@ -6213,6 +6216,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_Glalitite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
     [UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_2] =
     {
@@ -6227,6 +6231,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_Glalitite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
     [UNIQUE_ITEM_INKWELL_EMPTY_BOTTLE_3] =
     {
@@ -6241,6 +6246,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_Glalitite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
 
     [ITEM_SALAMENCITE] =
@@ -6257,6 +6263,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_Glalitite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
 
     [ITEM_METAGROSSITE] =
@@ -6273,6 +6280,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_Glalitite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
 
     [ITEM_LATIASITE] =
@@ -6289,6 +6297,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_Glalitite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
 
     [ITEM_LATIOSITE] =
@@ -6306,6 +6315,7 @@ const struct Item gItemsInfo[] =
         .effect = gItemEffect_MaxReviveLevelDown,
         .iconPic = gItemIcon_Absolite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
 
     [ITEM_LOPUNNITE] =
@@ -6323,6 +6333,7 @@ const struct Item gItemsInfo[] =
         .effect = gItemEffect_MaxReviveLevelDown,
         .iconPic = gItemIcon_Absolite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
 
     [ITEM_GARCHOMPITE] =
@@ -6340,6 +6351,7 @@ const struct Item gItemsInfo[] =
         .effect = gItemEffect_MaxReviveLevelDown,
         .iconPic = gItemIcon_Absolite,
         .iconPalette = gItemIconPalette_Absolite,
+        .importance = 1,
     },
 
     [ITEM_LUCARIONITE] =
@@ -11016,7 +11028,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_TM_DRAGON_CLAW] =
     {
-        .name = ITEM_NAME("Red Disc"),
+        .name = ITEM_NAME("TM02"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A red disc that's\n"
@@ -11030,7 +11042,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_TM_WATER_PULSE] =
     {
-        .name = ITEM_NAME("Black Disc"),
+        .name = ITEM_NAME("TM03"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A thin black disc.\n"
@@ -11044,7 +11056,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_TM_CALM_MIND] =
     {
-        .name = ITEM_NAME("Gray Disc"),
+        .name = ITEM_NAME("TM04"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A dull grey disc.\n"
@@ -11058,7 +11070,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_TM_ROAR] =
     {
-        .name = ITEM_NAME("Purple Disc"),
+        .name = ITEM_NAME("TM05"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A stained purple disc.\n"

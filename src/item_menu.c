@@ -668,6 +668,9 @@ void GoToBagMenu(u8 location, u8 pocket, void ( *exitCallback)())
             gBagPosition.location == ITEMMENULOCATION_BERRY_BLENDER_CRUSH ||
             gBagPosition.location == ITEMMENULOCATION_BERRY_TREE_MULCH)
             gBagMenu->pocketSwitchDisabled = TRUE;
+        if (ONLY_ONE_BAG_POCKET) {
+            gBagMenu->pocketSwitchDisabled = TRUE;
+        }
         gBagMenu->newScreenCallback = NULL;
         gBagMenu->toSwapPos = NOT_SWAPPING;
         gBagMenu->pocketScrollArrowsTask = TASK_NONE;
@@ -1361,7 +1364,7 @@ static void ReturnToItemList(u8 taskId)
 
 static u8 GetSwitchBagPocketDirection(void)
 {
-    u8 LRKeys;
+    u32 LRKeys;
     if (gBagMenu->pocketSwitchDisabled)
         return SWITCH_POCKET_NONE;
     LRKeys = GetLRKeysPressed();
@@ -1682,7 +1685,7 @@ static void OpenContextMenu(u8 taskId)
         }
         else
         {
-            switch (gBagPosition.pocket)
+            switch (GetTrueItemPocket(gSpecialVar_ItemId))
             {
             case POCKET_ITEMS:
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
@@ -1715,6 +1718,15 @@ static void OpenContextMenu(u8 taskId)
                 gBagMenu->contextMenuItemsPtr = sContextMenuItems_BerriesPocket;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_BerriesPocket);
                 break;
+            default:
+                break;
+            }
+
+            // Can't toss important items
+            if (GetItemImportance(gSpecialVar_ItemId)) {
+                if (gBagMenu->contextMenuItemsBuffer[2] == ACTION_TOSS) {
+                    gBagMenu->contextMenuItemsBuffer[2] = ACTION_DUMMY;
+                }
             }
         }
     }

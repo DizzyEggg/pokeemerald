@@ -843,9 +843,19 @@ u8 GetItemConsumability(u16 itemId)
     return !gItemsInfo[SanitizeItemId(itemId)].notConsumed;
 }
 
-enum Pocket GetItemPocket(u16 itemId)
+enum Pocket GetTrueItemPocket(u16 itemId)
 {
     return gItemsInfo[SanitizeItemId(itemId)].pocket;
+}
+
+enum Pocket GetItemPocket(u16 itemId)
+{
+    if (ONLY_ONE_BAG_POCKET == TRUE) {
+        return POCKET_ITEMS;
+    }
+    else {
+        return GetTrueItemPocket(itemId);
+    }
 }
 
 u8 GetItemType(u16 itemId)
