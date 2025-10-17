@@ -29,6 +29,7 @@
 #include "text_window.h"
 #include "trig.h"
 #include "trade.h"
+#include "inkwell.h"
 #include "util.h"
 #include "constants/battle_string_ids.h"
 #include "constants/songs.h"
@@ -830,6 +831,11 @@ static void Task_EvolutionScene(u8 taskId)
 
             if (!gTasks[taskId].tEvoWasStopped)
                 CreateShedinja(gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPostEvoSpecies, mon);
+
+            // Try to change the player's sprite
+            if (mon == &gPlayerParty[0]) {
+                TryUpdatePlayerSprite(mon);
+            }
 
             DestroyTask(taskId);
             FreeMonSpritesGfx();

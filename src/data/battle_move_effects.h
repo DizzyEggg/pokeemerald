@@ -791,7 +791,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_BEAT_UP] =
     {
-        .battleScript = BattleScript_EffectBeatUp,
+        .battleScript = (B_BEAT_UP >= GEN_5) ? BattleScript_EffectHit : BattleScript_EffectBeatUp,
         .battleTvScore = 2,
     },
 
@@ -1002,6 +1002,12 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
     {
         .battleScript = BattleScript_EffectHit,
         .battleTvScore = 2,
+    },
+
+    [EFFECT_STEAL_ITEM] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 3,
     },
 
     [EFFECT_ENDEAVOR] =
@@ -2228,6 +2234,18 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_STEEL_ROLLER] =
     {
         .battleScript = BattleScript_EffectSteelRoller,
+        .battleTvScore = 0, // TODO: Assign points
+    },
+
+    [EFFECT_STONE_AXE] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 0, // TODO: Assign points
+    },
+
+    [EFFECT_CEASELESS_EDGE] =
+    {
+        .battleScript = BattleScript_EffectHit,
         .battleTvScore = 0, // TODO: Assign points
     },
 };
