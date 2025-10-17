@@ -113,6 +113,13 @@ static struct Pokemon *SpeciesToSavedMon(s32 species)
     }
 }
 
+// Addition in later release: 2nd mon becomes the 1st mon, and new team member becomes the 2nd mon. This is so that players don't get stuck with Fluffball as their 2nd mon
+void ScriptCmd_Swap1st2ndMons(struct ScriptContext *ctx)
+{
+    struct Pokemon copyPlayerMon;
+    SWAP(gPlayerParty[0], gPlayerParty[1], copyPlayerMon);
+}
+
 // Prerequisities: player's sprite is NOT changed, species to be changed are in gSpecialVar_0x8007
 void ScriptCmd_SwapTeamMembers(struct ScriptContext *ctx)
 {
@@ -122,6 +129,8 @@ void ScriptCmd_SwapTeamMembers(struct ScriptContext *ctx)
 
     gPlayerParty[0] = *newPlayerMon;
     *newTeamMemberMon = copyPlayerMon;
+
+    ScriptCmd_Swap1st2ndMons(ctx);
 }
 
 /*

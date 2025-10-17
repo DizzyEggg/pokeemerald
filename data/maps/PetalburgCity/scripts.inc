@@ -2130,7 +2130,8 @@ EventScript_FireplaceRecruitYes:
     call_if_eq VAR_RESULT, SPECIES_VENIPEDE, EventScript_FireplaceShowVenipede
 	call_if_eq VAR_RESULT, SPECIES_ABRA, EventScript_FireplaceShowAbra
     callnative ScriptCmd_SwapTeamMembers
-    changeplayersprite VAR_0x8007, TRUE, TRUE
+    callnative UpdateFollowingPokemon
+    changeplayersprite SPECIES_NONE, TRUE, TRUE
 EventScript_FireplaceRecruitYesGoBackFromFade:
     fadescreenswapbuffers FADE_FROM_BLACK
     goto EventScript_FireplaceRecruitEnd

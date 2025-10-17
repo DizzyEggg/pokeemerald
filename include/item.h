@@ -9,6 +9,9 @@
 #include "constants/item_effects.h"
 #include "constants/hold_effects.h"
 
+// For Inkwell, we're compressing the bag to one pocket.
+#define ONLY_ONE_BAG_POCKET TRUE
+
 /* Expands to:
  * enum
  * {
@@ -236,6 +239,7 @@ u32 GetItemHoldEffectParam(u32 itemId);
 const u8 *GetItemDescription(u16 itemId);
 u8 GetItemImportance(u16 itemId);
 u8 GetItemConsumability(u16 itemId);
+enum Pocket GetTrueItemPocket(u16 itemId);
 enum Pocket GetItemPocket(u16 itemId);
 u8 GetItemType(u16 itemId);
 ItemUseFunc GetItemFieldFunc(u16 itemId);
