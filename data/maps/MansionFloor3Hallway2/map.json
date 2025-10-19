@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "EventScript_DoMansionBattle",
-      "flag": "FLAG_H1_ENEMYA"
+      "flag": "FLAG_H2_ENEMYA"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CONKELDURR)",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "EventScript_DoMansionBattle",
-      "flag": "FLAG_H1_ENEMYB"
+      "flag": "FLAG_H2_ENEMYB"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ROTOM)",
@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_DoMansionBattle",
-      "flag": "FLAG_H1_ENEMYC"
+      "flag": "FLAG_H2_ENEMYC"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CONKELDURR)",
@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "EventScript_DoMansionBattle",
-      "flag": "FLAG_H1_ENEMYD"
+      "flag": "FLAG_H2_ENEMYD"
     }
   ],
   "warp_events": [

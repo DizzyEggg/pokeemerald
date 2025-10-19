@@ -20,9 +20,9 @@ sText_CradilyNickname:
 MansionFloor3RoomFinal_Text_Craftily1:
 	.string "I cannot bear to look at you. Everyone\n"
 	.string "else has forgotten.\p"
-	.string "Just go back the way you came, jump\n"
-	.string "into the Fountain, and try to forget.\p"
-	.string "Please.$"
+	.string "Just go back the way you came.\n"
+	.string "The window is just outside this door.\p"
+	.string "Please. Please just leave me alone.$"
 
 
 MansionFloor3RoomFinal_EventScript_Trigger2::
@@ -37,7 +37,6 @@ MansionFloor3RoomFinal_EventScript_Trigger2::
 	applymovement LOCALID_CRADILY, MansionFloor1RoomBoss_LookDown
 	delay 100
 	msgbox_portrait MansionFloor3RoomFinal_Text_Craftily4, FIELD_PIC_CRADILY_DETERMINED
-
 	setflag FLAG_BATTLE_START_LEECH_SEED
 	@settotemboost B_POSITION_OPPONENT_LEFT, 0, 1, 0, 0, 1
 	setwildbattle SPECIES_CRADILY, 96, ITEM_LIFE_ORB
@@ -139,7 +138,7 @@ MansionFloor3RoomFinal_Text_Craftily4:
 
 MansionFloor3RoomFinal_Text_CraftilyLose01:
 	.string "Craftily: Well… well fought. This cursed\n"
-	.string "body of mine… is truly broken.\p"
+	.string "body of mine… has finally given in.\p"
 	.string "…what?\p"
 	.string "You still want to hear about the past?\p"
 	.string "In my final moments, you want me to \n"
@@ -228,10 +227,10 @@ MansionFloor3RoomFinal_Text_CraftilyLose07:
 @other Pokemon shift
 MansionFloor3RoomFinal_Text_CraftilyLose08:
 	.string "Our joy knew no bounds.\p"
-	.string "Eternal life was be our ultimate reward\n"
-	.string "for the decades of fruitless search.\p"
+	.string "Eternal life was to be our ultimate\n"
+	.string "reward for all these fruitless years.\p"
 	.string "We all gathered around the Fountain to\n"
-	.string "drink and be restored. \p"
+	.string "drink and be restored.\p"
 	.string "I watched as your bodies shifted and\n"
 	.string "changed into your earlier forms,\l"
 	.string "and we laughed and danced and cried.$"
@@ -292,7 +291,7 @@ MansionFloor3RoomFinal_Text_CraftilyLose14:
 	.string "But the damage was done.\p"
 	.string "Humans don’t have eggs.\p"
 	.string "What was left of Ada was a shriveled\n"
-	.string "pink thing that wasn’t moving.\p"
+	.string "pink thing. It… quickly became still.\p"
 	.string "It couldn’t survive on its own.\p"
 	.string "I… I had killed her.$"
 
@@ -339,12 +338,15 @@ MansionFloor3RoomFinal_Text_CraftilyLose19:
 	.string "I don’t regret talking about the past.\p"
 	.string "It… felt like it was a long time coming.\p"
 	.string "And now I’ve given you the choice,\n"
-	.string "rather than make it for you. \p"
+	.string "rather than make it for you.\p"
 	.string "You don’t have to carry the burdens\n"
 	.string "I’ve given you.\p"
-	.string "You can remember, or you can choose to\n"
-	.string "jump into the Fountain.\p"
-	.string "But, that’s enough from me.\n"
+	.string "You don’t have to feel the pain of Ada's\n"
+	.string "death, or guilt or discomfort at mine.\p"
+	.string "You have the choice I never had. You\n"
+	.string "can choose to jump into the Fountain.\p"
+	.string "…\p"
+	.string "That's… that’s enough from me.\n"
 	.string "Leave me, so I may die in peace.\p"
 	.string "I’m sorry for the pain I’ve caused.\n"
 	.string "Goodbye, old friends.$"
@@ -373,8 +375,8 @@ MansionFloor3RoomFinal_Text_SecretEnding2:
 	.string "The water of the Fountain…\n"
 	.string "It's not draining away.\p"
 	.string "Ah, the memories are releasing me.\p"
-	.string "My cursed body… have you taken my\n"
-	.string "curse upon yourself?$"
+	.string "My cursed body… how have you\n"
+	.string "defeated my curse?$"
 
 MansionFloor3RoomFinal_Text_SecretEnding3:
 	.string "You've saved me.\p"
@@ -400,10 +402,22 @@ MansionFloor3RoomFinal_BadEnding::
 	delay 80
 	msgbox MansionFloor3RoomFinal_Text_BadEnding2, MSGBOX_NPC
 	closemessage
-	delay 80
+	delay 140
 	msgbox MansionFloor3RoomFinal_Text_BadEnding3, MSGBOX_NPC
 	closemessage
-	delay 40
+	delay 100
+	playse SE_M_DIVE
+	waitse
+	delay 80
+	playse SE_M_DIVE
+	waitse
+	delay 20
+	playse SE_M_DIVE
+	waitse
+	delay 20
+	playse SE_M_DIVE
+	waitse
+	delay 50
 	playse SE_M_DIVE
 	waitse
 	delay 80
@@ -462,7 +476,7 @@ MansionFloor3RoomFinal_Text_BadEnding2:
 	.string "Go on.$"
 
 MansionFloor3RoomFinal_Text_BadEnding3:
-	.string "Dali: Go.$"
+	.string "Dali: Go. Do it.$"
 
 
 
