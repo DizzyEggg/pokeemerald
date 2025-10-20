@@ -10131,7 +10131,7 @@ bool32 TryBattleFormChange(u32 battler, enum FormChanges method)
         TryToSetBattleFormChangeMoves(&party[monId], method);
         SetMonData(&party[monId], MON_DATA_SPECIES, &targetSpecies);
         gBattleMons[battler].species = targetSpecies;
-        RecalcBattlerStats(battler, &party[monId], method == FORM_CHANGE_BATTLE_GIGANTAMAX);
+        RecalcBattlerStats(battler, &party[monId], method == FORM_CHANGE_BATTLE_GIGANTAMAX, FALSE);
         return TRUE;
     }
     else if (GetBattlerPartyState(battler)->changedSpecies != SPECIES_NONE)
@@ -10157,7 +10157,7 @@ bool32 TryBattleFormChange(u32 battler, enum FormChanges method)
             TryToSetBattleFormChangeMoves(&party[monId], method);
             u32 changedSpecies = GetBattlerPartyState(battler)->changedSpecies;
             SetMonData(&party[monId], MON_DATA_SPECIES, &changedSpecies);
-            RecalcBattlerStats(battler, &party[monId], method == FORM_CHANGE_BATTLE_GIGANTAMAX);
+            RecalcBattlerStats(battler, &party[monId], method == FORM_CHANGE_BATTLE_GIGANTAMAX, FALSE);
             // Battler data is not updated with regular form's ability, not doing so could cause wrong ability activation.
             if (method == FORM_CHANGE_FAINT)
                 gBattleMons[battler].ability = abilityForm;
@@ -10939,7 +10939,7 @@ void CopyMonAbilityAndTypesToBattleMon(u32 battler, struct Pokemon *mon)
     gBattleMons[battler].types[2] = TYPE_MYSTERY;
 }
 
-void RecalcBattlerStats(u32 battler, struct Pokemon *mon, bool32 isDynamaxing)
+void RecalcBattlerStats(u32 battler, struct Pokemon *mon, bool32 isDynamaxing, bool32 keepAbilityType)
 {
     u32 hp = GetMonData(mon, MON_DATA_HP);
     u32 oldMaxHp = GetMonData(mon, MON_DATA_MAX_HP);
@@ -10962,7 +10962,9 @@ void RecalcBattlerStats(u32 battler, struct Pokemon *mon, bool32 isDynamaxing)
         }
     }
     CopyMonLevelAndBaseStatsToBattleMon(battler, mon);
-    CopyMonAbilityAndTypesToBattleMon(battler, mon);
+
+    if (!keepAbilityType)
+        CopyMonAbilityAndTypesToBattleMon(battler, mon);
 }
 
 void RemoveConfusionStatus(u32 battler)

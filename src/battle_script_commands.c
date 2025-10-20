@@ -3925,11 +3925,14 @@ void SetMoveEffect(u32 battler, u32 effectBattler, bool32 primary, bool32 certai
                 gBattleResources->beforeLvlUp->stats[STAT_SPDEF] = GetMonData(mon, MON_DATA_SPDEF);
                 gBattleResources->beforeLvlUp->level             = currLevel;
                 gBattleResources->beforeLvlUp->learnMultipleMoves = FALSE;
+                // Set correct battler for showing up lvl down window
+                gBattleStruct->expGetterMonId = gBattlerPartyIndexes[gBattlerTarget];
+                gBattleStruct->expGetterBattlerId = gBattlerTarget;
             }
 
             SetMonData(mon, MON_DATA_EXP, &exp);
             SetMonData(mon, MON_DATA_LEVEL, &newLevel);
-            RecalcBattlerStats(gBattlerTarget, mon, FALSE);
+            RecalcBattlerStats(gBattlerTarget, mon, FALSE, TRUE);
 
             // Calculate the current hp based on previous percentage
             newCurrHp = (hpBefore * gBattleMons[gBattlerTarget].maxHP) / maxHpBefore;
@@ -17633,7 +17636,7 @@ void BS_HandleFormChange(void)
     }
     else if (cmd->case_ == 1) // Change stats.
     {
-        RecalcBattlerStats(battler, mon, FALSE);
+        RecalcBattlerStats(battler, mon, FALSE, FALSE);
     }
     else // Update healthbox.
     {
