@@ -240,7 +240,7 @@
     {
       "local_id": "LOCALID_FIREPLACE_SWABLU",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(SWABLU)",
-      "x": 39,
+      "x": 38,
       "y": 44,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT",
