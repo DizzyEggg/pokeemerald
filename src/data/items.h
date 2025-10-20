@@ -11073,9 +11073,9 @@ const struct Item gItemsInfo[] =
         .name = ITEM_NAME("TM05"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A stained purple disc.\n"
-            "Probably no games on\n"
-            "it anyway."),
+            "A worn purple disc.\n"
+            "Probably no games\n"
+            "on it anyway."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -11248,9 +11248,9 @@ const struct Item gItemsInfo[] =
         .name = ITEM_NAME("Purple Disc"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A stained purple disc.\n"
-            "Probably no games on\n"
-            "it anyway."),
+            "A worn purple disc.\n"
+            "Probably no games\n"
+            "on it anyway."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,

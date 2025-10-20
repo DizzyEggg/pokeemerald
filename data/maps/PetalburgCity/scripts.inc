@@ -851,6 +851,7 @@ Fountain_EventScript_IntroScene::
 	
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_SYS_NATIONAL_DEX
 	setflag FLAG_HIDE_SAVORY_SQUAD
 	setflag FLAG_HIDE_BOSS3_SOLO
 	setflag FLAG_HIDE_BOSS3_DUO 
@@ -1790,9 +1791,8 @@ Fountain_Text_Abra_Well1:
 	.string "Dali: This is the Inkwell.\p"
 	.string "Remember, drinking from it will reduce\n"
 	.string "your level, but it'll heal you fully.\p"
-	.string "There's another kind of water, too.\p"
-	.string "I call it Airwater, because it comes out\n"
-	.string "of the air and is the same color as air.$"
+	.string "It would be really hard to get to\n"
+	.string "Craftily if we didn't have this!$"
 
 Fountain_Text_Abra_Well2:
 	.string "Dali: Make sure you look around this\n"
@@ -1804,7 +1804,7 @@ Fountain_Text_Abra_Well2:
 
 
  
-@ CAMPFIRE TOFOLD
+@ CAMPFIRE
 
 Fountain_EventScript_Abra_Campfire::
 	lockall
