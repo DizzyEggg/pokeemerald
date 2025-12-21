@@ -5,7 +5,7 @@ MansionFloor1RoomBoss_MapScripts::
 
 MansionFloor1RoomBoss_OnTransition:
 	goto_if_set FLAG_BOSS1_CLEAR, MansionFloor1RoomBoss_EventScript_End
-	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_0, 1
 	end
 
 MansionFloor1RoomBoss_OnFrame:
@@ -43,7 +43,7 @@ MansionFloor1RoomBoss_EventScript_BossCheckB::
 
 MansionFloor1RoomBoss_EventScript_SweetSquadScene1::
 	lockall
-	setvar VAR_TEMP_0, 1
+	setvar VAR_TEMP_0, 0
 	playbgm MUS_PMDRED_MAKUHITA_DOJO, FALSE
 	setflag FLAG_FOUGHT_SWEET_SQUAD
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
@@ -198,7 +198,7 @@ MansionFloor1RoomBoss_LookRight:
 
 MansionFloor1RoomBoss_EventScript_SweetSquadScene2::
 	lockall
-	setvar VAR_TEMP_0, 1
+	setvar VAR_TEMP_0, 0
 	playbgm MUS_PMDRED_MAKUHITA_DOJO, FALSE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	special SpawnCameraObject
@@ -275,7 +275,7 @@ MansionFloor1RoomBoss_Text_VanilliteRematch:
 
 MansionFloor1RoomBoss_EventScript_SavorySquadScene1::
 	lockall
-	setvar VAR_TEMP_0, 1
+	setvar VAR_TEMP_0, 0
 	playbgm MUS_PMDRED_MAKUHITA_DOJO, FALSE
 	setflag FLAG_FOUGHT_SAVORY_SQUAD
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
@@ -352,7 +352,7 @@ MansionFloor1RoomBoss_Text_Nacli1:
 
 MansionFloor1RoomBoss_EventScript_SavorySquadScene2::
 	lockall
-	setvar VAR_TEMP_0, 1
+	setvar VAR_TEMP_0, 0
 	playbgm MUS_PMDRED_MAKUHITA_DOJO, FALSE
 	setflag FLAG_FOUGHT_SAVORY_SQUAD
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
