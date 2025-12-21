@@ -93,8 +93,8 @@
       "y": 17,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "MansionFloor2RoomBoss_EventScript_HaunterScene1"
+      "var_value": "1",
+      "script": "MansionFloor2RoomBoss_EventScript_HaunterScenePicker"
     },
     {
       "type": "trigger",
@@ -102,8 +102,8 @@
       "y": 18,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "MansionFloor2RoomBoss_EventScript_HaunterScene1"
+      "var_value": "1",
+      "script": "MansionFloor2RoomBoss_EventScript_HaunterScenePicker"
     },
     {
       "type": "trigger",
@@ -111,8 +111,8 @@
       "y": 16,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "MansionFloor2RoomBoss_EventScript_HaunterScene1"
+      "var_value": "1",
+      "script": "MansionFloor2RoomBoss_EventScript_HaunterScenePicker"
     },
     {
       "type": "trigger",
@@ -120,8 +120,8 @@
       "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "MansionFloor2RoomBoss_EventScript_HaunterScene1"
+      "var_value": "1",
+      "script": "MansionFloor2RoomBoss_EventScript_HaunterScenePicker"
     }
   ],
   "bg_events": [
